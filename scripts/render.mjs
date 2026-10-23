@@ -156,7 +156,13 @@ export async function exportCards(options) {
     page.setDefaultTimeout(checkTime());
     await page.setContent(html, { waitUntil: 'load', timeout: checkTime() });
     await page.evaluate(() => document.fonts.ready);
-    const imageQa = await page.locator('img').evaluateAll(images => images.map(image => ({ alt: image.alt, valid: image.complete && image.naturalWidth > 0 && image.naturalHeight > 0 && image.naturalWidth <= 8192 && image.naturalHeight <= 8192 && image.naturalWidth * image.naturalHeight <= 20_000_000, width: image.naturalWidth, height: image.naturalHeight })));
+    const imageQa = await page.locator('img').evaluateAll(async images => Promise.all(images.map(async image => {
+      // complete/naturalWidth can describe a parsed header even when pixel decoding
+      // fails. Require the browser's actual decode promise, not only dimensions.
+      let decoded = false;
+      try { await image.decode(); decoded = true; } catch { /* Report below without exposing source bytes. */ }
+      return { alt: image.alt, decoded, valid: decoded && image.complete && image.naturalWidth > 0 && image.naturalHeight > 0 && image.naturalWidth <= 8192 && image.naturalHeight <= 8192 && image.naturalWidth * image.naturalHeight <= 20_000_000, width: image.naturalWidth, height: image.naturalHeight };
+    })));
     if (imageQa.some(image => !image.valid)) fail('IMAGE_DECODE_FAILED', 'An embedded local image could not be decoded by Chromium. Replace the invalid image.', { images: imageQa.filter(image => !image.valid) });
     const screenMeasurements = await measureCards(page);
     await page.emulateMedia({ media: 'print' });

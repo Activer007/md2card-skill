@@ -1,0 +1,4 @@
+interface:
+  display_name: "Markdown Knowledge Cards"
+  short_description: "Design and export polished Markdown knowledge cards"
+  default_prompt: "Use $md2card-skill to turn my Markdown into a readable, well-designed card sequence and export the requested files."

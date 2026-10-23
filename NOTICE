@@ -1,0 +1,19 @@
+md2card-skill
+
+This repository is an independent, original implementation of a Markdown
+knowledge-card workflow and renderer. General product inspiration:
+
+- https://mdcard.cn/
+- https://github.com/agnostic-ap/md2card
+
+It is not a fork of either project and is not affiliated with or endorsed by
+those projects or their maintainers. No source code, CSS, templates, artwork,
+logos, or product copy from those projects is included.
+
+The MIT license in LICENSE covers the original repository contents. It does
+not relicense third-party dependencies, user-supplied content, linked materials,
+fonts installed on a user's system, or any trademarks. Third-party dependencies
+retain their own licenses; consult their installed packages and lockfile.
+
+No font files or AGPL-licensed source from the inspiration projects are bundled.
+The font-family stacks name optional local system fonts only.

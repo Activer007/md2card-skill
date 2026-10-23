@@ -1,9 +1,40 @@
 # Code review and targeted regression record
 
+The accepted evidence below describes the historical v2 implementation. Phase 3
+adds opt-in semantic pagination and requires its own source review, real CI
+exports and visual inspection; historical passes are not evidence for new paths.
+
 This review combines source inspection, minimal reproductions, deterministic
 failure injection, unit tests, and real-browser/PDF exports. Passing CI alone is
 not evidence that all bugs are absent. Each finding below resulted in a concrete
 behavior change and a focused regression, rather than only a wider happy-path run.
+
+## Phase 3 source review (2026-10-23)
+
+The opt-in path has completed independent core source review and 127 local unit
+tests. A separate full local run passed 131 tests and explicitly skipped 17
+browser tests, with no failures. The final input-record-limit/index-validation
+delta also passed an independent focused recheck. Real automatic-pagination Chromium, PNG,
+PDF and visual acceptance remain pending; fake measurements are not export QA.
+
+The independent review compared 576 complete-partition combinations with the
+manual renderer and 121 forced-fragment cases using a separate HTML parser.
+It checked inline trees/links, nested items, ordered starts and repeated headers.
+Two resource findings were fixed before publication:
+
+- Dense per-character/newline source maps amplified small inputs into enormous
+  manifests. Export compact normalization counts and exact atom/accounting ranges;
+  count the serialized manifest in the output byte cap. A 100,000-newline fixture
+  now has a compact manifest rather than per-newline objects.
+- Fingerprinting a shared table header once per row multiplied embedded image
+  work. Fingerprint each shared container once and each atom by its own tokens
+  plus container identity; test a 1 MiB header shared across 500 rows.
+
+Parse-time witnesses compare reconstructed semantic output with the full original
+parser output, guard subsequent source/token/container mutation and reject
+unexplained nonblank source. They do not claim glyph or visual correctness.
+
+## Historical v2 findings
 
 | Finding | Reproduction / evidence | Fix | Regression |
 | --- | --- | --- | --- |
@@ -46,8 +77,9 @@ behavior change and a focused regression, rather than only a wider happy-path ru
   that Chromium shutdown could not be confirmed; it does not claim to force-kill
   the browser. Filesystem and external-command completion still depend on their
   own operating-system/tool behavior; the deadline is not an OS process sandbox.
-- No automatic pagination or rewriting is implemented. Measured semantic
-  pagination remains a separately scoped later-stage candidate.
+- Automatic pagination was outside v2. Phase 3 adds the separately scoped
+  `--paginate auto` path for explainer/steps with layout-only metadata. Manual
+  remains the default; neither mode rewrites or silently shrinks content.
 
 ## Accepted evidence
 

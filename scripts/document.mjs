@@ -68,7 +68,10 @@ function footerHtml(options, index, count) {
   const brandName = plainText(options.brand?.name, 'Brand name');
   const footer = plainText(options.footer, 'Footer');
   const logo = imageTag(options.brand?.logo, brandName ? '' : 'Brand logo', 'brand-logo');
-  return `<footer class="card-footer"><div class="footer-identity">${logo}<div class="footer-meta">${brandName ? `<span class="brand-name">${brandName}</span>` : ''}${footer ? `<span class="footer-text">${footer}</span>` : ''}</div></div><span class="card-index">${index} / ${count}</span></footer>`;
+  // A probe reserves the widest permitted page counter. Final exports always
+  // replace it with the actual count and undergo full screen/print validation.
+  const counter = options.paginationProbe === true ? '200 / 200' : `${index} / ${count}`;
+  return `<footer class="card-footer"><div class="footer-identity">${logo}<div class="footer-meta">${brandName ? `<span class="brand-name">${brandName}</span>` : ''}${footer ? `<span class="footer-text">${footer}</span>` : ''}</div></div><span class="card-index">${counter}</span></footer>`;
 }
 
 /**

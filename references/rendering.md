@@ -1,4 +1,9 @@
-# Rendering contract (v2)
+# Rendering contract (phase 3)
+
+Phase 3 adds bounded, opt-in semantic pagination to the v2 renderer. Implementation
+and local unit checks are complete; real-browser CI and visual validation remain pending; see [the development plan](../docs/DEVELOPMENT_PLAN.md)
+for separate code, local, CI and visual-review states. Existing v2 showcase results
+are historical evidence, not a validation pass for automatic pagination.
 
 ## Setup and preflight
 
@@ -21,8 +26,9 @@ Fontconfig can use non-strict mode, but font QA remains unverified until inspect
 
 ## Input
 
-UTF-8 Markdown, at most 2 MiB. Standalone `===` divides cards except inside fenced
-or indented code. Blank boundary lines are removed without stripping meaningful
+UTF-8 Markdown, at most 2 MiB. Standalone `===` divides explicit sections except
+inside fenced or indented code. In default `manual` mode each section is one card;
+in `auto` mode a section may be subdivided, but its boundaries remain locked. Blank boundary lines are removed without stripping meaningful
 indentation. `---` retains Markdown semantics. Empty cards are rejected.
 Reference definitions are collected across cards with first-definition-wins
 semantics. HTML stays escaped and unsafe link schemes do not become active links.
@@ -46,6 +52,77 @@ quote. Comparison uses the first two top-level h2 sections as columns, preservin
 additional sections below. Case study uses h2 sections as stages. Steps styles
 top-level ordered lists. Statistic uses exact `metric` and `label` text. Quote uses
 Markdown blockquotes. Missing optional fields do not produce invented content.
+
+## Pagination modes and semantic boundaries
+
+`--paginate manual` is the default and preserves v2's one-explicit-section-per-card
+behavior. It supports all eight layouts and the metadata schema above. It does not
+try to fit excess content by changing wording, shrinking fonts or adding cards.
+
+`--paginate auto` enables semantic subdivision using the actual browser layout:
+
+```bash
+node scripts/render.mjs long-explainer.md --out output/auto-v1 \
+  --paginate auto --theme editorial --format all
+```
+
+This phase supports only `explainer` and `steps`. Omitted metadata still selects
+`explainer`; when a card metadata object is present, its only allowed key in auto
+mode is `layout`. Other layouts fail with `PAGINATION_UNSUPPORTED_LAYOUT`. Any
+additional card metadata, including `source`, `eyebrow`, `image`, `alt`, `caption`,
+`metric` or `label`, fails with `PAGINATION_UNSUPPORTED_METADATA`; it is never
+silently dropped, reassigned or repeated. Document-level footer and brand settings
+remain separate from per-card metadata. Use manual mode for unsupported layouts
+or metadata. Do not delete attribution just to satisfy automatic pagination.
+
+The semantic intermediate representation retains the original Markdown tokens,
+text, order and source locations. It creates these indivisible content units:
+
+- Paragraphs, fenced or indented code blocks, blockquotes and images stay whole.
+- A top-level list item stays whole, including its nested lists and other blocks.
+  Lists may continue between items. Ordered lists retain the correct continuation
+  start number instead of restarting at one.
+- Tables may split only between body rows. Headers repeat intentionally on table
+  fragments and are identified as repeated source content in provenance.
+- Consecutive headings stay with the following content unit as one candidate group.
+  Headings are not copied onto continuation cards.
+- Explicit `===` boundaries never move. A card cannot absorb content from the next
+  explicit section, even when unused space remains.
+
+A terminal heading chain without following content fails with
+`PAGINATION_ORPHAN_HEADING`; add the intended content or use manual mode. A locked
+section containing only reference definitions retains one intentional empty card
+instead of disappearing. Definitions still resolve across all sections.
+
+Provenance offsets are half-open UTF-16 code-unit ranges, with 1-based inclusive
+line ranges. Each atom and source-accounting segment includes its original-input
+range as well as its normalized range. Leading BOM and CR/CRLF normalization match
+manual parsing; the input file is never edited, both input hashes are retained,
+and compact normalization counts avoid per-character manifest expansion.
+
+The paginator greedily tries each next group with the current card, probing both
+screen and print geometry. A group that overflows moves once to a new card; if it
+still overflows there, pagination stops with `PAGINATION_ATOMIC_OVERFLOW` (exit 2)
+and source information. There is no character-count fit estimate, hidden font
+scaling, clipping, internal model call or automatic rewrite. The result is a
+bounded greedy layout, not a globally optimized or editorially rewritten deck.
+
+Candidates reserve `200/200` footer numbering while the total is unknown. Once
+pagination finishes, the full deck is built with exact final numbering and must
+pass screen AND print overflow checks again before export. Image decoding, asset
+checks, PDF validation and output staging still apply. A successful candidate
+probe alone never authorizes publishing an unvalidated final deck.
+
+Pagination limits are 2,000 semantic atoms, 4,000 candidate probes, 200 explicit
+sections/output cards, and 10,000 reference definitions or source-accounting
+segments. These caps reject excess input explicitly; nothing is truncated.
+One candidate probe includes screen and print measurements; final full-deck
+validation is separate. Existing input, asset, pixel, artifact and total-deadline
+budgets also apply, so 200 cards is a ceiling rather than a guaranteed capacity.
+Exhausting a pagination limit fails with `PAGINATION_BUDGET` (exit 1); a mismatch in
+source coverage or ordering fails with `PAGINATION_COVERAGE` (exit 1). No partial
+successful deck is published. See the failure contract for diagnostics.
+
 
 ## Trusted local assets
 
@@ -88,8 +165,9 @@ review aid, not a replacement for individual images or mobile-size readability Q
 
 `--format` accepts all, html, png, pdf, or combinations. Presets: portrait
 1080×1440, square 1080×1080, slide 1600×900. Custom width/height: integers 200–4096.
-`--scale` 0.5–3 affects PNG pixels only. Contents must be prepared for their ratio;
-there is no automatic shrinking, rewriting or pagination.
+`--scale` 0.5–3 affects PNG pixels only. Contents must be prepared for their ratio.
+`--paginate` accepts `manual` (default) or `auto`; neither mode shrinks or rewrites
+text. Auto mode can add cards only at the supported semantic boundaries above.
 
 All formats require Chromium and mandatory screen AND print overflow checks.
 The browser disables page JavaScript, blocks network requests and service workers,
@@ -97,11 +175,15 @@ and uses a restrictive CSP. Validated raster data URLs are the only image source
 The PDF is native browser printing, not a raster image assembly.
 
 Successful output contains requested cards.html, card-NNN.png, cards.pdf, optional
-preview.html/contact-sheet.png, and manifest.json. Manifest schema v2 includes:
+preview.html/contact-sheet.png, and manifest.json. The manifest includes:
 
 - Input, styles, local assets, card sources and output SHA-256 hashes.
 - Node/package/Chromium/Poppler versions; CSS dimensions and PNG scale.
 - Original source line ranges, selected layouts, screen/print measurements.
+- Pagination mode, bounded probe usage and structured semantic/source provenance
+  for automatic output, including explicit-section origin, coverage and intentional
+  repeated table headers. A generated card may cover only part of a source section;
+  the provenance record is the authority, not a guessed line range from its index.
 - Explicit font, image decode and PDF QA, budgets, and `visualReview: not-performed`.
 
 PDF QA checks exact page count and nonempty searchable text when content contains
@@ -113,16 +195,32 @@ glyph fidelity.
 ## Failure and resource contracts
 
 Output directory must be absent or empty. Exports stage in a sibling directory and
-publish only after validation and successful browser cleanup. Existing files are never overwritten. Overflow exits
-2 and writes only overflow.json with original card/source ranges. Fix content or
-explicitly split it. Other failures exit 1 and do not publish incomplete exports.
+publish only after validation and successful browser cleanup. Existing files are
+never overwritten. Manual or final-deck geometry overflow uses `CONTENT_OVERFLOW`
+(exit 2) with an `overflow.json` diagnostic and original card/source ranges.
+Automatic pagination uses `PAGINATION_ATOMIC_OVERFLOW` (exit 2) when an indivisible
+group cannot fit an empty card; its error details identify the affected source.
+Neither path publishes clipped exports. Other failures exit 1 and do not publish
+incomplete exports.
+
+For atomic overflow, first inspect the cited unit. Choose a larger suitable canvas,
+use manual layout, or explicitly edit the source. Adding a boundary around an
+already oversized atomic block cannot make the block itself smaller. The renderer
+never changes its wording or drops metadata to recover. Unsupported layout and
+metadata errors are resolved by using manual mode or an intentional source change,
+not by silently downgrading the layout.
 
 Use `--json` for structured stdout success / stderr error objects. Errors contain
 status, code, message, details and exitCode, not a stack or embedded source text.
 Useful codes include INVALID_OPTIONS, INVALID_MARKDOWN, INVALID_METADATA,
 INVALID_ASSET, OUTPUT_EXISTS, PREFLIGHT_FAILED, BROWSER_LAUNCH_FAILED,
 CONTENT_OVERFLOW, RENDER_BUDGET, RENDER_TIMEOUT, IMAGE_DECODE_FAILED,
-PDF_TOOLS_MISSING, PDF_PAGE_COUNT_MISMATCH and PDF_TEXT_MISSING.
+PDF_TOOLS_MISSING, PDF_PAGE_COUNT_MISMATCH and PDF_TEXT_MISSING. Phase 3 adds
+PAGINATION_UNSUPPORTED_LAYOUT, PAGINATION_UNSUPPORTED_METADATA,
+PAGINATION_ATOMIC_OVERFLOW, PAGINATION_BUDGET, PAGINATION_COVERAGE,
+PAGINATION_ORPHAN_HEADING, PAGINATION_STRUCTURE and PAGINATION_MEASUREMENT.
+Unsupported input, budget, coverage and invalid measurement
+failures exit 1; they never permit discarding content or skipping browser checks.
 
 Budgets: maximum 200 cards, 40 million PNG pixels/card, 200 million aggregate card
 pixels including contact-sheet pixels (PNG scale counted for PNG exports),
@@ -142,4 +240,13 @@ MD2CARD_REQUIRE_PDF_CHECK=1, so missing browser/PDF tools fail.
 
 `node scripts/validate-showcases.mjs` renders eight layouts in five themes and
 three original series under validation/. It verifies artifact hashes and strict
-PDF checks. See docs/SHOWCASES.md for the README image provenance.
+PDF checks. See docs/SHOWCASES.md for the README image provenance. Those historical
+v2 renders do not demonstrate automatic pagination.
+
+Phase 3 verification must independently cover manual-mode regression, semantic
+coverage and ordering, locked boundaries, heading groups, nested list items,
+ordered-list continuation, table-header provenance, unsupported metadata/layouts,
+atomic overflow, screen/print differences, budgets, cleanup and final-deck checks.
+Real-browser exports and visual review are pending until separately recorded for
+an exact phase 3 commit. A denied local Chromium launch is a blocked check, not a
+reason to bypass sandbox restrictions or report browser tests as passing.

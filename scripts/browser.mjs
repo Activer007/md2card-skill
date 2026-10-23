@@ -1,6 +1,7 @@
 import { access } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import { chromium } from 'playwright';
+import { Md2CardError } from './errors.mjs';
 
 async function isExecutable(path) {
   try { await access(path, constants.X_OK); return true; } catch { return false; }
@@ -9,21 +10,21 @@ async function isExecutable(path) {
 export async function findBrowser(explicitPath) {
   const configured = explicitPath || process.env.CHROMIUM_PATH;
   if (configured) {
-    if (!await isExecutable(configured)) throw new Error(`Chromium is not executable at ${configured}. Check --browser or CHROMIUM_PATH.`);
+    if (!await isExecutable(configured)) throw new Md2CardError('BROWSER_NOT_FOUND', `Chromium is not executable at ${configured}. Check --browser or CHROMIUM_PATH.`);
     return configured;
   }
   const candidates = [chromium.executablePath(), '/usr/bin/chromium', '/usr/bin/chromium-browser', '/usr/bin/google-chrome', '/opt/google/chrome/chrome', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'];
   for (const path of candidates) if (await isExecutable(path)) return path;
-  throw new Error('Chromium was not found. Run "npx playwright install chromium" after "npm ci", or set CHROMIUM_PATH to an installed Chromium executable. All export formats use Chromium for mandatory overflow validation.');
+  throw new Md2CardError('BROWSER_NOT_FOUND', 'Chromium was not found. Run "npx playwright install chromium" after "npm ci", or set CHROMIUM_PATH to an installed Chromium executable. All export formats use Chromium for mandatory overflow validation.');
 }
 
 export async function openRenderer(options) {
   const executablePath = await findBrowser(options.browser);
   let browser;
   try {
-    browser = await chromium.launch({ executablePath, headless: true });
+    browser = await chromium.launch({ executablePath, headless: true, timeout: options.timeoutMs || 30000 });
   } catch (error) {
-    throw new Error(`Could not launch Chromium (${executablePath}). Install its OS dependencies, or try "npx playwright install --with-deps chromium" where permitted. ${error.message}`, { cause: error });
+    throw new Md2CardError('BROWSER_LAUNCH_FAILED', `Could not launch Chromium (${executablePath}). Check OS dependencies and sandbox permissions. Do not disable security restrictions to bypass a denied launch. ${error.message}`, {}, 1, { cause: error });
   }
   try {
     const context = await browser.newContext({
@@ -55,6 +56,7 @@ export async function measureCards(page) {
     if (footerBounds.bottom > cardBounds.bottom + tolerance) problems.push('footer-height');
     for (const element of content.querySelectorAll('*')) {
       const rect = element.getBoundingClientRect();
+      if (rect.width && rect.height && (rect.bottom > bounds.bottom + tolerance || rect.top < bounds.top - tolerance)) problems.push(`tall-${element.tagName.toLowerCase()}`);
       if (rect.width && rect.height && (rect.right > bounds.right + tolerance || rect.left < bounds.left - tolerance)) {
         problems.push(`wide-${element.tagName.toLowerCase()}`);
       }

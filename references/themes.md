@@ -61,3 +61,12 @@ Check dense cards as well as the shortest one. Look for balanced grouping, not a
 uniform amount of text on every page. Avoid a tiny text island at the top of a huge
 canvas unless the user wanted a cover. The theme should support hierarchy rather
 than add ornaments to every block. See the full checklist in `SKILL.md`.
+
+
+## Version 2 architecture
+
+Themes in assets/themes.css define palette/font tokens and decorative direction.
+assets/layouts.css defines canvas geometry, typography rules and eight semantic
+layouts. A validated brand JSON supplies optional name, hex accent and local logo,
+without arbitrary CSS. Choose layout independently of theme. All five themes are
+rendered against all eight layouts by scripts/validate-showcases.mjs.

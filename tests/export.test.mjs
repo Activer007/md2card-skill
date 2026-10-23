@@ -18,6 +18,7 @@ async function workspace(t) {
 }
 
 async function browserReady(t) {
+  if (process.env.MD2CARD_SKIP_BROWSER === '1' && process.env.MD2CARD_REQUIRE_BROWSER !== '1') { t.skip('Browser launch skipped explicitly in this sandbox; CI requires real browser QA.'); return false; }
   const options = parseOptions(['test.md']);
   try { const renderer = await openRenderer(options); await renderer.browser.close(); return true; }
   catch (error) {
@@ -44,7 +45,7 @@ test('exports HTML, exact-size PNGs and searchable two-page PDF', async t => {
   assert.equal(pdf.subarray(0, 5).toString(), '%PDF-');
   assert.match(await readFile(path.join(out, 'cards.html'), 'utf8'), /SEARCHABLE_MARKER_2026/);
   try { await run('pdftotext', ['-v']); }
-  catch { t.diagnostic('pdftotext unavailable; PDF text extraction was not verified.'); return; }
+  catch (error) { if (process.env.MD2CARD_REQUIRE_PDF_CHECK === '1') throw error; t.diagnostic('pdftotext unavailable; PDF text extraction was not verified.'); return; }
   const { stdout } = await run('pdftotext', [path.join(out, 'cards.pdf'), '-']);
   assert.match(stdout, /SEARCHABLE_MARKER_2026/);
   assert.match(stdout, /中文/);
@@ -112,4 +113,46 @@ test('browser context blocks script execution and resource requests', async t =>
   assert.equal(await renderer.page.evaluate(() => window.SHOULD_NOT_EXECUTE), undefined);
   assert.ok(failures.includes('https://example.invalid/md2card-test.png'));
   assert.equal(await renderer.page.locator('img').evaluate(image => image.naturalWidth), 0);
+});
+
+test('eight layouts, local images, branding, preview and contact sheet export safely', async t => {
+  if (!await browserReady(t)) return;
+  const dir = await workspace(t);
+  const input = path.resolve('examples/layouts.md');
+  const out = path.join(dir,'layouts');
+  const manifest = await exportCards(parseOptions([input,'--out',out,'--preview','--contact-sheet','--brand',path.resolve('examples/brand.json'),...(process.env.MD2CARD_REQUIRE_PDF_CHECK==='1'?['--strict']:[])]));
+  assert.equal(manifest.cardCount,8);
+  assert.equal(new Set(manifest.cards.map(card=>card.layout)).size,8);
+  assert.equal(manifest.assets.length,2);
+  assert.equal(manifest.qa.images.status,'pass');
+  assert.ok(manifest.artifacts.every(artifact=>/^[a-f0-9]{64}$/.test(artifact.sha256)&&artifact.bytes>0));
+  assert.ok(manifest.artifacts.some(artifact=>artifact.file==='contact-sheet.png'));
+  const preview = await readFile(path.join(out,'preview.html'),'utf8');
+  assert.match(preview,/preview/i);
+  assert.ok(!preview.includes('<script'));
+  assert.match(preview,/data:image\/png;base64,/);
+  assert.equal(manifest.qa.visualReview,'not-performed');
+});
+
+test('invalid local image blocks export before browser launch', async t => {
+  const dir = await workspace(t);
+  const input=path.join(dir,'unsafe.md');
+  await writeFile(input,'![remote](https://example.invalid/image.png)');
+  await assert.rejects(()=>exportCards(parseOptions([input,'--out',path.join(dir,'out')])), /local|scheme|remote|relative/i);
+  assert.deepEqual(await readdir(dir),['unsafe.md']);
+});
+
+test('mobile preview scales only display and preserves export dimensions', async t => {
+  if (!await browserReady(t)) return;
+  const dir = await workspace(t);
+  const input = path.join(dir,'preview.md'); await writeFile(input,'# 手机预览\n\n原始画布尺寸保持不变。');
+  const out = path.join(dir,'out');
+  await exportCards(parseOptions([input,'--out',out,'--format','html','--preview']));
+  const renderer=await openRenderer(parseOptions(['test.md'])); t.after(()=>renderer.browser.close());
+  await renderer.page.setViewportSize({width:390,height:844});
+  await renderer.page.setContent(await readFile(path.join(out,'preview.html'),'utf8'));
+  const box = await renderer.page.locator('.card').evaluate(card=>({actual:card.offsetWidth,display:card.getBoundingClientRect().width,scroll:document.documentElement.scrollWidth}));
+  assert.equal(box.actual,1080);assert.ok(box.display<=390);assert.ok(box.display>=350);assert.ok(box.scroll<=390);
+  await renderer.page.emulateMedia({media:'print'});
+  assert.equal(await renderer.page.locator('.card').evaluate(card=>Math.round(card.getBoundingClientRect().width)),1080);
 });

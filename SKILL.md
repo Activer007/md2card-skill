@@ -1,6 +1,6 @@
 ---
 name: md2card-skill
-description: Turn Markdown or supplied prose into polished, paginated knowledge cards with five original themes, then render HTML, PNG, or searchable-text PDF. Use for knowledge cards, social carousels, reading notes, and compact explainers, not slide-deck or SVG authoring.
+description: Turn Markdown or supplied prose into polished, paginated knowledge cards with five original themes and eight semantic layouts, then render HTML, PNG, or searchable-text PDF. Use for knowledge cards, social carousels, reading notes, and compact explainers, not slide-deck or SVG authoring.
 ---
 
 # Markdown to knowledge cards
@@ -70,15 +70,31 @@ outside fenced code blocks for card boundaries. Surround it with blank lines.
 - `---` remains ordinary Markdown syntax; with blank lines it creates a horizontal rule.
 - Do not use YAML frontmatter in card input; pass document metadata through CLI flags.
 - Keep list items, table rows, quotes, and code examples together when possible.
-- Raw HTML is escaped. Images are rejected rather than fetched or embedded.
+- Raw HTML is escaped. Only verified local PNG/JPEG/WebP images inside the trusted asset root are embedded; never fetch remote images.
+- An optional first nonblank line `<!-- card: {"layout":"cover"} -->` selects a validated semantic layout. See references/rendering.md for the strict metadata schema.
+- Reference link/image definitions can be shared across card boundaries. Preserve indented-code spaces.
 - Basic headings, paragraphs, lists, links, quotes, code, rules, and tables work.
-- Math, Mermaid, image compositing, animation, SVG, and PPTX export are not supported.
+- Math, Mermaid, animation, SVG, and PPTX export are not supported. No accounts, cloud sync, model calls, automatic pagination, or rewriting are added.
 
 Read [examples/rag-guide.md](examples/rag-guide.md) for a four-card original Chinese
 explainer. Use [examples/separator-demo.md](examples/separator-demo.md) when checking
 that literal separators inside code fences are preserved.
 
 ## 4. Select and render
+
+Choose layout independently of theme: `cover`, `explainer`, `comparison`, `steps`,
+`image-caption`, `statistic`, `case-study`, or `quote`. Unannotated Markdown stays
+an explainer. Comparison uses the first two top-level h2 sections; case study uses
+h2 sections as stages. Never invent statistics or quotations to populate a layout.
+Use `source` metadata as plain attribution text.
+
+A supplied brand JSON may contain only `name`, a hex `accent`, and a local `logo`.
+All image references are relative to `--asset-root` (default input directory).
+Do not broaden that asset boundary just to make an out-of-scope file accessible.
+Remote URLs, data/file URLs, SVG, animated files and escaped symlinks are rejected.
+Run `--doctor` before rendering; use `--strict` when PDF verification is required.
+`--preview` and `--contact-sheet` add mobile reading HTML and a contact sheet.
+
 
 Theme names: `editorial`, `minimal`, `midnight`, `notebook`, and `bold`.
 Their typographic hierarchy, structural accents, and spacing differ as well as
@@ -118,6 +134,9 @@ Check every rendered page, not just the HTML source or first PNG:
 - Dark-theme text and links remain readable against their backgrounds.
 - Card ordering, total count, links, and attributions match the input.
 - The PDF has one card per page and retains selectable/searchable text.
+- The manifest records matching input/artifact hashes and explicit QA states.
+- Preview scaling does not change the actual export dimensions.
+- Images and logos are complete, meaningful, and authorized for the intended use.
 
 Automatic overflow checks are a guardrail, not a replacement for visual review.
 System fonts differ across machines. If glyphs are missing, use a locally available

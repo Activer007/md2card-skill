@@ -1,133 +1,140 @@
-# Renderer reference
+# Rendering contract (v2)
 
-The deterministic renderer takes already-paginated Markdown. It does not call an AI
-API, rewrite text, infer card boundaries, or shrink content to hide a fit problem.
+## Setup and preflight
 
-## Setup
-
-From this skill folder, use Node.js 20 or newer:
-
-```bash
-npm ci
-npx playwright install chromium
-```
-
-Package installation and the initial browser download need network access. Once
-installed, rendering does not fetch external resources. On a machine that already
-has Chromium, use `--browser /absolute/path/to/chromium` or `CHROMIUM_PATH`.
-On Linux, Chromium may also need OS libraries; install those through the normal,
-authorized environment setup. Do not weaken a sandbox to make rendering work.
-
-Install a local CJK font if the environment cannot render Chinese. The repository
-uses system font stacks and bundles no fonts. Font substitutions may change line
-breaks; repeat visual review on the actual export machine.
-
-## Input contract
-
-- UTF-8 Markdown, maximum 2 MiB and 200 cards per deck.
-- A standalone `===` line outside fenced code splits cards.
-- Empty leading, trailing, or intermediate cards are rejected.
-- Backtick and tilde fences protect literal `===` lines inside code.
-- For a normal horizontal rule, use `---` with a blank line before and after it.
-  Ordinary Markdown setext-heading rules still apply in other contexts.
-- No YAML frontmatter; use `--title`, `--footer`, and `--lang` instead.
-- Raw HTML renders as literal text. Markdown images are rejected explicitly.
-- Basic Markdown headings, lists, tables, links, blockquotes, and code work.
-- Math, Mermaid, SVG, PPTX, animation, and image composition are outside this renderer.
-
-Example:
-
-````markdown
-# First card
-
-A compact explanation.
-
-```text
-===
-This is literal code, not a new card.
-```
-
-===
-
-# Second card
-
-Another idea.
-````
-
-## CLI
+Node.js 20+, locked npm dependencies, Chromium, and local fonts are required.
+Run `npm ci` and, where permitted, `npx playwright install chromium`.
+`--browser PATH` or `CHROMIUM_PATH` selects an existing Chromium.
+Never bypass a sandbox denial or browser security warning to make exports work.
 
 ```bash
-node scripts/render.mjs ./cards.md \
-  --out ./output/cards-v1 \
-  --theme editorial --size portrait --format all \
-  --footer "Research notes" --title "Knowledge cards" --lang en
+node scripts/render.mjs --doctor
+node scripts/render.mjs --doctor --strict --json
 ```
 
-| Option | Values / behavior |
-| --- | --- |
-| `--out` | New or empty output directory; default `./output/<input-name>` |
-| `--theme` | `editorial` (default), `minimal`, `midnight`, `notebook`, `bold` |
-| `--format` | `all` (default), `html`, `png`, `pdf`, or a comma-separated list |
-| `--size` | `portrait` 1080×1440 (default), `square` 1080×1080, `slide` 1600×900 |
-| `--width`, `--height` | Override canvas dimensions in CSS pixels; integers 200–4096 |
-| `--scale` | PNG pixel density 0.5–3; default 1; does not change layout or PDF page size |
-| `--footer` | Optional footer text; empty by default; index is always shown |
-| `--title` | HTML document title; default input filename; does not add a visible card heading |
-| `--lang` | HTML language tag; default `zh-CN` |
-| `--browser` | Absolute path to a locally installed Chromium executable |
-| `--help`, `--version` | Show current usage or renderer version |
+Doctor locates the browser but does not launch it. It checks package pins,
+Fontconfig font coverage, and `pdfinfo` / `pdftotext` from Poppler. Missing font
+inspection is explicitly unverified; strict Chinese rendering requires coverage.
+Installed-font coverage is not a claim that Chromium selected or painted the
+correct glyphs. Human visual review is still necessary. Windows/macOS without
+Fontconfig can use non-strict mode, but font QA remains unverified until inspected.
 
-The renderer refuses configurations above 40 million PNG pixels per card. A smaller
-`--scale` reduces PNG resolution, not text size or overflow. A wide slide-sized card
-is not an editable slide deck and cannot hold the same text as a portrait card.
+## Input
 
-## Outputs and status
+UTF-8 Markdown, at most 2 MiB. Standalone `===` divides cards except inside fenced
+or indented code. Blank boundary lines are removed without stripping meaningful
+indentation. `---` retains Markdown semantics. Empty cards are rejected.
+Reference definitions are collected across cards with first-definition-wins
+semantics. HTML stays escaped and unsafe link schemes do not become active links.
 
-Successful output includes the requested formats plus `manifest.json`:
+Optional metadata appears on the first nonblank, non-code line of a card:
 
-```text
-cards.html       Self-contained document with inline CSS, when requested
-card-001.png     One image per card, when requested
-card-002.png
-cards.pdf        One native-text page per card, when requested
-manifest.json    Dimensions, theme, count, artifacts, and fit measurements
+```markdown
+<!-- card: {"layout":"image-caption","image":"assets/photo.png","alt":"描述图片内容","caption":"图注","source":"出处说明"} -->
+# 标题
+
+正文内容。
 ```
 
-HTML contains no client scripts or remote image/font dependencies. Hyperlinks stay
-clickable, so opening one later is a separate user action that can access the network.
-PDF is produced by Chromium's print pipeline, not by wrapping PNG screenshots; text
-is intended to remain selectable and searchable. Check actual glyphs and extraction
-when the downstream use depends on searchability.
+Metadata is a single-line JSON object. Allowed string keys: `layout`, `eyebrow`,
+`image`, `alt`, `caption`, `source`, `metric`, `label`. Unknown keys, nonstrings,
+control characters, and unknown layouts fail. No user-provided CSS is accepted.
+No YAML frontmatter is interpreted. Omit metadata for a legacy explainer card.
 
-All formats, including HTML-only output, use Chromium to check both screen and print
-layout. Fit checks include content dimensions, footer separation, wide descendants,
-and scrollable code/table content. They do not judge editorial quality.
+Layouts: cover, explainer, comparison, steps, image-caption, statistic, case-study,
+quote. Comparison uses the first two top-level h2 sections as columns, preserving
+additional sections below. Case study uses h2 sections as stages. Steps styles
+top-level ordered lists. Statistic uses exact `metric` and `label` text. Quote uses
+Markdown blockquotes. Missing optional fields do not produce invented content.
 
-- Exit `0`: requested files and manifest were written successfully.
-- Exit `2`: overflow; `overflow.json` identifies affected cards and source lines.
-  No clipped HTML, PNG, or PDF is published as a successful export.
-- Other nonzero exit: invalid input, missing dependencies, browser failure, or another
-  operational error. Report the real error, not a claimed successful export.
+## Trusted local assets
 
-An existing nonempty output directory is never overwritten. After fixing a failed
-card, choose a new output directory or deliberately remove/move the old diagnostics.
-Do not delete unrelated files to clear a path.
+`--asset-root` defaults to the input file's directory. All image and logo references
+are relative to that root, including logo references in a separately located brand
+JSON. Paths are decoded, canonicalized and checked with realpath. Only regular
+files contained within the real root are accepted. Symlinks may point within the
+root, never outside it. There is no remote image download or URL fallback.
 
-## Troubleshooting
+Only PNG, JPEG, and static WebP are supported. Extension, magic/MIME, structural
+integrity, bytes and dimensions are checked before embedding. Chromium must also
+successfully decode every embedded image. PNG/WebP animation, SVG/GIF, absolute
+paths, protocol-relative URLs, any URI scheme including data/file/http, path
+traversal and escaped symlinks fail closed.
 
-**Content overflow:** shorten repetition, add a meaningful `===` boundary, or use a
-user-approved size change. Do not bypass validation by clipping or hiding content.
+Limits: 8 MiB per asset; 32 MiB unique assets; 20 million pixels per image; maximum
+8192 pixels per side; 64 MiB cumulative embedded data URLs; 100 million cumulative
+decoded image pixels. Cache hits still count toward embedding budgets. Repeated
+brand logos are included in the document-level budget. Final HTML is capped at
+64 MiB. Use smaller images or split the deck rather than bypassing checks.
 
-**Browser unavailable:** verify package installation and the actual executable.
-If the environment prohibits browser process creation or lacks required system
-libraries, explain the blocker and use a suitable authorized environment. HTML-only
-is not a way to skip the validation requirement.
+Brand JSON is at most 16 KiB and accepts only `name` (up to 100 characters),
+`accent` (#RGB or #RRGGBB), and `logo` (local asset reference). Brand colors do not
+automatically guarantee contrast; inspect the actual selected theme.
 
-**Missing CJK characters:** install an appropriate local font through permitted setup
-or render in an environment that has one. Recheck line breaks and the PDF text layer.
+## CLI and output
 
-**Misaligned code:** use a compact fenced example. Long lines wrap instead of leaving
-the card, so reformat a long expression when wrapping obscures its structure.
+```bash
+node scripts/render.mjs examples/layouts.md --out output/layouts-v1 \
+  --theme editorial --format all --preview --contact-sheet --strict
+```
 
-**Table feels cramped:** reduce columns, simplify labels, or split the comparison.
-Making the font smaller is not a substitute for a readable card.
+The canonical document uses fixed card dimensions. `--preview` adds responsive,
+script-free `preview.html` without changing the canvas or export measurements.
+`--contact-sheet` adds a four-column PNG with 270 CSS-pixel thumbnails. It is a
+review aid, not a replacement for individual images or mobile-size readability QA.
+
+`--format` accepts all, html, png, pdf, or combinations. Presets: portrait
+1080×1440, square 1080×1080, slide 1600×900. Custom width/height: integers 200–4096.
+`--scale` 0.5–3 affects PNG pixels only. Contents must be prepared for their ratio;
+there is no automatic shrinking, rewriting or pagination.
+
+All formats require Chromium and mandatory screen AND print overflow checks.
+The browser disables page JavaScript, blocks network requests and service workers,
+and uses a restrictive CSP. Validated raster data URLs are the only image source.
+The PDF is native browser printing, not a raster image assembly.
+
+Successful output contains requested cards.html, card-NNN.png, cards.pdf, optional
+preview.html/contact-sheet.png, and manifest.json. Manifest schema v2 includes:
+
+- Input, styles, local assets, card sources and output SHA-256 hashes.
+- Node/package/Chromium/Poppler versions; CSS dimensions and PNG scale.
+- Original source line ranges, selected layouts, screen/print measurements.
+- Explicit font, image decode and PDF QA, budgets, and `visualReview: not-performed`.
+
+PDF QA checks exact page count and nonempty searchable text when content contains
+text. CI additionally checks known English/Chinese snippets. Missing Poppler is a
+warning normally and a failure with `--strict`; it is never silently recorded as
+passed. Page count/text extraction does not prove semantic correctness or complete
+glyph fidelity.
+
+## Failure and resource contracts
+
+Output directory must be absent or empty. Exports stage in a sibling directory and
+publish only after validation. Existing files are never overwritten. Overflow exits
+2 and writes only overflow.json with original card/source ranges. Fix content or
+explicitly split it. Other failures exit 1 and do not publish incomplete exports.
+
+Use `--json` for structured stdout success / stderr error objects. Errors contain
+status, code, message, details and exitCode, not a stack or embedded source text.
+Useful codes include INVALID_OPTIONS, INVALID_MARKDOWN, INVALID_METADATA,
+INVALID_ASSET, OUTPUT_EXISTS, PREFLIGHT_FAILED, BROWSER_LAUNCH_FAILED,
+CONTENT_OVERFLOW, RENDER_BUDGET, RENDER_TIMEOUT, IMAGE_DECODE_FAILED,
+PDF_TOOLS_MISSING, PDF_PAGE_COUNT_MISMATCH and PDF_TEXT_MISSING.
+
+Budgets: maximum 200 cards, 40 million PNG pixels/card, 200 million aggregate card
+pixels (PNG scale counted for PNG exports), 256 MiB generated artifacts, and a
+120-second render deadline. `--timeout-ms` accepts 1000–600000. Chromium receives
+bounded operation timeouts and is closed on the total deadline. File/system-tool
+operations are separately bounded where supported; this is not an OS-level memory
+sandbox. Do not render untrusted files outside the explicit asset boundary.
+
+## Tests and reproducible showcases
+
+`npm test` includes unit and browser integration tests. In unsupported sandboxes,
+`MD2CARD_SKIP_BROWSER=1 npm test` explicitly skips browser tests; this is not an
+export-validation pass. CI sets MD2CARD_REQUIRE_BROWSER=1 and
+MD2CARD_REQUIRE_PDF_CHECK=1, so missing browser/PDF tools fail.
+
+`node scripts/validate-showcases.mjs` renders eight layouts in five themes and
+three original series under validation/. It verifies artifact hashes and strict
+PDF checks. See docs/SHOWCASES.md for the README image provenance.

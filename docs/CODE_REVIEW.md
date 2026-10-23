@@ -1,8 +1,9 @@
 # Code review and targeted regression record
 
-The accepted evidence below describes the historical v2 implementation. Phase 3
-adds opt-in semantic pagination and requires its own source review, real CI
-exports and visual inspection; historical passes are not evidence for new paths.
+The historical v2 evidence and phase 3 acceptance are recorded separately below.
+Phase 3 adds opt-in semantic pagination; historical passes are not evidence for
+these new paths. Its own source review, real CI exports and scoped visual
+inspection have now been completed.
 
 This review combines source inspection, minimal reproductions, deterministic
 failure injection, unit tests, and real-browser/PDF exports. Passing CI alone is
@@ -14,8 +15,26 @@ behavior change and a focused regression, rather than only a wider happy-path ru
 The opt-in path has completed independent core source review and 127 local unit
 tests. A separate full local run passed 131 tests and explicitly skipped 17
 browser tests, with no failures. The final input-record-limit/index-validation
-delta also passed an independent focused recheck. Real automatic-pagination Chromium, PNG,
-PDF and visual acceptance remain pending; fake measurements are not export QA.
+delta also passed an independent focused recheck. The real Chromium/PDF
+[CI run 39990564928](https://github.com/Activer007/md2card-skill/actions/runs/39990564928)
+passed all 148 tests with zero failures or skips. It checked code commit
+[`c3ed7803a14d17628a68e324869a3d2a399f638c`](https://github.com/Activer007/md2card-skill/commit/c3ed7803a14d17628a68e324869a3d2a399f638c)
+through merge preview `58f712c2046e1f7af35a89a8e1f9deff7b056d0d`; both complete trees
+are `9350a9dffda064c852369faecd1b18b0864a8408`. Fake measurements are not export QA.
+
+The run retained 10 legacy decks / 56 cards and exported four new automatic decks:
+paragraphs 5, lists 7, tables 6 and references 6 cards. All 24 new cards passed
+screen/print checks, source coverage, artifact hashes and native searchable-PDF
+validation. Oversized code returned the expected `PAGINATION_ATOMIC_OVERFLOW`
+(exit 2) without publishing clipped or partial output.
+
+Visual acceptance covered all four new contact sheets and full-size
+`lists/card-002.png`, `tables/card-002.png`, `paragraphs/card-002.png` and
+`references/card-004.png`. Numbering, headers and explicit partitions were intact;
+no clipping or missing glyphs were observed in that scope. This is not exhaustive
+full-size glyph-by-glyph inspection. See [SHOWCASES.md](SHOWCASES.md#phase-3-automatic-pagination)
+for immutable image provenance and reproducible commands. Phase 3 remains a draft
+PR, not merged; later documentation/image CI is recorded separately in that PR.
 
 The independent review compared 576 complete-partition combinations with the
 manual renderer and 121 forced-fragment cases using a separate HTML parser.
@@ -81,7 +100,19 @@ unexplained nonblank source. They do not claim glyph or visual correctness.
   `--paginate auto` path for explainer/steps with layout-only metadata. Manual
   remains the default; neither mode rewrites or silently shrinks content.
 
-## Accepted evidence
+## Pre-merge v2 follow-up
+
+A subsequent source audit fixed the pending browser-initialization/cleanup finding
+listed above. Commit [`e1de0a0`](https://github.com/Activer007/md2card-skill/commit/e1de0a0047c2783d19a81a8aeac4b5d0c1b45a4f)
+passed [100/100 real CI tests](https://github.com/Activer007/md2card-skill/actions/runs/39986489000)
+with zero skips, plus 14 independently rerun lifecycle tests. PR #1 was normally
+merged as `39c875ff94403045282af6cf22dd3f01e8801977`, with an identical complete tree.
+The separate [post-merge run](https://github.com/Activer007/md2card-skill/actions/runs/39987907582)
+was cancelled during environment package installation before tests. Available
+logs do not establish whether cancellation was a timeout or a manual action;
+it is not recorded as a passing run or as a code-test failure.
+
+## Historical v2 accepted evidence
 
 Independent source re-review approved the fixes in code commit
 [`7df842dca5ff5bba237a9e5118e7e30b7af954c1`](https://github.com/Activer007/md2card-skill/commit/7df842dca5ff5bba237a9e5118e7e30b7af954c1)

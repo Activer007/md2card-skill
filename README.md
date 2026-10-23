@@ -162,9 +162,9 @@ npx playwright install chromium
 
 完整原创示例：[RAG 入门四张卡片](examples/rag-guide.md)。解析边界示例：[代码中的分页符](examples/separator-demo.md)。
 
-### 可选语义自动分页（第三期开发中）
+### 可选语义自动分页（第三期）
 
-需要保留长文原样、但允许增加卡片数量时，可选择 `--paginate auto`。第三期仍在开发和验证中，不能用上方第二期展示图或历史 CI 结果代替本功能的验收。
+需要保留长文原样、但允许增加卡片数量时，可选择 `--paginate auto`。第三期已完成独立源码复核与真实浏览器验收：148 项测试全部通过，四套新案例共 24 张卡片；具体提交、视觉检查范围与剩余限制见 [分期验收记录](docs/DEVELOPMENT_PLAN.md)。默认仍为 `manual`，自动分页不是内容编辑。
 
 ```bash
 node scripts/render.mjs long-explainer.md --out output/long-explainer-v1 \
@@ -179,6 +179,22 @@ node scripts/render.mjs long-explainer.md --out output/long-explainer-v1 \
 - 分页最多处理 2,000 个语义单元、4,000 次候选探测、200 张卡片，并继续遵守资源、像素和时间预算。探测时预留 `200/200` 页脚；最终使用实际页数再次检查全套卡片的屏幕与打印布局。
 
 完整拆分规则、错误码与可追溯记录见 [渲染契约](references/rendering.md)。自动分页是几何排版辅助，不是内容策划、事实核查或逐页视觉验收。
+
+以下两张联系表来自第三期真实导出，未经裁切或修图，来源和 SHA-256 见 [展示记录](docs/SHOWCASES.md#phase-3-automatic-pagination)。
+
+#### 列表跨页保留编号
+
+[原始列表示例](examples/pagination-lists.md) 从 7 开始编号，自动生成 7 张卡片；顶层列表项及其嵌套内容保持完整。
+
+![自动分页列表：七张卡片保留原文及从 7 到 18 的连续步骤编号](docs/images/pagination-lists.png)
+
+#### 表格按行分页并重复表头
+
+[原始表格示例](examples/pagination-tables.md) 自动生成 6 张卡片。续页重复原始表头，并在 manifest 中记录表头来源；不会拆开单行或丢弃内容。
+
+![自动分页表格：六张卡片按完整行拆分并保留续页表头](docs/images/pagination-tables.png)
+
+其他可复现示例：[长段落](examples/pagination-paragraphs.md)、[引用及显式边界](examples/pagination-references.md)、[超大代码块的预期失败](examples/pagination-atomic-error.md)。这组验收使用 1080×900 画布；更换字体或尺寸后页数可能变化。只支持 `explainer` / `steps` 及 `layout` 元数据，不自动改写、删减或缩字。
 
 ## 本地图片与品牌
 
@@ -226,7 +242,7 @@ node scripts/render.mjs --help
 
 第二期历史验收：代码提交 [`7df842d`](https://github.com/Activer007/md2card-skill/commit/7df842dca5ff5bba237a9e5118e7e30b7af954c1) 已完成独立源码复核；[CI](https://github.com/Activer007/md2card-skill/actions/runs/39964850729) 通过 93 项测试（0 跳过），实际验证 10 套、56 张卡片。README 的四张展示图来自该提交的真实导出并已单独复核；检查范围与图片哈希见上述记录。
 
-Skill 会指导内容规划、主题选择、渲染和逐页检查。程序检查几何溢出；选择 `auto` 时按受支持的语义边界分页，但不会判断观点是否正确、改写原文或审核引用。第三期新增代码的本地测试、真实 CI 与视觉验收必须单独记录。
+Skill 会指导内容规划、主题选择、渲染和逐页检查。程序检查几何溢出；选择 `auto` 时按受支持的语义边界分页，但不会判断观点是否正确、改写原文或审核引用。第三期的本地测试、真实 CI 与视觉验收在上述记录中单独列明；本次视觉检查覆盖四套联系表和代表性原尺寸卡片，不是对所有字形的穷尽检查。
 
 - 本地系统字体会影响换行。需要稳定输出时，固定操作系统、字体、依赖与浏览器版本。
 - 导出后仍应检查每张图的中文字符、标题换行、表格、代码和页脚，并验证 PDF 文本层。
@@ -242,6 +258,7 @@ Skill 会指导内容规划、主题选择、渲染和逐页检查。程序检�
 npm test
 npm run test:integration
 node scripts/validate-showcases.mjs
+node scripts/validate-pagination.mjs
 ```
 
 集成测试需要能运行 Chromium 的环境。不要把依赖或浏览器缺失造成的失败误报为渲染验证通过。

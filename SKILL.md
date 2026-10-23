@@ -150,10 +150,11 @@ paragraph, quotation, code block or list item only when the user has authorized
 that editing. Preserve the original when verbatim content is required. Do not
 hide overflow, discard metadata, or reduce text to an unreadable size.
 
-The phase 3 implementation and local unit checks are complete, but real-browser
-CI and visual acceptance are pending. Historical v2 screenshots do not verify this path. Consult [docs/DEVELOPMENT_PLAN.md](docs/DEVELOPMENT_PLAN.md)
-for current implementation, browser-test and visual-review states; never report
-unperformed checks as passed.
+Consult [docs/DEVELOPMENT_PLAN.md](docs/DEVELOPMENT_PLAN.md) for commit-specific
+implementation, browser-test and visual-review evidence, and
+[docs/SHOWCASES.md](docs/SHOWCASES.md) for actual output provenance. Historical v2
+screenshots do not verify the automatic path. Match evidence to the code and
+input being used; never report unperformed checks as passed.
 
 ## 5. Inspect the actual output
 

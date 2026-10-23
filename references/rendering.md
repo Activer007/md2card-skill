@@ -1,9 +1,10 @@
 # Rendering contract (phase 3)
 
-Phase 3 adds bounded, opt-in semantic pagination to the v2 renderer. Implementation
-and local unit checks are complete; real-browser CI and visual validation remain pending; see [the development plan](../docs/DEVELOPMENT_PLAN.md)
-for separate code, local, CI and visual-review states. Existing v2 showcase results
-are historical evidence, not a validation pass for automatic pagination.
+Phase 3 adds bounded, opt-in semantic pagination to the v2 renderer. See
+[the development plan](../docs/DEVELOPMENT_PLAN.md) for commit-specific code, local,
+CI and visual-review evidence, and [showcase provenance](../docs/SHOWCASES.md) for
+actual automatic-pagination exports. Existing v2 showcase results are historical
+evidence, not a validation pass for automatic pagination.
 
 ## Setup and preflight
 
@@ -247,6 +248,9 @@ Phase 3 verification must independently cover manual-mode regression, semantic
 coverage and ordering, locked boundaries, heading groups, nested list items,
 ordered-list continuation, table-header provenance, unsupported metadata/layouts,
 atomic overflow, screen/print differences, budgets, cleanup and final-deck checks.
-Real-browser exports and visual review are pending until separately recorded for
-an exact phase 3 commit. A denied local Chromium launch is a blocked check, not a
-reason to bypass sandbox restrictions or report browser tests as passing.
+Record real-browser exports and the scope of visual review separately for the
+exact code being checked; current evidence is linked in the development plan.
+`node scripts/validate-pagination.mjs` exercises four automatic decks and an
+expected atomic-overflow failure. A denied local Chromium launch is a blocked
+check, not a reason to bypass sandbox restrictions or report browser tests as
+passing.

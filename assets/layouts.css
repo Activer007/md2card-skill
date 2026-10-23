@@ -179,9 +179,9 @@
 .card.layout-comparison .comparison-note > h2 { font-size: 1.08em; }
 
 /* 4. Steps: top-level ordered lists get numbered waypoints; nested lists keep markers. */
-.card.layout-steps .card-body > ol { list-style: none; counter-reset: step; padding: 0; margin: 1em 0 0; }
-.card.layout-steps .card-body > ol > li { counter-increment: step; position: relative; margin: 0.65em 0; padding: 0.55em 0.65em 0.55em 2.45em; border-left: 0.1em solid var(--accent); background: var(--panel); }
-.card.layout-steps .card-body > ol > li::before { content: counter(step, decimal-leading-zero); position: absolute; top: 0.65em; left: 0.5em; width: 1.45em; color: var(--accent); font-family: var(--mono); font-weight: 750; line-height: 1.5; }
+.card.layout-steps .card-body > ol { list-style: none; padding: 0; margin: 1em 0 0; }
+.card.layout-steps .card-body > ol > li { position: relative; margin: 0.65em 0; padding: 0.55em 0.65em 0.55em 2.45em; border-left: 0.1em solid var(--accent); background: var(--panel); }
+.card.layout-steps .card-body > ol > li::before { content: counter(list-item, decimal-leading-zero); position: absolute; top: 0.65em; left: 0.5em; width: 1.45em; color: var(--accent); font-family: var(--mono); font-weight: 750; line-height: 1.5; }
 .card.layout-steps .card-body > ol > li > :first-child { margin-top: 0; }
 .card.layout-steps .card-body > ol > li > :last-child { margin-bottom: 0; }
 

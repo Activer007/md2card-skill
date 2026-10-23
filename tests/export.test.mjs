@@ -156,3 +156,60 @@ test('mobile preview scales only display and preserves export dimensions', async
   await renderer.page.emulateMedia({media:'print'});
   assert.equal(await renderer.page.locator('.card').evaluate(card=>Math.round(card.getBoundingClientRect().width)),1080);
 });
+
+test('steps preserve non-one start values in the actual PDF text', async t => {
+  if (!await browserReady(t)) return;
+  try { await run('pdftotext',['-v']); }
+  catch(error) { if(process.env.MD2CARD_REQUIRE_PDF_CHECK==='1')throw error; t.skip('pdftotext is required to inspect rendered counter values.'); return; }
+  const dir=await workspace(t), input=path.join(dir,'steps.md'), out=path.join(dir,'out');
+  await writeFile(input,'<!-- card: {"layout":"steps"} -->\n# Deployment\n\n4. Deploy\n5. Verify');
+  await exportCards(parseOptions([input,'--out',out,'--format','pdf']));
+  const {stdout}=await run('pdftotext',[path.join(out,'cards.pdf'),'-']);
+  assert.match(stdout,/\b04\b/);assert.match(stdout,/\b05\b/);
+  assert.doesNotMatch(stdout,/\b0[12]\b/);
+});
+
+test('real JPEG and WebP images decode and export in Chromium', async t => {
+  if (!await browserReady(t)) return;
+  const dir=await workspace(t), input=path.join(dir,'rasters.md'), out=path.join(dir,'out');
+  for(const name of ['original-colors.jpg','original-colors.webp'])await writeFile(path.join(dir,name),await readFile(new URL(`fixtures/${name}`,import.meta.url)));
+  await writeFile(input,'<!-- card: {"layout":"image-caption","image":"original-colors.jpg","alt":"Original JPEG colors"} -->\n# JPEG\n\n===\n\n<!-- card: {"layout":"image-caption","image":"original-colors.webp","alt":"Original WebP colors"} -->\n# WebP');
+  const manifest=await exportCards(parseOptions([input,'--out',out]));
+  assert.deepEqual(manifest.assets.map(asset=>asset.mime).sort(),['image/jpeg','image/webp']);
+  assert.equal(manifest.qa.images.count,2);assert.equal(manifest.qa.images.status,'pass');
+  const renderer=await openRenderer(parseOptions(['test.md']));t.after(()=>renderer.browser.close());
+  await renderer.page.setContent(await readFile(path.join(out,'cards.html'),'utf8'),{waitUntil:'load'});
+  const dimensions=await renderer.page.locator('img').evaluateAll(images=>images.map(image=>[image.complete,image.naturalWidth,image.naturalHeight]));
+  assert.deepEqual(dimensions,[[true,3,2],[true,3,2]]);
+  for(const file of ['card-001.png','card-002.png','cards.pdf'])assert.ok((await readFile(path.join(out,file))).length>0);
+});
+
+function corruptPixelPng() {
+  const crc32=bytes=>{let crc=0xffffffff;for(const byte of bytes){crc^=byte;for(let bit=0;bit<8;bit++)crc=(crc>>>1)^((crc&1)?0xedb88320:0);}return(crc^0xffffffff)>>>0;};
+  const chunk=(type,data)=>{const name=Buffer.from(type),length=Buffer.alloc(4),crc=Buffer.alloc(4);length.writeUInt32BE(data.length);crc.writeUInt32BE(crc32(Buffer.concat([name,data])));return Buffer.concat([length,name,data,crc]);};
+  const header=Buffer.alloc(13);header.writeUInt32BE(2);header.writeUInt32BE(2,4);header[8]=8;header[9]=2;
+  return Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]),chunk('IHDR',header),chunk('IDAT',Buffer.from('not a valid zlib pixel stream')),chunk('IEND',Buffer.alloc(0))]);
+}
+
+test('corrupt compressed pixels fail browser decoding without publishing outputs', async t => {
+  if (!await browserReady(t)) return;
+  const dir=await workspace(t),input=path.join(dir,'bad.md'),out=path.join(dir,'out');
+  await writeFile(path.join(dir,'bad.png'),corruptPixelPng());
+  await writeFile(input,'![Invalid compressed pixels](bad.png)');
+  await assert.rejects(()=>exportCards(parseOptions([input,'--out',out])),{code:'IMAGE_DECODE_FAILED'});
+  assert.deepEqual((await readdir(dir)).sort(),['bad.md','bad.png']);
+});
+
+test('contact sheets capture the exact deck bounds without viewport blank space', async t => {
+  if (!await browserReady(t)) return;
+  const dir=await workspace(t);
+  for(const count of [1,3,4,5]) {
+    const input=path.join(dir,`cards-${count}.md`),out=path.join(dir,`out-${count}`);
+    await writeFile(input,Array.from({length:count},(_,i)=>`# Card ${i+1}`).join('\n\n===\n\n'));
+    await exportCards(parseOptions([input,'--out',out,'--format','html','--contact-sheet']));
+    const bytes=await readFile(path.join(out,'contact-sheet.png'));
+    const columns=Math.min(4,count),rows=Math.ceil(count/4);
+    assert.equal(bytes.readUInt32BE(16),40+columns*270+(columns-1)*20);
+    assert.equal(bytes.readUInt32BE(20),40+rows*360+(rows-1)*20);
+  }
+});

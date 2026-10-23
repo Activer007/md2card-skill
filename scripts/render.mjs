@@ -201,7 +201,7 @@ export async function exportCards(options) {
       const sheetCss = `.deck { display:grid; grid-template-columns:repeat(${columns}, ${thumbWidth}px); gap:20px; padding:20px; min-width:0; width:max-content; } .card { zoom:${thumbWidth / options.width}; }`;
       await sheet.setContent(html.replace('</style>', sheetCss + '\n</style>'), { waitUntil: 'load', timeout: checkTime() });
       await sheet.evaluate(() => document.fonts.ready);
-      await sheet.screenshot({ path: path.join(staging, 'contact-sheet.png'), fullPage: true, scale: 'css', animations: 'disabled', timeout: checkTime() });
+      await sheet.locator('.deck').screenshot({ path: path.join(staging, 'contact-sheet.png'), scale: 'css', animations: 'disabled', timeout: checkTime() });
       await sheet.close(); await record('contact-sheet', 'contact-sheet.png');
     }
     const loadedAssets = assets.getAssets().map(({ dataUrl, ...asset }) => asset);

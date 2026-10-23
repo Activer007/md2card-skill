@@ -157,3 +157,11 @@ test('theme tokens and layout geometry are separate with CJK-safe line handling'
   assert.match(layoutCss, /object-fit: contain/);
   assert.match(layoutCss, /\.brand-logo[^}]+width: 2\.2em; height: 2\.2em/);
 });
+
+test('steps layout preserves the Markdown ordered-list starting value', () => {
+  const cards = renderCards('<!-- card: {"layout":"steps"} -->\n# Deploy\n\n4. Deploy\n5. Verify');
+  const html = render(cards);
+  assert.match(html, /<ol start="4">/);
+  assert.match(layoutCss, /content: counter\(list-item, decimal-leading-zero\)/);
+  assert.doesNotMatch(layoutCss, /counter-(?:reset|increment): step/);
+});

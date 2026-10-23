@@ -7,10 +7,52 @@
 ## 它能做什么
 
 - 将笔记、教程、文章摘要整理为知识卡片，保留必要的出处、限定条件和不确定性。
-- 提供 5 套原创主题，区别不仅在配色，也在字体层级、版式结构和装饰方式。
+- 提供 5 套原创主题与 8 种独立语义版式，主题、版式、品牌配置彼此分离。
 - 用显式分页标记控制卡片数量，不强迫固定张数，也不会偷偷缩小字体。
 - 导出自包含 HTML、逐卡 PNG、原生文本 PDF，并检查内容溢出。
-- 使用本机字体，无在线字体 CDN，无模型 API 调用，无自动发布行为。
+- 支持可信本地 PNG/JPEG/WebP 和 Logo；提供手机预览与联系表，无在线字体 CDN、账号、云同步、模型调用或自动发布。
+
+## 真实渲染展示
+
+下图由本仓库命令实际导出，不是设计稿或外部产品截图。示例 PNG、PDF、手机预览和 manifest 由 CI 同时生成；复现命令见 [展示说明](docs/SHOWCASES.md)。
+
+![八种语义版式的实际输出：封面、解释、对比、步骤、图注、数据、案例和引用](docs/images/layouts-contact-sheet.png)
+
+### AI / RAG 概念解释
+
+![RAG 原创示例：封面、流程示意、检索与生成对比及来源提醒](docs/images/showcase-ai.png)
+
+### 技术教程
+
+![本地 Markdown 导出教程：封面、运行步骤和溢出处理案例](docs/images/showcase-tutorial.png)
+
+### 企业介绍（虚构示例）
+
+![虚构团队介绍：服务理念、三个协作阶段和交付边界，不包含真实业绩数据](docs/images/showcase-enterprise.png)
+
+## 八种语义版式
+
+| layout | 用途 | 内容约定 |
+| --- | --- | --- |
+| `cover` | 封面 / 观点 | 大标题与少量说明 |
+| `explainer` | 概念解释 | 默认版式，普通 Markdown 原样使用 |
+| `comparison` | 双栏比较 | 前两个顶层二级标题分为两栏，后续内容保留在下方 |
+| `steps` | 操作步骤 | 顶层有序列表显示序号与步骤块 |
+| `image-caption` | 图片与图注 | `image`、`alt`、`caption` 搭配正文 |
+| `statistic` | 数字 / 证据 | `metric`、`label` 与 `source`，不自动生成数字 |
+| `case-study` | 案例过程 | 顶层二级标题组织问题、行动、结果等阶段 |
+| `quote` | 引用 / 来源 | Markdown 引用块与 `source` 分开呈现 |
+
+版式选择使用每张卡片第一条非空行中的可选 JSON 注释：
+
+```markdown
+<!-- card: {"layout":"statistic","metric":"8","label":"种语义版式","source":"本仓库的版式枚举"} -->
+# 数字必须有解释
+
+正文说明口径、含义和适用边界。
+```
+
+只接受明确字段，不允许任意 CSS 或 HTML。完整八版式示例见 [examples/layouts.md](examples/layouts.md)。
 
 ## 五种视觉方向
 
@@ -33,6 +75,7 @@ git clone https://github.com/Activer007/md2card-skill.git
 cd md2card-skill
 npm ci
 npx playwright install chromium
+node scripts/render.mjs --doctor
 
 node scripts/render.mjs examples/rag-guide.md \
   --theme editorial \
@@ -110,9 +153,28 @@ npx playwright install chromium
 - `---` 保留普通 Markdown 语义；前后空行时是横线，不是分页。
 - 不使用 YAML frontmatter，标题等元信息通过命令参数传入。
 - 支持标题、段落、列表、引用、链接、代码和表格。
-- 原始 HTML 会转义；Markdown 图片明确拒绝，不会联网拉取。
+- 原始 HTML 会转义；图片仅接受可信资源目录内经验证的本地 PNG/JPEG/WebP。
+- 引用式链接定义可跨卡片使用；缩进代码首行的空格会保留。
 
 完整原创示例：[RAG 入门四张卡片](examples/rag-guide.md)。解析边界示例：[代码中的分页符](examples/separator-demo.md)。
+
+## 本地图片与品牌
+
+默认资源边界为输入 Markdown 所在目录，也可以显式指定 `--asset-root DIR`。图片引用相对此目录解析，而不是相对品牌 JSON 所在目录。
+
+```markdown
+![流程示意](assets/retrieval-pipeline.png)
+```
+
+```bash
+node scripts/render.mjs examples/showcase-ai.md \
+  --out output/ai-v1 --brand examples/brand.json \
+  --preview --contact-sheet --strict
+```
+
+品牌 JSON 只接受 `name`、十六进制 `accent`、本地 `logo`。`--preview` 生成无需脚本的手机阅读页面；`--contact-sheet` 生成整套卡片缩略联系表。预览缩放不改变导出画布尺寸。
+
+不接受 SVG、GIF、远程地址、`file:` / `data:` 输入、绝对路径或越界软链接。文件扩展名、真实 MIME、文件体积与像素尺寸均检查，浏览器还会实际解码图片。完整资源限制见 [渲染契约](references/rendering.md)。
 
 ## 常用参数
 
@@ -138,11 +200,18 @@ node scripts/render.mjs --help
 
 ## 质量与边界
 
+见 [分期开发计划](docs/DEVELOPMENT_PLAN.md) 与 [源码审查及定向回归记录](docs/CODE_REVIEW.md)。后者记录具体缺陷、最小复现、修复和剩余限制，不以 CI 通过代替代码审查。
+
+本轮代码提交 [`7df842d`](https://github.com/Activer007/md2card-skill/commit/7df842dca5ff5bba237a9e5118e7e30b7af954c1) 已完成独立源码复核；[CI](https://github.com/Activer007/md2card-skill/actions/runs/39964850729) 通过 93 项测试（0 跳过），实际验证 10 套、56 张卡片。README 的四张展示图来自该提交的真实导出并已单独复核；检查范围与图片哈希见上述记录。
+
 Skill 会指导内容规划、主题选择、渲染和逐页检查。程序检查几何溢出，但不会判断观点是否正确，也不会自动替你改写、分页或审核引用。
 
 - 本地系统字体会影响换行。需要稳定输出时，固定操作系统、字体、依赖与浏览器版本。
 - 导出后仍应检查每张图的中文字符、标题换行、表格、代码和页脚，并验证 PDF 文本层。
-- 不提供 SVG、PPTX、Mermaid、数学公式、图片合成、动画或一键社交平台发布。
+- 不提供账号、云同步、内置模型调用、PPTX、SVG、Mermaid、数学公式、动画或一键发布。
+- 不提供自动分页或 AI 改写；添加图片不会改变这些边界。
+- `--strict` 要求可验证的本地中文字体覆盖和 Poppler PDF 工具。字体覆盖检查不等于实际字形或逐页视觉验收。
+- manifest 记录输入/样式/资源/产物 SHA-256、工具版本、屏幕/打印溢出结果和 PDF 检查状态。人工视觉检查始终单独标记。
 - 本仓库不包含第三方字体，不获得字体、商标或外部内容的再分发权。
 
 维护时可运行：
@@ -150,6 +219,7 @@ Skill 会指导内容规划、主题选择、渲染和逐页检查。程序检�
 ```bash
 npm test
 npm run test:integration
+node scripts/validate-showcases.mjs
 ```
 
 集成测试需要能运行 Chromium 的环境。不要把依赖或浏览器缺失造成的失败误报为渲染验证通过。
@@ -159,10 +229,12 @@ npm run test:integration
 ```text
 SKILL.md                 技能入口与工作流程
 agents/openai.yaml       Codex 界面元信息
-assets/themes.css        五套原创主题
+assets/themes.css        五套原创主题与设计 token
+assets/layouts.css       通用排版与八种语义版式
 scripts/                 Markdown 解析与本地导出
 references/              内容风格、主题与渲染说明
-examples/                原创示例
+examples/                原创示例与本地演示资源
+docs/DEVELOPMENT_PLAN.md  分期任务、验收条件与验证状态
 tests/                  解析与导出测试
 ```
 

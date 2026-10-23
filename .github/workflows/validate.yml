@@ -15,9 +15,10 @@ concurrency:
 jobs:
   test-and-render:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     env:
       MD2CARD_REQUIRE_BROWSER: '1'
+      MD2CARD_REQUIRE_PDF_CHECK: '1'
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -26,26 +27,22 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
-      - name: Install Chromium and text-extraction tools
+      - name: Install Chromium, Chinese fonts, and required PDF checkers
         run: |
           npx playwright install --with-deps chromium
           sudo apt-get update
           sudo apt-get install -y fonts-noto-cjk poppler-utils
+      - name: Strict environment preflight
+        run: node scripts/render.mjs --doctor --strict --json
       - name: Run unit and mandatory browser tests
         run: npm test
-      - name: Render all themes and verify PDF text
-        run: |
-          for theme in editorial minimal midnight notebook bold; do
-            node scripts/render.mjs examples/rag-guide.md --theme "$theme" --out "validation/$theme" --footer "md2card-skill · Original example"
-            pdftotext "validation/$theme/cards.pdf" "validation/$theme/extracted.txt"
-            grep -q 'RAG' "validation/$theme/extracted.txt"
-          done
-          node scripts/render.mjs examples/separator-demo.md --out validation/separators
-      - name: Upload validation artifacts
+      - name: Render eight layouts in five themes and three original showcases
+        run: node scripts/validate-showcases.mjs
+      - name: Upload actual rendered showcase artifacts
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: validated-cards-${{ github.sha }}
           path: validation/
-          if-no-files-found: ignore
-          retention-days: 7
+          if-no-files-found: error
+          retention-days: 14

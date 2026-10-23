@@ -1,6 +1,6 @@
 {
   "name": "md2card-skill",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Original local Markdown knowledge-card renderer and agent skill",
   "type": "module",
@@ -10,7 +10,9 @@
   "scripts": {
     "render": "node scripts/render.mjs",
     "test": "node --test tests/*.test.mjs",
-    "test:integration": "node --test tests/export.test.mjs"
+    "test:integration": "node --test tests/export.test.mjs",
+    "doctor": "node scripts/render.mjs --doctor",
+    "test:unit": "node --test tests/markdown.test.mjs tests/assets.test.mjs tests/document.test.mjs tests/doctor.test.mjs tests/options.test.mjs tests/lifecycle.test.mjs"
   },
   "engines": {
     "node": ">=20"

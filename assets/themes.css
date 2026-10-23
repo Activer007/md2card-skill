@@ -1,14 +1,15 @@
 /*
- * md2card-skill — original offline card themes.
+ * md2card-skill — original, offline theme tokens and decorative treatments.
  * Copyright (c) 2026 Activer007. MIT license, see ../LICENSE.
- * No external assets, web fonts, or runtime network requests.
+ * Structure and reusable card layouts live in layouts.css.
+ * Brand accent is an optional, validated token; it never controls geometry.
  */
 
 .card {
   --ink: #202621;
   --muted: #596159;
   --paper: #f8f6ef;
-  --accent: #9c3e24;
+  --accent: var(--brand-accent, #9c3e24);
   --line: #cac8bd;
   --panel: #eeece3;
   --pad: calc(var(--card-width, 1080px) * 0.07037);
@@ -18,129 +19,7 @@
   --serif: "Iowan Old Style", "Palatino Linotype", Georgia, "Noto Serif CJK SC",
     "Noto Serif SC", "Songti SC", SimSun, serif;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", "Noto Sans Mono CJK SC", monospace;
-  box-sizing: border-box;
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  width: var(--card-width, 1080px);
-  height: var(--card-height, 1440px);
-  padding: var(--pad);
-  overflow: hidden;
-  color: var(--ink);
-  background: var(--paper);
-  font-family: var(--sans);
-  font-size: var(--text-size);
-  line-height: 1.72;
-  font-weight: 400;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  print-color-adjust: exact;
-  -webkit-print-color-adjust: exact;
 }
-
-.card *, .card *::before, .card *::after { box-sizing: border-box; }
-.card-content {
-  position: relative;
-  z-index: 1;
-  flex: 1 1 0;
-  min-width: 0;
-  min-height: 0;
-  overflow: visible;
-  overflow-wrap: anywhere;
-  word-break: normal;
-  line-break: strict;
-}
-.card-content > :first-child { margin-top: 0; }
-.card-content > :last-child { margin-bottom: 0; }
-.card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {
-  font-weight: 750;
-  line-height: 1.28;
-  text-wrap: balance;
-  overflow-wrap: anywhere;
-}
-.card h1 { margin: 0 0 0.58em; font-size: 2.32em; letter-spacing: -0.045em; }
-.card h2 { margin: 1.05em 0 0.45em; font-size: 1.37em; letter-spacing: -0.025em; }
-.card h3 { margin: 0.95em 0 0.35em; font-size: 1.1em; }
-.card h4, .card h5, .card h6 { margin: 0.8em 0 0.3em; font-size: 1em; }
-.card p { margin: 0.68em 0; }
-.card strong { font-weight: 750; color: var(--accent); }
-.card em { font-style: italic; }
-.card a { color: var(--accent); text-decoration-thickness: 0.06em; text-underline-offset: 0.16em; }
-.card ul, .card ol { margin: 0.6em 0; padding-left: 1.28em; }
-.card li { padding-left: 0.12em; margin: 0.3em 0; }
-.card li::marker { color: var(--accent); font-weight: 700; }
-.card li > p { margin: 0.22em 0; }
-.card li ul, .card li ol { margin: 0.2em 0; }
-.card blockquote {
-  margin: 0.95em 0;
-  padding: 0.6em 0.8em;
-  border-left: 0.12em solid var(--accent);
-  background: var(--panel);
-}
-.card blockquote p { margin: 0.15em 0; }
-.card hr { margin: 0.95em 0; border: 0; border-top: 1px solid var(--line); }
-.card code {
-  padding: 0.1em 0.23em;
-  color: var(--ink);
-  background: var(--panel);
-  border-radius: 0.15em;
-  font-family: var(--mono);
-  font-size: 0.8em;
-  overflow-wrap: anywhere;
-}
-.card pre {
-  max-width: 100%;
-  margin: 0.8em 0;
-  padding: 0.8em 1em;
-  border: 1px solid var(--line);
-  border-radius: 0.25em;
-  background: var(--panel);
-  font-size: 0.77em;
-  line-height: 1.55;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  tab-size: 2;
-}
-.card pre code { padding: 0; background: transparent; color: var(--ink); font-size: 1em; border-radius: 0; }
-.card table {
-  width: 100%;
-  max-width: 100%;
-  margin: 0.85em 0;
-  border-collapse: collapse;
-  table-layout: fixed;
-  font-size: 0.79em;
-  line-height: 1.5;
-}
-.card th, .card td {
-  padding: 0.55em 0.62em;
-  border-bottom: 1px solid var(--line);
-  text-align: left;
-  vertical-align: top;
-  overflow-wrap: anywhere;
-}
-.card th { border-top: 2px solid var(--accent); color: var(--ink); background: var(--panel); font-weight: 700; }
-.card tbody tr:last-child td { border-bottom: 2px solid var(--line); }
-.card del { color: var(--muted); }
-.card-footer {
-  position: relative;
-  z-index: 1;
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1.4em;
-  min-width: 0;
-  margin-top: 1.2em;
-  padding-top: 0.8em;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.58em;
-  line-height: 1.5;
-  letter-spacing: 0.08em;
-}
-.footer-text { min-width: 0; overflow-wrap: anywhere; }
-.card-index { flex: 0 0 auto; font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
 /* EDITORIAL: paper, bookish headlines, an inked corner and a fine double rule. */
 .card.theme-editorial { border-top: calc(var(--card-width, 1080px) * 0.0111) solid var(--ink); }
@@ -163,7 +42,7 @@
   --paper: #ffffff;
   --ink: #192d36;
   --muted: #52666d;
-  --accent: #126d64;
+  --accent: var(--brand-accent, #126d64);
   --line: #cedbdc;
   --panel: #eef5f4;
   --pad: calc(var(--card-width, 1080px) * 0.07778);
@@ -189,7 +68,7 @@
   --paper: #101c29;
   --ink: #eef5fa;
   --muted: #acbdce;
-  --accent: #76e1d6;
+  --accent: var(--brand-accent, #76e1d6);
   --line: #3a4c60;
   --panel: #1b2e41;
   border: calc(var(--card-width, 1080px) * 0.00648) solid #294256;
@@ -228,7 +107,7 @@
   --paper: #fffdf4;
   --ink: #243b4e;
   --muted: #566d7d;
-  --accent: #9b3d37;
+  --accent: var(--brand-accent, #9b3d37);
   --line: #c6d4d8;
   --panel: #f1f3ec;
   --pad: calc(var(--card-width, 1080px) * 0.07778);
@@ -258,7 +137,7 @@
   --paper: #f8d85b;
   --ink: #20221d;
   --muted: #4c4837;
-  --accent: #752f22;
+  --accent: var(--brand-accent, #752f22);
   --line: #8b7b3c;
   --panel: #fce9a7;
   --pad: calc(var(--card-width, 1080px) * 0.06667);

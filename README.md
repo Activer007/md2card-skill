@@ -202,6 +202,8 @@ node scripts/render.mjs --help
 
 见 [分期开发计划](docs/DEVELOPMENT_PLAN.md) 与 [源码审查及定向回归记录](docs/CODE_REVIEW.md)。后者记录具体缺陷、最小复现、修复和剩余限制，不以 CI 通过代替代码审查。
 
+本轮代码提交 [`7df842d`](https://github.com/Activer007/md2card-skill/commit/7df842dca5ff5bba237a9e5118e7e30b7af954c1) 已完成独立源码复核；[CI](https://github.com/Activer007/md2card-skill/actions/runs/39964850729) 通过 93 项测试（0 跳过），实际验证 10 套、56 张卡片。README 的四张展示图来自该提交的真实导出并已单独复核；检查范围与图片哈希见上述记录。
+
 Skill 会指导内容规划、主题选择、渲染和逐页检查。程序检查几何溢出，但不会判断观点是否正确，也不会自动替你改写、分页或审核引用。
 
 - 本地系统字体会影响换行。需要稳定输出时，固定操作系统、字体、依赖与浏览器版本。

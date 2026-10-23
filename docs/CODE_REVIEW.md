@@ -43,5 +43,19 @@ behavior change and a focused regression, rather than only a wider happy-path ru
 - No automatic pagination or rewriting is implemented. Measured semantic
   pagination remains a separately scoped later-stage candidate.
 
-The final reviewed commit and CI/artifact evidence should be recorded with the PR
-and showcase provenance. A prior successful run does not certify a later edit.
+## Accepted evidence
+
+Independent source re-review approved the fixes in code commit
+[`7df842dca5ff5bba237a9e5118e7e30b7af954c1`](https://github.com/Activer007/md2card-skill/commit/7df842dca5ff5bba237a9e5118e7e30b7af954c1)
+with no additional blocker identified in the reviewed paths. The focused review
+ran 30 targeted tests successfully. The complete exact-commit
+[CI run](https://github.com/Activer007/md2card-skill/actions/runs/39964850729) passed 93 tests with zero failures or skips,
+including real Chromium/PDF regressions; 10 offline decks / 56 cards were rendered.
+The [PR merge-preview run](https://github.com/Activer007/md2card-skill/actions/runs/39964856912) also passed.
+
+Visual acceptance is recorded separately in [SHOWCASES.md](SHOWCASES.md) and
+[DEVELOPMENT_PLAN.md](DEVELOPMENT_PLAN.md). Source review, focused failure injection,
+full CI and visual inspection provide complementary evidence, not a proof that
+all bugs are absent. Later edits require their own checks. The PR records the
+final documentation/image commit and its separate CI status.
+

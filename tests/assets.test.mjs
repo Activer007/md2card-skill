@@ -24,12 +24,37 @@ function chunk(type, data) {
   output.writeUInt32BE(crc32(output.subarray(4, output.length - 4)), output.length - 4);
   return output;
 }
-function png(width = 2, height = 3, ancillaryBytes = 0) {
+// Build genuine zero-valued raster pixels, including packed low-bit-depth rows
+// and all seven Adam7 passes. Explicit raw/compressed overrides are corruption tests.
+function png(width = 2, height = 3, ancillaryBytes = 0, options = {}) {
+  const { color = 6, depth = 8, interlace = 0, filter = 0 } = options;
   const header = Buffer.alloc(13);
-  header.writeUInt32BE(width); header.writeUInt32BE(height, 4); header[8] = 8; header[9] = 6;
+  header.writeUInt32BE(width); header.writeUInt32BE(height, 4); header[8] = depth; header[9] = color; header[12] = interlace;
   const chunks = [Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', header)];
-  if (ancillaryBytes) chunks.push(chunk('tEXt', Buffer.alloc(ancillaryBytes, 65)));
-  chunks.push(chunk('IDAT', deflateSync(Buffer.alloc(27))), chunk('IEND', Buffer.alloc(0)));
+  if (ancillaryBytes) chunks.push(chunk('tEXt', Buffer.concat([Buffer.from('Note\0'), Buffer.alloc(Math.max(0, ancillaryBytes - 5), 65)])));
+  if (color === 3) chunks.push(chunk('PLTE', Buffer.from([0, 0, 0, 255, 255, 255])));
+  let compressed = options.compressed;
+  if (!compressed) {
+    let raw = options.raw;
+    if (!raw) {
+      const bitsPerPixel = { 0: 1, 2: 3, 3: 1, 4: 2, 6: 4 }[color] * depth;
+      const passes = interlace ? [[0, 0, 8, 8], [4, 0, 8, 8], [0, 4, 4, 8], [2, 0, 4, 4], [0, 2, 2, 4], [1, 0, 2, 2], [0, 1, 1, 2]] : [[0, 0, 1, 1]];
+      const scanlines = [];
+      for (const [x, y, dx, dy] of passes) {
+        const passWidth = Math.max(0, Math.ceil((width - x) / dx));
+        const passHeight = Math.max(0, Math.ceil((height - y) / dy));
+        if (!passWidth || !passHeight) continue;
+        const stride = 1 + Math.ceil(passWidth * bitsPerPixel / 8);
+        const pass = Buffer.alloc(stride * passHeight);
+        for (let row = 0; row < passHeight; row++) pass[row * stride] = filter;
+        scanlines.push(pass);
+      }
+      raw = Buffer.concat(scanlines);
+    }
+    compressed = deflateSync(raw);
+  }
+  const splits = options.splitIdat ? [compressed.subarray(0, 2), compressed.subarray(2, 5), compressed.subarray(5)] : [compressed];
+  chunks.push(...splits.map(data => chunk('IDAT', data)), chunk('IEND', Buffer.alloc(0)));
   return Buffer.concat(chunks);
 }
 const jpeg = Buffer.from('/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAADAAIDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwCCiiivrD4U/9k=', 'base64');
@@ -137,7 +162,7 @@ test('oversized compressed bytes, dimensions, pixels and total bytes fail', asyn
   const resolver = await createAssetResolver(root);
   assert.throws(() => resolver.resolveImage('huge.png'), /8 MiB/);
   assert.throws(() => inspectImage(png(8193, 1)), /pixels per side/);
-  assert.throws(() => inspectImage(png(5000, 4001)), /decoded pixels/);
+  assert.throws(() => inspectImage(png(5000, 4001, 0, { color: 0, depth: 1 })), /decoded pixels/);
   assert.throws(() => inspectImage(png(0, 2)), /positive integers/);
   const large = png(2, 3, 7 * 1024 * 1024);
   for (let index = 0; index < 5; index++) writeFileSync(path.join(root, `${index}.png`), large);
@@ -193,18 +218,83 @@ test('asset validation exposes a stable INVALID_ASSET code', async t => {
 
 test('repeated references count decoded pixels and expose immutable usage snapshots', async t => {
   const { root } = fixture(t);
-  // Synthetic valid PNG structure isolates header-based resource accounting;
-  // final pixel-stream decoding is a separate mandatory browser export check.
-  writeFileSync(path.join(root, 'big-dimensions.png'), png(5000, 4000));
+  // A genuine 20M-pixel packed grayscale stream fits the inflated-byte limit.
+  const largePixels = png(5000, 4000, 0, { color: 0, depth: 1 });
+  writeFileSync(path.join(root, 'big-dimensions.png'), largePixels);
   const resolver = await createAssetResolver(root);
   for (let index = 0; index < 5; index++) resolver.resolveImage('big-dimensions.png');
   const before = resolver.getUsage();
   assert.equal(before.occurrences, 5);
   assert.equal(before.pixels, 100_000_000);
-  assert.equal(before.loadedBytes, png(5000, 4000).length);
+  assert.equal(before.loadedBytes, largePixels.length);
   assert.equal(before.embeddedBytes, 5 * Buffer.byteLength(resolver.getAssets()[0].dataUrl));
   assert.throws(() => resolver.resolveImage('big-dimensions.png'), /cumulative decoded-pixel budget/);
   assert.deepEqual(resolver.getUsage(), before);
   before.occurrences = 42;
   assert.equal(resolver.getUsage().occurrences, 5);
+});
+
+test('PNG validates genuine scanlines for every supported bit depth, color and filter', () => {
+  const formats = { 0: [1, 2, 4, 8, 16], 2: [8, 16], 3: [1, 2, 4, 8], 4: [8, 16], 6: [8, 16] };
+  for (const [color, depths] of Object.entries(formats)) {
+    for (const depth of depths) {
+      for (let filter = 0; filter <= 4; filter++) {
+        assert.deepEqual(inspectImage(png(13, 9, 0, { color: Number(color), depth, filter, splitIdat: true })), { mime: 'image/png', width: 13, height: 9 });
+      }
+    }
+  }
+});
+
+test('valid Adam7 PNGs handle all passes, packed rows, 16-bit pixels and empty passes', () => {
+  for (const [width, height] of [[1, 1], [1, 9], [9, 1], [2, 3], [7, 5], [8, 8], [13, 9]]) {
+    for (const [color, depth] of [[0, 1], [0, 2], [0, 4], [0, 8], [0, 16], [2, 8], [2, 16], [3, 1], [3, 8], [4, 16], [6, 8], [6, 16]]) {
+      assert.deepEqual(inspectImage(png(width, height, 0, { color, depth, interlace: 1, filter: 4, splitIdat: true })), { mime: 'image/png', width, height });
+    }
+  }
+});
+
+test('CRC-valid PNGs with invalid zlib streams fail with IMAGE_DECODE_FAILED', () => {
+  const valid = deflateSync(Buffer.alloc(27));
+  const badAdler = Buffer.from(valid); badAdler[badAdler.length - 1] ^= 1;
+  for (const compressed of [Buffer.from('not a valid zlib pixel stream'), valid.subarray(0, valid.length - 1), badAdler, Buffer.concat([valid, Buffer.from('trailing')]), Buffer.concat([valid, valid])]) {
+    assert.throws(() => inspectImage(png(2, 3, 0, { compressed })), { code: 'IMAGE_DECODE_FAILED' });
+  }
+});
+
+test('PNG exact row sizing and legal filter bytes apply to noninterlaced and Adam7 data', () => {
+  for (const raw of [Buffer.alloc(0), Buffer.alloc(26), Buffer.alloc(28), Buffer.alloc(1024 * 1024)]) {
+    assert.throws(() => inspectImage(png(2, 3, 0, { raw })), { code: 'IMAGE_DECODE_FAILED' });
+  }
+  for (const interlace of [0, 1]) {
+    assert.throws(() => inspectImage(png(13, 9, 0, { interlace, filter: 5 })), { code: 'IMAGE_DECODE_FAILED' });
+    assert.throws(() => inspectImage(png(13, 9, 0, { interlace, filter: 255 })), { code: 'IMAGE_DECODE_FAILED' });
+  }
+  // A noninterlaced stream has the wrong number/length of rows for this Adam7 image.
+  assert.throws(() => inspectImage(png(13, 9, 0, { interlace: 1, raw: Buffer.alloc((13 * 4 + 1) * 9) })), { code: 'IMAGE_DECODE_FAILED' });
+});
+
+test('PNG inflated-byte limit is checked before attempting to decode a bomb', () => {
+  // The dimensions pass the 20M-pixel rule, but 16-bit RGBA would require 80 MB.
+  assert.throws(() => inspectImage(png(4000, 2500, 0, { depth: 16, compressed: Buffer.from('invalid') })), error => {
+    assert.equal(error.code, 'INVALID_ASSET');
+    assert.match(error.message, /64 MiB inflated PNG byte limit/);
+    return true;
+  });
+});
+
+test('bad PNG pixels fail in the resolver before caching or embedding', async t => {
+  const { root } = fixture(t);
+  writeFileSync(path.join(root, 'bad.png'), png(2, 3, 0, { compressed: Buffer.from('not a valid zlib pixel stream') }));
+  const resolver = await createAssetResolver(root);
+  assert.throws(() => resolver.resolveImage('bad.png'), { code: 'IMAGE_DECODE_FAILED' });
+  assert.throws(() => renderCards('![Bad](bad.png)', resolver), { code: 'IMAGE_DECODE_FAILED' });
+  assert.deepEqual(resolver.getAssets(), []);
+  assert.deepEqual(resolver.getUsage(), { occurrences: 0, pixels: 0, embeddedBytes: 0, loadedBytes: 0 });
+});
+
+test('an independently encoded 16-bit RGB Adam7 PNG validates', () => {
+  // ImageMagick: convert -size 13x9 gradient:red-blue -depth 16
+  // -define png:color-type=2 -interlace PNG -strip png:-
+  const independent = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAA0AAAAJEAIAAAFBj93oAAAAaElEQVQoz62RyQ2AMAwEZyUKSSekM+gsUElKMS8uyYhFYp/2+FhbERwSwB7Qc2YGZq6hpOTCTncqKWwBFUeqQAsLDQMbFt5HJ5B0mogAydosMZ9APaBY53BkWfzQbhWM1gccqQD9t3YbXD0oAgFY4cIAAAAASUVORK5CYII=', 'base64');
+  assert.deepEqual(inspectImage(independent), { mime: 'image/png', width: 13, height: 9 });
 });

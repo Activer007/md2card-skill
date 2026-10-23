@@ -191,12 +191,11 @@ function corruptPixelPng() {
   return Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]),chunk('IHDR',header),chunk('IDAT',Buffer.from('not a valid zlib pixel stream')),chunk('IEND',Buffer.alloc(0))]);
 }
 
-test('corrupt compressed pixels fail browser decoding without publishing outputs', async t => {
-  if (!await browserReady(t)) return;
+test('corrupt compressed PNG pixels fail before publication even if browsers tolerate them', async t => {
   const dir=await workspace(t),input=path.join(dir,'bad.md'),out=path.join(dir,'out');
   await writeFile(path.join(dir,'bad.png'),corruptPixelPng());
   await writeFile(input,'![Invalid compressed pixels](bad.png)');
-  await assert.rejects(()=>exportCards(parseOptions([input,'--out',out])),{code:'IMAGE_DECODE_FAILED'});
+  await assert.rejects(()=>exportCards(parseOptions([input,'--out',out]), { openRenderer: async () => { assert.fail('Invalid PNG pixels must fail before browser acquisition.'); } }),{code:'IMAGE_DECODE_FAILED'});
   assert.deepEqual((await readdir(dir)).sort(),['bad.md','bad.png']);
 });
 

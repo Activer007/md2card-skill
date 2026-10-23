@@ -57,7 +57,10 @@ root, never outside it. There is no remote image download or URL fallback.
 
 Only PNG, JPEG, and static WebP are supported. Extension, magic/MIME, structural
 integrity, bytes and dimensions are checked before embedding. Chromium must also
-successfully decode every embedded image. PNG/WebP animation, SVG/GIF, absolute
+successfully decode every embedded image. PNG IDAT is additionally inflated with a
+64 MiB output cap and validated for exact scanline lengths and filter bytes,
+including Adam7 interlace, because browser decoders may tolerate corrupt data.
+PNG/WebP animation, SVG/GIF, absolute
 paths, protocol-relative URLs, any URI scheme including data/file/http, path
 traversal and escaped symlinks fail closed.
 
@@ -110,7 +113,7 @@ glyph fidelity.
 ## Failure and resource contracts
 
 Output directory must be absent or empty. Exports stage in a sibling directory and
-publish only after validation. Existing files are never overwritten. Overflow exits
+publish only after validation and successful browser cleanup. Existing files are never overwritten. Overflow exits
 2 and writes only overflow.json with original card/source ranges. Fix content or
 explicitly split it. Other failures exit 1 and do not publish incomplete exports.
 
@@ -122,7 +125,9 @@ CONTENT_OVERFLOW, RENDER_BUDGET, RENDER_TIMEOUT, IMAGE_DECODE_FAILED,
 PDF_TOOLS_MISSING, PDF_PAGE_COUNT_MISMATCH and PDF_TEXT_MISSING.
 
 Budgets: maximum 200 cards, 40 million PNG pixels/card, 200 million aggregate card
-pixels (PNG scale counted for PNG exports), 256 MiB generated artifacts, and a
+pixels including contact-sheet pixels (PNG scale counted for PNG exports),
+40 million contact-sheet pixels and 32767 pixels per contact-sheet side,
+256 MiB generated artifacts, and a
 120-second render deadline. `--timeout-ms` accepts 1000–600000. Chromium receives
 bounded operation timeouts and is closed on the total deadline. File/system-tool
 operations are separately bounded where supported; this is not an OS-level memory

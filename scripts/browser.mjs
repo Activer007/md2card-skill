@@ -18,11 +18,11 @@ export async function findBrowser(explicitPath) {
   throw new Md2CardError('BROWSER_NOT_FOUND', 'Chromium was not found. Run "npx playwright install chromium" after "npm ci", or set CHROMIUM_PATH to an installed Chromium executable. All export formats use Chromium for mandatory overflow validation.');
 }
 
-export async function openRenderer(options) {
-  const executablePath = await findBrowser(options.browser);
+export async function openRenderer(options, dependencies = {}) {
+  const executablePath = await (dependencies.findBrowser ?? findBrowser)(options.browser);
   let browser;
   try {
-    browser = await chromium.launch({ executablePath, headless: true, timeout: options.timeoutMs || 30000 });
+    browser = await (dependencies.launch ?? (configuration => chromium.launch(configuration)))({ executablePath, headless: true, timeout: options.timeoutMs || 30000 });
   } catch (error) {
     throw new Md2CardError('BROWSER_LAUNCH_FAILED', `Could not launch Chromium (${executablePath}). Check OS dependencies and sandbox permissions. Do not disable security restrictions to bypass a denied launch. ${error.message}`, {}, 1, { cause: error });
   }
@@ -36,7 +36,14 @@ export async function openRenderer(options) {
     await context.route('**/*', route => route.abort('blockedbyclient'));
     const page = await context.newPage();
     return { browser, context, page, executablePath };
-  } catch (error) { await browser.close(); throw error; }
+  } catch (error) {
+    try { await browser.close(); } catch (cleanupError) {
+      if (Object.isExtensible(error)) {
+        try { error.details = { ...error.details, cleanupFailures: [{ action: 'close-browser', message: cleanupError.message }] }; } catch { /* Preserve the original initialization failure. */ }
+      }
+    }
+    throw error;
+  }
 }
 
 /** Check both scroll dimensions and descendants, so wide code/tables cannot silently clip. */

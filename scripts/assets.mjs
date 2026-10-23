@@ -1,9 +1,10 @@
 import { constants, closeSync, fstatSync, openSync, readSync, realpathSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { inflateSync } from 'node:zlib';
 import { Md2CardError } from './errors.mjs';
 
-export const ASSET_LIMITS = Object.freeze({ maxBytes: 8 * 1024 * 1024, maxPixels: 20_000_000, maxDimension: 8192, maxTotalBytes: 32 * 1024 * 1024, maxEmbeddedBytes: 64 * 1024 * 1024, maxTotalPixels: 100_000_000 });
+export const ASSET_LIMITS = Object.freeze({ maxBytes: 8 * 1024 * 1024, maxPixels: 20_000_000, maxDimension: 8192, maxTotalBytes: 32 * 1024 * 1024, maxEmbeddedBytes: 64 * 1024 * 1024, maxTotalPixels: 100_000_000, maxInflatedBytes: 64 * 1024 * 1024 });
 const EXTENSION_MIME = Object.freeze({ '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp' });
 
 function fail(message) { throw new Md2CardError('INVALID_ASSET', message); }
@@ -25,10 +26,48 @@ function crc32(buffer) {
   return (value ^ 0xffffffff) >>> 0;
 }
 
+// Each nonempty Adam7 pass is an independent rectangle of filtered scanlines.
+const ADAM7 = Object.freeze([[0, 0, 8, 8], [4, 0, 8, 8], [0, 4, 4, 8], [2, 0, 4, 4], [0, 2, 2, 4], [1, 0, 2, 2], [0, 1, 1, 2]]);
+function validatePngPixels(chunks, { width, height }, depth, color, interlace) {
+  const channels = { 0: 1, 2: 3, 3: 1, 4: 2, 6: 4 }[color];
+  const bitsPerPixel = channels * depth;
+  const passes = (interlace ? ADAM7 : [[0, 0, 1, 1]]).map(([x, y, dx, dy]) => {
+    const passWidth = Math.max(0, Math.ceil((width - x) / dx));
+    const rows = Math.max(0, Math.ceil((height - y) / dy));
+    return { rows: passWidth ? rows : 0, stride: 1 + Math.ceil(passWidth * bitsPerPixel / 8) };
+  });
+  const expectedBytes = passes.reduce((sum, { rows, stride }) => sum + rows * stride, 0);
+  if (expectedBytes > ASSET_LIMITS.maxInflatedBytes) fail('Image exceeds the 64 MiB inflated PNG byte limit. Use lower dimensions or bit depth.');
+  const compressed = Buffer.concat(chunks);
+  let decoded;
+  try {
+    // The exact expected size is also the native allocation/output ceiling. A
+    // complete zlib stream (including Adler-32) is required; no Z_SYNC_FLUSH.
+    decoded = inflateSync(compressed, { info: true, maxOutputLength: expectedBytes });
+  } catch (error) {
+    throw new Md2CardError('IMAGE_DECODE_FAILED', 'PNG compressed pixels are invalid, truncated, or exceed the declared scanline size.', {}, 1, { cause: error });
+  }
+  if (decoded.engine.bytesWritten !== compressed.length) {
+    throw new Md2CardError('IMAGE_DECODE_FAILED', 'PNG image data contains trailing bytes or multiple zlib streams.');
+  }
+  if (decoded.buffer.length !== expectedBytes) {
+    throw new Md2CardError('IMAGE_DECODE_FAILED', 'PNG decoded pixels do not match the declared scanline size.');
+  }
+  let offset = 0;
+  for (const { rows, stride } of passes) {
+    for (let row = 0; row < rows; row++, offset += stride) {
+      if (decoded.buffer[offset] > 4) throw new Md2CardError('IMAGE_DECODE_FAILED', 'PNG scanline contains an invalid filter byte.');
+    }
+  }
+}
+
 function inspectPng(bytes) {
   let offset = 8;
   let size;
   let color;
+  let depth;
+  let interlace;
+  const imageData = [];
   let idat = false;
   let idatEnded = false;
   let palette = false;
@@ -46,7 +85,8 @@ function inspectPng(bytes) {
       if (size || length !== 13) fail('Invalid or repeated PNG IHDR chunk.');
       size = dimensions(data.readUInt32BE(0), data.readUInt32BE(4));
       color = data[9];
-      const depth = data[8];
+      depth = data[8];
+      interlace = data[12];
       const depths = { 0: [1, 2, 4, 8, 16], 2: [8, 16], 3: [1, 2, 4, 8], 4: [8, 16], 6: [8, 16] };
       if (!depths[color]?.includes(depth) || data[10] !== 0 || data[11] !== 0 || data[12] > 1) fail('Invalid PNG pixel format.');
     } else if (type === 'PLTE') {
@@ -54,9 +94,11 @@ function inspectPng(bytes) {
       palette = true;
     } else if (type === 'IDAT') {
       if (idatEnded || (color === 3 && !palette)) fail('Invalid PNG image-data order.');
-      if (length > 0) idat = true;
+      idat = true;
+      imageData.push(data);
     } else if (type === 'IEND') {
       if (!idat || length !== 0 || end !== bytes.length) fail('Invalid PNG end or missing image data.');
+      validatePngPixels(imageData, size, depth, color, interlace);
       return size;
     } else {
       if (['acTL', 'fcTL', 'fdAT'].includes(type)) fail('Animated PNG assets are not supported.');
@@ -148,7 +190,7 @@ function inspectWebp(bytes) {
   return size;
 }
 
-/** Header/structure validation precedes browser decode validation during export. */
+/** PNG also validates its bounded pixel stream; browser decode remains mandatory for all formats. */
 export function inspectImage(bytes) {
   if (!Buffer.isBuffer(bytes)) bytes = Buffer.from(bytes);
   if (bytes.length === 0 || bytes.length > ASSET_LIMITS.maxBytes) fail(`Image must contain 1 to ${ASSET_LIMITS.maxBytes} bytes (8 MiB).`);

@@ -13,7 +13,8 @@ test('extended options remain backwards compatible and validate limits', () => {
   assert.throws(() => parseOptions(['x.md', '--unknown']), {code:'INVALID_OPTIONS'});
   assert.throws(() => checkRenderBudget(200, options), {code:'RENDER_BUDGET'});
   assert.throws(() => checkRenderBudget(201, options), {code:'RENDER_BUDGET'});
-  assert.equal(checkRenderBudget(8, options).estimatedPixels, 1080*1440*8);
+  assert.equal(checkRenderBudget(8, options).cardPixels, 1080*1440*8);
+  assert.equal(checkRenderBudget(8, options).contactSheet.height, 780);
 });
 
 test('brand JSON allowlist prevents CSS or unsupported properties', async t => {
@@ -26,4 +27,16 @@ test('brand JSON allowlist prevents CSS or unsupported properties', async t => {
     await writeFile(file, JSON.stringify(bad));
     await assert.rejects(()=>loadBrand(file,()=>{}), {code:'INVALID_BRAND'});
   }
+});
+
+
+test('contact-sheet pixel and side budgets reject extreme aspect ratios before rendering', () => {
+  const tall = parseOptions(['x.md','--width','200','--height','4096','--format','html','--contact-sheet']);
+  assert.throws(() => checkRenderBudget(200,tall), error => error.code === 'RENDER_BUDGET' && /Contact sheet/.test(error.message));
+  const plain = { ...tall, contactSheet:false };
+  assert.equal(checkRenderBudget(200,plain).estimatedPixels,163840000);
+  const normal = parseOptions(['x.md','--format','html','--contact-sheet']);
+  const budget = checkRenderBudget(4,normal);
+  assert.deepEqual(budget.contactSheet,{columns:4,rows:1,width:1180,height:400,pixels:472000});
+  assert.equal(budget.estimatedPixels,budget.cardPixels+472000);
 });

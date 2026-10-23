@@ -11,4 +11,6 @@ They were encoded with Pillow as JPEG (quality 90, subsampling 0) and lossless W
 Pillow is only a fixture-generation tool, not a runtime or test dependency.
 The corrupt PNG case is generated in export.test.mjs: valid PNG chunks/checksums
 and dimensions, but an intentionally invalid IDAT compressed payload. It exercises
-Chromium's final decoding guard rather than only the structural asset parser.
+bounded pixel-stream validation. Some browsers accept a PNG header even when its
+IDAT data is corrupt, so native image.decode() is an additional check, not the
+only integrity gate.

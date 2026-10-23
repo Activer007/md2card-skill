@@ -5,7 +5,7 @@ import { mkdtemp, writeFile, readdir, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { parseOptions, exportCards } from '../scripts/render.mjs';
-import { openRenderer } from '../scripts/browser.mjs';
+import { openRenderer, closeBrowser } from '../scripts/browser.mjs';
 
 async function workspace(t) {
   const dir = await mkdtemp(path.join(tmpdir(), 'md2card-lifecycle-'));
@@ -183,4 +183,138 @@ test('context initialization failure is not masked by browser cleanup failure', 
 
   assert.equal(contextCalls, 1);
   assert.equal(closeCalls, 1);
+});
+
+function deferred() {
+  let resolve, reject;
+  const promise = new Promise((yes, no) => { resolve = yes; reject = no; });
+  return { promise, resolve, reject };
+}
+
+test('context, route and page initialization share the startup deadline', { timeout: 3000 }, async () => {
+  for (const stalledStep of ['context', 'route', 'page']) {
+    const pending = deferred();
+    const calls = [];
+    let closeCalls = 0;
+    const step = async name => { calls.push(name); if (name === stalledStep) await pending.promise; };
+    const browser = {
+      async newContext() {
+        await step('context');
+        return {
+          async route() { await step('route'); },
+          async newPage() { await step('page'); return {}; }
+        };
+      },
+      async close() { closeCalls += 1; }
+    };
+    try {
+      await assert.rejects(() => openRenderer({ width: 200, height: 200, scale: 1, timeoutMs: 30 }, {
+        findBrowser: async () => '/stub/chromium', launch: async () => browser
+      }), { code: 'RENDER_TIMEOUT' });
+      assert.equal(closeCalls, 1);
+    } finally {
+      pending.resolve();
+    }
+    // Late completion cannot advance to another initialization operation.
+    await new Promise(resolve => setImmediate(resolve));
+    assert.deepEqual(calls, ['context', 'route', 'page'].slice(0, ['context', 'route', 'page'].indexOf(stalledStep) + 1));
+  }
+});
+
+test('initialization failure survives a close timeout and late close rejection', { timeout: 2000 }, async () => {
+  const primaryError = Object.assign(new Error('initialization failed'), { code: 'CONTEXT_FAILED' });
+  const pending = deferred();
+  let closeCalls = 0;
+  const browser = {
+    async newContext() { throw primaryError; },
+    close() { closeCalls += 1; return pending.promise; }
+  };
+  await assert.rejects(() => openRenderer({ width: 200, height: 200, scale: 1, timeoutMs: 30 }, {
+    findBrowser: async () => '/stub/chromium', launch: async () => browser
+  }), error => error === primaryError);
+  assert.equal(closeCalls, 1);
+  assert.equal(primaryError.details.cleanupFailures[0].code, 'BROWSER_CLEANUP_TIMEOUT');
+  assert.match(primaryError.details.cleanupFailures[0].message, /could not be confirmed/);
+  pending.reject(new Error('late close rejection'));
+  await new Promise(resolve => setImmediate(resolve));
+});
+
+test('startup timeout also settles when Chromium shutdown cannot be confirmed', { timeout: 2000 }, async () => {
+  const context = deferred(), closing = deferred();
+  let closeCalls = 0;
+  try {
+    await assert.rejects(() => openRenderer({ width: 200, height: 200, scale: 1, timeoutMs: 30 }, {
+      findBrowser: async () => '/stub/chromium',
+      launch: async () => ({ newContext: () => context.promise, close: () => { closeCalls += 1; return closing.promise; } })
+    }), error => {
+      assert.equal(error.code, 'RENDER_TIMEOUT');
+      assert.equal(error.details.cleanupFailures[0].code, 'BROWSER_CLEANUP_TIMEOUT');
+      return true;
+    });
+    assert.equal(closeCalls, 1);
+  } finally {
+    context.reject(new Error('late context rejection'));
+    closing.resolve();
+  }
+  await new Promise(resolve => setImmediate(resolve));
+});
+
+test('a pending browser close cannot block primary-error reporting or staging removal', { timeout: 2000 }, async t => {
+  const { dir, options } = await workspace(t);
+  const pending = deferred();
+  t.after(() => pending.resolve());
+  const primaryError = Object.assign(new Error('primary render failure'), { code: 'PRIMARY_RENDER_FAILED' });
+  const fixture = rendererFixture({ close: () => pending.promise, version: () => { throw primaryError; } });
+  await assert.rejects(() => exportCards({ ...options, timeoutMs: 100 }, dependencies(fixture.renderer)), error => error === primaryError);
+  assert.equal(fixture.closeCalls(), 1);
+  assert.equal(primaryError.details.cleanupFailures[0].code, 'BROWSER_CLEANUP_TIMEOUT');
+  await assertNoOutputOrStaging(dir);
+});
+
+test('render deadline interrupts a pending browser evaluation even when close hangs', { timeout: 2000 }, async t => {
+  const { dir, options } = await workspace(t);
+  const evaluation = deferred(), closing = deferred();
+  t.after(() => { evaluation.resolve(); closing.resolve(); });
+  const fixture = rendererFixture({ close: () => closing.promise });
+  fixture.renderer.page.evaluate = () => evaluation.promise;
+  let measurements = 0;
+  await assert.rejects(() => exportCards({ ...options, timeoutMs: 100 }, dependencies(fixture.renderer, {
+    measureCards: async () => { measurements += 1; return [{ index: 1, overflow: [] }]; }
+  })), error => {
+    assert.equal(error.code, 'RENDER_TIMEOUT');
+    assert.equal(error.details.cleanupFailures[0].code, 'BROWSER_CLEANUP_TIMEOUT');
+    return true;
+  });
+  assert.equal(fixture.closeCalls(), 1);
+  evaluation.resolve();
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(measurements, 0, 'late browser completion must not resume export or publish output');
+  await assertNoOutputOrStaging(dir);
+});
+
+test('a close timeout cannot publish an otherwise successful export', { timeout: 2000 }, async t => {
+  const { dir, options } = await workspace(t);
+  const closing = deferred();
+  t.after(() => closing.resolve());
+  const fixture = rendererFixture({ close: () => closing.promise });
+  await assert.rejects(() => exportCards({ ...options, timeoutMs: 100 }, dependencies(fixture.renderer)), error => {
+    assert.equal(error.code, 'RENDER_TIMEOUT');
+    assert.equal(error.details.cleanupFailures[0].code, 'BROWSER_CLEANUP_TIMEOUT');
+    return true;
+  });
+  assert.equal(fixture.closeCalls(), 1);
+  closing.resolve();
+  await new Promise(resolve => setImmediate(resolve));
+  await assertNoOutputOrStaging(dir);
+});
+
+test('successful browser cleanup and publication remain unchanged', async t => {
+  const { dir, options } = await workspace(t);
+  const fixture = rendererFixture();
+  const manifest = await exportCards(options, dependencies(fixture.renderer));
+  assert.equal(manifest.status, 'success');
+  assert.equal(fixture.closeCalls(), 1);
+  assert.deepEqual((await readdir(dir)).sort(), ['input.md', 'output']);
+  assert.deepEqual((await readdir(options.out)).sort(), ['cards.html', 'manifest.json']);
+  await closeBrowser({ close: async () => {} }, 30);
 });

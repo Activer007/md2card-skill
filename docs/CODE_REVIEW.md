@@ -15,6 +15,7 @@ behavior change and a focused regression, rather than only a wider happy-path ru
 | Cleanup masked the primary error and leaked staging | Injected cards.html write failure plus close rejection replaced the write error and skipped rm | Independent cleanup attempts, preserve original error, remove staging even when close fails; close before successful publication | Injected write/render/context failures and cleanup-only failure assert original error and no partial output/staging |
 | Contact sheets contained an empty viewport footer | Three/four-card exports used a 600px full-page capture for a 400px deck | Capture the deck element itself, retaining its deliberate padding | Actual PNG dimensions checked for 1, 3, 4 and 5 cards |
 | Contact-sheet work escaped deck budgets | 200 cards at 200×4096 passed the card budget but implied a 1180×277500 sheet | Preflight exact sheet dimensions, cap side/pixels, include it in total budget | Pure unit reproduction rejects the extreme sheet before browser acquisition |
+| Browser initialization and cleanup could wait forever | A pending newContext exceeded a 50 ms startup timeout with no close attempt; a primary failure plus pending browser.close left staging and never returned | Cover context/route/page startup and non-writing browser waits with the deadline; bound each close attempt and continue independent staging cleanup | Injected pending initialization, evaluation and close promises; late settlement/rejection; primary-error identity and no publication/staging |
 
 ## Safety checks reviewed
 
@@ -40,6 +41,11 @@ behavior change and a focused regression, rather than only a wider happy-path ru
 - Resource limits are practical guards, not an operating-system memory sandbox.
   Filesystem cleanup can itself be denied or fail; the original failure is
   preserved and cleanup failures are reported separately where possible.
+- Browser cleanup has a separate grace period of at most five seconds (or the
+  configured render timeout, if shorter). A cleanup timeout explicitly reports
+  that Chromium shutdown could not be confirmed; it does not claim to force-kill
+  the browser. Filesystem and external-command completion still depend on their
+  own operating-system/tool behavior; the deadline is not an OS process sandbox.
 - No automatic pagination or rewriting is implemented. Measured semantic
   pagination remains a separately scoped later-stage candidate.
 

@@ -18,31 +18,79 @@ export async function findBrowser(explicitPath) {
   throw new Md2CardError('BROWSER_NOT_FOUND', 'Chromium was not found. Run "npx playwright install chromium" after "npm ci", or set CHROMIUM_PATH to an installed Chromium executable. All export formats use Chromium for mandatory overflow validation.');
 }
 
+export const BROWSER_CLEANUP_TIMEOUT_MS = 5000;
+
+/** Bound the close attempt; a timeout is not evidence that Chromium exited. */
+export async function closeBrowser(browser, timeoutMs = BROWSER_CLEANUP_TIMEOUT_MS) {
+  let timer;
+  try {
+    await Promise.race([
+      Promise.resolve().then(() => browser.close()),
+      new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Md2CardError('BROWSER_CLEANUP_TIMEOUT',
+          'Browser cleanup timed out; Chromium shutdown could not be confirmed.', { timeoutMs })), timeoutMs);
+      })
+    ]);
+  } catch (error) {
+    if (error instanceof Md2CardError && error.code === 'BROWSER_CLEANUP_TIMEOUT') throw error;
+    throw new Md2CardError('BROWSER_CLEANUP_FAILED', 'Could not close the render browser.', { reason: error?.message ?? String(error) }, 1, { cause: error });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 export async function openRenderer(options, dependencies = {}) {
+  const timeoutMs = options.timeoutMs || 30000;
+  const deadline = Date.now() + timeoutMs;
+  let timedOut = false;
+  const remaining = () => {
+    const ms = deadline - Date.now();
+    if (timedOut || ms <= 0) throw new Md2CardError('RENDER_TIMEOUT', 'Browser initialization exceeded the render deadline.');
+    return ms;
+  };
   const executablePath = await (dependencies.findBrowser ?? findBrowser)(options.browser);
+  const launchTimeout = remaining();
   let browser;
   try {
-    browser = await (dependencies.launch ?? (configuration => chromium.launch(configuration)))({ executablePath, headless: true, timeout: options.timeoutMs || 30000 });
+    browser = await (dependencies.launch ?? (configuration => chromium.launch(configuration)))({ executablePath, headless: true, timeout: launchTimeout });
   } catch (error) {
     throw new Md2CardError('BROWSER_LAUNCH_FAILED', `Could not launch Chromium (${executablePath}). Check OS dependencies and sandbox permissions. Do not disable security restrictions to bypass a denied launch. ${error.message}`, {}, 1, { cause: error });
   }
+  let timer;
   try {
-    const context = await browser.newContext({
-      viewport: { width: options.width + 64, height: options.height + 64 },
-      deviceScaleFactor: options.scale,
-      javaScriptEnabled: false,
-      serviceWorkers: 'block'
+    // Chromium's launch timeout does not cover context/route/page initialization.
+    // Own the browser and arm the deadline before starting those operations.
+    const initializationTimeout = remaining();
+    const timeout = new Promise((_, reject) => {
+      timer = setTimeout(() => {
+        timedOut = true;
+        reject(new Md2CardError('RENDER_TIMEOUT', 'Browser initialization exceeded the render deadline.'));
+      }, initializationTimeout);
     });
-    await context.route('**/*', route => route.abort('blockedbyclient'));
-    const page = await context.newPage();
-    return { browser, context, page, executablePath };
+    const initialize = async () => {
+      const context = await browser.newContext({
+        viewport: { width: options.width + 64, height: options.height + 64 },
+        deviceScaleFactor: options.scale,
+        javaScriptEnabled: false,
+        serviceWorkers: 'block'
+      });
+      remaining();
+      await context.route('**/*', route => route.abort('blockedbyclient'));
+      remaining();
+      const page = await context.newPage();
+      remaining();
+      return { browser, context, page, executablePath };
+    };
+    return await Promise.race([initialize(), timeout]);
   } catch (error) {
-    try { await browser.close(); } catch (cleanupError) {
+    try { await closeBrowser(browser, Math.min(timeoutMs, BROWSER_CLEANUP_TIMEOUT_MS)); } catch (cleanupError) {
       if (Object.isExtensible(error)) {
-        try { error.details = { ...error.details, cleanupFailures: [{ action: 'close-browser', message: cleanupError.message }] }; } catch { /* Preserve the original initialization failure. */ }
+        try { error.details = { ...error.details, cleanupFailures: [{ action: 'close-browser', code: cleanupError.code, message: cleanupError.message }] }; } catch { /* Preserve the original initialization failure. */ }
       }
     }
     throw error;
+  } finally {
+    clearTimeout(timer);
   }
 }
 

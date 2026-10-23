@@ -7,7 +7,7 @@ import { parseArgs } from 'node:util';
 import { renderCards } from './markdown.mjs';
 import { buildDocument, buildPreviewDocument, SIZES, THEMES } from './document.mjs';
 import { createAssetResolver } from './assets.mjs';
-import { openRenderer, measureCards } from './browser.mjs';
+import { openRenderer, measureCards, closeBrowser, BROWSER_CLEANUP_TIMEOUT_MS } from './browser.mjs';
 import { inspectEnvironment } from './doctor.mjs';
 import { inspectPdf } from './qa.mjs';
 import { Md2CardError, normalizeError } from './errors.mjs';
@@ -52,6 +52,7 @@ Only validated PNG/JPEG/WebP inside --asset-root can be embedded, no SVG,
 remote/file/data URLs, scripts or external fetches. Raw HTML is escaped.
 Overflow is mandatory in screen AND print; exit 2 writes overflow.json only.
 Native PDF retains text; strict mode verifies pages and searchable text.
+Browser cleanup has a separate bounded grace period of at most five seconds.
 No accounts, cloud sync, AI calls, auto-pagination, rewriting or PPTX.
 `;
 
@@ -166,28 +167,38 @@ export async function exportCards(options, dependencies = {}) {
   remaining();
   const renderer = await (dependencies.openRenderer ?? openRenderer)({ ...options, timeoutMs: remaining() });
   let staging, timer, closePromise, primaryError, timedOut = false;
-  const closeRenderer = () => closePromise ??= Promise.resolve().then(() => renderer.browser.close()).catch(error => {
-    throw new Md2CardError('BROWSER_CLEANUP_FAILED', 'Could not close the render browser.', { reason: error.message }, 1, { cause: error });
-  });
+  const closeRenderer = () => closePromise ??= closeBrowser(renderer.browser, Math.min(options.timeoutMs, BROWSER_CLEANUP_TIMEOUT_MS));
   const checkTime = () => { if (timedOut) fail('RENDER_TIMEOUT', 'Total render deadline exceeded. Split the deck or increase --timeout-ms.'); return remaining(); };
   // Own the renderer before any post-launch deadline check can throw.
   try {
-    timer = setTimeout(() => { timedOut = true; void closeRenderer().catch(() => {}); }, remaining());
+    const timeoutMs = remaining();
+    const deadlineSignal = new Promise((_, reject) => {
+      timer = setTimeout(() => {
+        timedOut = true;
+        void closeRenderer().catch(() => {});
+        reject(new Md2CardError('RENDER_TIMEOUT', 'Total render deadline exceeded.'));
+      }, timeoutMs);
+    });
+    // Some browser APIs (evaluate/newPage/emulateMedia) have no per-call timeout.
+    // Only race browser waits, not filesystem writes/publication: a late browser
+    // result must never resume the export after staging cleanup has run.
+    void deadlineSignal.catch(() => {});
+    const withinDeadline = operation => Promise.race([operation, deadlineSignal]);
     const { page } = renderer;
     page.setDefaultTimeout(checkTime());
     await page.setContent(html, { waitUntil: 'load', timeout: checkTime() });
-    await page.evaluate(() => document.fonts.ready);
-    const imageQa = await page.locator('img').evaluateAll(async images => Promise.all(images.map(async image => {
+    await withinDeadline(page.evaluate(() => document.fonts.ready));
+    const imageQa = await withinDeadline(page.locator('img').evaluateAll(async images => Promise.all(images.map(async image => {
       // complete/naturalWidth can describe a parsed header even when pixel decoding
       // fails. Require the browser's actual decode promise, not only dimensions.
       let decoded = false;
       try { await image.decode(); decoded = true; } catch { /* Report below without exposing source bytes. */ }
       return { alt: image.alt, decoded, valid: decoded && image.complete && image.naturalWidth > 0 && image.naturalHeight > 0 && image.naturalWidth <= 8192 && image.naturalHeight <= 8192 && image.naturalWidth * image.naturalHeight <= 20_000_000, width: image.naturalWidth, height: image.naturalHeight };
-    })));
+    }))));
     if (imageQa.some(image => !image.valid)) fail('IMAGE_DECODE_FAILED', 'An embedded local image could not be decoded by Chromium. Replace the invalid image.', { images: imageQa.filter(image => !image.valid) });
-    const screenMeasurements = await measure(page);
-    await page.emulateMedia({ media: 'print' });
-    const printMeasurements = await measure(page);
+    const screenMeasurements = await withinDeadline(measure(page));
+    await withinDeadline(page.emulateMedia({ media: 'print' }));
+    const printMeasurements = await withinDeadline(measure(page));
     const affected = screenMeasurements.map((measurement, index) => ({ index: measurement.index, sourceLines: cards[index].sourceLines, screen: measurement, print: printMeasurements[index] })).filter(item => item.screen.overflow.length || item.print.overflow.length);
     await mkdir(path.dirname(options.out), { recursive: true });
     staging = await mkdtemp(path.join(path.dirname(options.out), '.md2card-'));
@@ -211,11 +222,11 @@ export async function exportCards(options, dependencies = {}) {
     let pdfQa = { status: 'not-requested' };
     if (options.formats.includes('pdf')) {
       await page.pdf({ path: path.join(staging, 'cards.pdf'), printBackground: true, preferCSSPageSize: true, displayHeaderFooter: false, timeout: checkTime(), margin: { top: 0, bottom: 0, left: 0, right: 0 } });
-      const textContent = await page.locator('.card-content').allTextContents();
+      const textContent = await withinDeadline(page.locator('.card-content').allTextContents());
       pdfQa = await inspectPdf(path.join(staging, 'cards.pdf'), { expectedPages: cards.length, requireTools: options.strict, expectedText: textContent.join(' ').trim() });
       await record('pdf', 'cards.pdf');
     }
-    await page.emulateMedia({ media: 'screen' });
+    await withinDeadline(page.emulateMedia({ media: 'screen' }));
     if (options.formats.includes('png')) for (const card of cards) {
       const filename = `card-${String(card.index).padStart(3, '0')}.png`;
       await page.locator('.card').nth(card.index - 1).screenshot({ path: path.join(staging, filename), type: 'png', animations: 'disabled', timeout: checkTime() });
@@ -223,13 +234,13 @@ export async function exportCards(options, dependencies = {}) {
     }
     if (options.contactSheet) {
       const { columns, width: sheetWidth } = budget.contactSheet, thumbWidth = 270;
-      const sheet = await renderer.context.newPage();
-      await sheet.setViewportSize({ width: sheetWidth, height: 600 });
+      const sheet = await withinDeadline(renderer.context.newPage());
+      await withinDeadline(sheet.setViewportSize({ width: sheetWidth, height: 600 }));
       const sheetCss = `.deck { display:grid; grid-template-columns:repeat(${columns}, ${thumbWidth}px); gap:20px; padding:20px; min-width:0; width:max-content; } .card { zoom:${thumbWidth / options.width}; }`;
       await sheet.setContent(html.replace('</style>', sheetCss + '\n</style>'), { waitUntil: 'load', timeout: checkTime() });
-      await sheet.evaluate(() => document.fonts.ready);
+      await withinDeadline(sheet.evaluate(() => document.fonts.ready));
       await sheet.locator('.deck').screenshot({ path: path.join(staging, 'contact-sheet.png'), scale: 'css', animations: 'disabled', timeout: checkTime() });
-      await sheet.close(); await record('contact-sheet', 'contact-sheet.png');
+      await withinDeadline(sheet.close()); await record('contact-sheet', 'contact-sheet.png');
     }
     const loadedAssets = assets.getAssets().map(({ dataUrl, ...asset }) => asset);
     const manifest = {

@@ -181,7 +181,7 @@ balancing is not reported as a successful improvement. The ordinary algorithm is
 `bounded-tail-groups-v1` as the optional pass. Final exact-count screen/print,
 coverage, assets, image decoding, PDF and output-staging checks remain mandatory.
 
-Source-only tests and the pending real-browser acceptance plan are documented in
+Source-only tests and the scoped real-browser acceptance evidence are documented in
 [TAIL_BALANCING.md](../docs/TAIL_BALANCING.md). No mock measurement demonstrates
 actual typography, line wrapping, pixel quality or searchable PDF correctness.
 
@@ -316,7 +316,7 @@ expected atomic-overflow failure. A denied local Chromium launch is a blocked
 check, not a reason to bypass sandbox restrictions or report browser tests as
 passing.
 
-## Composed template contract (visual M1, opt-in)
+## Composed template contract (48 designs, opt-in)
 
 `--list-templates` prints repository-owned contracts; `--template T01` selects one
 for a whole manually paginated deck. Alternatively, first-line metadata accepts
@@ -326,7 +326,8 @@ fail instead of silently reinterpreting content. IDs are allowlisted and never
 used as a filesystem path, CSS or HTML input. Templates remain independent of
 legacy themes; changing a palette does not create another counted design.
 
-The initial four designs support only 3:4 and manual pagination. Automatic mode
+All 48 designs support 3:4 and manual pagination. Only T04/T21 additionally
+support the independently composed square/slide layouts described below. Automatic mode
 still rejects template/density metadata and supports layout-only explainer/steps.
 Text-only designs reject image metadata and inline images rather than hide them.
 Raw HTML escaping, local asset validation, all output/resource budgets, screen
@@ -339,7 +340,7 @@ its original section. Density alters gaps only, not font sizes. The mobile base 
 0.043 × canvas width and notes are 0.0335 × canvas width, giving 15.09px / 11.76px
 at the 351px inner card width of the 375px preview. Actual nested text is measured
 in real Chromium, not inferred only from these tokens. Real pixels still require
-human review: typography checks do not prove composition quality or glyph safety.
+independent pixel review: typography checks do not prove composition quality or glyph safety.
 
 M3 adds opt-in T21 metric/label rendering. Both are required nonempty strings
 for this design and are escaped as text; missing fields fail with
@@ -361,14 +362,16 @@ two sibling quote blocks in each of its first two comparison sections; nested
 quotes do not count as options. T39/T40 figure ordering is repository-owned and
 cannot be set by input metadata. Every supplied source fragment remains intact.
 
-## Independent aspect candidates (M9, source-only)
+## Independent aspect layouts (M9, scoped acceptance)
 
 Only T04 and T21 currently implement independent square (1:1) and slide (16:9)
-compositions in addition to portrait. These additions await real rendering and
-visual acceptance. Other templates still reject those ratios. Use --size or
+compositions in addition to portrait. The four registered standard-density short
+examples have actual full PNG, 375/390 phone and native-PDF visual acceptance;
+this does not extend to arbitrary content or dimensions. Other templates still
+reject those ratios. Use --size or
 matching custom dimensions; public aspect metadata is not supported. The existing
 0.002 ratio tolerance is unchanged. The registry exposes per-aspect composition,
 example and status, while manifests record the actual derived aspect. Mobile
 body/source floors, manual defaults, auto rejection and overflow checks remain
 unchanged. A portrait source may legitimately overflow in square/slide. See
-[the aspect contract and pending validation plan](../docs/TEMPLATE_ASPECTS.md).
+[the aspect contract and exact validation evidence](../docs/TEMPLATE_ASPECTS.md).

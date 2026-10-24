@@ -1,6 +1,6 @@
 ---
 name: md2card-skill
-description: Turn Markdown or supplied prose into polished, paginated knowledge cards with five original themes and eight semantic layouts, then render HTML, PNG, or searchable-text PDF. Use for knowledge cards, social carousels, reading notes, and compact explainers, not slide-deck or SVG authoring.
+description: Turn Markdown or supplied prose into polished, paginated knowledge cards with 48 original composed templates, five themes and eight semantic layouts, then render HTML, PNG, or searchable-text PDF. Use for knowledge cards, social carousels, reading notes, and compact explainers, not slide-deck or SVG authoring.
 ---
 
 # Markdown to knowledge cards
@@ -128,9 +128,18 @@ node scripts/render.mjs /absolute/path/cards.md \
   --theme editorial --size portrait --format all
 ```
 
-For composed templates, consult the registry's per-aspect support and acceptance
-status. T04/T21 have source-only square/slide candidates; their real fit and visual
-acceptance remain pending. Other templates do not gain those aspects. Select
+For an optional composed design, inspect `node scripts/render.mjs --list-templates`
+and the [offline gallery](docs/gallery/index.html), then match its content/image
+contract to the supplied source. There are 48 independent designs across 12
+families; exact registered standard/portrait examples have real PNG, phone and
+native-PDF evidence in [the acceptance record](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md).
+Do not treat example acceptance as a guarantee for arbitrary input. Select a
+registry ID with `--template` or per-card `template` metadata; density changes
+spacing only. Templates remain manual-only and do not inherit legacy theme CSS.
+
+Consult the registry's per-aspect support and acceptance status. T04/T21 also have
+four independently reviewed standard-density square/slide short examples. Other
+templates do not gain those aspects, and longer portrait inputs can overflow. Select
 `--size` or matching dimensions, never card `aspect` metadata. Keep the same
 mobile body/source floors and fail overflowing text unchanged; new shorter
 examples are separate authored inputs, not automatic edits to user content. See

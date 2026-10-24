@@ -15,7 +15,7 @@ const root = path.resolve('validation/tail');
 const cases = [
   { name: 'paragraphs', input: 'examples/pagination-tail.md', height: 650, markers: /TAIL_\d{2}/g, expectedCounts: [5, 1], balancedCounts: [3, 3] },
   { name: 'locked', input: 'examples/pagination-tail-locked.md', height: 650, markers: /LOCK_[AB]\d{2}/g, expectedCounts: [5, 5, 1, 5, 1], balancedCounts: [5, 3, 3, 3, 3] },
-  { name: 'lists', input: 'examples/pagination-lists.md', height: 1200, markers: /STEP_A\d{2}/g },
+  { name: 'lists', input: 'examples/pagination-lists.md', height: 1100, markers: /STEP_A\d{2}/g },
   { name: 'tables', input: 'examples/pagination-tables.md', height: 900, markers: /ROW_A\d{2}/g }
 ];
 const results = [];

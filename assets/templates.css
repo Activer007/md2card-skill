@@ -775,35 +775,35 @@
 /* T35: individually attributed clippings on staggered, non-overlapping sheets.
  * The tape is an empty normal-flow strip, never an overlay across glyphs. */
 .card.template-T35 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#e8e1d1; --ink:#30352e; --muted:#59604f; --accent:var(--brand-accent,#825235); --panel:#f2e8cf; --line:#a4a18c; }
-.card.template-T35 .template-heading { padding:.2em 0 .4em; border-bottom:.07em solid var(--ink); }
+.card.template-T35 .template-heading { padding:.1em 0 .25em; border-bottom:.07em solid var(--ink); }
 .card.template-T35 .card-eyebrow { color:var(--muted); font-family:var(--mono); letter-spacing:.04em; }
 .card.template-T35 h1 { font:700 1.85em/1.22 var(--serif); }
 .card.template-T35 .template-intro p { margin:0; }
-.card.template-T35 .template-sections { gap:.6em; }
+.card.template-T35 .template-sections { gap:.4em; }
 .card.template-T35 .template-section { margin-right:.6em; padding:.2em .35em .25em; border:1px solid var(--line); border-bottom:.065em dashed var(--line); background:#fffaf0; box-shadow:.09em .12em 0 #c9c1ad; }
 .card.template-T35 .template-section:nth-child(even) { margin-left:.6em; margin-right:0; background:#f4efd8; }
-.card.template-T35 .template-section::before { content:''; display:block; width:3em; height:.22em; margin:0 0 .15em .15em; background:#c3c1a3; }
+.card.template-T35 .template-section::before { content:''; display:block; width:3em; height:.12em; margin:0 0 .1em .15em; background:#c3c1a3; }
 .card.template-T35 .template-section h2 { margin-bottom:.15em; font-family:var(--serif); font-size:1em; }
 .card.template-T35 .template-section p { margin:.1em 0; }
 .card.template-T35 .template-section blockquote { margin:.15em 0; padding:.15em .3em; border-left:.055em solid var(--accent); background:var(--panel); }
 .card.template-T35 .template-section blockquote p { margin:0; }
 .card.template-T35 .card-source { padding-top:.4em; border:0; }
-.card.template-T35 .card-footer { border-top:1px dashed var(--line); }
+.card.template-T35 .card-footer { border-top:1px dashed var(--line); margin-top:.4em; padding-top:.3em; }
 
 /* T36: an oversized report headline above a full-width event ledger.
  * Unlike a manifesto, authored dates and linked factual records drive the page. */
 .card.template-T36 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#faf5e8; --ink:#272d2a; --muted:#565e53; --accent:var(--brand-accent,#8c3929); --panel:#eee5d3; --line:#a3a391; }
-.card.template-T36 .template-heading { padding:.15em 0 .2em; border-top:.14em solid var(--ink); border-bottom:3px double var(--ink); }
+.card.template-T36 .template-heading { padding:.05em 0 .1em; border-top:.14em solid var(--ink); border-bottom:3px double var(--ink); }
 .card.template-T36 .card-eyebrow { margin-bottom:.45em; font-family:var(--mono); color:var(--accent); letter-spacing:.06em; }
 .card.template-T36 h1 { font:800 2.15em/1.17 var(--serif); letter-spacing:-.04em; }
 .card.template-T36 .template-intro { padding-bottom:.45em; border-bottom:1px solid var(--line); font-family:var(--serif); }
 .card.template-T36 .template-intro p { margin:0; }
-.card.template-T36 .template-sections { gap:.5em; }
+.card.template-T36 .template-sections { gap:.4em; }
 .card.template-T36 .template-section { padding:.1em .15em .2em; border-bottom:1px solid var(--line); }
-.card.template-T36 .template-section h2 { display:table; margin-bottom:.15em; padding:.05em .25em; border-left:.12em solid var(--accent); background:var(--panel); font-size:1em; font-family:var(--mono); letter-spacing:0; }
+.card.template-T36 .template-section h2 { display:table; margin-bottom:.15em; padding:0 .25em; border-left:.12em solid var(--accent); background:var(--panel); font-size:1em; font-family:var(--mono); letter-spacing:0; }
 .card.template-T36 .template-section p { margin:0; }
 .card.template-T36 .card-source { border:0; padding-top:.3em; }
-.card.template-T36 .card-footer { border-top:3px double var(--ink); }
+.card.template-T36 .card-footer { border-top:3px double var(--ink); margin-top:.4em; padding-top:.3em; }
 
 /* T39: the intact portrait spans the title AND narrative zones. The heading
  * is part of the story sidebar, unlike T03's full-width title + text/image row.
@@ -829,23 +829,23 @@
 /* T40: a complete, explicitly supplied detail source, then its numbered key.
  * Number bubbles remain in normal float flow, with a reserved two-digit rail.
  * Never reset the list-item counter; the registry limits its width to 0–99. */
-.card.template-T40 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#f3f2e8; --ink:#303c37; --muted:#58655a; --accent:var(--brand-accent,#426457); --panel:#e2e8db; --line:#a4b09e; }
-.card.template-T40 .template-heading { padding:.25em 0 .5em; border-bottom:.065em solid var(--ink); }
+.card.template-T40 { --section-gap: .35em; --paragraph-gap: .3em; --paper:#f3f2e8; --ink:#303c37; --muted:#58655a; --accent:var(--brand-accent,#426457); --panel:#e2e8db; --line:#a4b09e; }
+.card.template-T40 .template-heading { padding:0 0 .2em; border-bottom:.065em solid var(--ink); }
 .card.template-T40 h1 { font-size:1.7em; letter-spacing:-.03em; }
-.card.template-T40 .card-eyebrow { margin-bottom:.5em; color:var(--accent); letter-spacing:.05em; }
+.card.template-T40 .card-eyebrow { margin-bottom:.25em; color:var(--accent); letter-spacing:.05em; }
 .card.template-T40 .card-figure { margin:0; }
 .card.template-T40 .image-frame { height:calc(var(--card-height) * .18); padding:.1em; border:1px solid var(--line); background:#ece7d7; }
 .card.template-T40 .card-image { width:100%; height:100%; object-fit:contain; }
 .card.template-T40 .card-figure figcaption { margin:.35em 0 0; color:var(--muted); }
 .card.template-T40 .template-main { flex:0 0 auto; }
 .card.template-T40 .template-intro p { margin:0; }
-.card.template-T40 .template-section h2 { margin-bottom:.4em; font-size:1em; }
+.card.template-T40 .template-section h2 { margin-bottom:.15em; font-size:1em; }
 .card.template-T40 .template-intro > ol, .card.template-T40 .template-section > ol { list-style:none; margin:0; padding:0; }
-.card.template-T40 .template-intro > ol > li, .card.template-T40 .template-section > ol > li { display:list-item; min-height:2em; margin:0 0 .2em; padding:.2em .15em .2em 2.15em; border-top:1px solid var(--line); }
+.card.template-T40 .template-intro > ol > li, .card.template-T40 .template-section > ol > li { display:list-item; min-height:2em; margin:0 0 .2em; padding:.1em .15em .1em 2.15em; border-top:1px solid var(--line); }
 .card.template-T40 .template-intro > ol > li::before, .card.template-T40 .template-section > ol > li::before { content:counter(list-item,decimal); float:left; width:1.6em; min-height:1.6em; margin-left:-2.15em; padding:.2em .1em; border:.045em solid var(--accent); border-radius:50%; color:var(--accent); text-align:center; font:750 1em/1.15 var(--mono); }
 .card.template-T40 .template-intro > ol > li > p, .card.template-T40 .template-section > ol > li > p { margin:0; }
-.card.template-T40 .card-source { padding-top:.35em; border:0; }
-.card.template-T40 .card-footer { border-top:1px solid var(--line); }
+.card.template-T40 .card-source { padding-top:.1em; border:0; }
+.card.template-T40 .card-footer { border-top:1px solid var(--line); margin-top:.4em; padding-top:.3em; }
 
 /* T43: two side-by-side scene frames and one wide resolution frame. Artwork
  * carries no embedded dialogue; all dialogue remains real searchable text. */
@@ -902,8 +902,8 @@
 .card.template-T47 .template-intro p { margin:0 0 .3em; }
 .card.template-T47 .template-intro ul { margin:0; padding-left:1.15em; }
 .card.template-T47 .template-intro li { margin:.1em 0; padding-left:.05em; }
-.card.template-T47 .template-sections { gap:.6em; }
-.card.template-T47 .template-section { display:grid; grid-template-columns:minmax(0,4.5em) minmax(0,1fr); gap:.25em .45em; align-items:start; padding-bottom:.45em; border-bottom:1px solid var(--line); }
+.card.template-T47 .template-sections { gap:.45em; }
+.card.template-T47 .template-section { display:grid; grid-template-columns:minmax(0,4.5em) minmax(0,1fr); gap:.25em .45em; align-items:start; padding-bottom:.2em; border-bottom:1px solid var(--line); }
 .card.template-T47 .template-section h2 { grid-column:1 / -1; margin:0; color:var(--accent); font-size:1em; }
 .card.template-T47 .template-section > p:has(> .markdown-image:only-child) { grid-column:1; margin:0; }
 .card.template-T47 .template-section > :not(h2):not(p:has(> .markdown-image:only-child)) { grid-column:2; margin:0; }
@@ -914,23 +914,36 @@
 /* T48: horizontal product specimens, with identical fields beside each image.
  * Contrast the objects by matched fields, not a rating, price, or winner tile. */
 .card.template-T48 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#f1efe5; --ink:#344038; --muted:#5b675b; --accent:var(--brand-accent,#6c563c); --panel:#e2e7da; --line:#a7b09d; }
-.card.template-T48 .template-heading { padding:.3em 0 .5em; border-top:.07em solid var(--accent); }
-.card.template-T48 .card-eyebrow { margin-bottom:.45em; color:var(--muted); letter-spacing:.04em; }
+.card.template-T48 .template-heading { padding:.1em 0 .2em; border-top:.07em solid var(--accent); }
+.card.template-T48 .card-eyebrow { margin-bottom:.2em; color:var(--muted); letter-spacing:.04em; }
 .card.template-T48 h1 { font:700 1.75em/1.25 var(--serif); }
 .card.template-T48 .template-intro p { margin:0; }
-.card.template-T48 .template-sections { gap:.6em; }
-.card.template-T48 .template-section { display:grid; grid-template-columns:minmax(0,4.5em) minmax(0,1fr); gap:.25em .45em; align-items:start; padding:.25em .35em .3em; border:1px solid var(--line); background:#fbf8ee; }
-.card.template-T48 .template-section h2 { grid-column:1 / -1; margin:0; padding-bottom:.25em; border-bottom:1px solid var(--line); font-family:var(--serif); font-size:1em; }
+.card.template-T48 .template-sections { gap:.4em; }
+.card.template-T48 .template-section { display:grid; grid-template-columns:minmax(0,4.5em) minmax(0,1fr); gap:.2em .45em; align-items:start; padding:.1em .35em .15em; border:1px solid var(--line); background:#fbf8ee; }
+.card.template-T48 .template-section h2 { grid-column:1 / -1; margin:0; padding-bottom:.1em; border-bottom:1px solid var(--line); font-family:var(--serif); font-size:1em; }
 .card.template-T48 .template-section > p:has(> .markdown-image:only-child) { grid-column:1; margin:0; }
 .card.template-T48 .template-section > :not(h2):not(p:has(> .markdown-image:only-child)) { grid-column:2; margin:0; }
 .card.template-T48 .markdown-image { width:100%; height:3.7em; max-height:none; margin:0; object-fit:contain; background:var(--panel); }
 .card.template-T48 .template-section ul { padding-left:1.1em; }
-.card.template-T48 .template-section li { margin:0 0 .25em; padding-left:0; }
-.card.template-T48 .template-section:nth-child(n + 3) { display:block; padding:.45em .6em; border:0; border-left:.12em solid var(--accent); background:var(--panel); }
+.card.template-T48 .template-section li { margin:0 0 .1em; padding-left:0; }
+.card.template-T48 .template-section li:last-child { margin-bottom:0; }
+.card.template-T48 .template-section:nth-child(n + 3) { display:block; padding:.25em .4em; border:0; border-left:.12em solid var(--accent); background:var(--panel); }
 .card.template-T48 .template-section:nth-child(n + 3) h2 { margin-bottom:.25em; padding:0; border:0; }
 .card.template-T48 .template-section:nth-child(n + 3) p { margin:0; }
-.card.template-T48 .card-source { padding-top:.3em; border:0; }
-.card.template-T48 .card-footer { border-top:1px solid var(--line); }
+.card.template-T48 .card-source { padding-top:.1em; border:0; }
+.card.template-T48 .card-footer { border-top:1px solid var(--line); margin-top:.4em; padding-top:.3em; }
+
+/* Clipping labels share a metadata row only when the authored paragraph
+ * directly follows its H2; quotation and later paragraphs keep full width. */
+.card.template-T35 .template-section:has(> h2 + p) { display:grid; grid-template-columns:minmax(0,.5fr) minmax(0,1.5fr); column-gap:.35em; }
+.card.template-T35 .template-section:has(> h2 + p)::before { grid-column:1 / -1; grid-row:1; }
+.card.template-T35 .template-section:has(> h2 + p) > h2 { grid-column:1; grid-row:2; margin:0; align-self:baseline; }
+.card.template-T35 .template-section:has(> h2 + p) > h2 + p { grid-column:2; grid-row:2; margin:0; align-self:baseline; text-align:right; }
+.card.template-T35 .template-section:has(> h2 + p) > :not(h2):not(h2 + p) { grid-column:1 / -1; }
+/* Product images span their heading and field row. Descriptions remain in
+ * DOM order and any later limitation sections retain their full-width band. */
+.card.template-T48 .template-section:nth-child(-n + 2) > h2 { grid-column:2; grid-row:1; }
+.card.template-T48 .template-section:nth-child(-n + 2) > p:has(> .markdown-image:only-child) { grid-column:1; grid-row:1 / span 2; }
 
 /* Calibrated furniture retains compact < standard < editorial spacing. */
 .card.template-T03.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
@@ -969,14 +982,25 @@
 .card.template-T04.density-compact li { margin: .1em 0; }
 .card.template-T04.density-compact li ul, .card.template-T04.density-compact li ol { margin: .05em 0; }
 
-.card.template-T04.density-compact .template-sections { gap: .2em; }
-.card.template-T04.density-compact .template-section h2 { margin-bottom: .12em; }
+.card.template-T04.density-compact .template-sections { gap: .12em; }
+.card.template-T04.density-compact .template-section h2 { margin-bottom: .08em; }
 .card.template-T04.density-compact .template-section p { margin-top: .12em; }
-.card.template-T04.density-compact .card-source { padding-top: .25em; }
+.card.template-T04.density-compact .card-source { padding-top: .1em; }
 .card.template-T17.density-compact .template-heading { padding: .2em .7em; }
 .card.template-T17.density-compact .template-sections { gap: .2em; }
 .card.template-T18.density-compact .card-eyebrow { margin-bottom: .35em; }
 .card.template-T18.density-compact .template-section h2 { padding-bottom: .1em; }
+
+/* Compact-only furniture adjustments for the unchanged authored series and URL pressure input. */
+.card.template-T04.density-compact, .card.template-T18.density-compact { --section-gap: .35em; }
+.card.template-T04.density-compact .template-heading { padding: 0 0 .1em; }
+.card.template-T04.density-compact .template-intro { padding: 0 .3em .1em; }
+.card.template-T04.density-compact .template-section + .template-section { padding-top: .12em; }
+.card.template-T04.density-compact .card-footer, .card.template-T18.density-compact .card-footer { margin-top: .4em; padding-top: .3em; }
+.card.template-T18.density-compact .template-heading { padding: .15em .45em .2em; }
+.card.template-T18.density-compact .template-main { padding-top: .2em; padding-bottom: .2em; }
+.card.template-T18.density-compact .template-section pre { padding-top: .2em; padding-bottom: .2em; }
+.card.template-T18.density-compact .card-source { padding-top: .1em; }
 
 /* M9 independent aspect candidates: only T04 / T21, all real acceptance pending.
  * Dimensions choose an internal enum; no aspect is sourced from user CSS.

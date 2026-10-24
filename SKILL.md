@@ -5,7 +5,7 @@ description: Turn Markdown or supplied prose into polished, paginated knowledge 
 
 # Markdown to knowledge cards
 
-M1 首次独立出图已发现容量问题并准备源码修复，仍待修复版本重测与视觉验收；44/48 个注册示例导出，四个溢出。精确失败与修复边界见 [阶段出图记录](docs/REFINEMENT_M1_CALIBRATION.md)。
+M1 已完成 13 套 v2 注册示例的真实 PNG、375/390 手机图与原生 PDF 独立验收；其余 35 套未变更 v1 保留原有证据。图库展示这 48 个当前精确示例。见 [有限范围验收](docs/REFINEMENT_M1_ACCEPTANCE.md)；后续阶段不会继承本批截图。
 
 Transform useful content into a coherent, legible card sequence. Preserve the
 user's meaning, language, requested length, and explicit visual choices.
@@ -133,9 +133,9 @@ node scripts/render.mjs /absolute/path/cards.md \
 For an optional composed design, inspect `node scripts/render.mjs --list-templates`
 and the [offline gallery](docs/gallery/index.html), then match its content/image
 contract to the supplied source. There are 48 independent designs across 12
-families. Check each registry version: 13 refined v2 designs currently await
-fresh visual acceptance. Historical v1 standard/portrait examples have PNG, phone and
-native-PDF evidence in [the acceptance record](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md).
+families. Check each registry version: 13 refined v2 registered examples have
+new PNG, phone and native-PDF evidence in [M1 acceptance](docs/REFINEMENT_M1_ACCEPTANCE.md).
+The 35 unchanged v1 designs retain their exact historical example acceptance.
 Do not treat example acceptance as a guarantee for arbitrary input. Select a
 registry ID with `--template` or per-card `template` metadata; density changes
 spacing only. Templates remain manual-only and do not inherit legacy theme CSS.

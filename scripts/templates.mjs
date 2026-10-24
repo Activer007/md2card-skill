@@ -80,7 +80,7 @@ export const REFINED_TEMPLATE_IDS = Object.freeze(['T06','T10','T16','T19','T20'
 function currentEntry(entry) {
   if (!REFINED_TEMPLATE_IDS.includes(entry.id)) return entry;
   const { acceptance, ...rest } = entry;
-  return { ...rest, version: 2, historicalAcceptance: { batch: acceptance, version: 1 },
+  return { ...rest, version: 2, acceptance: 'refinement-m1-v2', historicalAcceptance: { batch: acceptance, version: 1 },
     refinement: 'reading-image-focus-v2' };
 }
 function aspectLayouts(entry) {

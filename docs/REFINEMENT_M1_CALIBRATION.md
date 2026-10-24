@@ -39,7 +39,7 @@ for introduction/list and 1.35 for caption/source. Including borders, the
 original 48px image keys calculate to about 11.186px at the 351px preview.
 This calculation is not a replacement for real phone measurements and review.
 
-All 13 changed v2 designs remain awaiting visual acceptance until the corrected
-exact stage is rerendered and independently checked in full PNG, both phone
-widths and searchable PDF. The 35 unchanged v1 designs keep their historical
-bindings. No later-stack pixels are used to certify this earlier composition.
+The corrected exact tree was rerendered successfully in run 40070791479 and
+all 13 changed registered examples were independently reviewed. See
+[bounded M1 acceptance](REFINEMENT_M1_ACCEPTANCE.md). The first failures above
+remain part of the record. No later-stack pixels certify this earlier design.

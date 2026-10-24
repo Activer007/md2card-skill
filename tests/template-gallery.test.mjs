@@ -16,7 +16,7 @@ const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 async function fixture(t) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'md2card-gallery-'));
   t.after(() => rm(root, { recursive: true, force: true }));
-  for (const relative of ['docs/TEMPLATE_ACCEPTANCE.md', 'docs/template-m1-provenance.json', 'docs/TEMPLATE_UPGRADE_ACCEPTANCE.md', 'docs/template-upgrade-provenance.json', 'docs/TEMPLATE_ASPECTS.md', 'docs/template-gallery-evidence.json', 'docs/TEMPLATE_GALLERY.md', 'docs/images/templates', 'docs/gallery', 'examples/templates']) {
+  for (const relative of ['docs/REFINEMENT_M1_ACCEPTANCE.md', 'docs/refinement-m1-provenance.json', 'docs/images/refinement-m1-v2', 'docs/TEMPLATE_ACCEPTANCE.md', 'docs/template-m1-provenance.json', 'docs/TEMPLATE_UPGRADE_ACCEPTANCE.md', 'docs/template-upgrade-provenance.json', 'docs/TEMPLATE_ASPECTS.md', 'docs/template-gallery-evidence.json', 'docs/TEMPLATE_GALLERY.md', 'docs/images/templates', 'docs/gallery', 'examples/templates']) {
     const destination = path.join(root, relative);
     await mkdir(path.dirname(destination), { recursive: true });
     await cp(path.join(ROOT, relative), destination, { recursive: true });
@@ -364,12 +364,13 @@ test('a genuinely pending fixture keeps all source details but never inherits a 
 
 test('refined versions keep immutable history without displaying old pixels as current', async () => {
   const changed = model.items.filter(item => item.historicalAcceptance);
-  assert.ok(changed.length >= 13);
+  assert.equal(changed.length, 13);
   for (const item of changed) {
     assert.equal(item.version, 2);
     assert.equal(item.history.version, 1);
-    assert.equal(item.preview, null);
-    assert.equal(item.status, 'implemented-awaiting-visual-review');
+    assert.equal(item.preview.path, `docs/images/refinement-m1-v2/${item.id}.png`);
+    assert.equal(item.status, 'visually-reviewed');
+    assert.equal(item.acceptance, 'refinement-m1-v2');
     assert.ok(html.includes(`v1 的 ${item.history.batch} 仅为旧设计证据，不证明当前 v2`));
   }
   const templates = TEMPLATES.map(item => item.id === 'T06' ? { ...item, historicalAcceptance: { batch: 'visual-upgrade', version: 2 } } : item);
@@ -390,4 +391,13 @@ test('versioned preview directories require their actual review links, not obsol
   assert.equal(custom.items.find(item => item.id === 'T01').preview.path, 'docs/images/templates-v2/T01.png');
   await editJson(root, 'docs/template-gallery-evidence.json', data => { data.batches[0].previewDirectory = '../escape'; });
   await assert.rejects(buildGalleryModel({ root }), /unsafe repository path/);
+});
+
+test('promoted M1 v2 previews remain independently bound to new pixels and old source history', async t => {
+  assert.equal(model.accepted.length,48);
+  assert.equal(model.pending.length,0);
+  assert.equal(model.accepted.filter(item=>item.version===2).length,13);
+  const root=await fixture(t);
+  await writeFile(path.join(root,'docs/images/refinement-m1-v2/T20.png'),'tamper');
+  await assert.rejects(buildGalleryModel({root}),/accepted PNG hash mismatch: T20/);
 });

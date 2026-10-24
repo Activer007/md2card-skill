@@ -127,6 +127,31 @@ test('capacity calibration preserves type roles and keeps absent labels and shor
  assert.match(css,/--note-size: calc\(var\(--card-width\) \* \.0335\)/);
 });
 
+test('unlabelled T10 balances only its title inset without changing the accepted labelled fixture', async () => {
+  const selector = '.card.template-T10 .template-heading:has(> .template-title:only-child)';
+  const inset = rule(selector);
+  assert.match(inset, /^\s*padding-bottom:\s*\.35em;\s*$/);
+  assert.match(rule('.card.template-T10 .template-heading'), /padding: \.3em 0 \.65em/);
+  const affected = rules.filter(([, selectors]) => selectors.includes('template-T10') && selectors.includes(':has('));
+  assert.equal(affected.length, 1);
+  assert.equal(affected[0][1].slice(affected[0][1].lastIndexOf('*/') + 2).trim(), selector);
+
+  const source = await readFile(new URL('../examples/templates/T10.md', import.meta.url), 'utf8');
+  const [labelled] = renderCards(source);
+  const [unlabelled] = renderCards(source.replace(/,"eyebrow":"[^"]*"/, ''));
+  for (const [card, expectedEyebrow] of [[labelled, true], [unlabelled, false]]) {
+    const html = buildDocument([card], SIZES.portrait, '', '', css);
+    const heading = html.match(/<header class="template-heading">([\s\S]*?)<\/header>/)?.[1];
+    assert.ok(heading);
+    assert.equal(heading.includes('class="card-eyebrow"'), expectedEyebrow);
+    assert.equal((heading.match(/class="template-title"/g) ?? []).length, 1);
+    assert.equal(card.html, labelled.html);
+  }
+  // CSS arithmetic only: .30em recovers 13.932px, above the measured 6.5px
+  // deficit. The new real export must still pass unchanged screen/print guards.
+  assert.ok((.65 - .35) * SIZES.portrait.width * .043 > 6.5);
+});
+
 
 test('compact portrait T21 gives evidence bodies a wider measure without changing type or other aspects', () => {
   const selector = '.card.template-T21.template-aspect-portrait.density-compact .template-section';

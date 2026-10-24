@@ -110,7 +110,7 @@ export function inspectReflow() {
 // Wait for only the currently visible pixels without altering lazy loading.
 export async function readyVisibleImages(page, timeoutMs = 15000) {
   return evaluateSafely(page, 'evaluate', async () => {
-    const visible = [...document.querySelectorAll('.accepted-card img')].filter(image => {
+    const visible = [...document.querySelectorAll('.accepted-card img, .comparison-grid img')].filter(image => {
       const rect = image.getBoundingClientRect();
       const style = getComputedStyle(image);
       return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.right > 0 &&
@@ -131,6 +131,10 @@ async function snapshot(page, out, report, name, scope) {
   report.artifacts.push({ file, bytes: bytes.length, sha256: hash(bytes), scope, viewport: page.viewportSize() });
 }
 
+export function galleryImages(model) {
+  return [...(model.comparisons ?? []).flatMap(group => group.previews), ...model.accepted.map(item => item.preview)];
+}
+
 export function assertPreviewImage(image, preview, root = ROOT) {
   assert.equal(image.width, preview.width);
   assert.equal(image.height, preview.height);
@@ -140,11 +144,12 @@ export function assertPreviewImage(image, preview, root = ROOT) {
   assert.equal(image.source, pathToFileURL(path.join(root, preview.path)).href, 'Decoded image must use its accepted preview path.');
 }
 
-async function inspectResources(page, model, { scriptEnabled, root }) {
+export async function inspectResources(page, model, { scriptEnabled, root }) {
   // Scroll each actual image into view so lazy loading cannot masquerade as a broken asset.
-  const images = page.locator('.accepted-card img');
-  assert.equal(await images.count(), model.accepted.length);
-  for (let index = 0; index < model.accepted.length; index += 1) {
+  const expectedImages = galleryImages(model);
+  const images = page.locator('.accepted-card img, .comparison-grid img');
+  assert.equal(await images.count(), expectedImages.length);
+  for (let index = 0; index < expectedImages.length; index += 1) {
     await images.nth(index).scrollIntoViewIfNeeded();
     await evaluateSafely(images.nth(index), 'evaluate', image => image.decode());
   }
@@ -156,7 +161,7 @@ async function inspectResources(page, model, { scriptEnabled, root }) {
     panelHidden: document.querySelector('[data-filter-panel]').hidden,
     visible: [...document.querySelectorAll('[data-template-card]')].filter(card => !card.hidden).map(card => card.id),
     pendingImages: document.querySelectorAll('.pending-card img').length,
-    images: [...document.querySelectorAll('.accepted-card img')].map(image => ({ source: image.currentSrc, width: image.naturalWidth, height: image.naturalHeight, complete: image.complete }))
+    images: [...document.querySelectorAll('.accepted-card img, .comparison-grid img')].map(image => ({ source: image.currentSrc, width: image.naturalWidth, height: image.naturalHeight, complete: image.complete }))
   }));
   assert.equal(state.policy, CSP);
   assert.equal(state.background, 'rgb(245, 244, 238)', 'Local stylesheet must affect computed styles.');
@@ -168,7 +173,7 @@ async function inspectResources(page, model, { scriptEnabled, root }) {
   assert.deepEqual([...state.visible].sort(), model.items.map(item => item.id));
   assert.equal(state.pendingImages, 0);
   for (const [index, image] of state.images.entries()) {
-    assertPreviewImage(image, model.accepted[index].preview, root);
+    assertPreviewImage(image, expectedImages[index], root);
   }
   return state;
 }
@@ -281,7 +286,7 @@ export async function withPage(browser, options, allowed, report, name, javaScri
 }
 
 async function realBrowserChecks(browser, options, model, report, out) {
-  const files = [GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', ...model.accepted.map(item => item.preview.path)];
+  const files = [GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', ...galleryImages(model).map(image => image.path)];
   const allowed = new Set(files.map(relative => pathToFileURL(path.join(options.root, relative)).href));
   await withPage(browser, options, allowed, report, 'javascript-on', true, async page => {
     await recordCheck(report, 'file URL: real local resources, CSP, images and classic JS', () => inspectResources(page, model, { scriptEnabled: true, root: options.root }));
@@ -301,6 +306,21 @@ async function realBrowserChecks(browser, options, model, report, out) {
       const visible = await page.locator('[data-template-card]:visible').count();
       assert.equal(visible, model.items.length);
       return { visible };
+    });
+    await recordCheck(report, 'task routes and same-content static navigation', async () => {
+      const links = await evaluateSafely(page.locator('.task-route li a'), 'evaluateAll', nodes => nodes.map(node => node.getAttribute('href')));
+      assert.deepEqual(links, model.tasks.flatMap(task => task.templates.map(item => `#${item.id}`)));
+      assert.equal(await page.locator('.comparison').count(), model.comparisons.length);
+      await assertFilters(page, model, { purpose: 'T01' });
+      await page.locator('[data-template-target="T04"]').first().click();
+      assert.equal(await page.locator('#T04').isVisible(), true);
+      assert.equal(await page.locator('[data-template-card]:visible').count(), model.items.length);
+      await assertFilters(page, model, { purpose: 'T01' });
+      await page.locator('#comparisons [data-template-target="T04"]').first().focus();
+      await page.keyboard.press('Enter');
+      assert.equal(await page.locator('#T04').isVisible(), true);
+      assert.equal(await page.locator('[data-template-card]:visible').count(), model.items.length);
+      return { taskRoutes: model.tasks.length, comparisons: model.comparisons.length, comparisonPreviews: model.comparisons.reduce((sum, group) => sum + group.previews.length, 0) };
     });
     await recordCheck(report, 'native labels, keyboard focus and details', () => keyboardAudit(page, model));
     for (const scenario of [
@@ -323,9 +343,9 @@ async function realBrowserChecks(browser, options, model, report, out) {
         assert.deepEqual(geometry.offenders, []);
         return geometry;
       });
-      for (const section of ['accepted', 'pending']) await recordCheck(report, `${scenario.name}: capture ${section}`, async () => {
+      for (const section of ['tasks', 'comparisons', 'accepted', 'pending']) await recordCheck(report, `${scenario.name}: capture ${section}`, async () => {
         await evaluateSafely(page, 'evaluate', section => {
-          const target = document.querySelector(section === 'accepted' ? '.accepted-card' : '#pending-title') ?? document.querySelector('#accepted-title');
+          const target = document.querySelector(section === 'accepted' ? '.accepted-card' : `#${section}-title`) ?? document.querySelector('#accepted-title');
           target.scrollIntoView({ block: 'start', behavior: 'instant' });
         }, section);
         await snapshot(page, out, report, `${scenario.name}-${section}`, `Viewport screenshot: start of ${section} gallery section; not a full-page capture.`);
@@ -372,7 +392,7 @@ export async function validateGallery(options, dependencies = {}) {
     const model = await (dependencies.model ?? buildGalleryModel)({ root });
     report.registry = { implemented: model.items.length, accepted: model.accepted.length, pending: model.pending.length };
     report.inputs = [];
-    for (const relative of new Set([GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', 'scripts/templates.mjs', 'scripts/build-template-gallery.mjs', 'scripts/validate-gallery.mjs', 'scripts/browser.mjs', 'package-lock.json', 'docs/template-gallery-evidence.json', ...model.accepted.flatMap(item => [item.preview.path, item.example, item.evidence.path, item.evidence.review])])) {
+    for (const relative of new Set([GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', 'scripts/templates.mjs', 'scripts/build-template-gallery.mjs', 'scripts/gallery-discovery.mjs', 'docs/gallery-comparisons.json', ...model.comparisons.flatMap(group => [group.input, ...(group.evidence ? [group.evidence.review, ...group.previews.map(image => image.path)] : [])]), 'scripts/validate-gallery.mjs', 'scripts/browser.mjs', 'package-lock.json', 'docs/template-gallery-evidence.json', ...model.accepted.flatMap(item => [item.preview.path, item.example, item.evidence.path, item.evidence.review])])) {
       const bytes = await readFile(path.join(root, relative));
       report.inputs.push({ file: relative, sha256: hash(bytes), bytes: bytes.length });
     }

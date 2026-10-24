@@ -58,3 +58,5 @@
 源码检查：`npm run test:unit`、`npm run gallery:check`。真实验证使用获准环境中的现有套件：`validate:tail`、`validate:templates`、`validate:series`、`validate:visual-stress`、`validate:gallery`、`validate:aspects`，以及旧 showcase 和语义分页回归。`--plan`、mock DOM 和源测试不启动浏览器，也不是视觉证据。
 
 每次发布须将验收文档、注册状态、证据绑定、真实预览和可复现输入同时对齐。源代码、机器 gate、独立视觉结论各自保留，失败不改成跳过，历史 M1 记录不被追写为新的全库结论。各套件摘要与产物哈希见 [验证来源摘要](upgrade-validation-provenance.json)，48 套和新增画幅分别见 [模板来源](template-upgrade-provenance.json) 与 [画幅来源](aspect-upgrade-provenance.json)。
+
+本轮 R09/R10 已实现任务路线、三组同文计划与 22 例内容矩阵；计划数不是通过数，这些新增同文 v3 / v2 产物仍待当前阶段授权出图和独立复核，不能沿用已验收的 48 个注册示例。

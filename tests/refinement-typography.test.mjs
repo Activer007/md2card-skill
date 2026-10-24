@@ -116,3 +116,40 @@ test('open-grid headings and film plate stay inside the measured content box', (
   assert.match(rule('.card.template-T19 .template-section h2'), /margin: 0 0 \.25em; padding: \.1em 0 \.25em/);
   assert.doesNotMatch(rule('.card.template-T37 .card-figure'), /-1|negative/);
 });
+
+test('capacity calibration preserves type roles and keeps absent labels and short links honest',async()=>{
+ const css=await readFile(new URL('../assets/templates.css',import.meta.url),'utf8');
+ assert.match(css,/template-T06 \.template-title:only-child \{ grid-column: 1 \/ -1;/);
+ assert.match(css,/template-T36 \.template-section a \{ display:inline-block; max-width:100%; overflow-wrap:anywhere;/);
+ const calibration=css.split('/* R01/R03/R11 measured-capacity')[1].split('/* M9 independent aspect')[0];
+ assert.doesNotMatch(calibration,/font-size|line-height|transform|zoom|overflow\s*:|display\s*:\s*none/);
+ assert.match(css,/--text-size: calc\(var\(--card-width\) \* \.043\)/);
+ assert.match(css,/--note-size: calc\(var\(--card-width\) \* \.0335\)/);
+});
+
+
+test('compact portrait T21 gives evidence bodies a wider measure without changing type or other aspects', () => {
+  const selector = '.card.template-T21.template-aspect-portrait.density-compact .template-section';
+  const compact = rule(selector);
+  assert.match(compact, /grid-template-columns: minmax\(0, \.5fr\) minmax\(0, 1\.5fr\)/);
+  assert.doesNotMatch(compact, /font|line-height|letter-spacing|overflow|clip|transform|zoom|text-wrap/);
+  const portrait = rule('.card.template-T21.template-aspect-portrait .template-section');
+  assert.match(portrait, /grid-template-columns:minmax\(0,\.62fr\) minmax\(0,1\.38fr\); column-gap:\.65em/);
+  const compactTracks = rules.filter(([, selectors, body]) => selectors.includes('template-T21') && selectors.includes('density-compact') && /grid-template-columns/.test(body));
+  assert.equal(compactTracks.length, 1);
+  assert.ok(compactTracks[0][1].trim().endsWith(selector));
+  assert.doesNotMatch(compactTracks[0][1], /,|square|slide/);
+
+  // CSS geometry only, not a replacement for Chromium line-box / PDF review.
+  // At the inherited body size, both the five-CJK label and 15-CJK body line
+  // fit in their tracks at export width and both prescribed phone scales.
+  for (const width of [SIZES.portrait.width, 351, 366]) {
+    const em = width * .043, inner = width * (1 - 2 * .052);
+    const tracks = inner - .65 * em;
+    const label = tracks * .25, body = tracks * .75;
+    const previousBody = tracks * .69;
+    assert.ok(label >= 5 * em);
+    assert.ok(body > 15 * em);
+    assert.ok(body > previousBody * 1.08);
+  }
+});

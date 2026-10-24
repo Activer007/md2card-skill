@@ -25,7 +25,10 @@
         "T10",
         "T13"
       ],
-      "state": "pending"
+      "state": "pending",
+      "requiredRefusals": {
+        "T13": "这段中篇含两个较长的小标题和完整论述，超出短宣言海报的合适容量。保留全部原文，选择 T04/T06/T10 的对照或较短的宣言输入，不缩字硬塞。"
+      }
     },
     {
       "id": "mixed-reading",

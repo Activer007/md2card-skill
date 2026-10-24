@@ -5,8 +5,8 @@ import path from 'node:path';
 import os from 'node:os';
 import { runInNewContext } from 'node:vm';
 import { pathToFileURL } from 'node:url';
-import { ROOT, buildGalleryModel } from '../scripts/build-template-gallery.mjs';
-import { parseGalleryValidationOptions, expectedIds, requestAllowed, prepareOutput, recordCheck, bounded, validateGallery, inspectReflow, evaluateSafely, withPage, activateSkipLink, readyVisibleImages } from '../scripts/validate-gallery.mjs';
+import { ROOT, CSP, buildGalleryModel } from '../scripts/build-template-gallery.mjs';
+import { assertPreviewImage, galleryImages, inspectResources, parseGalleryValidationOptions, expectedIds, requestAllowed, prepareOutput, recordCheck, bounded, validateGallery, inspectReflow, evaluateSafely, withPage, activateSkipLink, readyVisibleImages } from '../scripts/validate-gallery.mjs';
 const model = await buildGalleryModel();
 const source = await readFile(new URL('../scripts/validate-gallery.mjs', import.meta.url), 'utf8');
 async function temp(t) {
@@ -17,6 +17,7 @@ async function temp(t) {
 function mockDependencies({ launchError, runError, cleanupError } = {}) {
   const calls = [];
   return { calls,
+    preflight: async () => {}, // Injected lifecycle tests do not audit the committed page.
     model: async () => model,
     launch: async () => {
       calls.push('launch-stub');
@@ -175,6 +176,7 @@ test('stalled page/image evaluation records failure and closes context and brows
   const context = { setDefaultTimeout() {}, setDefaultNavigationTimeout() {}, on() {}, async route() {}, async newPage() { return page; }, async close() { calls.push('context-close'); } };
   const browser = { version: () => 'source-stall-test', async newContext() { return context; } };
   const dependencies = {
+    preflight: async () => {},
     model: async () => model,
     launch: async () => ({ browser, executablePath: '/mock/no-browser', close: async () => { calls.push('browser-close'); } }),
     runChecks: async (_browser, options, _model, report) => withPage(browser, options, new Set(), report, 'stalled-evaluation', true, async () => {
@@ -244,8 +246,53 @@ test('snapshot readiness keeps a finite deadline for stalled lazy-image decoding
 });
 
 test('resource model includes current comparison paths, never assumed v1 template directories', async()=>{
-  const {galleryImages}=await import('../scripts/validate-gallery.mjs');
   const comparison={path:'docs/images/comparisons/unit/T04.png',width:1080,height:1440};
   const current={path:'docs/images/templates-v2/T05.png',width:1080,height:1440};
   assert.deepEqual(galleryImages({comparisons:[{previews:[comparison]},{previews:[]}],accepted:[{preview:current}]}),[comparison,current]);
+});
+
+test('browser image identity follows validated versioned previews without accepting historical or unrelated files', () => {
+  for (const relative of ['docs/images/templates/T01.png', 'docs/images/refinement-m1-v2/T20.png', 'docs/images/comparisons/short-reading/T06.png']) {
+    const preview = { path: relative, width: 1080, height: 1440 };
+    const image = { source: `file:///repo/${relative}`, width: 1080, height: 1440, complete: true };
+    assert.doesNotThrow(() => assertPreviewImage(image, preview, '/repo'));
+    for (const source of ['file:///repo/docs/images/templates/T20.png', 'file:///repo/docs/images/other/T20.png', image.source + '?stale=1', `https://example.com/${relative}`, `file:///other-repo/${relative}`]) {
+      if (source !== image.source) assert.throws(() => assertPreviewImage({ ...image, source }, preview, '/repo'), /accepted preview path/);
+    }
+    for (const changes of [{ width: 1079 }, { height: 1439 }, { complete: false }]) assert.throws(() => assertPreviewImage({ ...image, ...changes }, preview, '/repo'));
+  }
+});
+
+
+test('source-only resource audit binds nonempty comparisons and accepted previews in DOM order', async () => {
+  const comparison = { path: 'docs/images/comparisons/short-reading/T06.png', width: 1080, height: 1440 };
+  const accepted = { path: 'docs/images/unit-v2/T01.png', width: 1080, height: 1440 };
+  const fixture = { comparisons: [{ previews: [comparison] }, { previews: [] }], accepted: [{ preview: accepted }], items: [{ id: 'T01' }, { id: 'T06' }] };
+  const calls = [];
+  const state = {
+    policy: CSP, background: 'rgb(245, 244, 238)', css: ['file:///repo/docs/gallery/gallery.css'],
+    scripts: [{ src: 'file:///repo/docs/gallery/gallery.js', type: '' }], panelHidden: false,
+    visible: ['T06', 'T01'], pendingImages: 0,
+    images: galleryImages(fixture).map(preview => ({ source: `file:///repo/${preview.path}`, width: preview.width, height: preview.height, complete: true }))
+  };
+  const page = {
+    locator(selector) {
+      assert.equal(selector, '.accepted-card img, .comparison-grid img');
+      return { count: async () => state.images.length, nth: index => ({
+        scrollIntoViewIfNeeded: async () => { calls.push(`scroll-${index}`); },
+        evaluate: async callback => callback({ decode: async () => { calls.push(`decode-${index}`); } })
+      }) };
+    },
+    evaluate: async () => structuredClone(state)
+  };
+  await inspectResources(page, fixture, { scriptEnabled: true, root: '/repo' });
+  assert.deepEqual(calls, ['scroll-0', 'decode-0', 'scroll-1', 'decode-1']);
+  state.images.reverse();
+  await assert.rejects(inspectResources(page, fixture, { scriptEnabled: true, root: '/repo' }), /accepted preview path/);
+  state.images.reverse();
+  state.images[0].source += '?stale=1';
+  await assert.rejects(inspectResources(page, fixture, { scriptEnabled: true, root: '/repo' }), /accepted preview path/);
+  state.images[0].source = `file:///repo/${comparison.path}`;
+  state.panelHidden = true;
+  await inspectResources(page, fixture, { scriptEnabled: false, root: '/repo' });
 });

@@ -6,7 +6,7 @@ import os from 'node:os';
 import { runInNewContext } from 'node:vm';
 import { pathToFileURL } from 'node:url';
 import { ROOT, buildGalleryModel } from '../scripts/build-template-gallery.mjs';
-import { parseGalleryValidationOptions, expectedIds, requestAllowed, prepareOutput, recordCheck, bounded, validateGallery, inspectReflow, evaluateSafely, withPage, activateSkipLink, readyVisibleImages } from '../scripts/validate-gallery.mjs';
+import { assertPreviewImage, parseGalleryValidationOptions, expectedIds, requestAllowed, prepareOutput, recordCheck, bounded, validateGallery, inspectReflow, evaluateSafely, withPage, activateSkipLink, readyVisibleImages } from '../scripts/validate-gallery.mjs';
 const model = await buildGalleryModel();
 const source = await readFile(new URL('../scripts/validate-gallery.mjs', import.meta.url), 'utf8');
 async function temp(t) {
@@ -241,4 +241,17 @@ test('snapshot readiness decodes every intersecting image, not hidden or offscre
 
 test('snapshot readiness keeps a finite deadline for stalled lazy-image decoding', async () => {
   await assert.rejects(readyVisibleImages({ evaluate: () => new Promise(() => {}) }, 5), /Gallery evaluate timed out/);
+});
+
+
+test('browser image identity follows validated versioned previews without accepting historical or unrelated files', () => {
+  for (const relative of ['docs/images/templates/T01.png', 'docs/images/refinement-m1-v2/T20.png']) {
+    const preview = { path: relative, width: 1080, height: 1440 };
+    const image = { source: `file:///repo/${relative}`, width: 1080, height: 1440, complete: true };
+    assert.doesNotThrow(() => assertPreviewImage(image, preview, '/repo'));
+    for (const source of ['file:///repo/docs/images/templates/T20.png', 'file:///repo/docs/images/other/T20.png', image.source + '?stale=1', `https://example.com/${relative}`, `file:///other-repo/${relative}`]) {
+      if (source !== image.source) assert.throws(() => assertPreviewImage({ ...image, source }, preview, '/repo'), /accepted preview path/);
+    }
+    for (const changes of [{ width: 1079 }, { height: 1439 }, { complete: false }]) assert.throws(() => assertPreviewImage({ ...image, ...changes }, preview, '/repo'));
+  }
 });

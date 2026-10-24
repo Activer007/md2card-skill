@@ -23,7 +23,7 @@ test('bounded matrix preserves source and fits declared registry modes, not ever
   assert.equal(cases.length, 18);
   assert.equal(new Set(cases.map(item => item.id)).size, 18);
   assert.equal(TEMPLATES.length, 48);
-  assert.equal(TEMPLATES.filter(item => item.acceptance).length, 48);
+  assert.equal(TEMPLATES.filter(item => item.acceptance || item.historicalAcceptance).length, 48);
   for (const item of cases) {
     if (item.template) {
       const template = getTemplate(item.template);

@@ -50,7 +50,7 @@ function requireText(value, label) {
 }
 
 function validateScope(scope, label) {
-  if (!scope || scope.version !== 1 || scope.density !== 'standard' || scope.aspect !== 'portrait' || scope.width !== 1080 || scope.height !== 1440 || scope.pagination !== 'manual') fail(`unsupported acceptance scope: ${label}`);
+  if (!scope || (!Number.isSafeInteger(scope.version) || scope.version < 1) || scope.density !== 'standard' || scope.aspect !== 'portrait' || scope.width !== 1080 || scope.height !== 1440 || scope.pagination !== 'manual') fail(`unsupported acceptance scope: ${label}`);
 }
 
 export async function buildGalleryModel({ root = ROOT, templates = TEMPLATES } = {}) {
@@ -60,6 +60,10 @@ export async function buildGalleryModel({ root = ROOT, templates = TEMPLATES } =
   for (const batch of bindings.batches) {
     if (!batch || !/^[a-z0-9-]+$/.test(batch.id) || batches.has(batch.id)) fail('invalid or duplicate evidence batch');
     validateScope(batch.scope, batch.id);
+    if (batch.previewDirectory !== undefined) {
+      validateRepoPath(batch.previewDirectory);
+      if (!batch.previewDirectory.startsWith('docs/images/')) fail(`invalid preview directory: ${batch.id}`);
+    }
     const reviewBytes = await readRepoFile(root, batch.review);
     const evidenceBytes = await readRepoFile(root, batch.evidence);
     if (!SHA256.test(batch.reviewSha256) || digest(reviewBytes) !== batch.reviewSha256 || !SHA256.test(batch.evidenceSha256) || digest(evidenceBytes) !== batch.evidenceSha256) fail(`evidence/review file hash mismatch: ${batch.id}`);
@@ -97,22 +101,36 @@ export async function buildGalleryModel({ root = ROOT, templates = TEMPLATES } =
       const record = batch.records.get(template.id);
       if (!record || item.inputSha256 !== record.input) fail(`accepted input hash mismatch or missing record: ${template.id}`);
       if (template.version !== batch.scope.version || template.density !== batch.scope.density || !template.aspects.includes(batch.scope.aspect) || template.aspectLayouts?.[batch.scope.aspect]?.acceptance !== template.acceptance || template.aspectLayouts?.[batch.scope.aspect]?.status !== 'visually-reviewed') fail(`accepted scope differs from registry: ${template.id}`);
-      const preview = `docs/images/templates/${template.id}.png`;
+      const preview = `${batch.previewDirectory ?? 'docs/images/templates'}/${template.id}.png`;
       const bytes = await readRepoFile(root, preview);
       if (digest(bytes) !== record.png) fail(`accepted PNG hash mismatch: ${template.id}`);
       if (bytes.length < 24 || bytes.subarray(0, 8).toString('hex') !== '89504e470d0a1a0a' || bytes.toString('ascii', 12, 16) !== 'IHDR' || bytes.readUInt32BE(16) !== batch.scope.width || bytes.readUInt32BE(20) !== batch.scope.height) fail(`accepted PNG dimensions or signature mismatch: ${template.id}`);
-      if (!batch.reviewText.includes(`(images/templates/${template.id}.png)`) || !batch.reviewText.includes(`(../${template.example})`)) fail(`review is missing exact preview/input links: ${template.id}`);
+      const reviewImageLink = path.posix.relative(path.posix.dirname(batch.review), preview);
+      if (!batch.reviewText.includes(`(${reviewImageLink})`) || !batch.reviewText.includes(`(../${template.example})`)) fail(`review is missing exact preview/input links: ${template.id}`);
       item.preview = { path: preview, sha256: record.png, ...batch.scope };
       item.evidence = { batch: batch.id, review: batch.review, path: batch.evidence, sha256: batch.evidenceSha256, codeCommit: batch.provenance.codeCommit, codeTree: batch.provenance.codeTree };
     } else if (template.status !== 'implemented-awaiting-visual-review') {
       fail(`unrecognized pending status: ${template.id}`);
+    }
+    if (template.historicalAcceptance !== undefined) {
+      const history = template.historicalAcceptance;
+      const batch = batches.get(history?.batch);
+      const record = batch?.records.get(template.id);
+      if (!batch || !record || !Number.isSafeInteger(history.version) || history.version >= template.version || history.version !== batch.scope.version) fail(`invalid historical acceptance: ${template.id}`);
+      // Historical source is deliberately kept unchanged. A changed authored input
+      // needs its own archived source, not a silently updated historical digest.
+      if (digest(input) !== record.input) fail(`historical accepted input hash mismatch: ${template.id}`);
+      const historicalPreview = `${batch.previewDirectory ?? 'docs/images/templates'}/${template.id}.png`;
+      const bytes = await readRepoFile(root, historicalPreview);
+      if (digest(bytes) !== record.png) fail(`historical PNG hash mismatch: ${template.id}`);
+      item.history = { version: history.version, batch: history.batch, review: batch.review, codeCommit: batch.provenance.codeCommit };
     }
     item.command = `node scripts/render.mjs ${template.example} --out output/${template.id} --size portrait --paginate manual --format all --strict --preview`;
     items.push(item);
   }
   // Evidence may not silently keep an accepted record that disappeared from the registry.
   for (const batch of batches.values()) for (const id of batch.records.keys()) {
-    if (!items.some(item => item.id === id && item.acceptance === batch.id)) fail(`orphaned acceptance record: ${batch.id}/${id}`);
+    if (!items.some(item => item.id === id && (item.acceptance === batch.id || item.historicalAcceptance?.batch === batch.id))) fail(`orphaned acceptance record: ${batch.id}/${id}`);
   }
   items.sort((a, b) => compare(a.id, b.id));
   return { schemaVersion: 1, items, accepted: items.filter(item => item.preview), pending: items.filter(item => !item.preview), families: [...new Set(items.map(item => item.family))].sort(compare).map(value => ({ value, label: FAMILY_NAMES[value] ?? value })), densities: [...DENSITIES] };
@@ -125,8 +143,8 @@ const field = (label, value) => `<div><dt>${e(label)}</dt><dd>${e(value)}</dd></
 
 function renderDetails(item) {
   const accepted = item.preview !== null;
-  const evidence = accepted ? `<div><dt>验收证据</dt><dd>${link(item.evidence.review, `${item.evidence.batch} 逐图复核记录`)} · ${link(item.evidence.path, '原始产物哈希记录')}<br>源码提交 <code>${e(item.evidence.codeCommit)}</code><br>完整代码树 <code>${e(item.evidence.codeTree)}</code></dd></div>
-${field('已验收 PNG SHA-256', item.preview.sha256)}${field('证据文件 SHA-256', item.evidence.sha256)}` : field('验收证据', '尚无真实 PNG / 手机 / PDF 视觉验收包；源码实现不等于成品。');
+  const evidence = (accepted ? `<div><dt>验收证据</dt><dd>${link(item.evidence.review, `${item.evidence.batch} 逐图复核记录`)} · ${link(item.evidence.path, '原始产物哈希记录')}<br>源码提交 <code>${e(item.evidence.codeCommit)}</code><br>完整代码树 <code>${e(item.evidence.codeTree)}</code></dd></div>
+${field('已验收 PNG SHA-256', item.preview.sha256)}${field('证据文件 SHA-256', item.evidence.sha256)}` : field('验收证据', '尚无当前版本的真实 PNG / 手机 / PDF 视觉验收包；源码实现不等于成品。')) + (item.history ? field('历史版本', `v${item.history.version} 的 ${item.history.batch} 仅为旧设计证据，不证明当前 v${item.version}。`) : '');
   return `<details class="detail"><summary>结构、边界与复现 · ${e(item.id)}</summary>
 <dl>${field('输入结构', item.structure)}${field('不适用 / 限制', item.unsuitable)}${field('推荐内容量', `${item.length[0]}–${item.length[1]} 字，仅为选型参考，不保证放得下。`)}${field('版本 / 构图', `v${item.version} · ${item.composition} · ${item.layout}`)}${field('注册示例', `${item.density} 密度 · ${item.reading} 阅读预设 · 3:4 · manual`)}${field('源码支持画幅', `${item.aspects.join(' / ')}；支持不等于已验收。当前预览仅绑定上面的默认 3:4 示例；T04 / T21 的四个指定短例已有独立画幅证据，见画幅说明。`)}${field('其他密度', `${DENSITIES.join(' / ')} 仅改变间距，不缩小字体。当前真实预览只证明 standard 注册示例。`)}${field('设计来源', item.provenance.design)}${field('文字来源', item.provenance.text)}${field('素材来源', item.provenance.assets)}${field('当前示例 SHA-256', item.inputSha256)}${evidence}</dl>
 <p class="command-label">在仓库根目录复现${accepted ? '同一输入' : '候选示例'}（需允许的 Chromium、中文字体与 Poppler 环境）：</p><pre><code>${e(item.command)}</code></pre>
@@ -152,7 +170,7 @@ export function renderGallery(model) {
 <html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="${e(CSP)}"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"><title>真实模板图库 · md2card</title><link rel="stylesheet" href="gallery.css"><script src="gallery.js" defer></script></head>
 <body><a class="skip-link" href="#main">跳到模板内容</a><header class="masthead"><a class="wordmark" href="../../README.md">md2card<span> / TEMPLATE LIBRARY</span></a><nav aria-label="图库导航"><a href="#accepted">真实预览</a><a href="#pending">候选目录</a><a href="#about">使用说明</a></nav></header>
 <main id="main"><section class="intro" aria-labelledby="page-title"><div><p class="kicker">本地静态图库 · 原创构图</p><h1 id="page-title">先看真实输出，<br>再选合适的表达。</h1><p class="lead">不用概念图代替成品。每张预览都对应真实导出、完整输入和可核对的验收记录。</p></div><dl class="totals"><div><dt>已验收示例</dt><dd>${model.accepted.length}<span>套</span></dd></div><div><dt>源码已实现</dt><dd>${model.items.length}<span>套</span></dd></div><div><dt>已实现家族</dt><dd>${model.families.length}<span>类</span></dd></div></dl></section>
-<p class="scope-note">已验收 ${model.accepted.length} 套与源码已实现 ${model.items.length} 套分开计数。真实预览仅限注册示例、v1、standard、3:4、manual，不表示所有内容、密度或环境已通过。</p>
+<p class="scope-note">已验收 ${model.accepted.length} 套与源码已实现 ${model.items.length} 套分开计数。真实预览仅限各条目标明的已验收版本、standard、3:4、manual，不表示所有内容、密度或环境已通过。</p>
 <section class="filters" aria-labelledby="filter-title" data-filter-panel hidden><h2 id="filter-title">找一个合适的起点</h2><div class="filter-grid"><label for="family-filter">家族 / 风格<select id="family-filter"><option value="">全部家族</option>${options(model.families)}</select></label><label for="purpose-filter">用途 / 名称关键词<input id="purpose-filter" type="search" placeholder="例如：阅读、机制、T01" autocomplete="off" maxlength="160"></label><label for="image-filter">图片需求<select id="image-filter"><option value="">全部图片需求</option>${options(Object.entries(IMAGE_NAMES).filter(([value]) => model.items.some(item => item.image === value)).map(([value, label]) => ({ value, label })))}</select></label><label for="density-filter">注册示例密度<select id="density-filter" aria-describedby="density-help"><option value="">全部示例密度</option>${options(model.densities.map(value => ({ value, label: DENSITY_NAMES[value] ?? value })))}</select></label><button type="button" id="reset-filters">重置筛选</button></div><p id="density-help" class="fine-print">密度按注册示例筛选，不把 standard 的截图冒充其他密度。compact / editorial 只是间距选项，目前没有对应验收预览；选中可能没有结果。</p><p id="filter-result" role="status" aria-live="polite" aria-atomic="true">显示 ${model.accepted.length} 个已验收示例，${model.pending.length} 个待验收候选。</p></section>
 <noscript><p class="scope-note">脚本未启用：下方保留完整静态索引、原图、输入和详情。可用浏览器查找模板名称或 ID。</p></noscript>
 <section id="accepted" aria-labelledby="accepted-title"><div class="section-heading"><div><p class="kicker">01 / 已有可追溯的真实产物</p><h2 id="accepted-title">真实预览 <span>${model.accepted.length}</span></h2></div><p>点图查看完整 PNG；展开详情查看适用边界。</p></div><p class="empty-state" data-empty="accepted" hidden>没有匹配的已验收示例。可放宽筛选；下方候选不等于已验收替代品。</p><div class="accepted-grid">${model.accepted.map(renderItem).join('\n')}</div></section>

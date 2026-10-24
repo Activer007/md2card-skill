@@ -15,7 +15,7 @@ const input = id => `<!-- card: ${JSON.stringify({ template:id, ...(id==='T21'?{
 test('only T04 and T21 add independently registered aspects; aspect variants never create extra design IDs', () => {
   assert.deepEqual(TEMPLATES.filter(t=>t.aspects.length>1).map(t=>t.id).sort(), ['T04','T21']);
   assert.equal(new Set(TEMPLATES.map(t=>t.id)).size,TEMPLATES.length);
-  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length,48);
+  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length, TEMPLATES.filter(t=>t.acceptance).length);
   for(const t of TEMPLATES) {
     assert.deepEqual(Object.keys(t.aspectLayouts),t.aspects);
     assert.equal(t.aspectLayouts.portrait.composition,t.composition);

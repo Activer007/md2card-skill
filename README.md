@@ -323,7 +323,7 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 
 也可在卡片第一行选择 `<!-- card: {"template":"T05","density":"standard"} -->`。模板使用 `manual`，保留原文与 `===`；现有 `auto` 仍仅支持 layout-only `explainer` / `steps`。`compact` / `standard` / `editorial` 只调间距，不缩小正文。mobile 阅读字阶在实际 351/366px 内卡上检查，旧主题不会被暗中改成新字号。
 
-全部模板支持 3:4；**只有 T04/T21** 另外提供已验收短例的 1:1 / 16:9 独立重排，其他模板拒绝这两种比例。原 portrait 长度的输入在短画布可能明确溢出，不能把示例通过当作万能容量。见 [画幅与实测边界](docs/TEMPLATE_ASPECTS.md)。
+全部 48 套模板支持 3:4；仅在 **6 个模板上增加 8 个额外画幅组合**：T04/T21 各支持独立的 1:1 与 16:9，T05/T13 仅增加 1:1，T24/T37 仅增加 16:9。其余组合明确拒绝。当前 13 套 v3 / 35 套 v2 的精确 standard / portrait 示例已验收；T04/T21 的四个既有短例另有当前 M2 有界复核和独立保存的 v1 历史证据，但最终画幅注册绑定仍 pending。全部八个额外画幅组合保持待验收注册状态，四个新 R12 组合为独立 aspect-v1，尚无本阶段真实产物。原 portrait 输入在短画布可能明确溢出，不缩字、不删内容、不裁图。见 [画幅与验证边界](docs/TEMPLATE_ASPECTS.md)。
 
 `--list-templates` 列出用途、推荐长度、结构、图片需求、来源与完整输入。推荐字数只是选型参考；放不下时保留原文与诊断，换模板或由你明确选择编辑/增加分段，不自动删字、改写、缩字或裁切。
 
@@ -333,7 +333,7 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 
 两组既有系列的当前 M2 精确产物已检查全部 8 张原图、16 张手机图及原生 PDF；18 案例压力矩阵中三个明确输出有独立视觉复核，其余技术控制不扩大为视觉验收。历史 v1 系列、压力和尾页记录保持原样。成功导出与预期拒绝分别记录，这些结果只覆盖明确输入，不扩张为任意内容保证。
 
-[可选尾页平衡](docs/TAIL_BALANCING.md) 只在同一显式分区的末两页移动完整语义组，保留页数、编号、表头和来源；不强制填满所有尾页。[压力验证](docs/VISUAL_STRESS.md) 分开记录成功导出与预期拒绝，不声称覆盖任意内容。T34 装饰首字的 PDF 抽取顺序、图片内微字及旧 Notebook 字号等明确限制见 [全 16 项状态](docs/VISUAL_BACKLOG_STATUS.md)。
+[可选尾页平衡](docs/TAIL_BALANCING.md) 只在同一显式分区的末两页移动完整语义组，保留页数、编号、表头和来源；不强制填满所有尾页。[压力验证](docs/VISUAL_STRESS.md) 分开记录成功导出与预期拒绝，不声称覆盖任意内容。历史 v1 T34 装饰首字曾影响 PDF 抽取顺序，当前 v3 已移除该处理且精确原生 PDF 已复核，但不承诺带标签的可访问阅读顺序；图片内微字、旧 Notebook 字号和本轮状态见 [历史与当前状态](docs/VISUAL_BACKLOG_STATUS.md)。
 
 实施顺序与独立审查门槛保留在 [九个里程碑](docs/VISUAL_MILESTONES.md)。新的真实结果与历史记录分开，不以 CI 全绿替代逐图检查。
 

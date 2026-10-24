@@ -328,8 +328,12 @@ fail instead of silently reinterpreting content. IDs are allowlisted and never
 used as a filesystem path, CSS or HTML input. Templates remain independent of
 legacy themes; changing a palette does not create another counted design.
 
-All 48 designs support 3:4 and manual pagination. Only T04/T21 additionally
-support the independently composed square/slide layouts described below. Automatic mode
+All 48 designs support 3:4 and manual pagination. Exactly 6 templates add
+8 extra aspect pairs: T04/T21 each add square and slide, T05/T13 add square only,
+and T24/T37 add slide only. All 48 exact standard/portrait M2 examples are
+accepted; all extra aspect pairs retain pending registry status. T04/T21 have
+current bounded short-fixture review, not final registry binding or acceptance
+of the four new R12 aspect-v1 layouts. Support is not acceptance. Automatic mode
 still rejects template/density metadata and supports layout-only explainer/steps.
 Text-only designs reject image metadata and inline images rather than hide them.
 Raw HTML escaping, local asset validation, all output/resource budgets, screen
@@ -364,20 +368,33 @@ two sibling quote blocks in each of its first two comparison sections; nested
 quotes do not count as options. T39/T40 figure ordering is repository-owned and
 cannot be set by input metadata. Every supplied source fragment remains intact.
 
-## Independent aspect layouts (M9, scoped acceptance)
+## Independent aspect layouts (M9 / R12, source support)
 
-Only T04 and T21 currently implement independent square (1:1) and slide (16:9)
-compositions in addition to portrait. The four registered standard-density short
-examples have current independently reviewed full PNG, 375/390 phone and native-PDF
-artifacts; final aspect-specific registry binding remains pending R12. The other
-successful aspect controls remain technical-only; this does not extend to arbitrary content or dimensions. Other templates still
-reject those ratios. Use --size or
-matching custom dimensions; public aspect metadata is not supported. The existing
-0.002 ratio tolerance is unchanged. The registry exposes per-aspect composition,
-example and status, while manifests record the actual derived aspect. Mobile
-body/source floors, manual defaults, auto rejection and overflow checks remain
-unchanged. A portrait source may legitimately overflow in square/slide. See
-[the aspect contract and exact validation evidence](../docs/TEMPLATE_ASPECTS.md).
+Exactly 6 templates add 8 extra aspect pairs beyond portrait:
+- T04/T21 each support independent square (1:1) and slide (16:9) compositions.
+- T05/T13 additionally support square only.
+- T24/T37 additionally support slide only.
+
+All other non-portrait template/ratio combinations return
+`TEMPLATE_ASPECT_UNSUPPORTED` before renderer acquisition. T37 preserves its
+required validated local image, full-frame contain behavior, alt and caption;
+image support does not loosen path, MIME or resource restrictions.
+
+All 48 current standard/portrait examples are accepted (13 v3 / 35 v2).
+T04/T21's four exact short examples also have current M2 full PNG, 375/390px and
+native-PDF review, separate from immutable v1 historical evidence. Their final
+aspect-specific registry binding remains pending, and all eight extra aspect
+pairs retain pending registry status. The four new R12 pairs are independent
+aspect-v1 identities with no earlier acceptance. The full 58-case R12 plan
+defines expected export, overflow and pre-renderer refusal checks, not actual
+R12 rendering results.
+
+Use `--size` or matching custom dimensions; public aspect metadata is not
+supported. The inclusive 0.002 ratio tolerance is unchanged. The registry exposes
+per-aspect composition, example and status; manifests record the derived aspect.
+Mobile body/source floors, manual defaults, automatic-mode rejection and both
+screen/print overflow checks remain unchanged. A portrait source may legitimately
+overflow in square/slide. See [the aspect contract and historical evidence](../docs/TEMPLATE_ASPECTS.md).
 
 ### Optional footer modes
 

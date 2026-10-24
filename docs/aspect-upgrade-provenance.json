@@ -1,0 +1,796 @@
+{
+  "schemaVersion": 1,
+  "runId": 40058009275,
+  "runUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40058009275",
+  "codeCommit": "018a3bc2f0012ec6a6f83608fbd92c0a88e2f493",
+  "codeTree": "2d0e7278196ee71cb0ab349c4ce8b10e9ca40f41",
+  "mergePreview": "73a74d3a3a00d00314061c41e5e58dfb16650176",
+  "artifactId": 12546556001,
+  "archiveSha256": "419ce9625206c59a2804c095d0af1307acb87903025fada6f94410acfffc47b7",
+  "records": [
+    {
+      "id": "T04",
+      "aspect": "square",
+      "input": "examples/aspects/T04-square.md",
+      "inputSha256": "7329186d304df899bd4cd6f9dc163f2f918e78429287759b0ac4e4ed7baca137",
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "cards.html",
+          "bytes": 121969,
+          "sha256": "95dc5dffdf4c05ac805873507b8cad6c4cc0575c4b4545c8ecb0f36fb5158c34"
+        },
+        {
+          "format": "preview",
+          "file": "preview.html",
+          "bytes": 122791,
+          "sha256": "3c94f7b77edff25e39496fb4a44debccc89520ad6999453a5a3de3351df1f4b8"
+        },
+        {
+          "format": "pdf",
+          "file": "cards.pdf",
+          "bytes": 101430,
+          "sha256": "551dbfadd515962370a6e3e726665a5ee8d088b9f1eb0771f67dd9e686a0062e"
+        },
+        {
+          "format": "png",
+          "file": "card-001.png",
+          "bytes": 79205,
+          "sha256": "036b8e26ff6638e86cc9baddfe7102976079735b1312811aaad44737074c33a8",
+          "card": 1
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "audit": [
+            {
+              "template": "T04",
+              "aspect": "square",
+              "cardWidth": 351,
+              "cardHeight": 351,
+              "canvasWidth": 1080,
+              "canvasHeight": 1080,
+              "scale": 0.325,
+              "counter": "1 / 1",
+              "body": [
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.093,
+                  "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", Georgia, \"Noto Serif CJK SC\", \"Noto Serif SC\", \"Songti SC\", SimSun, serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.093,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.093,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.093,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ],
+              "notes": [
+                {
+                  "selector": "card-source",
+                  "fontSize": 36.18,
+                  "effectiveSize": 11.7585,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "52.461px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "card-index",
+                  "fontSize": 36.18,
+                  "effectiveSize": 11.7585,
+                  "fontFamily": "SFMono-Regular, Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", monospace",
+                  "lineHeight": "52.461px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ]
+            }
+          ],
+          "file": "card-001-mobile-375.png",
+          "bytes": 22072,
+          "sha256": "67f129f664bf05ed520c479cee25d512d602e5d82e24e3267f34c0e1b3c74bbe",
+          "pngDimensions": [
+            351,
+            351
+          ]
+        },
+        {
+          "viewportWidth": 390,
+          "audit": [
+            {
+              "template": "T04",
+              "aspect": "square",
+              "cardWidth": 366,
+              "cardHeight": 366,
+              "canvasWidth": 1080,
+              "canvasHeight": 1080,
+              "scale": 0.3388888888888889,
+              "counter": "1 / 1",
+              "body": [
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", Georgia, \"Noto Serif CJK SC\", \"Noto Serif SC\", \"Songti SC\", SimSun, serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ],
+              "notes": [
+                {
+                  "selector": "card-source",
+                  "fontSize": 36.18,
+                  "effectiveSize": 12.261000000000001,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "52.461px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "card-index",
+                  "fontSize": 36.18,
+                  "effectiveSize": 12.261000000000001,
+                  "fontFamily": "SFMono-Regular, Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", monospace",
+                  "lineHeight": "52.461px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ]
+            }
+          ],
+          "file": "card-001-mobile-390.png",
+          "bytes": 23695,
+          "sha256": "58c642a7b3551f8fb9dd13885eb70f5be6a4e63646665b1b39c37db777ae8f7b",
+          "pngDimensions": [
+            366,
+            366
+          ]
+        }
+      ],
+      "case": "01-T04-aspect-specific-square-square"
+    },
+    {
+      "id": "T04",
+      "aspect": "slide",
+      "input": "examples/aspects/T04-slide.md",
+      "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "cards.html",
+          "bytes": 121927,
+          "sha256": "0f1f59b866aedccf493de7f909202fd21fb9a1c98f207b2c3300dc81e9f0e499"
+        },
+        {
+          "format": "preview",
+          "file": "preview.html",
+          "bytes": 122747,
+          "sha256": "35544902696b46f58f804cefd3ea1b0f97b87568ec2da91984817c294aeb0f1a"
+        },
+        {
+          "format": "pdf",
+          "file": "cards.pdf",
+          "bytes": 74291,
+          "sha256": "4f651052a98aaac57e922e1a754f2c2146186ef189e6d7ba1952ec9e1d3e74f5"
+        },
+        {
+          "format": "png",
+          "file": "card-001.png",
+          "bytes": 77048,
+          "sha256": "0ad84dc7c90afe835afa8a59e2349bc57c006ee8d25503178bad56b648f5cd75",
+          "card": 1
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "audit": [
+            {
+              "template": "T04",
+              "aspect": "slide",
+              "cardWidth": 351,
+              "cardHeight": 197.4375,
+              "canvasWidth": 1600,
+              "canvasHeight": 900,
+              "scale": 0.219375,
+              "counter": "1 / 1",
+              "body": [
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.092999999999998,
+                  "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", Georgia, \"Noto Serif CJK SC\", \"Noto Serif SC\", \"Songti SC\", SimSun, serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.092999999999998,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.092999999999998,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.092999999999998,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ],
+              "notes": [
+                {
+                  "selector": "card-source",
+                  "fontSize": 53.6,
+                  "effectiveSize": 11.7585,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "77.72px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "card-index",
+                  "fontSize": 53.6,
+                  "effectiveSize": 11.7585,
+                  "fontFamily": "SFMono-Regular, Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", monospace",
+                  "lineHeight": "77.72px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ]
+            }
+          ],
+          "file": "card-001-mobile-375.png",
+          "bytes": 14769,
+          "sha256": "c429a3ccbe2b427dbc757ee4d6b193a46cd847f0524f85e193cd1c117522b10b",
+          "pngDimensions": [
+            351,
+            198
+          ]
+        },
+        {
+          "viewportWidth": 390,
+          "audit": [
+            {
+              "template": "T04",
+              "aspect": "slide",
+              "cardWidth": 366,
+              "cardHeight": 205.875,
+              "canvasWidth": 1600,
+              "canvasHeight": 900,
+              "scale": 0.22875,
+              "counter": "1 / 1",
+              "body": [
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", Georgia, \"Noto Serif CJK SC\", \"Noto Serif SC\", \"Songti SC\", SimSun, serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ],
+              "notes": [
+                {
+                  "selector": "card-source",
+                  "fontSize": 53.6,
+                  "effectiveSize": 12.261000000000001,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "77.72px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "card-index",
+                  "fontSize": 53.6,
+                  "effectiveSize": 12.261000000000001,
+                  "fontFamily": "SFMono-Regular, Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", monospace",
+                  "lineHeight": "77.72px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ]
+            }
+          ],
+          "file": "card-001-mobile-390.png",
+          "bytes": 15945,
+          "sha256": "a0022aac7f165864dfaa04957426ec3ce3d8e22a72810ebca7a27a7d6a074cd0",
+          "pngDimensions": [
+            366,
+            206
+          ]
+        }
+      ],
+      "case": "02-T04-aspect-specific-slide-slide"
+    },
+    {
+      "id": "T21",
+      "aspect": "square",
+      "input": "examples/aspects/T21-square.md",
+      "inputSha256": "ce4d422a73771fd67ee521259790849a8c4b9940328a9dbe8f1440bdd63db1d5",
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "cards.html",
+          "bytes": 122022,
+          "sha256": "125e3f0f70060aeaf668186fca7be90daf6ec5a91d3538d7e777d47acb58330f"
+        },
+        {
+          "format": "preview",
+          "file": "preview.html",
+          "bytes": 122844,
+          "sha256": "9e160967269a468fa90f5e758a04a52febfc55ebc37bc4f7ce2913ffa0511051"
+        },
+        {
+          "format": "pdf",
+          "file": "cards.pdf",
+          "bytes": 87415,
+          "sha256": "5fff1af9931a3102c5278b78dc8291b157cb3c00435691f173b5f1f00470807c"
+        },
+        {
+          "format": "png",
+          "file": "card-001.png",
+          "bytes": 89309,
+          "sha256": "cbd808bc9eb3cbfeaaf3eaf8a690e6c17d96ba9e528827498cb49890cfdce5e0",
+          "card": 1
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "audit": [
+            {
+              "template": "T21",
+              "aspect": "square",
+              "cardWidth": 351,
+              "cardHeight": 351,
+              "canvasWidth": 1080,
+              "canvasHeight": 1080,
+              "scale": 0.325,
+              "counter": "1 / 1",
+              "body": [
+                {
+                  "selector": "statistic-label",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.093,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.093,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.093,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.093,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ],
+              "notes": [
+                {
+                  "selector": "card-source",
+                  "fontSize": 36.18,
+                  "effectiveSize": 11.7585,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "52.461px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "card-index",
+                  "fontSize": 36.18,
+                  "effectiveSize": 11.7585,
+                  "fontFamily": "SFMono-Regular, Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", monospace",
+                  "lineHeight": "52.461px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ]
+            }
+          ],
+          "file": "card-001-mobile-375.png",
+          "bytes": 26218,
+          "sha256": "1316a414c9898d031973785b348244c067297e83eeeb9b10cdb62619174508d0",
+          "pngDimensions": [
+            351,
+            351
+          ]
+        },
+        {
+          "viewportWidth": 390,
+          "audit": [
+            {
+              "template": "T21",
+              "aspect": "square",
+              "cardWidth": 366,
+              "cardHeight": 366,
+              "canvasWidth": 1080,
+              "canvasHeight": 1080,
+              "scale": 0.3388888888888889,
+              "counter": "1 / 1",
+              "body": [
+                {
+                  "selector": "statistic-label",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 46.44,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "69.66px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ],
+              "notes": [
+                {
+                  "selector": "card-source",
+                  "fontSize": 36.18,
+                  "effectiveSize": 12.261000000000001,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "52.461px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "card-index",
+                  "fontSize": 36.18,
+                  "effectiveSize": 12.261000000000001,
+                  "fontFamily": "SFMono-Regular, Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", monospace",
+                  "lineHeight": "52.461px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ]
+            }
+          ],
+          "file": "card-001-mobile-390.png",
+          "bytes": 27596,
+          "sha256": "8b97b258c9c63cd37d5d17ee4f2d6279d6e6105f93d74bf7d57689886e2f3eb6",
+          "pngDimensions": [
+            366,
+            366
+          ]
+        }
+      ],
+      "case": "12-T21-aspect-specific-square-square"
+    },
+    {
+      "id": "T21",
+      "aspect": "slide",
+      "input": "examples/aspects/T21-slide.md",
+      "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "cards.html",
+          "bytes": 121952,
+          "sha256": "db9750f3d1c4db5d2b1aca70a0ea3d68ec885c878c3f3019de14af0eec8b0811"
+        },
+        {
+          "format": "preview",
+          "file": "preview.html",
+          "bytes": 122772,
+          "sha256": "e980bb3a82358d2d2e9124d5b83ab32394a037a7cd31b8d45fdb6348e49a5bae"
+        },
+        {
+          "format": "pdf",
+          "file": "cards.pdf",
+          "bytes": 74292,
+          "sha256": "a894a372dc5677ed1a050c89664452de93d00081748483c3b1f3f4bc8044d4b4"
+        },
+        {
+          "format": "png",
+          "file": "card-001.png",
+          "bytes": 94199,
+          "sha256": "43dc0c55583b3ed0c79a121c7bfabd369e767c21d101da9dc5b726575acde34e",
+          "card": 1
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "audit": [
+            {
+              "template": "T21",
+              "aspect": "slide",
+              "cardWidth": 351,
+              "cardHeight": 197.4375,
+              "canvasWidth": 1600,
+              "canvasHeight": 900,
+              "scale": 0.219375,
+              "counter": "1 / 1",
+              "body": [
+                {
+                  "selector": "statistic-label",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.092999999999998,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.092999999999998,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.092999999999998,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.092999999999998,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ],
+              "notes": [
+                {
+                  "selector": "card-source",
+                  "fontSize": 53.6,
+                  "effectiveSize": 11.7585,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "77.72px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "card-index",
+                  "fontSize": 53.6,
+                  "effectiveSize": 11.7585,
+                  "fontFamily": "SFMono-Regular, Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", monospace",
+                  "lineHeight": "77.72px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ]
+            }
+          ],
+          "file": "card-001-mobile-375.png",
+          "bytes": 18962,
+          "sha256": "f6c1f889e40a863a037f27233ca0eadc943d12a28fdaf10a8e1049de0a7c9f4a",
+          "pngDimensions": [
+            351,
+            198
+          ]
+        },
+        {
+          "viewportWidth": 390,
+          "audit": [
+            {
+              "template": "T21",
+              "aspect": "slide",
+              "cardWidth": 366,
+              "cardHeight": 205.875,
+              "canvasWidth": 1600,
+              "canvasHeight": 900,
+              "scale": 0.22875,
+              "counter": "1 / 1",
+              "body": [
+                {
+                  "selector": "statistic-label",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "p",
+                  "fontSize": 68.8,
+                  "effectiveSize": 15.738,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "103.2px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ],
+              "notes": [
+                {
+                  "selector": "card-source",
+                  "fontSize": 53.6,
+                  "effectiveSize": 12.261000000000001,
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "lineHeight": "77.72px",
+                  "visible": true,
+                  "nestedTransform": false
+                },
+                {
+                  "selector": "card-index",
+                  "fontSize": 53.6,
+                  "effectiveSize": 12.261000000000001,
+                  "fontFamily": "SFMono-Regular, Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", monospace",
+                  "lineHeight": "77.72px",
+                  "visible": true,
+                  "nestedTransform": false
+                }
+              ]
+            }
+          ],
+          "file": "card-001-mobile-390.png",
+          "bytes": 19510,
+          "sha256": "5672b9ddc1bb6a5ea0f29e38343d0952758cbabc6175fbde860ee739af0278a7",
+          "pngDimensions": [
+            366,
+            206
+          ]
+        }
+      ],
+      "case": "13-T21-aspect-specific-slide-slide"
+    }
+  ]
+}

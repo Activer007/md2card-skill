@@ -126,9 +126,9 @@ test('large list counters are rejected before they can overlap a fixed number ra
 });
 
 const m2Ids = ['T02', 'T06', 'T09', 'T10', 'T13', 'T14'];
-test('unrendered M2 designs stay distinct from visually accepted M1 counts', () => {
-  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length,4);
-  for (const id of m2Ids) assert.equal(getTemplate(id).status,'implemented-awaiting-visual-review');
+test('M2 designs retain distinct compositions and explicit acceptance bindings', () => {
+  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length,48);
+  for (const id of m2Ids) assert.equal(getTemplate(id).status,'visually-reviewed');
   assert.equal(new Set(m2Ids.map(id=>getTemplate(id).composition)).size,6);
 });
 
@@ -261,7 +261,7 @@ test('first selected 24 are distinct compositions spanning all twelve families, 
   const ids=['T01','T02','T05','T06','T09','T10','T13','T14','T17','T18','T21','T22','T25','T26','T29','T30','T33','T34','T37','T38','T41','T42','T45','T46'];
   assert.equal(new Set(ids.map(id=>getTemplate(id).family)).size,12);
   assert.equal(new Set(ids.map(id=>getTemplate(id).composition)).size,24);
-  assert.equal(ids.filter(id=>getTemplate(id).status==='visually-reviewed').length,4);
+  assert.equal(ids.filter(id=>getTemplate(id).status==='visually-reviewed').length,24);
 });
 
 test('M5 text grids preserve supplementary source sections without truncating to visual slots', () => {
@@ -287,9 +287,9 @@ test('T03 requires image descriptions and preserves text then full portrait DOM 
   assert.match(getTemplate('T03').provenance.assets,/fictional adult portrait/);
 });
 
-test('M5 remains pending and decorative grids never override body size or crop images', () => {
+test('M5 retains explicit reviewed-example bindings and decorative grids never override body size or crop images', () => {
   for(const id of ['T03','T04','T07','T08','T11','T12','T15','T16']) {
-    assert.equal(getTemplate(id).status,'implemented-awaiting-visual-review');
+    assert.equal(getTemplate(id).status,'visually-reviewed');
     const rules=[...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].filter(([,selector])=>selector.includes(`.template-${id}`));
     assert.ok(rules.length>0);
     for(const [, , rule] of rules) assert.doesNotMatch(rule,/--text-size\s*:|--note-size\s*:|object-fit:\s*cover|overflow:\s*hidden|text-overflow:\s*ellipsis/);
@@ -327,7 +327,7 @@ test('M6 supplied timelines, index starts and quotation breaks are never generat
   for(const id of ['T19','T23','T27','T32']) {
     const [card]=renderCards(await readFile(new URL(`../examples/templates/${id}.md`,import.meta.url),'utf8'));
     assert.equal(card.templateTitleHtml+card.templateIntroHtml+card.sections.map(s=>s.html).join(''),card.html);
-    assert.equal(getTemplate(id).status,'implemented-awaiting-visual-review');
+    assert.equal(getTemplate(id).status,'visually-reviewed');
   }
 });
 
@@ -394,14 +394,14 @@ test('T44 counts sibling option quotes from tokens, never nested-quote markup', 
   assert.equal(card.templateTitleHtml+card.templateIntroHtml+card.sections.map(s=>s.html).join(''),card.html);
 });
 
-test('48 implemented compositions span twelve families without inflating visual acceptance', () => {
+test('48 reviewed compositions span twelve families without counting aspect variants', () => {
   assert.equal(TEMPLATES.length,48);
   for(let n=1;n<=48;n++) assert.ok(getTemplate(`T${String(n).padStart(2,'0')}`));
   const families=new Map();
   for(const template of TEMPLATES) families.set(template.family,(families.get(template.family)||0)+1);
   assert.equal(families.size,12);
   assert.ok([...families.values()].every(count=>count===4));
-  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length,4);
+  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length,48);
 });
 
 test('empty quotes or lists cannot satisfy required authored descriptions and options', async () => {

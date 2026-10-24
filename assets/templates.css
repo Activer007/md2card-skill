@@ -73,14 +73,14 @@
 .card.template-T05 .card-footer { border: 0; }
 
 /* T17: an instrument heading and sequenced modules on a single connecting rail. */
-.card.template-T17 { --paper: #102525; --ink: #f0f7ed; --muted: #c0d1c9; --accent: var(--brand-accent, #c6f789); --panel: #193a37; --line: #577268; }
-.card.template-T17 .template-heading { padding: .7em .7em .75em; background: var(--panel); border-top: .14em solid var(--accent); }
+.card.template-T17 { --section-gap: .65em; --paper: #102525; --ink: #f0f7ed; --muted: #c0d1c9; --accent: var(--brand-accent, #c6f789); --panel: #193a37; --line: #577268; }
+.card.template-T17 .template-heading { padding: .35em .7em .4em; background: var(--panel); border-top: .14em solid var(--accent); }
 .card.template-T17 h1 { font-size: 1.65em; letter-spacing: -.025em; }
-.card.template-T17 .card-eyebrow { color: var(--accent); font-family: var(--mono); }
-.card.template-T17 .template-sections { counter-reset: mechanism; padding-left: 1.55em; margin-left: .4em; border-left: .055em solid var(--accent); gap: .7em; }
-.card.template-T17 .template-section { counter-increment: mechanism; position: relative; padding-bottom: .5em; border-bottom: 1px solid var(--line); }
+.card.template-T17 .card-eyebrow { margin-bottom: .4em; color: var(--accent); font-family: var(--mono); }
+.card.template-T17 .template-sections { counter-reset: mechanism; padding-left: 1.55em; margin-left: .4em; border-left: .055em solid var(--accent); gap: .35em; }
+.card.template-T17 .template-section { counter-increment: mechanism; position: relative; padding-bottom: .15em; border-bottom: 1px solid var(--line); }
 .card.template-T17 .template-section::before { content: counter(mechanism, decimal-leading-zero); position: absolute; left: -2.35em; top: .02em; width: 1.6em; height: 1.6em; display: grid; place-items: center; background: var(--accent); color: var(--paper); font: 750 var(--note-size)/1 var(--mono); border-radius: 50%; }
-.card.template-T17 .template-section h2 { color: var(--accent); }
+.card.template-T17 .template-section h2 { margin-bottom: .2em; color: var(--accent); }
 .card.template-T17 .template-section p { margin: 0; }
 .card.template-T17 .card-footer { font-family: var(--mono); }
 

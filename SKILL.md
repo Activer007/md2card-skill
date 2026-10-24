@@ -218,3 +218,5 @@ Do not upload, publish, or install this skill elsewhere unless asked.
 ### R09 / R10：按任务选型与真实同文测试
 
 图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：18 例计划完整导出、4 例长文必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [docs/CONTENT_MATRIX.md](docs/CONTENT_MATRIX.md) 和 [docs/TEMPLATE_GALLERY.md](docs/TEMPLATE_GALLERY.md)。
+
+R11 的四组可选作者系列共 5/3/3/3 张，新增有条件选择与图像观察两种节奏，不强制封面或 CTA，不读取配方来改写用户输入。每张保留显式模板、manual 边界、图像身份、来源与限制。当前 v2 全部系列均待新的实际连读与手机/PDF 验证，详见 [系列契约](docs/SERIES_RECIPES.md)。

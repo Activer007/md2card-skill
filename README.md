@@ -329,7 +329,7 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 
 可选原创起点：[固定 5 张的证据阅读](examples/series/evidence-reading.md)、[直接从正文开始的 3 张均值教程](examples/series/mean-tutorial.md)。每张显式选择模板，不自动插封面、总结或 CTA；虚构数据、代码口径与品牌路径见 [系列说明](docs/SERIES_RECIPES.md)。
 
-两组完整系列已检查全部 8 张原图、16 张手机图及原生 PDF；18 案例压力矩阵和四组尾页配对也有独立复核。成功导出与预期拒绝分别记录，这些结果只覆盖明确输入，不扩张为任意内容保证。
+两组历史 v1 系列曾检查全部 8 张原图、16 张手机图及原生 PDF；历史 18 案例压力矩阵和四组尾页配对也有独立复核。当前 v2 均须重新验证。成功导出与预期拒绝分别记录，这些结果只覆盖明确输入，不扩张为任意内容保证。
 
 [可选尾页平衡](docs/TAIL_BALANCING.md) 只在同一显式分区的末两页移动完整语义组，保留页数、编号、表头和来源；不强制填满所有尾页。[压力验证](docs/VISUAL_STRESS.md) 分开记录成功导出与预期拒绝，不声称覆盖任意内容。T34 装饰首字的 PDF 抽取顺序、图片内微字及旧 Notebook 字号等明确限制见 [全 16 项状态](docs/VISUAL_BACKLOG_STATUS.md)。
 
@@ -343,3 +343,5 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 ### R09 / R10：按任务选型与真实同文测试
 
 图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：18 例计划完整导出、4 例长文必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [docs/CONTENT_MATRIX.md](docs/CONTENT_MATRIX.md) 和 [docs/TEMPLATE_GALLERY.md](docs/TEMPLATE_GALLERY.md)。
+
+R11 新增两条非封面/CTA 节奏：有条件比较 → 条件表 → 可撤回试用（T06/T24/T14），以及单图观察 → 双图对照 → 未知边界札记（T37/T38/T29）。共四组作者明确选择的系列、14 张卡；新增六张和全部当前 v2 连读效果仍待真实 PNG/手机/PDF 复核。详见 [系列配方](docs/SERIES_RECIPES.md)。

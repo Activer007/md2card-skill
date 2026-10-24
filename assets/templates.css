@@ -294,6 +294,9 @@
  * contents changes layout only: DOM order and all supplied text stay intact. */
 .card.template-T10 { --paper: #f0ebdd; --ink: #252a2a; --muted: #575c57; --accent: var(--brand-accent, #a63322); --line: #aca99c; --panel: #f1ce5a; }
 .card.template-T10 .template-heading { padding: .3em 0 .65em; border-bottom: .12em solid var(--ink); }
+/* Without the optional eyebrow, use a balanced title inset rather than
+ * reserving its larger heading rhythm. The registered labelled fixture is unchanged. */
+.card.template-T10 .template-heading:has(> .template-title:only-child) { padding-bottom: .35em; }
 .card.template-T10 .card-eyebrow { margin-bottom: .55em; color: var(--ink); }
 .card.template-T10 h1 { font-size: 2.25em; font-weight: 850; letter-spacing: -.04em; }
 .card.template-T10 .template-main { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-content: start; gap: .55em; }

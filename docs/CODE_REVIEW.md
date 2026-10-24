@@ -1,5 +1,10 @@
 # Code review and targeted regression record
 
+## Visual M1 (2026-10-24)
+
+The four new template designs have separate [exact-source, actual-output and visual acceptance](TEMPLATE_ACCEPTANCE.md#visual-m1). Review fixed missing preview CSS, empty-token fallbacks, discarded metadata, legacy-theme leakage and oversized list-number rails. Real browser checks additionally found T01/T17 vertical overflow; spacing-only fixes preserved input and body type. Local 148 tests and 1,728 independent parser differential cases passed; final implementation CI passed 169 tests with zero skips. These are complementary checks, not a claim that arbitrary content always fits.
+
+
 The historical v2 evidence and phase 3 acceptance are recorded separately below.
 Phase 3 adds opt-in semantic pagination; historical passes are not evidence for
 these new paths. Its own source review, real CI exports and scoped visual

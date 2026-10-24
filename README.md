@@ -289,7 +289,15 @@ tests/                  解析与导出测试
 
 成品模板是完整构图，不把主题 × 配色 × 画幅算成模板数量。新版工作按 [九个中等规模里程碑](docs/VISUAL_MILESTONES.md) 分批推进；首批目标 24 套，最终目标 48 套，均须经过源码审查和真实 PNG / 手机 / PDF 验收。
 
-M1 增加四个候选设计：T01 编辑专题侧栏、T05 瑞士数字索引、T17 深色机制轨道、T25 便签阅读摘记。当前预览验收状态以注册表和 PR 记录为准，不把“已实现”当作“已视觉验收”。
+M1 已完成四套设计的源码、真实导出与逐图验收：T01 编辑专题侧栏、T05 瑞士数字索引、T17 深色机制轨道、T25 便签阅读摘记。当前验收数量为 4，不是 24 或 48；范围、限制与精确来源见 [模板验收记录](docs/TEMPLATE_ACCEPTANCE.md)。
+
+以下均是本仓库实际导出的原始 PNG，不是概念设计图：
+
+| T01 编辑专题 | T05 数字索引 |
+| --- | --- |
+| ![T01 专题与侧栏](docs/images/templates/T01.png) | ![T05 原始编号清单](docs/images/templates/T05.png) |
+| T17 深色机制 | T25 阅读便签 |
+| ![T17 机制轨道](docs/images/templates/T17.png) | ![T25 摘句与批注](docs/images/templates/T25.png) |
 
 ```bash
 node scripts/render.mjs --list-templates

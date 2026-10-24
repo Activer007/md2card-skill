@@ -124,6 +124,8 @@
   width: 1px;
   background: #d49b94;
 }
+/* Opaque local heading boxes mask the ruling without changing type or spacing. */
+.card.theme-notebook .card-content :is(h1, h2, h3, h4, h5, h6) { background-color: var(--paper); }
 .theme-notebook h1 { font-family: var(--serif); font-size: 2.16em; line-height: 1.3; letter-spacing: -0.035em; }
 .theme-notebook h2 { display: table; padding: 0 0.2em 0.12em 0; border-bottom: 2px solid var(--accent); font-size: 1.24em; }
 .theme-notebook blockquote { border: 0; border-radius: 0; background: #f5edce; transform: none; padding: 0.65em 0.8em; }

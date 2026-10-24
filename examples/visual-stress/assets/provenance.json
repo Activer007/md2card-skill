@@ -1,0 +1,29 @@
+{
+  "assets": [
+    {
+      "file": "extreme-wide.png",
+      "width": 1600,
+      "height": 80,
+      "sha256": "c61dd839c63a74f489647059f15d1e42f45c88d13bae2c0883f5c379c2036c95",
+      "type": "original-edge-marker-test-pattern",
+      "license": "MIT",
+      "source": "scripts/create-visual-stress-assets.mjs"
+    },
+    {
+      "file": "extreme-tall.png",
+      "width": 80,
+      "height": 1600,
+      "sha256": "75b50efdf18540ebc82d6297ffa9b31ace0f93b203a029fcdba18e2d2e5cabe6",
+      "type": "original-edge-marker-test-pattern",
+      "license": "MIT",
+      "source": "scripts/create-visual-stress-assets.mjs"
+    },
+    {
+      "file": "corrupt.png",
+      "type": "intentional-invalid-signature",
+      "sha256": "055d066faeb3d3da32f9cd5d48cabe873a78b4a4da6f719de7951d504eb3b87f",
+      "license": "MIT",
+      "source": "scripts/create-visual-stress-assets.mjs"
+    }
+  ]
+}

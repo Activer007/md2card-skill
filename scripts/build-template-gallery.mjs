@@ -60,6 +60,10 @@ export async function buildGalleryModel({ root = ROOT, templates = TEMPLATES } =
   for (const batch of bindings.batches) {
     if (!batch || !/^[a-z0-9-]+$/.test(batch.id) || batches.has(batch.id)) fail('invalid or duplicate evidence batch');
     validateScope(batch.scope, batch.id);
+    if (batch.previewDirectory !== undefined) {
+      validateRepoPath(batch.previewDirectory);
+      if (!batch.previewDirectory.startsWith('docs/images/')) fail(`invalid preview directory: ${batch.id}`);
+    }
     const reviewBytes = await readRepoFile(root, batch.review);
     const evidenceBytes = await readRepoFile(root, batch.evidence);
     if (!SHA256.test(batch.reviewSha256) || digest(reviewBytes) !== batch.reviewSha256 || !SHA256.test(batch.evidenceSha256) || digest(evidenceBytes) !== batch.evidenceSha256) fail(`evidence/review file hash mismatch: ${batch.id}`);
@@ -101,7 +105,8 @@ export async function buildGalleryModel({ root = ROOT, templates = TEMPLATES } =
       const bytes = await readRepoFile(root, preview);
       if (digest(bytes) !== record.png) fail(`accepted PNG hash mismatch: ${template.id}`);
       if (bytes.length < 24 || bytes.subarray(0, 8).toString('hex') !== '89504e470d0a1a0a' || bytes.toString('ascii', 12, 16) !== 'IHDR' || bytes.readUInt32BE(16) !== batch.scope.width || bytes.readUInt32BE(20) !== batch.scope.height) fail(`accepted PNG dimensions or signature mismatch: ${template.id}`);
-      if (!batch.reviewText.includes(`(images/templates/${template.id}.png)`) || !batch.reviewText.includes(`(../${template.example})`)) fail(`review is missing exact preview/input links: ${template.id}`);
+      const reviewImageLink = path.posix.relative(path.posix.dirname(batch.review), preview);
+      if (!batch.reviewText.includes(`(${reviewImageLink})`) || !batch.reviewText.includes(`(../${template.example})`)) fail(`review is missing exact preview/input links: ${template.id}`);
       item.preview = { path: preview, sha256: record.png, ...batch.scope };
       item.evidence = { batch: batch.id, review: batch.review, path: batch.evidence, sha256: batch.evidenceSha256, codeCommit: batch.provenance.codeCommit, codeTree: batch.provenance.codeTree };
     } else if (template.status !== 'implemented-awaiting-visual-review') {

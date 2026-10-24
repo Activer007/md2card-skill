@@ -375,3 +375,19 @@ test('refined versions keep immutable history without displaying old pixels as c
   const templates = TEMPLATES.map(item => item.id === 'T06' ? { ...item, historicalAcceptance: { batch: 'visual-upgrade', version: 2 } } : item);
   await assert.rejects(buildGalleryModel({ templates }), /invalid historical acceptance/);
 });
+
+
+test('versioned preview directories require their actual review links, not obsolete pixels', async t => {
+  const root = await fixture(t);
+  await cp(path.join(root, 'docs/images/templates'), path.join(root, 'docs/images/templates-v2'), { recursive: true });
+  await editJson(root, 'docs/template-gallery-evidence.json', data => { data.batches[0].previewDirectory = 'docs/images/templates-v2'; });
+  await assert.rejects(buildGalleryModel({ root }), /review is missing exact preview/);
+  const reviewPath = path.join(root, 'docs/TEMPLATE_ACCEPTANCE.md');
+  const review = (await readFile(reviewPath, 'utf8')).replaceAll('(images/templates/', '(images/templates-v2/');
+  await writeFile(reviewPath, review);
+  await editJson(root, 'docs/template-gallery-evidence.json', data => { data.batches[0].reviewSha256 = sha(Buffer.from(review)); });
+  const custom = await buildGalleryModel({ root });
+  assert.equal(custom.items.find(item => item.id === 'T01').preview.path, 'docs/images/templates-v2/T01.png');
+  await editJson(root, 'docs/template-gallery-evidence.json', data => { data.batches[0].previewDirectory = '../escape'; });
+  await assert.rejects(buildGalleryModel({ root }), /unsafe repository path/);
+});

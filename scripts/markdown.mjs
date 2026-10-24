@@ -167,6 +167,21 @@ function sectionHtml(tokens, env) {
   };
 }
 
+function orderedListBounds(tokens) {
+  const result = [];
+  for (let index = 0; index < tokens.length; index++) {
+    const token = tokens[index];
+    if (token.type !== 'ordered_list_open' || token.level !== 0) continue;
+    let count = 0;
+    for (let next = index + 1; next < tokens.length; next++) {
+      if (tokens[next].type === 'ordered_list_close' && tokens[next].level === 0) break;
+      if (tokens[next].type === 'list_item_open' && tokens[next].level === 1) count++;
+    }
+    result.push({ start: Number(token.attrGet('start') ?? 1), count });
+  }
+  return result;
+}
+
 /** Synchronous rendering; resolveImage must be a synchronous trusted local resolver. */
 export function renderCards(markdown, { resolveImage } = {}) {
   const cards = splitCards(markdown).map((card, index) => ({ ...card, ...parseCardMetadata(card.source, index + 1), index: index + 1 }));
@@ -179,7 +194,7 @@ export function renderCards(markdown, { resolveImage } = {}) {
     const tokens = parser.parse(card.source, env);
     resolveTokenImages(tokens, env);
     const image = card.metadata.image ? resolveCardImage(card.metadata.image, resolveImage, card.index) : undefined;
-    return { ...card, ...(image ? { image } : {}), html: parser.renderer.render(tokens, parser.options, env), ...sectionHtml(tokens, env) };
+    return { ...card, ...(image ? { image } : {}), html: parser.renderer.render(tokens, parser.options, env), orderedLists: orderedListBounds(tokens), ...sectionHtml(tokens, env) };
   });
 }
 

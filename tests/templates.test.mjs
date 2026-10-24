@@ -109,3 +109,11 @@ test('composed templates never inherit legacy theme treatments', () => {
     assert.doesNotMatch(html,new RegExp(`class="card[^"\n]*theme-${theme}`));
   }
 });
+
+
+test('large list counters are rejected before they can overlap a fixed number rail', () => {
+  for(const start of [7,98]) assert.doesNotThrow(()=>render(`<!-- card: {"template":"T05"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`));
+  for(const start of [99,100,123456789]) assert.throws(()=>render(`<!-- card: {"template":"T05"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`),{code:'TEMPLATE_LIST_RANGE'});
+  const [legacy]=renderCards('<!-- card: {"layout":"steps"} -->\n# List\n\n123456789. First.');
+  assert.match(legacy.html,/<ol start="123456789">/);
+});

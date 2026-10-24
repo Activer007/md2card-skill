@@ -46,8 +46,8 @@
 
 /* T01: a masthead, one joined title group, an asymmetric lead / reading sidebar.
  * The rule separates information regions rather than underlining every H1. */
-.card.template-T01 { border-top: calc(var(--card-width) * .012) solid var(--ink); }
-.card.template-T01 .template-heading { padding-top: .45em; padding-bottom: 1.1em; border-bottom: .055em solid var(--ink); }
+.card.template-T01 { --section-gap: .6em; border-top: calc(var(--card-width) * .012) solid var(--ink); }
+.card.template-T01 .template-heading { padding-top: .45em; padding-bottom: .25em; border-bottom: .055em solid var(--ink); }
 .card.template-T01 .card-eyebrow { display: flex; align-items: center; gap: .7em; text-transform: uppercase; }
 .card.template-T01 .card-eyebrow::before { content: ''; flex: 0 0 .55em; height: .55em; background: var(--accent); }
 .card.template-T01 h1 { font-family: var(--serif); font-size: 2.25em; line-height: 1.18; font-weight: 650; }
@@ -56,7 +56,7 @@
 .card.template-T01 .template-intro > p:first-child::first-letter { float: left; margin: .06em .14em 0 0; color: var(--accent); font: 700 2.6em/1 var(--serif); }
 .card.template-T01 .template-intro + .template-sections { margin: 0; border-left: 1px solid var(--line); padding-left: .8em; }
 .card.template-T01 .template-section { padding-top: .25em; }
-.card.template-T01 .template-section + .template-section { border-top: 1px solid var(--line); padding-top: .7em; }
+.card.template-T01 .template-section + .template-section { border-top: 1px solid var(--line); padding-top: .5em; }
 .card.template-T01 .template-section h2 { font-family: var(--serif); font-weight: 650; color: var(--accent); }
 .card.template-T01 .card-footer { border-top: 3px double var(--ink); }
 

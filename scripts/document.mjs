@@ -1,5 +1,6 @@
 import { escapeHtml, LAYOUTS } from './markdown.mjs';
-import { validateTemplateMetadata } from './templates.mjs';
+import { validateTemplateMetadata, validateTemplateCard } from './templates.mjs';
+import { Md2CardError } from './errors.mjs';
 
 export const THEMES = ['editorial', 'minimal', 'midnight', 'notebook', 'bold'];
 export { LAYOUTS };
@@ -100,7 +101,8 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
     const layout = card.metadata?.layout ?? 'explainer';
     if (!LAYOUTS.includes(layout)) throw new Error(`Card ${index} has unknown layout "${layout}".`);
     const template = validateTemplateMetadata(card.metadata ?? {}, { width, height });
-    if (template?.image === 'none' && /<img\b/.test(card.html)) throw new Error(`${template.id} is text-only; choose an image template. Inline images are not discarded.`);
+    if (template?.image === 'none' && /<img\b/.test(card.html)) throw new Md2CardError('TEMPLATE_IMAGE_UNSUPPORTED', `${template.id} is text-only; choose an image template. Inline images are not discarded.`);
+    validateTemplateCard(card, template);
     const templateClass = template ? ` template-card template-${template.id} family-${template.family} density-${card.metadata.density ?? template.density}` : '';
     const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}"` : ''} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
     <div class="card-content">${cardContent(card, layout, template)}</div>

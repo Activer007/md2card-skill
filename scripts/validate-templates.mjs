@@ -9,7 +9,11 @@ import { openRenderer, closeBrowser } from './browser.mjs';
 const root=path.resolve('validation/templates');
 await mkdir(root,{recursive:true});
 const results=[];
+const comparison=[];
+const boundaries=[];
+const errors=[];
 for(const template of TEMPLATES) {
+ try {
   const out=path.join(root,template.id);
   const manifest=await exportCards(parseOptions([template.example,'--out',out,'--strict','--preview']));
   for(const artifact of manifest.artifacts) {
@@ -40,6 +44,33 @@ for(const template of TEMPLATES) {
     }
   } finally {await closeBrowser(renderer.browser);}
   results.push({id:template.id,composition:template.composition,status:'rendered-not-visually-reviewed',input:template.example,cardCount:manifest.cardCount,pdf:manifest.qa.pdf.status,mobile});
+ } catch(error) { errors.push({id:template.id,code:error.code ?? 'VALIDATION_FAILED',message:error.message}); console.error(template.id,error); }
 }
-await writeFile(path.join(root,'summary.json'),JSON.stringify({schemaVersion:1,results},null,2)+'\n');
+// Same source, same canvas: contrast compositions without editing the wording.
+const comparisonInput='examples/template-comparison.md';
+for(const id of ['T01','T17']) {
+ try {
+  const manifest=await exportCards(parseOptions([comparisonInput,'--template',id,'--out',path.join(root,'comparison',id),'--strict','--preview']));
+  comparison.push({id,inputSha256:manifest.inputSha256,cards:manifest.cardCount,pdf:manifest.qa.pdf.status});
+ } catch(error) { errors.push({id,scope:'comparison',code:error.code ?? 'VALIDATION_FAILED',message:error.message}); console.error(id,error); }
+}
+if(comparison.length>1&&new Set(comparison.map(item=>item.inputSha256)).size!==1)throw new Error('Same-content comparison source diverged.');
+// An oversized whole paragraph is intentionally unsuitable. It must fail, not
+// shrink, discard content or publish clipped files. These are synthetic QA text.
+const longInput=path.join(root,'long-boundary.md');
+await writeFile(longInput,'# 长文边界测试\n\n'+('这是合成的容量测试文本，必须完整保留，不能缩字或隐藏。'.repeat(80))+'\n');
+for(const template of TEMPLATES) {
+  const out=path.join(root,'boundaries',template.id);
+  try {
+    await exportCards(parseOptions([longInput,'--template',template.id,'--out',out,'--format','html','--strict']));
+    throw new Error(`${template.id}: oversized paragraph unexpectedly succeeded.`);
+  } catch(error) {
+    if(error.code!=='CONTENT_OVERFLOW')throw error;
+    const report=JSON.parse(await readFile(path.join(out,'overflow.json'),'utf8'));
+    if(report.code!=='CONTENT_OVERFLOW')throw new Error('Missing overflow evidence.');
+    boundaries.push({id:template.id,status:'expected-overflow',code:error.code});
+  }
+}
+await writeFile(path.join(root,'summary.json'),JSON.stringify({schemaVersion:1,results,comparison,boundaries,errors},null,2)+'\n');
+if(errors.length)throw new Error(`Template acceptance failed: ${JSON.stringify(errors)}`);
 console.log(`Rendered ${results.length} composed templates, native PDFs and mobile375/390 previews. Human pixel review still required.`);

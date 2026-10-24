@@ -2,6 +2,7 @@ name: Validate renderer
 
 on:
   push:
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -38,6 +39,8 @@ jobs:
         run: npm test
       - name: Render eight layouts in five themes and three original showcases
         run: node scripts/validate-showcases.mjs
+      - name: Validate semantic pagination and safe atomic failures
+        run: node scripts/validate-pagination.mjs
       - name: Upload actual rendered showcase artifacts
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

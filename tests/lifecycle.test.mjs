@@ -4,7 +4,7 @@ import { readdirSync } from 'node:fs';
 import { mkdtemp, writeFile, readdir, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { parseOptions, exportCards } from '../scripts/render.mjs';
+import { parseOptions, exportCards, LIMITS } from '../scripts/render.mjs';
 import { openRenderer, closeBrowser } from '../scripts/browser.mjs';
 
 async function workspace(t) {
@@ -289,6 +289,106 @@ test('render deadline interrupts a pending browser evaluation even when close ha
   evaluation.resolve();
   await new Promise(resolve => setImmediate(resolve));
   assert.equal(measurements, 0, 'late browser completion must not resume export or publish output');
+  await assertNoOutputOrStaging(dir);
+});
+
+for (const settlement of ['resolve', 'reject']) {
+  test(`a stalled PDF respects the deadline and its late ${settlement} cannot write output`, { timeout: 2000 }, async t => {
+    const { dir, options } = await workspace(t);
+    const pdf = deferred(), closing = deferred();
+    t.after(() => { pdf.resolve(Buffer.from('%PDF-late')); closing.resolve(); });
+    const fixture = rendererFixture({ close: () => closing.promise });
+    let pdfOptions, textReads = 0;
+    const writes = [];
+    fixture.renderer.page.pdf = async configuration => {
+      pdfOptions = configuration;
+      const bytes = await pdf.promise;
+      // Match Playwright's path behavior: it writes after generation completes.
+      if (configuration.path) {
+        await writeFile(configuration.path, bytes);
+      }
+      return bytes;
+    };
+    fixture.renderer.page.locator = selector => selector === '.card-content'
+      ? { allTextContents: async () => { textReads++; return ['test']; } }
+      : { evaluateAll: async () => [] };
+    await assert.rejects(() => exportCards({ ...options, formats: ['pdf'], timeoutMs: 100 }, dependencies(fixture.renderer, {
+      writeFile: async (filename, ...args) => { writes.push(path.basename(filename)); return writeFile(filename, ...args); }
+    })), error => {
+      assert.equal(error.code, 'RENDER_TIMEOUT');
+      assert.equal(error.details.cleanupFailures[0].code, 'BROWSER_CLEANUP_TIMEOUT');
+      return true;
+    });
+    assert.ok(pdfOptions, 'the fixture must reach PDF generation');
+    assert.equal('path' in pdfOptions, false, 'only the export owner may write PDF bytes');
+    assert.equal('timeout' in pdfOptions, false, 'Playwright does not implement a PDF timeout');
+    assert.equal(fixture.closeCalls(), 1);
+    await assertNoOutputOrStaging(dir);
+    if (settlement === 'resolve') pdf.resolve(Buffer.from('%PDF-late'));
+    else pdf.reject(new Error('late PDF rejection'));
+    closing.resolve();
+    await new Promise(resolve => setImmediate(resolve));
+    assert.deepEqual(writes, [], 'late PDF settlement must not resume export writes');
+    assert.equal(textReads, 0, 'late PDF settlement must not resume validation');
+    await assertNoOutputOrStaging(dir);
+  });
+}
+
+test('PDF bytes use the owned writer and preserve primary write failures', async t => {
+  const { dir, options } = await workspace(t);
+  const bytes = Buffer.from('%PDF-1.4\nunchanged binary bytes\x00\xff', 'latin1');
+  const primaryError = Object.assign(new Error('PDF write failure'), { code: 'PDF_WRITE_FAILED' });
+  const fixture = rendererFixture({ close: async () => { throw new Error('browser close failure'); } });
+  fixture.renderer.page.pdf = async configuration => {
+    assert.equal('path' in configuration, false);
+    assert.equal('timeout' in configuration, false);
+    return bytes;
+  };
+  let writes = 0;
+  await assert.rejects(() => exportCards({ ...options, formats: ['pdf'] }, dependencies(fixture.renderer, {
+    writeFile: async (filename, data) => {
+      writes++;
+      assert.equal(path.basename(filename), 'cards.pdf');
+      assert.equal(data, bytes, 'PDF bytes must pass through without re-encoding');
+      throw primaryError;
+    }
+  })), error => error === primaryError);
+  assert.equal(writes, 1);
+  assert.equal(fixture.closeCalls(), 1);
+  assert.equal(primaryError.details.cleanupFailures[0].code, 'BROWSER_CLEANUP_FAILED');
+  await assertNoOutputOrStaging(dir);
+});
+
+test('invalid PDF buffers fail before the owned writer or PDF tools run', async t => {
+  const { dir, options } = await workspace(t);
+  for (const invalid of [undefined, '%PDF-1.4', new Uint8Array([1, 2, 3]), Buffer.alloc(0), Buffer.from('not a PDF')]) {
+    const fixture = rendererFixture();
+    fixture.renderer.page.pdf = async () => invalid;
+    await assert.rejects(() => exportCards({ ...options, formats: ['pdf'] }, dependencies(fixture.renderer, {
+      writeFile: async () => assert.fail('an invalid PDF buffer must never be written')
+    })), { code: 'PDF_FILE_INVALID' });
+    assert.equal(fixture.closeCalls(), 1);
+    await assertNoOutputOrStaging(dir);
+  }
+});
+
+test('PDF bytes are checked against remaining output budget before writing', async t => {
+  const { dir, options } = await workspace(t);
+  const fixture = rendererFixture();
+  const pdf = Buffer.from('%PDF-1.4');
+  // Simulate the returned buffer's size without allocating 256 MiB in a unit test.
+  Object.defineProperty(pdf, 'length', { value: LIMITS.outputBytes });
+  fixture.renderer.page.pdf = async () => pdf;
+  const writes = [];
+  await assert.rejects(() => exportCards({ ...options, formats: ['html', 'pdf'] }, dependencies(fixture.renderer, {
+    writeFile: async (filename, ...args) => {
+      writes.push(path.basename(filename));
+      assert.notEqual(path.basename(filename), 'cards.pdf', 'the PDF would exceed the budget after cards.html');
+      return writeFile(filename, ...args);
+    }
+  })), { code: 'OUTPUT_BUDGET' });
+  assert.deepEqual(writes, ['cards.html']);
+  assert.equal(fixture.closeCalls(), 1);
   await assertNoOutputOrStaging(dir);
 });
 

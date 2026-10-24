@@ -2,6 +2,23 @@ import MarkdownIt from 'markdown-it';
 import { Md2CardError } from './errors.mjs';
 
 const parser = new MarkdownIt({ html: false, linkify: false, typographer: false, breaks: false });
+// Keep source-only definitions available to semantic provenance before markdown-it
+// removes their hidden tokens. Manual rendering is unchanged when no collector is set.
+parser.core.ruler.before('strip_references', 'collect_reference_definitions', state => {
+  const collector = state.env.referenceDefinitions;
+  const budget = state.env.referenceDefinitionBudget;
+  if (!Array.isArray(collector) && !budget) return;
+  for (const token of state.tokens) {
+    if (token.type === 'reference_definition') {
+      if (budget) {
+        if (budget.count >= budget.limit) throw new Md2CardError('PAGINATION_BUDGET', `Automatic pagination is limited to ${budget.limit} reference definitions. Split the document into smaller inputs.`, { budget: 'reference-definitions', limit: budget.limit, actual: budget.count + 1 });
+        budget.count++;
+      }
+      if (Array.isArray(collector)) collector.push({ sourceLines: [...token.map], label: token.meta.label });
+    }
+  }
+});
+
 const originalLinkOpen = parser.renderer.rules.link_open || ((tokens, index, options, env, self) => self.renderToken(tokens, index, options));
 parser.renderer.rules.link_open = (tokens, index, options, env, self) => {
   tokens[index].attrSet('rel', 'noopener noreferrer');
@@ -26,6 +43,19 @@ function trimBlankLines(lines) {
   let last = lines.length;
   while (first < last && /^[ \t]*$/.test(lines[first])) first++;
   while (last > first && /^[ \t]*$/.test(lines[last - 1])) last--;
+  if (first < last && last < lines.length) {
+    // A final newline or blank line can still be fenced-code content, including
+    // an unclosed fence inside a list/quote. Count consumed content lines from
+    // parser tokens rather than guessing closing fences from raw indentation.
+    // Keep the following boundary too: joining without it would lose the last
+    // code newline. A closed fence already has a later nonblank closing marker.
+    for (const token of parser.parse(lines.join('\n'), { references: Object.create(null) })) {
+      if (token.type === 'fence' && token.map && token.content.endsWith('\n')) {
+        const contentLines = token.content.split('\n').length - 1;
+        last = Math.max(last, Math.min(lines.length, token.map[0] + contentLines + 2));
+      }
+    }
+  }
   return lines.slice(first, last).join('\n');
 }
 
@@ -71,11 +101,11 @@ export function validateCardMetadata(value, cardNumber = 1) {
 }
 
 /** Metadata is recognized only on the first nonblank, non-code line of a card. */
-export function parseCardMetadata(source, cardNumber = 1) {
+export function parseCardMetadata(source, cardNumber = 1, { validateMetadata = validateCardMetadata } = {}) {
   const lines = normalizeSource(source).split('\n');
   const first = lines.findIndex(line => !/^[ \t]*$/.test(line));
   if (first < 0 || !/^ {0,3}<!--\s*card\s*:/.test(lines[first])) {
-    return { source, metadata: validateCardMetadata({}, cardNumber) };
+    return { source, metadata: validateMetadata({}, cardNumber) };
   }
   const match = lines[first].match(/^ {0,3}<!--\s*card\s*:\s*(.*?)\s*-->[ \t]*$/);
   if (!match) throw new Md2CardError('INVALID_METADATA', `Card ${cardNumber} metadata must be one line: <!-- card: {"layout":"explainer"} -->`, { cardNumber });
@@ -83,7 +113,7 @@ export function parseCardMetadata(source, cardNumber = 1) {
   try { value = JSON.parse(match[1]); } catch {
     throw new Md2CardError('INVALID_METADATA', `Card ${cardNumber} metadata contains invalid JSON. Use a JSON object with double-quoted keys and strings.`, { cardNumber });
   }
-  const metadata = validateCardMetadata(value, cardNumber);
+  const metadata = validateMetadata(value, cardNumber);
   lines.splice(first, 1);
   return { source: trimBlankLines(lines), metadata };
 }
@@ -145,4 +175,18 @@ export function renderCards(markdown, { resolveImage } = {}) {
     const image = card.metadata.image ? resolveCardImage(card.metadata.image, resolveImage, card.index) : undefined;
     return { ...card, ...(image ? { image } : {}), html: parser.renderer.render(tokens, parser.options, env), ...sectionHtml(tokens, env) };
   });
+}
+
+// Narrow shared-parser interface: semantic pagination must render these tokens,
+// not reparse slices that lose list looseness, references, or table structure.
+export function parseMarkdownTokens(source, env = {}) {
+  return parser.parse(source, env);
+}
+
+export function resolveMarkdownTokenImages(tokens, env) {
+  resolveTokenImages(tokens, env);
+}
+
+export function renderMarkdownTokens(tokens, env = {}) {
+  return parser.renderer.render(tokens, parser.options, env);
 }

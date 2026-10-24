@@ -11,8 +11,11 @@ This skill is an independent implementation; do not fetch or copy website themes
 
 ## Choose the work needed
 
-- **Already paginated Markdown:** preserve its card boundaries and wording unless
-  the user requests editing or a layout problem requires a proposed revision.
+- **Already paginated Markdown:** preserve its card boundaries and wording. A
+  layout problem permits proposing a revision, not silently changing the text.
+- **Verbatim long Markdown:** consider opt-in `--paginate auto` only when more
+  cards are allowed and the supported semantic boundaries fit the task. Keep
+  explicit boundaries locked; use `manual` when the card count must stay fixed.
 - **Long prose or a topic:** plan the sequence before applying a theme. Read
   [references/content-style.md](references/content-style.md) for writing guidance.
 - **Visual direction or export:** read
@@ -42,6 +45,10 @@ not a substitute for fitting the requested format.
 
 ## 2. Shape the information
 
+Use this editorial step only when the user has authorized drafting or adaptation.
+For verbatim rendering or pagination, preserve the supplied wording and structure;
+propose edits separately instead of applying them to solve a layout problem.
+
 Give each card a clear job and one dominant idea. A sequence might move from a
 question to an explanation, example, limitation, and practical next step, but use
 only the parts that help this request.
@@ -63,18 +70,27 @@ permission. Rendering locally does not authorize publication.
 
 ## 3. Write the Markdown artifact
 
-Save a UTF-8 `.md` file with one card per section. Use exactly `===` on its own line
-outside fenced code blocks for card boundaries. Surround it with blank lines.
+Save a UTF-8 `.md` file. In default `manual` mode, one section is one card. Use
+exactly `===` on its own line outside fenced or indented code for locked boundaries.
+Surround it with blank lines. In opt-in `auto` mode, each section may produce
+multiple cards without crossing those boundaries.
 
 - A `===` inside a backtick or tilde code fence remains literal code.
 - `---` remains ordinary Markdown syntax; with blank lines it creates a horizontal rule.
 - Do not use YAML frontmatter in card input; pass document metadata through CLI flags.
-- Keep list items, table rows, quotes, and code examples together when possible.
+- Keep semantic units intact. Automatic pagination treats paragraphs, code,
+  quotes, images and top-level list items including nested lists as atomic. It
+  may split tables between rows and intentionally repeat traced header rows.
 - Raw HTML is escaped. Only verified local PNG/JPEG/WebP images inside the trusted asset root are embedded; never fetch remote images.
 - An optional first nonblank line `<!-- card: {"layout":"cover"} -->` selects a validated semantic layout. See references/rendering.md for the strict metadata schema.
 - Reference link/image definitions can be shared across card boundaries. Preserve indented-code spaces.
 - Basic headings, paragraphs, lists, links, quotes, code, rules, and tables work.
-- Math, Mermaid, animation, SVG, and PPTX export are not supported. No accounts, cloud sync, model calls, automatic pagination, or rewriting are added.
+- Math, Mermaid, animation, SVG, and PPTX export are not supported. No accounts,
+  cloud sync, built-in model calls, automatic rewriting, or automatic publication.
+- `auto` supports only `explainer` and `steps` with `layout` as the only card
+  metadata field. Other layouts and additional metadata fail explicitly; never
+  remove an attribution or other field merely to make automatic pagination run.
+  Keep `manual` or ask permission for a meaningful source-format change.
 
 Read [examples/rag-guide.md](examples/rag-guide.md) for a four-card original Chinese
 explainer. Use [examples/separator-demo.md](examples/separator-demo.md) when checking
@@ -82,8 +98,9 @@ that literal separators inside code fences are preserved.
 
 ## 4. Select and render
 
-Choose layout independently of theme: `cover`, `explainer`, `comparison`, `steps`,
-`image-caption`, `statistic`, `case-study`, or `quote`. Unannotated Markdown stays
+Choose layout independently of theme. Manual mode supports `cover`, `explainer`,
+`comparison`, `steps`, `image-caption`, `statistic`, `case-study`, and `quote`.
+Auto mode supports only `explainer` and `steps`. Unannotated Markdown stays
 an explainer. Comparison uses the first two top-level h2 sections; case study uses
 h2 sections as stages. Never invent statistics or quotations to populate a layout.
 Use `source` metadata as plain attribution text.
@@ -117,11 +134,27 @@ its package dependencies, and a working Playwright Chromium installation.
 All output formats, including HTML, require Chromium for overflow validation.
 See [references/rendering.md](references/rendering.md) for setup and export details.
 
-The renderer does not rewrite, paginate, or silently shrink text for you. It fails
-when content exceeds the card. First remove redundancy or split a natural section,
-then rerender. For verbatim content, preserve the original and ask before cutting
-meaningful material. Do not suppress a failure by hiding overflow or reducing text
-to an unreadable size.
+Default `--paginate manual` keeps the supplied card count and fails on overflow.
+Use `--paginate auto` only when the request allows automatic subdivision. It uses
+real Chromium measurements in both screen and print modes, preserving original
+tokens and text rather than rewriting or silently shrinking them. Heading chains
+stay with the following unit; continued ordered lists keep their start numbers.
+An oversized indivisible unit fails with `PAGINATION_ATOMIC_OVERFLOW` and source
+information instead of clipping. Review the manifest's source coverage and
+intentional repeated table headers. Read the rendering contract for supported
+boundaries, finite fallback/budgets, and final screen/print validation.
+
+On a failure, explain the affected source and offer a suitable canvas adjustment,
+manual boundaries, or an edit proposal. Apply wording changes or split an atomic
+paragraph, quotation, code block or list item only when the user has authorized
+that editing. Preserve the original when verbatim content is required. Do not
+hide overflow, discard metadata, or reduce text to an unreadable size.
+
+Consult [docs/DEVELOPMENT_PLAN.md](docs/DEVELOPMENT_PLAN.md) for commit-specific
+implementation, browser-test and visual-review evidence, and
+[docs/SHOWCASES.md](docs/SHOWCASES.md) for actual output provenance. Historical v2
+screenshots do not verify the automatic path. Match evidence to the code and
+input being used; never report unperformed checks as passed.
 
 ## 5. Inspect the actual output
 
@@ -132,7 +165,10 @@ Check every rendered page, not just the HTML source or first PNG:
 - Headings form a useful hierarchy and do not leave stranded fragments.
 - Code indentation remains understandable; tables and lists are legible.
 - Dark-theme text and links remain readable against their backgrounds.
-- Card ordering, total count, links, and attributions match the input.
+- Card ordering, links and attributions match the input. In manual mode the count
+  matches explicit sections; in auto mode extra cards stay within those sections.
+- No source unit is lost or duplicated. Repeated table headers are the documented
+  exception, and their provenance is recorded. Ordered-list numbering continues.
 - The PDF has one card per page and retains selectable/searchable text.
 - The manifest records matching input/artifact hashes and explicit QA states.
 - Preview scaling does not change the actual export dimensions.

@@ -5,6 +5,8 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { renderCards } from './markdown.mjs';
+import { parseSemanticDocument } from './semantic.mjs';
+import { paginateSemanticDocument } from './pagination.mjs';
 import { buildDocument, buildPreviewDocument, SIZES, THEMES } from './document.mjs';
 import { createAssetResolver } from './assets.mjs';
 import { openRenderer, measureCards, closeBrowser, BROWSER_CLEANUP_TIMEOUT_MS } from './browser.mjs';
@@ -13,7 +15,7 @@ import { inspectPdf } from './qa.mjs';
 import { Md2CardError, normalizeError } from './errors.mjs';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-export const VERSION = '2.0.0';
+export const VERSION = '3.0.0';
 export const LIMITS = Object.freeze({ inputBytes: 2 * 1024 * 1024, cards: 200, cardPixels: 40_000_000, deckPixels: 200_000_000, outputBytes: 256 * 1024 * 1024, contactSheetPixels: 40_000_000, contactSheetSide: 32767 });
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const fail = (code, message, details = {}) => { throw new Md2CardError(code, message, details); };
@@ -25,6 +27,7 @@ Usage: node scripts/render.mjs input.md --out ./output
   --out DIR         Output directory, absent or empty (never overwrite).
   --theme NAME      editorial (default), minimal, midnight, notebook, bold
   --format LIST     all (default), html, png, pdf or comma-separated list
+  --paginate MODE   manual (default) or auto; measured semantic pagination
   --size NAME       portrait 1080×1440, square 1080×1080, slide 1600×900
   --width PX        Override width, integer 200–4096
   --height PX       Override height, integer 200–4096
@@ -50,16 +53,18 @@ Layouts: cover, explainer, comparison, steps, image-caption, statistic,
 case-study, quote. See references/rendering.md for content conventions.
 Only validated PNG/JPEG/WebP inside --asset-root can be embedded, no SVG,
 remote/file/data URLs, scripts or external fetches. Raw HTML is escaped.
-Overflow is mandatory in screen AND print; exit 2 writes overflow.json only.
+Overflow checks are mandatory in screen AND print. Final overflow writes
+overflow.json only (exit 2); an oversized auto atom exits 2 with source diagnostics.
 Native PDF retains text; strict mode verifies pages and searchable text.
 Browser cleanup has a separate bounded grace period of at most five seconds.
-No accounts, cloud sync, AI calls, auto-pagination, rewriting or PPTX.
+Auto supports explainer/steps with layout-only metadata; explicit === stays locked.
+No accounts, cloud sync, AI calls, rewriting, silent shrinking or PPTX.
 `;
 
 export function parseOptions(argv) {
   let parsed;
   try { parsed = parseArgs({ args: argv, allowPositionals: true, strict: true, options: {
-    out: { type: 'string' }, theme: { type: 'string', default: 'editorial' }, format: { type: 'string', default: 'all' },
+    out: { type: 'string' }, theme: { type: 'string', default: 'editorial' }, format: { type: 'string', default: 'all' }, paginate: { type: 'string', default: 'manual' },
     size: { type: 'string', default: 'portrait' }, width: { type: 'string' }, height: { type: 'string' }, scale: { type: 'string', default: '1' },
     footer: { type: 'string', default: '' }, title: { type: 'string' }, lang: { type: 'string', default: 'zh-CN' }, browser: { type: 'string' },
     'asset-root': { type: 'string' }, brand: { type: 'string' }, preview: { type: 'boolean', default: false }, 'contact-sheet': { type: 'boolean', default: false },
@@ -71,6 +76,7 @@ export function parseOptions(argv) {
   if (values.doctor && positionals.length === 0) return { ...values, requirePdfCheck: values.strict };
   if (positionals.length !== 1) fail('INVALID_OPTIONS', 'Provide one Markdown input file. Run --help for usage.');
   if (!THEMES.includes(values.theme)) fail('INVALID_OPTIONS', `Unknown theme "${values.theme}". Choose ${THEMES.join(', ')}.`);
+  if (!['manual', 'auto'].includes(values.paginate)) fail('INVALID_OPTIONS', '--paginate accepts manual (default) or auto.');
   if (!(values.size in SIZES)) fail('INVALID_OPTIONS', `Unknown size "${values.size}". Choose portrait, square, or slide.`);
   const width = Number(values.width ?? SIZES[values.size].width), height = Number(values.height ?? SIZES[values.size].height);
   for (const [name, value] of Object.entries({ width, height })) if (!Number.isInteger(value) || value < 200 || value > 4096) fail('INVALID_OPTIONS', `--${name} must be an integer from 200 to 4096 pixels.`);
@@ -130,6 +136,25 @@ async function publish(staging, out) {
   await rename(staging, out);
 }
 
+/** Count actual final embeddings, including repeated table headers and logos. */
+export function countDocumentAssets(cards, loadedAssets, brand) {
+  const byUrl = new Map(loadedAssets.map(asset => [asset.dataUrl, asset]));
+  const usage = { occurrences: 0, pixels: 0, embeddedBytes: 0, loadedBytes: loadedAssets.reduce((sum, asset) => sum + asset.bytes, 0) };
+  const count = asset => {
+    if (!asset) fail('INVALID_ASSET', 'A rendered image is not a validated local asset.');
+    usage.occurrences++;
+    usage.pixels += asset.width * asset.height;
+    usage.embeddedBytes += Buffer.byteLength(asset.dataUrl);
+  };
+  for (const card of cards) {
+    for (const match of card.html.matchAll(/<img\b[^>]*\bsrc="(data:image\/(?:png|jpeg|webp);base64,[A-Za-z0-9+/]+={0,2})"/g)) count(byUrl.get(match[1]));
+    if (card.image) count(card.image);
+    if (brand?.logo) count(brand.logo);
+  }
+  if (usage.pixels > 100_000_000 || usage.embeddedBytes > 64 * 1024 * 1024) fail('RENDER_BUDGET', 'Repeated images, table headers or brand logos exceed the 100 million decoded pixels / 64 MiB embedding budget. Use smaller images or split the deck.', usage);
+  return usage;
+}
+
 export async function exportCards(options, dependencies = {}) {
   // Explicit dependency seams support deterministic lifecycle tests, not alternate
   // runtime safety policies. The CLI always uses the real implementations.
@@ -145,23 +170,22 @@ export async function exportCards(options, dependencies = {}) {
   await assertEmptyOutput(options.out);
   const markdown = await readFile(options.input, 'utf8');
   const assets = await createAssetResolver(options.assetRoot);
-  const cards = renderCards(markdown, { resolveImage: assets.resolveImage });
-  const budget = checkRenderBudget(cards.length, options);
+  const semanticDocument = options.paginate === 'auto' ? parseSemanticDocument(markdown, { resolveImage: assets.resolveImage }) : null;
+  let cards = semanticDocument ? [] : renderCards(markdown, { resolveImage: assets.resolveImage });
+  let budget = checkRenderBudget(semanticDocument?.partitions.length ?? cards.length, options);
   const brand = await loadBrand(options.brandFile, assets.resolveImage);
-  const assetUsage = assets.getUsage();
-  if (brand?.logo) {
-    const repeats = cards.length - 1;
-    assetUsage.occurrences += repeats;
-    assetUsage.pixels += repeats * brand.logo.width * brand.logo.height;
-    assetUsage.embeddedBytes += repeats * Buffer.byteLength(brand.logo.dataUrl);
-  }
-  if (assetUsage.pixels > 100_000_000 || assetUsage.embeddedBytes > 64 * 1024 * 1024) fail('RENDER_BUDGET', 'Repeated images or brand logos exceed the 100 million decoded pixels / 64 MiB embedding budget. Use smaller images or split the deck.', assetUsage);
   options = { ...options, brand };
   const [themeCss, layoutCss] = await Promise.all(['themes.css', 'layouts.css'].map(file => readFile(path.join(ROOT, 'assets', file), 'utf8')));
-  const embeddedBytes = cards.reduce((sum, card) => sum + Buffer.byteLength(card.html) + (card.image?.bytes || 0) * 4 / 3, 0) + (brand?.logo?.bytes || 0) * cards.length * 4 / 3;
-  if (embeddedBytes > 64 * 1024 * 1024) fail('RENDER_BUDGET', 'Embedded document content exceeds 64 MiB. Use smaller images or split the deck.');
-  const html = buildDocument(cards, { ...options, preview: false }, themeCss, layoutCss);
-  if (Buffer.byteLength(html) > 64 * 1024 * 1024) fail('RENDER_BUDGET', 'Generated HTML exceeds 64 MiB. Use smaller images or split the deck.');
+  const documentHtml = (selectedCards, paginationProbe = false) => {
+    countDocumentAssets(selectedCards, assets.getAssets(), brand);
+    const embeddedBytes = selectedCards.reduce((sum, card) => sum + Buffer.byteLength(card.html) + (card.image?.bytes || 0) * 4 / 3, 0) + (brand?.logo?.bytes || 0) * selectedCards.length * 4 / 3;
+    if (embeddedBytes > 64 * 1024 * 1024) fail('RENDER_BUDGET', 'Embedded document content exceeds 64 MiB. Use smaller images or split the deck.');
+    const result = buildDocument(selectedCards, { ...options, preview: false, paginationProbe }, themeCss, layoutCss);
+    if (Buffer.byteLength(result) > 64 * 1024 * 1024) fail('RENDER_BUDGET', 'Generated HTML exceeds 64 MiB. Use smaller images or split the deck.');
+    return result;
+  };
+  let html = semanticDocument ? null : documentHtml(cards);
+  let pagination = { mode: 'manual' };
   const environment = await (dependencies.inspectEnvironment ?? inspectEnvironment)({ browser: options.browser, requirePdfCheck: options.strict && options.formats.includes('pdf'), lang: options.lang, strict: options.strict, requiredText: markdown });
   if (!environment.ok) fail('PREFLIGHT_FAILED', 'Environment preflight failed. Run --doctor --strict for details.', { checks: environment.checks.filter(check => check.status === 'fail') });
   remaining();
@@ -186,19 +210,46 @@ export async function exportCards(options, dependencies = {}) {
     const withinDeadline = operation => Promise.race([operation, deadlineSignal]);
     const { page } = renderer;
     page.setDefaultTimeout(checkTime());
-    await page.setContent(html, { waitUntil: 'load', timeout: checkTime() });
-    await withinDeadline(page.evaluate(() => document.fonts.ready));
-    const imageQa = await withinDeadline(page.locator('img').evaluateAll(async images => Promise.all(images.map(async image => {
+    const loadDocument = async content => {
+      checkTime();
+      await withinDeadline(page.emulateMedia({ media: 'screen' }));
+      await withinDeadline(page.setContent(content, { waitUntil: 'load', timeout: checkTime() }));
+      await withinDeadline(page.evaluate(() => document.fonts.ready));
+      const result = await withinDeadline(page.locator('img').evaluateAll(async images => Promise.all(images.map(async image => {
       // complete/naturalWidth can describe a parsed header even when pixel decoding
       // fails. Require the browser's actual decode promise, not only dimensions.
       let decoded = false;
       try { await image.decode(); decoded = true; } catch { /* Report below without exposing source bytes. */ }
       return { alt: image.alt, decoded, valid: decoded && image.complete && image.naturalWidth > 0 && image.naturalHeight > 0 && image.naturalWidth <= 8192 && image.naturalHeight <= 8192 && image.naturalWidth * image.naturalHeight <= 20_000_000, width: image.naturalWidth, height: image.naturalHeight };
-    }))));
-    if (imageQa.some(image => !image.valid)) fail('IMAGE_DECODE_FAILED', 'An embedded local image could not be decoded by Chromium. Replace the invalid image.', { images: imageQa.filter(image => !image.valid) });
+      }))));
+      if (result.some(image => !image.valid)) fail('IMAGE_DECODE_FAILED', 'An embedded local image could not be decoded by Chromium. Replace the invalid image.', { images: result.filter(image => !image.valid) });
+      checkTime();
+      return result;
+    };
+    if (semanticDocument) {
+      const result = await paginateSemanticDocument(semanticDocument, {
+        checkpoint: checkTime,
+        checkBudget: count => checkRenderBudget(count, options),
+        measure: async card => {
+          await loadDocument(documentHtml([card], true));
+          const screen = await withinDeadline(measure(page));
+          await withinDeadline(page.emulateMedia({ media: 'print' }));
+          const print = await withinDeadline(measure(page));
+          if (screen.length !== 1 || print.length !== 1) fail('PAGINATION_MEASUREMENT', 'A pagination probe did not produce exactly one measured card.');
+          return { screen: screen[0], print: print[0] };
+        }
+      });
+      cards = result.cards;
+      pagination = result.pagination;
+      budget = checkRenderBudget(cards.length, options);
+      html = documentHtml(cards);
+    }
+    const assetUsage = countDocumentAssets(cards, assets.getAssets(), brand);
+    const imageQa = await loadDocument(html);
     const screenMeasurements = await withinDeadline(measure(page));
     await withinDeadline(page.emulateMedia({ media: 'print' }));
     const printMeasurements = await withinDeadline(measure(page));
+    if (screenMeasurements.length !== cards.length || printMeasurements.length !== cards.length) fail('PAGINATION_MEASUREMENT', 'Final browser measurements do not match the output card count. No exports were produced.');
     const affected = screenMeasurements.map((measurement, index) => ({ index: measurement.index, sourceLines: cards[index].sourceLines, screen: measurement, print: printMeasurements[index] })).filter(item => item.screen.overflow.length || item.print.overflow.length);
     await mkdir(path.dirname(options.out), { recursive: true });
     staging = await mkdtemp(path.join(path.dirname(options.out), '.md2card-'));
@@ -221,7 +272,14 @@ export async function exportCards(options, dependencies = {}) {
     if (options.preview) { await write(path.join(staging, 'preview.html'), buildPreviewDocument(cards, options, themeCss, layoutCss)); await record('preview', 'preview.html'); }
     let pdfQa = { status: 'not-requested' };
     if (options.formats.includes('pdf')) {
-      await page.pdf({ path: path.join(staging, 'cards.pdf'), printBackground: true, preferCSSPageSize: true, displayHeaderFooter: false, timeout: checkTime(), margin: { top: 0, bottom: 0, left: 0, right: 0 } });
+      // Playwright PDF generation has no timeout option. Request bytes only so
+      // the deadline can interrupt it without a late result writing to staging.
+      checkTime();
+      const pdf = await withinDeadline(page.pdf({ printBackground: true, preferCSSPageSize: true, displayHeaderFooter: false, margin: { top: 0, bottom: 0, left: 0, right: 0 } }));
+      checkTime();
+      if (!Buffer.isBuffer(pdf) || pdf.length < 5 || !pdf.subarray(0, 5).equals(Buffer.from('%PDF-'))) fail('PDF_FILE_INVALID', 'Chromium did not return a valid PDF buffer.');
+      if (outputBytes + pdf.length > LIMITS.outputBytes) fail('OUTPUT_BUDGET', 'Generated output exceeds 256 MiB. Split the deck or reduce image density.');
+      await write(path.join(staging, 'cards.pdf'), pdf);
       const textContent = await withinDeadline(page.locator('.card-content').allTextContents());
       pdfQa = await inspectPdf(path.join(staging, 'cards.pdf'), { expectedPages: cards.length, requireTools: options.strict, expectedText: textContent.join(' ').trim() });
       await record('pdf', 'cards.pdf');
@@ -250,10 +308,13 @@ export async function exportCards(options, dependencies = {}) {
       dimensions: { width: options.width, height: options.height }, pngScale: options.scale, formats: options.formats, cardCount: cards.length, artifacts, assets: loadedAssets, assetUsage,
       versions: { ...environment.versions, chromium: renderer.browser.version() }, budget: { ...budget, outputBytes, elapsedMs: now() - started },
       qa: { overflow: { screen: 'pass', print: 'pass' }, images: { status: 'pass', count: imageQa.length }, fonts: environment.fonts, pdf: pdfQa, visualReview: 'not-performed' },
-      cards: cards.map((card, index) => ({ index: card.index, layout: card.metadata.layout, sourceLines: card.sourceLines, sourceSha256: hash(card.source), screen: screenMeasurements[index], print: printMeasurements[index] })),
+      pagination,
+      cards: cards.map((card, index) => ({ index: card.index, layout: card.metadata.layout, sourceLines: card.sourceLines, sourceSha256: hash(card.source), ...(card.provenance ? { provenance: card.provenance } : {}), screen: screenMeasurements[index], print: printMeasurements[index] })),
       security: { rawHtml: 'escaped', images: 'validated-local-raster-only', assetBoundary: 'realpath-contained', networkRequests: 'blocked', clientScripts: 'disabled' }
     };
-    checkTime(); await write(path.join(staging, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
+    const manifestJson = JSON.stringify(manifest, null, 2) + '\n';
+    if (outputBytes + Buffer.byteLength(manifestJson) > LIMITS.outputBytes) fail('OUTPUT_BUDGET', 'Artifacts and source-provenance manifest exceed the 256 MiB output budget. Split the input.');
+    checkTime(); await write(path.join(staging, 'manifest.json'), manifestJson);
     // Finish browser cleanup before atomic publication. A close failure cannot
     // turn an already-published successful render into an apparent failure.
     await closeRenderer(); checkTime();

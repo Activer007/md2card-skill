@@ -1218,3 +1218,65 @@
 .card.template-T21.template-aspect-slide .card-source { grid-column: 1; grid-row: 3; padding: .2em .3em; }
 .card.template-T21.template-aspect-slide .card-footer { margin-top: .3em; padding-top: .15em; }
 
+/* R12 purpose-led independent aspects: four bounded template/aspect pairs.
+ * Source-only implementation, awaiting full PNG, phone and native PDF review.
+ * Only the selected ratio selectors occur below; portrait rules are untouched.
+ * Body / notes inherit the existing floors. Density adjusts spacing only.
+ */
+
+/* T05 square: the supplied list is a row-major index, not compressed portrait
+ * rows. Original list-item counters, nested items and any extra tiles survive. */
+.card.template-T05.template-aspect-square .template-heading { padding: .3em 0 .2em; }
+.card.template-T05.template-aspect-square h1 { font-size: 1.8em; }
+.card.template-T05.template-aspect-square .template-intro > ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: .7em; row-gap: calc(var(--section-gap) * .55); }
+.card.template-T05.template-aspect-square .template-intro > ol > li { min-height: 0; padding: 2.6em .35em .45em; border-top: .07em solid var(--accent); border-bottom: .035em solid var(--line); }
+.card.template-T05.template-aspect-square .template-intro > ol > li::before { top: .12em; left: .16em; font-size: 2.1em; }
+.card.template-T05.template-aspect-square .card-source { padding-top: .3em; }
+.card.template-T05.template-aspect-square .card-footer { margin-top: .4em; padding-top: .2em; }
+
+/* T13 square: a declaration spine faces complete arguments, rather than
+ * stacking a portrait poster above a reduced body. Extra sections grow. */
+.card.template-T13.template-aspect-square .card-content { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); grid-template-rows: minmax(min-content, 1fr) auto; column-gap: .65em; row-gap: calc(var(--section-gap) * .5); }
+.card.template-T13.template-aspect-square .template-heading { grid-column: 1; grid-row: 1; padding-right: .4em; border-right: .12em solid var(--ink); }
+.card.template-T13.template-aspect-square .card-eyebrow { display: block; margin-bottom: .4em; padding: .2em; }
+.card.template-T13.template-aspect-square .template-title { border: 0; padding: .2em 0; }
+.card.template-T13.template-aspect-square h1 { font-size: 2.15em; line-height: 1.1; }
+.card.template-T13.template-aspect-square .template-title > h1 + h1 { margin-left: 0; margin-top: .15em; }
+.card.template-T13.template-aspect-square .template-main { grid-column: 2; grid-row: 1; }
+.card.template-T13.template-aspect-square .template-intro { border: 0; padding: 0; }
+.card.template-T13.template-aspect-square .template-sections { margin-top: calc(var(--section-gap) * .6); gap: calc(var(--section-gap) * .6); }
+.card.template-T13.template-aspect-square .template-section { display: block; padding: .35em .4em; }
+.card.template-T13.template-aspect-square .template-section h2 { margin-bottom: .2em; }
+.card.template-T13.template-aspect-square .template-section p { margin: .2em 0 0; }
+.card.template-T13.template-aspect-square .card-source { grid-column: 1 / -1; grid-row: 2; padding-top: .25em; }
+.card.template-T13.template-aspect-square .card-footer { margin-top: .35em; padding-top: .2em; }
+
+/* T24 slide: title/premise/decision occupy the left rail; the first source
+ * section (the real table) owns the right stage. display:contents changes only
+ * layout boxes, never DOM order or table semantics. Extra sections span below. */
+.card.template-T24.template-aspect-slide .card-content { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); grid-template-rows: auto auto minmax(min-content, 1fr) auto; column-gap: .7em; row-gap: calc(var(--section-gap) * .35); }
+.card.template-T24.template-aspect-slide .template-main, .card.template-T24.template-aspect-slide .template-sections { display: contents; }
+.card.template-T24.template-aspect-slide .template-heading { grid-column: 1; grid-row: 1; padding: .2em 0; border-top: .12em solid var(--ink); border-bottom: 0; }
+.card.template-T24.template-aspect-slide h1 { font-size: 1.4em; }
+.card.template-T24.template-aspect-slide .template-intro { grid-column: 1; grid-row: 2; }
+.card.template-T24.template-aspect-slide .template-section { grid-column: 1 / -1; padding: .15em 0; }
+.card.template-T24.template-aspect-slide .template-section:first-child { grid-column: 2; grid-row: 1 / 4; align-self: start; padding: .2em 0 .2em .4em; border-left: .06em solid var(--line); }
+.card.template-T24.template-aspect-slide .template-section:nth-child(2) { grid-column: 1; grid-row: 3; align-self: start; margin: 0; padding: .25em 0 0; }
+.card.template-T24.template-aspect-slide .template-section h2 { margin-bottom: .2em; }
+.card.template-T24.template-aspect-slide .template-section table { margin-top: .15em; }
+.card.template-T24.template-aspect-slide .template-section th, .card.template-T24.template-aspect-slide .template-section td { padding: .12em .18em; }
+.card.template-T24.template-aspect-slide .card-source { grid-column: 1 / -1; padding-top: .2em; }
+.card.template-T24.template-aspect-slide .card-footer { margin-top: .25em; padding-top: .15em; }
+
+/* T37 slide: an independent image/story spread. The inherited contain rule
+ * preserves the entire source image; caption and source are never overlays. */
+.card.template-T37.template-aspect-slide .card-content { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); grid-template-rows: auto minmax(min-content, 1fr) auto; column-gap: .65em; row-gap: calc(var(--section-gap) * .35); }
+.card.template-T37.template-aspect-slide .card-figure { grid-column: 1; grid-row: 1 / 3; align-self: start; }
+.card.template-T37.template-aspect-slide .image-frame { height: auto; padding: 0; }
+.card.template-T37.template-aspect-slide .card-image { max-height: calc(var(--card-height) * .44); }
+.card.template-T37.template-aspect-slide .card-figure figcaption { margin-top: .3em; padding: 0; }
+.card.template-T37.template-aspect-slide .template-heading { grid-column: 2; grid-row: 1; padding: .2em 0 0; border-top: .08em solid var(--accent); }
+.card.template-T37.template-aspect-slide h1 { font-size: 1.45em; line-height: 1.2; }
+.card.template-T37.template-aspect-slide .template-main { grid-column: 2; grid-row: 2; padding: 0; }
+.card.template-T37.template-aspect-slide .card-source { grid-column: 1 / -1; grid-row: 3; padding-top: .2em; }
+.card.template-T37.template-aspect-slide .card-footer { margin-top: .25em; padding-top: .15em; }

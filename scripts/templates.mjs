@@ -71,6 +71,18 @@ const independentAspects = {
     square: { composition: 'essay-thesis-rail', structure: 'Full-width title; thesis at left, sequential section stack at right; full-width source.', example: 'examples/aspects/T04-square.md' },
     slide: { composition: 'essay-title-rail-section-rows', structure: 'Left title rail; right introduction and labeled section rows; full-width source band.', example: 'examples/aspects/T04-slide.md' }
   },
+  T05: {
+    square: { composition: 'numbered-index-four-tile', structure: 'Compact title bar; two-by-two numbered reading tiles in source order; full-width source.', example: 'examples/aspects/T05-square.md', pendingReview: true }
+  },
+  T13: {
+    square: { composition: 'declaration-rail-argument-stack', structure: 'Left slogan rail; right premise and vertically read argument panels; full-width source.', example: 'examples/aspects/T13-square.md', pendingReview: true }
+  },
+  T24: {
+    slide: { composition: 'decision-rail-table-stage', structure: 'Left title, premise and decision rail; right complete comparison table; full-width source.', example: 'examples/aspects/T24-slide.md', pendingReview: true }
+  },
+  T37: {
+    slide: { composition: 'film-frame-story-rail', structure: 'Left full-frame image and caption; right title and short story; full-width source.', example: 'examples/aspects/T37-slide.md', pendingReview: true }
+  },
   T21: {
     square: { composition: 'metric-paired-headline', structure: 'Title and metric form paired top panels; introduction and evidence below; full-width source.', example: 'examples/aspects/T21-square.md' },
     slide: { composition: 'metric-source-rail-evidence', structure: 'Title, metric and source form a left rail; full-height evidence column at right.', example: 'examples/aspects/T21-slide.md' }
@@ -89,10 +101,12 @@ function aspectLayouts(entry) {
     ['portrait', { composition: entry.composition, example: entry.example, version: entry.version ?? 1,
       status: entry.acceptance ? 'visually-reviewed' : 'implemented-awaiting-visual-review',
       ...(entry.acceptance ? { acceptance: entry.acceptance } : {}) }],
-    ...Object.entries(independentAspects[entry.id] ?? {}).map(([aspect, layout]) => [aspect, {
-      ...layout, version: 2, status: 'implemented-awaiting-visual-review', historicalAcceptance: { batch: 'visual-upgrade-aspects', version: 1 },
-      historicalEvidence: 'docs/aspect-upgrade-provenance.json',
-      boundaries: 'Historical v1 evidence reviewed only the registered standard-density short example at its declared canvas size. Current v2 typography is unreviewed and needs fresh screen/print, mobile and PDF evidence; no universal fit guarantee.'
+    ...Object.entries(independentAspects[entry.id] ?? {}).map(([aspect, { pendingReview, ...layout }]) => [aspect, {
+      ...layout, version: pendingReview ? 1 : 2, status: 'implemented-awaiting-visual-review',
+      ...(pendingReview ? {} : { historicalAcceptance: { batch: 'visual-upgrade-aspects', version: 1 }, historicalEvidence: 'docs/aspect-upgrade-provenance.json' }),
+      boundaries: pendingReview
+        ? 'First implementation of this aspect using current v2 family typography. Registered short example requires new full PNG, 375/390px and native PDF inspection. No fit or visual acceptance is claimed.'
+        : 'Historical v1 evidence reviewed only the registered standard-density short example at its declared canvas size. Current v2 typography is unreviewed and needs fresh screen/print, mobile and PDF evidence; no universal fit guarantee.'
     }])
   ]);
 }

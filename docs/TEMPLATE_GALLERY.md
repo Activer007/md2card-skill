@@ -1,16 +1,16 @@
 # 真实静态模板图库（M9 / LIB-03）
 
-> 当前精修状态：48 套 v2 及受共用字体影响的 T04/T21 额外画幅仍待新产物验收。下面已有 48 套的历史结论不验证新设计。见 [R01–R12 计划](REFINEMENT_PLAN.md)。
+> 当前精修状态：48 套 v2 及全部八个额外画幅组合仍待新产物验收。下面已有 48 套的历史结论不验证新设计。见 [R01–R12 计划](REFINEMENT_PLAN.md)。
 
 下载完整仓库后打开 [离线图库](gallery/index.html)。它从唯一模板注册表生成，按家族、用途、图片需求和注册示例密度筛选；真实预览与待验收文字目录分开。GitHub 文件页不执行 HTML，无需部署、账号、CDN 或联网渲染。
 
-## 当前验证范围
+## 历史验证范围，不证明当前 v2 界面
 
 [组合验证 40056857307](https://github.com/Activer007/md2card-skill/actions/runs/40056857307) 完成 **51/51 项真实 Chromium 检查**。17 张界面截图均经独立检查，或经与已检查输出逐字节相同后承接结论；修正后的桌面画面包含完整的四张已验收预览，375/390px 手机画面完整显示第一张预览，等效 200% reflow 画面允许正常纵向滚动。未观察到字形丢失、重叠或横向裁切。
 
 该次 UI 验证对应四预览、44 个文字候选的索引，并不自动验证以后扩展的图库。全库实际模板验收进度见 [逐项状态](VISUAL_BACKLOG_STATUS.md)，历史 M1 范围仍见 [原始验收](TEMPLATE_ACCEPTANCE.md)。
 
-当前索引将 48 个 standard / portrait 注册示例的真实 PNG 与验收证据对齐。新 square/slide 短例独立记录，不复用 portrait 证据。最终来源与展示范围见 [本轮验收](TEMPLATE_UPGRADE_ACCEPTANCE.md)。
+历史 v1 索引曾将 48 个 standard / portrait 注册示例的真实 PNG 与验收证据对齐；当前 v2 全部 pending，不展示这些旧缩略图。新 square/slide 短例独立记录，不复用 portrait 证据。最终来源与展示范围见 [本轮验收](TEMPLATE_UPGRADE_ACCEPTANCE.md)。
 
 [48 预览最终验证 40059905372](https://github.com/Activer007/md2card-skill/actions/runs/40059905372) 完成 **51/51 项真实 Chromium 检查**与 17 张界面截图复核。源码头 `3b1beb9aebfe616269fc55f2f7e45cbdec0fb6d9`，完整树 `a85b7a9dc8ab21f14d57fbecd393f4e42dace6ef`；被测合并预览 `3343605c917f7f339e68d8c805637679d9cbc3a6` 的树一致。该次完整工作流 333 项测试通过、零跳过。
 
@@ -45,7 +45,7 @@ npm run test:gallery
 - “注册示例密度”不是全部已支持密度的验收列表。standard 截图不能证明 compact/editorial。密度控制间距，不能用于偷偷缩小正文。
 - 筛选状态只存在于当前页面内存，不保存、不请求网络、不改输入或链接。计数报告已验收/待验收命中数，重置清空条件。
 - 无脚本时完整静态索引、原生 details、原 PNG、输入及证据链接仍可访问；筛选控件只在脚本成功初始化后出现。
-- 画幅标签来自支持契约，不是额外模板或预览。portrait 证据不能作为 square/slide 验收，四个新画幅短例的范围见 [独立画幅](TEMPLATE_ASPECTS.md)。
+- 画幅标签来自支持契约，不是额外模板或预览。portrait 证据不能作为 square/slide 验收，八个额外画幅组合的当前 pending 范围见 [独立画幅](TEMPLATE_ASPECTS.md)。
 
 离线使用时保留仓库目录结构，不要单独复制 HTML。图库使用本地经典脚本，不依赖在 file:// 下可能触发模块 CORS 的 module/fetch。当前真实证据仅针对记录的 Chromium 环境，不保证所有浏览器行为相同。
 
@@ -55,7 +55,7 @@ npm run test:gallery
 
 真实检查覆盖原生 label、键盘 Tab/Shift+Tab、可见焦点、跳过导航与 details 开关，以及手机/重排读序和无脚本回退。代码还包含实时计数和强制颜色支持，但这些实现不等于屏幕阅读器、完整对比度审计或可访问性认证。
 
-**已测等效 200% reflow，未测原生浏览器菜单 200% 缩放。** 等效法将 1280×900 CSS 视口改为 640×450，不是 pinch zoom，也不通过改变字体/样式放宽检查。辅助技术读屏播报和跨浏览器兼容性仍未验证。
+**历史页面已测等效 200% reflow，当前新界面待重测；原生浏览器菜单 200% 缩放未测。** 等效法将 1280×900 CSS 视口改为 640×450，不是 pinch zoom，也不通过改变字体/样式放宽检查。辅助技术读屏播报和跨浏览器兼容性仍未验证。
 
 ## 真实 gate 的复现与输出
 
@@ -80,3 +80,5 @@ npm run validate:gallery -- --allow-browser --out validation/gallery
 同文对照固定三组原始输入（短篇、中篇、中英混排），各选四个有意义的模板。正文哈希必须一致，生成时只改变模板元数据。`docs/gallery-comparisons.json` 把待验收计划与 `reviewed-exact-fixtures` 明确分开：后者必须绑定当前模板版本、standard / portrait / manual 范围、代码提交/树、Actions 产物包、逐图复核文档、原始 PNG/PDF 哈希及精确图片路径。合成单元测试只测试校验分支，绝不成为生产证据。
 
 当前三组均为 pending，界面只有同文输入链接，不插入旧版或不同文案缩略图。将来通过复核后的同文图放在独立 comparison 目录；不会替代注册示例、改变已验收模板数，或扩大为所有内容验收。详见 [真实内容矩阵](CONTENT_MATRIX.md)。新导航、同文区域及当前 v2 页面仍待实际 file://、手机与键盘复验；历史图库检查不能自动继承为本轮通过。
+
+任务或同文链接指向被筛选隐藏的模板时，会先重置筛选再沿原生锚点跳转；键盘 Enter 保持相同行为。无脚本时所有条目本来都显示，不依赖这一增强。

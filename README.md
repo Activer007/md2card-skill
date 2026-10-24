@@ -10,7 +10,7 @@
 
 [离线模板图库](docs/gallery/index.html) 提供家族、用途、图片需求和示例密度筛选。**48 个独立构图覆盖 12 个家族，各 4 套；v1 标准 3:4 注册示例均已检查真实 PNG、375/390px 手机图及原生 PDF。** 不是主题、配色或尺寸的排列组合，验收也不代表任意输入都能放下。精确版本、产物与限制见 [本轮验收](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md)。
 
-下载完整仓库后打开 `docs/gallery/index.html`，GitHub 文件页本身不运行 HTML。图库只展示已绑定证据的真实输出；48 预览版本已完成 51 项真实浏览器检查和 17 张界面截图复核，覆盖筛选、file:// CSP、键盘、无脚本回退与手机重排。原生菜单缩放与读屏仍未测试。使用方式见 [图库说明](docs/TEMPLATE_GALLERY.md)。
+下载完整仓库后打开 `docs/gallery/index.html`，GitHub 文件页本身不运行 HTML。图库只展示已绑定证据的真实输出；历史 v1 的 48 预览版本曾完成 51 项真实浏览器检查和 17 张界面截图复核，覆盖筛选、file:// CSP、键盘、无脚本回退与手机重排。原生菜单缩放与读屏仍未测试。当前新增任务导航和同文入口仍须重新检查。使用方式见 [图库说明](docs/TEMPLATE_GALLERY.md)。
 
 以下四张保留为上一轮 v1 的真实导出，不作为当前 v2 预览；当前状态见图库，输入和 PNG/PDF 哈希见验收记录。
 
@@ -321,7 +321,7 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 
 也可在卡片第一行选择 `<!-- card: {"template":"T05","density":"standard"} -->`。模板使用 `manual`，保留原文与 `===`；现有 `auto` 仍仅支持 layout-only `explainer` / `steps`。`compact` / `standard` / `editorial` 只调间距，不缩小正文。mobile 阅读字阶在实际 351/366px 内卡上检查，旧主题不会被暗中改成新字号。
 
-全部模板支持 3:4；**只有 T04/T21** 另外提供已验收短例的 1:1 / 16:9 独立重排，其他模板拒绝这两种比例。原 portrait 长度的输入在短画布可能明确溢出，不能把示例通过当作万能容量。见 [画幅与实测边界](docs/TEMPLATE_ASPECTS.md)。
+全部 48 套模板支持 3:4；仅在 **6 个模板上增加 8 个额外画幅组合**：T04/T21 各支持独立的 1:1 与 16:9，T05/T13 仅增加 1:1，T24/T37 仅增加 16:9。其余组合明确拒绝。当前 48 套 v2 及全部八个额外画幅都待新产物验收；T04/T21 的四个旧短例只保留 v1 历史证据，不能证明当前字体与排版。原 portrait 输入在短画布可能明确溢出，不缩字、不删内容、不裁图。见 [画幅与验证边界](docs/TEMPLATE_ASPECTS.md)。
 
 `--list-templates` 列出用途、推荐长度、结构、图片需求、来源与完整输入。推荐字数只是选型参考；放不下时保留原文与诊断，换模板或由你明确选择编辑/增加分段，不自动删字、改写、缩字或裁切。
 
@@ -331,7 +331,7 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 
 两组历史 v1 系列曾检查全部 8 张原图、16 张手机图及原生 PDF；历史 18 案例压力矩阵和四组尾页配对也有独立复核。当前 v2 均须重新验证。成功导出与预期拒绝分别记录，这些结果只覆盖明确输入，不扩张为任意内容保证。
 
-[可选尾页平衡](docs/TAIL_BALANCING.md) 只在同一显式分区的末两页移动完整语义组，保留页数、编号、表头和来源；不强制填满所有尾页。[压力验证](docs/VISUAL_STRESS.md) 分开记录成功导出与预期拒绝，不声称覆盖任意内容。T34 装饰首字的 PDF 抽取顺序、图片内微字及旧 Notebook 字号等明确限制见 [全 16 项状态](docs/VISUAL_BACKLOG_STATUS.md)。
+[可选尾页平衡](docs/TAIL_BALANCING.md) 只在同一显式分区的末两页移动完整语义组，保留页数、编号、表头和来源；不强制填满所有尾页。[压力验证](docs/VISUAL_STRESS.md) 分开记录成功导出与预期拒绝，不声称覆盖任意内容。历史 v1 T34 装饰首字曾影响 PDF 抽取顺序，当前 v2 已移除该处理，改善仍待新 PDF 确认；图片内微字、旧 Notebook 字号和本轮状态见 [历史与当前状态](docs/VISUAL_BACKLOG_STATUS.md)。
 
 实施顺序与独立审查门槛保留在 [九个里程碑](docs/VISUAL_MILESTONES.md)。新的真实结果与历史记录分开，不以 CI 全绿替代逐图检查。
 

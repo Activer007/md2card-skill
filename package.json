@@ -23,7 +23,7 @@
     "test:gallery": "node --test tests/template-gallery.test.mjs tests/gallery-validation.test.mjs tests/gallery-discovery.test.mjs",
     "validate:gallery": "node scripts/validate-gallery.mjs",
     "test:aspects": "node --test tests/aspects.test.mjs tests/validate-aspects.test.mjs",
-    "validate:aspects": "node scripts/validate-aspects.mjs",
+    "validate:aspects": "node scripts/validate-aspects.mjs --allow-browser",
     "test:typography": "node --test tests/refinement-typography.test.mjs tests/doctor.test.mjs",
     "validate:footers": "node scripts/validate-footers.mjs",
     "validate:refinement": "node scripts/validate-refinement.mjs"

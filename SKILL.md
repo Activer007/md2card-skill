@@ -138,13 +138,16 @@ Do not treat example acceptance as a guarantee for arbitrary input. Select a
 registry ID with `--template` or per-card `template` metadata; density changes
 spacing only. Templates remain manual-only and do not inherit legacy theme CSS.
 
-Consult the registry's per-aspect support and acceptance status. T04/T21 also have
-four independently reviewed standard-density square/slide short examples. Other
-templates do not gain those aspects, and longer portrait inputs can overflow. Select
-`--size` or matching dimensions, never card `aspect` metadata. Keep the same
-mobile body/source floors and fail overflowing text unchanged; new shorter
-examples are separate authored inputs, not automatic edits to user content. See
-[the aspect contract](docs/TEMPLATE_ASPECTS.md).
+Consult the registry's per-aspect support and status. Exactly 6 templates add
+8 extra aspect pairs: T04/T21 each add square and slide, T05/T13 add square only,
+and T24/T37 add slide only. All other non-portrait combinations are rejected.
+All 48 current v2 templates and all eight extra aspect pairs await fresh output
+review. T04/T21 retain v1 historical evidence only; it does not validate current
+v2 typography. The four new pairs have no prior acceptance. Longer portrait
+inputs can overflow. Select `--size` or matching dimensions, never card `aspect`
+metadata. Keep mobile body/source floors, full image frames and unchanged source;
+new short examples are separately authored inputs, not automatic content edits.
+See [the aspect contract](docs/TEMPLATE_ASPECTS.md).
 
 Use `node scripts/render.mjs --help` for the actual CLI contract. Install dependencies
 only when needed and permitted by the environment. The renderer needs Node.js,

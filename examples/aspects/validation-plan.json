@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "status": "source-only-awaiting-authorized-real-validation",
+  "schemaVersion": 2,
+  "status": "source-only-r12-awaiting-authorized-real-validation",
   "cases": [
     {
       "template": "T04",
@@ -474,6 +474,853 @@
       ],
       "imageRequirements": "none; images rejected",
       "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T05",
+      "scope": "aspect-specific-square",
+      "input": "examples/aspects/T05-square.md",
+      "inputSha256": "9f8b216a27ad52012ed07521753931a8f4dc3efdd67b0204a980b74225331beb",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T05",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T05-square.md",
+      "inputSha256": "9f8b216a27ad52012ed07521753931a8f4dc3efdd67b0204a980b74225331beb",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T05",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T05-square.md",
+      "inputSha256": "9f8b216a27ad52012ed07521753931a8f4dc3efdd67b0204a980b74225331beb",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T05",
+      "scope": "same-source-original",
+      "input": "examples/templates/T05.md",
+      "inputSha256": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T05",
+      "scope": "same-source-original",
+      "input": "examples/templates/T05.md",
+      "inputSha256": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T05",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T05-long.md",
+      "inputSha256": "09d58b9b2d7e3dbe6e6dd6beea601dcf21ccd96f9b71019834268b8ae6f50fea",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T05",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T05-long.md",
+      "inputSha256": "09d58b9b2d7e3dbe6e6dd6beea601dcf21ccd96f9b71019834268b8ae6f50fea",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T05",
+      "scope": "unsupported-named",
+      "input": "examples/aspects/T05-square.md",
+      "inputSha256": "9f8b216a27ad52012ed07521753931a8f4dc3efdd67b0204a980b74225331beb",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "expected-TEMPLATE_ASPECT_UNSUPPORTED",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T05",
+      "scope": "unsupported-ratio",
+      "input": "examples/aspects/T05-square.md",
+      "inputSha256": "9f8b216a27ad52012ed07521753931a8f4dc3efdd67b0204a980b74225331beb",
+      "aspect": "custom",
+      "dimensions": [
+        1200,
+        800
+      ],
+      "expected": "expected-TEMPLATE_ASPECT_UNSUPPORTED",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T13",
+      "scope": "aspect-specific-square",
+      "input": "examples/aspects/T13-square.md",
+      "inputSha256": "d078ea2799bd104a14bad5b35abbd14c9ed603018333eba692735081846893b2",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T13",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T13-square.md",
+      "inputSha256": "d078ea2799bd104a14bad5b35abbd14c9ed603018333eba692735081846893b2",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T13",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T13-square.md",
+      "inputSha256": "d078ea2799bd104a14bad5b35abbd14c9ed603018333eba692735081846893b2",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T13",
+      "scope": "same-source-original",
+      "input": "examples/templates/T13.md",
+      "inputSha256": "c8b2d96b0deb77d699978ad0546d05d4cd68482bf3dcb68ffd6b95a1d3ecffd1",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T13",
+      "scope": "same-source-original",
+      "input": "examples/templates/T13.md",
+      "inputSha256": "c8b2d96b0deb77d699978ad0546d05d4cd68482bf3dcb68ffd6b95a1d3ecffd1",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T13",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T13-long.md",
+      "inputSha256": "a049bcbf41553b610d32f84609ee1582aadfc7aaddb147785ca766292c5ccb4a",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T13",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T13-long.md",
+      "inputSha256": "a049bcbf41553b610d32f84609ee1582aadfc7aaddb147785ca766292c5ccb4a",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T13",
+      "scope": "unsupported-named",
+      "input": "examples/aspects/T13-square.md",
+      "inputSha256": "d078ea2799bd104a14bad5b35abbd14c9ed603018333eba692735081846893b2",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "expected-TEMPLATE_ASPECT_UNSUPPORTED",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T13",
+      "scope": "unsupported-ratio",
+      "input": "examples/aspects/T13-square.md",
+      "inputSha256": "d078ea2799bd104a14bad5b35abbd14c9ed603018333eba692735081846893b2",
+      "aspect": "custom",
+      "dimensions": [
+        1200,
+        800
+      ],
+      "expected": "expected-TEMPLATE_ASPECT_UNSUPPORTED",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T24",
+      "scope": "aspect-specific-slide",
+      "input": "examples/aspects/T24-slide.md",
+      "inputSha256": "ad032679519fe609e9f2cb2f66021056ff0b14a1825a0381469d9d69b07be103",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T24",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T24-slide.md",
+      "inputSha256": "ad032679519fe609e9f2cb2f66021056ff0b14a1825a0381469d9d69b07be103",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T24",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T24-slide.md",
+      "inputSha256": "ad032679519fe609e9f2cb2f66021056ff0b14a1825a0381469d9d69b07be103",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T24",
+      "scope": "same-source-original",
+      "input": "examples/templates/T24.md",
+      "inputSha256": "874a4dd2c38f8416fa8a79d6e830becf82e7e4099c6ecae8e6f0c834586a4dfa",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T24",
+      "scope": "same-source-original",
+      "input": "examples/templates/T24.md",
+      "inputSha256": "874a4dd2c38f8416fa8a79d6e830becf82e7e4099c6ecae8e6f0c834586a4dfa",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T24",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T24-long.md",
+      "inputSha256": "25849d0d16cda4fb1e0bb02d95535d404d134f2bdb43889361d125b2445b208c",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T24",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T24-long.md",
+      "inputSha256": "25849d0d16cda4fb1e0bb02d95535d404d134f2bdb43889361d125b2445b208c",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T24",
+      "scope": "unsupported-named",
+      "input": "examples/aspects/T24-slide.md",
+      "inputSha256": "ad032679519fe609e9f2cb2f66021056ff0b14a1825a0381469d9d69b07be103",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "expected-TEMPLATE_ASPECT_UNSUPPORTED",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T24",
+      "scope": "unsupported-ratio",
+      "input": "examples/aspects/T24-slide.md",
+      "inputSha256": "ad032679519fe609e9f2cb2f66021056ff0b14a1825a0381469d9d69b07be103",
+      "aspect": "custom",
+      "dimensions": [
+        1200,
+        800
+      ],
+      "expected": "expected-TEMPLATE_ASPECT_UNSUPPORTED",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; no external claims."
+    },
+    {
+      "template": "T37",
+      "scope": "aspect-specific-slide",
+      "input": "examples/aspects/T37-slide.md",
+      "inputSha256": "68bc38e674486579a535520e03ac9bec6d8ee9720b5f4468197fd77bc48b9052",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "image"
+      ],
+      "imageRequirements": "required local full-frame image; no crop",
+      "provenance": "Original short text and repository-owned AI-generated still life; not a documentary photograph. Full frame retained. See examples/templates/assets/provenance.json.",
+      "assetRoot": "examples/templates",
+      "assets": [
+        {
+          "file": "examples/templates/assets/synthetic-reading-still-life.png",
+          "reference": "assets/synthetic-reading-still-life.png",
+          "sha256": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "dimensions": [
+            1536,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "template": "T37",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T37-slide.md",
+      "inputSha256": "68bc38e674486579a535520e03ac9bec6d8ee9720b5f4468197fd77bc48b9052",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "image"
+      ],
+      "imageRequirements": "required local full-frame image; no crop",
+      "provenance": "Original short text and repository-owned AI-generated still life; not a documentary photograph. Full frame retained. See examples/templates/assets/provenance.json.",
+      "assetRoot": "examples/templates",
+      "assets": [
+        {
+          "file": "examples/templates/assets/synthetic-reading-still-life.png",
+          "reference": "assets/synthetic-reading-still-life.png",
+          "sha256": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "dimensions": [
+            1536,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "template": "T37",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T37-slide.md",
+      "inputSha256": "68bc38e674486579a535520e03ac9bec6d8ee9720b5f4468197fd77bc48b9052",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "image"
+      ],
+      "imageRequirements": "required local full-frame image; no crop",
+      "provenance": "Original short text and repository-owned AI-generated still life; not a documentary photograph. Full frame retained. See examples/templates/assets/provenance.json.",
+      "assetRoot": "examples/templates",
+      "assets": [
+        {
+          "file": "examples/templates/assets/synthetic-reading-still-life.png",
+          "reference": "assets/synthetic-reading-still-life.png",
+          "sha256": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "dimensions": [
+            1536,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "template": "T37",
+      "scope": "same-source-original",
+      "input": "examples/templates/T37.md",
+      "inputSha256": "10092106b880769b4bb0064bd3a1cd395193500eec941651e40496083f22887c",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "image"
+      ],
+      "imageRequirements": "required local full-frame image; no crop",
+      "provenance": "Original short text and repository-owned AI-generated still life; not a documentary photograph. Full frame retained. See examples/templates/assets/provenance.json.",
+      "assetRoot": "examples/templates",
+      "assets": [
+        {
+          "file": "examples/templates/assets/synthetic-reading-still-life.png",
+          "reference": "assets/synthetic-reading-still-life.png",
+          "sha256": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "dimensions": [
+            1536,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "template": "T37",
+      "scope": "same-source-original",
+      "input": "examples/templates/T37.md",
+      "inputSha256": "10092106b880769b4bb0064bd3a1cd395193500eec941651e40496083f22887c",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "image"
+      ],
+      "imageRequirements": "required local full-frame image; no crop",
+      "provenance": "Original short text and repository-owned AI-generated still life; not a documentary photograph. Full frame retained. See examples/templates/assets/provenance.json.",
+      "assetRoot": "examples/templates",
+      "assets": [
+        {
+          "file": "examples/templates/assets/synthetic-reading-still-life.png",
+          "reference": "assets/synthetic-reading-still-life.png",
+          "sha256": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "dimensions": [
+            1536,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "template": "T37",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T37-long.md",
+      "inputSha256": "8399bc33a909566b4c1a24ca4e7b2be2f8db7231da69fcb2e2d76e79bc6693f2",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "image"
+      ],
+      "imageRequirements": "required local full-frame image; no crop",
+      "provenance": "Original short text and repository-owned AI-generated still life; not a documentary photograph. Full frame retained. See examples/templates/assets/provenance.json.",
+      "assetRoot": "examples/templates",
+      "assets": [
+        {
+          "file": "examples/templates/assets/synthetic-reading-still-life.png",
+          "reference": "assets/synthetic-reading-still-life.png",
+          "sha256": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "dimensions": [
+            1536,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "template": "T37",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T37-long.md",
+      "inputSha256": "8399bc33a909566b4c1a24ca4e7b2be2f8db7231da69fcb2e2d76e79bc6693f2",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "image"
+      ],
+      "imageRequirements": "required local full-frame image; no crop",
+      "provenance": "Original short text and repository-owned AI-generated still life; not a documentary photograph. Full frame retained. See examples/templates/assets/provenance.json.",
+      "assetRoot": "examples/templates",
+      "assets": [
+        {
+          "file": "examples/templates/assets/synthetic-reading-still-life.png",
+          "reference": "assets/synthetic-reading-still-life.png",
+          "sha256": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "dimensions": [
+            1536,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "template": "T37",
+      "scope": "unsupported-named",
+      "input": "examples/aspects/T37-slide.md",
+      "inputSha256": "68bc38e674486579a535520e03ac9bec6d8ee9720b5f4468197fd77bc48b9052",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "expected-TEMPLATE_ASPECT_UNSUPPORTED",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "image"
+      ],
+      "imageRequirements": "required local full-frame image; no crop",
+      "provenance": "Original short text and repository-owned AI-generated still life; not a documentary photograph. Full frame retained. See examples/templates/assets/provenance.json.",
+      "assetRoot": "examples/templates",
+      "assets": [
+        {
+          "file": "examples/templates/assets/synthetic-reading-still-life.png",
+          "reference": "assets/synthetic-reading-still-life.png",
+          "sha256": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "dimensions": [
+            1536,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "template": "T37",
+      "scope": "unsupported-ratio",
+      "input": "examples/aspects/T37-slide.md",
+      "inputSha256": "68bc38e674486579a535520e03ac9bec6d8ee9720b5f4468197fd77bc48b9052",
+      "aspect": "custom",
+      "dimensions": [
+        1200,
+        800
+      ],
+      "expected": "expected-TEMPLATE_ASPECT_UNSUPPORTED",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "image"
+      ],
+      "imageRequirements": "required local full-frame image; no crop",
+      "provenance": "Original short text and repository-owned AI-generated still life; not a documentary photograph. Full frame retained. See examples/templates/assets/provenance.json.",
+      "assetRoot": "examples/templates",
+      "assets": [
+        {
+          "file": "examples/templates/assets/synthetic-reading-still-life.png",
+          "reference": "assets/synthetic-reading-still-life.png",
+          "sha256": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "dimensions": [
+            1536,
+            1024
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "baseRevision": "e1ad19f00ec44c90ff54e83694a42f547f437566"
 }

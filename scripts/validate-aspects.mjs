@@ -13,13 +13,16 @@ import { parseOptions, exportCards } from './render.mjs';
 import { openRenderer, closeBrowser } from './browser.mjs';
 import { inspectPdf } from './qa.mjs';
 import { SIZES } from './document.mjs';
+import { createAssetResolver } from './assets.mjs';
 import { resolveTemplateAspect } from './templates.mjs';
 
 const exec = promisify(execFile);
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 const hash = value => createHash('sha256').update(value).digest('hex');
 const compact = value => value.normalize('NFC').replace(/\s+/gu, '');
-export const MAX_ASPECT_CASES = 22;
+export const MAX_ASPECT_CASES = 58;
+export const ASPECT_CASE_SELECTION = Object.freeze(Object.fromEntries(Object.entries({ T04: ['square', 'slide'], T21: ['square', 'slide'], T05: ['square'], T13: ['square'], T24: ['slide'], T37: ['slide'] }).map(([id, aspects]) => [id, Object.freeze(aspects)])));
+const REFUSAL = 'expected-TEMPLATE_ASPECT_UNSUPPORTED';
 const EXPECTATIONS = ['candidate-unmeasured', 'candidate-unmeasured-may-overflow', 'expected-CONTENT_OVERFLOW-unverified'];
 const SCOPES = ['aspect-specific-square', 'aspect-specific-slide', 'same-source-short', 'same-source-original', 'same-source-long'];
 const unsafeToRetry = error => ['BROWSER_LAUNCH_FAILED', 'BROWSER_CLEANUP_FAILED', 'BROWSER_CLEANUP_TIMEOUT', 'ASPECT_MOBILE_TIMEOUT', 'RENDER_TIMEOUT', 'ASPECT_BROWSER_OPERATION_FAILED'].includes(error.code) ||
@@ -30,36 +33,77 @@ const codeError = (code, message) => Object.assign(new Error(message), { code })
 export function aspectVisibleSegments(card) {
   const inline = children => children.map(child => ['text', 'code_inline'].includes(child.type) ? child.content : ['softbreak', 'hardbreak'].includes(child.type) ? '\n' : child.children ? inline(child.children) : '').join('');
   return [...parseMarkdownTokens(card.source).flatMap(token => token.type === 'inline' ? [inline(token.children ?? [])] : ['fence', 'code_block'].includes(token.type) ? [token.content] : []),
-    ...['eyebrow', 'source', 'metric', 'label'].map(key => card.metadata[key] ?? ''), '1 / 1'].filter(text => text.trim());
+    ...['eyebrow', 'source', 'metric', 'label', 'caption'].map(key => card.metadata[key] ?? ''), '1 / 1'].filter(text => text.trim());
 }
 
 export function validateAspectPlan(plan) {
-  assert.equal(plan.schemaVersion, 1);
-  assert.ok(Array.isArray(plan.cases) && plan.cases.length === MAX_ASPECT_CASES, 'The reviewed inventory must contain exactly 22 cases; do not expand this runner silently.');
+  assert.equal(plan.schemaVersion, 2);
+  assert.equal(plan.baseRevision, 'e1ad19f00ec44c90ff54e83694a42f547f437566');
+  assert.ok(Array.isArray(plan.cases) && plan.cases.length === MAX_ASPECT_CASES, 'The bounded inventory must contain exactly 58 cases; do not expand this runner silently.');
   const identities = new Set();
   for (const item of plan.cases) {
-    assert.ok(['T04', 'T21'].includes(item.template));
-    assert.ok(SCOPES.includes(item.scope));
-    assert.ok(Object.hasOwn(SIZES, item.aspect));
-    assert.deepEqual(item.dimensions, [SIZES[item.aspect].width, SIZES[item.aspect].height]);
-    assert.equal(resolveTemplateAspect(item.template, SIZES[item.aspect]).id, item.aspect);
-    assert.ok(/^examples\/(?:aspects|templates)\/T(?:04|21)(?:-(?:square|slide|long))?\.md$/.test(item.input), 'Input must be a reviewed local aspect/template file.');
+    const selected = ASPECT_CASE_SELECTION[item.template]; assert.ok(selected, 'Unregistered aspect selection.');
+    const refusal = item.scope.startsWith('unsupported-');
+    assert.ok([...SCOPES, 'unsupported-named', 'unsupported-ratio'].includes(item.scope));
+    const size = item.aspect === 'custom' ? { width: 1200, height: 800 } : SIZES[item.aspect]; assert.ok(size);
+    assert.deepEqual(item.dimensions, [size.width, size.height]);
+    if (refusal) {
+      assert.equal(selected.length, 1); assert.equal(item.expected, REFUSAL);
+      assert.equal(item.aspect, item.scope === 'unsupported-ratio' ? 'custom' : selected[0] === 'square' ? 'slide' : 'square');
+      assert.throws(() => resolveTemplateAspect(item.template, size), { code: 'TEMPLATE_ASPECT_UNSUPPORTED' });
+    } else {
+      assert.equal(resolveTemplateAspect(item.template, size).id, item.aspect);
+      assert.ok(EXPECTATIONS.includes(item.expected));
+      assert.equal(item.expected, item.scope === 'same-source-long' ? EXPECTATIONS[2] : item.scope === 'same-source-original' ? EXPECTATIONS[1] : EXPECTATIONS[0]);
+    }
+    const shortAspect = selected.includes('slide') ? 'slide' : 'square';
+    const expectedFile = item.scope === 'same-source-original' ? `examples/templates/${item.template}.md`
+      : item.scope === 'same-source-long' ? `examples/aspects/${item.template}-long.md`
+      : `examples/aspects/${item.template}-${item.scope.startsWith('aspect-specific-') ? item.aspect : shortAspect}.md`;
+    assert.equal(item.input, expectedFile, 'Input must be its exact repository-owned fixture, never a replacement.');
     assert.match(item.inputSha256, /^[a-f0-9]{64}$/);
-    assert.ok(EXPECTATIONS.includes(item.expected));
-    assert.equal(item.expected, item.scope === 'same-source-long' ? EXPECTATIONS[2] : item.scope === 'same-source-original' ? EXPECTATIONS[1] : EXPECTATIONS[0]);
     if (item.scope.startsWith('aspect-specific-')) assert.equal(item.aspect, item.scope.slice('aspect-specific-'.length));
+    if (item.template === 'T37') {
+      assert.equal(item.assetRoot, 'examples/templates');
+      assert.deepEqual(item.assets, [{ file: 'examples/templates/assets/synthetic-reading-still-life.png', reference: 'assets/synthetic-reading-still-life.png', sha256: '6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa', dimensions: [1536, 1024] }]);
+    } else { assert.equal(item.assetRoot, undefined); assert.equal(item.assets, undefined); }
+    for (const field of ['realRender', 'mobile375', 'mobile390', 'nativePdf', 'visualReview']) assert.equal(item[field], 'not-performed', 'Plans are not result or acceptance records.');
     const identity = `${item.template}/${item.scope}/${item.aspect}`;
     assert.ok(!identities.has(identity), `Duplicate case ${identity}`); identities.add(identity);
   }
-  for (const template of ['T04', 'T21']) for (const scope of SCOPES) {
-    const group = plan.cases.filter(item => item.template === template && item.scope === scope);
-    assert.equal(group.length, scope.startsWith('same-source-') ? 3 : 1);
-    if (scope.startsWith('same-source-')) {
-      assert.deepEqual(group.map(item => item.aspect).sort(), ['portrait', 'slide', 'square']);
-      assert.equal(new Set(group.map(item => `${item.input}:${item.inputSha256}`)).size, 1, 'A same-source comparison cannot substitute shorter text.');
+  for (const [template, selected] of Object.entries(ASPECT_CASE_SELECTION)) {
+    const scopes = [...selected.map(aspect => `aspect-specific-${aspect}`), 'same-source-short', 'same-source-original', 'same-source-long', ...(selected.length === 1 ? ['unsupported-named', 'unsupported-ratio'] : [])];
+    for (const scope of scopes) {
+      const group = plan.cases.filter(item => item.template === template && item.scope === scope);
+      assert.equal(group.length, scope.startsWith('same-source-') ? selected.length + 1 : 1);
+      if (scope.startsWith('same-source-')) {
+        assert.deepEqual(group.map(item => item.aspect).sort(), ['portrait', ...selected].sort());
+        assert.equal(new Set(group.map(item => `${item.input}:${item.inputSha256}`)).size, 1, 'A same-source comparison cannot substitute shorter text.');
+      }
     }
   }
   return plan;
+}
+
+/** Resolve only the fixed, hashed repository-owned raster input. No new asset route. */
+export async function loadAspectCard(repository, item) {
+  const source = await readFile(path.join(repository, item.input), 'utf8');
+  assert.equal(hash(source), item.inputSha256, 'Input hash changed; do not substitute or rewrite comparison text.');
+  let resolver;
+  if (item.assets?.length) {
+    for (const asset of item.assets) assert.equal(hash(await readFile(path.join(repository, asset.file))), asset.sha256, 'Aspect image bytes changed.');
+    resolver = await createAssetResolver(path.join(repository, item.assetRoot));
+  }
+  const cards = renderCards(source, resolver ? { resolveImage: resolver.resolveImage } : {});
+  assert.equal(cards.length, 1); const card = cards[0];
+  assert.equal(card.metadata.template, item.template); assert.ok(card.metadata.source);
+  if (item.assets?.length) {
+    assert.equal(resolver.getAssets().length, 1);
+    assert.equal(card.image.hash, item.assets[0].sha256);
+    assert.deepEqual([card.image.width, card.image.height], item.assets[0].dimensions);
+    assert.ok(card.metadata.alt && card.metadata.caption, 'The reviewed image fixture preserves alt and caption.');
+  }
+  return card;
 }
 
 export function assertAspectSourceHtml(html, card, aspect) {
@@ -71,6 +115,12 @@ export function assertAspectSourceHtml(html, card, aspect) {
   for (const slot of slots) { const position = article.indexOf(slot, cursor); assert.ok(position >= cursor, 'Source slot missing or reordered.'); cursor = position + slot.length; }
   for (const slot of new Set(slots)) assert.equal(article.split(slot).length - 1, slots.filter(other => other === slot).length, 'Source slot duplicated.');
   assert.ok(article.includes(`data-template="${card.metadata.template}" data-template-aspect="${aspect}"`));
+  if (card.image) {
+    assert.equal((article.match(/<img\b/g) ?? []).length, 1);
+    assert.ok(article.includes(`src="${card.image.dataUrl}"`), 'Image bytes changed in HTML.');
+    assert.ok(article.includes(`width="${card.image.width}" height="${card.image.height}" alt="${escapeHtml(card.metadata.alt)}"`));
+    assert.equal(article.split(`<figcaption>${escapeHtml(card.metadata.caption)}</figcaption>`).length - 1, 1);
+  }
   for (const [field, className] of [['eyebrow','card-eyebrow'],['source','card-source'],['metric','statistic-value'],['label','statistic-label']]) if (card.metadata[field]) assert.equal(article.split(`class="${className}">${escapeHtml(card.metadata[field])}<`).length - 1, 1, `Missing/duplicated ${field}.`);
 }
 
@@ -94,7 +144,11 @@ export function measureAspectMobile() {
       }
       return { selector: element.className || element.tagName.toLowerCase(), fontSize, effectiveSize: fontSize * scale, fontFamily: style.fontFamily, lineHeight: style.lineHeight, visible, nestedTransform };
     };
-    return { template: card.dataset.template, aspect: card.dataset.templateAspect, cardWidth: rect.width, cardHeight: rect.height, canvasWidth: card.offsetWidth, canvasHeight: card.offsetHeight, scale, counter: card.querySelector('.card-index')?.textContent, body: descendants(bodyRoots).map(type), notes: descendants(noteRoots).map(type) };
+    return { template: card.dataset.template, aspect: card.dataset.templateAspect, cardWidth: rect.width, cardHeight: rect.height, canvasWidth: card.offsetWidth, canvasHeight: card.offsetHeight, scale, counter: card.querySelector('.card-index')?.textContent, images: [...card.querySelectorAll('.card-image')].map(image => {
+      const style = getComputedStyle(image), rect = image.getBoundingClientRect();
+      let clipped = false; for (let node = image; node && node !== card; node = node.parentElement) { const css = getComputedStyle(node); if ((css.clipPath && css.clipPath !== 'none') || ['hidden','clip'].includes(css.overflowX) || ['hidden','clip'].includes(css.overflowY)) clipped = true; }
+      return { naturalWidth: image.naturalWidth, naturalHeight: image.naturalHeight, complete: image.complete, width: rect.width, height: rect.height, objectFit: style.objectFit, clipped, ...type(image) };
+    }), body: descendants(bodyRoots).map(type), notes: descendants(noteRoots).map(type) };
   });
 }
 
@@ -106,6 +160,13 @@ export function assertAspectMobile(audit, item, viewportWidth) {
   assert.ok(Math.abs(card.cardWidth - (viewportWidth - 24)) < 1, 'Actual inner card width changed; explicitly review the preview-inset contract.');
   assert.ok(Math.abs(card.scale - card.cardWidth / width) < 1e-6);
   assert.ok(Math.abs(card.cardHeight - height * card.scale) < 1);
+  assert.equal((card.images ?? []).length, item.assets?.length ?? 0, 'Declared image must remain visible.');
+  for (const [index, image] of (card.images ?? []).entries()) {
+    assert.deepEqual([image.naturalWidth, image.naturalHeight], item.assets[index].dimensions);
+    assert.equal(image.complete, true); assert.ok(image.width > 0 && image.height > 0);
+    assert.equal(image.objectFit, 'contain'); assert.equal(image.clipped, false);
+    assert.equal(image.visible, true); assert.equal(image.nestedTransform, false);
+  }
   assert.ok(card.body.length && card.notes.length, 'Both body and note text must be measured.');
   for (const [name, types, ratio, mobileFloor] of [['body', card.body, .043, 14], ['notes', card.notes, .0335, 11]]) for (const type of types) {
     assert.equal(type.visible, true, `${name} text is hidden in the actual preview.`);
@@ -137,31 +198,43 @@ export async function validateAspects(options = {}, dependencies = {}) {
   if (process.env.MD2CARD_SKIP_BROWSER === '1' && !dependencies.exportCards) throw codeError('ASPECT_BROWSER_DISABLED', 'Real aspect validation is disabled by MD2CARD_SKIP_BROWSER. Do not bypass a known denial.');
   await mkdir(outputRoot, { recursive: true });
   assert.equal((await readdir(outputRoot)).length, 0, 'Use a fresh empty output directory; never mix runs or overwrite evidence.');
-  const summary = { schemaVersion: 1, revision, inventorySha256: hash(inventory), status: 'running', visualReview: 'not-performed', results: [], errors: [], sourceHashes: {} };
-  for (const file of ['scripts/validate-aspects.mjs','scripts/templates.mjs','scripts/document.mjs','scripts/render.mjs','scripts/qa.mjs','assets/themes.css','assets/layouts.css','assets/templates.css']) summary.sourceHashes[file] = hash(await readFile(path.join(repository, file)));
+  const summary = { schemaVersion: 2, revision, inventoryBaseRevision: plan.baseRevision, inventorySha256: hash(inventory), status: 'running', visualReview: 'not-performed', results: [], errors: [], sourceHashes: {} };
+  for (const file of ['scripts/validate-aspects.mjs','scripts/typography.mjs','scripts/assets.mjs','scripts/markdown.mjs','scripts/templates.mjs','scripts/document.mjs','scripts/render.mjs','scripts/qa.mjs','assets/themes.css','assets/layouts.css','assets/templates.css']) summary.sourceHashes[file] = hash(await readFile(path.join(repository, file)));
   let browserBlocked;
   for (const [index, item] of plan.cases.entries()) {
     const id = `${String(index + 1).padStart(2, '0')}-${item.template}-${item.scope}-${item.aspect}`;
     const out = path.join(outputRoot, id);
-    const record = { id, template: item.template, scope: item.scope, aspect: item.aspect, input: item.input, inputSha256: item.inputSha256, expected: item.expected, status: 'pending', actualOutcome: 'not-run', visualReview: 'not-performed', artifacts: [], mobile: [], errors: [] };
+    const record = { id, template: item.template, scope: item.scope, aspect: item.aspect, input: item.input, inputSha256: item.inputSha256, ...(item.assets ? { assets: item.assets } : {}), expected: item.expected, status: 'pending', actualOutcome: 'not-run', visualReview: 'not-performed', artifacts: [], mobile: [], errors: [] };
     summary.results.push(record);
     const problem = (error, phase) => { const detail = { id, phase, code: error.code ?? 'ASPECT_VALIDATION_FAILED', message: error.message, ...(error.details?.cleanupFailures ? { cleanupFailures: error.details.cleanupFailures } : {}) }; record.errors.push(detail); summary.errors.push(detail); if (unsafeToRetry(error) || phase === 'browser-acquire') browserBlocked = detail; };
-    if (browserBlocked) { problem(codeError('ASPECT_BROWSER_BLOCKED', `Not attempted after ${browserBlocked.code} in ${browserBlocked.id}; no launch retry or alternate engine.`), 'blocked'); record.status = 'blocked'; continue; }
+    if (browserBlocked && item.expected !== REFUSAL) { problem(codeError('ASPECT_BROWSER_BLOCKED', `Not attempted after ${browserBlocked.code} in ${browserBlocked.id}; no launch retry or alternate engine.`), 'blocked'); record.status = 'blocked'; continue; }
     let renderer, mobileTimer, phase = 'source';
     try {
-      const sourceFile = path.join(repository, item.input), source = await readFile(sourceFile, 'utf8');
-      assert.equal(hash(source), item.inputSha256, 'Input hash changed; do not substitute or rewrite comparison text.');
-      const cards = renderCards(source); assert.equal(cards.length, 1); const card = cards[0];
-      assert.equal(card.metadata.template, item.template); assert.ok(card.metadata.source);
-      const argv = [sourceFile, '--out', out, '--paginate', 'manual', '--size', item.aspect, '--scale', '1', '--format', 'all', '--strict', '--preview'];
+      const sourceFile = path.join(repository, item.input), card = await loadAspectCard(repository, item);
+      const argv = [sourceFile, '--out', out, '--paginate', 'manual', ...(item.aspect === 'custom' ? ['--width', '1200', '--height', '800'] : ['--size', item.aspect]), '--scale', '1', '--format', 'all', '--strict', '--preview', ...(item.assetRoot ? ['--asset-root', path.join(repository, item.assetRoot)] : [])];
       record.command = ['node', 'scripts/render.mjs', ...argv];
       phase = 'export';
       let manifest;
-      try { manifest = await exportDeck(parseOptions(argv)); }
+      try {
+        if (item.expected === REFUSAL) {
+          // Exercise the actual exporter with fail-closed source-only seams: an
+          // unsupported ratio must fail BEFORE environment/browser acquisition.
+          const forbidden = async () => { throw codeError('ASPECT_REFUSAL_ACQUIRED_RENDERER', 'Unsupported aspect reached preflight or browser acquisition.'); };
+          manifest = await exportCards(parseOptions(argv), { inspectEnvironment: forbidden, openRenderer: forbidden });
+        } else manifest = await exportDeck(parseOptions(argv));
+      }
       catch (error) {
         // The renderer can preserve CONTENT_OVERFLOW while attaching an
         // uncertain close-browser failure. Never call that a safe expected
         // outcome or retry browser acquisition for a later case.
+        if (item.expected === REFUSAL) {
+          assert.equal(error.code, 'TEMPLATE_ASPECT_UNSUPPORTED');
+          const outputFiles = await readdir(out).catch(error => { if (error.code === 'ENOENT') return []; throw error; });
+          assert.deepEqual(outputFiles, [], 'Unsupported ratios must not publish render artifacts.');
+          assert.equal(hash(await readFile(sourceFile)), item.inputSha256);
+          record.status = 'expected-refusal'; record.actualOutcome = 'refused-before-renderer'; record.refusalCode = error.code;
+          continue;
+        }
         if (unsafeToRetry(error) || error.code !== 'CONTENT_OVERFLOW') throw error;
         record.actualOutcome = 'overflow'; phase = 'overflow-evidence';
         assert.deepEqual(await readdir(out), ['overflow.json'], 'Overflow must publish only its report, not partial exports.');
@@ -175,7 +248,13 @@ export async function validateAspects(options = {}, dependencies = {}) {
         record.status = item.expected === EXPECTATIONS[2] ? 'expected-overflow' : 'allowed-overflow';
         continue;
       }
+      assert.notEqual(item.expected, REFUSAL, 'Unsupported aspect unexpectedly exported.');
       record.actualOutcome = 'exported'; phase = 'artifacts';
+      if (item.assets?.length) {
+        assert.equal(manifest.assets.length, 1);
+        assert.equal(manifest.assets[0].hash, item.assets[0].sha256);
+        assert.deepEqual([manifest.assets[0].width, manifest.assets[0].height], item.assets[0].dimensions);
+      }
       assert.equal(manifest.inputSha256, item.inputSha256); assert.equal(manifest.cardCount, 1); assert.equal(manifest.pagination.mode, 'manual');
       assert.deepEqual(manifest.dimensions, SIZES[item.aspect]); assert.equal(manifest.cards.length, 1); assert.equal(manifest.cards[0].template, item.template); assert.equal(manifest.cards[0].aspect, item.aspect);
       assert.equal(manifest.cards[0].sourceSha256, hash(card.source)); assert.deepEqual(manifest.qa.overflow, { screen: 'pass', print: 'pass' });
@@ -246,9 +325,33 @@ export async function validateAspects(options = {}, dependencies = {}) {
   return summary;
 }
 
+export const ASPECT_USAGE = 'node scripts/validate-aspects.mjs --allow-browser [--out validation/aspects]';
+export function parseAspectOptions(args) {
+  const options = { allowBrowser: false }; const seen = new Set();
+  for (let index = 0; index < args.length; index += 1) {
+    const arg = args[index];
+    if (seen.has(arg)) throw new Error(`Duplicate option: ${arg}`);
+    seen.add(arg);
+    if (arg === '--help') options.help = true;
+    else if (arg === '--allow-browser') options.allowBrowser = true;
+    else if (arg === '--out') {
+      const value = args[++index];
+      if (!value || value.startsWith('--')) throw new Error('Missing value: --out');
+      options.outputRoot = path.resolve(value);
+    } else throw new Error(`Unknown option: ${arg}`);
+  }
+  if (!options.help && !options.allowBrowser) throw new Error('Browser execution requires --allow-browser and an authorized environment. No runtime was entered.');
+  return options;
+}
+export async function runAspectCli(args, { validate = validateAspects, log = console.log, error = console.error } = {}) {
+  try {
+    const options = parseAspectOptions(args);
+    if (options.help) { log(ASPECT_USAGE); return 0; }
+    const summary = await validate(options);
+    log(`Recorded ${summary.results.length} aspect cases; ${summary.errors.length} error(s). Human visual acceptance remains pending.`);
+    return summary.errors.length ? 1 : 0;
+  } catch (failure) { error(failure.message); return 1; }
+}
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
-  validateAspects().then(summary => {
-    console.log(`Recorded ${summary.results.length} aspect cases; ${summary.errors.length} error(s). Human visual acceptance remains pending.`);
-    if (summary.errors.length) process.exitCode = 1;
-  }).catch(error => { console.error(error); process.exitCode = 1; });
+  process.exitCode = await runAspectCli(process.argv.slice(2));
 }

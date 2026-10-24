@@ -1,4 +1,5 @@
 import { Md2CardError } from './errors.mjs';
+import { balanceSemanticTails, balanceManifest } from './tail-balance.mjs';
 import { renderSemanticCard, validateSemanticCoverage, semanticManifest, MAX_SEMANTIC_ATOMS, MAX_EXPLICIT_PARTITIONS, MAX_SOURCE_RECORDS } from './semantic.mjs';
 
 export const PAGINATION_LIMITS = Object.freeze({ atoms: MAX_SEMANTIC_ATOMS, probes: 4000, cards: MAX_EXPLICIT_PARTITIONS });
@@ -12,7 +13,8 @@ function isMeasurement(value) {
  * fixed-size document in screen AND print media; this module never estimates
  * height, rewrites source, shrinks type, or moves content across a partition.
  */
-export async function paginateSemanticDocument(document, { measure, checkpoint = () => {}, checkBudget = () => {}, limits = PAGINATION_LIMITS } = {}) {
+export async function paginateSemanticDocument(document, { measure, checkpoint = () => {}, checkBudget = () => {}, limits = PAGINATION_LIMITS, balanceTail = false } = {}) {
+  if (typeof balanceTail !== 'boolean') throw new Md2CardError('INVALID_OPTIONS', 'balanceTail must be a boolean.');
   if (typeof measure !== 'function') throw new Md2CardError('PAGINATION_MEASUREMENT', 'Automatic pagination requires a browser measurement adapter.');
   for (const name of ['atoms', 'probes', 'cards']) {
     if (!Number.isInteger(limits[name]) || limits[name] < 1 || limits[name] > PAGINATION_LIMITS[name]) {
@@ -20,16 +22,16 @@ export async function paginateSemanticDocument(document, { measure, checkpoint =
     }
   }
   if (document.atoms.length > limits.atoms) throw new Md2CardError('PAGINATION_BUDGET', 'Automatic pagination exceeds 2,000 semantic atoms. Split the input into smaller documents.', { atoms: document.atoms.length, limit: limits.atoms });
+  const pages = [];
   const cards = [];
   let probes = 0;
-  const probe = async (partition, atoms) => {
+  const probe = async (partition, atoms, index = cards.length + 1, count = index) => {
     checkpoint();
-    const count = cards.length + 1;
     if (count > limits.cards) throw new Md2CardError('PAGINATION_BUDGET', 'Automatic pagination exceeds 200 cards. Split the input or increase the canvas size.', { cards: count, limit: limits.cards });
     checkBudget(count);
     if (probes >= limits.probes) throw new Md2CardError('PAGINATION_BUDGET', 'Automatic pagination reached its finite browser-measurement budget. Split the input into smaller documents.', { probes, limit: limits.probes });
     probes++;
-    const card = renderSemanticCard(document, partition, atoms, count);
+    const card = renderSemanticCard(document, partition, atoms, index);
     const measurements = await measure(card);
     checkpoint();
     if (!isMeasurement(measurements?.screen) || !isMeasurement(measurements?.print)) throw new Md2CardError('PAGINATION_MEASUREMENT', 'The browser did not return both screen and print overflow measurements. No exports were produced.');
@@ -42,13 +44,17 @@ export async function paginateSemanticDocument(document, { measure, checkpoint =
       guidance: 'Keep the original input. Increase dimensions, choose manual pagination with explicit edits, or ask permission to shorten the affected block. Code, quotes, images, paragraphs, list items, table rows and heading groups are never cut internally.'
     }, 2);
   };
+  const commit = (partition, groups, result) => {
+    cards.push(result.card);
+    pages.push({ partition, groups, ...result });
+  };
   for (const partition of document.partitions) {
     checkpoint();
-    let current = [], accepted;
+    let current = [], currentGroups = [], accepted;
     if (!partition.groups.length) {
       const result = await probe(partition, []);
       if (!result.fits) oversized(partition, { id: `${partition.index}:empty`, atoms: [] }, result);
-      cards.push(result.card);
+      commit(partition, [], result);
       continue;
     }
     for (const group of partition.groups) {
@@ -57,18 +63,25 @@ export async function paginateSemanticDocument(document, { measure, checkpoint =
       if (!result.fits && current.length) {
         // Exactly one fallback: commit the accepted prefix and try the unchanged
         // group on a fresh card. There is no recursive splitting or retry loop.
-        cards.push(accepted.card);
+        commit(partition, currentGroups, accepted);
         current = [];
+        currentGroups = [];
         result = await probe(partition, group.atoms);
       }
       if (!result.fits) oversized(partition, group, result);
       current = [...current, ...group.atoms];
+      currentGroups = [...currentGroups, group];
       accepted = result;
     }
     // Explicit === boundaries terminate a card even when the next would fit.
-    if (accepted) cards.push(accepted.card);
+    if (accepted) commit(partition, currentGroups, accepted);
   }
+  const greedyProbes = probes;
+  const balance = balanceTail ? await balanceSemanticTails(document, pages, {
+    probe, remainingProbes: () => limits.probes - probes, checkpoint
+  }) : balanceManifest(false);
+  if (balanceTail) cards.splice(0, cards.length, ...pages.map(page => page.card));
   checkpoint();
   const validation = { status: 'pass', ...validateSemanticCoverage(document, cards) };
-  return { cards, pagination: { ...semanticManifest(document, cards), mode: 'auto', algorithm: 'greedy-semantic-browser-v1', probes, limits: { ...limits, explicitPartitions: MAX_EXPLICIT_PARTITIONS, sourceRecords: MAX_SOURCE_RECORDS }, validation } };
+  return { cards, pagination: { ...semanticManifest(document, cards), mode: 'auto', algorithm: balanceTail ? 'greedy-semantic-browser-tail-v1' : 'greedy-semantic-browser-v1', probes, greedyProbes, balance, limits: { ...limits, explicitPartitions: MAX_EXPLICIT_PARTITIONS, sourceRecords: MAX_SOURCE_RECORDS }, validation } };
 }

@@ -104,6 +104,7 @@ export async function measureCards(page) {
     const footerBounds = footer.getBoundingClientRect();
     const tolerance = 1;
     const problems = [];
+    let occupiedHeight = 0;
     if (content.scrollHeight > content.clientHeight + tolerance) problems.push('content-height');
     if (content.scrollWidth > content.clientWidth + tolerance) problems.push('content-width');
     if (footer.scrollHeight > footer.clientHeight + tolerance || footer.scrollWidth > footer.clientWidth + tolerance) problems.push('footer');
@@ -111,6 +112,9 @@ export async function measureCards(page) {
     if (footerBounds.bottom > cardBounds.bottom + tolerance) problems.push('footer-height');
     for (const element of content.querySelectorAll('*')) {
       const rect = element.getBoundingClientRect();
+      // Content is a stretched flex item: scrollHeight cannot reveal a sparse
+      // page. Descendant boxes include actual body height, gaps and table heads.
+      if (rect.width && rect.height) occupiedHeight = Math.max(occupiedHeight, rect.bottom - bounds.top);
       if (rect.width && rect.height && (rect.bottom > bounds.bottom + tolerance || rect.top < bounds.top - tolerance)) problems.push(`tall-${element.tagName.toLowerCase()}`);
       if (rect.width && rect.height && (rect.right > bounds.right + tolerance || rect.left < bounds.left - tolerance)) {
         problems.push(`wide-${element.tagName.toLowerCase()}`);
@@ -121,6 +125,7 @@ export async function measureCards(page) {
       index: index + 1,
       available: { width: content.clientWidth, height: content.clientHeight },
       used: { width: content.scrollWidth, height: content.scrollHeight },
+      occupied: { height: occupiedHeight },
       overflow: [...new Set(problems)]
     };
   }));

@@ -41,6 +41,8 @@ jobs:
         run: node scripts/validate-showcases.mjs
       - name: Validate semantic pagination and safe atomic failures
         run: node scripts/validate-pagination.mjs
+      - name: Validate optional sparse-tail artifacts
+        run: node scripts/validate-tail.mjs
       - name: Render composed templates and measure actual mobile type
         run: node scripts/validate-templates.mjs
       - name: Upload actual rendered showcase artifacts

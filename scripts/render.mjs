@@ -31,6 +31,7 @@ Usage: node scripts/render.mjs input.md --out ./output
   --theme NAME      editorial (default), minimal, midnight, notebook, bold
   --format LIST     all (default), html, png, pdf or comma-separated list
   --paginate MODE   manual (default) or auto; measured semantic pagination
+  --balance-tail    Opt-in bounded sparse-tail balancing; requires auto
   --size NAME       portrait 1080×1440, square 1080×1080, slide 1600×900
   --width PX        Override width, integer 200–4096
   --height PX       Override height, integer 200–4096
@@ -67,7 +68,7 @@ No accounts, cloud sync, AI calls, rewriting, silent shrinking or PPTX.
 export function parseOptions(argv) {
   let parsed;
   try { parsed = parseArgs({ args: argv, allowPositionals: true, strict: true, options: {
-    template: { type: 'string' }, 'list-templates': { type: 'boolean' }, out: { type: 'string' }, theme: { type: 'string', default: 'editorial' }, format: { type: 'string', default: 'all' }, paginate: { type: 'string', default: 'manual' },
+    template: { type: 'string' }, 'list-templates': { type: 'boolean' }, out: { type: 'string' }, theme: { type: 'string', default: 'editorial' }, format: { type: 'string', default: 'all' }, paginate: { type: 'string', default: 'manual' }, 'balance-tail': { type: 'boolean', default: false },
     size: { type: 'string', default: 'portrait' }, width: { type: 'string' }, height: { type: 'string' }, scale: { type: 'string', default: '1' },
     footer: { type: 'string', default: '' }, title: { type: 'string' }, lang: { type: 'string', default: 'zh-CN' }, browser: { type: 'string' },
     'asset-root': { type: 'string' }, brand: { type: 'string' }, preview: { type: 'boolean', default: false }, 'contact-sheet': { type: 'boolean', default: false },
@@ -75,6 +76,7 @@ export function parseOptions(argv) {
     'timeout-ms': { type: 'string', default: '120000' }, help: { type: 'boolean', short: 'h' }, version: { type: 'boolean' }
   } }); } catch (error) { fail('INVALID_OPTIONS', error.message); }
   const { values, positionals } = parsed;
+  if (values['balance-tail'] && values.paginate !== 'auto') fail('INVALID_OPTIONS', '--balance-tail requires --paginate auto; manual boundaries are never rebalanced.');
   if (values['list-templates']) return { listTemplates: true };
   if (values.template !== undefined) getTemplate(values.template);
   if (values.template !== undefined && values.paginate === 'auto') fail('PAGINATION_UNSUPPORTED_METADATA', 'Templates require manual pagination. Automatic pagination remains restricted to explainer/steps with layout-only metadata.');
@@ -97,7 +99,7 @@ export function parseOptions(argv) {
   const input = path.resolve(positionals[0]);
   return { ...values, input, out: path.resolve(values.out || path.join('output', path.parse(input).name)), width, height, scale, formats,
     title: values.title ?? path.basename(input), assetRoot: path.resolve(values['asset-root'] || path.dirname(input)), brandFile: values.brand ? path.resolve(values.brand) : undefined,
-    contactSheet: values['contact-sheet'], timeoutMs };
+    contactSheet: values['contact-sheet'], balanceTail: values['balance-tail'], timeoutMs };
 }
 
 export function checkRenderBudget(cardCount, options) {
@@ -162,6 +164,8 @@ export function countDocumentAssets(cards, loadedAssets, brand) {
 }
 
 export async function exportCards(options, dependencies = {}) {
+  if (options.balanceTail !== undefined && typeof options.balanceTail !== 'boolean') fail('INVALID_OPTIONS', 'balanceTail must be a boolean.');
+  if (options.balanceTail && options.paginate !== 'auto') fail('INVALID_OPTIONS', '--balance-tail requires --paginate auto; manual boundaries are never rebalanced.');
   // Explicit dependency seams support deterministic lifecycle tests, not alternate
   // runtime safety policies. The CLI always uses the real implementations.
   const now = dependencies.now ?? Date.now;
@@ -243,6 +247,7 @@ export async function exportCards(options, dependencies = {}) {
     };
     if (semanticDocument) {
       const result = await paginateSemanticDocument(semanticDocument, {
+        balanceTail: options.balanceTail ?? false,
         checkpoint: checkTime,
         checkBudget: count => checkRenderBudget(count, options),
         measure: async card => {

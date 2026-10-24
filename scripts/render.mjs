@@ -13,6 +13,7 @@ import { openRenderer, measureCards, closeBrowser, BROWSER_CLEANUP_TIMEOUT_MS } 
 import { inspectEnvironment } from './doctor.mjs';
 import { inspectPdf } from './qa.mjs';
 import { Md2CardError, normalizeError } from './errors.mjs';
+import { getTemplate, TEMPLATES } from './templates.mjs';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 export const VERSION = '3.0.0';
@@ -25,6 +26,8 @@ Usage: node scripts/render.mjs input.md --out ./output
        node scripts/render.mjs --doctor [--strict] [--json]
 
   --out DIR         Output directory, absent or empty (never overwrite).
+  --template ID     Use one composed template; manual 3:4 only
+  --list-templates  Print the supported template contracts as JSON
   --theme NAME      editorial (default), minimal, midnight, notebook, bold
   --format LIST     all (default), html, png, pdf or comma-separated list
   --paginate MODE   manual (default) or auto; measured semantic pagination
@@ -64,7 +67,7 @@ No accounts, cloud sync, AI calls, rewriting, silent shrinking or PPTX.
 export function parseOptions(argv) {
   let parsed;
   try { parsed = parseArgs({ args: argv, allowPositionals: true, strict: true, options: {
-    out: { type: 'string' }, theme: { type: 'string', default: 'editorial' }, format: { type: 'string', default: 'all' }, paginate: { type: 'string', default: 'manual' },
+    template: { type: 'string' }, 'list-templates': { type: 'boolean' }, out: { type: 'string' }, theme: { type: 'string', default: 'editorial' }, format: { type: 'string', default: 'all' }, paginate: { type: 'string', default: 'manual' },
     size: { type: 'string', default: 'portrait' }, width: { type: 'string' }, height: { type: 'string' }, scale: { type: 'string', default: '1' },
     footer: { type: 'string', default: '' }, title: { type: 'string' }, lang: { type: 'string', default: 'zh-CN' }, browser: { type: 'string' },
     'asset-root': { type: 'string' }, brand: { type: 'string' }, preview: { type: 'boolean', default: false }, 'contact-sheet': { type: 'boolean', default: false },
@@ -72,6 +75,9 @@ export function parseOptions(argv) {
     'timeout-ms': { type: 'string', default: '120000' }, help: { type: 'boolean', short: 'h' }, version: { type: 'boolean' }
   } }); } catch (error) { fail('INVALID_OPTIONS', error.message); }
   const { values, positionals } = parsed;
+  if (values['list-templates']) return { listTemplates: true };
+  if (values.template !== undefined) getTemplate(values.template);
+  if (values.template !== undefined && values.paginate === 'auto') fail('PAGINATION_UNSUPPORTED_METADATA', 'Templates require manual pagination. Automatic pagination remains restricted to explainer/steps with layout-only metadata.');
   if (values.help || values.version) return { help: values.help, version: values.version };
   if (values.doctor && positionals.length === 0) return { ...values, requirePdfCheck: values.strict };
   if (positionals.length !== 1) fail('INVALID_OPTIONS', 'Provide one Markdown input file. Run --help for usage.');
@@ -172,15 +178,24 @@ export async function exportCards(options, dependencies = {}) {
   const assets = await createAssetResolver(options.assetRoot);
   const semanticDocument = options.paginate === 'auto' ? parseSemanticDocument(markdown, { resolveImage: assets.resolveImage }) : null;
   let cards = semanticDocument ? [] : renderCards(markdown, { resolveImage: assets.resolveImage });
+  if (options.template) {
+    const template = getTemplate(options.template);
+    cards = cards.map(card => {
+      if (card.metadata.template && card.metadata.template !== template.id) fail('TEMPLATE_CONFLICT', 'A card template conflicts with --template. Remove the CLI override or choose the same template.');
+      // An explicit incompatible layout is not silently reinterpreted.
+      if (card.metadataExplicitKeys?.includes('layout') && card.metadata.layout !== template.layout) fail('TEMPLATE_LAYOUT_MISMATCH', 'Explicit card layout conflicts with --template.');
+      return { ...card, metadata: { ...card.metadata, template: template.id, layout: template.layout } };
+    });
+  }
   let budget = checkRenderBudget(semanticDocument?.partitions.length ?? cards.length, options);
   const brand = await loadBrand(options.brandFile, assets.resolveImage);
   options = { ...options, brand };
-  const [themeCss, layoutCss] = await Promise.all(['themes.css', 'layouts.css'].map(file => readFile(path.join(ROOT, 'assets', file), 'utf8')));
+  const [themeCss, layoutCss, templateCss] = await Promise.all(['themes.css', 'layouts.css', 'templates.css'].map(file => readFile(path.join(ROOT, 'assets', file), 'utf8')));
   const documentHtml = (selectedCards, paginationProbe = false) => {
     countDocumentAssets(selectedCards, assets.getAssets(), brand);
     const embeddedBytes = selectedCards.reduce((sum, card) => sum + Buffer.byteLength(card.html) + (card.image?.bytes || 0) * 4 / 3, 0) + (brand?.logo?.bytes || 0) * selectedCards.length * 4 / 3;
     if (embeddedBytes > 64 * 1024 * 1024) fail('RENDER_BUDGET', 'Embedded document content exceeds 64 MiB. Use smaller images or split the deck.');
-    const result = buildDocument(selectedCards, { ...options, preview: false, paginationProbe }, themeCss, layoutCss);
+    const result = buildDocument(selectedCards, { ...options, preview: false, paginationProbe }, themeCss, layoutCss, templateCss);
     if (Buffer.byteLength(result) > 64 * 1024 * 1024) fail('RENDER_BUDGET', 'Generated HTML exceeds 64 MiB. Use smaller images or split the deck.');
     return result;
   };
@@ -269,7 +284,7 @@ export async function exportCards(options, dependencies = {}) {
       artifacts.push({ format, file, bytes: data.length, sha256: hash(data), ...extra });
     };
     if (options.formats.includes('html')) { await write(path.join(staging, 'cards.html'), html); await record('html', 'cards.html'); }
-    if (options.preview) { await write(path.join(staging, 'preview.html'), buildPreviewDocument(cards, options, themeCss, layoutCss)); await record('preview', 'preview.html'); }
+    if (options.preview) { await write(path.join(staging, 'preview.html'), buildPreviewDocument(cards, options, themeCss, layoutCss, templateCss)); await record('preview', 'preview.html'); }
     let pdfQa = { status: 'not-requested' };
     if (options.formats.includes('pdf')) {
       // Playwright PDF generation has no timeout option. Request bytes only so
@@ -304,12 +319,12 @@ export async function exportCards(options, dependencies = {}) {
     const manifest = {
       schemaVersion: 2, status: 'success', generator: { name: 'md2card-skill', version: VERSION }, createdAt: new Date().toISOString(),
       input: path.basename(options.input), inputSha256: hash(markdown), title: options.title, theme: options.theme,
-      styleSha256: { themes: hash(themeCss), layouts: hash(layoutCss) }, brand: brand ? { name: brand.name, accent: brand.accent, logoHash: brand.logo?.hash } : null,
+      styleSha256: { themes: hash(themeCss), layouts: hash(layoutCss), templates: hash(templateCss) }, brand: brand ? { name: brand.name, accent: brand.accent, logoHash: brand.logo?.hash } : null,
       dimensions: { width: options.width, height: options.height }, pngScale: options.scale, formats: options.formats, cardCount: cards.length, artifacts, assets: loadedAssets, assetUsage,
       versions: { ...environment.versions, chromium: renderer.browser.version() }, budget: { ...budget, outputBytes, elapsedMs: now() - started },
       qa: { overflow: { screen: 'pass', print: 'pass' }, images: { status: 'pass', count: imageQa.length }, fonts: environment.fonts, pdf: pdfQa, visualReview: 'not-performed' },
       pagination,
-      cards: cards.map((card, index) => ({ index: card.index, layout: card.metadata.layout, sourceLines: card.sourceLines, sourceSha256: hash(card.source), ...(card.provenance ? { provenance: card.provenance } : {}), screen: screenMeasurements[index], print: printMeasurements[index] })),
+      cards: cards.map((card, index) => ({ index: card.index, layout: card.metadata.layout, ...(card.metadata.template ? { template: card.metadata.template, density: card.metadata.density ?? 'standard' } : {}), sourceLines: card.sourceLines, sourceSha256: hash(card.source), ...(card.provenance ? { provenance: card.provenance } : {}), screen: screenMeasurements[index], print: printMeasurements[index] })),
       security: { rawHtml: 'escaped', images: 'validated-local-raster-only', assetBoundary: 'realpath-contained', networkRequests: 'blocked', clientScripts: 'disabled' }
     };
     const manifestJson = JSON.stringify(manifest, null, 2) + '\n';
@@ -342,6 +357,7 @@ async function main() {
   const json = process.argv.includes('--json');
   try {
     const options = parseOptions(process.argv.slice(2));
+    if (options.listTemplates) { console.log(JSON.stringify(TEMPLATES, null, 2)); return; }
     if (options.help) { console.log(HELP); return; }
     if (options.version) { console.log(VERSION); return; }
     if (options.doctor) {

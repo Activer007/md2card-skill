@@ -12,7 +12,8 @@
     "test": "node --test tests/*.test.mjs",
     "test:integration": "node --test tests/export.test.mjs tests/pagination-export.test.mjs",
     "doctor": "node scripts/render.mjs --doctor",
-    "test:unit": "node --test tests/markdown.test.mjs tests/assets.test.mjs tests/document.test.mjs tests/doctor.test.mjs tests/options.test.mjs tests/lifecycle.test.mjs tests/semantic.test.mjs tests/pagination.test.mjs"
+    "test:unit": "node --test tests/markdown.test.mjs tests/assets.test.mjs tests/document.test.mjs tests/doctor.test.mjs tests/options.test.mjs tests/lifecycle.test.mjs tests/semantic.test.mjs tests/pagination.test.mjs tests/templates.test.mjs",
+    "validate:templates": "node scripts/validate-templates.mjs"
   },
   "engines": {
     "node": ">=20"

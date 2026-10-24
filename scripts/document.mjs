@@ -1,4 +1,5 @@
 import { escapeHtml, LAYOUTS } from './markdown.mjs';
+import { validateTemplateMetadata } from './templates.mjs';
 
 export const THEMES = ['editorial', 'minimal', 'midnight', 'notebook', 'bold'];
 export { LAYOUTS };
@@ -48,10 +49,14 @@ function sectionedBody(card, layout) {
   return `${intro}<div class="case-study-stages">${card.sections.map((section, index) => `<section class="case-stage case-stage-${index + 1}">${section.html}</section>`).join('\n')}</div>`;
 }
 
-function cardContent(card, layout) {
+function cardContent(card, layout, template) {
   const metadata = Object.fromEntries(TEXT_FIELDS.map(name => [name, plainText(card.metadata?.[name], `Card ${name}`)]));
   const eyebrow = metadata.eyebrow ? `<p class="card-eyebrow">${metadata.eyebrow}</p>` : '';
   const source = metadata.source ? `<p class="card-source">${metadata.source}</p>` : '';
+  if (template) {
+    const sections = (card.sections ?? []).map((section, index) => `<section class="template-section" data-section="${index + 1}">${section.html}</section>`).join('\n');
+    return `<header class="template-heading">${eyebrow}<div class="template-title">${card.templateTitleHtml ?? ''}</div></header><div class="template-main"><div class="template-intro">${card.templateIntroHtml ?? card.html}</div>${sections ? `<div class="template-sections">${sections}</div>` : ''}</div>${figure(card, metadata)}${source}`;
+  }
   let body;
   if (layout === 'comparison' || layout === 'case-study') {
     body = sectionedBody(card, layout);
@@ -79,7 +84,7 @@ function footerHtml(options, index, count) {
  * Metadata is plain text; image and logo objects must come from the asset resolver.
  * themeCss and layoutCss are trusted repository CSS, never user-supplied styles.
  */
-export function buildDocument(cards, options, themeCss, layoutCss = '') {
+export function buildDocument(cards, options, themeCss, layoutCss = '', templateCss = '') {
   const { width, height, theme = 'editorial' } = options;
   if (![width, height].every(value => Number.isInteger(value) && value >= 200 && value <= 4096)) {
     throw new Error('Card dimensions must be integers from 200 to 4096 pixels.');
@@ -94,8 +99,11 @@ export function buildDocument(cards, options, themeCss, layoutCss = '') {
     const index = position + 1;
     const layout = card.metadata?.layout ?? 'explainer';
     if (!LAYOUTS.includes(layout)) throw new Error(`Card ${index} has unknown layout "${layout}".`);
-    const article = `<article class="card theme-${theme} layout-${layout}" data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
-    <div class="card-content">${cardContent(card, layout)}</div>
+    const template = validateTemplateMetadata(card.metadata ?? {}, { width, height });
+    if (template?.image === 'none' && /<img\b/.test(card.html)) throw new Error(`${template.id} is text-only; choose an image template. Inline images are not discarded.`);
+    const templateClass = template ? ` template-card template-${template.id} family-${template.family} density-${card.metadata.density ?? template.density}` : '';
+    const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}"` : ''} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
+    <div class="card-content">${cardContent(card, layout, template)}</div>
     ${footerHtml(options, index, cards.length)}
   </article>`;
     return preview ? `<section class="preview-item" aria-label="Preview card ${index}"><div class="preview-canvas">${article}</div><p class="preview-caption">${index} / ${cards.length} · ${layout} · ${width} × ${height}</p></section>` : article;
@@ -117,6 +125,7 @@ body { background: #e5e7eb; }
 .card { flex: none; }
 ${layoutCss}
 ${themeCss}
+${templateCss}
 ${preview ? `
 /* Preview transforms only the display; every .card retains its export canvas. */
 .deck-preview { width: 100%; min-width: 0; padding: 24px; gap: 24px; }
@@ -147,6 +156,6 @@ ${body}
 }
 
 /** Responsive, script-free reading preview; never use it for overflow measurements. */
-export function buildPreviewDocument(cards, options, themeCss, layoutCss = '') {
-  return buildDocument(cards, { ...options, preview: true }, themeCss, layoutCss);
+export function buildPreviewDocument(cards, options, themeCss, layoutCss = '', templateCss = '') {
+  return buildDocument(cards, { ...options, preview: true }, themeCss, layoutCss, templateCss);
 }

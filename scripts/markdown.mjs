@@ -1,5 +1,6 @@
 import MarkdownIt from 'markdown-it';
 import { Md2CardError } from './errors.mjs';
+import { validateTemplateMetadata } from './templates.mjs';
 
 const parser = new MarkdownIt({ html: false, linkify: false, typographer: false, breaks: false });
 // Keep source-only definitions available to semantic provenance before markdown-it
@@ -26,7 +27,7 @@ parser.renderer.rules.link_open = (tokens, index, options, env, self) => {
 };
 
 export const LAYOUTS = Object.freeze(['cover', 'explainer', 'comparison', 'steps', 'image-caption', 'statistic', 'case-study', 'quote']);
-const METADATA_KEYS = new Set(['layout', 'eyebrow', 'image', 'alt', 'caption', 'source', 'metric', 'label']);
+const METADATA_KEYS = new Set(['template', 'density', 'layout', 'eyebrow', 'image', 'alt', 'caption', 'source', 'metric', 'label']);
 
 export function escapeHtml(text) {
   return String(text).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
@@ -94,7 +95,8 @@ export function validateCardMetadata(value, cardNumber = 1) {
     if (typeof item !== 'string') fail(`"${key}" must be a plain string.`);
     if (/[\u0000-\u001f\u007f]/.test(item)) fail(`"${key}" must be a single-line plain string without control characters.`);
   }
-  const metadata = { layout: 'explainer', ...value };
+  const template = validateTemplateMetadata(value);
+  const metadata = { layout: template?.layout ?? 'explainer', ...value };
   if (!LAYOUTS.includes(metadata.layout)) fail(`unknown layout "${metadata.layout}". Choose ${LAYOUTS.join(', ')}.`);
   if ('image' in metadata && !metadata.image.trim()) fail('"image" must be a nonempty local asset reference.');
   return Object.freeze(metadata);
@@ -115,7 +117,7 @@ export function parseCardMetadata(source, cardNumber = 1, { validateMetadata = v
   }
   const metadata = validateMetadata(value, cardNumber);
   lines.splice(first, 1);
-  return { source: trimBlankLines(lines), metadata };
+  return { source: trimBlankLines(lines), metadata, metadataExplicitKeys: Object.keys(value) };
 }
 
 function resolveCardImage(reference, resolveImage, cardNumber) {
@@ -152,7 +154,11 @@ function sectionHtml(tokens, env) {
     if (token.type === 'heading_open' && token.tag === 'h2' && token.level === 0) starts.push(index);
   });
   const render = selected => parser.renderer.render(selected, parser.options, env);
+  let titleEnd = 0;
+  while (tokens[titleEnd]?.type === 'heading_open' && tokens[titleEnd].tag === 'h1' && tokens[titleEnd].level === 0) titleEnd += 3;
   return {
+    templateTitleHtml: render(tokens.slice(0, titleEnd)),
+    templateIntroHtml: render(tokens.slice(titleEnd, starts[0] ?? tokens.length)),
     introHtml: render(tokens.slice(0, starts[0] ?? tokens.length)),
     sections: starts.map((start, index) => ({
       heading: parser.renderer.renderInlineAsText(tokens[start + 1]?.children ?? [], parser.options, env),

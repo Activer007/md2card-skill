@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync } from 'node:fs';
-import { mkdtemp, writeFile, readdir, rm } from 'node:fs/promises';
+import { mkdtemp, writeFile, readFile, readdir, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { parseOptions, exportCards, LIMITS } from '../scripts/render.mjs';
@@ -417,4 +417,32 @@ test('successful browser cleanup and publication remain unchanged', async t => {
   assert.deepEqual((await readdir(dir)).sort(), ['input.md', 'output']);
   assert.deepEqual((await readdir(options.out)).sort(), ['cards.html', 'manifest.json']);
   await closeBrowser({ close: async () => {} }, 30);
+});
+
+
+test('template export and preview embed identical template CSS without a real browser', async t => {
+  const { dir, options } = await workspace(t);
+  await writeFile(options.input, '<!-- card: {"template":"T01"} -->\n# Title\n\nAn original lead.\n\n## Sidebar\n\nRead this.');
+  const fixture = rendererFixture();
+  const manifest = await exportCards({ ...options, preview: true }, dependencies(fixture.renderer));
+  const cards = await readFile(path.join(options.out, 'cards.html'), 'utf8');
+  const preview = await readFile(path.join(options.out, 'preview.html'), 'utf8');
+  const templateCss = await readFile(new URL('../assets/templates.css', import.meta.url), 'utf8');
+  assert.ok(cards.includes(templateCss));
+  assert.ok(preview.includes(templateCss));
+  assert.match(preview, /data-template="T01"/);
+  assert.ok(manifest.styleSha256.templates);
+  assert.equal(manifest.cards[0].template, 'T01');
+  assert.equal(fixture.closeCalls(), 1);
+});
+
+test('CLI template conflicts reject before acquiring a renderer and never remove images', async t => {
+  const { options } = await workspace(t);
+  let called = false;
+  const deps = { openRenderer: async () => { called = true; throw new Error('must not acquire'); } };
+  await writeFile(options.input, '<!-- card: {"layout":"quote"} -->\n# Title');
+  await assert.rejects(() => exportCards({ ...options, template: 'T01' }, deps), { code: 'TEMPLATE_LAYOUT_MISMATCH' });
+  await writeFile(options.input, '<!-- card: {"template":"T05"} -->\n# Title');
+  await assert.rejects(() => exportCards({ ...options, template: 'T01' }, deps), { code: 'TEMPLATE_CONFLICT' });
+  assert.equal(called, false);
 });

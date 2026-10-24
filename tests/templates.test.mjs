@@ -340,3 +340,77 @@ test('timeline supplementary blocks and quotation preludes stay in body columns'
   assert.match(css,/\.card\.template-T27 \.template-section > :not\(h2\) \{ grid-column: 2/);
   assert.match(css,/\.card\.template-T31 \.template-intro > \* \{ grid-column: 1/);
 });
+
+test('T39 and T40 emit one safe figure before narrative using internal registry order', async () => {
+  const resolver=await createAssetResolver(fileURLToPath(new URL('../examples/templates/',import.meta.url)));
+  for(const id of ['T39','T40']) {
+    const cards=renderCards(await readFile(new URL(`../examples/templates/${id}.md`,import.meta.url),'utf8'),{resolveImage:resolver.resolveImage});
+    const html=buildDocument(cards,SIZES.portrait,'','',css).split('<main')[1];
+    assert.equal((html.match(/class="card-figure /g)||[]).length,1);
+    assert.ok(html.indexOf('class="template-heading"')<html.indexOf('class="card-figure '));
+    assert.ok(html.indexOf('class="card-figure ')<html.indexOf('class="template-main"'));
+    assert.equal(html.split(cards[0].metadata.caption).length-1,1);
+    assert.throws(()=>renderCards(`<!-- card: ${JSON.stringify({template:id,image:'image.png',alt:'Description',caption:'Caption',figureBeforeMain:'false'})} -->\n# Title`),{code:'INVALID_METADATA'});
+  }
+});
+
+test('T40 preserves nondefault native starts and rejects counters too wide for its key', async () => {
+  const resolver=await createAssetResolver(fileURLToPath(new URL('../examples/templates/',import.meta.url)));
+  const header='<!-- card: {"template":"T40","image":"assets/original-seam-detail.png","alt":"Full detail","caption":"Explicit detail source"} -->\n# Key\n\n';
+  for(const start of [7,98,99,100,123456789]) {
+    const cards=renderCards(header+`${start}. First key.\n${start+1}. Second key.`,{resolveImage:resolver.resolveImage});
+    if(start<=98) {
+      assert.doesNotThrow(()=>buildDocument(cards,SIZES.portrait,'','',css));
+      assert.match(cards[0].html,new RegExp(`<ol start="${start}">`));
+    } else assert.throws(()=>buildDocument(cards,SIZES.portrait,'','',css),{code:'TEMPLATE_LIST_RANGE'});
+  }
+});
+
+test('image-record templates reject mixed image paragraphs and preserve additional explanations', async () => {
+  const resolver=await createAssetResolver(fileURLToPath(new URL('../examples/templates/',import.meta.url)));
+  for(const [id,count] of [['T43',3],['T47',2],['T48',2]]) {
+    const header=`<!-- card: ${JSON.stringify({template:id})} -->\n# Records\n\n`;
+    const record=i=>`## Record ${i}\n\n![Original](assets/original-open-tray.png)\n\nOriginal explanation ${i}.\n\nAdditional detail ${i}.`;
+    const body=Array.from({length:count},(_,i)=>record(i+1)).join('\n\n');
+    const cards=renderCards(header+body,{resolveImage:resolver.resolveImage});
+    const html=buildDocument(cards,SIZES.portrait,'','',css).split('<main')[1];
+    for(let i=1;i<=count;i++) assert.equal(html.split(`Additional detail ${i}.`).length-1,1);
+    for(const invalid of [body.replace('![Original]','Mixed text ![Original]'),body.replace('![Original](assets/original-open-tray.png)','[![Original](assets/original-open-tray.png)](https://example.test)'),body.replace(/Original explanation 1\.\n\nAdditional detail 1\./,'')]) {
+      const bad=renderCards(header+invalid,{resolveImage:resolver.resolveImage});
+      assert.throws(()=>buildDocument(bad,SIZES.portrait,'','',css),{code:'TEMPLATE_IMAGE_STRUCTURE'});
+    }
+  }
+});
+
+test('T44 counts sibling option quotes from tokens, never nested-quote markup', () => {
+  const header='<!-- card: {"template":"T44"} -->\n# Options\n\n';
+  const valid='## Dimension one\n\n> A original.\n\n> B original.\n\n## Dimension two\n\n> A other.\n\n> B other.\n\n## Limits\n\nOriginal limits.';
+  assert.doesNotThrow(()=>render(header+valid));
+  for(const invalid of [valid.replace('> A original.\n\n> B original.','> A original.\n>\n> > Nested B is not a sibling.'),valid.replace('> B original.','B is an ordinary paragraph.')]) {
+    assert.throws(()=>render(header+invalid),{code:'TEMPLATE_OPTION_STRUCTURE'});
+  }
+  const [card]=renderCards(header+valid);
+  assert.equal(card.sections[0].shape.topLevelBlockquotes,2);
+  assert.equal(card.templateTitleHtml+card.templateIntroHtml+card.sections.map(s=>s.html).join(''),card.html);
+});
+
+test('48 implemented compositions span twelve families without inflating visual acceptance', () => {
+  assert.equal(TEMPLATES.length,48);
+  for(let n=1;n<=48;n++) assert.ok(getTemplate(`T${String(n).padStart(2,'0')}`));
+  const families=new Map();
+  for(const template of TEMPLATES) families.set(template.family,(families.get(template.family)||0)+1);
+  assert.equal(families.size,12);
+  assert.ok([...families.values()].every(count=>count===4));
+  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length,4);
+});
+
+test('empty quotes or lists cannot satisfy required authored descriptions and options', async () => {
+  const resolver=await createAssetResolver(fileURLToPath(new URL('../examples/templates/',import.meta.url)));
+  for(const empty of ['>','-','> \u200b']) {
+    const records=[1,2].map(i=>`## Step ${i}\n\n![Image](assets/original-cucumber-prep.png)\n\n${empty}`).join('\n\n');
+    const cards=renderCards('<!-- card: {"template":"T47"} -->\n# Steps\n\n'+records,{resolveImage:resolver.resolveImage});
+    assert.throws(()=>buildDocument(cards,SIZES.portrait,'','',css),{code:'TEMPLATE_IMAGE_STRUCTURE'});
+    const options=[1,2].map(i=>`## Dimension ${i}\n\n> First option\n\n${empty==='-'?'>':empty}`).join('\n\n');
+    assert.throws(()=>render('<!-- card: {"template":"T44"} -->\n# Options\n\n'+options),{code:'TEMPLATE_OPTION_STRUCTURE'});
+  }
+});

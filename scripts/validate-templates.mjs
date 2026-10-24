@@ -43,13 +43,15 @@ for(const template of TEMPLATES) {
       if(audit.bodyMin!==null&&audit.bodyMin<14-0.05)throw new Error(`${template.id} mobile body too small: ${JSON.stringify(audit)}`);
       if(audit.noteMin!==null&&audit.noteMin<11-0.05)throw new Error(`${template.id} mobile source too small: ${JSON.stringify(audit)}`);
       const refinement = await renderer.page.evaluate(measureRefinement);
-      if (refinement.errors.length) throw new Error(refinement.errors.join('; '));
       const file=`mobile-${viewportWidth}.png`;
       await renderer.page.screenshot({path:path.join(out,file),fullPage:true,animations:'disabled',timeout:30000});
       const bytes=await readFile(path.join(out,file));
       mobile.push({viewportWidth,...audit,refinement,file,sha256:createHash('sha256').update(bytes).digest('hex')});
+      await writeFile(path.join(out,'mobile-audit.json'),JSON.stringify(mobile,null,2)+'\n');
     }
   } finally {await closeBrowser(renderer.browser);}
+  const refinementErrors = mobile.flatMap(item => item.refinement.errors);
+  if (refinementErrors.length) throw new Error(refinementErrors.join('; '));
   const pin=regressionPins.records.find(item=>item.id===template.id);
   if(pin && template.version === 1) {
     const actual=manifest.artifacts.find(item=>item.file==='card-001.png')?.sha256;

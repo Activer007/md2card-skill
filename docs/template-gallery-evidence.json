@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "batches": [
+    {
+      "id": "visual-m1",
+      "review": "docs/TEMPLATE_ACCEPTANCE.md",
+      "evidence": "docs/template-m1-provenance.json",
+      "scope": {
+        "version": 1,
+        "density": "standard",
+        "aspect": "portrait",
+        "width": 1080,
+        "height": 1440,
+        "pagination": "manual"
+      },
+      "reviewSha256": "014d057a72f65cf2de1531e5f4b4dcb6bed83ca24a06580fe9383fc1a6545397",
+      "evidenceSha256": "f75349e0c99885e618956a228ab3667aec94913d34ee5ef066e47272f1107a0a"
+    }
+  ]
+}

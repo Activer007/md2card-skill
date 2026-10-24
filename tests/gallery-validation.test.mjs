@@ -1,0 +1,192 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, readFile, writeFile, mkdir, rm, symlink } from 'node:fs/promises';
+import path from 'node:path';
+import os from 'node:os';
+import { runInNewContext } from 'node:vm';
+import { pathToFileURL } from 'node:url';
+import { ROOT, buildGalleryModel } from '../scripts/build-template-gallery.mjs';
+import { parseGalleryValidationOptions, expectedIds, requestAllowed, prepareOutput, recordCheck, bounded, validateGallery, inspectReflow, evaluateSafely, withPage } from '../scripts/validate-gallery.mjs';
+const model = await buildGalleryModel();
+const source = await readFile(new URL('../scripts/validate-gallery.mjs', import.meta.url), 'utf8');
+async function temp(t) {
+  const directory = await mkdtemp(path.join(os.tmpdir(), 'md2card-gallery-validator-'));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  return directory;
+}
+function mockDependencies({ launchError, runError, cleanupError } = {}) {
+  const calls = [];
+  return { calls,
+    model: async () => model,
+    launch: async () => {
+      calls.push('launch-stub');
+      if (launchError) throw launchError;
+      return { browser: { version: () => 'source-test-stub-not-chromium' }, executablePath: '/mock/no-browser', close: async () => { calls.push('close-stub'); if (cleanupError) throw cleanupError; } };
+    },
+    runChecks: async (_browser, _options, _model, report) => {
+      calls.push('checks-stub');
+      await recordCheck(report, 'first synthetic failure', () => { throw new Error('deliberate mock failure'); });
+      await recordCheck(report, 'next synthetic check still runs', () => ({ synthetic: true }));
+      if (runError) throw runError;
+    }
+  };
+}
+
+test('CLI is opt-in and rejects invalid, missing and duplicate arguments before browser work', () => {
+  assert.throws(() => parseGalleryValidationOptions([]), /No launch was attempted/);
+  assert.equal(parseGalleryValidationOptions(['--help']).help, true);
+  assert.deepEqual(parseGalleryValidationOptions(['--allow-browser', '--out', 'validation/check', '--browser', '/local/chrome', '--timeout', '1000']), { allowBrowser: true, out: 'validation/check', browser: '/local/chrome', timeoutMs: 1000 });
+  for (const args of [['--allow-browser', '--allow-browser'], ['--allow-browser', '--out'], ['--allow-browser', '--unknown'], ['--allow-browser', '--timeout', '0'], ['--allow-browser', '--timeout', 'Infinity'], ['--allow-browser', '--timeout', '120001']]) assert.throws(() => parseGalleryValidationOptions(args));
+});
+
+test('runtime authorization guard executes before writes or injected launch', async () => {
+  let launched = false;
+  await assert.rejects(validateGallery({ out: '/must-not-write', allowBrowser: false }, { launch: () => { launched = true; } }), /no launch attempted/);
+  assert.equal(launched, false);
+});
+
+test('allowlist permits exact local resources only, with optional fragment but no query', () => {
+  const url = pathToFileURL(path.join(ROOT, 'docs/gallery/index.html')).href;
+  const allowed = new Set([url]);
+  assert.equal(requestAllowed(url, allowed), true);
+  assert.equal(requestAllowed(`${url}#accepted`, allowed), true);
+  for (const other of [`${url}?remote=1`, 'https://example.com', 'http://127.0.0.1:8888/', 'data:text/html,x', 'javascript:x', 'file:///etc/passwd', '//example.com/a', 'not a URL', url.replace('index.html', 'unapproved.js')]) assert.equal(requestAllowed(other, allowed), false, other);
+});
+
+test('expected filter counts derive from current registry and intersection semantics', () => {
+  assert.equal(expectedIds(model).length, model.items.length);
+  assert.deepEqual(expectedIds(model, { purpose: '　ｔ０１　' }), ['T01']);
+  assert.deepEqual(expectedIds(model, { family: 'film', image: 'inline', density: 'standard', purpose: 'T38' }), ['T38']);
+  assert.deepEqual(expectedIds(model, { density: 'compact' }), []);
+  assert.deepEqual(expectedIds(model, { purpose: '.*' }), []);
+  for (const family of model.families) assert.equal(expectedIds(model, { family: family.value }).length, model.items.filter(item => item.family === family.value).length);
+});
+
+test('aggregate recorder continues after independent failed checks', async () => {
+  const report = { checks: [] };
+  await recordCheck(report, 'failure', () => { throw Object.assign(new Error('mock failure'), { code: 'MOCK_FAILURE' }); });
+  await recordCheck(report, 'pass', () => ({ count: 4 }));
+  assert.deepEqual(report.checks.map(check => check.status), ['fail', 'pass']);
+  assert.equal(report.checks[0].code, 'MOCK_FAILURE');
+  assert.deepEqual(report.checks[1].details, { count: 4 });
+});
+
+test('bounded lifecycle helper resolves fast operations and rejects stalled ones', async () => {
+  assert.equal(await bounded(Promise.resolve('done'), 50, 'mock'), 'done');
+  await assert.rejects(bounded(new Promise(() => {}), 5, 'mock close'), /mock close timed out/);
+});
+
+test('output must be empty and cannot overwrite source or use symlinks', async t => {
+  const directory = await temp(t);
+  const root = path.join(directory, 'repo'); await mkdir(root);
+  await assert.rejects(prepareOutput(path.join(root, 'docs'), root), /under validation/);
+  await assert.rejects(prepareOutput(root, root), /under validation/);
+  const out = path.join(root, 'validation/gallery');
+  assert.equal(await prepareOutput(out, root), out);
+  await writeFile(path.join(out, 'summary.json'), 'existing');
+  await assert.rejects(prepareOutput(out, root), /must be empty/);
+  assert.equal(await readFile(path.join(out, 'summary.json'), 'utf8'), 'existing');
+  const target = path.join(directory, 'target'); await mkdir(target);
+  const link = path.join(root, 'validation/link'); await symlink(target, link);
+  await assert.rejects(prepareOutput(link, root), /must not use symlinks/);
+});
+
+test('source-only injected runtime writes aggregated failures and closes browser once', async t => {
+  const out = await temp(t); const dependencies = mockDependencies();
+  const result = await validateGallery({ allowBrowser: true, out, timeoutMs: 1000 }, dependencies);
+  assert.deepEqual(dependencies.calls, ['launch-stub', 'checks-stub', 'close-stub']);
+  assert.equal(result.report.mode, 'test-injected-runtime');
+  assert.equal(result.report.status, 'fail');
+  assert.equal(result.report.registry.implemented, model.items.length);
+  assert.equal(result.report.registry.accepted, model.accepted.length);
+  assert.equal(result.report.independentVisualReview, 'pending');
+  assert.equal(result.report.assistiveTechnologyReview, 'pending-not-screen-reader-certification');
+  assert.ok(result.report.inputs.every(input => /^[a-f0-9]{64}$/.test(input.sha256)));
+  assert.equal(result.report.artifacts.length, 0, 'Mocks must not fabricate screenshots.');
+  const saved = JSON.parse(await readFile(path.join(out, 'summary.json'), 'utf8'));
+  assert.deepEqual(saved.summary, { checks: 3, passed: 2, failed: 1, screenshots: 0 });
+});
+
+test('cleanup failure remains distinct from an earlier runner failure', async t => {
+  const out = await temp(t);
+  const dependencies = mockDependencies({ runError: new Error('runner failed'), cleanupError: Object.assign(new Error('cleanup uncertain'), { code: 'BROWSER_CLEANUP_TIMEOUT' }) });
+  const { report } = await validateGallery({ allowBrowser: true, out, timeoutMs: 1000 }, dependencies);
+  assert.equal(report.status, 'fail');
+  assert.ok(report.checks.some(check => check.name === 'validation runner' && check.message === 'runner failed'));
+  assert.ok(report.checks.some(check => check.name === 'browser cleanup' && check.code === 'BROWSER_CLEANUP_TIMEOUT'));
+  assert.equal(dependencies.calls.filter(call => call === 'close-stub').length, 1);
+});
+
+test('launch failure is recorded without retry and without claiming browser validation', async t => {
+  const out = await temp(t); const dependencies = mockDependencies({ launchError: new Error('mock launch denied') });
+  const { report } = await validateGallery({ allowBrowser: true, out, timeoutMs: 1000 }, dependencies);
+  assert.deepEqual(dependencies.calls, ['launch-stub']);
+  assert.equal(report.status, 'fail');
+  assert.equal(report.browser, undefined);
+  assert.equal(report.checks[0].name, 'preflight/browser initialization');
+  assert.equal(report.artifacts.length, 0);
+});
+
+test('stale preflight stops before launch and persists its failure report', async t => {
+  const out = await temp(t); const dependencies = mockDependencies();
+  dependencies.preflight = async () => { throw new Error('generated gallery stale'); };
+  const { report } = await validateGallery({ allowBrowser: true, out, timeoutMs: 1000 }, dependencies);
+  assert.deepEqual(dependencies.calls, []);
+  assert.equal(report.status, 'fail');
+  assert.equal(report.checks[0].message, 'generated gallery stale');
+});
+
+test('browser-path source contains no bypass flags, CSP changes, fake rendering or eager launch', () => {
+  assert.doesNotMatch(source, /--no-sandbox|disable-web-security|bypassCSP|setContent\(|addStyleTag|setPageScaleFactor|page\.route\(.*https/);
+  assert.match(source, /import\('playwright'\)/);
+  assert.match(source, /closeBrowser\(browser\)/);
+  assert.match(source, /serviceWorkers: 'block'/);
+  assert.match(source, /route\.abort\('blockedbyclient'\)/);
+  assert.match(source, /javaScriptEnabled, serviceWorkers/);
+  assert.match(source, /width: 375/);
+  assert.match(source, /width: 390/);
+  assert.match(source, /width: 640, height: 450, zoom: 2/);
+  assert.match(source, /Not browser-UI zoom or pinch zoom/);
+  assert.match(source, /fullPage: false/);
+  assert.match(source, /sha256: hash\(bytes\)/);
+  assert.doesNotMatch(inspectReflow.toString(), /\.style\s*=|innerHTML|style\.zoom|transform\s*=/);
+});
+
+
+test('reflow probe detects visible overflow without mistaking hidden or unfocused skip links', () => {
+  const node = ({ right = 375, left = 0, width = 375, height = 10, tag = 'DIV', skip = false, hidden = false, scrollWidth = width, clientWidth = width } = {}) => ({
+    tagName: tag, id: '', className: skip ? 'skip-link' : '', clientWidth, scrollWidth,
+    classList: { contains: name => skip && name === 'skip-link' },
+    closest: () => hidden,
+    getBoundingClientRect: () => ({ left, right, width, height })
+  });
+  const good = node(), wide = node({ right: 410, width: 410 }), hidden = node({ right: 500, hidden: true }), skip = node({ left: -100, right: 50, skip: true });
+  const document = { documentElement: { clientWidth: 375, scrollWidth: 375 }, activeElement: good, body: { scrollWidth: 375, querySelectorAll: () => [good, wide, hidden, skip] } };
+  const result = runInNewContext(`(${inspectReflow.toString()})()`, { document, innerWidth: 375, getComputedStyle: () => ({ display: 'block', visibility: 'visible' }) });
+  assert.equal(result.offenders.length, 1);
+  assert.equal(result.offenders[0].right, 410);
+  assert.equal(result.viewport, 375);
+});
+
+
+test('stalled page/image evaluation records failure and closes context and browser', async t => {
+  const out = await temp(t), calls = [];
+  const page = { on() {}, async addInitScript() {}, async goto() {}, locator: () => ({ async waitFor() {} }) };
+  const context = { setDefaultTimeout() {}, setDefaultNavigationTimeout() {}, on() {}, async route() {}, async newPage() { return page; }, async close() { calls.push('context-close'); } };
+  const browser = { version: () => 'source-stall-test', async newContext() { return context; } };
+  const dependencies = {
+    model: async () => model,
+    launch: async () => ({ browser, executablePath: '/mock/no-browser', close: async () => { calls.push('browser-close'); } }),
+    runChecks: async (_browser, options, _model, report) => withPage(browser, options, new Set(), report, 'stalled-evaluation', true, async () => {
+      await evaluateSafely({ evaluate: () => new Promise(() => {}) }, 'evaluate', () => {}, undefined, 5);
+    })
+  };
+  const { report } = await validateGallery({ allowBrowser: true, out, timeoutMs: 1000 }, dependencies);
+  assert.deepEqual(calls, ['context-close', 'browser-close']);
+  assert.equal(report.status, 'fail');
+  assert.ok(report.checks.some(check => check.status === 'fail' && /Gallery evaluate timed out/.test(check.message)));
+  assert.ok(report.checks.some(check => check.name.endsWith('context cleanup') && check.status === 'pass'));
+  assert.ok(report.checks.some(check => check.name === 'browser cleanup' && check.status === 'pass'));
+  await assert.rejects(evaluateSafely({ evaluateAll: () => new Promise(() => {}) }, 'evaluateAll', () => {}, undefined, 5), /evaluateAll timed out/);
+  assert.doesNotMatch(source, /\.(?:evaluate|evaluateAll)\(/, 'Every browser evaluation goes through the explicit deadline wrapper');
+});

@@ -117,7 +117,7 @@ test('composed templates never inherit legacy theme treatments', () => {
 
 
 test('large list counters are rejected before they can overlap a fixed number rail', () => {
-  for (const id of ['T05', 'T14', 'T42', 'T08']) {
+  for (const id of ['T05', 'T14', 'T42', 'T08', 'T28']) {
     for(const start of [7,98]) assert.doesNotThrow(()=>render(`<!-- card: {"template":"${id}"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`));
     for(const start of [99,100,123456789]) assert.throws(()=>render(`<!-- card: {"template":"${id}"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`),{code:'TEMPLATE_LIST_RANGE'});
   }
@@ -294,4 +294,49 @@ test('M5 remains pending and decorative grids never override body size or crop i
     assert.ok(rules.length>0);
     for(const [, , rule] of rules) assert.doesNotMatch(rule,/--text-size\s*:|--note-size\s*:|object-fit:\s*cover|overflow:\s*hidden|text-overflow:\s*ellipsis/);
   }
+});
+
+test('T24 preserves all three real table columns and independent full-size table type', async () => {
+  const [card]=renderCards(await readFile(new URL('../examples/templates/T24.md',import.meta.url),'utf8'));
+  assert.equal((card.html.match(/<th>/g)||[]).length,3);
+  assert.equal((card.html.match(/<td>/g)||[]).length,9);
+  const html=buildDocument([card],SIZES.portrait,'','',css).split('<main')[1];
+  for(const text of ['回原文核对偏差','不急着写答案','同时记录出处']) assert.equal(html.split(text).length-1,1);
+  assert.match(css,/\.card\.template-T24 \.template-section table \{[^}]*font-size: 1em/);
+  assert.match(css,/\.card\.template-T24 \.template-section th:first-child[^}]*width: 12%/);
+  assert.match(css,/\.card\.template-T24 \.template-section th:nth-child\(2\)[^}]*width: 44%/);
+});
+
+test('T20 requires honest image descriptions and uses a real original interface illustration', async () => {
+  const source=await readFile(new URL('../examples/templates/T20.md',import.meta.url),'utf8');
+  const resolver=await createAssetResolver(fileURLToPath(new URL('../examples/templates/',import.meta.url)));
+  const [card]=renderCards(source,{resolveImage:resolver.resolveImage});
+  assert.deepEqual([card.image.width,card.image.height],[1400,900]);
+  assert.match(card.metadata.alt,/不是现有产品截图/);
+  assert.match(card.metadata.caption,/非真实产品截图/);
+  const html=buildDocument([card],SIZES.portrait,'','',css).split('<main')[1];
+  assert.ok(html.indexOf('class="template-main"')<html.indexOf('class="card-figure'));
+  assert.throws(()=>renderCards('<!-- card: {"template":"T20","image":"assets/original-research-interface.png"} -->\n# Title'),{code:'TEMPLATE_METADATA_REQUIRED'});
+});
+
+test('M6 supplied timelines, index starts and quotation breaks are never generated as facts', async () => {
+  const [indexed]=renderCards(await readFile(new URL('../examples/templates/T28.md',import.meta.url),'utf8'));
+  assert.match(indexed.html,/<ol start="7">/);
+  const [quotation]=renderCards(await readFile(new URL('../examples/templates/T31.md',import.meta.url),'utf8'));
+  assert.equal((quotation.html.match(/<br>/g)||[]).length,1);
+  for(const id of ['T19','T23','T27','T32']) {
+    const [card]=renderCards(await readFile(new URL(`../examples/templates/${id}.md`,import.meta.url),'utf8'));
+    assert.equal(card.templateTitleHtml+card.templateIntroHtml+card.sections.map(s=>s.html).join(''),card.html);
+    assert.equal(getTemplate(id).status,'implemented-awaiting-visual-review');
+  }
+});
+
+test('timeline supplementary blocks and quotation preludes stay in body columns', () => {
+  const cases=[['T27','# Timeline\n\n## A longer supplied date label\n\n- First full task.\n- Second full task.\n\n> Original note.'],['T31','# Thought\n\nOriginal prelude.\n\n> Original quotation.\n\nOriginal reflection.']];
+  for(const [id,body] of cases) {
+    const [card]=renderCards(`<!-- card: ${JSON.stringify({template:id})} -->\n${body}`);
+    assert.equal(card.templateTitleHtml+card.templateIntroHtml+card.sections.map(s=>s.html).join(''),card.html);
+  }
+  assert.match(css,/\.card\.template-T27 \.template-section > :not\(h2\) \{ grid-column: 2/);
+  assert.match(css,/\.card\.template-T31 \.template-intro > \* \{ grid-column: 1/);
 });

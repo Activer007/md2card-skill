@@ -107,6 +107,7 @@ still overflows there, pagination stops with `PAGINATION_ATOMIC_OVERFLOW` (exit 
 and source information. There is no character-count fit estimate, hidden font
 scaling, clipping, internal model call or automatic rewrite. The result is a
 bounded greedy layout, not a globally optimized or editorially rewritten deck.
+The optional `--balance-tail` pass below can adjust only each section's final pair.
 
 Candidates reserve `200/200` footer numbering while the total is unknown. Once
 pagination finishes, the full deck is built with exact final numbering and must
@@ -123,6 +124,66 @@ budgets also apply, so 200 cards is a ceiling rather than a guaranteed capacity.
 Exhausting a pagination limit fails with `PAGINATION_BUDGET` (exit 1); a mismatch in
 source coverage or ordering fails with `PAGINATION_COVERAGE` (exit 1). No partial
 successful deck is published. See the failure contract for diagnostics.
+
+
+### Optional sparse-tail balancing (M8 / VIS-06)
+
+Add `--balance-tail` alongside `--paginate auto` to reconsider only the final two
+cards of each explicit section. The boolean is absent/off by default; using it
+with manual mode fails with `INVALID_OPTIONS`, rather than ignoring the request.
+Auto still supports only `explainer` / `steps` and layout-only card metadata.
+Templates and intentionally composed manual cards are not balancing targets.
+
+All greedy packing finishes first. A pair is eligible only when, in both screen
+and print, the last card occupies at most 35% of its available content height and
+the preceding card is at least 25 percentage points fuller. Occupancy is the
+browser's measured descendant bottom extent relative to the content origin, not
+character count, guessed line count, or scrollHeight (which includes the stretched
+container's unused space). Internal gaps and repeated table headers count.
+
+The pass considers at most eight suffix boundaries, moving one or more **original
+whole groups** from the penultimate card to the start of the last card. Both stay
+nonempty; earlier cards and card counts are unchanged. Paragraphs, heading groups,
+list items with nested content, code, images, and quotes are never cut. Table rows
+use the existing semantic row boundaries and traced repeated headers. Order,
+numbered-list starts, explicit `===` partitions and exact-once atom coverage stay
+unchanged. The pass never merges explicit sections or tries to fill all whitespace.
+
+Every candidate pair requires two probes, one per card, each containing screen
+AND print measurements. Acceptance requires both cards to fit in both media, the
+last card's utilization to increase in both, and each media's absolute utilization
+gap to improve by at least five percentage points. Among viable candidates it
+chooses the smallest worst-media gap, with the first candidate winning ties.
+Search stops on exact balance, exhausted boundaries, or its finite limits.
+
+There are at most 64 additional probes across the deck and eight candidate pairs
+per section, all charged inside the unchanged 4,000-probe global ceiling. Required
+greedy work cannot be starved by this optional pass. If fewer than two probes
+remain, the pass stops for that pair; already measured improvements may be retained.
+It never raises card, image, pixel, artifact, or deadline budgets. Browser errors,
+invalid overflow responses, budget-guard exceptions and deadline failures still
+fail closed; they are not swallowed as cosmetic fallbacks.
+
+Missing occupied geometry, nonfinite/negative/invalid dimensions, or inconsistent
+canvas geometry on a fitting candidate preserve the whole original greedy pair,
+even if an earlier candidate looked viable. Overflowing candidates are rejected
+without scoring geometry; exceeding available height is expected on an overflow. Values exceeding available height by more than
+the existing one-pixel overflow tolerance are invalid. No-improvement and
+ineligible pairs also stay greedy. This is bounded sparse-tail adjustment, not
+global optimization and not a promise that every short last page can improve.
+
+The manifest keeps total `pagination.probes`, `greedyProbes`, and
+`pagination.balance`: enabled state, algorithm, outcome, attempts, balancing probes,
+applied partition count, limits, policy, and per-partition fallback/termination,
+measured before/after utilization and candidate outcomes. Requested-but-unapplied
+balancing is not reported as a successful improvement. The ordinary algorithm is
+`greedy-semantic-browser-v1`; opt-in uses `greedy-semantic-browser-tail-v1` with
+`bounded-tail-groups-v1` as the optional pass. Final exact-count screen/print,
+coverage, assets, image decoding, PDF and output-staging checks remain mandatory.
+
+Source-only tests and the pending real-browser acceptance plan are documented in
+[TAIL_BALANCING.md](../docs/TAIL_BALANCING.md). No mock measurement demonstrates
+actual typography, line wrapping, pixel quality or searchable PDF correctness.
 
 
 ## Trusted local assets

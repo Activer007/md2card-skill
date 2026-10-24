@@ -141,7 +141,13 @@ tokens and text rather than rewriting or silently shrinking them. Heading chains
 stay with the following unit; continued ordered lists keep their start numbers.
 An oversized indivisible unit fails with `PAGINATION_ATOMIC_OVERFLOW` and source
 information instead of clipping. Review the manifest's source coverage and
-intentional repeated table headers. Read the rendering contract for supported
+intentional repeated table headers. Optional `--balance-tail` additionally tries
+a finite, measured rearrangement of whole groups between the final two cards of
+each explicit section, only when a severely sparse tail can improve in both media.
+It requires `--paginate auto`; it never edits manual cards, fills intentional
+whitespace, changes the card count, or expands supported layouts/metadata. Missing
+utilization geometry or no improvement preserves the greedy result.
+Read the rendering contract for supported
 boundaries, finite fallback/budgets, and final screen/print validation.
 
 On a failure, explain the affected source and offer a suitable canvas adjustment,

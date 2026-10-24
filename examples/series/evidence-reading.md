@@ -1,4 +1,4 @@
-<!-- card: {"template":"T01","density":"standard","eyebrow":"FIELDNOTES / 证据阅读","source":"原创教学示例 · 后文记录全部虚构"} -->
+<!-- card: {"template":"T01","density":"compact","eyebrow":"FIELDNOTES / 证据阅读","source":"原创教学示例 · 后文记录全部虚构"} -->
 # 完成，不等于学会
 
 一份练习记录能说明谁提交了作答，却不能单凭提交率证明谁已掌握知识。先问数字回答了什么，再看它没有回答什么。
@@ -13,7 +13,7 @@
 
 ===
 
-<!-- card: {"template":"T05","density":"standard","eyebrow":"FIELDNOTES / 证据阅读","source":"原创阅读清单 · 不替代对原始记录的核查"} -->
+<!-- card: {"template":"T05","density":"compact","eyebrow":"FIELDNOTES / 证据阅读","source":"原创阅读清单 · 不替代对原始记录的核查"} -->
 # 先问三个问题
 
 1. **数的是谁？** 分清参与者、提交次数与完成记录，不把不同对象相加。
@@ -22,7 +22,7 @@
 
 ===
 
-<!-- card: {"template":"T04","density":"standard","eyebrow":"FIELDNOTES / 证据阅读","source":"原创统计口径示例 · 非真实调查"} -->
+<!-- card: {"template":"T04","density":"compact","eyebrow":"FIELDNOTES / 证据阅读","source":"原创统计口径示例 · 非真实调查"} -->
 # 让分子和分母对齐
 
 这组虚构记录使用同一批人、同一观察期，避免口径错配。
@@ -41,7 +41,7 @@
 
 ===
 
-<!-- card: {"template":"T21","density":"standard","eyebrow":"FIELDNOTES / 证据阅读","metric":"60%","label":"提交完成率 · 虚构数据","source":"原创虚构记录 · 不是学习效果的实证"} -->
+<!-- card: {"template":"T21","density":"compact","eyebrow":"FIELDNOTES / 证据阅读","metric":"60%","label":"提交完成率 · 虚构数据","source":"原创虚构记录 · 不是学习效果的实证"} -->
 # 只解释这个比例
 
 12 ÷ 20 = 60%，是提交人数占开始人数的比例。
@@ -56,7 +56,7 @@
 
 ===
 
-<!-- card: {"template":"T25","density":"standard","eyebrow":"FIELDNOTES / 证据阅读","source":"摘句与解读均为原创 · 不署名给真实作者"} -->
+<!-- card: {"template":"T25","density":"compact","eyebrow":"FIELDNOTES / 证据阅读","source":"摘句与解读均为原创 · 不署名给真实作者"} -->
 # 留下尚未回答的问题
 
 > 比例说明发生了多少，判断还需要知道发生了什么，以及哪些信息仍然缺席。

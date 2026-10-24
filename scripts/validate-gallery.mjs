@@ -289,7 +289,10 @@ async function realBrowserChecks(browser, options, model, report, out) {
         return geometry;
       });
       for (const section of ['accepted', 'pending']) await recordCheck(report, `${scenario.name}: capture ${section}`, async () => {
-        await page.locator(`#${section}-title`).scrollIntoViewIfNeeded();
+        await evaluateSafely(page, 'evaluate', section => {
+          const target = document.querySelector(section === 'accepted' ? '.accepted-card' : '#pending-title');
+          target.scrollIntoView({ block: 'start', behavior: 'instant' });
+        }, section);
         await snapshot(page, out, report, `${scenario.name}-${section}`, `Viewport screenshot: start of ${section} gallery section; not a full-page capture.`);
       });
       await recordCheck(report, `${scenario.name}: expanded details and reflow`, async () => {

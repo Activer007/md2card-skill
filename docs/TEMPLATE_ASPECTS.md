@@ -1,17 +1,21 @@
 # M9 / LIB-05 / R12: purpose-led aspect layouts
 
-> 当前 48 套 v2 模板及全部八个额外画幅组合都未获本轮产物验收。T04/T21 的四个已有短例仅保留 v1 历史证据；字体与家族节奏更新后须重新检查。
+> 当前 M2 的 48 个 standard / portrait 注册示例已独立复核（13 套 v3 / 35 套 v2）。T04/T21 四个既有画幅短例也有当前 M2 有界复核，但最终画幅注册绑定仍 pending；全部八个额外画幅组合保持待验收注册状态。四个新 R12 组合是独立 aspect-v1，仍待本阶段真实产物。
 
 Updated 2026-10-24. R12 adds exactly four purpose-led pairs: **T05 square,
 T13 square, T24 slide and T37 slide**. They are implemented but await visual
-review. No Chromium launch, new PNG, phone capture or PDF inspection was performed
-for R12. Source-only tests and expected results below are not visual evidence.
+review. No successful local R12 PNG, phone capture or PDF inspection is claimed.
+The inherited CLI help-path launch failure is retained below; it is not visual
+evidence. Source-only tests and expected results below are not visual evidence.
 
 T04 and T21 already provide independent square (1:1) and slide (16:9)
-compositions. Their four short examples retain historical v1 full PNG, 375/390px phone
-and native PDF evidence at the exact revisions below. Current v2 typography
-and all eight additional aspect pairs are unreviewed. That evidence must not be
-transferred to changed typography or other layouts. These eight aspect variants
+compositions. Their four exact short examples have current M2 full PNG, 375/390px
+phone and native-PDF review in [the M2 acceptance](REFINEMENT_M2_ACCEPTANCE.md),
+separate from immutable historical v1 evidence below. Final aspect-specific
+registry binding remains pending, so all eight additional aspect pairs retain
+`implemented-awaiting-visual-review` registry status. The four new R12 layouts
+and this stage's complete 58-case run are still pending. No fixture review transfers
+to different inputs, new layouts or unrelated controls. These eight aspect variants
 add no template IDs and do not imply that all 48 templates support three ratios.
 
 The [second combined run](https://github.com/Activer007/md2card-skill/actions/runs/40056857307)
@@ -31,17 +35,22 @@ reviewed fixtures, not new content, densities, custom sizes or display environme
 Relevant changes require fresh inspection or verified artifact identity before
 carrying a prior visual conclusion forward.
 
+The current M2 run 40074554707 has 22 existing-aspect technical outcomes: 12
+exports and 10 expected refusals. Independent visual review covers only the four
+registered T04/T21 square/slide short fixtures, not all 12 exports or the new R12
+inputs. Source tree and technical scope are bound in the M2 record above.
+
 ## Selected support, not a global aspect feature
 
 | Template | 3:4 / portrait | 1:1 / square | 16:9 / slide |
 | --- | --- | --- | --- |
-| T04 | Full-width sectional essay; current v2 pending; v1 example reviewed historically | Left thesis rail and right section stack; current v2 pending; v1 short example reviewed historically | Left title rail, right labeled rows and bottom source band; current v2 pending; v1 short example reviewed historically |
-| T21 | Single-metric focus; current v2 pending; v1 example reviewed historically | Paired title/metric panels and lower evidence grid; current v2 pending; v1 short example reviewed historically | Left title/metric/source rail and full-height right evidence; current v2 pending; v1 short example reviewed historically |
-| T05 | Original numbered full-width rows | Two-by-two numbered reading index; **awaiting visual review** | Rejected |
-| T13 | Original stacked declaration poster | Left slogan rail facing complete argument stack; **awaiting visual review** | Rejected |
-| T24 | Original report, table and decision stack | Rejected | Left decision rail and right complete table stage; **awaiting visual review** |
-| T37 | Original full-frame image over story band | Rejected | Full-frame image/caption at left, story rail at right; **awaiting visual review** |
-| Other 42 IDs | See each registered example's acceptance | Rejected | Rejected |
+| T04 | Full-width sectional essay; exact standard/portrait v2 reviewed in M2 | Left thesis rail and right section stack; exact v2 short fixture reviewed in M2; registry binding pending | Left title rail, right labeled rows and bottom source band; exact v2 short fixture reviewed in M2; registry binding pending |
+| T21 | Single-metric focus; exact standard/portrait v2 reviewed in M2 | Paired title/metric panels and lower evidence grid; exact v2 short fixture reviewed in M2; registry binding pending | Left title/metric/source rail and full-height right evidence; exact v2 short fixture reviewed in M2; registry binding pending |
+| T05 | Current v2 numbered full-width rows; exact portrait reviewed | Two-by-two numbered reading index; **awaiting visual review** | Rejected |
+| T13 | Current v2 stacked declaration poster; exact portrait reviewed | Left slogan rail facing complete argument stack; **awaiting visual review** | Rejected |
+| T24 | Current v3 report, table and decision stack; exact portrait reviewed | Rejected | Left decision rail and right complete table stage; **awaiting visual review** |
+| T37 | Current v2 full-frame image over story band; exact portrait reviewed | Rejected | Full-frame image/caption at left, story rail at right; **awaiting visual review** |
+| Other 42 IDs | Exact standard/portrait M2 examples reviewed; immutable versioned history retained | Rejected | Rejected |
 
 T04 can reorder the visual roles of its title, introduction, sequential H2
 sections and source without changing DOM order or words. T21 can move its supplied
@@ -142,6 +151,10 @@ portrait canvas or enabling every aspect on each template:
   attribution in its own full-width band. The v2 intrinsic frame and inherited `object-fit: contain`
   keep the entire image; no caption overlay, image rewrite or crop is added.
 
+Each new pair has its own aspect-v1 identity, independent of its accepted parent
+template version (T24 v3; T05/T13/T37 v2). None gains acceptance or evidence by
+inheritance from a portrait template.
+
 All R12 rules are appended in one isolated section of `assets/templates.css`.
 Every selector names one exact template/aspect pair, leaving M3a portrait styles
 and all M2 local typography roles unchanged. Square T05 gives its numeral its
@@ -190,8 +203,13 @@ Across the complete 58-case plan, there are 22 required-export candidates,
 14 original-source cases that may overflow, 14 required-overflow cases and
 8 required-refusal cases. Thus a theoretical all-original-fit test double has
 36 exports, not 36 visually accepted cards. No new actual capacity conclusion
-is claimed. The new fullframe T37 mobile audit checks source dimensions, loaded
-image, `contain`, no clipping/nested scaling and visible image/caption; source
+is claimed. The full-frame T37 mobile audit checks source dimensions, loaded
+image, `contain`, no clipping/nested scaling and visible image/caption. It compares
+the actual contain-painted rectangle with image and ancestor clip boundaries,
+including the card: intrinsic IMG `overflow: clip` alone is not evidence of crop.
+Paint containment, non-visible content-visibility, individual rotate/translate and
+other unsupported paint geometry fail closed. These are source-tested measurement
+guards, not new visual acceptance; the generic overflow guard is unchanged. Source
 HTML and export manifests must retain exact raster hashes, alt and caption.
 Searchable native PDF verification now also checks the complete caption text.
 

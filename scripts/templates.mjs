@@ -90,10 +90,13 @@ const independentAspects = {
 };
 // A changed design must earn new evidence. Old batches remain immutable history.
 export const REFINED_TEMPLATE_IDS = Object.freeze(entries.map(entry => entry.id));
+export const M1_REFINED_TEMPLATE_IDS = Object.freeze(['T06','T10','T16','T19','T20','T22','T24','T26','T32','T34','T39','T40','T45']);
 function currentEntry(entry) {
   if (!REFINED_TEMPLATE_IDS.includes(entry.id)) return entry;
   const { acceptance, ...rest } = entry;
-  return { ...rest, version: 2, historicalAcceptance: { batch: acceptance, version: 1 },
+  const followsM1 = M1_REFINED_TEMPLATE_IDS.includes(entry.id);
+  return { ...rest, version: followsM1 ? 3 : 2, acceptance: followsM1 ? 'refinement-m2-v3' : 'refinement-m2-v2', historicalAcceptance: { batch: acceptance, version: 1 },
+    ...(followsM1 ? { historicalAcceptances: [{ batch: 'refinement-m1-v2', version: 2 }] } : {}),
     refinement: 'family-art-direction-v2' };
 }
 function aspectLayouts(entry) {
@@ -105,8 +108,8 @@ function aspectLayouts(entry) {
       ...layout, version: pendingReview ? 1 : 2, status: 'implemented-awaiting-visual-review',
       ...(pendingReview ? {} : { historicalAcceptance: { batch: 'visual-upgrade-aspects', version: 1 }, historicalEvidence: 'docs/aspect-upgrade-provenance.json' }),
       boundaries: pendingReview
-        ? 'First implementation of this aspect using current v2 family typography. Registered short example requires new full PNG, 375/390px and native PDF inspection. No fit or visual acceptance is claimed.'
-        : 'Historical v1 evidence reviewed only the registered standard-density short example at its declared canvas size. Current v2 typography is unreviewed and needs fresh screen/print, mobile and PDF evidence; no universal fit guarantee.'
+        ? 'First implementation of this aspect using current M2 family typography. Registered short example requires new full PNG, 375/390px and native PDF inspection. No fit or visual acceptance is claimed.'
+        : 'Historical v1 evidence reviewed only the registered standard-density short example at its declared canvas size. Current v2 exact short-fixture PNG/mobile/native-PDF artifacts are independently reviewed in REFINEMENT_M2_ACCEPTANCE.md; final aspect-specific binding remains pending R12. No universal fit guarantee.'
     }])
   ]);
 }

@@ -1,0 +1,2654 @@
+{
+  "schemaVersion": 1,
+  "runId": 40070791479,
+  "runUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40070791479",
+  "codeCommit": "ab2ab651772a03fef2e6ea1a7eab269156a10e6b",
+  "codeTree": "7771499ef8fbc8a9c34186454007d565e6abc470",
+  "mergePreview": "45dbd54af1e7858297deca9d0ca80bc2c35cdf89",
+  "artifactId": 12550928744,
+  "archiveUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40070791479/artifacts/12550928744",
+  "archiveSha256": "5de2f819cbddd388d62f5ca7fe33eabc813faa3d38d8ec98921b4a0201089064",
+  "acceptanceState": "independently-reviewed",
+  "independentReview": {
+    "status": "pass-with-bounded-nonblocking-limitations",
+    "date": "2026-10-24",
+    "codeTree": "7771499ef8fbc8a9c34186454007d565e6abc470",
+    "runId": 40070791479,
+    "templates": [
+      "T06",
+      "T10",
+      "T16",
+      "T19",
+      "T20",
+      "T22",
+      "T24",
+      "T26",
+      "T32",
+      "T34",
+      "T39",
+      "T40",
+      "T45"
+    ],
+    "surfaces": [
+      "full-size PNG",
+      "375 px natural viewport",
+      "390 px natural viewport",
+      "native PDF"
+    ],
+    "recheckedCorrections": [
+      "T20",
+      "T24",
+      "T32",
+      "T34",
+      "T40"
+    ],
+    "recheckedPressureCases": [
+      "medium-table",
+      "image-screenshot"
+    ],
+    "preservation": {
+      "originalMarkdownInputs": 48,
+      "templateAndPressurePdfTextChecks": 50
+    },
+    "limitations": [
+      "T20 embedded interface microtext is context only and must not replace external body-sized explanations.",
+      "T24 medium-table stress example has a solitary final Chinese character 供; minor nonblocking polish."
+    ],
+    "method": {
+      "newlyViewedTemplates": [
+        "T20",
+        "T24",
+        "T32",
+        "T34",
+        "T40"
+      ],
+      "exactPixelCarryForwardTemplates": [
+        "T06",
+        "T10",
+        "T16",
+        "T19",
+        "T22",
+        "T26",
+        "T39",
+        "T45"
+      ],
+      "priorRunId": 40069835718,
+      "priorRunUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40069835718",
+      "priorHead": "47d52a49e4b4c2ea3ff071bb73feec22118bb7b6",
+      "priorTree": "843ff0c52b6e7c759375711a2e41bf205b92b4c9",
+      "unchangedFullAndBothMobilePngs": 43,
+      "unchangedNativePdfRasterPpmStreams": 43,
+      "nativePdfRasterSize": {
+        "width": 1080,
+        "height": 1440
+      },
+      "historicalV1PixelCarryForward": 35
+    },
+    "pdfBoundary": "Visible HTML character coverage and visual raster review are not tagged-PDF reading-order, accessibility or font-portability certification.",
+    "seriesBoundary": "Existing series are reported as technical regressions only; this batch does not certify their current continuous-reading scope."
+  },
+  "scope": {
+    "version": 2,
+    "density": "standard",
+    "aspect": "portrait",
+    "width": 1080,
+    "height": 1440,
+    "pagination": "manual"
+  },
+  "records": [
+    {
+      "id": "T06",
+      "input": "a1d24b90a1dfeb3fa66d45b4dd0fdc56f71fdb7a2ab44e1c5564cd8a4c66620d",
+      "png": "00b6b5073e8d4078b2415ceb4d7f969c816ae35f9cf3124514ec2fdc92bea637",
+      "pdf": "a3265cddbe519ec869c4d1f1f3c0d2b12eac185cdc07e1e3562d51ada92a8eed",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T06",
+            "scale": 0.325,
+            "titleBodyRatio": 1.9000000000000001,
+            "reading": [
+              {
+                "text": "两种方式都能积累材料，差别是下一步由什么决定。",
+                "measureEm": 20.837369183458392,
+                "lines": [
+                  "两种方式都能积累材料，差别是下一步由什么",
+                  "决定。"
+                ]
+              },
+              {
+                "text": "随手保存有用材料，适合自由探索；之后仍需整理线索。",
+                "measureEm": 9.153948036820152,
+                "lines": [
+                  "随手保存有用材料，",
+                  "适合自由探索；之后",
+                  "仍需整理线索。"
+                ]
+              },
+              {
+                "text": "先写下想解释的现象，再寻找支持或反驳它的证据；也允许新材料改写原来的问题。",
+                "measureEm": 9.934526136521276,
+                "lines": [
+                  "先写下想解释的现",
+                  "象，再寻找支持或反",
+                  "驳它的证据；也允",
+                  "许新材料改写原来的",
+                  "问题。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "8972792e1db408c2610984692094fcb45f46b03de661113de70d76e72ccd663f"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T06",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 1.9000000000000001,
+            "reading": [
+              {
+                "text": "两种方式都能积累材料，差别是下一步由什么决定。",
+                "measureEm": 20.837370542486738,
+                "lines": [
+                  "两种方式都能积累材料，差别是下一步由什么",
+                  "决定。"
+                ]
+              },
+              {
+                "text": "随手保存有用材料，适合自由探索；之后仍需整理线索。",
+                "measureEm": 9.153949031231138,
+                "lines": [
+                  "随手保存有用材料，",
+                  "适合自由探索；之后",
+                  "仍需整理线索。"
+                ]
+              },
+              {
+                "text": "先写下想解释的现象，再寻找支持或反驳它的证据；也允许新材料改写原来的问题。",
+                "measureEm": 9.934524611757768,
+                "lines": [
+                  "先写下想解释的现",
+                  "象，再寻找支持或反",
+                  "驳它的证据；也允",
+                  "许新材料改写原来的",
+                  "问题。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "00b4c74c5e4f7fb872c2ff42796821572486670d04623525703413d3d896aac9"
+        }
+      ],
+      "inputPath": "examples/templates/T06.md",
+      "previewPath": "docs/images/refinement-m1-v2/T06.png",
+      "archiveDirectory": "templates/T06",
+      "manifestSha256": "704bea5a4d38083f34093ba8c75e56a7610b5194b5165db88ddc4b0823a4ebe2",
+      "mobileAuditSha256": "50e6b18c5f845f3d35bdf1573cd9a86b7f5dfb30899ad2300a813f400bb439ce",
+      "assets": [],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T10",
+      "input": "b1bed4b68c1dd452afbcc4b177513e7e11a90011d72f665c0975df556cd937aa",
+      "png": "337f66f93ba7d9de16b8796d4f9dabdeca95ebe0d61423410c66b1369a285277",
+      "pdf": "bfb51ed7d046c6a9918c739c2b1c57020cd018038f1f76dc5cf1230aa13eb98f",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T10",
+            "scale": 0.325,
+            "titleBodyRatio": 2.25,
+            "reading": [
+              {
+                "text": "建立中心。",
+                "measureEm": 9.551975667527993,
+                "lines": [
+                  "建立中心。"
+                ]
+              },
+              {
+                "text": "先用一句话说明问题，让其他信息围绕它展开。",
+                "measureEm": 9.551975667527993,
+                "lines": [
+                  "先用一句话说明问",
+                  "题，让其他信息围绕",
+                  "它展开。"
+                ]
+              },
+              {
+                "text": "给主张、证据与补充各留位置，让细节完整可查。",
+                "measureEm": 8.435951899654434,
+                "lines": [
+                  "给主张、证据与补",
+                  "充各留位置，让细",
+                  "节完整可查。"
+                ]
+              },
+              {
+                "text": "说明各部分怎样共同回答问题，让读者看见关系，而不只记住孤立的词。",
+                "measureEm": 12.336818407190522,
+                "lines": [
+                  "说明各部分怎样共同回答问",
+                  "题，让读者看见关系，而不",
+                  "只记住孤立的词。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "f587e3d3c6fad8397b6bcdcb0c5eb5a833d2e9ea89bb9ae9d54fd2537f5848ec"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T10",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 2.25,
+            "reading": [
+              {
+                "text": "建立中心。",
+                "measureEm": 9.551974805705141,
+                "lines": [
+                  "建立中心。"
+                ]
+              },
+              {
+                "text": "先用一句话说明问题，让其他信息围绕它展开。",
+                "measureEm": 9.551974805705141,
+                "lines": [
+                  "先用一句话说明问",
+                  "题，让其他信息围绕",
+                  "它展开。"
+                ]
+              },
+              {
+                "text": "给主张、证据与补充各留位置，让细节完整可查。",
+                "measureEm": 8.435952131683663,
+                "lines": [
+                  "给主张、证据与补",
+                  "充各留位置，让细",
+                  "节完整可查。"
+                ]
+              },
+              {
+                "text": "说明各部分怎样共同回答问题，让读者看见关系，而不只记住孤立的词。",
+                "measureEm": 12.336819186145794,
+                "lines": [
+                  "说明各部分怎样共同回答问",
+                  "题，让读者看见关系，而不",
+                  "只记住孤立的词。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "52bd88d27b7443c157f2d1f627614a0d489d6b131bb2e79f6d28bd54c1064705"
+        }
+      ],
+      "inputPath": "examples/templates/T10.md",
+      "previewPath": "docs/images/refinement-m1-v2/T10.png",
+      "archiveDirectory": "templates/T10",
+      "manifestSha256": "b0a61ac97be731f73cc23b01041f128bb759eb8e1f41e54e020b23c401b1486b",
+      "mobileAuditSha256": "748737dfba3fd2ee24539f60178a86143983fd740aded3e884ac274b2725e64c",
+      "assets": [],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T16",
+      "input": "b7a1ba6c4e7ce91c35fe868c2b7bad0bf558187cfa3d77177d5ebfe6f1cc361f",
+      "png": "ba5ca239e06e8c63a2621a791a1c604c76e1810c2f66603e084d64f64892fab2",
+      "pdf": "c689e65ff804cf2c759392cdb8d52781cdae32413d8e0426e61c348f6e30f295",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T16",
+            "scale": 0.325,
+            "titleBodyRatio": 1.7,
+            "reading": [
+              {
+                "text": "三条原创观点，可以分别讨论。",
+                "measureEm": 20.123074260548144,
+                "lines": [
+                  "三条原创观点，可以分别讨论。"
+                ]
+              },
+              {
+                "text": "先让读者看见核心问题，再安排细节。信息多，不等于理解多。",
+                "measureEm": 19.544370556844438,
+                "lines": [
+                  "先让读者看见核心问题，再安排细节。信息",
+                  "多，不等于理解多。"
+                ]
+              },
+              {
+                "text": "空处可以区分层次，但不能替代缺失的依据，也不能掩盖条件。",
+                "measureEm": 19.54437257881344,
+                "lines": [
+                  "空处可以区分层次，但不能替代缺失的依",
+                  "据，也不能掩盖条件。"
+                ]
+              },
+              {
+                "text": "装饰退后一步，让内容的阅读路线更清楚。",
+                "measureEm": 19.544370556844438,
+                "lines": [
+                  "装饰退后一步，让内容的阅读路线更清楚。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "a47205542944580fe660907ed0febff9df161fe6999a3f97fc2b2c27262c37c1"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T16",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 1.7,
+            "reading": [
+              {
+                "text": "三条原创观点，可以分别讨论。",
+                "measureEm": 20.12307538754726,
+                "lines": [
+                  "三条原创观点，可以分别讨论。"
+                ]
+              },
+              {
+                "text": "先让读者看见核心问题，再安排细节。信息多，不等于理解多。",
+                "measureEm": 19.544371899299268,
+                "lines": [
+                  "先让读者看见核心问题，再安排细节。信息",
+                  "多，不等于理解多。"
+                ]
+              },
+              {
+                "text": "空处可以区分层次，但不能替代缺失的依据，也不能掩盖条件。",
+                "measureEm": 19.544369960197848,
+                "lines": [
+                  "空处可以区分层次，但不能替代缺失的依",
+                  "据，也不能掩盖条件。"
+                ]
+              },
+              {
+                "text": "装饰退后一步，让内容的阅读路线更清楚。",
+                "measureEm": 19.544371899299268,
+                "lines": [
+                  "装饰退后一步，让内容的阅读路线更清楚。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "8d3ab78c8e75274a1fd68ad880596112429c25a9dde5da90ee1df0dfee254bea"
+        }
+      ],
+      "inputPath": "examples/templates/T16.md",
+      "previewPath": "docs/images/refinement-m1-v2/T16.png",
+      "archiveDirectory": "templates/T16",
+      "manifestSha256": "05cbd4d694602a0cb6b99ef74b21604b1d23d30afe3aad524fec206a86ec45f2",
+      "mobileAuditSha256": "479f83302fca3dd9fb7b0e09b41d88486698dd8e35e6f1e1e029194fedcebd0c",
+      "assets": [],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T19",
+      "input": "32f5ae623299ddc4b74435ade77f31e2fe93f0686db3983692b0a035e248c17a",
+      "png": "6eccf71c62668f160baaa45343db1c18a63ada43f699292d5e152007f5fb5efb",
+      "pdf": "bb5e1b8c146b9021683a1a2f37cd9ecb1e17e28dae8e141d8d98d5b57e264afc",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T19",
+            "scale": 0.325,
+            "titleBodyRatio": 2.2,
+            "reading": [
+              {
+                "text": "共同输入是一条问题。各模块只处理自己的职责，交付明确结果。",
+                "measureEm": 19.344181472008962,
+                "lines": [
+                  "共同输入是一条问题。各模块只处理自己的",
+                  "职责，交付明确结果。"
+                ]
+              },
+              {
+                "text": "检查问题是否为空，保留原始表达。",
+                "measureEm": 10.068771735357968,
+                "lines": [
+                  "检查问题是否为空，保",
+                  "留原始表达。"
+                ]
+              },
+              {
+                "text": "整理片段与出处，让材料可以追溯。",
+                "measureEm": 10.068770724373469,
+                "lines": [
+                  "整理片段与出处，让材",
+                  "料可以追溯。"
+                ]
+              },
+              {
+                "text": "找出候选片段，连同来源交给下游。",
+                "measureEm": 10.068771735357968,
+                "lines": [
+                  "找出候选片段，连同来",
+                  "源交给下游。"
+                ]
+              },
+              {
+                "text": "组织回答；依据不足就留下未知项。",
+                "measureEm": 10.068770724373469,
+                "lines": [
+                  "组织回答；依据不足就",
+                  "留下未知项。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "4febf5e418a0c8c59b26155192999d9aa6fa6ccc40fb1c31866324035d513bef"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T19",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 2.2,
+            "reading": [
+              {
+                "text": "共同输入是一条问题。各模块只处理自己的职责，交付明确结果。",
+                "measureEm": 19.344181007950503,
+                "lines": [
+                  "共同输入是一条问题。各模块只处理自己的",
+                  "职责，交付明确结果。"
+                ]
+              },
+              {
+                "text": "检查问题是否为空，保留原始表达。",
+                "measureEm": 10.068771511615497,
+                "lines": [
+                  "检查问题是否为空，保",
+                  "留原始表达。"
+                ]
+              },
+              {
+                "text": "整理片段与出处，让材料可以追溯。",
+                "measureEm": 10.068771511615497,
+                "lines": [
+                  "整理片段与出处，让材",
+                  "料可以追溯。"
+                ]
+              },
+              {
+                "text": "找出候选片段，连同来源交给下游。",
+                "measureEm": 10.068771511615497,
+                "lines": [
+                  "找出候选片段，连同来",
+                  "源交给下游。"
+                ]
+              },
+              {
+                "text": "组织回答；依据不足就留下未知项。",
+                "measureEm": 10.068771511615497,
+                "lines": [
+                  "组织回答；依据不足就",
+                  "留下未知项。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "80b1d11779c301015abd1d31fc9ab22a1289bf204d0f3285d0cc758a82e6d586"
+        }
+      ],
+      "inputPath": "examples/templates/T19.md",
+      "previewPath": "docs/images/refinement-m1-v2/T19.png",
+      "archiveDirectory": "templates/T19",
+      "manifestSha256": "a28a2742ee80e7fe46ba044db2f6310b3f146d1479428147004cb61f2424f8fe",
+      "mobileAuditSha256": "63b5e0fdda41a9991734750cdea4732c546c6ae35c0e53d76c973d76fe519f9c",
+      "assets": [],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T20",
+      "input": "0b56fdfa68cf2f94e3d8249cf48beaebe1de3941dc38cd2f22eb631b80c9f483",
+      "png": "afef9c0f0d2f2799bf1caea88e31234bd5bd515192d698c842a327a0310520e4",
+      "pdf": "6397df62bd93dfcf4f2367cb0148a95dbe07994b73245c69c4de82fd265c4b0c",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T20",
+            "scale": 0.325,
+            "titleBodyRatio": 1.85,
+            "reading": [
+              {
+                "text": "一个虚构研究工作台的功能设想。",
+                "measureEm": 20.837369183458392,
+                "lines": [
+                  "一个虚构研究工作台的功能设想。"
+                ]
+              },
+              {
+                "text": "按主题收集片段，保留原始出处。",
+                "measureEm": 9.319147959085958,
+                "lines": [
+                  "按主题收集片段，保",
+                  "留原始出处。"
+                ]
+              },
+              {
+                "text": "并排查看笔记，记录待验证项。",
+                "measureEm": 9.319484616924546,
+                "lines": [
+                  "并排查看笔记，记录",
+                  "待验证项。"
+                ]
+              }
+            ],
+            "images": [
+              {
+                "width": 261.06414455837677,
+                "height": 167.8269500732422,
+                "naturalWidth": 1400,
+                "naturalHeight": 900,
+                "sourceScale": 0.1864743889702691,
+                "objectFit": "contain"
+              }
+            ],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "92752ea2895dd1365c4cb8d965b8d6c8be7242dca3d4d62ae284dab3a3cf1cc8"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T20",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 1.85,
+            "reading": [
+              {
+                "text": "一个虚构研究工作台的功能设想。",
+                "measureEm": 20.837370542486738,
+                "lines": [
+                  "一个虚构研究工作台的功能设想。"
+                ]
+              },
+              {
+                "text": "按主题收集片段，保留原始出处。",
+                "measureEm": 9.319148837482327,
+                "lines": [
+                  "按主题收集片段，保",
+                  "留原始出处。"
+                ]
+              },
+              {
+                "text": "并排查看笔记，记录待验证项。",
+                "measureEm": 9.319485271578445,
+                "lines": [
+                  "并排查看笔记，记录",
+                  "待验证项。"
+                ]
+              }
+            ],
+            "images": [
+              {
+                "width": 272.2207505967882,
+                "height": 174.99905395507812,
+                "naturalWidth": 1400,
+                "naturalHeight": 900,
+                "sourceScale": 0.19444339328342014,
+                "objectFit": "contain"
+              }
+            ],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "9dfafd0a45dd2593ac9f76f8d822f6b6e35d95fde7b8d75fee1295360500d792"
+        }
+      ],
+      "inputPath": "examples/templates/T20.md",
+      "previewPath": "docs/images/refinement-m1-v2/T20.png",
+      "archiveDirectory": "templates/T20",
+      "manifestSha256": "b5a1649abf3505c0146c0213069eb1ef91da3037c6ecaa8ee720fb5e9b8cea0d",
+      "mobileAuditSha256": "635e0cf2b3b5e0584ab2947f7457bc73185b9390e1567a032a316ebaeadfc791",
+      "assets": [
+        {
+          "reference": "assets/original-research-interface.png",
+          "hash": "eb73c9a92ff65b86036de6c1d486d999de71fe8225343c7d81272446f043f541",
+          "mime": "image/png",
+          "width": 1400,
+          "height": 900,
+          "bytes": 76441
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1290
+        },
+        "used": {
+          "width": 968,
+          "height": 1290
+        },
+        "occupied": {
+          "height": 1169.859375
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1290
+        },
+        "used": {
+          "width": 968,
+          "height": 1290
+        },
+        "occupied": {
+          "height": 1169.859375
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T22",
+      "input": "cbef06e848d7a07fd6bd43f01d9a663a176290957b3a76558e6783c98b74801f",
+      "png": "1c9f20025138a4751da822ebf8044fabed5426cafb3787c1e0511874333b139a",
+      "pdf": "97a0c18a874cd241b59457e62ae317cbd0dbc4bfbcb16f2e8496d98aefa6abd0",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T22",
+            "scale": 0.325,
+            "titleBodyRatio": 2.1500000000000004,
+            "reading": [
+              {
+                "text": "假设一组练习产生以下记录。先分清对象与口径，再讨论改进。",
+                "measureEm": 20.837369183458392,
+                "lines": [
+                  "假设一组练习产生以下记录。先分清对象与口",
+                  "径，再讨论改进。"
+                ]
+              },
+              {
+                "text": "提交完成率\n72 / 100 次练习。",
+                "measureEm": 11.373209651592418,
+                "lines": [
+                  "提交完成率",
+                  "72/100次练习。"
+                ]
+              },
+              {
+                "text": "时长中位数\n仅统计完成记录。",
+                "measureEm": 11.465061637379497,
+                "lines": [
+                  "时长中位数",
+                  "仅统计完成记录。"
+                ]
+              },
+              {
+                "text": "访谈人数\n不用于推算总体。",
+                "measureEm": 11.465061637379497,
+                "lines": [
+                  "访谈人数",
+                  "不用于推算总体。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "a9c8aa204a44b43e2b178493c4e566d1cbca4254f40be201c61edf6de990fc38"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T22",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 2.1500000000000004,
+            "reading": [
+              {
+                "text": "假设一组练习产生以下记录。先分清对象与口径，再讨论改进。",
+                "measureEm": 20.837370542486738,
+                "lines": [
+                  "假设一组练习产生以下记录。先分清对象与口",
+                  "径，再讨论改进。"
+                ]
+              },
+              {
+                "text": "提交完成率\n72 / 100 次练习。",
+                "measureEm": 11.373209883621648,
+                "lines": [
+                  "提交完成率",
+                  "72/100次练习。"
+                ]
+              },
+              {
+                "text": "时长中位数\n仅统计完成记录。",
+                "measureEm": 11.465062209165813,
+                "lines": [
+                  "时长中位数",
+                  "仅统计完成记录。"
+                ]
+              },
+              {
+                "text": "访谈人数\n不用于推算总体。",
+                "measureEm": 11.465062209165813,
+                "lines": [
+                  "访谈人数",
+                  "不用于推算总体。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "3d8f37e6d556c3e5942806842dc02e9dcb76f10e0107cc7aa1507647b6c5792b"
+        }
+      ],
+      "inputPath": "examples/templates/T22.md",
+      "previewPath": "docs/images/refinement-m1-v2/T22.png",
+      "archiveDirectory": "templates/T22",
+      "manifestSha256": "f216fbfbe62d6660af00f9b82198dcf712ea916cd945dae46d0eac85b2ec06cf",
+      "mobileAuditSha256": "3dfa0c92efd29b33c8d6725a5ad75bf38263ecb5dfb6291c38191fcdfbd3b485",
+      "assets": [],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T24",
+      "input": "874a4dd2c38f8416fa8a79d6e830becf82e7e4099c6ecae8e6f0c834586a4dfa",
+      "png": "d500a3c78bf4bd056bdbecdc99ddee1737400f506eff2dfd083d33bea086dba4",
+      "pdf": "cf802729bda20c9dab380aafe43487975ebd735c859c0b3775a28917ca55c350",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T24",
+            "scale": 0.325,
+            "titleBodyRatio": 2.25,
+            "reading": [
+              {
+                "text": "编号只是索引，不表示优劣。",
+                "measureEm": 20.837369183458392,
+                "lines": [
+                  "编号只是索引，不表示优劣。"
+                ]
+              },
+              {
+                "text": "保存表达选摘句，发现盲点选提问，检查理解选复述。三者可以组合。",
+                "measureEm": 20.837369183458392,
+                "lines": [
+                  "保存表达选摘句，发现盲点选提问，检查理解",
+                  "选复述。三者可以组合。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "a4b5d0c8efba1ca23e6e13b90a5a5e12557689505d16b0ceb697c346e4dd1a66"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T24",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 2.25,
+            "reading": [
+              {
+                "text": "编号只是索引，不表示优劣。",
+                "measureEm": 20.837370542486738,
+                "lines": [
+                  "编号只是索引，不表示优劣。"
+                ]
+              },
+              {
+                "text": "保存表达选摘句，发现盲点选提问，检查理解选复述。三者可以组合。",
+                "measureEm": 20.837370542486738,
+                "lines": [
+                  "保存表达选摘句，发现盲点选提问，检查理解",
+                  "选复述。三者可以组合。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "48d24748fdd47ff7ac80cf019ad2384b683c34695ae3d3d34d60bf2b4697056c"
+        }
+      ],
+      "inputPath": "examples/templates/T24.md",
+      "previewPath": "docs/images/refinement-m1-v2/T24.png",
+      "archiveDirectory": "templates/T24",
+      "manifestSha256": "bcff4b9d077c707a99a6df0d3726de974596206ea97c4c3754e1ef40b7264c09",
+      "mobileAuditSha256": "efec857a5fe3d13ce9792ddc1a790c79cb3c4d040571357b13daa44c23629a40",
+      "assets": [],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T26",
+      "input": "ba68d129d10d4391da1eecd3841e23f8ef64374c5eb846d76426900ef62e5dba",
+      "png": "c89f3ccf87940fd769d2c9d6f7e978dcf6a2e919bb2a6029b44ebfa260619bbe",
+      "pdf": "c8c75873ea72689953167d41bdb4a36f1b7f996f9431da9364e887e2735f1288",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T26",
+            "scale": 0.325,
+            "titleBodyRatio": 1.7,
+            "reading": [
+              {
+                "text": "勾选不是目的，能解释才算理解。",
+                "measureEm": 20.837369183458392,
+                "lines": [
+                  "勾选不是目的，能解释才算理解。"
+                ]
+              },
+              {
+                "text": "批注：记下卡点，再回原文找解释。",
+                "measureEm": 8.589376885445654,
+                "lines": [
+                  "批注：记下卡点，",
+                  "再回原文找解释。"
+                ]
+              },
+              {
+                "text": "批注：例子为何适用？写下理由。",
+                "measureEm": 8.589376885445654,
+                "lines": [
+                  "批注：例子为何适",
+                  "用？写下理由。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "f86b40da6452a3cbf223070bc3a7417fafee29254a146d4428d762a9552cde08"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T26",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 1.7,
+            "reading": [
+              {
+                "text": "勾选不是目的，能解释才算理解。",
+                "measureEm": 20.837370542486738,
+                "lines": [
+                  "勾选不是目的，能解释才算理解。"
+                ]
+              },
+              {
+                "text": "批注：记下卡点，再回原文找解释。",
+                "measureEm": 8.589374805469346,
+                "lines": [
+                  "批注：记下卡点，",
+                  "再回原文找解释。"
+                ]
+              },
+              {
+                "text": "批注：例子为何适用？写下理由。",
+                "measureEm": 8.589374805469346,
+                "lines": [
+                  "批注：例子为何适",
+                  "用？写下理由。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "95a41d71ba5b040c9fae241a17cca358113171761b6cd4dbf613b9472b63523e"
+        }
+      ],
+      "inputPath": "examples/templates/T26.md",
+      "previewPath": "docs/images/refinement-m1-v2/T26.png",
+      "archiveDirectory": "templates/T26",
+      "manifestSha256": "de921c08b9e9715656acc491d5e429c7df8bb84e1e28f60c2d028ef3d2ae06fc",
+      "mobileAuditSha256": "168f7200be371c2214ce9ac93bf59c13000a1f5da61a8e5c12d1d3df957ea963",
+      "assets": [],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T32",
+      "input": "afcb8f7815c2ad2e3335287631af536de010abcd08bbeac327003f9f8f3586a6",
+      "png": "1fdcf0d71ea5c041e855438b19a0c543ea652ac4f121615b3e478f9960fa1cbf",
+      "pdf": "3b0bb1066820b0071c987c8fc04b2e1e999bdb5e3485ef2ea8c1cc0c071495f4",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T32",
+            "scale": 0.325,
+            "titleBodyRatio": 1.75,
+            "reading": [
+              {
+                "text": "《慢读练习》是本例虚构书名。以下片段与解读均为原创演示。",
+                "measureEm": 20.837369183458392,
+                "lines": [
+                  "《慢读练习》是本例虚构书名。以下片段与解",
+                  "读均为原创演示。"
+                ]
+              },
+              {
+                "text": "读完一页，不急着证明自己记住了多少。先问一句：这里有什么，改变了我原先的看法？",
+                "measureEm": 20.19474092980293,
+                "lines": [
+                  "读完一页，不急着证明自己记住了多少。先问",
+                  "一句：这里有什么，改变了我原先的看法？"
+                ]
+              },
+              {
+                "text": "阅读不必只留下摘要。一个具体问题，也能标记理解发生变化的位置，让下次回看有清楚的起点。",
+                "measureEm": 20.19474092980293,
+                "lines": [
+                  "阅读不必只留下摘要。一个具体问题，也能标",
+                  "记理解发生变化的位置，让下次回看有清楚的",
+                  "起点。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "80b61c3c46df037ec85412567caf6c53c138e6495759a4af82848f90aa616d2c"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T32",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 1.75,
+            "reading": [
+              {
+                "text": "《慢读练习》是本例虚构书名。以下片段与解读均为原创演示。",
+                "measureEm": 20.837370542486738,
+                "lines": [
+                  "《慢读练习》是本例虚构书名。以下片段与解",
+                  "读均为原创演示。"
+                ]
+              },
+              {
+                "text": "读完一页，不急着证明自己记住了多少。先问一句：这里有什么，改变了我原先的看法？",
+                "measureEm": 20.194738758672283,
+                "lines": [
+                  "读完一页，不急着证明自己记住了多少。先问",
+                  "一句：这里有什么，改变了我原先的看法？"
+                ]
+              },
+              {
+                "text": "阅读不必只留下摘要。一个具体问题，也能标记理解发生变化的位置，让下次回看有清楚的起点。",
+                "measureEm": 20.194738758672283,
+                "lines": [
+                  "阅读不必只留下摘要。一个具体问题，也能标",
+                  "记理解发生变化的位置，让下次回看有清楚的",
+                  "起点。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "b9f02db508ab0ea49d29dc9d3c01e706a76b14822a87525fe8955c307b3f660b"
+        }
+      ],
+      "inputPath": "examples/templates/T32.md",
+      "previewPath": "docs/images/refinement-m1-v2/T32.png",
+      "archiveDirectory": "templates/T32",
+      "manifestSha256": "abafffff1166726ccef5f9b383596835dfd4cf31ac89e9b735a5b4ff678cd0ec",
+      "mobileAuditSha256": "deff2311de22ceae0d00565a4948bdd17f6cadda70777ee907476ffaba19101c",
+      "assets": [],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T34",
+      "input": "e4fa1c47103570e639417c330c420af3ac8734b7a736b1fd42d123c2a3936ece",
+      "png": "3b5c6ec93c4ac942b34108a7b27c255843be0546ea85fb973e1ebfb6a52ad769",
+      "pdf": "3065b4ead0b013222decf7258eb8dda0afc5bb8346447b5ea6c70aed97d9bb5e",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T34",
+            "scale": 0.325,
+            "titleBodyRatio": 1.8,
+            "reading": [
+              {
+                "text": "选择什么值得留下，本身就是一次思考。",
+                "measureEm": 20.837369183458392,
+                "lines": [
+                  "选择什么值得留下，本身就是一次思考。"
+                ]
+              },
+              {
+                "text": "好的笔记不只是摘录。说明新材料与旧问题怎样连接，才更容易重新使用。",
+                "measureEm": 20.837369183458392,
+                "lines": [
+                  "好的笔记不只是摘录。说明新材料与旧问题怎",
+                  "样连接，才更容易重新使用。"
+                ]
+              },
+              {
+                "text": "写完后，用自己的话复述一次，再回原文核对。",
+                "measureEm": 20.837369183458392,
+                "lines": [
+                  "写完后，用自己的话复述一次，再回原文",
+                  "核对。"
+                ]
+              },
+              {
+                "text": "不确定的地方不必急着填满。",
+                "measureEm": 19.23786027605409,
+                "lines": [
+                  "不确定的地方不必急着填满。"
+                ]
+              },
+              {
+                "text": "给疑问标记出处，让下一次阅读有方向。",
+                "measureEm": 19.23786027605409,
+                "lines": [
+                  "给疑问标记出处，让下一次阅读有方向。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "03a64a3e7f6359ba95a9f75c1a5abb3b4f9cd9026cff5d1ff83e4cad5e30447a"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T34",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 1.8,
+            "reading": [
+              {
+                "text": "选择什么值得留下，本身就是一次思考。",
+                "measureEm": 20.837370542486738,
+                "lines": [
+                  "选择什么值得留下，本身就是一次思考。"
+                ]
+              },
+              {
+                "text": "好的笔记不只是摘录。说明新材料与旧问题怎样连接，才更容易重新使用。",
+                "measureEm": 20.837370542486738,
+                "lines": [
+                  "好的笔记不只是摘录。说明新材料与旧问题怎",
+                  "样连接，才更容易重新使用。"
+                ]
+              },
+              {
+                "text": "写完后，用自己的话复述一次，再回原文核对。",
+                "measureEm": 20.837370542486738,
+                "lines": [
+                  "写完后，用自己的话复述一次，再回原文",
+                  "核对。"
+                ]
+              },
+              {
+                "text": "不确定的地方不必急着填满。",
+                "measureEm": 19.23786201627331,
+                "lines": [
+                  "不确定的地方不必急着填满。"
+                ]
+              },
+              {
+                "text": "给疑问标记出处，让下一次阅读有方向。",
+                "measureEm": 19.23786201627331,
+                "lines": [
+                  "给疑问标记出处，让下一次阅读有方向。"
+                ]
+              }
+            ],
+            "images": [],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "932833813cf5f035c997a696ca8d01aa3d9b23dfd35690d9e6eff87c22aeffb0"
+        }
+      ],
+      "inputPath": "examples/templates/T34.md",
+      "previewPath": "docs/images/refinement-m1-v2/T34.png",
+      "archiveDirectory": "templates/T34",
+      "manifestSha256": "07d06bd441e8e865ba1ef7ff301eaa1ba025f9e58b6c1fcf8b662dd444ca7c1d",
+      "mobileAuditSha256": "13531e6d53d7aefef3967df551311ca1b8d116833c89345041c1aeb001613ffc",
+      "assets": [],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T39",
+      "input": "fa0dbafb2f37bff04dce529519cc38b34d3bf81555127d609d7d2484ab9af940",
+      "png": "412a416f7846457c30d658b9b435833022c2392a0a8fe8c4c22769ba54fa84f2",
+      "pdf": "d6e9ba810b86ae61028f29375315aafa8ff225ebadfe414d490ce60311498d7e",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T39",
+            "scale": 0.325,
+            "titleBodyRatio": 1.5,
+            "reading": [
+              {
+                "text": "这是为一张虚构肖像写的短故事，不是真实访谈。",
+                "measureEm": 11.579120908699396,
+                "lines": [
+                  "这是为一张虚构肖像写的",
+                  "短故事，不是真实访谈。"
+                ]
+              },
+              {
+                "text": "她先把泥团放在桌上，再慢慢整理碗口。",
+                "measureEm": 11.579120908699396,
+                "lines": [
+                  "她先把泥团放在桌上，再",
+                  "慢慢整理碗口。"
+                ]
+              },
+              {
+                "text": "照片般的画面来自生成图，不能据此推断人物经历。",
+                "measureEm": 11.579120908699396,
+                "lines": [
+                  "照片般的画面来自生成",
+                  "图，不能据此推断人物",
+                  "经历。"
+                ]
+              }
+            ],
+            "images": [
+              {
+                "width": 125.50416056315105,
+                "height": 188.25624084472656,
+                "naturalWidth": 1024,
+                "naturalHeight": 1536,
+                "sourceScale": 0.1225626567999522,
+                "objectFit": "contain"
+              }
+            ],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "d358960c7a425ffec598a2284c72952ef52eccec1fccb595f67289d38723311f"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T39",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 1.5,
+            "reading": [
+              {
+                "text": "这是为一张虚构肖像写的短故事，不是真实访谈。",
+                "measureEm": 11.57912112415511,
+                "lines": [
+                  "这是为一张虚构肖像写的",
+                  "短故事，不是真实访谈。"
+                ]
+              },
+              {
+                "text": "她先把泥团放在桌上，再慢慢整理碗口。",
+                "measureEm": 11.57912112415511,
+                "lines": [
+                  "她先把泥团放在桌上，再",
+                  "慢慢整理碗口。"
+                ]
+              },
+              {
+                "text": "照片般的画面来自生成图，不能据此推断人物经历。",
+                "measureEm": 11.57912112415511,
+                "lines": [
+                  "照片般的画面来自生成",
+                  "图，不能据此推断人物",
+                  "经历。"
+                ]
+              }
+            ],
+            "images": [
+              {
+                "width": 130.86758422851562,
+                "height": 196.30137634277344,
+                "naturalWidth": 1024,
+                "naturalHeight": 1536,
+                "sourceScale": 0.1278003752231598,
+                "objectFit": "contain"
+              }
+            ],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "b5358b9d02787e8fd4cc9c7826a441492a2188fc4a5a14997dc5e11996fa5570"
+        }
+      ],
+      "inputPath": "examples/templates/T39.md",
+      "previewPath": "docs/images/refinement-m1-v2/T39.png",
+      "archiveDirectory": "templates/T39",
+      "manifestSha256": "c70276fc404f80c569510a88342b7ac5a8f5bd66bdc2eb71c00611ba009a47f2",
+      "mobileAuditSha256": "c5067b28bb6cfd3df59127667ab84cd6e9e2f5bf35dd71ad9ebb6599f0be2c4b",
+      "assets": [
+        {
+          "reference": "assets/synthetic-ceramic-artist.png",
+          "hash": "c5529de74c9f1fdf5b8eac2c61998614148f67c0a5138af84466a79dabe51ab1",
+          "mime": "image/png",
+          "width": 1024,
+          "height": 1536,
+          "bytes": 2166975
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T40",
+      "input": "255a1463e49c46e5120be7feda683f45f30fb34fabd2efacbac2ba9eefce40e3",
+      "png": "cf612582cc82c722e7e264dc27de0591d59fd04e24560a591d906d53cc9f135c",
+      "pdf": "50dda045c8dc9439085bf6a0b8e666ab169c73c85774730249afc14b26de05f6",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T40",
+            "scale": 0.325,
+            "titleBodyRatio": 1.7,
+            "reading": [
+              {
+                "text": "这里只观察作者明确提供的局部示意，不据此判断整件物品。",
+                "measureEm": 21.853465221356753,
+                "lines": [
+                  "这里只观察作者明确提供的局部示意，不据此判",
+                  "断整件物品。"
+                ]
+              }
+            ],
+            "images": [
+              {
+                "width": 279.6493350758272,
+                "height": 158.46795654296875,
+                "naturalWidth": 1200,
+                "naturalHeight": 680,
+                "sourceScale": 0.23304111256318935,
+                "objectFit": "contain"
+              }
+            ],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "4c64889ae9cdb9fa14fdb280739779300938d715897ffe5a7be965657f0eed26"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T40",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 1.7,
+            "reading": [
+              {
+                "text": "这里只观察作者明确提供的局部示意，不据此判断整件物品。",
+                "measureEm": 21.853467442207954,
+                "lines": [
+                  "这里只观察作者明确提供的局部示意，不据此判",
+                  "断整件物品。"
+                ]
+              }
+            ],
+            "images": [
+              {
+                "width": 291.6001712574678,
+                "height": 165.24009704589844,
+                "naturalWidth": 1200,
+                "naturalHeight": 680,
+                "sourceScale": 0.24300014271455653,
+                "objectFit": "contain"
+              }
+            ],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "d6f2fa4f6e8e0c04a08a1833c3f13211dc6cef5507effe8d626fdc8d4c7443e8"
+        }
+      ],
+      "inputPath": "examples/templates/T40.md",
+      "previewPath": "docs/images/refinement-m1-v2/T40.png",
+      "archiveDirectory": "templates/T40",
+      "manifestSha256": "34aba3bfd397f2eed2460c125a12568bc557a0ac24cc367256e6922ac915da38",
+      "mobileAuditSha256": "8ee273b93effd8b724d448ee9b6c8bfc1905e052fbd8026b9dd012ff42daa65b",
+      "assets": [
+        {
+          "reference": "assets/original-seam-detail.png",
+          "hash": "f3741fbfe7ce6f2689f106542e23796b9ae6ada5c683ad82256d8cffde177c40",
+          "mime": "image/png",
+          "width": 1200,
+          "height": 680,
+          "bytes": 9514
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 1015,
+          "height": 1291
+        },
+        "used": {
+          "width": 1015,
+          "height": 1291
+        },
+        "occupied": {
+          "height": 1269.3125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 1015,
+          "height": 1291
+        },
+        "used": {
+          "width": 1015,
+          "height": 1291
+        },
+        "occupied": {
+          "height": 1269.3125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "T45",
+      "input": "6b035a832a32f08e81b0e104828cfe8bde972aa562bd77e28f8f0e8c2c79a714",
+      "png": "2f02f1b260f0ebf63d9710fe8a8450169bef1357f49e26637ed0bfd5ce236534",
+      "pdf": "84da2449eaebb95b442a6700df094d9ce893c3ddcbac6757496469510c4ebe62",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "refinement": {
+            "id": "T45",
+            "scale": 0.325,
+            "titleBodyRatio": 1.9500000000000002,
+            "reading": [
+              {
+                "text": "不急着给观察命名，先留意颜色、边缘与光线的变化。",
+                "measureEm": 14.09614475538122,
+                "lines": [
+                  "不急着给观察命名，先留意颜",
+                  "色、边缘与光线的变化。"
+                ]
+              },
+              {
+                "text": "叶片的正反面并不相同。换个角度，深浅也随之改变。",
+                "measureEm": 14.09614475538122,
+                "lines": [
+                  "叶片的正反面并不相同。换个角",
+                  "度，深浅也随之改变。"
+                ]
+              },
+              {
+                "text": "把发现写成描述，不把猜测当作事实。",
+                "measureEm": 14.09614475538122,
+                "lines": [
+                  "把发现写成描述，不把猜测当作",
+                  "事实。"
+                ]
+              }
+            ],
+            "images": [
+              {
+                "width": 91.18281555175781,
+                "height": 136.77422332763672,
+                "naturalWidth": 1024,
+                "naturalHeight": 1536,
+                "sourceScale": 0.08904571831226349,
+                "objectFit": "contain"
+              }
+            ],
+            "errors": []
+          },
+          "file": "mobile-375.png",
+          "sha256": "0b3b2af394a01f31c9b38f91091b20212d62aceb9b7a832ea3b18b36f93d2153"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "refinement": {
+            "id": "T45",
+            "scale": 0.3388888888888889,
+            "titleBodyRatio": 1.9500000000000002,
+            "reading": [
+              {
+                "text": "不急着给观察命名，先留意颜色、边缘与光线的变化。",
+                "measureEm": 14.09614554262325,
+                "lines": [
+                  "不急着给观察命名，先留意颜",
+                  "色、边缘与光线的变化。"
+                ]
+              },
+              {
+                "text": "叶片的正反面并不相同。换个角度，深浅也随之改变。",
+                "measureEm": 14.09614554262325,
+                "lines": [
+                  "叶片的正反面并不相同。换个角",
+                  "度，深浅也随之改变。"
+                ]
+              },
+              {
+                "text": "把发现写成描述，不把猜测当作事实。",
+                "measureEm": 14.09614554262325,
+                "lines": [
+                  "把发现写成描述，不把猜测当作",
+                  "事实。"
+                ]
+              }
+            ],
+            "images": [
+              {
+                "width": 95.07949829101562,
+                "height": 142.61924743652344,
+                "naturalWidth": 1024,
+                "naturalHeight": 1536,
+                "sourceScale": 0.09285107254981995,
+                "objectFit": "contain"
+              }
+            ],
+            "errors": []
+          },
+          "file": "mobile-390.png",
+          "sha256": "07a3e3c10bd565eaeb6dbb1cc792158905b6f633b343fbea13b0faf8ffb510b1"
+        }
+      ],
+      "inputPath": "examples/templates/T45.md",
+      "previewPath": "docs/images/refinement-m1-v2/T45.png",
+      "archiveDirectory": "templates/T45",
+      "manifestSha256": "eb38de437db7e7b95709b634ee238f2bb11c0e480ea1d68d20d6b71dbc240e84",
+      "mobileAuditSha256": "e2e39d2980640ddbaa9d9fefea7d928475bb81bbe1047c62c92f729a4a390725",
+      "assets": [
+        {
+          "reference": "assets/synthetic-olive-twig.png",
+          "hash": "6eb92797db47185b3f9f61b449fac2b5e1077ede7ead834549719803f9af937e",
+          "mime": "image/png",
+          "width": 1024,
+          "height": 1536,
+          "bytes": 2150058
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      }
+    }
+  ],
+  "measurements": {
+    "T20": [
+      {
+        "viewportWidth": 375,
+        "cardWidth": 351,
+        "pictureWidth": 261.06414455837677,
+        "pictureHeight": 167.8269500732422,
+        "sourceScale": 0.1864743889702691,
+        "objectFit": "contain"
+      },
+      {
+        "viewportWidth": 390,
+        "cardWidth": 366,
+        "pictureWidth": 272.2207505967882,
+        "pictureHeight": 174.99905395507812,
+        "sourceScale": 0.19444339328342014,
+        "objectFit": "contain"
+      }
+    ],
+    "T40": [
+      {
+        "viewportWidth": 375,
+        "cardWidth": 351,
+        "pictureWidth": 279.6493350758272,
+        "pictureHeight": 158.46795654296875,
+        "sourceScale": 0.23304111256318935,
+        "objectFit": "contain",
+        "sourceNumeralFontPx": 48,
+        "effectiveNumeralFontPx": 11.185973403033088
+      },
+      {
+        "viewportWidth": 390,
+        "cardWidth": 366,
+        "pictureWidth": 291.6001712574678,
+        "pictureHeight": 165.24009704589844,
+        "sourceScale": 0.24300014271455653,
+        "objectFit": "contain",
+        "sourceNumeralFontPx": 48,
+        "effectiveNumeralFontPx": 11.664006850298714
+      }
+    ]
+  },
+  "pressure": [
+    {
+      "id": "short-compact",
+      "template": "T01",
+      "density": "compact",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "742f82737efdce3a82c963098002ba0da2040a05be6042b43e701888fd6a4025",
+      "archiveInput": "visual-stress/inputs/short-compact.md",
+      "archiveDirectory": "visual-stress/short-compact",
+      "manifestSha256": "de3592491e30ce05a4ad5e7ce88a4e6c0d5f4e7f1cc864f4ec29b708672e90df",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "7f9a531ac3edd34f8ffcfd8e84663c9b2510bc7233763108b4987a780af44e61"
+        }
+      ],
+      "pdf": "8c35eb2ad5db26b0b4648dd28a2fe30a269385345125dea573736622986ed717",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "752f47dadaa05bbde6c6b3432dec6dd1529a168340b10947fe80cd6ad0795d39"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "ef655954c66ae45eb9519e360ea5b81ee72f77e4a91fddbc8298a4817eee1b72"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1210
+        },
+        "used": {
+          "width": 968,
+          "height": 1210
+        },
+        "occupied": {
+          "height": 1209.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "short-standard",
+      "template": "T01",
+      "density": "standard",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "5ad787e4b2e8be9c37d86da09aac733b5b8913ac7dbc19316b08269297c4204c",
+      "archiveInput": "visual-stress/inputs/short-standard.md",
+      "archiveDirectory": "visual-stress/short-standard",
+      "manifestSha256": "00b88d0873467ed5f975d0a0c1b7e36a2c1116ca0496ae4d177fbc8aba1d1653",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "d86077202b453de5f7856ac04ad6ecdc5e7ec404a97c3b280709681f409ffc0e"
+        }
+      ],
+      "pdf": "64d3c8d5e1c2a3d97c8960839ac649a595b18bf6d2dae0bfbe71f64918b2ab92",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "00afd3e65223f3f4aef9868c7cd0d9669836b72e313406b551d0b9008525e432"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "366330429c5ee980d46ba5722601407a2ce8746bb717abef9b1615559d991a89"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1210
+        },
+        "used": {
+          "width": 968,
+          "height": 1210
+        },
+        "occupied": {
+          "height": 1209.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "short-editorial",
+      "template": "T01",
+      "density": "editorial",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "b9ebe77b76def92056af6afc6b3012008c60929c5ab017cf14f66fb3cb7ed48e",
+      "archiveInput": "visual-stress/inputs/short-editorial.md",
+      "archiveDirectory": "visual-stress/short-editorial",
+      "manifestSha256": "06438f3e1db2c96315b1e6de98e75b3f222140711a08b999c3cf3513101a46c6",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "c2a17b7a074ee8454ce7b9136dfde65b61f48734a4793d46ba8409fd325dd655"
+        }
+      ],
+      "pdf": "c6e9fe9b3da6b95cdb74c01cc26421223655a1136426c4003e5c0eaa9ce782f2",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "d86bcb03b87940e9ab630021c2387f5f421970e4aa6f4c5933301d6218ddbdf0"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "128bb0ae74ae54c87f25f8de7cad94eeabe06cea7374b88095b0a621ceb3968d"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1210
+        },
+        "used": {
+          "width": 968,
+          "height": 1210
+        },
+        "occupied": {
+          "height": 1209.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "medium-nested-url",
+      "template": "T04",
+      "density": "compact",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "2bb6d4ad094766c5fcae20b0f9a74fd4e3c8c8d2b27e0e6404ce084c0120f513",
+      "archiveInput": "visual-stress/inputs/medium-nested-url.md",
+      "archiveDirectory": "visual-stress/medium-nested-url",
+      "manifestSha256": "2a317e966bb9d9a491276dfdba3a826f75d5f0da7e2e22d903d71480e4e1cdde",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "d607bac50fc4d5c935b5d23b38c6e4d0cfa83c847562a2d48ad2838709cef623"
+        }
+      ],
+      "pdf": "6bc98dde9593d63949341567b30448a5585e187e06e9cfbdcae192cd05381ff9",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "a0e25ee3d7f6ffd8f8ebda6c353a0473e09992bb19e1c11aece4e289b4971f0c"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "f052e7988072e91e5dba4726062c964fce25d64ec033f5d55ffa957069661c93"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1250
+        },
+        "used": {
+          "width": 968,
+          "height": 1250
+        },
+        "occupied": {
+          "height": 1249.90625
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "medium-code",
+      "template": "T18",
+      "density": "standard",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "6e6120fcbf92c28c95472d19da4846fe722dd2a220658a9990d99811490741db",
+      "archiveInput": "visual-stress/inputs/medium-code.md",
+      "archiveDirectory": "visual-stress/medium-code",
+      "manifestSha256": "50a9f3bff2180469e94b1a979036c23aaa1dbfa494c3646d00a9b77329d78ea9",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "83a78d9ccc9544b0bd4628cde7eb4bc757b5e1d6ee9a6d3ff0ebb34ec63b799f"
+        }
+      ],
+      "pdf": "f71fb382797f7682b2ea89332a066fb06986fb60cb656dc6459fc1252c0a9d35",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "7531311d5a343ba27b2fc4d23ae6f633bf316e4a179bb0a107661bac558b67a2"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "f71162d689ae5866c57b5d0be5a68a158a7d736a82e02a38ae215804e152d4af"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "medium-table",
+      "template": "T24",
+      "density": "editorial",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "879886ec4d7885f8e3f1957246a28742ea87ffee49d551c59a8fc42a76111502",
+      "archiveInput": "visual-stress/inputs/medium-table.md",
+      "archiveDirectory": "visual-stress/medium-table",
+      "manifestSha256": "eed40f831da198d6b3811396b2a2c29f0f1d3364c50c0bd2c27bc75510079606",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "c489b0ec8807f79676b39a3e6dc11804a757b6306eaf540c7d028e62b0d78fbc"
+        }
+      ],
+      "pdf": "292a5bc882d9c18ced4c8f6ad1d815b860f826fd9837a071048a758302ee5f21",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "297b2b4edfc5e15cbb3edc97b170a156d9d52db7a6c957fff39d8e73ac087c7e"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "d46cb7c17b1f24a9fafbe6078cb6f69b001905036173d8b52cb6ee23fdc00f7a"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "long-compact",
+      "template": "T04",
+      "density": "compact",
+      "expected": "CONTENT_OVERFLOW",
+      "status": "expected-error",
+      "inputSha256": "f59b76ae066398b21dba4684c7ae29c64062e066e843f8914cb4af11e060dac1",
+      "archiveInput": "visual-stress/inputs/long-compact.md",
+      "code": "CONTENT_OVERFLOW"
+    },
+    {
+      "id": "long-standard",
+      "template": "T04",
+      "density": "standard",
+      "expected": "CONTENT_OVERFLOW",
+      "status": "expected-error",
+      "inputSha256": "41756e61593c31097e9c903bdcd70016d478dbbee244800992c6d9a171911cf4",
+      "archiveInput": "visual-stress/inputs/long-standard.md",
+      "code": "CONTENT_OVERFLOW"
+    },
+    {
+      "id": "long-editorial",
+      "template": "T04",
+      "density": "editorial",
+      "expected": "CONTENT_OVERFLOW",
+      "status": "expected-error",
+      "inputSha256": "731015f168390f588d087debdea29d075a03e59f6a7502eb9822ea4cdbce0af6",
+      "archiveInput": "visual-stress/inputs/long-editorial.md",
+      "code": "CONTENT_OVERFLOW"
+    },
+    {
+      "id": "notebook-headings",
+      "template": null,
+      "density": null,
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "37196127cd31c4838678f69454fc25fe5994832cbc91abec470a41592943883b",
+      "archiveInput": "visual-stress/inputs/notebook-headings.md",
+      "archiveDirectory": "visual-stress/notebook-headings",
+      "manifestSha256": "af4512833904c925b3f8d823bac8fbb73bc9a77343a376dc2a0d63428a616d9c",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "0edc8209e3abd398a9b9ab2a19472eb30b014f7926257cea30d4af5d4933787c"
+        },
+        {
+          "file": "card-002.png",
+          "sha256": "2adfe193260126041c3778ae8fbcfdbbf09668928be84a7b65687d2bf39b60f0"
+        }
+      ],
+      "pdf": "eb1b5673c34bf6f77b10f3149d92a497d2e0808de1001bd96e9adc35074417f6",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "382d28621af888416a14d31a8defcd9adf878b6c2134a24faa44bcbb5b5d2057"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "79610bab7f933b180950a020dc770c6506d64ec63d28e922c72a0f96bbb63238"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 899,
+          "height": 1204
+        },
+        "used": {
+          "width": 899,
+          "height": 1204
+        },
+        "occupied": {
+          "height": 777.421875
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "image-landscape",
+      "template": "T37",
+      "density": "standard",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "60b65800e6b8b3cd3b473a36a9a9221c57225616dc8f2a431f5b90c1b2e0e1f7",
+      "archiveInput": "visual-stress/inputs/image-landscape.md",
+      "archiveDirectory": "visual-stress/image-landscape",
+      "manifestSha256": "7e4a80261eb878d92d970fdc00694dedacb3f0bbc714a571fd375754e3e54565",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "84caca513abb334d240e4ea69fcb9ff814bac885bf7b3ca0881bb5e732fb6f3d"
+        }
+      ],
+      "pdf": "004b7513018cfb362a25cf28f88880e9155952dbd1f2886c159ad6e41cceb608",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "8a7aebce19a11da51a5ce946238ccfc98352d4701ded5508197bcd2d546971c0"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "f4950a840501f15642bcd06c1a71d97493823b0a544845ad81e32b0acd8e968f"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "image-portrait",
+      "template": "T39",
+      "density": "standard",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "db92b7bebc3193bd18444140c75513dd92072d206ad282e966c62722f9e2e0ea",
+      "archiveInput": "visual-stress/inputs/image-portrait.md",
+      "archiveDirectory": "visual-stress/image-portrait",
+      "manifestSha256": "865e26c90675255e2753854cfe4846d2d0033e94d5ef263d18b72a3e3157301e",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "412a416f7846457c30d658b9b435833022c2392a0a8fe8c4c22769ba54fa84f2"
+        }
+      ],
+      "pdf": "0643cad44f8fff4bc6f1b91357a3517d344a4d3f45b93a615509d22b421787cd",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "d358960c7a425ffec598a2284c72952ef52eccec1fccb595f67289d38723311f"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "b5358b9d02787e8fd4cc9c7826a441492a2188fc4a5a14997dc5e11996fa5570"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "image-alpha",
+      "template": "T45",
+      "density": "standard",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "0db6743f9a703ae03c19b612f3f360af9c9f71895b5c626f8befedb544ef3c8a",
+      "archiveInput": "visual-stress/inputs/image-alpha.md",
+      "archiveDirectory": "visual-stress/image-alpha",
+      "manifestSha256": "9c80cb742bb67602b51e8103bd2eb2257e39089d1176d20da55f52e3453fba15",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "2f02f1b260f0ebf63d9710fe8a8450169bef1357f49e26637ed0bfd5ce236534"
+        }
+      ],
+      "pdf": "87402260bc4730f4e642d10972fde8e002e07239818ba9a7fec6a1e3c9b17746",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "0b3b2af394a01f31c9b38f91091b20212d62aceb9b7a832ea3b18b36f93d2153"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "07a3e3c10bd565eaeb6dbb1cc792158905b6f633b343fbea13b0faf8ffb510b1"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "image-screenshot",
+      "template": "T20",
+      "density": "standard",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "d1a44e05c14349ef0decd5f7a733a76b798464fc681248b83d8cc77dc6d69113",
+      "archiveInput": "visual-stress/inputs/image-screenshot.md",
+      "archiveDirectory": "visual-stress/image-screenshot",
+      "manifestSha256": "54dd83d61a1ca7590bf4f624e0ec2131b3c8dc734284c5f2d78bb4fd48e80a14",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "798b35309dc56d21a50a69a27da11a4a49c41124c8c2506eb32337cf1661d22c"
+        }
+      ],
+      "pdf": "0eed2691118a63a655694a278395bfadece5939ed3e7393fe08ce1268ce817e8",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "7e4e8b0a3c1a6477dd563f918bd6ed1ed6ce3f22aacd0443d5c8ecb2e838e439"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "d70eac0c6c0be79b724d76bfdc3be93d04f02075f9d9ec486ebf7d5bcec214fd"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1290
+        },
+        "used": {
+          "width": 968,
+          "height": 1290
+        },
+        "occupied": {
+          "height": 1280.078125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "image-extreme-wide",
+      "template": "T37",
+      "density": "standard",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "cfe8328511a5a0991e7abe3f08255f3d5be732492f829ef2680f7aa826a59ccf",
+      "archiveInput": "visual-stress/inputs/image-extreme-wide.md",
+      "archiveDirectory": "visual-stress/image-extreme-wide",
+      "manifestSha256": "fed427fb0a604b76fe3022a62e327e2ed51de501e1f95004ad29f1061344ce02",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "059837f64f342e9ae1440c325596a04d3118cf77c22d8ae53ef15e1e4dbc59ac"
+        }
+      ],
+      "pdf": "e0f0df88ea2892ccf84c39ff41d62859f568f40cfdba0bedf872cc057ac18bdc",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "e33bdc0d862d84c8b50110bceb4a5d98ed684021850d00773ced10c1a87ad465"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "108605ed9afd98920472038347cd7d4e1b498ba32c72128c874da206fbf02a7f"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "image-extreme-tall",
+      "template": "T37",
+      "density": "standard",
+      "expected": "success",
+      "status": "rendered-not-visually-reviewed",
+      "inputSha256": "5d06c1492ddb4e890370982ad6b3b304f8cf246465e7f29f32eb361098c9b80f",
+      "archiveInput": "visual-stress/inputs/image-extreme-tall.md",
+      "archiveDirectory": "visual-stress/image-extreme-tall",
+      "manifestSha256": "f4c38087ffe0059edc2edc4b31428b38cf92e13da3a2e11b3c344cbe8c42c833",
+      "png": [
+        {
+          "file": "card-001.png",
+          "sha256": "df3648a1d1c7cc78ca2051d36701e85b0215af84f11abc9e8dd2dc5b9ab464a7"
+        }
+      ],
+      "pdf": "55a37af594bd1ab21998df4cd27cb2709b3d094501eec5a3b2672ad689d0492c",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "file": "mobile-375.png",
+          "sha256": "d3c3a4ea36146fdd15be267031859d7f53e4867d207682d46ba38fee90a09b62"
+        },
+        {
+          "viewportWidth": 390,
+          "file": "mobile-390.png",
+          "sha256": "364697a5f62d7dd6b2b457e6b7e720201b99847777601f7c62ffd969f6bcf640"
+        }
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      }
+    },
+    {
+      "id": "asset-missing",
+      "template": "T37",
+      "density": "standard",
+      "expected": "INVALID_ASSET",
+      "status": "expected-error",
+      "inputSha256": "b17120b0672885a2a0f8748fc6ac1f55e2da3092346adcaeb2afec3e37b7c228",
+      "archiveInput": "visual-stress/inputs/asset-missing.md",
+      "code": "INVALID_ASSET"
+    },
+    {
+      "id": "asset-corrupt",
+      "template": "T37",
+      "density": "standard",
+      "expected": "INVALID_ASSET",
+      "status": "expected-error",
+      "inputSha256": "8ad48f48d767b81cabb0498a6f17f979c236ae9c2668871df403ed20b3c3be0b",
+      "archiveInput": "visual-stress/inputs/asset-corrupt.md",
+      "code": "INVALID_ASSET"
+    }
+  ],
+  "verification": {
+    "archiveFilesCompared": 1100,
+    "frozenSourceFilesCompared": 156,
+    "sourceIdentitySha256": "7b818b3b04bac01d5b774189e83ccfd02c58e383f9d281334b8ac272b33a0455",
+    "historicalInputsAndPngsVerified": 48,
+    "tests": {
+      "total": 343,
+      "passed": 343,
+      "failed": 0,
+      "skipped": 0
+    },
+    "templateExamples": 48,
+    "templateExpectedOverflows": 48,
+    "pressure": {
+      "total": 18,
+      "exports": 13,
+      "expectedOverflow": 3,
+      "expectedInvalidAsset": 2,
+      "errors": 0
+    },
+    "gallery": {
+      "checks": 51,
+      "passed": 51,
+      "failed": 0,
+      "screenshots": 17
+    },
+    "galleryRegistryAtRun": {
+      "implemented": 48,
+      "accepted": 35,
+      "pending": 13
+    },
+    "aspects": {
+      "cases": 22,
+      "outcomes": {
+        "exported-not-visually-reviewed": 12,
+        "allowed-overflow": 4,
+        "expected-overflow": 6
+      }
+    },
+    "series": [
+      {
+        "id": "evidence-reading",
+        "cards": 5,
+        "pdf": "pass"
+      },
+      {
+        "id": "mean-tutorial",
+        "cards": 3,
+        "pdf": "pass"
+      }
+    ],
+    "summarySha256": {
+      "templates/summary.json": "12bae996ab8a47b77f2d1b7f96519065b6cd719bc0135f6c9ea927d5c5f19491",
+      "visual-stress/summary.json": "70ce80893c7709cdbda41697737f19a61cd760ba5f77eb6cad3f009593c46da0",
+      "visual-stress/source-files.json": "38ee5b6c92935ee1b42f6f8c16196045a4ac8d221dc994db6c4ba98da0d85b90",
+      "gallery/summary.json": "1d14c2bcd22a238b2864ac92f1eca71bc50420300423f0666e5dfc53bd360dfd",
+      "aspects/summary.json": "d76a599dfe3de88f74cf5c8192df1c24673d18a5bfaf30e62d16f8b1c906093f",
+      "series/summary.json": "0267223ef525cc5a6a04b435303a945eb4068e7423478dc82f6be19f51030a2d"
+    },
+    "jobLogSha256": "fbcc9f5b350fa2f39ef7fc566fc82bea61bfba67c16a23cf9429ab68a69d6375"
+  }
+}

@@ -134,11 +134,14 @@ export function measureAspectMobile() {
     const bodyRoots = [...card.querySelectorAll('.template-intro p,.template-intro li,.template-section p,.template-section li,.template-section blockquote,.template-metric .statistic-label,th,td,pre,code')].filter(hasText);
     const noteRoots = [...card.querySelectorAll('.card-source,.card-eyebrow,.brand-name,.footer-text,.card-index,figcaption')].filter(hasText);
     const descendants = roots => [...new Set(roots.flatMap(root => [root, ...root.querySelectorAll('*')]))].filter(hasText);
+    const unsupportedTransformLonghand = css => ['rotate','translate'].some(property => css[property] && css[property] !== 'none');
     const type = element => {
       const style = getComputedStyle(element), rect = element.getBoundingClientRect();
       const fontSize = parseFloat(style.fontSize); let visible = rect.width > 0 && rect.height > 0, nestedTransform = false;
-      for (let node = element; node && node !== card; node = node.parentElement) {
+      for (let node = element; node; node = node.parentElement) {
         const ancestor = getComputedStyle(node);
+        if (unsupportedTransformLonghand(ancestor)) nestedTransform = true;
+        if (node === card) break; // The expected card transform alone establishes scale.
         if (ancestor.display === 'none' || ['hidden','collapse'].includes(ancestor.visibility) || Number(ancestor.opacity) === 0) visible = false;
         if ((ancestor.transform && ancestor.transform !== 'none') || (ancestor.scale && !['none','1'].includes(ancestor.scale)) || (ancestor.zoom && !['normal','1'].includes(String(ancestor.zoom)))) nestedTransform = true;
       }
@@ -146,8 +149,92 @@ export function measureAspectMobile() {
     };
     return { template: card.dataset.template, aspect: card.dataset.templateAspect, cardWidth: rect.width, cardHeight: rect.height, canvasWidth: card.offsetWidth, canvasHeight: card.offsetHeight, scale, counter: card.querySelector('.card-index')?.textContent, images: [...card.querySelectorAll('.card-image')].map(image => {
       const style = getComputedStyle(image), rect = image.getBoundingClientRect();
-      let clipped = false; for (let node = image; node && node !== card; node = node.parentElement) { const css = getComputedStyle(node); if ((css.clipPath && css.clipPath !== 'none') || ['hidden','clip'].includes(css.overflowX) || ['hidden','clip'].includes(css.overflowY)) clipped = true; }
-      return { naturalWidth: image.naturalWidth, naturalHeight: image.naturalHeight, complete: image.complete, width: rect.width, height: rect.height, objectFit: style.objectFit, clipped, ...type(image) };
+      // Chromium's UA style gives img overflow:clip. That is a clipping
+      // boundary, not proof that any source pixel is lost. Compute the actual
+      // contain-painted object (which may be letterboxed inside the img box),
+      // then compare it with each rectangular clip through the card itself.
+      // All rectangles are in the same viewport coordinates after card scaling.
+      const tolerance = scale + .01; // one source CSS pixel, plus float rounding
+      const issues = [], clips = [];
+      const px = value => value ? parseFloat(value) : 0;
+      const box = (node, edge = 'padding-box') => {
+        const r = node.getBoundingClientRect(), css = getComputedStyle(node);
+        const border = ['Left','Top','Right','Bottom'].map(side => px(css[`border${side}Width`]) * scale);
+        const padding = ['Left','Top','Right','Bottom'].map(side => px(css[`padding${side}`]) * scale);
+        const insets = edge === 'border-box' ? [0,0,0,0] : edge === 'content-box' ? border.map((n,i) => n + padding[i]) : border;
+        const result = { left: r.left + insets[0], top: r.top + insets[1], right: r.right - insets[2], bottom: r.bottom - insets[3] };
+        // A scrollport excludes any actual scrollbar. Integer DOM metrics may
+        // round by one CSS pixel, covered by the same bounded tolerance above.
+        if (edge === 'padding-box' && Number.isFinite(node.clientWidth) && Number.isFinite(node.offsetWidth)) {
+          const extra = node.offsetWidth - node.clientWidth - (border[0] + border[2]) / scale;
+          if (extra > 1) { const left = Math.max(0, node.clientLeft - border[0] / scale) * scale; result.left += left; result.right -= extra * scale - left; }
+        }
+        if (edge === 'padding-box' && Number.isFinite(node.clientHeight) && Number.isFinite(node.offsetHeight)) {
+          const extra = node.offsetHeight - node.clientHeight - (border[1] + border[3]) / scale;
+          if (extra > 1) { const top = Math.max(0, node.clientTop - border[1] / scale) * scale; result.top += top; result.bottom -= extra * scale - top; }
+        }
+        result.width = result.right - result.left; result.height = result.bottom - result.top;
+        if (!Object.values(result).every(Number.isFinite) || result.width <= 0 || result.height <= 0) issues.push('invalid-box-geometry');
+        return result;
+      };
+      const contentBox = box(image, 'content-box');
+      const fit = Math.min(contentBox.width / image.naturalWidth, contentBox.height / image.naturalHeight);
+      const paintedWidth = image.naturalWidth * fit, paintedHeight = image.naturalHeight * fit;
+      const position = (style.objectPosition || '50% 50%').trim().split(/\s+/);
+      const offset = (value, spare, axis) => {
+        const keyword = { left:'0%', top:'0%', center:'50%', right:'100%', bottom:'100%' }[value];
+        value = keyword ?? value;
+        if (/^-?(?:\d+(?:\.\d*)?|\.\d+)%$/.test(value)) return spare * parseFloat(value) / 100;
+        if (/^-?(?:\d+(?:\.\d*)?|\.\d+)px$/.test(value)) return parseFloat(value) * scale;
+        issues.push(`unsupported-object-position-${axis}`); return 0;
+      };
+      if (position.length !== 2) issues.push('unsupported-object-position');
+      const left = contentBox.left + offset(position[0], contentBox.width - paintedWidth, 'x');
+      const top = contentBox.top + offset(position[1], contentBox.height - paintedHeight, 'y');
+      const painted = { left, top, width: paintedWidth, height: paintedHeight, right: left + paintedWidth, bottom: top + paintedHeight };
+      if (!Object.values(painted).every(Number.isFinite) || painted.width <= 0 || painted.height <= 0) issues.push('invalid-painted-geometry');
+      const check = (boundary, x, y, selector, overflowX, overflowY) => {
+        const clipsX = x && (painted.left < boundary.left - tolerance || painted.right > boundary.right + tolerance);
+        const clipsY = y && (painted.top < boundary.top - tolerance || painted.bottom > boundary.bottom + tolerance);
+        clips.push({ selector, overflowX, overflowY, boundary, clipsX, clipsY });
+      };
+      // Even contain can crop if object-position moves the painted object out.
+      check(contentBox, true, true, 'image-content-box', style.overflowX, style.overflowY);
+      for (let node = image; node; node = node.parentElement) {
+        const css = getComputedStyle(node), selector = node.className || node.tagName.toLowerCase();
+        // These can change or suppress paint independently of overflow/transform.
+        // Their geometry is unsupported: retain evidence and fail closed.
+        if ((css.contain || 'none').split(/\s+/).some(value => ['paint','content','strict'].includes(value))) issues.push(`unsupported-paint-containment:${selector}`);
+        if (css.contentVisibility && css.contentVisibility !== 'visible') issues.push(`unsupported-content-visibility:${selector}`);
+        if (unsupportedTransformLonghand(css)) issues.push(`unsupported-transform-longhand:${selector}`);
+        if ((css.clipPath && css.clipPath !== 'none') || (css.clip && css.clip !== 'auto') || (css.maskImage && css.maskImage !== 'none')) issues.push(`unsupported-shaped-clip:${selector}`);
+        const x = ['hidden','clip','auto','scroll'].includes(css.overflowX), y = ['hidden','clip','auto','scroll'].includes(css.overflowY);
+        if (x || y) {
+          if (['TopLeft','TopRight','BottomLeft','BottomRight'].some(corner => /[1-9]/.test(css[`border${corner}Radius`] || '0px'))) issues.push(`unsupported-rounded-clip:${selector}`);
+          let edge = 'padding-box', margin = 0;
+          if (css.overflowX === 'clip' || css.overflowY === 'clip') {
+            const terms = (css.overflowClipMargin || '0px').trim().split(/\s+/);
+            const edgeTerm = terms.find(value => ['content-box','padding-box','border-box'].includes(value));
+            if (edgeTerm) edge = edgeTerm;
+            const length = terms.find(value => /^(?:\d+(?:\.\d*)?|\.\d+)px$/.test(value));
+            if (length) margin = parseFloat(length) * scale;
+            if (terms.some(value => value !== edgeTerm && value !== length)) issues.push(`unsupported-clip-margin:${selector}`);
+          }
+          // overflow-clip-margin affects only axes with overflow:clip, not hidden.
+          const paddingBox = box(node), clipBox = box(node, edge);
+          const boundary = {
+            left: css.overflowX === 'clip' ? clipBox.left - margin : paddingBox.left,
+            right: css.overflowX === 'clip' ? clipBox.right + margin : paddingBox.right,
+            top: css.overflowY === 'clip' ? clipBox.top - margin : paddingBox.top,
+            bottom: css.overflowY === 'clip' ? clipBox.bottom + margin : paddingBox.bottom
+          };
+          check(boundary, x, y, selector, css.overflowX, css.overflowY);
+        }
+        if (node === card) break;
+      }
+      const clipped = clips.some(clip => clip.clipsX || clip.clipsY);
+      return { naturalWidth: image.naturalWidth, naturalHeight: image.naturalHeight, complete: image.complete, width: rect.width, height: rect.height, objectFit: style.objectFit, clipped,
+        geometry: { status: issues.length ? 'unverified' : 'verified', tolerance, objectPosition: style.objectPosition, contentBox, painted, clips, issues }, ...type(image) };
     }), body: descendants(bodyRoots).map(type), notes: descendants(noteRoots).map(type) };
   });
 }
@@ -164,7 +251,13 @@ export function assertAspectMobile(audit, item, viewportWidth) {
   for (const [index, image] of (card.images ?? []).entries()) {
     assert.deepEqual([image.naturalWidth, image.naturalHeight], item.assets[index].dimensions);
     assert.equal(image.complete, true); assert.ok(image.width > 0 && image.height > 0);
-    assert.equal(image.objectFit, 'contain'); assert.equal(image.clipped, false);
+    assert.equal(image.objectFit, 'contain');
+    assert.equal(image.geometry?.status, 'verified', `Cannot verify full-frame image geometry: ${JSON.stringify(image.geometry?.issues ?? [])}`);
+    assert.ok(Number.isFinite(image.geometry.painted.width) && image.geometry.painted.width > 0 && Number.isFinite(image.geometry.painted.height) && image.geometry.painted.height > 0);
+    assert.ok(Math.abs(image.geometry.painted.width / image.geometry.painted.height - image.naturalWidth / image.naturalHeight) < 1e-6, 'Painted image must preserve source proportions.');
+    assert.ok(Array.isArray(image.geometry.clips) && image.geometry.clips.length, 'Image clip-boundary evidence is required.');
+    assert.equal(image.clipped, image.geometry.clips.some(clip => clip.clipsX || clip.clipsY), 'Image clipping summary disagrees with its geometry.');
+    assert.equal(image.clipped, false, `Painted image crosses a clipping boundary: ${JSON.stringify(image.geometry.clips.filter(clip => clip.clipsX || clip.clipsY))}`);
     assert.equal(image.visible, true); assert.equal(image.nestedTransform, false);
   }
   assert.ok(card.body.length && card.notes.length, 'Both body and note text must be measured.');

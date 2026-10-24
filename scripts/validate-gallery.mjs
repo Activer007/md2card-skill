@@ -135,7 +135,16 @@ export function galleryImages(model) {
   return [...(model.comparisons ?? []).flatMap(group => group.previews), ...model.accepted.map(item => item.preview)];
 }
 
-async function inspectResources(page, model, { scriptEnabled }) {
+export function assertPreviewImage(image, preview, root = ROOT) {
+  assert.equal(image.width, preview.width);
+  assert.equal(image.height, preview.height);
+  assert.equal(image.complete, true);
+  // The gallery model already validates the exact versioned repository path.
+  // Do not pin a historical directory when the accepted design has new pixels.
+  assert.equal(image.source, pathToFileURL(path.join(root, preview.path)).href, 'Decoded image must use its accepted preview path.');
+}
+
+export async function inspectResources(page, model, { scriptEnabled, root }) {
   // Scroll each actual image into view so lazy loading cannot masquerade as a broken asset.
   const expectedImages = galleryImages(model);
   const images = page.locator('.accepted-card img, .comparison-grid img');
@@ -164,10 +173,7 @@ async function inspectResources(page, model, { scriptEnabled }) {
   assert.deepEqual([...state.visible].sort(), model.items.map(item => item.id));
   assert.equal(state.pendingImages, 0);
   for (const [index, image] of state.images.entries()) {
-    assert.equal(image.width, expectedImages[index].width);
-    assert.equal(image.height, expectedImages[index].height);
-    assert.equal(image.complete, true);
-    assert.ok(image.source.endsWith(`/${expectedImages[index].path}`));
+    assertPreviewImage(image, expectedImages[index], root);
   }
   return state;
 }
@@ -283,7 +289,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
   const files = [GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', ...galleryImages(model).map(image => image.path)];
   const allowed = new Set(files.map(relative => pathToFileURL(path.join(options.root, relative)).href));
   await withPage(browser, options, allowed, report, 'javascript-on', true, async page => {
-    await recordCheck(report, 'file URL: real local resources, CSP, images and classic JS', () => inspectResources(page, model, { scriptEnabled: true }));
+    await recordCheck(report, 'file URL: real local resources, CSP, images and classic JS', () => inspectResources(page, model, { scriptEnabled: true, root: options.root }));
     const filterCases = [
       ...model.families.map(family => ({ family: family.value })),
       ...[...new Set(model.items.map(item => item.image))].map(image => ({ image })),
@@ -358,7 +364,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
   });
   await withPage(browser, options, allowed, report, 'javascript-off', false, async page => {
     await recordCheck(report, 'no JS: complete catalogue, real images and static input links', async () => {
-      const state = await inspectResources(page, model, { scriptEnabled: false });
+      const state = await inspectResources(page, model, { scriptEnabled: false, root: options.root });
       const links = await evaluateSafely(page.locator('[data-template-card] .links a'), 'evaluateAll', anchors => anchors.map(anchor => anchor.getAttribute('href')));
       for (const item of model.items) assert.ok(links.includes(`../../${item.example}`));
       assert.equal(await page.locator('noscript').isVisible(), true);

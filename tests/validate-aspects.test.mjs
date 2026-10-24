@@ -82,7 +82,7 @@ async function harness(t, config={}) {
 function mobileAudit(item,viewportWidth,small=false) {
   const [width,height]=item.dimensions, cardWidth=viewportWidth-24, scale=cardWidth/width;
   const type=ratio=>({fontSize:ratio*width,effectiveSize:ratio*cardWidth,visible:true,nestedTransform:false});
-  return [{template:item.template,aspect:item.aspect,cardWidth,cardHeight:height*scale,canvasWidth:width,canvasHeight:height,scale,counter:'1 / 1',images:(item.assets??[]).map(asset=>({naturalWidth:asset.dimensions[0],naturalHeight:asset.dimensions[1],complete:true,width:200,height:130,objectFit:'contain',clipped:false,visible:true,nestedTransform:false})),body:[type(small?.02:.043)],notes:[type(.0335)]}];
+  return [{template:item.template,aspect:item.aspect,cardWidth,cardHeight:height*scale,canvasWidth:width,canvasHeight:height,scale,counter:'1 / 1',images:(item.assets??[]).map(asset=>({naturalWidth:asset.dimensions[0],naturalHeight:asset.dimensions[1],complete:true,width:200,height:130,objectFit:'contain',clipped:false,geometry:{status:'verified',painted:{width:195,height:130},clips:[{selector:'image-content-box',clipsX:false,clipsY:false}],issues:[]},visible:true,nestedTransform:false})),body:[type(small?.02:.043)],notes:[type(.0335)]}];
 }
 
 test('fixed 58-case schema rejects expansions, substitutions, malformed ratios and expectation weakening',()=>{
@@ -152,7 +152,7 @@ test('dirty checkout or stale output blocks execution, and input hash mismatch p
 // This proves its hidden/scaled-node collection, not real browser geometry.
 test('mobile collector retains hidden source nodes and flags nested scaling instead of filtering them out',()=>{
   const style={fontSize:'46.44px',fontFamily:'test',lineHeight:'69.66px',display:'block',visibility:'visible',opacity:'1',transform:'none',scale:'none',zoom:'1'};
-  const card={offsetWidth:1080,offsetHeight:1080,dataset:{template:'T04',templateAspect:'square'},getBoundingClientRect:()=>({width:351,height:351}),querySelector:()=>({textContent:'1 / 1'})};
+  const card={style:{...style},offsetWidth:1080,offsetHeight:1080,dataset:{template:'T04',templateAspect:'square'},getBoundingClientRect:()=>({width:351,height:351}),querySelector:()=>({textContent:'1 / 1'})};
   const body={tagName:'P',className:'',textContent:'Original body',parentElement:card,style:{...style},getBoundingClientRect:()=>({width:200,height:50}),querySelectorAll:()=>[]};
   const note={...body,className:'card-source',textContent:'Original source',style:{...style,fontSize:'36.18px',display:'none'},getBoundingClientRect:()=>({width:0,height:0})};
   card.querySelectorAll=selector=>selector==='.card-image'?[]:selector.includes('.template-intro')?[body]:[note];
@@ -173,7 +173,7 @@ test('R12 plan rejects extra assets, wrong image hashes, support expansion and r
 
 test('image collector contract refuses crop, changed proportions, missing or hidden full-frame image',()=>{
   const item=plan.cases.find(item=>item.template==='T37');
-  for(const change of [a=>a[0].images=[],a=>a[0].images[0].naturalWidth=800,a=>a[0].images[0].objectFit='cover',a=>a[0].images[0].complete=false,a=>a[0].images[0].clipped=true,a=>a[0].images[0].visible=false,a=>a[0].images[0].nestedTransform=true]) { const a=mobileAudit(item,375); change(a); assert.throws(()=>assertAspectMobile(a,item,375)); }
+  for(const change of [a=>a[0].images=[],a=>a[0].images[0].naturalWidth=800,a=>a[0].images[0].objectFit='cover',a=>a[0].images[0].complete=false,a=>a[0].images[0].clipped=true,a=>a[0].images[0].geometry.status='unverified',a=>a[0].images[0].geometry.painted.width=1,a=>delete a[0].images[0].geometry,a=>a[0].images[0].visible=false,a=>a[0].images[0].nestedTransform=true]) { const a=mobileAudit(item,375); change(a); assert.throws(()=>assertAspectMobile(a,item,375)); }
 });
 
 test('image caption remains in native PDF source segments and altered image bytes block its export',async t=>{
@@ -186,21 +186,154 @@ test('image caption remains in native PDF source segments and altered image byte
   assert.ok(h.calls.exports.every(call=>!call.id.includes('T37')));
 });
 
-test('actual serialized mobile collector measures the full-frame image and detects ancestor cropping',()=>{
-  const style={fontSize:'46.44px',fontFamily:'test',lineHeight:'69.66px',display:'block',visibility:'visible',opacity:'1',transform:'none',scale:'none',zoom:'1',overflowX:'visible',overflowY:'visible',clipPath:'none',objectFit:'contain'};
-  const card={offsetWidth:1600,offsetHeight:900,dataset:{template:'T37',templateAspect:'slide'},getBoundingClientRect:()=>({width:351,height:197.4375}),querySelector:()=>({textContent:'1 / 1'})};
-  const body={tagName:'P',className:'',textContent:'Original story',parentElement:card,style:{...style},getBoundingClientRect:()=>({width:200,height:50}),querySelectorAll:()=>[]};
-  const note={...body,className:'card-source',style:{...style,fontSize:'53.6px'}};
-  const frame={parentElement:card,style:{...style}};
-  const picture={...body,tagName:'IMG',className:'card-image',textContent:'',parentElement:frame,naturalWidth:1536,naturalHeight:1024,complete:true};
+// The numeric element sizes below are copied from the immutable CI run
+// 40068790583 T37 audits. Coordinates/ancestors here are explicit DOM doubles,
+// not rerendered measurements or replacement CI artifacts.
+function imageGeometryFixture({ viewport = 375, aspect = 'slide', width = 198.04763793945312, height = 86.87249755859375 } = {}) {
+  const dimensions=SIZES[aspect], scale=(viewport-24)/dimensions.width;
+  const rectangle=(left,top,width,height)=>({left,top,width,height,right:left+width,bottom:top+height});
+  const style={fontSize:`${dimensions.width*.043}px`,fontFamily:'test',lineHeight:`${dimensions.width*.043*1.5}px`,display:'block',visibility:'visible',opacity:'1',transform:'none',scale:'none',rotate:'none',translate:'none',zoom:'1',contain:'none',contentVisibility:'visible',overflowX:'visible',overflowY:'visible',overflowClipMargin:'0px',clipPath:'none',clip:'auto',maskImage:'none',objectFit:'contain',objectPosition:'50% 50%'};
+  for(const side of ['Left','Top','Right','Bottom']) {style[`border${side}Width`]='0px';style[`padding${side}`]='0px';}
+  for(const corner of ['TopLeft','TopRight','BottomLeft','BottomRight'])style[`border${corner}Radius`]='0px';
+  const node=(className,rect,parentElement,extra={})=>({className,tagName:'DIV',textContent:'',style:{...style},bounds:rect,parentElement,getBoundingClientRect(){return this.bounds;},querySelectorAll:()=>[],...extra});
+  const card=node('card',rectangle(12,0,viewport-24,dimensions.height*scale),null,{offsetWidth:dimensions.width,offsetHeight:dimensions.height,dataset:{template:'T37',templateAspect:aspect},querySelector:()=>({textContent:'1 / 1'})});
+  card.style.overflowX=card.style.overflowY='hidden';
+  const frame=node('image-frame',rectangle(20,20,width,height),card);
+  const picture=node('card-image',rectangle(20,20,width,height),frame,{tagName:'IMG',naturalWidth:1536,naturalHeight:1024,complete:true});
+  // Actual Chromium 156 UA defaults, the root cause of the previous false positive.
+  picture.style.overflowX=picture.style.overflowY='clip'; picture.style.overflowClipMargin='content-box';
+  const body=node('',rectangle(30,30,100,30),card,{tagName:'P',textContent:'Original story'});
+  const note=node('card-source',rectangle(30,30,100,30),card,{tagName:'P',textContent:'Original caption/source'});note.style.fontSize=`${dimensions.width*.0335}px`;
   card.querySelectorAll=selector=>selector==='.card-image'?[picture]:selector.includes('.template-intro')?[body]:[note];
-  const context={document:{querySelectorAll:()=>[card]},getComputedStyle:node=>node.style};
-  const collect=()=>runInNewContext('('+measureAspectMobile.toString()+')()',context)[0].images[0];
-  assert.equal(collect().objectFit,'contain'); assert.equal(collect().naturalWidth,1536); assert.equal(collect().clipped,false);
-  frame.style.overflowX='hidden'; assert.equal(collect().clipped,true);
-  frame.style.overflowX='visible'; picture.style.clipPath='inset(1px)'; assert.equal(collect().clipped,true);
-  picture.style.clipPath='none'; frame.style.transform='scale(.5)'; assert.equal(collect().nestedTransform,true);
-  frame.style.transform='none'; frame.style.visibility='hidden'; assert.equal(collect().visible,false);
+  const collect=()=>JSON.parse(JSON.stringify(runInNewContext('('+measureAspectMobile.toString()+')()',{document:{querySelectorAll:()=>[card]},getComputedStyle:node=>node.style})));
+  const item={template:'T37',aspect,dimensions:[dimensions.width,dimensions.height],assets:[{dimensions:[1536,1024]}]};
+  return {card,frame,picture,body,note,collect,item,scale,rectangle,assertPass:()=>assertAspectMobile(collect(),item,viewport)};
+}
+
+test('Chromium img overflow:clip is harmless when the exact contain-painted rectangle fits',()=>{
+  for(const values of [
+    {viewport:375,aspect:'slide',width:198.04763793945312,height:86.87249755859375},
+    {viewport:390,aspect:'slide',width:206.51121520996094,height:90.58500671386719},
+    {viewport:375,aspect:'portrait',width:314.4984130859375,height:209.66561889648438},
+    {viewport:390,aspect:'portrait',width:327.93853759765625,height:218.6256866455078}
+  ]) {
+    const f=imageGeometryFixture(values), image=f.collect()[0].images[0];
+    assert.equal(image.clipped,false); assert.equal(image.geometry.status,'verified');
+    assert.equal(image.geometry.clips.find(clip=>clip.selector==='card-image').clipsX,false);
+    assert.equal(image.geometry.clips.find(clip=>clip.selector==='card-image').clipsY,false);
+    assert.ok(Math.abs(image.geometry.painted.width/image.geometry.painted.height-1.5)<1e-9);
+    assert.doesNotThrow(f.assertPass);
+    if(values.aspect==='slide')assert.ok(image.geometry.painted.width<image.width*.7,'Actual picture is letterboxed, not stretched to the element box.');
+  }
+});
+
+test('ancestor overflow declarations pass only while the painted source remains inside their exact bounds',()=>{
+  const f=imageGeometryFixture();f.frame.style.overflowX=f.frame.style.overflowY='hidden';
+  assert.doesNotThrow(f.assertPass);
+  const paint=f.collect()[0].images[0].geometry.painted;
+  // Clip empty letterboxing only: the img element exceeds the frame, the source does not.
+  f.frame.bounds=f.rectangle(paint.left-1,paint.top,paint.width+2,paint.height);assert.doesNotThrow(f.assertPass);
+  f.frame.bounds=f.rectangle(paint.left+1,paint.top,paint.width,paint.height);
+  let image=f.collect()[0].images[0];assert.equal(image.clipped,true);assert.ok(image.geometry.clips.find(c=>c.selector==='image-frame').clipsX);assert.throws(f.assertPass,/clipping boundary/);
+  f.frame.bounds=f.rectangle(paint.left,paint.top+1,paint.width,paint.height);
+  image=f.collect()[0].images[0];assert.ok(image.geometry.clips.find(c=>c.selector==='image-frame').clipsY);assert.throws(f.assertPass,/clipping boundary/);
+});
+
+test('image content boxes subtract scaled border/padding and preserve valid object positioning',()=>{
+  const f=imageGeometryFixture();
+  for(const side of ['Left','Top','Right','Bottom']) {f.picture.style[`border${side}Width`]='10px';f.picture.style[`padding${side}`]='20px';}
+  const image=f.collect()[0].images[0];assert.ok(Math.abs(image.geometry.contentBox.left-(20+30*f.scale))<1e-9);assert.doesNotThrow(f.assertPass);
+  f.picture.style.objectPosition='100% 0%';assert.doesNotThrow(f.assertPass);
+  f.picture.style.objectPosition='200% 50%';assert.throws(f.assertPass,/clipping boundary/);
+  f.picture.style.objectPosition='0px 0px';assert.doesNotThrow(f.assertPass);
+  f.picture.style.objectPosition='400px 0px';assert.throws(f.assertPass,/clipping boundary/);
+  f.picture.style.objectPosition='calc(50% + 1px) 50%';assert.throws(f.assertPass,/Cannot verify/);
+});
+
+test('clip-margin is geometric and does not disable hidden, scrollport or card-edge clipping',()=>{
+  const f=imageGeometryFixture();const paint=f.collect()[0].images[0].geometry.painted;
+  f.frame.bounds=f.rectangle(paint.left+1,paint.top,paint.width-2,paint.height);f.frame.style.overflowX='clip';
+  assert.throws(f.assertPass,/clipping boundary/);
+  f.frame.style.overflowClipMargin='padding-box 5px';assert.doesNotThrow(f.assertPass);
+  f.frame.style.overflowX='hidden';assert.throws(f.assertPass,/clipping boundary/);
+  f.frame.style.overflowX='auto';f.frame.bounds=f.rectangle(paint.left,paint.top,paint.width,paint.height);
+  f.frame.offsetWidth=594;f.frame.clientWidth=578;f.frame.clientLeft=0;assert.throws(f.assertPass,/clipping boundary/);
+  delete f.frame.offsetWidth;delete f.frame.clientWidth;delete f.frame.clientLeft;f.frame.style.overflowX='visible';
+  f.picture.bounds=f.rectangle(0,20,f.picture.bounds.width,f.picture.bounds.height);f.picture.style.objectPosition='0% 50%';assert.throws(f.assertPass,/clipping boundary/);
+  assert.ok(f.collect()[0].images[0].geometry.clips.find(c=>c.selector==='card').clipsX);
+});
+
+test('shaped clips, masks, hidden images and nested scaling remain rejected rather than guessed safe',()=>{
+  for(const [property,value] of [['clipPath','inset(1px)'],['clip','rect(0px, 1px, 1px, 0px)'],['maskImage','linear-gradient(black, transparent)']]) {
+    const f=imageGeometryFixture();f.picture.style[property]=value;assert.equal(f.collect()[0].images[0].geometry.status,'unverified');assert.throws(f.assertPass,/Cannot verify/);
+  }
+  const rounded=imageGeometryFixture();rounded.picture.style.borderTopLeftRadius='2px';assert.throws(rounded.assertPass,/Cannot verify/);
+  const scaled=imageGeometryFixture();scaled.frame.style.transform='scale(.5)';assert.throws(scaled.assertPass);
+  const hidden=imageGeometryFixture();hidden.frame.style.visibility='hidden';assert.throws(hidden.assertPass);
+});
+
+// These source-only injections reproduce clipping mechanisms the rectangular
+// solver does not support. Reject them without pretending to solve their paint.
+test('paint containment and content visibility fail closed even with visible overflow',()=>{
+  const unsupported=[
+    ...['paint','content','strict','layout paint style','size layout paint style'].map(value=>['contain',value,'unsupported-paint-containment']),
+    ...['auto','hidden'].map(value=>['contentVisibility',value,'unsupported-content-visibility'])
+  ];
+  for(const target of ['picture','frame','card'])for(const [property,value,issue] of unsupported) {
+    const f=imageGeometryFixture(), node=f[target], paint=f.collect()[0].images[0].geometry.painted;
+    node.style.overflowX=node.style.overflowY='visible';node.style[property]=value;
+    if(target==='frame')node.bounds=f.rectangle(paint.left+10,paint.top+10,paint.width-20,paint.height-20);
+    const image=f.collect()[0].images[0];
+    assert.equal(image.geometry.status,'unverified',`${target} ${property}:${value}`);
+    assert.ok(image.geometry.issues.includes(`${issue}:${node.className}`));
+    assert.throws(f.assertPass,/Cannot verify full-frame image geometry/);
+  }
+  for(const contain of ['none','size','inline-size','layout','style','size layout style']) {
+    const f=imageGeometryFixture();f.frame.style.contain=contain;f.frame.style.contentVisibility='visible';assert.doesNotThrow(f.assertPass);
+  }
+});
+
+test('independent rotate rejects the exact rotated-box false negative instead of understating source paint',()=>{
+  const f=imageGeometryFixture(), {width,height}=f.picture.bounds;
+  // The reviewer injected this 90-degree bounding box. Unrotated contain math
+  // reports only 57.915px of paint height; actual rotated source is 130.309px.
+  f.picture.bounds=f.rectangle(20,0,height,width);
+  f.picture.offsetWidth=width/f.scale;f.picture.offsetHeight=height/f.scale;
+  f.picture.style.rotate='90deg';
+  const paint=f.collect()[0].images[0].geometry.painted;
+  f.frame.bounds=f.rectangle(paint.left,paint.top,paint.width,paint.height);
+  f.frame.style.overflowX=f.frame.style.overflowY='hidden';
+  const image=f.collect()[0].images[0];
+  assert.equal(f.picture.style.transform,'none');assert.ok(paint.height<height*1.5/2);
+  assert.equal(image.clipped,false,'The unsupported unrotated math alone misses this crop.');
+  assert.equal(image.geometry.status,'unverified');assert.equal(image.nestedTransform,true);
+  assert.ok(image.geometry.issues.includes('unsupported-transform-longhand:card-image'));
+  assert.throws(f.assertPass,/Cannot verify full-frame image geometry/);
+});
+
+test('rotate and translate longhands fail closed on image, ancestor and card without expanding the solver',()=>{
+  for(const target of ['picture','frame','card'])for(const [property,value] of [['rotate','90deg'],['rotate','0deg'],['translate','10px 0px'],['translate','0px']]) {
+    const f=imageGeometryFixture(),node=f[target];node.style[property]=value;
+    const image=f.collect()[0].images[0];
+    assert.equal(image.nestedTransform,true);assert.equal(image.geometry.status,'unverified');
+    assert.ok(image.geometry.issues.includes(`unsupported-transform-longhand:${node.className}`));
+    assert.throws(f.assertPass,/Cannot verify full-frame image geometry/);
+  }
+  const baseline=imageGeometryFixture();
+  baseline.card.style.transform=`matrix(${baseline.scale}, 0, 0, ${baseline.scale}, 0, 0)`;
+  assert.doesNotThrow(baseline.assertPass,'The expected card scaling transform remains supported.');
+});
+
+test('body and note type floors cannot be established through rotate or translate longhands',()=>{
+  for(const target of ['body','note'])for(const inherited of [false,true])for(const property of ['rotate','translate']) {
+    const f=imageGeometryFixture(),node=inherited?f.frame:f[target];
+    if(inherited)f[target].parentElement=f.frame;
+    node.style[property]=property==='rotate'?'90deg':'10px 0px';
+    const audit=f.collect(),type=audit[0][target==='body'?'body':'notes'][0];
+    assert.equal(type.nestedTransform,true);
+    // A shared image ancestor may fail its geometry first; either path rejects.
+    assert.throws(()=>assertAspectMobile(audit,f.item,375));
+  }
 });
 
 test('CLI help and rejected arguments never invoke validation or browser runtime',async()=>{

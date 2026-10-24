@@ -17,11 +17,15 @@ const input = id => `<!-- card: ${JSON.stringify({ template:id, ...(id==='T21'?{
 test('six selected templates add eight independently registered aspects; aspect variants never create extra design IDs', () => {
   assert.deepEqual(TEMPLATES.filter(t=>t.aspects.length>1).map(t=>t.id).sort(), ['T04','T05','T13','T21','T24','T37']);
   assert.equal(new Set(TEMPLATES.map(t=>t.id)).size,TEMPLATES.length);
-  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length, TEMPLATES.filter(t=>!t.historicalAcceptance).length);
+  assert.equal(TEMPLATES.length, 48);
+  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length, 48);
+  assert.equal(TEMPLATES.filter(t=>t.acceptance).length, 48);
   for(const t of TEMPLATES) {
     assert.deepEqual(Object.keys(t.aspectLayouts),t.aspects);
     assert.equal(t.aspectLayouts.portrait.composition,t.composition);
     assert.equal(t.aspectLayouts.portrait.status,t.status);
+    assert.equal(t.aspectLayouts.portrait.version,t.version);
+    assert.equal(t.aspectLayouts.portrait.acceptance,t.acceptance);
     for(const aspect of t.aspects) assert.ok(Object.isFrozen(t.aspectLayouts[aspect]));
   }
   for(const id of ['T04','T21']) {
@@ -33,7 +37,8 @@ test('six selected templates add eight independently registered aspects; aspect 
       assert.equal(t.aspectLayouts[aspect].version,2);
       assert.equal(t.aspectLayouts[aspect].acceptance,undefined);
       assert.equal(t.aspectLayouts[aspect].evidence,undefined);
-      assert.match(t.aspectLayouts[aspect].boundaries,/Current v2 typography is unreviewed/);
+      assert.match(t.aspectLayouts[aspect].boundaries,/exact short-fixture PNG\/mobile\/native-PDF artifacts are independently reviewed/);
+      assert.match(t.aspectLayouts[aspect].boundaries,/final aspect-specific binding remains pending R12/);
       assert.equal(t.aspectLayouts[aspect].historicalAcceptance.batch,'visual-upgrade-aspects');
       assert.equal(t.aspectLayouts[aspect].historicalEvidence,'docs/aspect-upgrade-provenance.json');
       assert.match(t.aspectLayouts[aspect].boundaries,/registered standard-density short example/);
@@ -252,7 +257,8 @@ test('R12 has exactly four pending purpose-led pairs and no inherited visual evi
     assert.equal(layout.status, 'implemented-awaiting-visual-review'); assert.equal(layout.version, 1);
     assert.equal(layout.acceptance, undefined); assert.equal(layout.evidence, undefined);
     assert.equal(layout.historicalAcceptance, undefined); assert.equal(layout.historicalEvidence, undefined);
-    assert.equal(entry.version, 2); assert.equal(entry.status, 'implemented-awaiting-visual-review');
+    assert.equal(entry.version, id === 'T24' ? 3 : 2); assert.equal(entry.status, 'visually-reviewed');
+    assert.equal(entry.acceptance, id === 'T24' ? 'refinement-m2-v3' : 'refinement-m2-v2');
     assert.match(layout.boundaries, /requires new full PNG/);
   }
   const isolated=css.slice(css.indexOf('/* R12 purpose-led independent aspects:'));
@@ -321,8 +327,12 @@ test('new supported aspects retain screen and print overflow rejection without p
 });
 
 
-test('R12 integrated aspects retain v2 typography, intrinsic image guards and separate title/numeral spacing',()=>{
-  assert.ok(TEMPLATES.every(entry=>entry.version===2 && entry.status==='implemented-awaiting-visual-review' && entry.historicalAcceptance.version===1 && !entry.acceptance));
+test('R12 integrated aspects retain M2 typography, validated history, intrinsic image guards and separate title/numeral spacing',()=>{
+  const m1Ids = ['T06','T10','T16','T19','T20','T22','T24','T26','T32','T34','T39','T40','T45'];
+  assert.ok(TEMPLATES.every(entry=>entry.version===(m1Ids.includes(entry.id)?3:2) && entry.status==='visually-reviewed' && entry.historicalAcceptance.version===1 && entry.acceptance===(m1Ids.includes(entry.id)?'refinement-m2-v3':'refinement-m2-v2')));
+  assert.equal(TEMPLATES.filter(entry=>entry.version===3).length,13);
+  assert.equal(TEMPLATES.filter(entry=>entry.version===2).length,35);
+  for (const id of m1Ids) assert.deepEqual(getTemplate(id).historicalAcceptances,[{batch:'refinement-m1-v2',version:2}]);
   assert.equal(getTemplate('T32').composition,'chapter-excerpt-reading-bands');
   assert.equal(getTemplate('T48').composition,'paired-full-image-specimen-columns');
   const isolated=css.slice(css.indexOf('/* R12 purpose-led independent aspects:'));
@@ -334,12 +344,14 @@ test('R12 integrated aspects retain v2 typography, intrinsic image guards and se
 });
 
 
-test('entrypoint capability guidance names exactly the bounded six-template/eight-pair support without current acceptance',async()=>{
+test('entrypoint capability guidance names exactly the bounded six-template/eight-pair support and separates historical evidence',async()=>{
   for(const file of ['README.md','SKILL.md','references/rendering.md','scripts/build-template-gallery.mjs']) {
     const source=await readFile(new URL('../'+file,import.meta.url),'utf8');
     for(const pair of ['T04/T21','T05/T13','T24/T37']) assert.ok(source.includes(pair),`${file} ${pair}`);
     assert.match(source,/6 (?:templates|个模板)/,file); assert.match(source,/8 (?:extra aspect pairs|个额外画幅组合)/,file);
     assert.doesNotMatch(source,/(?:Only|only|只有) T04(?:\/T21| and T21)/,file);
     assert.match(source,/historical evidence|v1 历史证据/,file);
+    assert.doesNotMatch(source,/All 48 current templates .*await|当前 M2 版本与全部额外画幅都待新产物验收|当前 13 套 v3 \/ 35 套 v2 及全部八个额外画幅都待新产物验收/,file);
+    assert.match(source,/registry binding|画幅注册绑定/,file);
   }
 });

@@ -1,6 +1,6 @@
 # Rendering contract (phase 3)
 
-> 当前精修状态：48 套 v2 及全部八个额外画幅组合仍待新产物验收。T04/T21 只有旧版历史证据，四个新组合没有既有验收。下面已有 48 套的历史结论不验证新设计。见 [R01–R12 计划](../docs/REFINEMENT_PLAN.md)。
+> 当前 M2：48 个 standard / portrait 精确注册示例已独立复核并绑定当前 PNG，35 套 v2 / 13 套 v3。v1 / M1 v2 历史不变。四个既有 T04/T21 square/slide 短例已有当前产物复核，最终画幅绑定待 R12；最终 48-current 图库 UI 仍待发布后精确树验证。 见 [M2 精确验收](../docs/REFINEMENT_M2_ACCEPTANCE.md)。
 
 Phase 3 adds bounded, opt-in semantic pagination to the v2 renderer. See
 [the development plan](../docs/DEVELOPMENT_PLAN.md) for commit-specific code, local,
@@ -330,8 +330,10 @@ legacy themes; changing a palette does not create another counted design.
 
 All 48 designs support 3:4 and manual pagination. Exactly 6 templates add
 8 extra aspect pairs: T04/T21 each add square and slide, T05/T13 add square only,
-and T24/T37 add slide only. All current v2 layouts and all extra aspect pairs
-await fresh output review; support is not acceptance. Automatic mode
+and T24/T37 add slide only. All 48 exact standard/portrait M2 examples are
+accepted; all extra aspect pairs retain pending registry status. T04/T21 have
+current bounded short-fixture review, not final registry binding or acceptance
+of the four new R12 aspect-v1 layouts. Support is not acceptance. Automatic mode
 still rejects template/density metadata and supports layout-only explainer/steps.
 Text-only designs reject image metadata and inline images rather than hide them.
 Raw HTML escaping, local asset validation, all output/resource budgets, screen
@@ -378,11 +380,14 @@ All other non-portrait template/ratio combinations return
 required validated local image, full-frame contain behavior, alt and caption;
 image support does not loosen path, MIME or resource restrictions.
 
-All 48 current v2 templates and all eight extra aspect pairs await fresh full
-PNG, 375/390px and native-PDF inspection. T04/T21's four old short examples retain
-v1 historical evidence only, not acceptance of current v2 typography. The four
-new R12 pairs have no earlier visual acceptance. The 58-case plan defines expected
-export, overflow and pre-renderer refusal checks, not actual rendering results.
+All 48 current standard/portrait examples are accepted (13 v3 / 35 v2).
+T04/T21's four exact short examples also have current M2 full PNG, 375/390px and
+native-PDF review, separate from immutable v1 historical evidence. Their final
+aspect-specific registry binding remains pending, and all eight extra aspect
+pairs retain pending registry status. The four new R12 pairs are independent
+aspect-v1 identities with no earlier acceptance. The full 58-case R12 plan
+defines expected export, overflow and pre-renderer refusal checks, not actual
+R12 rendering results.
 
 Use `--size` or matching custom dimensions; public aspect metadata is not
 supported. The inclusive 0.002 ratio tolerance is unchanged. The registry exposes
@@ -398,6 +403,6 @@ overflow in square/slide. See [the aspect contract and historical evidence](../d
 
 ### R09 / R10：按任务选型与真实同文测试
 
-图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：18 例计划完整导出、4 例长文必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [内容矩阵](../docs/CONTENT_MATRIX.md) 和 [图库说明](../docs/TEMPLATE_GALLERY.md)。
+图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v3 / v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：17 例计划完整导出、4 例长文及 T13 的指定中篇必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [内容矩阵](../docs/CONTENT_MATRIX.md) 和 [图库说明](../docs/TEMPLATE_GALLERY.md)。
 
-R11 的四组可选作者系列共 5/3/3/3 张，新增有条件选择与图像观察两种节奏，不强制封面或 CTA，不读取配方来改写用户输入。每张保留显式模板、manual 边界、图像身份、来源与限制。当前 v2 全部系列均待新的实际连读与手机/PDF 验证，详见 [系列契约](../docs/SERIES_RECIPES.md)。
+R11 的四组可选作者系列共 5/3/3/3 张，新增有条件选择与图像观察两种节奏，不强制封面或 CTA，不读取配方来改写用户输入。每张保留显式模板、manual 边界、图像身份、来源与限制。既有 A/B 八张已有 M2 精确产物复核；新增 C/D 六张与本 R11 阶段四组全量运行仍待实际连读与手机/PDF 验证，详见 [系列契约](../docs/SERIES_RECIPES.md)。

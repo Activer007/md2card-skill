@@ -255,19 +255,20 @@
 .card.template-T06 .template-heading { display: grid; grid-template-columns: minmax(0, .33fr) minmax(0, 1fr); gap: .65em; align-items: start; padding-top: .6em; border-top: .16em solid var(--ink); }
 .card.template-T06 .card-eyebrow { margin: 0; padding-top: .2em; color: var(--accent); font-family: var(--font-source); letter-spacing: .02em; }
 .card.template-T06 .template-title { grid-column: 2; }
+.card.template-T06 .template-title:only-child { grid-column: 1 / -1; }
 .card.template-T06 h1 { font-size: 1.9em; font-weight: 800; line-height: 1.17; }
-.card.template-T06 .template-intro { padding: .45em 0 .65em; border-bottom: .035em solid var(--ink); }
+.card.template-T06 .template-intro { padding: .35em 0 .5em; border-bottom: .035em solid var(--ink); }
 .card.template-T06 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); align-items: start; gap: .55em; counter-reset: comparison; }
-.card.template-T06 .template-section { counter-increment: comparison; padding: .65em .3em; }
-.card.template-T06 .template-section::before { content: counter(comparison, decimal-leading-zero); display: block; margin-bottom: .55em; color: var(--accent); font: 750 var(--note-size)/1.2 var(--font-numeric); }
-.card.template-T06 .template-section:first-child { margin-top: .95em; border-top: .13em solid var(--ink); background: var(--panel); }
-.card.template-T06 .template-section:nth-child(2) { --ink: #f6f7f3; --accent: #f6f7f3; --muted: #d3ddd7; --panel: #2d423b; --line: #819189; padding-top: .85em; padding-bottom: .85em; background: #172726; color: var(--ink); }
+.card.template-T06 .template-section { counter-increment: comparison; padding: .45em .3em; }
+.card.template-T06 .template-section::before { content: counter(comparison, decimal-leading-zero); display: block; margin-bottom: .35em; color: var(--accent); font: 750 var(--note-size)/1.2 var(--font-numeric); }
+.card.template-T06 .template-section:first-child { margin-top: .65em; border-top: .13em solid var(--ink); background: var(--panel); }
+.card.template-T06 .template-section:nth-child(2) { --ink: #f6f7f3; --accent: #f6f7f3; --muted: #d3ddd7; --panel: #2d423b; --line: #819189; padding-top: .55em; padding-bottom: .55em; background: #172726; color: var(--ink); }
 .card.template-T06 .template-section:nth-child(2) h2,
 .card.template-T06 .template-section:nth-child(2) strong,
 .card.template-T06 .template-section:nth-child(2) a,
 .card.template-T06 .template-section:nth-child(2)::before { color: #f6f7f3; }
 .card.template-T06 .template-section:nth-child(n + 3) { grid-column: 1 / -1; padding: .65em 0; border-top: .035em solid var(--ink); }
-.card.template-T06 .template-section h2 { padding-bottom: .45em; border-bottom: 1px solid currentColor; }
+.card.template-T06 .template-section h2 { padding-bottom: .25em; border-bottom: 1px solid currentColor; }
 .card.template-T06 .template-section p { margin-bottom: 0; }
 .card.template-T06 .card-footer { border-top: .09em solid var(--ink); }
 
@@ -293,16 +294,19 @@
  * contents changes layout only: DOM order and all supplied text stay intact. */
 .card.template-T10 { --paper: #f0ebdd; --ink: #252a2a; --muted: #575c57; --accent: var(--brand-accent, #a63322); --line: #aca99c; --panel: #f1ce5a; }
 .card.template-T10 .template-heading { padding: .3em 0 .65em; border-bottom: .12em solid var(--ink); }
+/* Without the optional eyebrow, use a balanced title inset rather than
+ * reserving its larger heading rhythm. The registered labelled fixture is unchanged. */
+.card.template-T10 .template-heading:has(> .template-title:only-child) { padding-bottom: .35em; }
 .card.template-T10 .card-eyebrow { margin-bottom: .55em; color: var(--ink); }
 .card.template-T10 h1 { font-size: 2.25em; font-weight: 850; letter-spacing: -.04em; }
 .card.template-T10 .template-main { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-content: start; gap: .55em; }
-.card.template-T10 .template-intro { --ink: #fffaf0; --accent: #fffaf0; --muted: #e3e7ef; --panel: #344f88; --line: #c3cedd; padding: .75em .65em; background: #263f77; color: var(--ink); }
-.card.template-T10 .template-intro::before { content: ''; display: block; width: 1.3em; height: 1.3em; margin-bottom: .65em; border-radius: 50%; background: #f1ce5a; }
+.card.template-T10 .template-intro { --ink: #fffaf0; --accent: #fffaf0; --muted: #e3e7ef; --panel: #344f88; --line: #c3cedd; padding: .6em .65em; background: #263f77; color: var(--ink); }
+.card.template-T10 .template-intro::before { content: ''; display: block; width: 1.05em; height: 1.05em; margin-bottom: .45em; border-radius: 50%; background: #f1ce5a; }
 .card.template-T10 .template-intro strong,
 .card.template-T10 .template-intro a { color: #fffaf0; }
 .card.template-T10 .template-sections { display: contents; }
 .card.template-T10 .template-intro + .template-sections { margin: 0; }
-.card.template-T10 .template-section { padding: .6em .5em; border-top: .07em solid var(--ink); background: transparent; }
+.card.template-T10 .template-section { padding: .5em .5em; border-top: .07em solid var(--ink); background: transparent; }
 .card.template-T10 .template-section:first-child::before { content: none; display: block; width: 1.3em; height: 1.3em; margin-bottom: .65em; border: .2em solid var(--ink); }
 .card.template-T10 .template-section:nth-child(n + 2) { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); column-gap: .75em; background: transparent; border-left: .12em solid #a63322; }
 .card.template-T10 .template-section:nth-child(n + 2) h2 { grid-column: 1; grid-row: 1; margin: 0; }
@@ -442,10 +446,10 @@
 .card.template-T29 { --paper: #f7f4ea; --ink: #34382f; --muted: #606659; --accent: var(--brand-accent, #963e2e); --panel: #eeeadf; --line: #b9baaa; }
 .card.template-T29 .template-heading { padding-top: .35em; }
 .card.template-T29 .card-eyebrow { margin: 0 0 1em; color: var(--muted); letter-spacing: .1em; }
-.card.template-T29 .template-title { width: 100%; padding: 0 0 .6em; border: 0; border-bottom: 1px solid var(--line); }
+.card.template-T29 .template-title { width: 100%; padding: 0 0 .5em; border: 0; border-bottom: 1px solid var(--line); }
 .card.template-T29 h1 { font-family: var(--font-display); font-size: 1.65em; font-weight: 600; line-height: 1.32; letter-spacing: .035em; }
 .card.template-T29 .template-main { display: flex; flex-direction: column; justify-content: center; }
-.card.template-T29 .template-intro > blockquote { margin: .6em 0 1em; padding: .15em 0 .15em .5em; border: 0; border-left: .055em solid var(--accent); background: transparent; font-family: var(--font-quote); font-size: 1.3em; font-weight: 500; line-height: 1.82; letter-spacing: .025em; }
+.card.template-T29 .template-intro > blockquote { margin: .5em 0 .85em; padding: .15em 0 .15em .5em; border: 0; border-left: .055em solid var(--accent); background: transparent; font-family: var(--font-quote); font-size: 1.3em; font-weight: 500; line-height: 1.82; letter-spacing: .025em; }
 .card.template-T29 .template-intro > blockquote p { margin: 0; }
 .card.template-T29 .template-sections { margin-left: 3.6em; padding-top: .65em; border-top: 1px solid var(--line); }
 .card.template-T29 .template-section h2 { font-family: var(--font-display); font-size: 1em; font-weight: 600; letter-spacing: .055em; color: var(--accent); }
@@ -485,14 +489,14 @@
 .card.template-T33 .card-footer { border-top:3px double var(--ink); }
 
 .card.template-T34 { --paper:#f8f1e1; --ink:#292a25; --muted:#57594e; --accent:var(--brand-accent,#8e3a28); --line:#a6a18f; }
-.card.template-T34 .template-heading { border-top:.08em solid var(--ink); padding-top:.6em; }
+.card.template-T34 .template-heading { border-top:.08em solid var(--ink); padding-top:.25em; }
 .card.template-T34 .card-eyebrow { display:table; padding:.2em .5em; background:var(--ink); color:var(--paper); }
 .card.template-T34 h1 { font:700 1.8em/1.25 var(--font-display); }
-.card.template-T34 .template-intro { border-bottom:.1em solid var(--ink); padding-bottom:.65em; font-family:var(--font-body); }
-.card.template-T34 .template-sections { display:flex; flex-direction:column; gap:.95em; }
+.card.template-T34 .template-intro { border-bottom:.1em solid var(--ink); padding-bottom:.35em; font-family:var(--font-body); }
+.card.template-T34 .template-sections { display:flex; flex-direction:column; gap:.6em; }
 .card.template-T34 .template-section h2 { font-family:var(--font-display); }
 .card.template-T34 .template-section:first-child p:first-of-type::first-letter { float:none; font:inherit; padding:0; }
-.card.template-T34 .template-section:nth-child(2) { margin-left:.7em; padding:.6em .65em; border-top:.1em solid var(--accent); background:#e9deca; }
+.card.template-T34 .template-section:nth-child(2) { margin-left:.7em; padding:.3em .45em; border-top:.1em solid var(--accent); background:#e9deca; }
 .card.template-T34 .template-section:nth-child(n+3) { grid-column:1/-1; border-top:1px solid var(--line); padding-top:.7em; }
 
 /* T37 — full-width, full-frame film still above a quiet title/story band.
@@ -762,26 +766,33 @@
 
 /* T20 — a product stage, not a dashboard of rounded cards. Open feature
  * columns lead into an intrinsic full-width interface plate. No image-text
- * overlay, speculative UI chrome, crop, or promise about tiny embedded text. */
-.card.template-T20 { --section-gap: .38em; --paragraph-gap: .25em;
+ * overlay, speculative UI chrome, crop, or promise about tiny embedded text.
+ * The portrait-screenshot pressure case spends outer and inter-region space,
+ * not body / note leading or the full .40h contain ceiling. */
+.card.template-T20 { --section-gap: .24em; --paragraph-gap: .25em;
+  padding: calc(var(--pad) * .4) var(--pad);
   --paper: #131a24; --ink: #f0f5f7; --muted: #b8c9cf;
   --accent: var(--brand-accent, #99d7c6); --panel: #20343d; --line: #536b75;
 }
-.card.template-T20 .template-heading { padding-top: .15em; }
-.card.template-T20 .card-eyebrow { display: block; margin-bottom: .45em; padding: .25em 0; border: 0; border-top: .06em solid var(--accent); border-radius: 0; color: var(--accent); font-family: var(--font-source); letter-spacing: .025em; }
+.card.template-T20 .card-content { gap: calc(var(--section-gap) * .8); }
+.card.template-T20 .template-heading { padding-top: 0; }
+.card.template-T20 .card-eyebrow { display: block; margin-bottom: .25em; padding: .25em 0; border: 0; border-top: .06em solid var(--accent); border-radius: 0; color: var(--accent); font-family: var(--font-source); letter-spacing: .025em; }
 .card.template-T20 h1 { font-family: var(--font-display); font-size: 1.9em; font-weight: 800; line-height: 1.14; letter-spacing: -.035em; }
 .card.template-T20 .template-main { flex: 0 0 auto; }
 .card.template-T20 .template-intro p { margin: 0; }
 .card.template-T20 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .7em; }
-.card.template-T20 .template-section { padding: .3em 0 .2em; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: transparent; }
-.card.template-T20 .template-section h2 { margin-bottom: .2em; color: var(--accent); font-family: var(--font-display); font-size: 1em; }
+.card.template-T20 .template-section { padding: .1em 0 .05em; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: transparent; }
+.card.template-T20 .template-section h2 { margin-bottom: .15em; color: var(--accent); font-family: var(--font-display); font-size: 1em; }
 .card.template-T20 .template-section p { margin: 0; }
-.card.template-T20 .card-figure { margin: .15em 0 0; }
+.card.template-T20 .card-figure { margin: .1em 0 0; }
 .card.template-T20 .image-frame { height: auto; padding: 0; border: 0; border-radius: 0; background: transparent; }
-.card.template-T20 .card-image { width: 100%; height: auto; max-height: calc(var(--card-height) * .44); object-fit: contain; }
-.card.template-T20 .card-figure figcaption { margin: .25em 0 0; color: var(--muted); }
-.card.template-T20 .card-source { padding-top: .2em; border: 0; }
-.card.template-T20 .card-footer { margin-top: .4em; padding-top: .35em; border-top: 1px solid var(--line); }
+.card.template-T20 .card-image { width: 100%; height: auto; max-height: calc(var(--card-height) * .40); object-fit: contain; }
+.card.template-T20 .card-figure figcaption { margin: .15em 0 0; color: var(--muted); }
+.card.template-T20 .card-source { padding-top: .1em; border: 0; }
+.card.template-T20 .card-footer { margin-top: .15em; padding-top: .15em; border-top: 1px solid var(--line); }
+
+.card.template-T20.density-compact { --section-gap: .18em; --paragraph-gap: .18em; }
+.card.template-T20.density-editorial { --section-gap: .32em; --paragraph-gap: .35em; }
 
 /* T23 — problem and action are paired above a full-width result / limitation
  * band. There are no generated performance figures or implied success claims. */
@@ -810,21 +821,21 @@
   --paper: #faf9f4; --ink: #263746; --muted: #596775;
   --accent: var(--brand-accent, #315b79); --panel: #e8edf0; --line: #b3bec6;
 }
-.card.template-T24 .template-heading { padding: .35em 0 .6em; border-top: .12em solid var(--ink); border-bottom: 1px solid var(--line); }
+.card.template-T24 .template-heading { padding: .2em 0 .3em; border-top: .12em solid var(--ink); border-bottom: 1px solid var(--line); }
 .card.template-T24 .card-eyebrow { color: var(--accent); font-family: var(--font-source); letter-spacing: .04em; }
 .card.template-T24 h1 { font-size: 2.25em; line-height: 1.16; letter-spacing: -.03em; }
 .card.template-T24 .template-intro p { margin: 0; }
 .card.template-T24 .template-section h2 { margin-bottom: .4em; color: var(--accent); font-size: 1em; }
 .card.template-T24 .template-section table { width: 100%; table-layout: fixed; margin: .3em 0 0; border-collapse: collapse; font-size: 1em; line-height: 1.5; }
-.card.template-T24 .template-section th, .card.template-T24 .template-section td { padding: .18em .24em; border-bottom: 1px solid var(--line); vertical-align: top; font-size: inherit; line-height: inherit; overflow-wrap: anywhere; }
+.card.template-T24 .template-section th, .card.template-T24 .template-section td { padding: .15em .24em; border-bottom: 1px solid var(--line); vertical-align: top; font-size: inherit; line-height: inherit; overflow-wrap: anywhere; }
 .card.template-T24 .template-section th { border-top: .08em solid var(--ink); background: var(--panel); color: var(--ink); }
 .card.template-T24 .template-section th:first-child, .card.template-T24 .template-section td:first-child { width: 12%; padding-left: .12em; padding-right: .12em; text-align: center; font-family: var(--font-numeric); font-variant-numeric: tabular-nums; }
 .card.template-T24 .template-section th:nth-child(2), .card.template-T24 .template-section td:nth-child(2), .card.template-T24 .template-section th:nth-child(3), .card.template-T24 .template-section td:nth-child(3) { width: 44%; }
 .card.template-T24 .template-section tbody tr:nth-child(even) { background: #f0f3f3; }
 .card.template-T24 .template-section tbody tr:last-child td { border-bottom: .065em solid var(--ink); }
-.card.template-T24 .template-section + .template-section { margin-top: .6em; padding: .4em 0; border-top: .07em solid var(--accent); background: transparent; }
+.card.template-T24 .template-section + .template-section { margin-top: .25em; padding: .25em 0; border-top: .07em solid var(--accent); background: transparent; }
 .card.template-T24 .template-section p { margin: 0; }
-.card.template-T24 .card-source { padding-top: .4em; border: 0; }
+.card.template-T24 .card-source { padding-top: .25em; border: 0; }
 .card.template-T24 .card-footer { border-top: 3px double var(--line); }
 
 /* T27 — author-written time labels in a dedicated left column; reading tasks
@@ -888,24 +899,24 @@
 .card.template-T31 .card-source { padding: .45em 0; border: 0; }
 .card.template-T31 .card-footer { border-top: 1px solid var(--line); }
 
-/* T32 — a facing-page reading spread: original chapter excerpt on the left,
- * interpretation on the right. The gutter is empty; no simulated author text. */
+/* T32 — full-width excerpt and interpretation in sequential reading bands.
+ * The author and reader remain distinct; no simulated author text. */
 .card.template-T32 {
   --paper: #eee9dc; --ink: #3e3c33; --muted: #6a6556;
   --accent: var(--brand-accent, #8b4834); --panel: #faf7ed; --line: #bdb29e;
 }
-.card.template-T32 .template-heading { padding: .45em 0 .65em; border-top: .07em solid var(--ink); }
+.card.template-T32 .template-heading { padding: .2em 0 .3em; border-top: .07em solid var(--ink); }
 .card.template-T32 .card-eyebrow { color: var(--accent); letter-spacing: .1em; }
 .card.template-T32 h1 { font: 650 1.75em/1.25 var(--font-display); letter-spacing: .025em; }
 .card.template-T32 .template-intro { padding-bottom: .6em; border-bottom: 1px solid var(--line); }
 .card.template-T32 .template-intro p { margin: 0; }
-.card.template-T32 .template-sections { display: flex; flex-direction: column; gap: .85em; padding-bottom: .18em; border-bottom: 3px double var(--line); }
-.card.template-T32 .template-section { padding: .5em .6em .6em; border: 0; border-left: .06em solid var(--line); background: transparent; }
-.card.template-T32 .template-section h2 { padding-bottom: .2em; margin-bottom: .35em; border-bottom: 1px solid var(--line); color: var(--accent); font: 650 1em/1.4 var(--font-display); }
+.card.template-T32 .template-sections { display: flex; flex-direction: column; gap: .45em; padding-bottom: .18em; border-bottom: 3px double var(--line); }
+.card.template-T32 .template-section { padding: .15em .3em .2em; border: 0; border-left: .06em solid var(--line); background: transparent; }
+.card.template-T32 .template-section h2 { padding-bottom: .1em; margin-bottom: .2em; border-bottom: 1px solid var(--line); color: var(--accent); font: 650 1em/1.4 var(--font-display); }
 .card.template-T32 .template-section blockquote { padding: 0; margin: 0; border: 0; background: transparent; font: 500 1em/1.65 var(--font-quote); }
 .card.template-T32 .template-section blockquote p, .card.template-T32 .template-section p { margin: 0; }
 .card.template-T32 .template-section:nth-child(n+3) { grid-column: 1 / -1; }
-.card.template-T32 .card-source { border: 0; padding-top: .45em; }
+.card.template-T32 .card-source { border: 0; padding-top: .25em; }
 .card.template-T32 .card-footer { border-top: 1px solid var(--line); }
 
 /* M7 original composition candidates. Append after the common template base.
@@ -943,7 +954,9 @@
 .card.template-T36 .template-sections { gap:.4em; }
 .card.template-T36 .template-section { padding:.1em .15em .2em; border-bottom:1px solid var(--line); }
 .card.template-T36 .template-section h2 { display:table; margin-bottom:.15em; padding:0 .25em; border-left:.12em solid var(--accent); background:var(--panel); font-size:1em; font-family:var(--font-display); letter-spacing:0; }
-.card.template-T36 .template-section p { margin:0; }
+.card.template-T36 .template-section p { margin:0; text-wrap:pretty; }
+.card.template-T36 .template-intro p { text-wrap:pretty; }
+.card.template-T36 .template-section a { display:inline-block; max-width:100%; overflow-wrap:anywhere; vertical-align:baseline; }
 .card.template-T36 .card-source { border:0; padding-top:.3em; }
 .card.template-T36 .card-footer { border-top:3px double var(--ink); margin-top:.4em; padding-top:.3em; }
 
@@ -968,48 +981,55 @@
 .card.template-T39 .card-source { grid-column:1 / -1; grid-row:3; padding-top:.35em; border-top:1px solid var(--line); }
 .card.template-T39 .card-footer { border:0; }
 
-/* T40: a complete, explicitly supplied detail source, then its numbered key.
- * Number bubbles remain in normal float flow, with a reserved two-digit rail.
- * Never reset the list-item counter; the registry limits its width to 0–99. */
-.card.template-T40 { --section-gap: .35em; --paragraph-gap: .3em; --paper:#f3f2e8; --ink:#303c37; --muted:#58655a; --accent:var(--brand-accent,#426457); --panel:#e2e8db; --line:#a4b09e; }
-.card.template-T40 .template-heading { padding:0 0 .2em; border-bottom:.065em solid var(--ink); }
+/* T40: readable detail plate with its authored key heading in a side rail.
+ * At 1080px, the .8w plate is 864px wide (862px inside its border).
+ * Its contain-scaled 48px source number is 11.18px at a 351px preview.
+ * The narrower side insets leave a three-character horizontal key-label rail.
+ * Caption, introduction and every numbered explanation remain full-width.
+ * Intrinsic rows grow; no content is clipped or fitted by shrinking fonts. */
+.card.template-T40 { --section-gap: .35em; --paragraph-gap: .3em; --paper:#f3f2e8; --ink:#303c37; --muted:#58655a; --accent:var(--brand-accent,#426457); --panel:#e2e8db; --line:#a4b09e; padding:calc(var(--pad) * .75) calc(var(--pad) * .58); }
+.card.template-T40 .card-content { display:grid; grid-template-columns:calc(var(--card-width) * .8) minmax(0,1fr); align-content:start; column-gap:.2em; row-gap:calc(var(--section-gap) * .34); }
+.card.template-T40 .template-heading { grid-column:1 / -1; grid-row:1; padding:0 0 .05em; border-bottom:.065em solid var(--ink); }
 .card.template-T40 h1 { font-size:1.7em; letter-spacing:-.03em; }
-.card.template-T40 .card-eyebrow { margin-bottom:.25em; color:var(--accent); letter-spacing:.05em; }
-.card.template-T40 .card-figure { margin:0; }
-.card.template-T40 .image-frame { height:auto; aspect-ratio:1200 / 680; padding:0; border:1px solid var(--line); background:#ece7d7; }
+.card.template-T40 .card-eyebrow { margin-bottom:.12em; color:var(--accent); letter-spacing:.05em; }
+.card.template-T40 .card-figure { display:contents; margin:0; }
+.card.template-T40 .image-frame { height:auto; aspect-ratio:1200 / 680; grid-column:1; grid-row:2; padding:0; border:1px solid var(--line); background:#ece7d7; }
 .card.template-T40 .card-image { width:100%; height:100%; object-fit:contain; }
-.card.template-T40 .card-figure figcaption { margin:.35em 0 0; color:var(--muted); }
-.card.template-T40 .template-main { flex:0 0 auto; }
+.card.template-T40 .card-figure figcaption { grid-column:1 / -1; grid-row:3; margin:0; color:var(--muted); line-height:1.35; }
+.card.template-T40 .template-main, .card.template-T40 .template-sections, .card.template-T40 .template-section { display:contents; }
+.card.template-T40 .template-intro { grid-column:1 / -1; grid-row:4; line-height:1.4; }
 .card.template-T40 .template-intro p { margin:0; }
-.card.template-T40 .template-section h2 { margin-bottom:.15em; font-size:1em; }
-.card.template-T40 .template-intro > ol, .card.template-T40 .template-section > ol { list-style:none; margin:0; padding:0; }
-.card.template-T40 .template-intro > ol > li, .card.template-T40 .template-section > ol > li { display:list-item; min-height:2em; margin:0 0 .2em; padding:.1em .15em .1em 2.15em; border-top:1px solid var(--line); }
-.card.template-T40 .template-intro > ol > li::before, .card.template-T40 .template-section > ol > li::before { content:counter(list-item,decimal); float:left; width:1.6em; min-height:1.6em; margin-left:-2.15em; padding:.2em .1em; border:.045em solid var(--accent); border-radius:50%; color:var(--accent); text-align:center; font:750 1em/1.15 var(--font-numeric); }
+.card.template-T40 .template-section > * { grid-column:1 / -1; }
+.card.template-T40 .template-section h2 { margin:0; font-size:1em; }
+.card.template-T40 .template-section:first-child > h2 { grid-column:2; grid-row:2; align-self:center; padding:0; border:0; color:var(--accent); line-height:1.4; letter-spacing:0; }
+.card.template-T40 .template-intro > ol, .card.template-T40 .template-section > ol { list-style:none; margin:0; padding:0; line-height:1.4; }
+.card.template-T40 .template-intro > ol > li, .card.template-T40 .template-section > ol > li { display:list-item; min-height:2em; margin:0 0 .1em; padding:0 .1em 0 1.9em; border-top:1px solid var(--line); }
+.card.template-T40 .template-intro > ol > li::before, .card.template-T40 .template-section > ol > li::before { content:counter(list-item,decimal); float:left; width:1.55em; min-height:1.55em; margin-left:-1.9em; padding:.16em .1em; border:.045em solid var(--accent); border-radius:50%; color:var(--accent); text-align:center; font:750 1em/1.15 var(--font-numeric); }
 .card.template-T40 .template-intro > ol > li > p, .card.template-T40 .template-section > ol > li > p { margin:0; }
-.card.template-T40 .card-source { padding-top:.1em; border:0; }
-.card.template-T40 .card-footer { border-top:1px solid var(--line); margin-top:.4em; padding-top:.3em; }
+.card.template-T40 .card-source { grid-column:1 / -1; padding-top:.1em; border:0; line-height:1.35; }
+.card.template-T40 .card-footer { border-top:1px solid var(--line); margin-top:.15em; padding-top:.15em; }
 
 /* T43 — two establishing shots and one panoramic resolution. Intrinsic
  * full-width images are the scene, not small pictograms in oversized boxes.
  * Dialogue remains searchable text below, never an overlay on the artwork. */
-.card.template-T43 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#f7efd8; --ink:#3c353e; --muted:#665868; --accent:var(--brand-accent,#803b53); --panel:#eee0ea; --line:#b6a4b3; }
-.card.template-T43 .card-content { gap:calc(var(--section-gap) * .6); }
-.card.template-T43 .template-heading { padding:.1em 0 .25em; border:0; border-bottom:.12em solid var(--ink); border-radius:0; background:transparent; }
+.card.template-T43 { padding:calc(var(--pad) * .4) var(--pad); --section-gap: .4em; --paragraph-gap: .3em; --paper:#f7efd8; --ink:#3c353e; --muted:#665868; --accent:var(--brand-accent,#803b53); --panel:#eee0ea; --line:#b6a4b3; }
+.card.template-T43 .card-content { gap:calc(var(--section-gap) * .4); }
+.card.template-T43 .template-heading { padding:0 0 .25em; border:0; border-bottom:.12em solid var(--ink); border-radius:0; background:transparent; }
 .card.template-T43 .card-eyebrow { margin-bottom:.3em; color:var(--accent); letter-spacing:.04em; }
 .card.template-T43 h1 { font-family:var(--font-display); font-size:1.8em; font-weight:850; line-height:1.12; }
 .card.template-T43 .template-intro p { margin:0; }
 .card.template-T43 .template-intro + .template-sections { margin-top:.25em; }
 .card.template-T43 .template-sections { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:.3em .45em; }
 .card.template-T43 .template-section { padding:0; border:0; background:transparent; }
-.card.template-T43 .template-section h2 { margin-bottom:.15em; padding:.15em 0; font:750 1em/1.25 var(--font-display); letter-spacing:0; }
+.card.template-T43 .template-section h2 { margin-bottom:.15em; padding:.05em 0; font:750 1em/1.25 var(--font-display); letter-spacing:0; }
 .card.template-T43 .template-section > p:has(> .markdown-image:only-child) { margin:0; }
 .card.template-T43 .markdown-image { width:100%; height:auto; max-height:none; margin:0; border:.045em solid var(--ink); object-fit:contain; background:transparent; }
-.card.template-T43 .template-section blockquote { margin:.12em 0 0; padding:.12em .18em; border:0; border-left:.055em solid var(--accent); border-radius:0; background:transparent; font-family:var(--font-quote); line-height:1.44; }
+.card.template-T43 .template-section blockquote { margin:.12em 0 0; padding:.12em 0; border:0; border-left:.055em solid var(--accent); border-radius:0; background:transparent; font-family:var(--font-quote); line-height:1.44; }
 .card.template-T43 .template-section blockquote p { margin:0; }
 .card.template-T43 .template-section:nth-child(n + 3) { grid-column:1 / -1; }
 .card.template-T43 .template-section > p { margin:.2em 0 0; }
-.card.template-T43 .card-source { padding-top:.25em; border:0; }
-.card.template-T43 .card-footer { margin-top:.3em; padding-top:.25em; border-top:1px solid var(--line); }
+.card.template-T43 .card-source { padding-top:.15em; border:0; }
+.card.template-T43 .card-footer { margin-top:.2em; padding-top:.2em; border-top:1px solid var(--line); }
 
 /* T44: dimensions are rows; the same two options speak in paired bubbles.
  * This is not a continuous left/right camp divider or asymmetric two-column
@@ -1043,7 +1063,7 @@
 .card.template-T47 h1 { font:700 1.85em/1.22 var(--font-display); }
 .card.template-T47 .template-intro { padding:0 0 .35em; border:0; border-bottom:1px solid var(--line); background:transparent; }
 .card.template-T47 .template-intro p { margin:0 0 .25em; }
-.card.template-T47 .template-intro ul { margin:0; padding-left:1.15em; }
+.card.template-T47 .template-intro ul { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:.5em; margin:0; padding-left:1.15em; }
 .card.template-T47 .template-intro li { margin:.05em 0; padding-left:.05em; }
 .card.template-T47 .template-sections { gap:.4em; }
 .card.template-T47 .template-section { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:.2em .5em; align-items:start; padding-bottom:.3em; border-bottom:1px solid var(--line); }
@@ -1058,23 +1078,24 @@
  * Names, full-frame objects and matching fields read down each column in
  * authored order. Shared limits continue as a full-width final section. */
 .card.template-T48 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#f1efe5; --ink:#344038; --muted:#5b675b; --accent:var(--brand-accent,#6c563c); --panel:#e2e7da; --line:#a7b09d; }
-.card.template-T48 .template-heading { padding:.1em 0 .25em; border-top:.07em solid var(--accent); }
-.card.template-T48 .card-eyebrow { margin-bottom:.3em; color:var(--muted); letter-spacing:.04em; }
+.card.template-T48 .card-content { gap:calc(var(--section-gap) * .5); }
+.card.template-T48 .template-heading { padding:0 0 .1em; border-top:.07em solid var(--accent); }
+.card.template-T48 .card-eyebrow { margin-bottom:.15em; color:var(--muted); letter-spacing:.04em; }
 .card.template-T48 h1 { font:700 1.75em/1.25 var(--font-display); }
 .card.template-T48 .template-intro p { margin:0; }
 .card.template-T48 .template-sections { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:.4em .6em; }
-.card.template-T48 .template-section { display:flex; flex-direction:column; gap:.2em; align-items:stretch; padding:.2em 0 .35em; border:0; border-top:1px solid var(--line); background:transparent; }
+.card.template-T48 .template-section { display:flex; flex-direction:column; gap:.1em; align-items:stretch; padding:.05em 0 .15em; border:0; border-top:1px solid var(--line); background:transparent; }
 .card.template-T48 .template-section h2 { margin:0; padding:0; border:0; font-family:var(--font-display); font-size:1em; }
 .card.template-T48 .template-section > p:has(> .markdown-image:only-child) { margin:0; }
 .card.template-T48 .template-section > :not(h2):not(p:has(> .markdown-image:only-child)) { margin:0; }
 .card.template-T48 .markdown-image { width:100%; height:auto; max-height:none; margin:0; object-fit:contain; background:transparent; }
-.card.template-T48 .template-section ul { padding-left:1.05em; }
+.card.template-T48 .template-section ul { list-style:none; padding-left:0; }
 .card.template-T48 .template-section li { margin:0 0 .12em; padding-left:0; }
 .card.template-T48 .template-section li:last-child { margin-bottom:0; }
-.card.template-T48 .template-section:nth-child(n + 3) { grid-column:1/-1; display:block; padding:.3em 0 0; border:0; border-top:.06em solid var(--accent); background:transparent; }
+.card.template-T48 .template-section:nth-child(n + 3) { grid-column:1/-1; display:block; padding:.15em 0 0; border:0; border-top:.06em solid var(--accent); background:transparent; }
 .card.template-T48 .template-section:nth-child(n + 3) h2 { margin-bottom:.2em; padding:0; border:0; }
 .card.template-T48 .template-section:nth-child(n + 3) p { margin:0; }
-.card.template-T48 .card-source { padding-top:.2em; border:0; }
+.card.template-T48 .card-source { padding-top:.1em; border:0; }
 .card.template-T48 .card-footer { border-top:1px solid var(--line); margin-top:.35em; padding-top:.3em; }
 
 /* Clipping labels share a metadata row only when the authored paragraph
@@ -1159,6 +1180,25 @@
 .card.template-T21.template-aspect-portrait .template-section > :not(h2) { grid-column:2; }
 .card.template-T21.template-aspect-portrait .template-section > :nth-child(2) { margin-top:0; }
 .card.template-T21.template-aspect-portrait .card-source { padding:.4em 0 0; border-top:1px solid var(--line); background:transparent; }
+
+/* R01/R03/R11 measured-capacity calibration from run 40068790583.
+ * Reserve room by adjusting region furniture, not source text, font size,
+ * family leading, image crop or the generic overflow guard. */
+.card.template-T06 { --section-gap: .7em; }
+.card.template-T06.density-compact { --section-gap: .5em; }
+.card.template-T06.density-editorial { --section-gap: .95em; }
+.card.template-T32 { --section-gap: .55em; }
+.card.template-T32.density-compact { --section-gap: .4em; }
+.card.template-T32.density-editorial { --section-gap: .8em; }
+.card.template-T04.density-compact { --section-gap: .28em; }
+.card.template-T21.template-aspect-portrait.density-compact { --section-gap: .4em; }
+.card.template-T21.template-aspect-portrait.density-compact .template-heading { padding-top: .25em; }
+.card.template-T21.template-aspect-portrait.density-compact .template-metric { padding: .2em 0 .35em; }
+.card.template-T21.template-aspect-portrait.density-compact .template-sections { gap: .3em; }
+/* Compact evidence rows reserve five CJK label characters and give the body
+ * the remaining measure. Standard portrait and other aspects keep their tracks. */
+.card.template-T21.template-aspect-portrait.density-compact .template-section { grid-template-columns: minmax(0, .5fr) minmax(0, 1.5fr); padding: .25em 0 .1em; }
+.card.template-T21.template-aspect-portrait.density-compact .card-source { padding-top: .2em; }
 
 /* M9 independent aspect candidates: only T04 / T21, all real acceptance pending.
  * Dimensions choose an internal enum; no aspect is sourced from user CSS.

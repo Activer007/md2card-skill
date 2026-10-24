@@ -116,3 +116,65 @@ test('open-grid headings and film plate stay inside the measured content box', (
   assert.match(rule('.card.template-T19 .template-section h2'), /margin: 0 0 \.25em; padding: \.1em 0 \.25em/);
   assert.doesNotMatch(rule('.card.template-T37 .card-figure'), /-1|negative/);
 });
+
+test('capacity calibration preserves type roles and keeps absent labels and short links honest',async()=>{
+ const css=await readFile(new URL('../assets/templates.css',import.meta.url),'utf8');
+ assert.match(css,/template-T06 \.template-title:only-child \{ grid-column: 1 \/ -1;/);
+ assert.match(css,/template-T36 \.template-section a \{ display:inline-block; max-width:100%; overflow-wrap:anywhere;/);
+ const calibration=css.split('/* R01/R03/R11 measured-capacity')[1].split('/* M9 independent aspect')[0];
+ assert.doesNotMatch(calibration,/font-size|line-height|transform|zoom|overflow\s*:|display\s*:\s*none/);
+ assert.match(css,/--text-size: calc\(var\(--card-width\) \* \.043\)/);
+ assert.match(css,/--note-size: calc\(var\(--card-width\) \* \.0335\)/);
+});
+
+test('unlabelled T10 balances only its title inset without changing the accepted labelled fixture', async () => {
+  const selector = '.card.template-T10 .template-heading:has(> .template-title:only-child)';
+  const inset = rule(selector);
+  assert.match(inset, /^\s*padding-bottom:\s*\.35em;\s*$/);
+  assert.match(rule('.card.template-T10 .template-heading'), /padding: \.3em 0 \.65em/);
+  const affected = rules.filter(([, selectors]) => selectors.includes('template-T10') && selectors.includes(':has('));
+  assert.equal(affected.length, 1);
+  assert.equal(affected[0][1].slice(affected[0][1].lastIndexOf('*/') + 2).trim(), selector);
+
+  const source = await readFile(new URL('../examples/templates/T10.md', import.meta.url), 'utf8');
+  const [labelled] = renderCards(source);
+  const [unlabelled] = renderCards(source.replace(/,"eyebrow":"[^"]*"/, ''));
+  for (const [card, expectedEyebrow] of [[labelled, true], [unlabelled, false]]) {
+    const html = buildDocument([card], SIZES.portrait, '', '', css);
+    const heading = html.match(/<header class="template-heading">([\s\S]*?)<\/header>/)?.[1];
+    assert.ok(heading);
+    assert.equal(heading.includes('class="card-eyebrow"'), expectedEyebrow);
+    assert.equal((heading.match(/class="template-title"/g) ?? []).length, 1);
+    assert.equal(card.html, labelled.html);
+  }
+  // CSS arithmetic only: .30em recovers 13.932px, above the measured 6.5px
+  // deficit. The new real export must still pass unchanged screen/print guards.
+  assert.ok((.65 - .35) * SIZES.portrait.width * .043 > 6.5);
+});
+
+
+test('compact portrait T21 gives evidence bodies a wider measure without changing type or other aspects', () => {
+  const selector = '.card.template-T21.template-aspect-portrait.density-compact .template-section';
+  const compact = rule(selector);
+  assert.match(compact, /grid-template-columns: minmax\(0, \.5fr\) minmax\(0, 1\.5fr\)/);
+  assert.doesNotMatch(compact, /font|line-height|letter-spacing|overflow|clip|transform|zoom|text-wrap/);
+  const portrait = rule('.card.template-T21.template-aspect-portrait .template-section');
+  assert.match(portrait, /grid-template-columns:minmax\(0,\.62fr\) minmax\(0,1\.38fr\); column-gap:\.65em/);
+  const compactTracks = rules.filter(([, selectors, body]) => selectors.includes('template-T21') && selectors.includes('density-compact') && /grid-template-columns/.test(body));
+  assert.equal(compactTracks.length, 1);
+  assert.ok(compactTracks[0][1].trim().endsWith(selector));
+  assert.doesNotMatch(compactTracks[0][1], /,|square|slide/);
+
+  // CSS geometry only, not a replacement for Chromium line-box / PDF review.
+  // At the inherited body size, both the five-CJK label and 15-CJK body line
+  // fit in their tracks at export width and both prescribed phone scales.
+  for (const width of [SIZES.portrait.width, 351, 366]) {
+    const em = width * .043, inner = width * (1 - 2 * .052);
+    const tracks = inner - .65 * em;
+    const label = tracks * .25, body = tracks * .75;
+    const previousBody = tracks * .69;
+    assert.ok(label >= 5 * em);
+    assert.ok(body > 15 * em);
+    assert.ok(body > previousBody * 1.08);
+  }
+});

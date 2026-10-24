@@ -1942,6 +1942,201 @@
     "series": "Both exact compact portrait recipes, 8 full PNG +16 phone captures +8 native PDF pages",
     "stress": "13 expected-success fixtures /14 cards; five expected failures are rejection evidence, not visual outputs",
     "tail": "All four paired greedy/opt-in fixtures, full PNG and native PDF; no phone-capture claim",
-    "gallery": "Four-preview page verified; final48-preview browser gate pending"
+    "gallery": "48-preview page: all 51 checks pass; all 17 frames independently reviewed or pixel-identical carry-forward. Native menu zoom and full screen-reader review not certified."
+  },
+  "galleryAcceptance": {
+    "runId": 40059905372,
+    "runUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40059905372",
+    "codeCommit": "3b1beb9aebfe616269fc55f2f7e45cbdec0fb6d9",
+    "codeTree": "a85b7a9dc8ab21f14d57fbecd393f4e42dace6ef",
+    "mergePreview": "3343605c917f7f339e68d8c805637679d9cbc3a6",
+    "artifactId": 12546594178,
+    "archiveSha256": "aa2e1e98e73ab982065f0b0911caaea712f0437df5c782a44e8f4132bea16f44",
+    "summarySha256": "725d29b790d703f6c97e31b00637a43b64a36740e7675fee07323d65014b8895",
+    "summary": {
+      "checks": 51,
+      "passed": 51,
+      "failed": 0,
+      "screenshots": 17
+    },
+    "registry": {
+      "implemented": 48,
+      "accepted": 48,
+      "pending": 0
+    },
+    "independentVisualReview": "accepted-with-stated-scope",
+    "scope": "48 exact preview images; file URL resources/CSP, filters, keyboard, no-JS, 375/390 and equivalent 200% reflow. Not native menu zoom, full screen-reader or cross-browser certification.",
+    "artifacts": [
+      {
+        "file": "desktop-1280-index.png",
+        "bytes": 135078,
+        "sha256": "239d19fe6e9cc06bf532ef1a1c871e8615059a51d32b860c64a2b6cb0f2bcf52",
+        "scope": "Viewport screenshot: header, counters and filters.",
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        }
+      },
+      {
+        "file": "desktop-1280-accepted.png",
+        "bytes": 376133,
+        "sha256": "edc07fe1c4441012f499e96eef18129e65012d76e197b88fe21c15634429a2e6",
+        "scope": "Viewport screenshot: start of accepted gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        }
+      },
+      {
+        "file": "desktop-1280-pending.png",
+        "bytes": 156886,
+        "sha256": "2bbde75ff3745d7c674db9fda764e8cbad08f0daa027ea0b7bd6b0311a84eb54",
+        "scope": "Viewport screenshot: start of pending gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        }
+      },
+      {
+        "file": "desktop-1280-detail.png",
+        "bytes": 319041,
+        "sha256": "40471e29b84d6aa2129487f5bb8542344cbaa1baa684d13a7e6fac87104fcef7",
+        "scope": "Viewport screenshot: first expanded acceptance/detail block.",
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        }
+      },
+      {
+        "file": "mobile-375-index.png",
+        "bytes": 72722,
+        "sha256": "11dda2d7662bcac63a507a574b1462cb75205ea7f2862cf5d83efdbc2a7e91fc",
+        "scope": "Viewport screenshot: header, counters and filters.",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "mobile-375-accepted.png",
+        "bytes": 80355,
+        "sha256": "fda7d74a355eac62f519ba57675a212ea5017ec96c77df6d9bc15d3d0eaa4375",
+        "scope": "Viewport screenshot: start of accepted gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "mobile-375-pending.png",
+        "bytes": 100925,
+        "sha256": "e73e7e6825f5b844a1a8fa8adf9e3d734e1fb5fd05d51162d9d5c13ad3160785",
+        "scope": "Viewport screenshot: start of pending gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "mobile-375-detail.png",
+        "bytes": 70012,
+        "sha256": "5b79d257237042faf3e021ed3e2e3221ec36ab1928b9106ce369e7c831eae13a",
+        "scope": "Viewport screenshot: first expanded acceptance/detail block.",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "mobile-390-index.png",
+        "bytes": 76389,
+        "sha256": "fbfa925f053f3600d1657d589faaf2b7a6e916213c04235004de89d3830f4ff4",
+        "scope": "Viewport screenshot: header, counters and filters.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-390-accepted.png",
+        "bytes": 85030,
+        "sha256": "d9400d233f6a5654d3a044490c1f507f99c212a0de2b3b3bd5fecd879e88c888",
+        "scope": "Viewport screenshot: start of accepted gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-390-pending.png",
+        "bytes": 105058,
+        "sha256": "de3914ca0cdf49cfb62a4abe926cff441321216f3a058927aa36faeebb82998b",
+        "scope": "Viewport screenshot: start of pending gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-390-detail.png",
+        "bytes": 77932,
+        "sha256": "48308ffee0093f187cb88c19a138552a48a671e8bf4e00e9491b28757f3c44b2",
+        "scope": "Viewport screenshot: first expanded acceptance/detail block.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "reflow-200-percent-index.png",
+        "bytes": 45308,
+        "sha256": "aaeed202c34bd6c8240d5c81cc32ca2956078e323c9a1a21af24b2bffe9276f4",
+        "scope": "Viewport screenshot: header, counters and filters.",
+        "viewport": {
+          "width": 640,
+          "height": 450
+        }
+      },
+      {
+        "file": "reflow-200-percent-accepted.png",
+        "bytes": 68944,
+        "sha256": "cf9e6375de411a1d87a26e15a6fae469cd13bfeed4c6c8a07944b0a951b3c042",
+        "scope": "Viewport screenshot: start of accepted gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 640,
+          "height": 450
+        }
+      },
+      {
+        "file": "reflow-200-percent-pending.png",
+        "bytes": 53673,
+        "sha256": "9e0f8fafc435ee10b191b16603495a3325f7973b0451618a05fc516820996cba",
+        "scope": "Viewport screenshot: start of pending gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 640,
+          "height": 450
+        }
+      },
+      {
+        "file": "reflow-200-percent-detail.png",
+        "bytes": 47249,
+        "sha256": "7653139f19fcc40b90140cf3204b8121bb3de46975b46cdb42c97560fc6b1a55",
+        "scope": "Viewport screenshot: first expanded acceptance/detail block.",
+        "viewport": {
+          "width": 640,
+          "height": 450
+        }
+      },
+      {
+        "file": "no-js-390-catalogue.png",
+        "bytes": 87633,
+        "sha256": "f07b08a88c5ad2437887058c0e2877a0cb850c20bdffe1f42b45c70249c6a78b",
+        "scope": "JavaScript disabled: text-only catalogue and native details remain available.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    ]
   }
 }

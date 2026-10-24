@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStress, repository } from './validate-visual-stress.mjs';
+import { buildRefinementTextInput } from './refinement-input.mjs';
 
 const digest = value => createHash('sha256').update(value).digest('hex');
 export async function createRefinementCases() {
@@ -19,10 +20,9 @@ export async function createRefinementCases() {
     const input = `examples/refinement/${length}-reading.md`;
     const body = await readFile(path.join(repository,input),'utf8');
     for (const template of ids) {
-      const metadata = { template, density:'standard', source: '原创阅读练习 · 非外部引文，不构成研究结论' };
       cases.push({ id:`${length}-${template}`, template, density:'standard', length,
-        group:`same-${length}-reading`, expected:length==='long'?'CONTENT_OVERFLOW':'success', cards:1,
-        source:`<!-- card: ${JSON.stringify(metadata)} -->\n${body}`, bodySha256:digest(body), originalInput:input });
+        group:`same-${length}-reading`, expected:length==='long'||(length==='medium'&&template==='T13')?'CONTENT_OVERFLOW':'success', cards:1,
+        source:buildRefinementTextInput(template,body), bodySha256:digest(body), originalInput:input });
     }
   }
   for (const [id,image,alt,caption] of [

@@ -1,24 +1,26 @@
 # md2card-skill
 
+M2 的 48 个精确 standard / portrait 注册示例已完成独立助手源码、全 PNG、375/390px 手机图和原生 PDF 复核：35 套 v2、13 套 v3。见 [有限范围验收](docs/REFINEMENT_M2_ACCEPTANCE.md)。v1 / M1 v2 历史证据保持原样，不作为当前预览。
+
 把 Markdown 与长文整理成清晰、有设计感的知识卡片。
 
 这是一个可放入 Codex 或 Claude Code 技能目录的独立 Skill，也是一个可以直接运行的本地渲染工具。先做内容编排，再选原创主题，最后导出 HTML、PNG 或保留文本层的 PDF。
 
 ## 选择 48 套原创模板
 
-正在按 [R01–R12 精修计划](docs/REFINEMENT_PLAN.md) 推进，不增加模板数量。当前 48 套已更新为 v2，仍待新的 PNG / 手机 / PDF 独立验收；图库明确区分当前已验收与待验收版本。下文 48 套与四张配图的验收记录属于 v1，不能证明 v2。
+按 [R01–R12 精修计划](docs/REFINEMENT_PLAN.md) 推进，不增加模板数量。[离线模板图库](docs/gallery/index.html) 现绑定 48 个当前已验收 PNG，覆盖 12 个家族、各 4 个独立构图。验收仅覆盖精确输入、standard / 3:4、manual 和本次 CI 字体环境，不保证任意输入都能放下。
 
-[离线模板图库](docs/gallery/index.html) 提供家族、用途、图片需求和示例密度筛选。**48 个独立构图覆盖 12 个家族，各 4 套；v1 标准 3:4 注册示例均已检查真实 PNG、375/390px 手机图及原生 PDF。** 不是主题、配色或尺寸的排列组合，验收也不代表任意输入都能放下。精确版本、产物与限制见 [本轮验收](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md)。
+T04/T21 的四个既有 square/slide 短例已有当前精确产物视觉复核，最终画幅绑定仍待 R12；不能扩张为全部 12 个技术导出或 48 × 3 验收。T20 图内微字仍仅作上下文；T48 右栏短尾“盖。”等有限限制保留。
 
-下载完整仓库后打开 `docs/gallery/index.html`，GitHub 文件页本身不运行 HTML。图库只展示已绑定证据的真实输出；48 预览版本已完成 51 项真实浏览器检查和 17 张界面截图复核，覆盖筛选、file:// CSP、键盘、无脚本回退与手机重排。原生菜单缩放与读屏仍未测试。使用方式见 [图库说明](docs/TEMPLATE_GALLERY.md)。
+下载完整仓库后打开 `docs/gallery/index.html`，GitHub 文件页本身不运行 HTML。图库只展示已绑定证据的真实输出；当前 48 预览绑定之后仍须在发布的精确树上进行真实浏览器复核；运行 40074554707 的 0-current / 48-pending 图库不能替代它。历史 v1 的 48 预览版本曾完成 51 项真实浏览器检查和 17 张界面截图复核，覆盖筛选、file:// CSP、键盘、无脚本回退与手机重排。原生菜单缩放与读屏仍未测试。使用方式见 [图库说明](docs/TEMPLATE_GALLERY.md)。
 
-以下四张保留为上一轮 v1 的真实导出，不作为当前 v2 预览；当前状态见图库，输入和 PNG/PDF 哈希见验收记录。
+以下四张为当前 M2 的精确真实 PNG；历史图仍保留在历史验收记录。输入与 PNG/PDF 哈希见 M2 验收。
 
 | T03 图文特写 | T19 系统模块架构 |
 | --- | --- |
-| ![T03 原创图文特写](docs/images/templates/T03.png) | ![T19 深色系统模块架构](docs/images/templates/T19.png) |
+| ![T03 原创图文特写](docs/images/refinement-m2-run-40074554707/T03.png) | ![T19 深色系统模块架构](docs/images/refinement-m2-run-40074554707/T19.png) |
 | T35 剪报拼贴资料卡 | T48 产品结构比较 |
-| ![T35 保留日期与出处的剪报拼贴资料卡](docs/images/templates/T35.png) | ![T48 虚构产品结构与限制比较](docs/images/templates/T48.png) |
+| ![T35 保留日期与出处的剪报拼贴资料卡](docs/images/refinement-m2-run-40074554707/T35.png) | ![T48 虚构产品结构与限制比较](docs/images/refinement-m2-run-40074554707/T48.png) |
 
 ## 它能做什么
 
@@ -305,7 +307,7 @@ tests/                  解析与导出测试
 
 成品模板包含完整构图、字阶、图文组织、来源与适用边界。12 个家族涵盖编辑杂志、瑞士极简、包豪斯、新粗野、深色科技、数据商业、温暖手账、东方书卷、复古报刊、胶片摄影、糖果波普与自然生活；每家族 4 套，不只做封面，也覆盖正文、教程、引用、案例和证据。
 
-全部 48 个 standard / 3:4 注册示例的精确验收范围见 [本轮记录](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md)。[M1 原始验收](docs/TEMPLATE_ACCEPTANCE.md) 仍独立保留。以下四张是 M1 的真实历史 PNG，不是全库的新联系表或概念设计图：
+当前 48 个 standard / 3:4 注册示例的精确验收范围见 [M2 记录](docs/REFINEMENT_M2_ACCEPTANCE.md)；[v1 记录](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md) 保持历史范围。[M1 原始验收](docs/TEMPLATE_ACCEPTANCE.md) 仍独立保留。以下四张是 M1 的真实历史 PNG，不是全库的新联系表或概念设计图：
 
 | T01 编辑专题 | T05 数字索引 |
 | --- | --- |
@@ -329,7 +331,7 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 
 可选原创起点：[固定 5 张的证据阅读](examples/series/evidence-reading.md)、[直接从正文开始的 3 张均值教程](examples/series/mean-tutorial.md)。每张显式选择模板，不自动插封面、总结或 CTA；虚构数据、代码口径与品牌路径见 [系列说明](docs/SERIES_RECIPES.md)。
 
-两组历史 v1 系列曾检查全部 8 张原图、16 张手机图及原生 PDF；历史 18 案例压力矩阵和四组尾页配对也有独立复核。当前 v2 均须重新验证。成功导出与预期拒绝分别记录，这些结果只覆盖明确输入，不扩张为任意内容保证。
+两组既有系列的当前 M2 精确产物已检查全部 8 张原图、16 张手机图及原生 PDF；18 案例压力矩阵中三个明确输出有独立视觉复核，其余技术控制不扩大为视觉验收。历史 v1 系列、压力和尾页记录保持原样。成功导出与预期拒绝分别记录，这些结果只覆盖明确输入，不扩张为任意内容保证。
 
 [可选尾页平衡](docs/TAIL_BALANCING.md) 只在同一显式分区的末两页移动完整语义组，保留页数、编号、表头和来源；不强制填满所有尾页。[压力验证](docs/VISUAL_STRESS.md) 分开记录成功导出与预期拒绝，不声称覆盖任意内容。T34 装饰首字的 PDF 抽取顺序、图片内微字及旧 Notebook 字号等明确限制见 [全 16 项状态](docs/VISUAL_BACKLOG_STATUS.md)。
 
@@ -342,6 +344,6 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 
 ### R09 / R10：按任务选型与真实同文测试
 
-图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：18 例计划完整导出、4 例长文必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [docs/CONTENT_MATRIX.md](docs/CONTENT_MATRIX.md) 和 [docs/TEMPLATE_GALLERY.md](docs/TEMPLATE_GALLERY.md)。
+图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v3 / v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：17 例计划完整导出、4 例长文及 T13 的指定中篇必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [docs/CONTENT_MATRIX.md](docs/CONTENT_MATRIX.md) 和 [docs/TEMPLATE_GALLERY.md](docs/TEMPLATE_GALLERY.md)。
 
-R11 新增两条非封面/CTA 节奏：有条件比较 → 条件表 → 可撤回试用（T06/T24/T14），以及单图观察 → 双图对照 → 未知边界札记（T37/T38/T29）。共四组作者明确选择的系列、14 张卡；新增六张和全部当前 v2 连读效果仍待真实 PNG/手机/PDF 复核。详见 [系列配方](docs/SERIES_RECIPES.md)。
+R11 新增两条非封面/CTA 节奏：有条件比较 → 条件表 → 可撤回试用（T06/T24/T14），以及单图观察 → 双图对照 → 未知边界札记（T37/T38/T29）。共四组作者明确选择的系列、14 张卡；既有 A/B 八张已有 M2 精确产物复核；新增 C/D 六张与本 R11 阶段四组全量运行仍待真实 PNG/手机/PDF 及连读复核，不能继承旧输入的验收。详见 [系列配方](docs/SERIES_RECIPES.md)。

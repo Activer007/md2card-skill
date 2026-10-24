@@ -5,6 +5,8 @@ description: Turn Markdown or supplied prose into polished, paginated knowledge 
 
 # Markdown to knowledge cards
 
+当前 M2 的 48 个精确 standard / portrait 注册示例已独立复核：35 套 v2、13 套 v3。见 [有限范围验收](docs/REFINEMENT_M2_ACCEPTANCE.md)。历史阶段失败记录保留，不再代表当前验收状态。
+
 Transform useful content into a coherent, legible card sequence. Preserve the
 user's meaning, language, requested length, and explicit visual choices.
 This skill is an independent implementation; do not fetch or copy website themes.
@@ -131,15 +133,19 @@ node scripts/render.mjs /absolute/path/cards.md \
 For an optional composed design, inspect `node scripts/render.mjs --list-templates`
 and the [offline gallery](docs/gallery/index.html), then match its content/image
 contract to the supplied source. There are 48 independent designs across 12
-families. Check each registry version: 48 refined v2 designs currently await
-fresh visual acceptance. Historical v1 standard/portrait examples have PNG, phone and
-native-PDF evidence in [the acceptance record](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md).
+families. Current M2 acceptance binds 13 v3 and 35 v2 exact standard/portrait
+examples to independently reviewed full PNG, 375/390 phone and native-PDF evidence
+in [the M2 record](docs/REFINEMENT_M2_ACCEPTANCE.md). Immutable v1 and the 13 M1 v2
+examples remain validated history, never substituted for current previews.
+The post-binding 48-current gallery still needs exact published-tree browser review.
 Do not treat example acceptance as a guarantee for arbitrary input. Select a
 registry ID with `--template` or per-card `template` metadata; density changes
 spacing only. Templates remain manual-only and do not inherit legacy theme CSS.
 
 Consult the registry's per-aspect support and acceptance status. T04/T21 also have
-four independently reviewed standard-density square/slide short examples. Other
+four current independently reviewed standard-density square/slide short examples;
+final aspect-specific registry binding remains pending R12. This does not approve
+all 12 exported aspect controls. Other
 templates do not gain those aspects, and longer portrait inputs can overflow. Select
 `--size` or matching dimensions, never card `aspect` metadata. Keep the same
 mobile body/source floors and fail overflowing text unchanged; new shorter
@@ -217,6 +223,6 @@ Do not upload, publish, or install this skill elsewhere unless asked.
 
 ### R09 / R10：按任务选型与真实同文测试
 
-图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：18 例计划完整导出、4 例长文必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [docs/CONTENT_MATRIX.md](docs/CONTENT_MATRIX.md) 和 [docs/TEMPLATE_GALLERY.md](docs/TEMPLATE_GALLERY.md)。
+图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v3 / v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：17 例计划完整导出、4 例长文及 T13 的指定中篇必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [docs/CONTENT_MATRIX.md](docs/CONTENT_MATRIX.md) 和 [docs/TEMPLATE_GALLERY.md](docs/TEMPLATE_GALLERY.md)。
 
-R11 的四组可选作者系列共 5/3/3/3 张，新增有条件选择与图像观察两种节奏，不强制封面或 CTA，不读取配方来改写用户输入。每张保留显式模板、manual 边界、图像身份、来源与限制。当前 v2 全部系列均待新的实际连读与手机/PDF 验证，详见 [系列契约](docs/SERIES_RECIPES.md)。
+R11 的四组可选作者系列共 5/3/3/3 张，新增有条件选择与图像观察两种节奏，不强制封面或 CTA，不读取配方来改写用户输入。每张保留显式模板、manual 边界、图像身份、来源与限制。既有 A/B 八张已有 M2 精确产物复核；新增 C/D 六张与本 R11 阶段四组全量运行仍待实际连读与手机/PDF 验证，详见 [系列契约](docs/SERIES_RECIPES.md)。

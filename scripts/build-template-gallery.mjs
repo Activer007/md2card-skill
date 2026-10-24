@@ -113,11 +113,18 @@ export async function buildGalleryModel({ root = ROOT, templates = TEMPLATES } =
     } else if (template.status !== 'implemented-awaiting-visual-review') {
       fail(`unrecognized pending status: ${template.id}`);
     }
-    if (template.historicalAcceptance !== undefined) {
-      const history = template.historicalAcceptance;
+    if (template.historicalAcceptances !== undefined && !Array.isArray(template.historicalAcceptances)) fail(`historicalAcceptances must be an array: ${template.id}`);
+    const histories = [...(template.historicalAcceptance === undefined ? [] : [template.historicalAcceptance]), ...(template.historicalAcceptances ?? [])];
+    const historicalBatches = new Set();
+    const historicalVersions = new Set();
+    item.histories = [];
+    for (const history of histories) {
       const batch = batches.get(history?.batch);
       const record = batch?.records.get(template.id);
-      if (!batch || !record || !Number.isSafeInteger(history.version) || history.version >= template.version || history.version !== batch.scope.version) fail(`invalid historical acceptance or missing record: ${template.id}`);
+      if (!history || Array.isArray(history) || !batch || !record || !Number.isSafeInteger(history.version) || history.version < 1 || history.version >= template.version || history.version !== batch.scope.version) fail(`invalid historical acceptance or missing record: ${template.id}`);
+      if (historicalBatches.has(history.batch) || historicalVersions.has(history.version)) fail(`duplicate historical acceptance batch or version: ${template.id}`);
+      historicalBatches.add(history.batch);
+      historicalVersions.add(history.version);
       // Historical source is deliberately kept unchanged. A changed authored input
       // needs its own archived source, not a silently updated historical digest.
       if (digest(input) !== record.input) fail(`historical accepted input hash mismatch: ${template.id}`);
@@ -127,14 +134,17 @@ export async function buildGalleryModel({ root = ROOT, templates = TEMPLATES } =
       if (bytes.length < 24 || bytes.subarray(0, 8).toString('hex') !== '89504e470d0a1a0a' || bytes.toString('ascii', 12, 16) !== 'IHDR' || bytes.readUInt32BE(16) !== batch.scope.width || bytes.readUInt32BE(20) !== batch.scope.height) fail(`historical PNG dimensions or signature mismatch: ${template.id}`);
       const reviewImageLink = path.posix.relative(path.posix.dirname(batch.review), historicalPreview);
       if (!batch.reviewText.includes(`(${reviewImageLink})`) || !batch.reviewText.includes(`(../${template.example})`)) fail(`review is missing exact preview/input links: ${template.id}`);
-      item.history = { version: history.version, batch: history.batch, review: batch.review, previewPath: historicalPreview, codeCommit: batch.provenance.codeCommit };
+      item.histories.push({ version: history.version, batch: history.batch, review: batch.review, path: batch.evidence, sha256: batch.evidenceSha256, previewPath: historicalPreview, previewSha256: record.png, codeCommit: batch.provenance.codeCommit, codeTree: batch.provenance.codeTree });
     }
+    item.histories.sort((a, b) => a.version - b.version);
+    // Keep the original single-history model property as an oldest-epoch alias.
+    if (item.histories.length) item.history = item.histories[0];
     item.command = `node scripts/render.mjs ${template.example} --out output/${template.id} --size portrait --paginate manual --format all --strict --preview`;
     items.push(item);
   }
   // Evidence may not silently keep an accepted record that disappeared from the registry.
   for (const batch of batches.values()) for (const id of batch.records.keys()) {
-    if (!items.some(item => item.id === id && (item.acceptance === batch.id || item.historicalAcceptance?.batch === batch.id))) fail(`orphaned acceptance record: ${batch.id}/${id}`);
+    if (!items.some(item => item.id === id && (item.acceptance === batch.id || item.histories.some(history => history.batch === batch.id)))) fail(`orphaned acceptance record: ${batch.id}/${id}`);
   }
   items.sort((a, b) => compare(a.id, b.id));
   return { schemaVersion: 1, tasks: buildTaskGuide(items), comparisons: await buildComparisonModel(items, relative => readRepoFile(root, relative)), items, accepted: items.filter(item => item.preview), pending: items.filter(item => !item.preview), families: [...new Set(items.map(item => item.family))].sort(compare).map(value => ({ value, label: FAMILY_NAMES[value] ?? value })), densities: [...DENSITIES] };
@@ -148,9 +158,10 @@ const field = (label, value) => `<div><dt>${e(label)}</dt><dd>${e(value)}</dd></
 function renderDetails(item) {
   const accepted = item.preview !== null;
   const evidence = accepted ? `<div><dt>验收证据</dt><dd>${link(item.evidence.review, `${item.evidence.batch} 逐图复核记录`)} · ${link(item.evidence.path, '原始产物哈希记录')}<br>源码提交 <code>${e(item.evidence.codeCommit)}</code><br>完整代码树 <code>${e(item.evidence.codeTree)}</code></dd></div>
-${field('已验收 PNG SHA-256', item.preview.sha256)}${field('证据文件 SHA-256', item.evidence.sha256)}` : field('验收证据', '尚无当前版本的真实 PNG / 手机 / PDF 视觉验收包；源码实现不等于成品。') + (item.history ? field('历史版本', `v${item.history.version} 的 ${item.history.batch} 仅为旧设计证据，不证明当前 v${item.version}。`) : '');
+${field('已验收 PNG SHA-256', item.preview.sha256)}${field('证据文件 SHA-256', item.evidence.sha256)}` : field('验收证据', '尚无当前版本的真实 PNG / 手机 / PDF 视觉验收包；源码实现不等于成品。');
+  const history = item.histories.map(entry => `<div><dt>历史版本 v${entry.version}</dt><dd>${e(`v${entry.version} 的 ${entry.batch} 仅为旧设计证据，不证明当前 v${item.version}。`)}<br>${link(entry.previewPath, `v${entry.version} 历史 PNG`)} · ${link(entry.review, `${entry.batch} 逐图复核记录`)} · ${link(entry.path, '历史产物哈希记录')}<br>历史源码提交 <code>${e(entry.codeCommit)}</code></dd></div>`).join('');
   return `<details class="detail"><summary>结构、边界与复现 · ${e(item.id)}</summary>
-<dl>${field('输入结构', item.structure)}${field('不适用 / 限制', item.unsuitable)}${field('推荐内容量', `${item.length[0]}–${item.length[1]} 字，仅为选型参考，不保证放得下。`)}${field('版本 / 构图', `v${item.version} · ${item.composition} · ${item.layout}`)}${field('注册示例', `${item.density} 密度 · ${item.reading} 阅读预设 · 3:4 · manual`)}${field('源码支持画幅', `${item.aspects.join(' / ')}；支持不等于已验收。当前预览仅绑定上面的默认 3:4 示例；T04 / T21 的四个指定短例保留历史证据；共用字体更新后须重新验收，见画幅说明。`)}${field('其他密度', `${DENSITIES.join(' / ')} 仅改变间距，不缩小字体。当前真实预览只证明 standard 注册示例。`)}${field('设计来源', item.provenance.design)}${field('文字来源', item.provenance.text)}${field('素材来源', item.provenance.assets)}${field('当前示例 SHA-256', item.inputSha256)}${evidence}</dl>
+<dl>${field('输入结构', item.structure)}${field('不适用 / 限制', item.unsuitable)}${field('推荐内容量', `${item.length[0]}–${item.length[1]} 字，仅为选型参考，不保证放得下。`)}${field('版本 / 构图', `v${item.version} · ${item.composition} · ${item.layout}`)}${field('注册示例', `${item.density} 密度 · ${item.reading} 阅读预设 · 3:4 · manual`)}${field('源码支持画幅', `${item.aspects.join(' / ')}；支持不等于已验收。当前预览仅绑定上面的默认 3:4 示例；T04 / T21 的四个指定短例保留历史证据；共用字体更新后须重新验收，见画幅说明。`)}${field('其他密度', `${DENSITIES.join(' / ')} 仅改变间距，不缩小字体。当前真实预览只证明 standard 注册示例。`)}${field('设计来源', item.provenance.design)}${field('文字来源', item.provenance.text)}${field('素材来源', item.provenance.assets)}${field('当前示例 SHA-256', item.inputSha256)}${evidence}${history}</dl>
 <p class="command-label">在仓库根目录复现${accepted ? '同一输入' : '候选示例'}（需允许的 Chromium、中文字体与 Poppler 环境）：</p><pre><code>${e(item.command)}</code></pre>
 <p class="fine-print">输出目录必须为空或不存在。命令使用当前代码；要复现历史截图，还需匹配记录中的代码、字体与环境。这里不执行渲染。</p>
 </details>`;
@@ -169,7 +180,7 @@ ${renderDetails(item)}</div></article>`;
 
 function renderDiscovery(model) {
   const tasks = model.tasks.map(task => `<article class="task-route"><h3>${e(task.title)}</h3><p>${e(task.hint)}</p><ul>${task.templates.map(item => `<li><a href="#${e(item.id)}" data-template-target="${e(item.id)}">${e(item.id)} ${e(item.name)}</a><span>${item.currentPreview ? '当前预览' : '当前版本待验收'}</span></li>`).join('')}</ul></article>`).join('');
-  const comparisons = model.comparisons.map(group => `<article class="comparison" id="compare-${e(group.id)}"><h3>${e(group.title)}</h3><p>${link(group.input, '打开完全相同的原文')} · ${group.templates.map(id => `<a href="#${e(id)}" data-template-target="${e(id)}">${e(id)}</a>`).join(' / ')}</p>${group.previews.length ? `<p class="fine-print">同一正文、standard、3:4、manual；只对这些精确输入有效。${link(group.evidence.review, '逐图验收记录')}</p><div class="comparison-grid">${group.previews.map(preview => `<figure><a href="${e(href(preview.path))}"><img src="${e(href(preview.path))}" width="${preview.width}" height="${preview.height}" loading="lazy" decoding="async" alt="${e(group.title)}，${e(preview.template)} 的真实导出"></a><figcaption>${e(preview.template)} · v${preview.version}</figcaption></figure>`).join('')}</div>` : '<p class="comparison-pending">同文出图与独立复核尚未完成，不展示旧版或不同文案的替代缩略图。</p>'}</article>`).join('');
+  const comparisons = model.comparisons.map(group => `<article class="comparison" id="compare-${e(group.id)}"><h3>${e(group.title)}</h3><p>${link(group.input, '打开完全相同的原文')} · ${group.templates.map(id => `<a href="#${e(id)}" data-template-target="${e(id)}">${e(id)}</a>`).join(' / ')}</p>${Object.entries(group.requiredRefusals).map(([id,reason]) => `<p class="comparison-pending"><strong>${e(id)} · 本例明确不适配：</strong>${e(reason)}${group.refusals.find(item => item.template === id) ? ` ${link(group.refusals.find(item => item.template === id).path, '保留的溢出诊断')}` : ' 当前对照尚待完整复核；不计为成功导出。'}</p>`).join('')}${group.previews.length ? `<p class="fine-print">同一正文、standard、3:4、manual；只对这些精确输入有效。${link(group.evidence.review, '逐图验收记录')}</p><div class="comparison-grid">${group.previews.map(preview => `<figure><a href="${e(href(preview.path))}"><img src="${e(href(preview.path))}" width="${preview.width}" height="${preview.height}" loading="lazy" decoding="async" alt="${e(group.title)}，${e(preview.template)} 的真实导出"></a><figcaption>${e(preview.template)} · v${preview.version}</figcaption></figure>`).join('')}</div>` : '<p class="comparison-pending">同文出图与独立复核尚未完成，不展示旧版或不同文案的替代缩略图。</p>'}</article>`).join('');
   return `<section id="tasks" aria-labelledby="tasks-title"><div class="section-heading"><div><p class="kicker">从要完成的任务出发</p><h2 id="tasks-title">你想表达什么？</h2></div><p>六条选型路线，不增加模板数量。</p></div><div class="task-grid">${tasks}</div></section><section id="comparisons" aria-labelledby="comparisons-title"><div class="section-heading"><div><p class="kicker">内容不变，比较表达</p><h2 id="comparisons-title">同文对照</h2></div><p>正文哈希一致；不要把不同文案的样张当作对照。</p></div>${comparisons}</section>`;
 }
 

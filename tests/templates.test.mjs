@@ -467,3 +467,8 @@ test('R01–R06 refine measures, original image visibility and primary focus wit
     assert.equal(entry.aspectLayouts.portrait.status, 'implemented-awaiting-visual-review');
   }
 });
+
+
+test('T19 open-grid headings do not escape the measured content box', () => {
+  assert.match(css, /template-T19 \.template-section h2 \{ margin: 0 0 \.25em; padding: \.1em 0 \.25em/);
+});

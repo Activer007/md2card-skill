@@ -615,7 +615,7 @@
 .card.template-T19 .template-intro p { margin: 0; }
 .card.template-T19 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .7em; padding: .35em 0; border: 0; }
 .card.template-T19 .template-section { padding: .3em 0 .4em; border: 0; border-top: 1px solid var(--line); background: transparent; }
-.card.template-T19 .template-section h2 { margin: 0 -.3em .25em; padding: .1em .3em .25em; border-bottom: 1px solid var(--line); color: var(--accent); font: 750 1em/1.4 var(--mono); letter-spacing: 0; }
+.card.template-T19 .template-section h2 { margin: 0 0 .25em; padding: .1em 0 .25em; border-bottom: 1px solid var(--line); color: var(--accent); font: 750 1em/1.4 var(--mono); letter-spacing: 0; }
 .card.template-T19 .template-section p { margin: 0; }
 .card.template-T19 .card-source { padding-top: .5em; border: 0; }
 .card.template-T19 .card-footer { border-top: 1px solid var(--line); font-family: var(--mono); }

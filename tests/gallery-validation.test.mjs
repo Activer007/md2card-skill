@@ -6,7 +6,7 @@ import os from 'node:os';
 import { runInNewContext } from 'node:vm';
 import { pathToFileURL } from 'node:url';
 import { ROOT, buildGalleryModel } from '../scripts/build-template-gallery.mjs';
-import { parseGalleryValidationOptions, expectedIds, requestAllowed, prepareOutput, recordCheck, bounded, validateGallery, inspectReflow, evaluateSafely, withPage } from '../scripts/validate-gallery.mjs';
+import { parseGalleryValidationOptions, expectedIds, requestAllowed, prepareOutput, recordCheck, bounded, validateGallery, inspectReflow, evaluateSafely, withPage, activateSkipLink, readyVisibleImages } from '../scripts/validate-gallery.mjs';
 const model = await buildGalleryModel();
 const source = await readFile(new URL('../scripts/validate-gallery.mjs', import.meta.url), 'utf8');
 async function temp(t) {
@@ -189,4 +189,56 @@ test('stalled page/image evaluation records failure and closes context and brows
   assert.ok(report.checks.some(check => check.name === 'browser cleanup' && check.status === 'pass'));
   await assert.rejects(evaluateSafely({ evaluateAll: () => new Promise(() => {}) }, 'evaluateAll', () => {}, undefined, 5), /evaluateAll timed out/);
   assert.doesNotMatch(source, /\.(?:evaluate|evaluateAll)\(/, 'Every browser evaluation goes through the explicit deadline wrapper');
+});
+
+
+test('skip-link audit waits for delayed same-document navigation to the exact local destination', async () => {
+  let current = 'file:///repo/docs/gallery/index.html';
+  let pressed = false, waited = false;
+  const page = {
+    url: () => current,
+    keyboard: { press: async key => { assert.equal(key, 'Enter'); pressed = true; } },
+    waitForURL: async (destination, options) => {
+      assert.equal(pressed, true);
+      assert.equal(current, 'file:///repo/docs/gallery/index.html');
+      assert.equal(destination, 'file:///repo/docs/gallery/index.html#main');
+      assert.equal(options.timeout, 100);
+      await new Promise(resolve => setTimeout(resolve, 5));
+      current = destination; waited = true;
+    }
+  };
+  await activateSkipLink(page, 100);
+  assert.equal(waited, true);
+  assert.equal(current, 'file:///repo/docs/gallery/index.html#main');
+});
+
+test('skip-link audit still rejects a stalled navigation or a wrong destination', async () => {
+  const page = { url: () => 'file:///repo/docs/gallery/index.html', keyboard: { press: async () => {} }, waitForURL: () => new Promise(() => {}) };
+  await assert.rejects(activateSkipLink(page, 5), /Skip-link navigation timed out/);
+  page.waitForURL = async () => {};
+  await assert.rejects(activateSkipLink(page, 100), { code: 'ERR_ASSERTION' });
+});
+
+
+test('snapshot readiness decodes every intersecting image, not hidden or offscreen entries', async () => {
+  const calls = [];
+  const image = (name, rect, style = {}) => ({
+    complete: true, naturalWidth: 1080, naturalHeight: 1440, style,
+    getBoundingClientRect: () => ({ width: 200, height: 267, left: 0, right: 200, top: 0, bottom: 267, ...rect }),
+    decode: async () => { await new Promise(resolve => setTimeout(resolve, 2)); calls.push(name); }
+  });
+  const images = [image('full', {}), image('partial', { top: 790, bottom: 1057 }), image('below', { top: 900, bottom: 1167 }), image('hidden', {}, { visibility: 'hidden' })];
+  const page = { evaluate: callback => runInNewContext(`(${callback.toString()})()`, {
+    document: { querySelectorAll: selector => { assert.equal(selector, '.accepted-card img'); return images; } },
+    innerWidth: 375, innerHeight: 812, getComputedStyle: image => ({ display: 'block', visibility: 'visible', ...image.style })
+  }) };
+  const result = await readyVisibleImages(page, 100);
+  assert.equal(result.decodedVisibleImages, 2);
+  assert.deepEqual(calls.sort(), ['full', 'partial']);
+  images[0].naturalWidth = 0;
+  await assert.rejects(readyVisibleImages(page, 100), /not decoded/);
+});
+
+test('snapshot readiness keeps a finite deadline for stalled lazy-image decoding', async () => {
+  await assert.rejects(readyVisibleImages({ evaluate: () => new Promise(() => {}) }, 5), /Gallery evaluate timed out/);
 });

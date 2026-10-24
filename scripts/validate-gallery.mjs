@@ -106,8 +106,26 @@ export function inspectReflow() {
     offenders: [...body.querySelectorAll('*')].filter(offender).slice(0, 25).map(element => ({ tag: element.tagName, id: element.id, className: element.className, left: element.getBoundingClientRect().left, right: element.getBoundingClientRect().right })) };
 }
 
+// A later reload/scroll can expose lazy images after the resource audit.
+// Wait for only the currently visible pixels without altering lazy loading.
+export async function readyVisibleImages(page, timeoutMs = 15000) {
+  return evaluateSafely(page, 'evaluate', async () => {
+    const visible = [...document.querySelectorAll('.accepted-card img')].filter(image => {
+      const rect = image.getBoundingClientRect();
+      const style = getComputedStyle(image);
+      return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.right > 0 &&
+        rect.top < innerHeight && rect.left < innerWidth &&
+        style.display !== 'none' && style.visibility !== 'hidden';
+    });
+    await Promise.all(visible.map(image => image.decode()));
+    for (const image of visible) if (!image.complete || !image.naturalWidth || !image.naturalHeight) throw new Error('Visible gallery image is not decoded.');
+    return { decodedVisibleImages: visible.length };
+  }, undefined, timeoutMs);
+}
+
 async function snapshot(page, out, report, name, scope) {
   const file = `${name}.png`;
+  await readyVisibleImages(page);
   await page.screenshot({ path: path.join(out, file), fullPage: false, animations: 'disabled' });
   const bytes = await readFile(path.join(out, file));
   report.artifacts.push({ file, bytes: bytes.length, sha256: hash(bytes), scope, viewport: page.viewportSize() });
@@ -170,6 +188,16 @@ async function assertFilters(page, model, filters) {
   return { filters, accepted, pending };
 }
 
+// Enter may return before a same-document navigation commits. Wait for the
+// exact local destination, not merely an arbitrary URL ending in the same hash.
+export async function activateSkipLink(page, timeoutMs = 15000) {
+  const destination = new URL(page.url());
+  destination.hash = 'main';
+  await page.keyboard.press('Enter');
+  await bounded(page.waitForURL(destination.href, { timeout: timeoutMs }), timeoutMs, 'Skip-link navigation');
+  assert.equal(page.url(), destination.href);
+}
+
 async function keyboardAudit(page) {
   await page.reload({ waitUntil: 'load' });
   await page.locator('[data-filter-panel]').waitFor({ state: 'visible' });
@@ -181,8 +209,7 @@ async function keyboardAudit(page) {
   assert.equal(await evaluateSafely(page, 'evaluate', () => document.activeElement.className), 'skip-link');
   const skip = await evaluateSafely(page, 'evaluate', () => ({ left: document.activeElement.getBoundingClientRect().left, top: document.activeElement.getBoundingClientRect().top }));
   assert.ok(skip.left >= 0 && skip.top >= 0, 'Focused skip link must be onscreen.');
-  await page.keyboard.press('Enter');
-  assert.ok(page.url().endsWith('#main'));
+  await activateSkipLink(page);
   await page.locator('#family-filter').focus();
   const sequence = [];
   for (const next of ['purpose-filter', 'image-filter', 'density-filter', 'reset-filters']) {

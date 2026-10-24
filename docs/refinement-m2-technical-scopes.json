@@ -1,0 +1,1522 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M2",
+  "fixtureOnly": false,
+  "publicationReady": true,
+  "runAssociation": "Exact remote head, CI merge-preview checkout/tree and artifact digest independently verified against GitHub receipt; product-state promotion has a separate source/gallery review.",
+  "runId": 40074554707,
+  "runUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40074554707",
+  "codeCommit": "5ab221091d721e97c64a773165c82a082a88c8fd",
+  "codeTree": "6908866b74ad48baec0faea103f0eaf288a5e4db",
+  "mergePreview": "94185a1d17b5ed994ebc517cdbdab452a7b5f5ba",
+  "archiveSha256": "299546dc33337d122bf1b816bc85f4835b7760a149717bb669816e4a0a0d6112",
+  "acceptanceState": "scoped-independent-review-not-universal-acceptance",
+  "independentReview": {
+    "reviewer": "Independent assistant reviewers; no human reviewer identity asserted",
+    "date": "2026-10-24",
+    "status": "pass-with-bounded-nonblocking-limitations",
+    "report": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+    "runId": 40074554707,
+    "codeTree": "6908866b74ad48baec0faea103f0eaf288a5e4db",
+    "surfaces": [
+      "full-size PNG",
+      "375 px natural viewport",
+      "390 px natural viewport",
+      "native PDF"
+    ],
+    "method": "Independent source and artifact review, direct full/mobile/native-PDF inspection of changed outputs, and exact PNG/native-PDF-raster identity carry-forward of previously inspected M2 outputs. Not raw CI audit approval or a human review claim.",
+    "carryForward": {
+      "fromRunId": 40073992849,
+      "registeredFullPngs": 48,
+      "registeredPhonePngs": 96,
+      "registeredNativePdfRasters": 48,
+      "registeredAuthoredInputs": 48,
+      "comparison": "All byte-identical to independently reviewed preceding M2 outputs; native PDFs compared as exact raster byte streams."
+    },
+    "priorDirectReviewRuns": [
+      40068790583,
+      40073498787,
+      40073992849
+    ],
+    "limitations": [
+      "T20 embedded interface microtext is contextual only; body-sized external explanations carry the meaning.",
+      "T48 retains a complete short 盖。 ending in the right description; this is a bounded nonblocking limit, not orphan-free typography.",
+      "T36 retains its earlier introductory 一谈。 tail. Exact registered examples do not certify arbitrary input, other density or canvas settings.",
+      "Actual CI-installed fonts were reviewed, not Windows/macOS or other font-environment equivalence.",
+      "Native PDF raster and extractable text checks do not certify tagged/accessible reading order, every viewer or real devices."
+    ],
+    "conclusion": "All 48 exact registered standard/portrait examples are independently clear for scoped acceptance; 35 current v2 plus 13 current v3. This does not approve future refinement stages or the post-binding gallery UI."
+  },
+  "artifactId": 12552767499,
+  "archiveUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40074554707/artifacts/12552767499",
+  "scopes": {
+    "pressure": {
+      "scope": "18 exact pressure inputs: 13 exports, 3 expected CONTENT_OVERFLOW and 2 expected INVALID_ASSET. Only the 3 named outputs below received independent visual review.",
+      "counts": {
+        "exported": 13,
+        "expected-error": 5,
+        "independently-reviewed-exports": 3
+      },
+      "records": [
+        {
+          "id": "short-compact",
+          "inputPathInArchive": "visual-stress/inputs/short-compact.md",
+          "inputSha256": "742f82737efdce3a82c963098002ba0da2040a05be6042b43e701888fd6a4025",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "visual-stress/short-compact/cards.html",
+              "sha256": "5f92d7982a04291c0c6118524eebc547a287413df90bae8a304a2be92543f1cb",
+              "bytes": 136031,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/short-compact/preview.html",
+              "sha256": "ace5240a80f62230ef5aaaadea660a9af8e228eef6e3a44375dd501bade7d7a1",
+              "bytes": 136849,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/short-compact/cards.pdf",
+              "sha256": "a13188e7ad6fa45eef7781ecdada8cef8183d2847be9a227315232c554e8fac9",
+              "bytes": 147877,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/short-compact/card-001.png",
+              "sha256": "0ab01db94092e4d487108e6707d71fec1337e92dd60bdfde4da998a610ad5550",
+              "bytes": 128875,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/short-compact/contact-sheet.png",
+              "sha256": "9cf96868e64e1fe72300b0a7359ab22f161a2a067d5d61c72c632c3a83bc5d4e",
+              "bytes": 29174,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "b283a6cfd80804841e794bcc16e067cdbb7b516405ecdec92881a957f4fe28ae"
+        },
+        {
+          "id": "short-standard",
+          "inputPathInArchive": "visual-stress/inputs/short-standard.md",
+          "inputSha256": "5ad787e4b2e8be9c37d86da09aac733b5b8913ac7dbc19316b08269297c4204c",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "visual-stress/short-standard/cards.html",
+              "sha256": "a3f2db34e9a0799f722903f063be3b68acd1f1e6ea643f0d5c09613df5fd6a38",
+              "bytes": 136033,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/short-standard/preview.html",
+              "sha256": "f40c802ef9e119e968f696c9d528d13311c83fe69b8377bdaab954c304c5608c",
+              "bytes": 136851,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/short-standard/cards.pdf",
+              "sha256": "1040538242e7776a6263f0d0a8622165bf64a8b053a09b7d1740bae9b50d1c8a",
+              "bytes": 147879,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/short-standard/card-001.png",
+              "sha256": "216f129455f0c71304339bf0c36a1a59ecb810b18d1ebdfb9d1b746d41b702fe",
+              "bytes": 128876,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/short-standard/contact-sheet.png",
+              "sha256": "4923188647f98ac440e6be0003f84281790edceece10aba3892a14463c34b218",
+              "bytes": 29133,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "3bb6e66ae780bb051d767a789314aa9f25bcbc717483f22161f81ee358482b93"
+        },
+        {
+          "id": "short-editorial",
+          "inputPathInArchive": "visual-stress/inputs/short-editorial.md",
+          "inputSha256": "b9ebe77b76def92056af6afc6b3012008c60929c5ab017cf14f66fb3cb7ed48e",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "visual-stress/short-editorial/cards.html",
+              "sha256": "ad5a6e88addd9715aed43e74f24135e62ba18701f9e2306512aea7b48524f553",
+              "bytes": 136035,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/short-editorial/preview.html",
+              "sha256": "15180160239f7e3481f070e0ad4ca053451700880cda2852806c79b2438a252f",
+              "bytes": 136853,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/short-editorial/cards.pdf",
+              "sha256": "037360eb55732e1738d0afdcc6dc115306b738452519c8c4a061cf2014db0096",
+              "bytes": 147878,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/short-editorial/card-001.png",
+              "sha256": "c60872c0776e6bfd55ddb3e161db749da0dcdfd3acc1d3a0bbabd95381762d5b",
+              "bytes": 129251,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/short-editorial/contact-sheet.png",
+              "sha256": "6395ffcb04791aa06c84187d76044b1b0eedfaba53026f35dd76f5faa31c3ad1",
+              "bytes": 29212,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "c95a974026348f11121b213451a3516d3d2a0f1dd1e657f223123bfcb4918fd4"
+        },
+        {
+          "id": "medium-nested-url",
+          "inputPathInArchive": "visual-stress/inputs/medium-nested-url.md",
+          "inputSha256": "2bb6d4ad094766c5fcae20b0f9a74fd4e3c8c8d2b27e0e6404ce084c0120f513",
+          "outcome": "exported",
+          "visualReview": "independently-reviewed-exact-fixture",
+          "exports": [
+            {
+              "file": "visual-stress/medium-nested-url/cards.html",
+              "sha256": "e592291caa057823463acaf9e036f2c9b5ee7cfccc66aae8ace499c8cda29e7a",
+              "bytes": 136523,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/medium-nested-url/preview.html",
+              "sha256": "49e598e7ab17dfe85c9587d8ede9a0e67b246aa45ac513d7ed316bac92c89ba0",
+              "bytes": 137345,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/medium-nested-url/cards.pdf",
+              "sha256": "30fc030bffd438b8ce15e613da9e39e7347be521f92960e434495244e3eb5ab6",
+              "bytes": 175213,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/medium-nested-url/card-001.png",
+              "sha256": "727f2c5461907c21d4e46e07fcf3e6ec47e6d87b2e843a411bae607731a0748e",
+              "bytes": 204545,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/medium-nested-url/contact-sheet.png",
+              "sha256": "bcdcc0dc9d654d45bd32b592096269ae5dc47fd1c400acdb73a5ae3f25062c2c",
+              "bytes": 40471,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "8edabd5da50c11e95900087f510cca5b2bf4c9f0863ae4f9ba5b6c68f937ad64"
+        },
+        {
+          "id": "medium-code",
+          "inputPathInArchive": "visual-stress/inputs/medium-code.md",
+          "inputSha256": "6e6120fcbf92c28c95472d19da4846fe722dd2a220658a9990d99811490741db",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "visual-stress/medium-code/cards.html",
+              "sha256": "9ea16ec0a97fbb369872cd302075fb25276f1988a80f9bda4070c43d7ddded88",
+              "bytes": 136189,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/medium-code/preview.html",
+              "sha256": "4386fbf8f99486f30ab70665293a607e6450cc84118812332f5f49aaaf2fc9e9",
+              "bytes": 137011,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/medium-code/cards.pdf",
+              "sha256": "a237f9c5eb366220f42737ac887f8b0befb614a8f52a934771a24a667c9328bd",
+              "bytes": 183484,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/medium-code/card-001.png",
+              "sha256": "f3873de1f5bfdd6937f64f43955656676dbc33a8475a9b4231f0d1d12fd53c11",
+              "bytes": 169002,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/medium-code/contact-sheet.png",
+              "sha256": "538414b15fc69a7451d196470f85ff4867f205592786c7204989bb16a52fd523",
+              "bytes": 35658,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "4e8a978f835b5f5240219644a70ff1585bad43b74f01323f3b03640b62b041df"
+        },
+        {
+          "id": "medium-table",
+          "inputPathInArchive": "visual-stress/inputs/medium-table.md",
+          "inputSha256": "879886ec4d7885f8e3f1957246a28742ea87ffee49d551c59a8fc42a76111502",
+          "outcome": "exported",
+          "visualReview": "independently-reviewed-exact-fixture",
+          "exports": [
+            {
+              "file": "visual-stress/medium-table/cards.html",
+              "sha256": "d0a9138d7520472e89c6181d87c2ffa6f8c0706b4431b5feb66150b561188acd",
+              "bytes": 136350,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/medium-table/preview.html",
+              "sha256": "6a9f96d5f69b5707215be2af66f309e2d836a40b52f725a4d40fdb1ca6e5e6e8",
+              "bytes": 137173,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/medium-table/cards.pdf",
+              "sha256": "c8ddce215484bab490910dc52a6eeea1b8dbd5b4d69363220e8ff2b6a7e9fce8",
+              "bytes": 166513,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/medium-table/card-001.png",
+              "sha256": "dd2333a5a55b2efbb70f72a115886372040253b73e9b1f0ee946a45b590c5277",
+              "bytes": 160399,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/medium-table/contact-sheet.png",
+              "sha256": "8e2de8c21e35f5d1e3416a187675428f480844fe79f366bea0bb31d35e3cc894",
+              "bytes": 35830,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "801e7f5a4e954b5a031ef0b921d84b3f14c3f648536b3d6c4bc6ca9f7dfc60f9"
+        },
+        {
+          "id": "long-compact",
+          "inputPathInArchive": "visual-stress/inputs/long-compact.md",
+          "inputSha256": "f59b76ae066398b21dba4684c7ae29c64062e066e843f8914cb4af11e060dac1",
+          "outcome": "expected-error",
+          "visualReview": "not-claimed-technical-control",
+          "code": "CONTENT_OVERFLOW"
+        },
+        {
+          "id": "long-standard",
+          "inputPathInArchive": "visual-stress/inputs/long-standard.md",
+          "inputSha256": "41756e61593c31097e9c903bdcd70016d478dbbee244800992c6d9a171911cf4",
+          "outcome": "expected-error",
+          "visualReview": "not-claimed-technical-control",
+          "code": "CONTENT_OVERFLOW"
+        },
+        {
+          "id": "long-editorial",
+          "inputPathInArchive": "visual-stress/inputs/long-editorial.md",
+          "inputSha256": "731015f168390f588d087debdea29d075a03e59f6a7502eb9822ea4cdbce0af6",
+          "outcome": "expected-error",
+          "visualReview": "not-claimed-technical-control",
+          "code": "CONTENT_OVERFLOW"
+        },
+        {
+          "id": "notebook-headings",
+          "inputPathInArchive": "visual-stress/inputs/notebook-headings.md",
+          "inputSha256": "37196127cd31c4838678f69454fc25fe5994832cbc91abec470a41592943883b",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "visual-stress/notebook-headings/cards.html",
+              "sha256": "d027e5eabc49ec5da884208f808ac1557ab2055070c95f63627b522ade310eb5",
+              "bytes": 136124,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/notebook-headings/preview.html",
+              "sha256": "aa10c301ebb8b90520b4da04649797d9248b58a1b69f8ae7675c668afde3b59d",
+              "bytes": 137113,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/notebook-headings/cards.pdf",
+              "sha256": "8c0a4bffab6f4fb1feac3cb046ec6247417b0108e940f18094123a51d3dcbb0b",
+              "bytes": 177407,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/notebook-headings/card-001.png",
+              "sha256": "0edc8209e3abd398a9b9ab2a19472eb30b014f7926257cea30d4af5d4933787c",
+              "bytes": 115218,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/notebook-headings/card-002.png",
+              "sha256": "2adfe193260126041c3778ae8fbcfdbbf09668928be84a7b65687d2bf39b60f0",
+              "bytes": 47906,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/notebook-headings/contact-sheet.png",
+              "sha256": "92516b600bb3e5cf1dd889e4a73715d57108db27ce7dbb70333b12030059a244",
+              "bytes": 32392,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "abc714886d574fdcfccc460a9f57914408f713cc166115a65a222da0001c2545"
+        },
+        {
+          "id": "image-landscape",
+          "inputPathInArchive": "visual-stress/inputs/image-landscape.md",
+          "inputSha256": "60b65800e6b8b3cd3b473a36a9a9221c57225616dc8f2a431f5b90c1b2e0e1f7",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "visual-stress/image-landscape/cards.html",
+              "sha256": "a6e3075e19506b909fd7d396254451f3d8cedf43659fba6402ad34780f47abf3",
+              "bytes": 3168338,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/image-landscape/preview.html",
+              "sha256": "14f45fbfca4088c261e6f6623f9fd1f6e9350648fdf5ede1fa52022c5a556481",
+              "bytes": 3169164,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/image-landscape/cards.pdf",
+              "sha256": "b6cd717c62e3714a4a82782fe9c3e29b93e0a52a3926907394d9c87a85bdb224",
+              "bytes": 3824657,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/image-landscape/card-001.png",
+              "sha256": "52d3ad898c38d1c91040cafefd4dff3d398e572636f4b86c8f14424ef2f91767",
+              "bytes": 1009686,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/image-landscape/contact-sheet.png",
+              "sha256": "1ebf7022d3831410fd9bdf297e3433f0ce66201e91ee9c2d98141d9ce8051170",
+              "bytes": 98554,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [
+            {
+              "reference": "examples/templates/assets/synthetic-reading-still-life.png",
+              "hash": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+              "mime": "image/png",
+              "width": 1536,
+              "height": 1024,
+              "bytes": 2274167,
+              "sourcePath": "examples/templates/assets/synthetic-reading-still-life.png"
+            }
+          ],
+          "manifestSha256": "d9cbe1852d56a4750b99c52a546a0d68e19b036afe26b58299ca469783a26d00"
+        },
+        {
+          "id": "image-portrait",
+          "inputPathInArchive": "visual-stress/inputs/image-portrait.md",
+          "inputSha256": "db92b7bebc3193bd18444140c75513dd92072d206ad282e966c62722f9e2e0ea",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "visual-stress/image-portrait/cards.html",
+              "sha256": "773856cf81303f501115033206d5eaa84129e711b555ef2ab09fd88e5ad50290",
+              "bytes": 3025713,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/image-portrait/preview.html",
+              "sha256": "a467454c7ba30326187b164c5b58d96ee9069555854b53e1924b9a6b1292034e",
+              "bytes": 3026539,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/image-portrait/cards.pdf",
+              "sha256": "7b3f150a240d51e9c9d6e25c12ce1f726613af967996812860dc0e8fe12fec2c",
+              "bytes": 3969522,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/image-portrait/card-001.png",
+              "sha256": "0f227465e4efd7fc0d9281663ee361a65252da78b365374deb15a33a1de51ca3",
+              "bytes": 513992,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/image-portrait/contact-sheet.png",
+              "sha256": "471c30152cd75243e4dd9e099d4e7c21bd32ca2fbd20291afee2c394bb6a52e0",
+              "bytes": 60336,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [
+            {
+              "reference": "examples/templates/assets/synthetic-ceramic-artist.png",
+              "hash": "c5529de74c9f1fdf5b8eac2c61998614148f67c0a5138af84466a79dabe51ab1",
+              "mime": "image/png",
+              "width": 1024,
+              "height": 1536,
+              "bytes": 2166975,
+              "sourcePath": "examples/templates/assets/synthetic-ceramic-artist.png"
+            }
+          ],
+          "manifestSha256": "2a0f6912425309a7386282228c83d6779d017515f05b1c21c80043992d525e5e"
+        },
+        {
+          "id": "image-alpha",
+          "inputPathInArchive": "visual-stress/inputs/image-alpha.md",
+          "inputSha256": "0db6743f9a703ae03c19b612f3f360af9c9f71895b5c626f8befedb544ef3c8a",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "visual-stress/image-alpha/cards.html",
+              "sha256": "084a1e0f367305499d41644835fe7dd6bee93230284811380de378629684e715",
+              "bytes": 3002971,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/image-alpha/preview.html",
+              "sha256": "aa3bab6a5272752357a0d8dfd5ebe1f46711042d609f6f72aba8a4080ebdafbb",
+              "bytes": 3003793,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/image-alpha/cards.pdf",
+              "sha256": "823c2349eefc786291dcf480bd7b5099ce2a3d93a0694a43df5dfbde1544921a",
+              "bytes": 1594089,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/image-alpha/card-001.png",
+              "sha256": "7c44d7c3e3cf74bf8736d05b35ed9e1b244291b04ce0a0ad9de60c235794cca3",
+              "bytes": 323341,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/image-alpha/contact-sheet.png",
+              "sha256": "4cee85d61d8acff6a4088dcfd844fcdae162d710ff7fee9ebf724a725c708910",
+              "bytes": 43521,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [
+            {
+              "reference": "examples/templates/assets/synthetic-olive-twig.png",
+              "hash": "6eb92797db47185b3f9f61b449fac2b5e1077ede7ead834549719803f9af937e",
+              "mime": "image/png",
+              "width": 1024,
+              "height": 1536,
+              "bytes": 2150058,
+              "sourcePath": "examples/templates/assets/synthetic-olive-twig.png"
+            }
+          ],
+          "manifestSha256": "8f11267191d8c86fcfd1024f8e02e838dc832e98e78cf90ea022eb99c37e18ed"
+        },
+        {
+          "id": "image-screenshot",
+          "inputPathInArchive": "visual-stress/inputs/image-screenshot.md",
+          "inputSha256": "d1a44e05c14349ef0decd5f7a733a76b798464fc681248b83d8cc77dc6d69113",
+          "outcome": "exported",
+          "visualReview": "independently-reviewed-exact-fixture",
+          "exports": [
+            {
+              "file": "visual-stress/image-screenshot/cards.html",
+              "sha256": "a0a0baba9d37df8128526e3954ec939cc5b26f66c95a27835e8624f1828b0150",
+              "bytes": 363256,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/image-screenshot/preview.html",
+              "sha256": "065ec20452378ac8963840c2dfce7a258e970bb5f5572dd64fd6de51dd1072df",
+              "bytes": 364082,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/image-screenshot/cards.pdf",
+              "sha256": "be7d680b535518450873ce0f891eb50f6722636f8472e75d8ab57d12411c343e",
+              "bytes": 289721,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/image-screenshot/card-001.png",
+              "sha256": "a7c444f15993c6e3fed85f124178fdcea0189b20fdcce602ff7a475f9f6a40d5",
+              "bytes": 224070,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/image-screenshot/contact-sheet.png",
+              "sha256": "0916c40ae700eefef7042c650ef13c76e5639a622ea1013922bf56cb082cdc5c",
+              "bytes": 41827,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [
+            {
+              "reference": "docs/images/templates/T17.png",
+              "hash": "cb5e4c11363faca52421f5f4a6ab095a48dde0d92b7c99c1d59d82c3d95af873",
+              "mime": "image/png",
+              "width": 1080,
+              "height": 1440,
+              "bytes": 170163,
+              "sourcePath": "docs/images/templates/T17.png"
+            }
+          ],
+          "manifestSha256": "8c2d3f894bad6def6990e9a92c89f0adaef447333e89a0ffdea55b84c447db85"
+        },
+        {
+          "id": "image-extreme-wide",
+          "inputPathInArchive": "visual-stress/inputs/image-extreme-wide.md",
+          "inputSha256": "cfe8328511a5a0991e7abe3f08255f3d5be732492f829ef2680f7aa826a59ccf",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "visual-stress/image-extreme-wide/cards.html",
+              "sha256": "d62c11ef1da023128df50cc554f360543dd9074cbc9697cc9ef6923015a3c509",
+              "bytes": 136839,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/image-extreme-wide/preview.html",
+              "sha256": "0fd0e7f6c0a3529751667f5519963bdc195ed9bc51047b7c790fd9637a1adeb5",
+              "bytes": 137665,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/image-extreme-wide/cards.pdf",
+              "sha256": "f6144dfcde8646ba103b40edc96f9e6bb3b900e700c33f3a4d831bc925fe0972",
+              "bytes": 133446,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/image-extreme-wide/card-001.png",
+              "sha256": "6b8a8ee354d315563294031154048358f1c80c0660d27bc04384ae7b6da42b01",
+              "bytes": 91733,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/image-extreme-wide/contact-sheet.png",
+              "sha256": "f28d6fd9f2d2bfa9b166d9c967f0641e35e97622ff0734c012abf5e093aeb87b",
+              "bytes": 18797,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [
+            {
+              "reference": "examples/visual-stress/assets/extreme-wide.png",
+              "hash": "c61dd839c63a74f489647059f15d1e42f45c88d13bae2c0883f5c379c2036c95",
+              "mime": "image/png",
+              "width": 1600,
+              "height": 80,
+              "bytes": 620,
+              "sourcePath": "examples/visual-stress/assets/extreme-wide.png"
+            }
+          ],
+          "manifestSha256": "2bd1170b3fd53abe1803ef3dc5297bb8ee250affb00c257d0a80ead76abbdda9"
+        },
+        {
+          "id": "image-extreme-tall",
+          "inputPathInArchive": "visual-stress/inputs/image-extreme-tall.md",
+          "inputSha256": "5d06c1492ddb4e890370982ad6b3b304f8cf246465e7f29f32eb361098c9b80f",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "visual-stress/image-extreme-tall/cards.html",
+              "sha256": "eb6dad358da6417785ee19338d76ad910350d28abdf2fe70b9b522c78072ca56",
+              "bytes": 138147,
+              "format": "html"
+            },
+            {
+              "file": "visual-stress/image-extreme-tall/preview.html",
+              "sha256": "6ad98ffee3f080774a6bb0c37dd8811cb06bcbe5c196e80219db4be9665b7a75",
+              "bytes": 138973,
+              "format": "preview"
+            },
+            {
+              "file": "visual-stress/image-extreme-tall/cards.pdf",
+              "sha256": "557a2964d2e87fa69a2dbd756d76d8b0fcff3f4bcce5abfcdbbb4e95cbd08bc9",
+              "bytes": 134564,
+              "format": "pdf"
+            },
+            {
+              "file": "visual-stress/image-extreme-tall/card-001.png",
+              "sha256": "029af9f0a2668a79a37041646b6175bf23e8062d72ab374cb211e0fbae860673",
+              "bytes": 90867,
+              "format": "png"
+            },
+            {
+              "file": "visual-stress/image-extreme-tall/contact-sheet.png",
+              "sha256": "f4ba8b7023f7cdce9d175608f0fe82d2ba11aee839a9c805d4733cbf8c09a4eb",
+              "bytes": 18778,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [
+            {
+              "reference": "examples/visual-stress/assets/extreme-tall.png",
+              "hash": "75b50efdf18540ebc82d6297ffa9b31ace0f93b203a029fcdba18e2d2e5cabe6",
+              "mime": "image/png",
+              "width": 80,
+              "height": 1600,
+              "bytes": 1601,
+              "sourcePath": "examples/visual-stress/assets/extreme-tall.png"
+            }
+          ],
+          "manifestSha256": "c1e7dbee395347c4d73eb983c11d892a26b2cec71b8b71c8d87b38ffa10b24b1"
+        },
+        {
+          "id": "asset-missing",
+          "inputPathInArchive": "visual-stress/inputs/asset-missing.md",
+          "inputSha256": "b17120b0672885a2a0f8748fc6ac1f55e2da3092346adcaeb2afec3e37b7c228",
+          "outcome": "expected-error",
+          "visualReview": "not-claimed-technical-control",
+          "code": "INVALID_ASSET"
+        },
+        {
+          "id": "asset-corrupt",
+          "inputPathInArchive": "visual-stress/inputs/asset-corrupt.md",
+          "inputSha256": "8ad48f48d767b81cabb0498a6f17f979c236ae9c2668871df403ed20b3c3be0b",
+          "outcome": "expected-error",
+          "visualReview": "not-claimed-technical-control",
+          "code": "INVALID_ASSET"
+        }
+      ],
+      "summary": {
+        "file": "visual-stress/summary.json",
+        "sha256": "623ca1a0d1e5a2d432deca45c0fd4dc8619af446b0edddc5127baf7163afbff5",
+        "bytes": 108871
+      },
+      "acceptanceState": "three-exact-outputs-reviewed-other-controls-technical-only"
+    },
+    "series": {
+      "scope": "Only evidence-reading (5 cards) and mean-tutorial (3 cards); every card, both phone widths, native PDF and continuous reading independently reviewed.",
+      "records": [
+        {
+          "id": "evidence-reading",
+          "recipe": {
+            "id": "evidence-reading",
+            "input": "examples/series/evidence-reading.md",
+            "title": "完成，不等于学会",
+            "cardCount": 5,
+            "templates": [
+              "T01",
+              "T05",
+              "T04",
+              "T21",
+              "T25"
+            ],
+            "roles": [
+              "cover",
+              "body",
+              "explanation",
+              "evidence",
+              "closing"
+            ],
+            "brandFile": "examples/brand.json",
+            "assetRoot": "examples",
+            "footer": "证据阅读 · 原创示例",
+            "density": "compact",
+            "size": "portrait",
+            "paginate": "manual"
+          },
+          "inputSha256": "d622a2932210e64a31078f9f737b97cf4c9ec96dc38589682729aaf51d99da35",
+          "manifestSha256": "676ccf90fd6093a9c5cefd152ca642c9a707ef583e07229960d6502639d18dcf",
+          "exports": [
+            {
+              "file": "series/evidence-reading/cards.html",
+              "sha256": "3049884a8b1635b01e63c4306164da6cc97d791343d4bfb07a7a4cd0f702eb40",
+              "bytes": 144616,
+              "format": "html"
+            },
+            {
+              "file": "series/evidence-reading/preview.html",
+              "sha256": "1de9a407a58223f770b6536ed1476d2e7defa2b71c774aa0dafcfd0f906a28c8",
+              "bytes": 146098,
+              "format": "preview"
+            },
+            {
+              "file": "series/evidence-reading/cards.pdf",
+              "sha256": "d0bb3b83befc7859c3aaa32a46893e07de23deab6845965c4d65310975a64e68",
+              "bytes": 573942,
+              "format": "pdf"
+            },
+            {
+              "file": "series/evidence-reading/card-001.png",
+              "sha256": "a6cb772f0c1e914c6d7c270086670bbb3efd3f2b5bdce0b00ba8c222268627af",
+              "bytes": 176588,
+              "format": "png"
+            },
+            {
+              "file": "series/evidence-reading/card-002.png",
+              "sha256": "76caa17330ee994c7bccf434996d9fad7f6056def0ceec410ae40fdae35a3dee",
+              "bytes": 160236,
+              "format": "png"
+            },
+            {
+              "file": "series/evidence-reading/card-003.png",
+              "sha256": "7957ebebad0a0f5c1b4458f2b9a9f9f82106670e765620f2b75d0adf6497d222",
+              "bytes": 187388,
+              "format": "png"
+            },
+            {
+              "file": "series/evidence-reading/card-004.png",
+              "sha256": "1061698796f9925536d81c5bdd376474dd82ea597c3c6a8dd67007dd9f1a972b",
+              "bytes": 174824,
+              "format": "png"
+            },
+            {
+              "file": "series/evidence-reading/card-005.png",
+              "sha256": "2b3b618d3a6f0ef6efbc1dbf72c224004d49347819709459b26b088aeac52314",
+              "bytes": 175628,
+              "format": "png"
+            },
+            {
+              "file": "series/evidence-reading/contact-sheet.png",
+              "sha256": "d6f0f366d24b03d84eb166ed6dfccc89389e918d0ca4dfba4f3c7e4a028f03de",
+              "bytes": 199934,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [
+            {
+              "reference": "assets/demo-logo.png",
+              "hash": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791",
+              "mime": "image/png",
+              "width": 128,
+              "height": 128,
+              "bytes": 356,
+              "sourcePath": "examples/assets/demo-logo.png"
+            }
+          ],
+          "visualReview": "independently-reviewed-exact-series"
+        },
+        {
+          "id": "mean-tutorial",
+          "recipe": {
+            "id": "mean-tutorial",
+            "input": "examples/series/mean-tutorial.md",
+            "title": "算术平均值：三张练习",
+            "cardCount": 3,
+            "templates": [
+              "T18",
+              "T18",
+              "T17"
+            ],
+            "roles": [
+              "body-code",
+              "body-code",
+              "explanation"
+            ],
+            "brandFile": "examples/series/brand-tech.json",
+            "assetRoot": "examples",
+            "footer": "均值练习 · 原创示例",
+            "density": "compact",
+            "size": "portrait",
+            "paginate": "manual"
+          },
+          "inputSha256": "faac1e4f4661669c3b9678161baf2f238e4a90c5d767c7e0af7839002e9673df",
+          "manifestSha256": "0e32484c3dee4a90d3dc11f7962a351f2a3aa9548248e3d8ca99f7a296eddbe3",
+          "exports": [
+            {
+              "file": "series/mean-tutorial/cards.html",
+              "sha256": "c01089a37e90d04c633b6e464100e9f9a33c439f6295f90337fd62a3e970e58d",
+              "bytes": 141054,
+              "format": "html"
+            },
+            {
+              "file": "series/mean-tutorial/preview.html",
+              "sha256": "a60399ec9c473ed4db29354bb2fd734c4e049398450f53e5dac19962e3bd2c49",
+              "bytes": 142210,
+              "format": "preview"
+            },
+            {
+              "file": "series/mean-tutorial/cards.pdf",
+              "sha256": "7e855bbcfe89dffb9f8ef72e6bdf284af85bf6225dc42f9b17342ae3b052adca",
+              "bytes": 396813,
+              "format": "pdf"
+            },
+            {
+              "file": "series/mean-tutorial/card-001.png",
+              "sha256": "b6da40e78a4faaf9cfc70d538c74fdb667a8b40a229099542c7c9e7f37855483",
+              "bytes": 170627,
+              "format": "png"
+            },
+            {
+              "file": "series/mean-tutorial/card-002.png",
+              "sha256": "d6f256d425d9b13b58c298e7ca83e685143305aaf3c2a5ea616e74a2bc1cfa70",
+              "bytes": 183396,
+              "format": "png"
+            },
+            {
+              "file": "series/mean-tutorial/card-003.png",
+              "sha256": "d4207e697574663d667c3d85c28c11d454e7aa4af8b38ee4a596905e440f3e5d",
+              "bytes": 210530,
+              "format": "png"
+            },
+            {
+              "file": "series/mean-tutorial/contact-sheet.png",
+              "sha256": "381f6785ee3515c4877ae0d801d1dcd7c23b4a721625e249434a201784a277c2",
+              "bytes": 114162,
+              "format": "contact-sheet"
+            }
+          ],
+          "assets": [
+            {
+              "reference": "assets/demo-logo.png",
+              "hash": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791",
+              "mime": "image/png",
+              "width": 128,
+              "height": 128,
+              "bytes": 356,
+              "sourcePath": "examples/assets/demo-logo.png"
+            }
+          ],
+          "visualReview": "independently-reviewed-exact-series"
+        }
+      ],
+      "summary": {
+        "file": "series/summary.json",
+        "sha256": "eb12e73ec82ddf0b3be8cc1a6a800d95aecfce6c64d043cb9fd4de35a8375bf1",
+        "bytes": 31965
+      },
+      "acceptanceState": "independently-reviewed-exact-two-series",
+      "limitations": [
+        "Corrected T21 fact-row 次。/果。 tails are resolved; previous-stage T04 确。, T21 introduction 例。 and T25 实。 tails remain.",
+        "No new R11 series acceptance is implied."
+      ]
+    },
+    "aspects": {
+      "scope": "22 existing controls: 12 exports, 4 allowed-overflow and 6 expected-overflow. Only T04/T21 square/slide aspect-specific short fixtures have independent current visual coverage; final aspect-specific registry binding remains pending R12.",
+      "counts": {
+        "exported": 12,
+        "allowed-overflow": 4,
+        "expected-overflow": 6,
+        "independently-reviewed-exports": 4
+      },
+      "records": [
+        {
+          "id": "01-T04-aspect-specific-square-square",
+          "inputPath": "examples/aspects/T04-square.md",
+          "inputSha256": "7329186d304df899bd4cd6f9dc163f2f918e78429287759b0ac4e4ed7baca137",
+          "aspect": "square",
+          "scope": "aspect-specific-square",
+          "outcome": "exported",
+          "visualReview": "independently-reviewed-exact-short-fixture-binding-pending",
+          "exports": [
+            {
+              "file": "aspects/01-T04-aspect-specific-square-square/cards.html",
+              "sha256": "81528e722762d16b9d38faaa37e46d064ed4233ea50a01ca7706c0ef338c39ae",
+              "bytes": 135947,
+              "format": "html"
+            },
+            {
+              "file": "aspects/01-T04-aspect-specific-square-square/preview.html",
+              "sha256": "d26e7fe29c1399c3f7191e03e58b70d20fa4b3cd249e6cb2387732d94bd6d5dd",
+              "bytes": 136769,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/01-T04-aspect-specific-square-square/cards.pdf",
+              "sha256": "aa7d30d873516aef4002161a5ff65da3a2f2921cde54342e0509613f8c828df8",
+              "bytes": 96514,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/01-T04-aspect-specific-square-square/card-001.png",
+              "sha256": "30124c3bb606737c4b7d9d0144dbec577a270022cc83bbcf42a8ae61b8f47225",
+              "bytes": 77561,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "4f8127c341b123ae58a84ebf72653d3803a94d94e62374e411570bdd9fa60ae5"
+        },
+        {
+          "id": "02-T04-aspect-specific-slide-slide",
+          "inputPath": "examples/aspects/T04-slide.md",
+          "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+          "aspect": "slide",
+          "scope": "aspect-specific-slide",
+          "outcome": "exported",
+          "visualReview": "independently-reviewed-exact-short-fixture-binding-pending",
+          "exports": [
+            {
+              "file": "aspects/02-T04-aspect-specific-slide-slide/cards.html",
+              "sha256": "5473fba334dbd71f379edbcc05b60463f3ecbbf81190363fad661c350fdd78ba",
+              "bytes": 135905,
+              "format": "html"
+            },
+            {
+              "file": "aspects/02-T04-aspect-specific-slide-slide/preview.html",
+              "sha256": "e6a32dbf98f3ebded06c9d48c654d0090fee73710da2a17265dcc1ac709f2160",
+              "bytes": 136725,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/02-T04-aspect-specific-slide-slide/cards.pdf",
+              "sha256": "95c319b12f0eff689c384ec0b1e056175d9f5e9940f63fd5be903dab5200a383",
+              "bytes": 69761,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/02-T04-aspect-specific-slide-slide/card-001.png",
+              "sha256": "a65d1ebd1602b1b21fc6c7aa89db250a03ec9985c14165b4b45ea3c1e3c083ac",
+              "bytes": 75086,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "f2c045cc4d536c350689ea721151c8737d2fb99ead4ffe46f4297f84999dd9c0"
+        },
+        {
+          "id": "03-T04-same-source-short-portrait",
+          "inputPath": "examples/aspects/T04-slide.md",
+          "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+          "aspect": "portrait",
+          "scope": "same-source-short",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "aspects/03-T04-same-source-short-portrait/cards.html",
+              "sha256": "66afddaff7450615d8cdfce24c122f52cd6aabc89b44ce567b12c74994391a15",
+              "bytes": 135914,
+              "format": "html"
+            },
+            {
+              "file": "aspects/03-T04-same-source-short-portrait/preview.html",
+              "sha256": "f3524c5bfa3e601ddbf2bc773f2a50608fb66b76ad6c816fe2a1ef458958cb8d",
+              "bytes": 136736,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/03-T04-same-source-short-portrait/cards.pdf",
+              "sha256": "28b67b567d2ef175833d4970cc5ffeb6a303cba9444bfc011c0c940c382cd5ec",
+              "bytes": 74732,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/03-T04-same-source-short-portrait/card-001.png",
+              "sha256": "7bf701d4ac3333d24e81c99a87aea8b022c8e3749c5b5e73d621911c679fa557",
+              "bytes": 64550,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "b86d0310f6387acc512c9020b8317bc6bda16673c74051c9aaad41c43bf1fcf8"
+        },
+        {
+          "id": "04-T04-same-source-short-square",
+          "inputPath": "examples/aspects/T04-slide.md",
+          "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+          "aspect": "square",
+          "scope": "same-source-short",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "aspects/04-T04-same-source-short-square/cards.html",
+              "sha256": "84415e642037f5ef767c6f4f2e6309fcd2e3cb85f346260ce3ff5873ace0ad3e",
+              "bytes": 135910,
+              "format": "html"
+            },
+            {
+              "file": "aspects/04-T04-same-source-short-square/preview.html",
+              "sha256": "a4b366c74ef1cfdc9d2aedc378b8b47c5bb8c6c49fd1b4474a9f686531689e9e",
+              "bytes": 136732,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/04-T04-same-source-short-square/cards.pdf",
+              "sha256": "5c401212bffc6fe6f6f05346d0387ea8caae75ae3e8a44868e9919cbbea18a5a",
+              "bytes": 74748,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/04-T04-same-source-short-square/card-001.png",
+              "sha256": "b9fdd59263eda66dabab2b142589059509d821f5053758b2ec986de8817541b2",
+              "bytes": 62239,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "278566aa115bcb1030b3bacd936dd8c5b873bf3e21e5ad491c8f9b9c52855e2e"
+        },
+        {
+          "id": "05-T04-same-source-short-slide",
+          "inputPath": "examples/aspects/T04-slide.md",
+          "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+          "aspect": "slide",
+          "scope": "same-source-short",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "aspects/05-T04-same-source-short-slide/cards.html",
+              "sha256": "5473fba334dbd71f379edbcc05b60463f3ecbbf81190363fad661c350fdd78ba",
+              "bytes": 135905,
+              "format": "html"
+            },
+            {
+              "file": "aspects/05-T04-same-source-short-slide/preview.html",
+              "sha256": "e6a32dbf98f3ebded06c9d48c654d0090fee73710da2a17265dcc1ac709f2160",
+              "bytes": 136725,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/05-T04-same-source-short-slide/cards.pdf",
+              "sha256": "a05c57596b6c050a688e84d93982a36d4be0649e339c918da5d6917d002a721f",
+              "bytes": 69761,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/05-T04-same-source-short-slide/card-001.png",
+              "sha256": "a65d1ebd1602b1b21fc6c7aa89db250a03ec9985c14165b4b45ea3c1e3c083ac",
+              "bytes": 75086,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "d622ed47bcb4fbd78e2a6afd3173922a8940e4371cabdc980b088adff2341717"
+        },
+        {
+          "id": "06-T04-same-source-original-portrait",
+          "inputPath": "examples/templates/T04.md",
+          "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01",
+          "aspect": "portrait",
+          "scope": "same-source-original",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "aspects/06-T04-same-source-original-portrait/cards.html",
+              "sha256": "5a728b2e5bc37f03a3e9ec0922a55e19892c3dd31a0c6f5bc5e981467b82e904",
+              "bytes": 136317,
+              "format": "html"
+            },
+            {
+              "file": "aspects/06-T04-same-source-original-portrait/preview.html",
+              "sha256": "49b3b56f49b268b919a781f597ded0185563b413ee8650a8cacd0f1b41396a9d",
+              "bytes": 137139,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/06-T04-same-source-original-portrait/cards.pdf",
+              "sha256": "fc76102a06d9e91a7d323426e96d55619ae6c8b339fbcdb8a565671174d940cc",
+              "bytes": 208807,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/06-T04-same-source-original-portrait/card-001.png",
+              "sha256": "5508d146a226ff729c56e871d4d476d8cee03810993bf21395d9063a42d57d0d",
+              "bytes": 190554,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "6847d2cb4c9fc97ccef2c9ceb13e36c728b0ad81ee70ec9f4f30995cf7b7a312"
+        },
+        {
+          "id": "07-T04-same-source-original-square",
+          "inputPath": "examples/templates/T04.md",
+          "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01",
+          "aspect": "square",
+          "scope": "same-source-original",
+          "outcome": "allowed-overflow",
+          "visualReview": "not-claimed-technical-control",
+          "diagnostic": {
+            "file": "aspects/07-T04-same-source-original-square/overflow.json",
+            "sha256": "0de06ba238c1eb2cfe587d58164e344e60c505584427ed0b8e7c34d1969412b3",
+            "bytes": 1253
+          }
+        },
+        {
+          "id": "08-T04-same-source-original-slide",
+          "inputPath": "examples/templates/T04.md",
+          "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01",
+          "aspect": "slide",
+          "scope": "same-source-original",
+          "outcome": "allowed-overflow",
+          "visualReview": "not-claimed-technical-control",
+          "diagnostic": {
+            "file": "aspects/08-T04-same-source-original-slide/overflow.json",
+            "sha256": "1c1e2026982616aad4425793c4c569dc8d482ece4367ef14e23aad8b49b24b82",
+            "bytes": 1306
+          }
+        },
+        {
+          "id": "09-T04-same-source-long-portrait",
+          "inputPath": "examples/aspects/T04-long.md",
+          "inputSha256": "c6ccff3bbb97b0570178514beb91ef598720a79e78c825ebd81337e64b5e3139",
+          "aspect": "portrait",
+          "scope": "same-source-long",
+          "outcome": "expected-overflow",
+          "visualReview": "not-claimed-technical-control",
+          "diagnostic": {
+            "file": "aspects/09-T04-same-source-long-portrait/overflow.json",
+            "sha256": "b82bc85e672eac598e8c91f0787f923a1e1700e87b0d68e3c1bdb7eb9d169aee",
+            "bytes": 1222
+          }
+        },
+        {
+          "id": "10-T04-same-source-long-square",
+          "inputPath": "examples/aspects/T04-long.md",
+          "inputSha256": "c6ccff3bbb97b0570178514beb91ef598720a79e78c825ebd81337e64b5e3139",
+          "aspect": "square",
+          "scope": "same-source-long",
+          "outcome": "expected-overflow",
+          "visualReview": "not-claimed-technical-control",
+          "diagnostic": {
+            "file": "aspects/10-T04-same-source-long-square/overflow.json",
+            "sha256": "b2c7d87960d61edaa1226206bff828899d089cf0f4a605bd4053a3fac3e71a71",
+            "bytes": 1220
+          }
+        },
+        {
+          "id": "11-T04-same-source-long-slide",
+          "inputPath": "examples/aspects/T04-long.md",
+          "inputSha256": "c6ccff3bbb97b0570178514beb91ef598720a79e78c825ebd81337e64b5e3139",
+          "aspect": "slide",
+          "scope": "same-source-long",
+          "outcome": "expected-overflow",
+          "visualReview": "not-claimed-technical-control",
+          "diagnostic": {
+            "file": "aspects/11-T04-same-source-long-slide/overflow.json",
+            "sha256": "f3f9303340348f8e4f3215b5ea52af0dc2f1ac439d79efce8bf4ec7d1af2e497",
+            "bytes": 1313
+          }
+        },
+        {
+          "id": "12-T21-aspect-specific-square-square",
+          "inputPath": "examples/aspects/T21-square.md",
+          "inputSha256": "ce4d422a73771fd67ee521259790849a8c4b9940328a9dbe8f1440bdd63db1d5",
+          "aspect": "square",
+          "scope": "aspect-specific-square",
+          "outcome": "exported",
+          "visualReview": "independently-reviewed-exact-short-fixture-binding-pending",
+          "exports": [
+            {
+              "file": "aspects/12-T21-aspect-specific-square-square/cards.html",
+              "sha256": "94e658f7672e41c283c630d66c89b97a4860e3c7bcf9067a7c285a777c153ad7",
+              "bytes": 136000,
+              "format": "html"
+            },
+            {
+              "file": "aspects/12-T21-aspect-specific-square-square/preview.html",
+              "sha256": "342d4e628f1032b989427fb7d750decc788182de59657b51f8c7d50a97d47f64",
+              "bytes": 136822,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/12-T21-aspect-specific-square-square/cards.pdf",
+              "sha256": "d8927123cd295e8e4c3d1667765c8ca236064d41b56ff3a1c2426820deced0fe",
+              "bytes": 88184,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/12-T21-aspect-specific-square-square/card-001.png",
+              "sha256": "d37eec43fdbd4fbc275ad195f9b1d9b6b461efb301e2858365b998dde367411d",
+              "bytes": 88065,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "741a62a4100e38edff887494aa73193e55e9b7089df8a8e4c77a090346a97e0a"
+        },
+        {
+          "id": "13-T21-aspect-specific-slide-slide",
+          "inputPath": "examples/aspects/T21-slide.md",
+          "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+          "aspect": "slide",
+          "scope": "aspect-specific-slide",
+          "outcome": "exported",
+          "visualReview": "independently-reviewed-exact-short-fixture-binding-pending",
+          "exports": [
+            {
+              "file": "aspects/13-T21-aspect-specific-slide-slide/cards.html",
+              "sha256": "9c3ceb420dd8950ea3e5d0c32e6578f78bd491c0578f670647c0f74cd28cbb63",
+              "bytes": 135930,
+              "format": "html"
+            },
+            {
+              "file": "aspects/13-T21-aspect-specific-slide-slide/preview.html",
+              "sha256": "0ca34eec2be241cebd8a5e8e8063d5eb4523e85906839d27f49b2b8cf5a657a6",
+              "bytes": 136750,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/13-T21-aspect-specific-slide-slide/cards.pdf",
+              "sha256": "1721da54e3b014f7f38add5c680d4132cdc13d4b7c57637c25abeef6ecdb3fd2",
+              "bytes": 74998,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/13-T21-aspect-specific-slide-slide/card-001.png",
+              "sha256": "f41e22aa1a507a4b22dadcb99f95c918614953c9f1328b0637e5663893621103",
+              "bytes": 93553,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "95f48ae17ea6f207c652ae2112a38107d046f77dbdf91b365fffbb77d36a67fa"
+        },
+        {
+          "id": "14-T21-same-source-short-portrait",
+          "inputPath": "examples/aspects/T21-slide.md",
+          "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+          "aspect": "portrait",
+          "scope": "same-source-short",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "aspects/14-T21-same-source-short-portrait/cards.html",
+              "sha256": "8d1d72de6a618bb7caac7d236da0b74f0312625c9c5c49cfcb85c7624e76b7d5",
+              "bytes": 135939,
+              "format": "html"
+            },
+            {
+              "file": "aspects/14-T21-same-source-short-portrait/preview.html",
+              "sha256": "0fff7f86579838f77af802f96088575b5e89c59104e281eb659ab5e03f5c0acc",
+              "bytes": 136761,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/14-T21-same-source-short-portrait/cards.pdf",
+              "sha256": "99edb6494c4666a0391ac06ad99e86c2d34f315945e0516d7d6811ee64f274b8",
+              "bytes": 74962,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/14-T21-same-source-short-portrait/card-001.png",
+              "sha256": "73f3942305f1610b6cc49ac48c531bf77e63243609ef5a199b996ca498a92242",
+              "bytes": 77487,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "cbc919eb7253f618b7c10661ee68cb13a15ba14f43de9cafac93422b2d99cbb8"
+        },
+        {
+          "id": "15-T21-same-source-short-square",
+          "inputPath": "examples/aspects/T21-slide.md",
+          "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+          "aspect": "square",
+          "scope": "same-source-short",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "aspects/15-T21-same-source-short-square/cards.html",
+              "sha256": "6c995a4c5cda4f3766685fdca33d24c0af5dd428a4a2d491e4aad38f6ba04b89",
+              "bytes": 135935,
+              "format": "html"
+            },
+            {
+              "file": "aspects/15-T21-same-source-short-square/preview.html",
+              "sha256": "db963f150782715bfefc25313042f011bd045e78310fc51afaa2e6d0bb7e6697",
+              "bytes": 136757,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/15-T21-same-source-short-square/cards.pdf",
+              "sha256": "061943c61daa3f207390b2bb1eeda9519a4328bdf1a3fb47802a20a48bdd79d4",
+              "bytes": 74976,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/15-T21-same-source-short-square/card-001.png",
+              "sha256": "d989d42a0abd05e4b97c5fd43bb0ae5a1f309f7e17afcbec165ae399a3131d91",
+              "bytes": 68017,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "14d63642d67160e454aaffd00b8f0f1a60dae9cd420d29dd7fa8243f9bc89422"
+        },
+        {
+          "id": "16-T21-same-source-short-slide",
+          "inputPath": "examples/aspects/T21-slide.md",
+          "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+          "aspect": "slide",
+          "scope": "same-source-short",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "aspects/16-T21-same-source-short-slide/cards.html",
+              "sha256": "9c3ceb420dd8950ea3e5d0c32e6578f78bd491c0578f670647c0f74cd28cbb63",
+              "bytes": 135930,
+              "format": "html"
+            },
+            {
+              "file": "aspects/16-T21-same-source-short-slide/preview.html",
+              "sha256": "0ca34eec2be241cebd8a5e8e8063d5eb4523e85906839d27f49b2b8cf5a657a6",
+              "bytes": 136750,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/16-T21-same-source-short-slide/cards.pdf",
+              "sha256": "6498cf151f3e30968f91f25bfcbd03a0271d087ca61aeeadf04fe22fe4c82fed",
+              "bytes": 74998,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/16-T21-same-source-short-slide/card-001.png",
+              "sha256": "f41e22aa1a507a4b22dadcb99f95c918614953c9f1328b0637e5663893621103",
+              "bytes": 93553,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "280f7256c1e872c20f6e9ed62d852211ef01ced17ef25586ea69c4ea586536fa"
+        },
+        {
+          "id": "17-T21-same-source-original-portrait",
+          "inputPath": "examples/templates/T21.md",
+          "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+          "aspect": "portrait",
+          "scope": "same-source-original",
+          "outcome": "exported",
+          "visualReview": "not-claimed-technical-control",
+          "exports": [
+            {
+              "file": "aspects/17-T21-same-source-original-portrait/cards.html",
+              "sha256": "a8027634d7e9b44a368cee171a778538b8c899a520cafb9e75a1b82de5f3f4a3",
+              "bytes": 136226,
+              "format": "html"
+            },
+            {
+              "file": "aspects/17-T21-same-source-original-portrait/preview.html",
+              "sha256": "07f22056fe09ef1938e0a08166c9b7324599fc116fed1e480a709c2c6eef59f6",
+              "bytes": 137048,
+              "format": "preview"
+            },
+            {
+              "file": "aspects/17-T21-same-source-original-portrait/cards.pdf",
+              "sha256": "c550eaeb96f1e95f126cfd28b9131db786479a87056ec193a305049d865b3975",
+              "bytes": 144892,
+              "format": "pdf"
+            },
+            {
+              "file": "aspects/17-T21-same-source-original-portrait/card-001.png",
+              "sha256": "d4aebb10c8f15591ba926ae849e3c8badb0666d317c2c4eb01fa49b13265d328",
+              "bytes": 164623,
+              "format": "png"
+            }
+          ],
+          "assets": [],
+          "manifestSha256": "688183d9c57527b9e61fabec2f10532e96fe4ecfe6825e92c56b95b9b2dc7167"
+        },
+        {
+          "id": "18-T21-same-source-original-square",
+          "inputPath": "examples/templates/T21.md",
+          "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+          "aspect": "square",
+          "scope": "same-source-original",
+          "outcome": "allowed-overflow",
+          "visualReview": "not-claimed-technical-control",
+          "diagnostic": {
+            "file": "aspects/18-T21-same-source-original-square/overflow.json",
+            "sha256": "1ce53b521a3f9d6a3f4f2683bae29acc65e2789c67d6c8a82ff2c29584b6a7ee",
+            "bytes": 1105
+          }
+        },
+        {
+          "id": "19-T21-same-source-original-slide",
+          "inputPath": "examples/templates/T21.md",
+          "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+          "aspect": "slide",
+          "scope": "same-source-original",
+          "outcome": "allowed-overflow",
+          "visualReview": "not-claimed-technical-control",
+          "diagnostic": {
+            "file": "aspects/19-T21-same-source-original-slide/overflow.json",
+            "sha256": "8cd96d89947fe46c725c53a38803f8ca07b7159c0aff31c69b079eb7f9d7b2d2",
+            "bytes": 1256
+          }
+        },
+        {
+          "id": "20-T21-same-source-long-portrait",
+          "inputPath": "examples/aspects/T21-long.md",
+          "inputSha256": "f5c4971f578ed5fb2790150d2cb3a291e74bce450cff4deecfece1bb2f489dc1",
+          "aspect": "portrait",
+          "scope": "same-source-long",
+          "outcome": "expected-overflow",
+          "visualReview": "not-claimed-technical-control",
+          "diagnostic": {
+            "file": "aspects/20-T21-same-source-long-portrait/overflow.json",
+            "sha256": "971c845cf6634dda530c78db6e19e6773360cfc55d4cc5dbf678508e5496db10",
+            "bytes": 1264
+          }
+        },
+        {
+          "id": "21-T21-same-source-long-square",
+          "inputPath": "examples/aspects/T21-long.md",
+          "inputSha256": "f5c4971f578ed5fb2790150d2cb3a291e74bce450cff4deecfece1bb2f489dc1",
+          "aspect": "square",
+          "scope": "same-source-long",
+          "outcome": "expected-overflow",
+          "visualReview": "not-claimed-technical-control",
+          "diagnostic": {
+            "file": "aspects/21-T21-same-source-long-square/overflow.json",
+            "sha256": "f9dc4549cb0a929e1f5982d8013717cc9b13a60a88cf77347acb0503bbb7d1ae",
+            "bytes": 1216
+          }
+        },
+        {
+          "id": "22-T21-same-source-long-slide",
+          "inputPath": "examples/aspects/T21-long.md",
+          "inputSha256": "f5c4971f578ed5fb2790150d2cb3a291e74bce450cff4deecfece1bb2f489dc1",
+          "aspect": "slide",
+          "scope": "same-source-long",
+          "outcome": "expected-overflow",
+          "visualReview": "not-claimed-technical-control",
+          "diagnostic": {
+            "file": "aspects/22-T21-same-source-long-slide/overflow.json",
+            "sha256": "fdfefe40c8b8014061d7bebcb39bd9040645d43411c7d4c814830ffbee9b57b2",
+            "bytes": 1263
+          }
+        }
+      ],
+      "summary": {
+        "file": "aspects/summary.json",
+        "sha256": "6ebaca65603a346c4106fd6ed0563a20d2add7b8a57cbd14384533a99804d855",
+        "bytes": 133340
+      },
+      "acceptanceState": "four-exact-short-fixtures-reviewed-final-aspect-binding-pending"
+    },
+    "gallery": {
+      "scope": "Historical run-state mechanics only; not a review of a newly bound gallery",
+      "registryAtRun": {
+        "implemented": 48,
+        "accepted": 0,
+        "pending": 48
+      },
+      "visualReview": "Run-state screenshots reviewed as 0 current / 48 pending; not final 48-current gallery proof.",
+      "summary": {
+        "file": "gallery/summary.json",
+        "sha256": "bfac222d882c8e65ded5c998857e06c4cfe16ad450cf9ad6995d9d538ffc9485",
+        "bytes": 22733
+      },
+      "acceptanceState": "post-binding-runtime-review-pending"
+    }
+  }
+}

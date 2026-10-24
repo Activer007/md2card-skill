@@ -1,24 +1,22 @@
 # md2card-skill
 
-把 Markdown 与长文整理成清晰、有设计感的知识卡片。
-
-这是一个可放入 Codex 或 Claude Code 技能目录的独立 Skill，也是一个可以直接运行的本地渲染工具。先做内容编排，再选原创主题，最后导出 HTML、PNG 或保留文本层的 PDF。
+M2 的 48 个精确 standard / portrait 注册示例已完成独立助手源码、全 PNG、375/390px 手机图和原生 PDF 复核：35 套 v2、13 套 v3。见 [有限范围验收](docs/REFINEMENT_M2_ACCEPTANCE.md)。v1 / M1 v2 历史证据保持原样，不作为当前预览。
 
 ## 选择 48 套原创模板
 
-正在按 [R01–R12 精修计划](docs/REFINEMENT_PLAN.md) 推进，不增加模板数量。当前 48 套已更新为 v2，仍待新的 PNG / 手机 / PDF 独立验收；图库明确区分当前已验收与待验收版本。下文 48 套与四张配图的验收记录属于 v1，不能证明 v2。
+按 [R01–R12 精修计划](docs/REFINEMENT_PLAN.md) 推进，不增加模板数量。[离线模板图库](docs/gallery/index.html) 现绑定 48 个当前已验收 PNG，覆盖 12 个家族、各 4 个独立构图。验收仅覆盖精确输入、standard / 3:4、manual 和本次 CI 字体环境，不保证任意输入都能放下。
 
-[离线模板图库](docs/gallery/index.html) 提供家族、用途、图片需求和示例密度筛选。**48 个独立构图覆盖 12 个家族，各 4 套；v1 标准 3:4 注册示例均已检查真实 PNG、375/390px 手机图及原生 PDF。** 不是主题、配色或尺寸的排列组合，验收也不代表任意输入都能放下。精确版本、产物与限制见 [本轮验收](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md)。
+T04/T21 的四个既有 square/slide 短例已有当前精确产物视觉复核，最终画幅绑定仍待 R12；不能扩张为全部 12 个技术导出或 48 × 3 验收。T20 图内微字仍仅作上下文；T48 右栏短尾“盖。”等有限限制保留。
 
-下载完整仓库后打开 `docs/gallery/index.html`，GitHub 文件页本身不运行 HTML。图库只展示已绑定证据的真实输出；48 预览版本已完成 51 项真实浏览器检查和 17 张界面截图复核，覆盖筛选、file:// CSP、键盘、无脚本回退与手机重排。原生菜单缩放与读屏仍未测试。使用方式见 [图库说明](docs/TEMPLATE_GALLERY.md)。
+下载完整仓库后打开 `docs/gallery/index.html`，GitHub 文件页本身不运行 HTML。图库只展示已绑定证据的真实输出；当前 48 预览绑定之后仍须在发布的精确树上进行真实浏览器复核；运行 40074554707 的 0-current / 48-pending 图库不能替代它。历史 v1 的 48 预览版本曾完成 51 项真实浏览器检查和 17 张界面截图复核，覆盖筛选、file:// CSP、键盘、无脚本回退与手机重排。原生菜单缩放与读屏仍未测试。使用方式见 [图库说明](docs/TEMPLATE_GALLERY.md)。
 
-以下四张保留为上一轮 v1 的真实导出，不作为当前 v2 预览；当前状态见图库，输入和 PNG/PDF 哈希见验收记录。
+以下四张为当前 M2 的精确真实 PNG；历史图仍保留在历史验收记录。输入与 PNG/PDF 哈希见 M2 验收。
 
 | T03 图文特写 | T19 系统模块架构 |
 | --- | --- |
-| ![T03 原创图文特写](docs/images/templates/T03.png) | ![T19 深色系统模块架构](docs/images/templates/T19.png) |
+| ![T03 原创图文特写](docs/images/refinement-m2-run-40074554707/T03.png) | ![T19 深色系统模块架构](docs/images/refinement-m2-run-40074554707/T19.png) |
 | T35 剪报拼贴资料卡 | T48 产品结构比较 |
-| ![T35 保留日期与出处的剪报拼贴资料卡](docs/images/templates/T35.png) | ![T48 虚构产品结构与限制比较](docs/images/templates/T48.png) |
+| ![T35 保留日期与出处的剪报拼贴资料卡](docs/images/refinement-m2-run-40074554707/T35.png) | ![T48 虚构产品结构与限制比较](docs/images/refinement-m2-run-40074554707/T48.png) |
 
 ## 它能做什么
 
@@ -305,7 +303,7 @@ tests/                  解析与导出测试
 
 成品模板包含完整构图、字阶、图文组织、来源与适用边界。12 个家族涵盖编辑杂志、瑞士极简、包豪斯、新粗野、深色科技、数据商业、温暖手账、东方书卷、复古报刊、胶片摄影、糖果波普与自然生活；每家族 4 套，不只做封面，也覆盖正文、教程、引用、案例和证据。
 
-全部 48 个 standard / 3:4 注册示例的精确验收范围见 [本轮记录](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md)。[M1 原始验收](docs/TEMPLATE_ACCEPTANCE.md) 仍独立保留。以下四张是 M1 的真实历史 PNG，不是全库的新联系表或概念设计图：
+当前 48 个 standard / 3:4 注册示例的精确验收范围见 [M2 记录](docs/REFINEMENT_M2_ACCEPTANCE.md)；[v1 记录](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md) 保持历史范围。[M1 原始验收](docs/TEMPLATE_ACCEPTANCE.md) 仍独立保留。以下四张是 M1 的真实历史 PNG，不是全库的新联系表或概念设计图：
 
 | T01 编辑专题 | T05 数字索引 |
 | --- | --- |

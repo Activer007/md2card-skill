@@ -1009,7 +1009,7 @@
 /* T43 — two establishing shots and one panoramic resolution. Intrinsic
  * full-width images are the scene, not small pictograms in oversized boxes.
  * Dialogue remains searchable text below, never an overlay on the artwork. */
-.card.template-T43 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#f7efd8; --ink:#3c353e; --muted:#665868; --accent:var(--brand-accent,#803b53); --panel:#eee0ea; --line:#b6a4b3; }
+.card.template-T43 { padding:calc(var(--pad) * .4) var(--pad); --section-gap: .4em; --paragraph-gap: .3em; --paper:#f7efd8; --ink:#3c353e; --muted:#665868; --accent:var(--brand-accent,#803b53); --panel:#eee0ea; --line:#b6a4b3; }
 .card.template-T43 .card-content { gap:calc(var(--section-gap) * .4); }
 .card.template-T43 .template-heading { padding:0 0 .25em; border:0; border-bottom:.12em solid var(--ink); border-radius:0; background:transparent; }
 .card.template-T43 .card-eyebrow { margin-bottom:.3em; color:var(--accent); letter-spacing:.04em; }

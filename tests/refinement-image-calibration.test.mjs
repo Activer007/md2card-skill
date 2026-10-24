@@ -80,3 +80,17 @@ test('calibration never introduces clipping, fixed text heights or smaller densi
     if (selector.includes('density-')) assert.doesNotMatch(rule, /font|text-size|note-size|zoom/);
   }
 });
+
+
+test('T43 reserves the comic page vertically without reducing its horizontal image measure or type', () => {
+  assert.match(body('.card.template-T43'), /padding:calc\(var\(--pad\) \* \.4\) var\(--pad\)/);
+  assert.match(body('.card.template-T43 .markdown-image'), /width:100%; height:auto; max-height:none/);
+  assert.match(body('.card.template-T43 h1'), /font-size:1\.8em/);
+  assert.match(body('.card.template-T43 .template-section blockquote'), /line-height:1\.44/);
+  // Exact first-stage CI geometry is the starting point, not a claim of rerendered fit.
+  const oldAvailable = 1260, occupied = 1302.5625, pad = 1080 * .052;
+  const recovered = 2 * pad * (1 - .4);
+  assert.ok(oldAvailable + recovered - occupied > 24);
+  const rule = body('.card.template-T43');
+  assert.doesNotMatch(rule, /font-size|text-size|note-size|line-height|overflow|height|transform/);
+});

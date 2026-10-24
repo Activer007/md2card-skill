@@ -73,3 +73,20 @@ A generic fallback is allowed and does not by itself fail strict mode. Missing r
 - M1's wide T32/T34 reading arrangements remain sequential, not two cramped columns; T34's artificial drop cap stays removed.
 - Repository-owned aspect rules remain the final CSS section. The T21 portrait-specific restructuring does not leak into its square/slide grids, but shared typography still invalidates the previous rendered acceptance for all four T04/T21 non-portrait variants.
 - Source tests check registry/CSS consistency, role fallbacks, nominal floors, spacing-only density, full-image policies, all-template source preservation and unchanged aspect routing. They are not PNG/PDF or visual acceptance. New CI renders, overflow/tail checks, font-dependent line wrapping and human visual review remain required.
+
+
+## Exact M2 stage calibration
+
+Run [40073498787](https://github.com/Activer007/md2card-skill/actions/runs/40073498787)
+at tree `394f0adbc42ed1e1e097e8fc74bdb0f68f85dc14` exported 47 of 48 registered
+templates. The sole failure was T43: 1302.5625px occupied height versus 1260px
+available in both screen and print. Both existing series, all 18 pressure cases,
+51 gallery checks and the 22 existing aspect cases passed their technical gates.
+These outcomes are not independent visual acceptance.
+
+T43 now uses a shallower vertical canvas inset, 0.4 × the existing padding,
+while retaining its horizontal inset, full-width natural-proportion images,
+all source words, image bytes, title/body/note sizes and leading. At 1080px wide,
+this recovers 67.392px, leaving about 24.8px in the source sizing model. No fixed
+text height, clipping, crop or relaxed overflow guard is introduced. The corrected
+composition still requires a fresh actual render and independent pixel review.

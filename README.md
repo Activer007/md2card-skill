@@ -334,3 +334,7 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 [可选尾页平衡](docs/TAIL_BALANCING.md) 只在同一显式分区的末两页移动完整语义组，保留页数、编号、表头和来源；不强制填满所有尾页。[压力验证](docs/VISUAL_STRESS.md) 分开记录成功导出与预期拒绝，不声称覆盖任意内容。T34 装饰首字的 PDF 抽取顺序、图片内微字及旧 Notebook 字号等明确限制见 [全 16 项状态](docs/VISUAL_BACKLOG_STATUS.md)。
 
 实施顺序与独立审查门槛保留在 [九个里程碑](docs/VISUAL_MILESTONES.md)。新的真实结果与历史记录分开，不以 CI 全绿替代逐图检查。
+
+### Optional footer modes
+
+`--footer-mode legacy` remains the default. Choose `poster` to omit only a final single-card counter, `series` for padded sequence numbers, or `report` for a more explicit source/footer treatment. Supplied source, brand/logo, footer and AI/fact caveats remain intact in every mode; these are not fields to delete for visual cleanliness. Card metadata and automatic-pagination support do not expand. See [footer contract](docs/FOOTER_MODES.md). Fresh visual evidence is still pending.

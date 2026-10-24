@@ -14,6 +14,7 @@ import { parseOptions, exportCards } from './render.mjs';
 import { openRenderer, closeBrowser } from './browser.mjs';
 import { TEMPLATES, DENSITIES } from './templates.mjs';
 import { Md2CardError } from './errors.mjs';
+import { parseSemanticDocument, renderSemanticCard, validateSemanticCoverage } from './semantic.mjs';
 
 export const repository = fileURLToPath(new URL('..', import.meta.url));
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -90,6 +91,7 @@ export async function createCases({ readFixture = read } = {}) {
 
 export async function sourceCheck(item) {
   const resolver = await createAssetResolver(repository);
+  if (item.paginate === 'auto') parseSemanticDocument(item.source, { resolveImage: resolver.resolveImage });
   const cards = renderCards(item.source, { resolveImage: resolver.resolveImage });
   assert.equal(cards.length, item.cards, 'Explicit source boundaries changed');
   for (const card of cards) if (item.template) {
@@ -97,12 +99,34 @@ export async function sourceCheck(item) {
     assert.equal(card.metadata.density, item.density);
     assert.equal(card.templateTitleHtml + card.templateIntroHtml + card.sections.map(section => section.html).join(''), card.html, 'Template slots must preserve every parser fragment in order');
   }
-  buildDocument(cards, { ...SIZES.portrait, theme: item.theme ?? 'editorial' }, '', '', '');
+  buildDocument(cards, { ...SIZES.portrait, theme: item.theme ?? 'editorial', footerMode: item.footerMode ?? 'legacy', footer: item.footer ?? '' }, '', '', '');
   const assets = resolver.getAssets();
   const cardImages = cards.map(card => [...card.html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)].map(match => assets.find(asset => asset.dataUrl === match[1])).concat(card.image ? [card.image] : []).map(({ hash, width, height }) => ({ hash, width, height })));
   return { cardCount: cards.length, assets: assets.map(({ dataUrl, ...asset }) => asset), cardImages,
     headingLevels: cards.map(card => [...card.html.matchAll(/<h([1-6])\b/g)].map(match => Number(match[1]))),
-    sourceHashes: cards.map(card => hash(card.source)), segments: cards.map((card, index) => [...authoredSegments(card), `${index + 1} / ${cards.length}`]) };
+    sourceHashes: cards.map(card => hash(card.source)), segments: cards.map((card, index) => [...authoredSegments(card), ...(item.footer ? [item.footer] : []), ...(item.footerMode === 'poster' && cards.length === 1 ? [] : [item.footerMode === 'series' ? `${String(index + 1).padStart(2,'0')} / ${String(cards.length).padStart(2,'0')}` : `${index + 1} / ${cards.length}`])]) };
+}
+
+// Reconstruct final auto pages from original semantic tokens, not exported HTML.
+export function checkAutoSource(item, manifest) {
+  const document = parseSemanticDocument(item.source);
+  const byId = new Map(document.atoms.map(atom => [atom.id, atom]));
+  const cards = manifest.cards.map((card, index) => {
+    const partition = document.partitions.find(part => part.index === card.provenance.partitionIndex);
+    assert.ok(partition);
+    const atoms = card.provenance.atomIds.map(id => { assert.ok(byId.has(id)); return byId.get(id); });
+    const rendered = renderSemanticCard(document, partition, atoms, index + 1);
+    assert.deepEqual(rendered.provenance, card.provenance);
+    return rendered;
+  });
+  validateSemanticCoverage(document, cards);
+  assert.equal(manifest.pagination.validation.status, 'pass');
+  assert.ok(manifest.pagination.probes > 0 && manifest.pagination.probes <= manifest.pagination.limits.probes);
+  assert.ok(cards.length >= item.outputCards[0] && cards.length <= item.outputCards[1], 'Exercise the specified final auto page-count boundary');
+  return { cardCount: cards.length, assets: [], cardImages: cards.map(() => []),
+    sourceHashes: cards.map(card => hash(card.source)),
+    headingLevels: cards.map(card => [...card.html.matchAll(/<h([1-6])\b/g)].map(match => Number(match[1]))),
+    segments: cards.map((card, index) => [...authoredSegments(card), item.footer, ...(item.footerMode === 'poster' && cards.length === 1 ? [] : [item.footerMode === 'series' ? `${String(index + 1).padStart(2,'0')} / ${String(cards.length).padStart(2,'0')}` : `${index + 1} / ${cards.length}`])]) };
 }
 
 async function listFiles(directory) {
@@ -154,9 +178,9 @@ export async function auditMobile(out, item, dependencies = {}) {
         const width = card.getBoundingClientRect().width, scale = width / card.offsetWidth;
         const visible = element => element.textContent.trim() && element.getBoundingClientRect().width > 0;
         const sizes = selector => [...card.querySelectorAll(selector)].filter(visible).map(element => parseFloat(getComputedStyle(element).fontSize) * scale);
-        const bodySizes = sizes('.template-intro p,.template-intro li,.template-section p,.template-section li,td,th,pre code');
+        const bodySizes = sizes('.template-intro p,.template-intro li,.template-section p,.template-section li,.card-body p,.card-body li,td,th,pre code');
         const noteSizes = sizes('.card-source,.card-eyebrow,.card-footer,figcaption');
-        return { index: index + 1, cardWidth: width, bodySizes, bodyMin: bodySizes.length ? Math.min(...bodySizes) : null, noteMin: noteSizes.length ? Math.min(...noteSizes) : null,
+        return { index: index + 1, counter: card.querySelector('.card-index')?.textContent ?? '', footer: card.querySelector('.footer-text')?.textContent ?? '', cardWidth: width, bodySizes, bodyMin: bodySizes.length ? Math.min(...bodySizes) : null, noteMin: noteSizes.length ? Math.min(...noteSizes) : null,
           images: [...card.querySelectorAll('img')].map(image => ({ decoded: image.complete && image.naturalWidth > 0, fit: getComputedStyle(image).objectFit, naturalWidth: image.naturalWidth, naturalHeight: image.naturalHeight,
             visible: image.getBoundingClientRect().width > 0 && image.getBoundingClientRect().height > 0 && getComputedStyle(image).visibility === 'visible', source: image.getAttribute('src') })),
           headings: [...card.querySelectorAll('h1,h2,h3,h4,h5,h6')].map(element => ({ level: Number(element.tagName.slice(1)), background: getComputedStyle(element).backgroundColor })) };
@@ -164,6 +188,17 @@ export async function auditMobile(out, item, dependencies = {}) {
       assert.equal(cards.length, item.cards);
       for (const card of cards) {
         assert.ok(Math.abs(card.cardWidth - (viewportWidth - 24)) < 1, 'Audit actual mobile inner-card width');
+        if (item.footerMode) {
+          const expectedCounter = item.footerMode === 'poster' && item.cards === 1 ? '' : item.footerMode === 'series' ? `${String(card.index).padStart(2,'0')} / ${String(item.cards).padStart(2,'0')}` : `${card.index} / ${item.cards}`;
+          assert.equal(card.counter, expectedCounter);
+          assert.equal(card.footer, item.footer);
+        }
+        if (item.paginate === 'auto') {
+          assert.ok(card.bodySizes.length && card.bodySizes.every(size => Number.isFinite(size) && size > 0));
+          assert.ok(Number.isFinite(card.noteMin) && card.noteMin > 0);
+          // Legacy layout sizing is unchanged; record it, do not claim the
+          // independently calibrated 48-template 14/11px phone floor applies.
+        }
         if (item.template) {
           assert.ok(card.bodyMin !== null && card.bodyMin >= 14 - .05, `Card ${card.index}: body ${card.bodyMin}px below mobile floor`);
           assert.ok(card.noteMin !== null && card.noteMin >= 11 - .05, `Card ${card.index}: notes ${card.noteMin}px below mobile floor`);
@@ -216,7 +251,8 @@ export async function checkExpectedFailure(item, error, out) {
 async function checkManifest(manifest, item, out) {
   assert.equal(manifest.status, 'success');
   assert.equal(manifest.inputSha256, hash(item.source));
-  assert.equal(manifest.pagination.mode, 'manual');
+  assert.equal(manifest.pagination.mode, item.paginate ?? 'manual');
+  if (item.footerMode) assert.equal(manifest.footerMode, item.footerMode);
   assert.equal(manifest.cardCount, item.cards);
   assert.deepEqual(manifest.formats, ['html', 'png', 'pdf']);
   assert.deepEqual(manifest.qa.overflow, { screen: 'pass', print: 'pass' });
@@ -262,7 +298,7 @@ export async function runStress({ plan = false, root = path.join(repository, 'va
   await save();
   for (const item of cases) {
     const input = path.join(root, 'inputs', `${item.id}.md`), out = path.join(root, item.id);
-    const args = [input, '--asset-root', repository, '--out', out, '--strict', '--preview', '--contact-sheet', ...(item.theme ? ['--theme', item.theme] : [])];
+    const args = [input, '--asset-root', repository, '--out', out, '--strict', '--preview', '--contact-sheet', ...(item.paginate ? ['--paginate', item.paginate] : []), ...(item.theme ? ['--theme', item.theme] : []), ...(item.footerMode ? ['--footer-mode', item.footerMode] : []), ...(item.footer ? ['--footer', item.footer] : [])];
     const result = { id: item.id, template: item.template, density: item.template ? item.density : null, length: item.length, group: item.group,
       expected: item.expected, input: path.relative(repository, input), inputSha256: item.source === undefined ? null : hash(item.source), bodySha256: item.bodySha256,
       command: ['node', 'scripts/render.mjs', ...args], manifest: null, status: 'pending', visualReview: 'not-performed' };
@@ -283,7 +319,8 @@ export async function runStress({ plan = false, root = path.join(repository, 'va
           result.status = 'expected-error'; result.code = failure.code;
         } else {
           if (failure) throw failure;
-          const checked = { ...item, checkedSource: result.source };
+          const checked = item.paginate === 'auto' ? { ...item, cards: manifest.cardCount, checkedSource: checkAutoSource(item, manifest) } : { ...item, checkedSource: result.source };
+          if (item.paginate === 'auto') result.finalSource = checked.checkedSource;
           result.manifest = await checkManifest(manifest, checked, out);
           result.pdfText = await (dependencies.auditPdfText ?? auditPdfText)(out, checked.checkedSource);
           result.mobile = await (dependencies.auditMobile ?? auditMobile)(out, checked);

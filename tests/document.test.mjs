@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { buildDocument, buildPreviewDocument, LAYOUTS, THEMES, SIZES } from '../scripts/document.mjs';
+import { createHash } from 'node:crypto';
+import { buildDocument, buildPreviewDocument, FOOTER_MODES, LAYOUTS, THEMES, SIZES } from '../scripts/document.mjs';
 import { renderCards } from '../scripts/markdown.mjs';
 
 const options = { ...SIZES.portrait, theme: 'editorial', title: 'Card preview', footer: '', lang: 'zh-CN' };
@@ -174,4 +175,103 @@ test('Bold consecutive H1 rules join titles without changing source markup', () 
   assert.match(themeCss,/\.theme-bold h1:has\(\+ h1\) \{[^}]*border-bottom: 0;/);
   assert.match(themeCss,/\.theme-bold h1 \+ h1 \{ margin-top: 0; \}/);
   assert.match(themeCss,/\.theme-bold h1 \{[^}]*border-bottom: 0\.08em solid var\(--ink\)/);
+});
+
+test('legacy footer is the byte-identical default and keeps the pre-mode HTML structure', () => {
+  assert.deepEqual(FOOTER_MODES, ['legacy', 'poster', 'series', 'report']);
+  assert.ok(Object.isFrozen(FOOTER_MODES));
+  // Fixed hashes were captured before footer modes, with no stylesheet bytes so
+  // independent CSS maintenance cannot silently update the markup baseline.
+  const sha256 = html => createHash('sha256').update(html).digest('hex');
+  assert.equal(sha256(buildDocument([basicCard], options, '')), 'ce5d6585e4a6795b238bfb3f66224dbceaf16963bb69d581cde54a3401357997');
+  assert.equal(sha256(buildPreviewDocument([basicCard], options, '')), '3628dacc4ee8f44c6f6eea81251ffd20e37e08df2f15fbb6f06b8f2a9baceba4');
+  assert.equal(sha256(buildDocument([basicCard], { ...options, paginationProbe: true }, '')), 'c7736082869850e2c1002bf821e561c248b1af6ec9f1d7f235b77e4f1c9ce7a6');
+  for (const theme of THEMES) for (const layout of LAYOUTS) {
+    const cards = [{ ...basicCard, metadata: { layout, source: 'Original attribution' } }];
+    for (const overrides of [{}, { preview: true }, { paginationProbe: true }]) {
+      const settings = { theme, footer: 'AI-assisted; verify facts', brand: { name: 'Author', logo: image }, ...overrides };
+      assert.equal(render(cards, settings), render(cards, { ...settings, footerMode: 'legacy' }));
+      assert.doesNotMatch(render(cards, settings).split('<body>')[1], /data-footer-mode=/);
+    }
+  }
+});
+
+test('poster omits only a final single-card counter, not footer content or probe reservation', () => {
+  const settings = { footerMode: 'poster', footer: 'AI-assisted; verify facts', brand: { name: 'Original author', logo: image } };
+  const one = render([basicCard], settings);
+  assert.doesNotMatch(one, /class="card-index"/);
+  assert.match(one, /data-footer-mode="poster"/);
+  assert.match(one, /<footer class="card-footer">/);
+  assert.match(one, /class="brand-name">Original author/);
+  assert.match(one, /class="brand-logo"/);
+  assert.match(one, /class="footer-text">AI-assisted; verify facts/);
+  const two = render([basicCard, basicCard], settings);
+  assert.match(two, /class="card-index">1 \/ 2/);
+  assert.match(two, /class="card-index">2 \/ 2/);
+  assert.match(render([basicCard], { ...settings, paginationProbe: true }), /class="card-index">200 \/ 200/);
+  const preview = render([basicCard], { ...settings, preview: true });
+  assert.doesNotMatch(preview, /class="card-index"/);
+  assert.match(preview, /class="preview-caption">1 \/ 1/);
+  assert.match(render([basicCard], { footerMode: 'poster' }), /<footer class="card-footer">/);
+});
+
+test('series numbers are generated from output order with at least two digits and a widest probe', () => {
+  const html = render(Array.from({ length: 12 }, () => ({ ...basicCard, index: 999 })), { footerMode: 'series' });
+  assert.match(html, /class="card-index">01 \/ 12/);
+  assert.match(html, /class="card-index">12 \/ 12/);
+  assert.doesNotMatch(html, /999 \/ 12/);
+  assert.match(render([basicCard], { footerMode: 'series' }), /class="card-index">01 \/ 01/);
+  assert.match(render([basicCard], { footerMode: 'series', paginationProbe: true }), /class="card-index">200 \/ 200/);
+  const maximum = render(Array.from({ length: 200 }, () => basicCard), { footerMode: 'series' });
+  assert.match(maximum, /class="card-index">200 \/ 200/);
+});
+
+test('every mode retains escaped source, brand, logo, footer and body caveats across legacy and template cards', () => {
+  const body = '# Original title\n\nAI-assisted example; verify facts.\n\nSample data, not a verified result.';
+  const source = 'Source <paper> & caveat: AI illustration, not evidence.';
+  const footer = 'Footer <note> & caveat: confirm every factual claim.';
+  const brandName = 'Author <team> & company';
+  const cards = renderCards(`<!-- card: ${JSON.stringify({ source })} -->\n${body}\n\n===\n\n<!-- card: ${JSON.stringify({ template: 'T01', source })} -->\n${body}`);
+  const original = JSON.stringify(cards);
+  for (const footerMode of FOOTER_MODES) for (const preview of [false, true]) {
+    const html = render(cards, { footerMode, preview, footer, brand: { name: brandName, logo: image } });
+    const articles = [...html.matchAll(/<article\b[\s\S]*?<\/article>/g)].map(match => match[0]);
+    assert.equal(articles.length, 2);
+    for (const article of articles) {
+      assert.equal(article.split('class="card-source"').length - 1, 1);
+      assert.match(article, /class="card-source">Source &lt;paper&gt; &amp; caveat: AI illustration, not evidence\.<\/p>/);
+      assert.match(article, /class="footer-text">Footer &lt;note&gt; &amp; caveat: confirm every factual claim\.<\/span>/);
+      assert.match(article, /class="brand-name">Author &lt;team&gt; &amp; company<\/span>/);
+      assert.match(article, /class="brand-logo"/);
+      assert.match(article, /AI-assisted example; verify facts\./);
+      assert.match(article, /Sample data, not a verified result\./);
+    }
+    assert.equal(JSON.stringify(cards), original, 'footer modes must not mutate the parsed cards');
+  }
+});
+
+test('footer mode allowlist rejects invalid API values and every mode preserves escaping and CSP', () => {
+  for (const footerMode of ['', 'none', 'Poster', ' poster ', 'poster" onclick="bad', null, false, 1, {}]) {
+    assert.throws(() => render([basicCard], { footerMode }), /Unknown footer mode/);
+  }
+  const attack = '</span><script>bad()</script><img src="https://invalid.test">';
+  for (const footerMode of FOOTER_MODES) {
+    const html = render([{ ...basicCard, metadata: { source: attack } }], { footerMode, footer: attack, brand: { name: attack } });
+    assert.doesNotMatch(html, /<script\b|<img\b/);
+    assert.equal(html.split('&lt;script&gt;bad()&lt;/script&gt;').length - 1, 3);
+    assert.match(html, /script-src 'none'/);
+    assert.match(html, /connect-src 'none'/);
+    assert.match(html, /img-src data:/);
+  }
+});
+
+test('opt-in footer CSS emphasizes numbering and existing source without hiding or shrinking content', () => {
+  const rules = [...layoutCss.matchAll(/([^{}]*\[data-footer-mode="(?:series|report)"\][^{}]*)\{([^}]+)\}/g)];
+  assert.equal(rules.length, 3);
+  for (const [, selector, declarations] of rules) {
+    assert.match(selector, /\.card\[data-footer-mode=/);
+    assert.doesNotMatch(declarations, /display\s*:\s*none|visibility|opacity|overflow|font-size|transform|zoom|position|content\s*:/);
+  }
+  assert.match(layoutCss, /\[data-footer-mode="series"\] > \.card-footer > \.card-index \{[^}]*font-weight: 750/);
+  assert.match(layoutCss, /\[data-footer-mode="report"\] > \.card-content > \.card-source \{[^}]*color: var\(--ink\);[^}]*font-weight: 650/);
 });

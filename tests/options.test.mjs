@@ -40,3 +40,22 @@ test('contact-sheet pixel and side budgets reject extreme aspect ratios before r
   assert.deepEqual(budget.contactSheet,{columns:4,rows:1,width:1180,height:400,pixels:472000});
   assert.equal(budget.estimatedPixels,budget.cardPixels+472000);
 });
+
+test('footer mode is explicit, defaults to legacy, and rejects unknown or malformed values', () => {
+  assert.equal(parseOptions(['example.md']).footerMode, 'legacy');
+  for (const footerMode of ['legacy', 'poster', 'series', 'report']) {
+    for (const paginate of ['manual', 'auto']) {
+      const options = parseOptions(['example.md', '--footer-mode', footerMode, '--paginate', paginate, '--footer', 'AI-assisted; verify facts']);
+      assert.equal(options.footerMode, footerMode);
+      assert.equal(options.paginate, paginate);
+      assert.equal(options.footer, 'AI-assisted; verify facts');
+    }
+    assert.equal(parseOptions(['example.md', '--template', 'T01', '--footer-mode', footerMode]).footerMode, footerMode);
+  }
+  for (const invalid of ['', 'none', 'false', 'Poster', ' poster ', 'series,report', 'poster" onclick="bad']) {
+    assert.throws(() => parseOptions(['example.md', '--footer-mode', invalid]), { code: 'INVALID_OPTIONS' });
+    assert.throws(() => parseOptions(['--list-templates', '--footer-mode', invalid]), { code: 'INVALID_OPTIONS' });
+  }
+  assert.throws(() => parseOptions(['example.md', '--footer-mode']), { code: 'INVALID_OPTIONS' });
+  assert.throws(() => parseOptions(['example.md', '--footer-mode', 'report', '--template', 'T01', '--paginate', 'auto']), { code: 'PAGINATION_UNSUPPORTED_METADATA' });
+});

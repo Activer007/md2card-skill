@@ -219,3 +219,26 @@
 .card.layout-quote .card-body > blockquote { margin: 0.8em 0 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; font-family: var(--serif); font-size: 1.65em; font-weight: 600; line-height: 1.65; }
 .card.layout-quote .card-body > blockquote::before { content: "\201C"; display: block; height: 0.65em; color: var(--accent); font-family: Georgia, serif; font-size: 2.6em; line-height: 1; }
 .card.layout-quote .card-source { margin-top: 1.8em; padding-left: 1.5em; border-left: 0.2em solid var(--accent); color: var(--ink); font-size: 0.7em; }
+
+/* Explicit footer modes only. Legacy markup has no data-footer-mode attribute.
+ * Never hide, truncate, shrink, replace, or move supplied attribution/caveats.
+ * Source/footer type sizes continue to come from the selected theme/template.
+ */
+.card[data-footer-mode="series"] > .card-footer > .card-index {
+  padding: 0.15em 0.5em;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--ink);
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+.card[data-footer-mode="report"] > .card-content > .card-source {
+  padding-left: 0.65em;
+  border-left: 0.12em solid var(--accent);
+  color: var(--ink);
+  font-weight: 650;
+}
+.card[data-footer-mode="report"] > .card-footer .footer-text {
+  color: var(--ink);
+  font-weight: 650;
+}

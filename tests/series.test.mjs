@@ -191,7 +191,6 @@ test('actual tutorial code executes correctly, with independently checked nonemp
 });
 
 test('series keep their own input scope rather than borrowing portrait template acceptance', () => {
-  assert.equal(TEMPLATES.filter(template => template.status === 'visually-reviewed').length, 48);
   for (const { cards } of fixtures) for (const card of cards) {
     assert.equal(card.metadata.density, 'compact');
     assert.equal(getTemplate(card.metadata.template).density, 'standard');

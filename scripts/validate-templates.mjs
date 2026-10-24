@@ -4,6 +4,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { TEMPLATES } from './templates.mjs';
+import { measureRefinement } from './refinement-audit.mjs';
 import { parseCardMetadata } from './markdown.mjs';
 import { parseOptions, exportCards } from './render.mjs';
 import { openRenderer, closeBrowser } from './browser.mjs';
@@ -41,20 +42,22 @@ for(const template of TEMPLATES) {
       });
       if(audit.bodyMin!==null&&audit.bodyMin<14-0.05)throw new Error(`${template.id} mobile body too small: ${JSON.stringify(audit)}`);
       if(audit.noteMin!==null&&audit.noteMin<11-0.05)throw new Error(`${template.id} mobile source too small: ${JSON.stringify(audit)}`);
+      const refinement = await renderer.page.evaluate(measureRefinement);
+      if (refinement.errors.length) throw new Error(refinement.errors.join('; '));
       const file=`mobile-${viewportWidth}.png`;
       await renderer.page.screenshot({path:path.join(out,file),fullPage:true,animations:'disabled',timeout:30000});
       const bytes=await readFile(path.join(out,file));
-      mobile.push({viewportWidth,...audit,file,sha256:createHash('sha256').update(bytes).digest('hex')});
+      mobile.push({viewportWidth,...audit,refinement,file,sha256:createHash('sha256').update(bytes).digest('hex')});
     }
   } finally {await closeBrowser(renderer.browser);}
   const pin=regressionPins.records.find(item=>item.id===template.id);
-  if(pin) {
+  if(pin && template.version === 1) {
     const actual=manifest.artifacts.find(item=>item.file==='card-001.png')?.sha256;
     const unchanged=manifest.inputSha256===pin.input && actual===pin.png;
     acceptedRegressions.push({id:template.id,status:unchanged?'byte-identical':'requires-new-pixel-review',expectedInput:pin.input,actualInput:manifest.inputSha256,expectedPng:pin.png,actualPng:actual});
     if(!unchanged)errors.push({id:template.id,scope:'accepted-regression',code:'VISUAL_REGRESSION_CHANGED',message:'Accepted default pixels changed; inspect and explicitly re-review, never refresh the pin automatically.'});
   }
-  results.push({id:template.id,composition:template.composition,status:'rendered-not-visually-reviewed',input:template.example,cardCount:manifest.cardCount,pdf:manifest.qa.pdf.status,mobile});
+  results.push({id:template.id,version:template.version,composition:template.composition,status:'rendered-not-visually-reviewed',input:template.example,cardCount:manifest.cardCount,pdf:manifest.qa.pdf.status,mobile});
  } catch(error) { errors.push({id:template.id,code:error.code ?? 'VALIDATION_FAILED',message:error.message}); console.error(template.id,error); }
 }
 // Same source, same canvas: contrast compositions without editing the wording.

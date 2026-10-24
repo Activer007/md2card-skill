@@ -1,5 +1,7 @@
 # Rendering contract (phase 3)
 
+> 当前精修状态：13 套 v2 仍待新产物验收，35 套未变更设计保留 v1 验收。下面已有 48 套的历史结论不验证新设计。见 [R01–R12 计划](../docs/REFINEMENT_PLAN.md)。
+
 Phase 3 adds bounded, opt-in semantic pagination to the v2 renderer. See
 [the development plan](../docs/DEVELOPMENT_PLAN.md) for commit-specific code, local,
 CI and visual-review evidence, and [showcase provenance](../docs/SHOWCASES.md) for

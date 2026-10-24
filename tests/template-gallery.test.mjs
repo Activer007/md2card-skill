@@ -67,8 +67,8 @@ function mockDom({ incomplete = false, items = model.items } = {}) {
 test('registry-derived counts distinguish implemented from visually accepted', () => {
   assert.equal(model.items.length, TEMPLATES.length);
   assert.ok(model.items.length >= model.accepted.length);
-  assert.equal(model.accepted.length, 48);
-  assert.deepEqual(model.accepted.map(item => item.id), TEMPLATES.map(item => item.id).sort());
+  assert.equal(model.accepted.length, TEMPLATES.filter(item => item.acceptance).length);
+  assert.deepEqual(model.accepted.map(item => item.id), TEMPLATES.filter(item => item.acceptance).map(item => item.id).sort());
   assert.equal(model.pending.length, model.items.length - model.accepted.length);
   assert.equal(model.families.length, 12);
   assert.equal(model.accepted.length + model.pending.length, model.items.length);
@@ -225,7 +225,7 @@ test('symlink escapes and broken output symlinks cannot read or write outside ro
 
 test('generated check rejects stale output and build repairs only the generated file', async t => {
   const root = await fixture(t);
-  assert.equal((await generateGallery({ root, check: true })).accepted, 48);
+  assert.equal((await generateGallery({ root, check: true })).accepted, model.accepted.length);
   await writeFile(path.join(root, GALLERY_PATH), 'stale');
   await assert.rejects(generateGallery({ root, check: true }), /gallery is stale/);
   await generateGallery({ root });
@@ -348,9 +348,9 @@ test('a genuinely pending fixture keeps all source details but never inherits a 
     return { ...pending, status: 'implemented-awaiting-visual-review', aspectLayouts: { portrait: { ...portrait, status: 'implemented-awaiting-visual-review' } } };
   });
   const mixed = await buildGalleryModel({ root, templates });
-  assert.equal(mixed.accepted.length, 47);
-  assert.deepEqual(mixed.pending.map(item => item.id), ['T48']);
-  const pending = mixed.pending[0];
+  assert.equal(mixed.accepted.length, model.accepted.length - 1);
+  assert.deepEqual(mixed.pending.map(item => item.id), [...model.pending.map(item => item.id), 'T48'].sort());
+  const pending = mixed.pending.find(item => item.id === 'T48');
   assert.equal(pending.preview, null);
   const article = renderGallery(mixed).match(/<article id="T48"[\s\S]*?<\/article>/)[0];
   assert.doesNotMatch(article, /<img|preview-link|<canvas|<svg/);
@@ -359,4 +359,19 @@ test('a genuinely pending fixture keeps all source details but never inherits a 
   const dom = mockDom({ items: mixed.items });
   dom.set('purpose-filter', 'T48', 'input');
   assert.equal(dom.ids['filter-result'].textContent, '显示 0 个已验收示例，1 个待验收候选。');
+});
+
+
+test('refined versions keep immutable history without displaying old pixels as current', async () => {
+  const changed = model.items.filter(item => item.historicalAcceptance);
+  assert.ok(changed.length >= 13);
+  for (const item of changed) {
+    assert.equal(item.version, 2);
+    assert.equal(item.history.version, 1);
+    assert.equal(item.preview, null);
+    assert.equal(item.status, 'implemented-awaiting-visual-review');
+    assert.ok(html.includes(`v1 的 ${item.history.batch} 仅为旧设计证据，不证明当前 v2`));
+  }
+  const templates = TEMPLATES.map(item => item.id === 'T06' ? { ...item, historicalAcceptance: { batch: 'visual-upgrade', version: 2 } } : item);
+  await assert.rejects(buildGalleryModel({ templates }), /invalid historical acceptance/);
 });

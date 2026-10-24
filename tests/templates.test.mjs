@@ -127,8 +127,8 @@ test('large list counters are rejected before they can overlap a fixed number ra
 
 const m2Ids = ['T02', 'T06', 'T09', 'T10', 'T13', 'T14'];
 test('M2 designs retain distinct compositions and explicit acceptance bindings', () => {
-  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length,48);
-  for (const id of m2Ids) assert.equal(getTemplate(id).status,'visually-reviewed');
+  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length, TEMPLATES.filter(t=>!t.historicalAcceptance).length);
+  for (const id of m2Ids) assert.equal(getTemplate(id).status, getTemplate(id).version === 1 ? 'visually-reviewed' : 'implemented-awaiting-visual-review');
   assert.equal(new Set(m2Ids.map(id=>getTemplate(id).composition)).size,6);
 });
 
@@ -261,7 +261,7 @@ test('first selected 24 are distinct compositions spanning all twelve families, 
   const ids=['T01','T02','T05','T06','T09','T10','T13','T14','T17','T18','T21','T22','T25','T26','T29','T30','T33','T34','T37','T38','T41','T42','T45','T46'];
   assert.equal(new Set(ids.map(id=>getTemplate(id).family)).size,12);
   assert.equal(new Set(ids.map(id=>getTemplate(id).composition)).size,24);
-  assert.equal(ids.filter(id=>getTemplate(id).status==='visually-reviewed').length,24);
+  assert.equal(ids.filter(id=>getTemplate(id).status==='visually-reviewed').length, ids.filter(id=>!getTemplate(id).historicalAcceptance).length);
 });
 
 test('M5 text grids preserve supplementary source sections without truncating to visual slots', () => {
@@ -289,7 +289,7 @@ test('T03 requires image descriptions and preserves text then full portrait DOM 
 
 test('M5 retains explicit reviewed-example bindings and decorative grids never override body size or crop images', () => {
   for(const id of ['T03','T04','T07','T08','T11','T12','T15','T16']) {
-    assert.equal(getTemplate(id).status,'visually-reviewed');
+    assert.equal(getTemplate(id).status, getTemplate(id).version === 1 ? 'visually-reviewed' : 'implemented-awaiting-visual-review');
     const rules=[...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].filter(([,selector])=>selector.includes(`.template-${id}`));
     assert.ok(rules.length>0);
     for(const [, , rule] of rules) assert.doesNotMatch(rule,/--text-size\s*:|--note-size\s*:|object-fit:\s*cover|overflow:\s*hidden|text-overflow:\s*ellipsis/);
@@ -327,7 +327,7 @@ test('M6 supplied timelines, index starts and quotation breaks are never generat
   for(const id of ['T19','T23','T27','T32']) {
     const [card]=renderCards(await readFile(new URL(`../examples/templates/${id}.md`,import.meta.url),'utf8'));
     assert.equal(card.templateTitleHtml+card.templateIntroHtml+card.sections.map(s=>s.html).join(''),card.html);
-    assert.equal(getTemplate(id).status,'visually-reviewed');
+    assert.equal(getTemplate(id).status, getTemplate(id).version === 1 ? 'visually-reviewed' : 'implemented-awaiting-visual-review');
   }
 });
 
@@ -401,7 +401,7 @@ test('48 reviewed compositions span twelve families without counting aspect vari
   for(const template of TEMPLATES) families.set(template.family,(families.get(template.family)||0)+1);
   assert.equal(families.size,12);
   assert.ok([...families.values()].every(count=>count===4));
-  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length,48);
+  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length, TEMPLATES.filter(t=>!t.historicalAcceptance).length);
 });
 
 test('empty quotes or lists cannot satisfy required authored descriptions and options', async () => {
@@ -450,5 +450,20 @@ test('calibrated templates keep compact spacing below standard below editorial',
       return ['section', 'paragraph'].map(token => Number(body.match(new RegExp(`--${token}-gap: ([.0-9]+)em`))[1]));
     });
     for (const token of [0, 1]) assert.ok(values[1][token] < values[0][token] && values[0][token] < values[2][token], id);
+  }
+});
+
+
+test('R01–R06 refine measures, original image visibility and primary focus without altering content', async () => {
+  assert.match(css, /template-T40 \.image-frame \{ height:auto; aspect-ratio:1200 \/ 680/);
+  assert.match(css, /template-T20 \.image-frame \{ height: calc\(var\(--card-height\) \* \.36\)/);
+  assert.match(css, /template-T34 \.template-section:first-child p:first-of-type::first-letter \{ float:none; font:inherit/);
+  assert.match(css, /text-wrap: pretty/);
+  for (const id of ['T06','T10','T16','T19','T20','T22','T24','T26','T32','T34','T39','T40','T45']) {
+    const entry = getTemplate(id);
+    assert.equal(entry.version, 2);
+    assert.equal(entry.historicalAcceptance.version, 1);
+    assert.equal(entry.acceptance, undefined);
+    assert.equal(entry.aspectLayouts.portrait.status, 'implemented-awaiting-visual-review');
   }
 });

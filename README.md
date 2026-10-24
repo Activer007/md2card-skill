@@ -336,3 +336,8 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 ### Optional footer modes
 
 `--footer-mode legacy` remains the default. Choose `poster` to omit only a final single-card counter, `series` for padded sequence numbers, or `report` for a more explicit source/footer treatment. Supplied source, brand/logo, footer and AI/fact caveats remain intact in every mode; these are not fields to delete for visual cleanliness. Card metadata and automatic-pagination support do not expand. See [footer contract](docs/FOOTER_MODES.md). Fresh visual evidence is still pending.
+
+
+### R09 / R10：按任务选型与真实同文测试
+
+图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v3 / v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：17 例计划完整导出、4 例长文及 T13 的指定中篇必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [docs/CONTENT_MATRIX.md](docs/CONTENT_MATRIX.md) 和 [docs/TEMPLATE_GALLERY.md](docs/TEMPLATE_GALLERY.md)。

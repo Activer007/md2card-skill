@@ -53,6 +53,9 @@ jobs:
       - name: Validate explicit footer modes without discarding source text
         if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
         run: node scripts/validate-footers.mjs
+      - name: Validate real-content and image-proportion matrix
+        if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
+        run: node scripts/validate-refinement.mjs
       - name: Validate optional authored series
         if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
         run: node scripts/validate-series.mjs

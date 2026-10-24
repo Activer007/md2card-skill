@@ -32,10 +32,19 @@
   }
   for (const control of [family, image, density]) control.addEventListener('change', applyFilters);
   purpose.addEventListener('input', applyFilters);
-  reset.addEventListener('click', () => {
+  function resetFilters() {
     for (const control of [family, purpose, image, density]) control.value = '';
     applyFilters();
-  });
+  }
+  reset.addEventListener('click', resetFilters);
+  for (const anchor of document.querySelectorAll('[data-template-target]')) {
+    anchor.addEventListener('click', () => {
+      const target = cards.find(card => card.id === anchor.dataset.templateTarget);
+      if (target?.hidden) resetFilters();
+      // Keep native anchors, history, and keyboard activation; reveal before the
+      // browser follows the fragment. Without JS all cards are visible already.
+    });
+  }
   applyFilters();
   panel.hidden = false;
 })();

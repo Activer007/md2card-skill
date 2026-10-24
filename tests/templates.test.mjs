@@ -2,6 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { runInNewContext } from 'node:vm';
+import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { createAssetResolver } from '../scripts/assets.mjs';
 import { TEMPLATES, getTemplate, validateTemplateMetadata } from '../scripts/templates.mjs';
 import { renderCards } from '../scripts/markdown.mjs';
 import { parseSemanticDocument } from '../scripts/semantic.mjs';
@@ -69,7 +72,8 @@ test('unsafe strings cannot become template classes or executable markup', () =>
 test('all delivered examples select their registered template and preserve full parser HTML', async () => {
   for (const template of TEMPLATES) {
     const source=await readFile(new URL('../'+template.example, import.meta.url),'utf8');
-    const cards=renderCards(source);
+    const resolver=await createAssetResolver(fileURLToPath(new URL('../examples/templates/',import.meta.url)));
+    const cards=renderCards(source,{resolveImage:resolver.resolveImage});
     assert.equal(cards.length,1);
     assert.equal(cards[0].metadata.template,template.id);
     assert.equal(cards[0].templateTitleHtml+cards[0].templateIntroHtml+cards[0].sections.map(s=>s.html).join(''),cards[0].html);
@@ -113,7 +117,7 @@ test('composed templates never inherit legacy theme treatments', () => {
 
 
 test('large list counters are rejected before they can overlap a fixed number rail', () => {
-  for (const id of ['T05', 'T14']) {
+  for (const id of ['T05', 'T14', 'T42']) {
     for(const start of [7,98]) assert.doesNotThrow(()=>render(`<!-- card: {"template":"${id}"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`));
     for(const start of [99,100,123456789]) assert.throws(()=>render(`<!-- card: {"template":"${id}"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`),{code:'TEMPLATE_LIST_RANGE'});
   }
@@ -198,4 +202,64 @@ test('enterprise demonstration header and configured footer use one fictional br
   const name=brand.name.split(' · ')[0];
   assert.ok(renderCards(source)[0].metadata.eyebrow.startsWith(name+' /'));
   assert.doesNotMatch(source,/NORTHSTAR/);
+});
+
+test('required template images fail explicitly and retain validated full-frame assets', async () => {
+  const resolver=await createAssetResolver(fileURLToPath(new URL('../examples/templates/',import.meta.url)));
+  for(const id of ['T37','T45','T46']) {
+    for(const image of [undefined,'','  ']) assert.throws(()=>renderCards(`<!-- card: ${JSON.stringify({template:id,image})} -->\n# Title`),{code:'TEMPLATE_IMAGE_REQUIRED'});
+    const cards=renderCards(`<!-- card: ${JSON.stringify({template:id,image:'assets/synthetic-reading-still-life.png',alt:'Full image <description>',caption:'Original & complete'})} -->\n# Title\n\nOriginal text.`,{resolveImage:resolver.resolveImage});
+    const html=buildDocument(cards,SIZES.portrait,'','',css).split('<main')[1];
+    assert.equal((html.match(/class="card-image"/g)||[]).length,1);
+    assert.match(html,/alt="Full image &lt;description&gt;"/);
+    assert.match(html,/<figcaption>Original &amp; complete<\/figcaption>/);
+    assert.throws(()=>buildDocument([{...cards[0],image:undefined}],SIZES.portrait,'','',css),{code:'TEMPLATE_IMAGE_REQUIRED'});
+    assert.doesNotMatch(css,new RegExp(`\\.card\\.template-${id}[^}]+object-fit:\\s*cover`));
+  }
+});
+
+test('contact-print images are counted without silently accepting missing or excess images', async () => {
+  const resolver=await createAssetResolver(fileURLToPath(new URL('../examples/templates/',import.meta.url)));
+  const picture='![Original image](assets/synthetic-reading-still-life.png)';
+  for(const count of [0,1,2,3]) {
+    const cards=renderCards('<!-- card: {"template":"T38"} -->\n# Frames\n\n'+Array.from({length:count},(_,i)=>`## Frame ${i+1}\n\n${picture}\n\nOriginal caption ${i+1}.`).join('\n\n'),{resolveImage:resolver.resolveImage});
+    if(count!==2) assert.throws(()=>buildDocument(cards,SIZES.portrait,'','',css),{code:'TEMPLATE_IMAGE_COUNT'});
+    else {
+      const html=buildDocument(cards,SIZES.portrait,'','',css).split('<main')[1];
+      assert.equal((html.match(/<img\b/g)||[]).length,2);
+      assert.ok(html.indexOf('Original caption 1.')<html.indexOf('Original caption 2.'));
+    }
+  }
+  const mismatched=renderCards('<!-- card: {"template":"T38"} -->\n# Frames\n\n## One frame\n\n'+picture+'\n\n'+picture,{resolveImage:resolver.resolveImage});
+  assert.throws(()=>buildDocument(mismatched,SIZES.portrait,'','',css),{code:'TEMPLATE_IMAGE_STRUCTURE'});
+  for(const field of ['alt','caption']) assert.throws(()=>renderCards(`<!-- card: ${JSON.stringify({template:'T38',[field]:'Do not lose'})} -->\n# Title`),{code:'TEMPLATE_METADATA_UNSUPPORTED'});
+  assert.throws(()=>renderCards('<!-- card: {"template":"T38","image":"photo.png"} -->\n# Title'),{code:'TEMPLATE_IMAGE_UNSUPPORTED'});
+});
+
+test('text-only templates reject an injected resolved image as well as inline image markup', async () => {
+  const resolver=await createAssetResolver(fileURLToPath(new URL('../examples/templates/',import.meta.url)));
+  const image=resolver.resolveImage('assets/synthetic-reading-still-life.png');
+  const [card]=renderCards('<!-- card: {"template":"T33"} -->\n# Title');
+  assert.throws(()=>buildDocument([{...card,image}],SIZES.portrait,'','',css),{code:'TEMPLATE_IMAGE_UNSUPPORTED'});
+  const inline=renderCards('<!-- card: {"template":"T33"} -->\n# Title\n\n![Full image](assets/synthetic-reading-still-life.png)',{resolveImage:resolver.resolveImage});
+  assert.throws(()=>buildDocument(inline,SIZES.portrait,'','',css),{code:'TEMPLATE_IMAGE_UNSUPPORTED'});
+});
+
+test('image examples have truthful hashed asset provenance rather than generic no-assets claims', async () => {
+  const base=new URL('../examples/templates/assets/',import.meta.url);
+  const provenance=JSON.parse(await readFile(new URL('provenance.json',base),'utf8'));
+  for(const asset of provenance.assets) {
+    const data=await readFile(new URL(asset.file,base));
+    assert.equal(createHash('sha256').update(data).digest('hex'),asset.sha256);
+    assert.match(asset.type,/synthetic|original/);
+    assert.ok(asset.description);
+  }
+  for(const id of ['T37','T38','T45','T46']) assert.match(getTemplate(id).provenance.assets,/provenance\.json/);
+});
+
+test('first selected 24 are distinct compositions spanning all twelve families, not accepted by counting', () => {
+  const ids=['T01','T02','T05','T06','T09','T10','T13','T14','T17','T18','T21','T22','T25','T26','T29','T30','T33','T34','T37','T38','T41','T42','T45','T46'];
+  assert.equal(new Set(ids.map(id=>getTemplate(id).family)).size,12);
+  assert.equal(new Set(ids.map(id=>getTemplate(id).composition)).size,24);
+  assert.equal(ids.filter(id=>getTemplate(id).status==='visually-reviewed').length,4);
 });

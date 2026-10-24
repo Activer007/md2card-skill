@@ -67,9 +67,9 @@ try {
 const longBody='# 长文边界测试\n\n'+('这是合成的容量测试文本，必须完整保留，不能缩字或隐藏。'.repeat(80))+'\n';
 for(const template of TEMPLATES) {
   const out=path.join(root,'boundaries',template.id);
-  const {metadata}=parseCardMetadata(await readFile(template.example,'utf8'));
+  const {metadata,source}=parseCardMetadata(await readFile(template.example,'utf8'));
   const longInput=path.join(root,`long-boundary-${template.id}.md`);
-  await writeFile(longInput,`<!-- card: ${JSON.stringify(metadata)} -->\n${longBody}`);
+  await writeFile(longInput,`<!-- card: ${JSON.stringify(metadata)} -->\n${source}\n\n${longBody}`);
   try {
     await exportCards(parseOptions([longInput,'--asset-root',path.dirname(template.example),'--out',out,'--format','html','--strict']));
     throw new Error(`${template.id}: oversized paragraph unexpectedly succeeded.`);

@@ -314,3 +314,5 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 M2 新增 T02/T06/T09/T10/T13/T14 六种独立构图，当前仅完成源码实现与测试。已验收成品仍为 4 套；使用说明和待验证边界见 [M2 候选记录](docs/TEMPLATE_M2.md)。
 
 M3 的 T18/T21/T22/T26/T29/T30 六种技术、证据与阅读构图也已完成源码实现。累计实现 16 套、已验收仍为 4 套；详见 [M3 候选记录](docs/TEMPLATE_M3.md)。
+
+M4 的八种报刊、摄影、波普与生活构图已实现，首批 24 个候选覆盖 12 个家族。已验收仍为 4 套，新增图片与输入契约见 [M4 候选记录](docs/TEMPLATE_M4.md)。

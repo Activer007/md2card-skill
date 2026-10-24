@@ -285,3 +285,10 @@ for this design and are escaped as text; missing fields fail with
 `TEMPLATE_METADATA_REQUIRED`. Other templates reject unsupported metric/label
 fields instead of discarding them. Legacy statistic behavior is unchanged.
 Implemented candidates without real artifact review remain unaccepted.
+
+M4 image contracts distinguish text-only, required metadata images, and inline
+image records. Required images fail if absent; inline-only templates reject
+metadata image/caption fields they cannot display. T38 needs exactly two H2
+records with one inline image each. All assets still use the same local resolver
+and budgets. Image frames preserve full content with object-fit: contain; no
+crop is implied by the template. Image provenance accompanies source assets.

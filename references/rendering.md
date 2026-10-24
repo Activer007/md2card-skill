@@ -387,3 +387,5 @@ unchanged. A portrait source may legitimately overflow in square/slide. See
 ### R09 / R10：按任务选型与真实同文测试
 
 图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v3 / v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：17 例计划完整导出、4 例长文及 T13 的指定中篇必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [内容矩阵](../docs/CONTENT_MATRIX.md) 和 [图库说明](../docs/TEMPLATE_GALLERY.md)。
+
+R11 的四组可选作者系列共 5/3/3/3 张，新增有条件选择与图像观察两种节奏，不强制封面或 CTA，不读取配方来改写用户输入。每张保留显式模板、manual 边界、图像身份、来源与限制。既有 A/B 八张已有 M2 精确产物复核；新增 C/D 六张与本 R11 阶段四组全量运行仍待实际连读与手机/PDF 验证，详见 [系列契约](../docs/SERIES_RECIPES.md)。

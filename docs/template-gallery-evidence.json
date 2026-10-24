@@ -30,6 +30,22 @@
       },
       "reviewSha256": "ff96bb349e7c5481d1a6e9a554179bd9718a47a0ecee5295d4d096c837b00ef6",
       "evidenceSha256": "659331a6fb9b49d5d00d4a401731eded4abd671f3ef95f009642d3c4f2b9d1b6"
+    },
+    {
+      "id": "refinement-m1-v2",
+      "review": "docs/REFINEMENT_M1_ACCEPTANCE.md",
+      "evidence": "docs/refinement-m1-provenance.json",
+      "previewDirectory": "docs/images/refinement-m1-v2",
+      "scope": {
+        "version": 2,
+        "density": "standard",
+        "aspect": "portrait",
+        "width": 1080,
+        "height": 1440,
+        "pagination": "manual"
+      },
+      "reviewSha256": "66f6bdb11e44e772fab6307fbe63a7d5ebb5d4a79e9e0de4c124ba4842d425d1",
+      "evidenceSha256": "60ccb0ef73eba8de28eabc6313b35db84fce5b52716df6a8c93b676c557c39e4"
     }
   ]
 }

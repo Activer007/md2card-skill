@@ -16,7 +16,7 @@ const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 async function fixture(t) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'md2card-gallery-'));
   t.after(() => rm(root, { recursive: true, force: true }));
-  for (const relative of ['docs/TEMPLATE_ACCEPTANCE.md', 'docs/template-m1-provenance.json', 'docs/TEMPLATE_UPGRADE_ACCEPTANCE.md', 'docs/template-upgrade-provenance.json', 'docs/TEMPLATE_ASPECTS.md', 'docs/template-gallery-evidence.json', 'docs/TEMPLATE_GALLERY.md', 'docs/images/templates', 'docs/gallery', 'examples/templates']) {
+  for (const relative of ['docs/REFINEMENT_M1_ACCEPTANCE.md', 'docs/refinement-m1-provenance.json', 'docs/images/refinement-m1-v2', 'docs/TEMPLATE_ACCEPTANCE.md', 'docs/template-m1-provenance.json', 'docs/TEMPLATE_UPGRADE_ACCEPTANCE.md', 'docs/template-upgrade-provenance.json', 'docs/TEMPLATE_ASPECTS.md', 'docs/template-gallery-evidence.json', 'docs/TEMPLATE_GALLERY.md', 'docs/images/templates', 'docs/gallery', 'examples/templates']) {
     const destination = path.join(root, relative);
     await mkdir(path.dirname(destination), { recursive: true });
     await cp(path.join(ROOT, relative), destination, { recursive: true });
@@ -225,6 +225,9 @@ test('symlink escapes and broken output symlinks cannot read or write outside ro
 
 test('generated check rejects stale output and build repairs only the generated file', async t => {
   const root = await fixture(t);
+  // Exercise generation/checking in the disposable fixture. gallery:check remains
+  // the separate gate for the committed generated page after source integration.
+  await generateGallery({ root });
   assert.equal((await generateGallery({ root, check: true })).accepted, model.accepted.length);
   await writeFile(path.join(root, GALLERY_PATH), 'stale');
   await assert.rejects(generateGallery({ root, check: true }), /gallery is stale/);
@@ -367,11 +370,11 @@ test('refined versions keep immutable history without displaying old pixels as c
   const changed = model.items.filter(item => item.historicalAcceptance);
   assert.ok(changed.length >= 13);
   for (const item of changed) {
-    assert.equal(item.version, 2);
+    assert.equal(item.version, item.histories.length === 2 ? 3 : 2);
     assert.equal(item.history.version, 1);
     assert.equal(item.preview, null);
     assert.equal(item.status, 'implemented-awaiting-visual-review');
-    assert.ok(html.includes(`v1 的 ${item.history.batch} 仅为旧设计证据，不证明当前 v2`));
+    assert.ok(html.includes(`v1 的 ${item.history.batch} 仅为旧设计证据，不证明当前 v${item.version}`));
   }
   const templates = TEMPLATES.map(item => item.id === 'T06' ? { ...item, historicalAcceptance: { batch: 'visual-upgrade', version: 2 } } : item);
   await assert.rejects(buildGalleryModel({ templates }), /invalid historical acceptance/);
@@ -394,17 +397,20 @@ test('versioned preview directories require their actual review links, not obsol
 });
 
 
-async function syntheticAcceptedV2(t) {
-  const root = await fixture(t);
+async function addSyntheticEpoch(root, version, id = `unit-v${version}`) {
   const input = await readFile(path.join(root, 'examples/templates/T01.md'));
   const png = await readFile(path.join(root, 'docs/images/templates/T01.png'));
-  await mkdir(path.join(root, 'docs/images/unit-v2'), { recursive: true });
-  await writeFile(path.join(root, 'docs/images/unit-v2/T01.png'), png);
+  await mkdir(path.join(root, `docs/images/${id}`), { recursive: true });
+  await writeFile(path.join(root, `docs/images/${id}/T01.png`), png);
   const evidence = { schemaVersion: 1, codeCommit: 'a'.repeat(40), codeTree: 'b'.repeat(40), archiveSha256: 'c'.repeat(64), records: [{ id:'T01',input:sha(input),png:sha(png),pdf:'d'.repeat(64) }] };
-  const review = 'SYNTHETIC UNIT FIXTURE ONLY: not production visual acceptance.\n## unit-v2\n' + evidence.codeCommit + '\n[PNG](images/unit-v2/T01.png) [input](../examples/templates/T01.md)\n';
-  await writeFile(path.join(root,'docs/unit-v2-proof.json'),JSON.stringify(evidence));
-  await writeFile(path.join(root,'docs/unit-v2-review.md'),review);
-  await editJson(root,'docs/template-gallery-evidence.json',data=>data.batches.push({id:'unit-v2',previewDirectory:'docs/images/unit-v2',scope:{version:2,density:'standard',aspect:'portrait',width:1080,height:1440,pagination:'manual'},review:'docs/unit-v2-review.md',reviewSha256:sha(Buffer.from(review)),evidence:'docs/unit-v2-proof.json',evidenceSha256:sha(Buffer.from(JSON.stringify(evidence)))}));
+  const review = `SYNTHETIC UNIT FIXTURE ONLY: not production visual acceptance.\n## ${id}\n${evidence.codeCommit}\n[PNG](images/${id}/T01.png) [input](../examples/templates/T01.md)\n`;
+  await writeFile(path.join(root, `docs/${id}-proof.json`), JSON.stringify(evidence));
+  await writeFile(path.join(root, `docs/${id}-review.md`), review);
+  await editJson(root, 'docs/template-gallery-evidence.json', data => data.batches.push({ id, previewDirectory: `docs/images/${id}`, scope: { version, density: 'standard', aspect: 'portrait', width: 1080, height: 1440, pagination: 'manual' }, review: `docs/${id}-review.md`, reviewSha256: sha(Buffer.from(review)), evidence: `docs/${id}-proof.json`, evidenceSha256: sha(Buffer.from(JSON.stringify(evidence))) }));
+}
+async function syntheticAcceptedV2(t) {
+  const root = await fixture(t);
+  await addSyntheticEpoch(root, 2);
   const templates=TEMPLATES.map(item=>item.id==='T01'?{...item,acceptance:'unit-v2',status:'visually-reviewed',aspectLayouts:{...item.aspectLayouts,portrait:{...item.aspectLayouts.portrait,acceptance:'unit-v2',status:'visually-reviewed'}}}:item);
   return {root,templates};
 }
@@ -428,4 +434,174 @@ test('synthetic current-v2 acceptance rejects stale input and review links indep
   const reviewPath=path.join(root,'docs/unit-v2-review.md');const review=(await readFile(reviewPath,'utf8')).replace('images/unit-v2/','images/templates/');await writeFile(reviewPath,review);
   await editJson(root,'docs/template-gallery-evidence.json',data=>{data.batches.find(b=>b.id==='unit-v2').reviewSha256=sha(Buffer.from(review));});
   await assert.rejects(buildGalleryModel({root,templates}),/review is missing exact preview/);
+});
+
+async function syntheticV3(t, { accepted = false } = {}) {
+  const { root, templates } = await syntheticAcceptedV2(t);
+  if (accepted) await addSyntheticEpoch(root, 3);
+  return { root, templates: templates.map(template => {
+    if (template.id !== 'T01') return template;
+    const { acceptance, ...pending } = template;
+    const { acceptance: portraitAcceptance, ...portrait } = template.aspectLayouts.portrait;
+    const current = accepted ? { acceptance: 'unit-v3', status: 'visually-reviewed' } : { status: 'implemented-awaiting-visual-review' };
+    return { ...pending, ...current, version: 3, historicalAcceptances: [{ batch: 'unit-v2', version: 2 }], aspectLayouts: { ...template.aspectLayouts, portrait: { ...portrait, ...current, version: 3 } } };
+  }) };
+}
+const changeT01 = (templates, changes) => templates.map(template => template.id === 'T01' ? { ...template, ...changes } : template);
+async function refreshBatch(root, id, kind) {
+  const file = kind === 'review' ? `docs/${id}-review.md` : `docs/${id}-proof.json`;
+  const digest = sha(await readFile(path.join(root, file)));
+  await editJson(root, 'docs/template-gallery-evidence.json', data => { data.batches.find(batch => batch.id === id)[`${kind}Sha256`] = digest; });
+}
+
+test('synthetic pending v3 retains both v1 and v2 with exact historical links but no thumbnail', async t => {
+  const { root, templates } = await syntheticV3(t);
+  const current = await buildGalleryModel({ root, templates });
+  assert.equal(current.accepted.length, 0);
+  assert.equal(current.pending.length, 48);
+  const item = current.items.find(item => item.id === 'T01');
+  assert.equal(item.preview, null);
+  assert.equal(item.history, item.histories[0]);
+  assert.deepEqual(item.histories.map(({ version, batch, previewPath }) => ({ version, batch, previewPath })), [
+    { version: 1, batch: 'visual-m1', previewPath: 'docs/images/templates/T01.png' },
+    { version: 2, batch: 'unit-v2', previewPath: 'docs/images/unit-v2/T01.png' }
+  ]);
+  const article = renderGallery(current).match(/<article id="T01"[\s\S]*?<\/article>/)[0];
+  assert.doesNotMatch(article, /<img|preview-link|<canvas|<svg/);
+  for (const history of item.histories) {
+    assert.ok(article.includes(`v${history.version} 的 ${history.batch} 仅为旧设计证据，不证明当前 v3。`));
+    for (const file of [history.previewPath, history.review, history.path]) assert.ok(article.includes(`href="../../${file}"`));
+    assert.equal(sha(await readFile(path.join(root, history.previewPath))), history.previewSha256);
+    assert.equal(sha(await readFile(path.join(root, history.path))), history.sha256);
+  }
+});
+
+test('synthetic accepted v3 keeps all three epochs distinct and only displays current pixels', async t => {
+  const { root, templates } = await syntheticV3(t, { accepted: true });
+  const current = await buildGalleryModel({ root, templates });
+  assert.equal(current.accepted.length, 1);
+  assert.equal(current.pending.length, 47);
+  const item = current.accepted[0];
+  assert.equal(item.preview.version, 3);
+  assert.equal(item.evidence.batch, 'unit-v3');
+  assert.deepEqual(item.histories.map(history => history.version), [1, 2]);
+  const article = renderGallery(current).match(/<article id="T01"[\s\S]*?<\/article>/)[0];
+  assert.deepEqual([...article.matchAll(/<img src="([^"]+)"/g)].map(match => match[1]), ['../../docs/images/unit-v3/T01.png']);
+  for (const history of item.histories) assert.ok(article.includes(`href="../../${history.previewPath}"`));
+  assert.match(article, /v1 历史 PNG/);
+  assert.match(article, /v2 历史 PNG/);
+});
+
+test('historical array alone is compatible and order-independent while singular history remains supported', async t => {
+  const { root, templates } = await syntheticV3(t);
+  const mixed = await buildGalleryModel({ root, templates });
+  const entry = templates.find(template => template.id === 'T01');
+  const arrayOnly = changeT01(templates, { historicalAcceptance: undefined, historicalAcceptances: [...entry.historicalAcceptances, entry.historicalAcceptance] });
+  const reordered = await buildGalleryModel({ root, templates: arrayOnly });
+  assert.equal(renderGallery(reordered), renderGallery(mixed));
+  assert.deepEqual(reordered.items.find(item => item.id === 'T01').histories, mixed.items.find(item => item.id === 'T01').histories);
+  assert.ok(model.items.some(item => item.historicalAcceptance));
+  for (const item of model.items.filter(item => item.historicalAcceptance)) {
+    assert.equal(item.histories.length, 1 + (item.historicalAcceptances?.length ?? 0));
+    assert.equal(item.history, item.histories[0]);
+    assert.equal(item.history.batch, item.historicalAcceptance.batch);
+  }
+});
+
+test('multi-history rejects malformed entries, wrong epochs and duplicate batches across both forms', async t => {
+  const { root, templates } = await syntheticV3(t);
+  const old = templates.find(template => template.id === 'T01').historicalAcceptance;
+  for (const historicalAcceptances of [null, {}, 'unit-v2']) {
+    await assert.rejects(buildGalleryModel({ root, templates: changeT01(templates, { historicalAcceptances }) }), /historicalAcceptances must be an array/);
+  }
+  for (const history of [null, [], {}, { batch: 'missing', version: 2 }, ...[0, -1, 1, 3, 4, 2.5, '2'].map(version => ({ batch: 'unit-v2', version }))]) {
+    await assert.rejects(buildGalleryModel({ root, templates: changeT01(templates, { historicalAcceptances: [history] }) }), /invalid historical acceptance/);
+  }
+  for (const historicalAcceptances of [[old], [{ batch: 'unit-v2', version: 2 }, { batch: 'unit-v2', version: 2 }]]) {
+    await assert.rejects(buildGalleryModel({ root, templates: changeT01(templates, { historicalAcceptances }) }), /duplicate historical acceptance batch or version/);
+  }
+  await addSyntheticEpoch(root, 2, 'unit-v2-duplicate');
+  await assert.rejects(buildGalleryModel({ root, templates: changeT01(templates, { historicalAcceptances: [{ batch: 'unit-v2', version: 2 }, { batch: 'unit-v2-duplicate', version: 2 }] }) }), /duplicate historical acceptance batch or version/);
+});
+
+test('multi-history checks every retained PNG hash and never ignores an older broken epoch', async t => {
+  const { root, templates } = await syntheticV3(t);
+  for (const relative of ['docs/images/templates/T01.png', 'docs/images/unit-v2/T01.png']) {
+    const file = path.join(root, relative), original = await readFile(file);
+    await writeFile(file, 'corrupt historical PNG');
+    await assert.rejects(buildGalleryModel({ root, templates }), /historical PNG hash mismatch/);
+    await rm(file);
+    await assert.rejects(buildGalleryModel({ root, templates }), /missing repository file/);
+    await writeFile(file, original);
+  }
+  assert.equal((await buildGalleryModel({ root, templates })).items.find(item => item.id === 'T01').histories.length, 2);
+});
+
+test('historical versions must precede current even when each history matches its batch scope', async t => {
+  const { root, templates } = await syntheticV3(t);
+  await assert.rejects(buildGalleryModel({ root, templates: changeT01(templates, { version: 2 }) }), /invalid historical acceptance/);
+  await addSyntheticEpoch(root, 4);
+  await assert.rejects(buildGalleryModel({ root, templates: changeT01(templates, { historicalAcceptances: [{ batch: 'unit-v2', version: 2 }, { batch: 'unit-v4', version: 4 }] }) }), /invalid historical acceptance/);
+});
+
+test('multi-history checks older input/provenance hashes, PNG dimensions and review links', async t => {
+  const { root, templates } = await syntheticV3(t);
+  const proof = path.join(root, 'docs/unit-v2-proof.json'), original = await readFile(proof);
+  await writeFile(proof, Buffer.concat([original, Buffer.from('\n')]));
+  await assert.rejects(buildGalleryModel({ root, templates }), /evidence\/review file hash mismatch/);
+  await writeFile(proof, original);
+  await editJson(root, 'docs/unit-v2-proof.json', data => { data.records[0].input = '0'.repeat(64); });
+  await refreshBatch(root, 'unit-v2', 'evidence');
+  await assert.rejects(buildGalleryModel({ root, templates }), /historical accepted input hash mismatch/);
+  await writeFile(proof, original);
+  const preview = path.join(root, 'docs/images/unit-v2/T01.png'), png = await readFile(preview), bad = Buffer.from(png);
+  bad.writeUInt32BE(1, 16);
+  await writeFile(preview, bad);
+  await editJson(root, 'docs/unit-v2-proof.json', data => { data.records[0].png = sha(bad); });
+  await refreshBatch(root, 'unit-v2', 'evidence');
+  await assert.rejects(buildGalleryModel({ root, templates }), /historical PNG dimensions or signature mismatch/);
+  await writeFile(preview, png);
+  await writeFile(proof, original);
+  await refreshBatch(root, 'unit-v2', 'evidence');
+  const review = path.join(root, 'docs/unit-v2-review.md');
+  await writeFile(review, (await readFile(review, 'utf8')).replace('images/unit-v2/', 'images/templates/'));
+  await refreshBatch(root, 'unit-v2', 'review');
+  await assert.rejects(buildGalleryModel({ root, templates }), /review is missing exact preview/);
+});
+
+test('multi-history rejects missing records and orphaned epochs unless individually retained', async t => {
+  const { root, templates } = await syntheticV3(t);
+  await assert.rejects(buildGalleryModel({ root, templates: changeT01(templates, { historicalAcceptance: undefined }) }), /orphaned acceptance record: visual-m1\/T01/);
+  await assert.rejects(buildGalleryModel({ root, templates: changeT01(templates, { historicalAcceptances: [] }) }), /orphaned acceptance record: unit-v2\/T01/);
+  await editJson(root, 'docs/unit-v2-proof.json', data => { data.records = []; });
+  await refreshBatch(root, 'unit-v2', 'evidence');
+  await assert.rejects(buildGalleryModel({ root, templates }), /invalid historical acceptance or missing record/);
+});
+
+test('multi-history rejects unsafe historical paths and unreferenced extra provenance records', async t => {
+  const { root, templates } = await syntheticV3(t);
+  const binding = path.join(root, 'docs/template-gallery-evidence.json'), original = await readFile(binding);
+  for (const changes of [{ previewDirectory: '../outside' }, { previewDirectory: 'https://example.test/png' }, { evidence: '../outside.json' }, { review: 'https://example.test/review' }]) {
+    await editJson(root, 'docs/template-gallery-evidence.json', data => { Object.assign(data.batches.find(batch => batch.id === 'unit-v2'), changes); });
+    await assert.rejects(buildGalleryModel({ root, templates }), /unsafe repository path/);
+    await writeFile(binding, original);
+  }
+  await editJson(root, 'docs/unit-v2-proof.json', data => { data.records.push({ ...data.records[0], id: 'T99' }); });
+  await refreshBatch(root, 'unit-v2', 'evidence');
+  await assert.rejects(buildGalleryModel({ root, templates }), /orphaned acceptance record: unit-v2\/T99/);
+});
+
+
+test('M1 v2 acceptance is retained as history for exactly 13 current v3 designs', async t => {
+  assert.equal(model.accepted.length, 0);
+  assert.equal(model.pending.length, 48);
+  assert.equal(model.items.filter(item => item.version === 3).length, 13);
+  for (const item of model.items.filter(item => item.version === 3)) {
+    assert.deepEqual(item.histories.map(history => history.version), [1, 2]);
+    assert.equal(item.histories[1].batch, 'refinement-m1-v2');
+    assert.equal(item.preview, null);
+  }
+  const root = await fixture(t);
+  await writeFile(path.join(root, 'docs/images/refinement-m1-v2/T20.png'), 'tamper');
+  await assert.rejects(buildGalleryModel({ root }), /historical PNG hash mismatch: T20/);
 });

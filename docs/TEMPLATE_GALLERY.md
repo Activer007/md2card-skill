@@ -1,6 +1,6 @@
 # 真实静态模板图库（M9 / LIB-03）
 
-> 当前精修状态：48 套 v2 及受共用字体影响的 T04/T21 额外画幅仍待新产物验收。下面已有 48 套的历史结论不验证新设计。见 [R01–R12 计划](REFINEMENT_PLAN.md)。
+> 当前精修状态：13 套 M1 设计进入 v3，其余 35 套进入 v2；共 48 套及受共用字体影响的 T04/T21 额外画幅仍待新产物验收。M1 的 13 套 v2 验收与全部 v1 证据保留为历史，不证明当前 M2。见 [R01–R12 计划](REFINEMENT_PLAN.md)。
 
 下载完整仓库后打开 [离线图库](gallery/index.html)。它从唯一模板注册表生成，按家族、用途、图片需求和注册示例密度筛选；真实预览与待验收文字目录分开。GitHub 文件页不执行 HTML，无需部署、账号、CDN 或联网渲染。
 
@@ -10,7 +10,7 @@
 
 该次 UI 验证对应四预览、44 个文字候选的索引，并不自动验证以后扩展的图库。全库实际模板验收进度见 [逐项状态](VISUAL_BACKLOG_STATUS.md)，历史 M1 范围仍见 [原始验收](TEMPLATE_ACCEPTANCE.md)。
 
-当前索引将 48 个 standard / portrait 注册示例的真实 PNG 与验收证据对齐。新 square/slide 短例独立记录，不复用 portrait 证据。最终来源与展示范围见 [本轮验收](TEMPLATE_UPGRADE_ACCEPTANCE.md)。
+历史索引曾将 48 个 standard / portrait 注册示例的真实 PNG 与验收证据对齐；当前 M2 索引仅展示 48 个待验收契约及经过验证的历史链接，不展示旧缩略图。新 square/slide 短例独立记录，不复用 portrait 证据。最终来源与展示范围见 [本轮验收](TEMPLATE_UPGRADE_ACCEPTANCE.md)。
 
 [48 预览最终验证 40059905372](https://github.com/Activer007/md2card-skill/actions/runs/40059905372) 完成 **51/51 项真实 Chromium 检查**与 17 张界面截图复核。源码头 `3b1beb9aebfe616269fc55f2f7e45cbdec0fb6d9`，完整树 `a85b7a9dc8ab21f14d57fbecd393f4e42dace6ef`；被测合并预览 `3343605c917f7f339e68d8c805637679d9cbc3a6` 的树一致。该次完整工作流 333 项测试通过、零跳过。
 

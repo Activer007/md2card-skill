@@ -461,8 +461,9 @@ test('R01–R06 refine measures, original image visibility and primary focus wit
   assert.match(css, /text-wrap: pretty/);
   for (const id of ['T06','T10','T16','T19','T20','T22','T24','T26','T32','T34','T39','T40','T45']) {
     const entry = getTemplate(id);
-    assert.equal(entry.version, 2);
+    assert.equal(entry.version, 3);
     assert.equal(entry.historicalAcceptance.version, 1);
+    assert.deepEqual(entry.historicalAcceptances, [{ batch: 'refinement-m1-v2', version: 2 }]);
     assert.equal(entry.acceptance, undefined);
     assert.equal(entry.aspectLayouts.portrait.status, 'implemented-awaiting-visual-review');
   }
@@ -471,4 +472,31 @@ test('R01–R06 refine measures, original image visibility and primary focus wit
 
 test('T19 open-grid headings do not escape the measured content box', () => {
   assert.match(css, /template-T19 \.template-section h2 \{ margin: 0 0 \.25em; padding: \.1em 0 \.25em/);
+});
+
+test('M1 capacity corrections remain full-size under the explicit M2 typography roles', () => {
+  for (const id of ['T24','T32','T34']) {
+    const rules=[...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].filter(([,selector])=>selector.includes(`.template-${id}`));
+    for(const [,selector,body] of rules) assert.doesNotMatch(body,/overflow:\s*hidden|line-clamp|text-overflow|transform:\s*scale/,selector);
+  }
+  assert.match(css,/template-T24 h1 \{ font-size: 2\.25em; line-height: 1\.16/);
+  assert.match(css,/template-T24 \.template-section table \{[^}]*font-size: 1em; line-height: 1\.5/);
+  assert.match(css,/template-T32 \.template-sections \{ display: flex; flex-direction: column; gap: \.45em/);
+  assert.match(css,/template-T34 \.template-sections \{ display:flex; flex-direction:column; gap:\.6em/);
+  assert.match(css,/template-T32 \.template-section blockquote \{[^}]*font: 500 1em\/1\.65 var\(--font-quote\)/);
+  assert.match(css,/--font-(?:display|body|source|numeric)/,'M2 intentionally introduces reviewed local font roles');
+});
+
+test('T40 full detail plate keeps readable numeric keys and a bounded authored heading rail', () => {
+  const font=1080*.043, frame=1080*.8, scale=351/1080;
+  const rail=1080-2*(1080*.052*.58)-frame-.2*font;
+  assert.ok(rail>=3*font);
+  assert.ok(Math.min((frame-2)/1200,(frame*680/1200-2)/680)*48*scale>=11);
+  assert.match(css,/template-T40 \.card-content \{ display:grid; grid-template-columns:calc\(var\(--card-width\) \* \.8\) minmax\(0,1fr\)/);
+  assert.match(css,/template-T40 h1 \{ font-size:1\.7em/);
+  assert.match(css,/template-T40 \.template-section > \* \{ grid-column:1 \/ -1/);
+  assert.match(css,/template-T40 \.template-section:first-child > h2 \{ grid-column:2; grid-row:2/);
+  assert.match(css,/template-T40 \.card-figure figcaption \{ grid-column:1 \/ -1/);
+  assert.match(css,/template-T40 \.template-intro \{ grid-column:1 \/ -1/);
+  assert.match(css,/template-T40 \.card-source \{ grid-column:1 \/ -1/);
 });

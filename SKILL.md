@@ -5,6 +5,8 @@ description: Turn Markdown or supplied prose into polished, paginated knowledge 
 
 # Markdown to knowledge cards
 
+M1 首次独立出图已发现容量问题并准备源码修复，仍待修复版本重测与视觉验收；44/48 个注册示例导出，四个溢出。精确失败与修复边界见 [阶段出图记录](docs/REFINEMENT_M1_CALIBRATION.md)。
+
 Transform useful content into a coherent, legible card sequence. Preserve the
 user's meaning, language, requested length, and explicit visual choices.
 This skill is an independent implementation; do not fetch or copy website themes.
@@ -131,8 +133,10 @@ node scripts/render.mjs /absolute/path/cards.md \
 For an optional composed design, inspect `node scripts/render.mjs --list-templates`
 and the [offline gallery](docs/gallery/index.html), then match its content/image
 contract to the supplied source. There are 48 independent designs across 12
-families. Check each registry version: 48 refined v2 designs currently await
-fresh visual acceptance. Historical v1 standard/portrait examples have PNG, phone and
+families. Check each registry version: 13 designs are now v3 and 35 are v2; all
+48 await fresh M2 visual acceptance. The 13 accepted M1 v2 examples remain
+validated history alongside v1; neither proves the current design. Historical
+v1 standard/portrait examples have PNG, phone and
 native-PDF evidence in [the acceptance record](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md).
 Do not treat example acceptance as a guarantee for arbitrary input. Select a
 registry ID with `--template` or per-card `template` metadata; density changes

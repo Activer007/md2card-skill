@@ -25,6 +25,8 @@ A family supplies a coherent hierarchy, reading rhythm and relationship between 
 | Pop / T41–T44 | Conversational reading, clear scene sequence and high-contrast shape vocabulary. Large pictures carry narrative, not generic decorative icons. | T41 question/answer blocks; T42 original numbered stickers; T43 two establishing scenes and panoramic resolution; T44 matched dimensions and paired dialogue. | Rounded local display/quote, sans body, mono numbers; leading 1.44, rhythm ×0.90. |
 | Nature / T45–T48 | Specimen and observation, material and context, action and illustration. Images stay complete; the design never implies scientific identification or product efficacy. | T45 full-measure introduction and specimen/observation pair; T46 material scene; T47 ingredient ledger and generous illustrated methods; T48 equal specimen plates with shared limits. | Literary display/quote, humanist body, serif provenance; leading 1.56, rhythm ×1.06. |
 
+T40 is a bounded detail-key exception: its prose/list leading is 1.4 and caption/source leading is 1.35, with unchanged body/note sizes. Its .8-width complete plate leaves a side rail for the existing key heading; explanations remain full-width. Fresh phone review must establish legibility.
+
 The body line-height values are intentionally modest differences. A paragraph rhythm multiplier affects the existing paragraph gap, not text size. Composition-specific display sizes and quotation rhythms remain distinct. Code, table explanations, lists and metric labels are real body text, not footnotes.
 
 ## Eight flagship changes
@@ -45,7 +47,7 @@ The same treatment extends to **T47** and **T48**:
 - T47 allocates 45% of the method-row tracks to the complete picture, rather than the old fixed 4.5em thumbnail column. Operation text remains in the other track at full body size. The ingredients form an open ledger, not another panel.
 - T48 uses two equally weighted specimen columns. Each name, full picture and same-order field list remains grouped; all later limitation sections span the full width. Neither column receives a recommendation, rating or winner cue.
 - T43/T47/T48 have width 100%, natural height and no small image-height cap. The unchanged PNG files contain all their original scene/figure content. There is no claim that a source-only test proves the perceived illustration quality or final fit.
-- T20 and T45 also retain natural height, with .44 and .45 card-height contain ceilings respectively for alternate tall inputs. The default assets fit below those ceilings. A very different source aspect, longer caption or more content must still pass screen/print measurement; a contain ceiling is not a universal fit guarantee.
+- T20 and T45 also retain natural height, with .40 and .45 card-height contain ceilings respectively for alternate tall inputs. The T20 default landscape fills its ceiling proportionally; T45 stays below its ceiling. A very different source aspect, longer caption or more content must still pass screen/print measurement; a contain ceiling is not a universal fit guarantee.
 - T38/T39/T40 and the other existing image structures are not collapsed into the flagship's frame shape. Explicit source detail/crop intent and the original source bytes stay unchanged.
 
 ## Offline font behavior and diagnostics

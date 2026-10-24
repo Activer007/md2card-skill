@@ -1,6 +1,8 @@
 # Rendering contract (phase 3)
 
-> 当前精修状态：48 套 v2 及受共用字体影响的 T04/T21 额外画幅仍待新产物验收。下面已有 48 套的历史结论不验证新设计。见 [R01–R12 计划](../docs/REFINEMENT_PLAN.md)。
+> M1 的精确失败及源码修复见 [阶段记录](../docs/REFINEMENT_M1_CALIBRATION.md)。这些旧阶段产物不验收当前 M2 字体与构图；本阶段仍待独立运行。
+
+> 当前精修状态：13 套 M1 设计进入 v3，其余 35 套进入 v2；共 48 套及受共用字体影响的 T04/T21 额外画幅仍待新产物验收。M1 的 13 套 v2 验收与全部 v1 证据保留为历史，不证明当前 M2。见 [R01–R12 计划](../docs/REFINEMENT_PLAN.md)。
 
 Phase 3 adds bounded, opt-in semantic pagination to the v2 renderer. See
 [the development plan](../docs/DEVELOPMENT_PLAN.md) for commit-specific code, local,

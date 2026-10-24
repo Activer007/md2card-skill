@@ -116,3 +116,13 @@ test('open-grid headings and film plate stay inside the measured content box', (
   assert.match(rule('.card.template-T19 .template-section h2'), /margin: 0 0 \.25em; padding: \.1em 0 \.25em/);
   assert.doesNotMatch(rule('.card.template-T37 .card-figure'), /-1|negative/);
 });
+
+test('capacity calibration preserves type roles and keeps absent labels and short links honest',async()=>{
+ const css=await readFile(new URL('../assets/templates.css',import.meta.url),'utf8');
+ assert.match(css,/template-T06 \.template-title:only-child \{ grid-column: 1 \/ -1;/);
+ assert.match(css,/template-T36 \.template-section a \{ display:inline-block; max-width:100%; overflow-wrap:anywhere;/);
+ const calibration=css.split('/* R01/R03/R11 measured-capacity')[1].split('/* M9 independent aspect')[0];
+ assert.doesNotMatch(calibration,/font-size|line-height|transform|zoom|overflow\s*:|display\s*:\s*none/);
+ assert.match(css,/--text-size: calc\(var\(--card-width\) \* \.043\)/);
+ assert.match(css,/--note-size: calc\(var\(--card-width\) \* \.0335\)/);
+});

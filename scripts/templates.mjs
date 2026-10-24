@@ -78,10 +78,13 @@ const independentAspects = {
 };
 // A changed design must earn new evidence. Old batches remain immutable history.
 export const REFINED_TEMPLATE_IDS = Object.freeze(entries.map(entry => entry.id));
+export const M1_REFINED_TEMPLATE_IDS = Object.freeze(['T06','T10','T16','T19','T20','T22','T24','T26','T32','T34','T39','T40','T45']);
 function currentEntry(entry) {
   if (!REFINED_TEMPLATE_IDS.includes(entry.id)) return entry;
   const { acceptance, ...rest } = entry;
-  return { ...rest, version: 2, historicalAcceptance: { batch: acceptance, version: 1 },
+  const followsM1 = M1_REFINED_TEMPLATE_IDS.includes(entry.id);
+  return { ...rest, version: followsM1 ? 3 : 2, historicalAcceptance: { batch: acceptance, version: 1 },
+    ...(followsM1 ? { historicalAcceptances: [{ batch: 'refinement-m1-v2', version: 2 }] } : {}),
     refinement: 'family-art-direction-v2' };
 }
 function aspectLayouts(entry) {

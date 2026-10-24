@@ -229,7 +229,7 @@ test('snapshot readiness decodes every intersecting image, not hidden or offscre
   });
   const images = [image('full', {}), image('partial', { top: 790, bottom: 1057 }), image('below', { top: 900, bottom: 1167 }), image('hidden', {}, { visibility: 'hidden' })];
   const page = { evaluate: callback => runInNewContext(`(${callback.toString()})()`, {
-    document: { querySelectorAll: selector => { assert.equal(selector, '.accepted-card img'); return images; } },
+    document: { querySelectorAll: selector => { assert.equal(selector, '.accepted-card img, .comparison-grid img'); return images; } },
     innerWidth: 375, innerHeight: 812, getComputedStyle: image => ({ display: 'block', visibility: 'visible', ...image.style })
   }) };
   const result = await readyVisibleImages(page, 100);
@@ -241,4 +241,11 @@ test('snapshot readiness decodes every intersecting image, not hidden or offscre
 
 test('snapshot readiness keeps a finite deadline for stalled lazy-image decoding', async () => {
   await assert.rejects(readyVisibleImages({ evaluate: () => new Promise(() => {}) }, 5), /Gallery evaluate timed out/);
+});
+
+test('resource model includes current comparison paths, never assumed v1 template directories', async()=>{
+  const {galleryImages}=await import('../scripts/validate-gallery.mjs');
+  const comparison={path:'docs/images/comparisons/unit/T04.png',width:1080,height:1440};
+  const current={path:'docs/images/templates-v2/T05.png',width:1080,height:1440};
+  assert.deepEqual(galleryImages({comparisons:[{previews:[comparison]},{previews:[]}],accepted:[{preview:current}]}),[comparison,current]);
 });

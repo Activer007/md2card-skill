@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "groups": [
+    {
+      "id": "short-reading",
+      "title": "同一短文：四种阅读路线",
+      "input": "examples/refinement/short-reading.md",
+      "inputSha256": "d1588f3f5868c569a91434228b3beb71417a6a8935ef93eda59eb31fb1c05b8e",
+      "templates": [
+        "T04",
+        "T06",
+        "T10",
+        "T13"
+      ],
+      "state": "pending"
+    },
+    {
+      "id": "medium-reading",
+      "title": "同一中篇：比较层级与密度",
+      "input": "examples/refinement/medium-reading.md",
+      "inputSha256": "eea3a2d0bcfa419a25a6e60b6d84cf48b39d711ac9311906ab042e31c13a5fac",
+      "templates": [
+        "T04",
+        "T06",
+        "T10",
+        "T13"
+      ],
+      "state": "pending"
+    },
+    {
+      "id": "mixed-reading",
+      "title": "同一中英混排：观察字体与断行",
+      "input": "examples/refinement/mixed-reading.md",
+      "inputSha256": "9ad5321fd1b8a8f701da38442c6ecf31d286317b1fa59d8885e647d2a121a737",
+      "templates": [
+        "T04",
+        "T17",
+        "T18",
+        "T33"
+      ],
+      "state": "pending"
+    }
+  ]
+}

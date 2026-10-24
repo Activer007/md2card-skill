@@ -11,12 +11,13 @@ import { ROOT, CSP, GALLERY_PATH, buildGalleryModel, renderGallery, generateGall
 const model = await buildGalleryModel();
 const html = renderGallery(model);
 const script = await readFile(new URL('../docs/gallery/gallery.js', import.meta.url), 'utf8');
+const previewCount = value => value.accepted.length + value.comparisons.reduce((sum, group) => sum + group.previews.length, 0);
 const css = await readFile(new URL('../docs/gallery/gallery.css', import.meta.url), 'utf8');
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 async function fixture(t) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'md2card-gallery-'));
   t.after(() => rm(root, { recursive: true, force: true }));
-  for (const relative of ['docs/TEMPLATE_ACCEPTANCE.md', 'docs/template-m1-provenance.json', 'docs/TEMPLATE_UPGRADE_ACCEPTANCE.md', 'docs/template-upgrade-provenance.json', 'docs/TEMPLATE_ASPECTS.md', 'docs/template-gallery-evidence.json', 'docs/TEMPLATE_GALLERY.md', 'docs/images/templates', 'docs/gallery', 'examples/templates']) {
+  for (const relative of ['docs/TEMPLATE_ACCEPTANCE.md', 'docs/template-m1-provenance.json', 'docs/TEMPLATE_UPGRADE_ACCEPTANCE.md', 'docs/template-upgrade-provenance.json', 'docs/TEMPLATE_ASPECTS.md', 'docs/template-gallery-evidence.json', 'docs/TEMPLATE_GALLERY.md', 'docs/gallery-comparisons.json', 'examples/refinement', 'docs/images/templates', 'docs/gallery', 'examples/templates']) {
     const destination = path.join(root, relative);
     await mkdir(path.dirname(destination), { recursive: true });
     await cp(path.join(ROOT, relative), destination, { recursive: true });
@@ -51,13 +52,14 @@ function mockDom({ incomplete = false, items = model.items } = {}) {
   const pendingEmpty = element({ hidden: true });
   const cards = items.map(item => element({ dataset: { family: item.family, purpose: `${item.id} ${item.name} ${item.purpose}`, image: item.image, density: item.density, status: item.preview ? 'accepted' : 'pending' }, id: item.id }));
   const selectors = { '[data-filter-panel]': panel, '[data-empty="accepted"]': acceptedEmpty, '[data-empty="pending"]': pendingEmpty };
+  const routeLinks = cards.map(card => element({ dataset: { templateTarget: card.id } }));
   const document = {
     getElementById(id) { return incomplete && id === 'family-filter' ? null : ids[id]; },
     querySelector(selector) { return selectors[selector]; },
-    querySelectorAll(selector) { assert.equal(selector, '[data-template-card]'); return cards; }
+    querySelectorAll(selector) { if (selector === '[data-template-target]') return routeLinks; assert.equal(selector, '[data-template-card]'); return cards; }
   };
   runInNewContext(script, { document });
-  return { ids, panel, cards, acceptedEmpty, pendingEmpty,
+  return { ids, panel, cards, acceptedEmpty, pendingEmpty, routeLinks,
     set(id, value, event = 'change') { ids[id].value = value; ids[id].fire(event); },
     visible() { return cards.filter(card => !card.hidden).map(card => card.id); },
     reset() { ids['reset-filters'].fire('click'); }
@@ -101,7 +103,7 @@ test('any currently bound previews preserve their exact provenance, input hashes
 test('script-disabled page has every article, input link, detail and real preview', () => {
   assert.equal((html.match(/data-template-card/g) ?? []).length, model.items.length);
   assert.equal((html.match(/<details class="detail">/g) ?? []).length, model.items.length);
-  assert.equal((html.match(/<img /g) ?? []).length, model.accepted.length);
+  assert.equal((html.match(/<img /g) ?? []).length, previewCount(model));
   for (const item of model.items) {
     const article = html.match(new RegExp(`<article id="${item.id}"[\\s\\S]*?</article>`))[0];
     assert.doesNotMatch(article.split('>')[0], /\bhidden\b/);
@@ -139,7 +141,7 @@ test('all registry display fields are escaped in text and attribute contexts', a
   const safe = renderGallery(await buildGalleryModel({ templates: poisoned }));
   assert.ok(safe.includes(escapeHtml(payload)));
   assert.doesNotMatch(safe, /<img src=x|<script>alert|onerror=alert\(1\)>/);
-  assert.equal((safe.match(/<img /g) ?? []).length, model.accepted.length);
+  assert.equal((safe.match(/<img /g) ?? []).length, previewCount(model));
   assert.equal((safe.match(/<script /g) ?? []).length, 1);
   assert.equal(escapeHtml('&<>"\''), '&amp;&lt;&gt;&quot;&#39;');
 });
@@ -428,4 +430,13 @@ test('synthetic current-v2 acceptance rejects stale input and review links indep
   const reviewPath=path.join(root,'docs/unit-v2-review.md');const review=(await readFile(reviewPath,'utf8')).replace('images/unit-v2/','images/templates/');await writeFile(reviewPath,review);
   await editJson(root,'docs/template-gallery-evidence.json',data=>{data.batches.find(b=>b.id==='unit-v2').reviewSha256=sha(Buffer.from(review));});
   await assert.rejects(buildGalleryModel({root,templates}),/review is missing exact preview/);
+});
+
+
+test('exact task navigation reveals a filtered target without replacing native links',()=>{
+ const dom=mockDom();dom.set('purpose-filter','T01','input');assert.deepEqual(dom.visible(),['T01']);
+ dom.routeLinks.find(link=>link.dataset.templateTarget==='T04').fire('click');
+ assert.equal(dom.visible().length,48);assert.equal(dom.ids['purpose-filter'].value,'');
+ assert.match(html,/href="#T04" data-template-target="T04"/);
+ assert.doesNotMatch(script,/preventDefault|innerHTML|outerHTML/);
 });

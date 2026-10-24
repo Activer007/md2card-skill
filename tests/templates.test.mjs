@@ -117,7 +117,7 @@ test('composed templates never inherit legacy theme treatments', () => {
 
 
 test('large list counters are rejected before they can overlap a fixed number rail', () => {
-  for (const id of ['T05', 'T14', 'T42']) {
+  for (const id of ['T05', 'T14', 'T42', 'T08']) {
     for(const start of [7,98]) assert.doesNotThrow(()=>render(`<!-- card: {"template":"${id}"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`));
     for(const start of [99,100,123456789]) assert.throws(()=>render(`<!-- card: {"template":"${id}"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`),{code:'TEMPLATE_LIST_RANGE'});
   }
@@ -262,4 +262,36 @@ test('first selected 24 are distinct compositions spanning all twelve families, 
   assert.equal(new Set(ids.map(id=>getTemplate(id).family)).size,12);
   assert.equal(new Set(ids.map(id=>getTemplate(id).composition)).size,24);
   assert.equal(ids.filter(id=>getTemplate(id).status==='visually-reviewed').length,4);
+});
+
+test('M5 text grids preserve supplementary source sections without truncating to visual slots', () => {
+  for(const id of ['T04','T07','T08','T11','T12','T15','T16']) {
+    const source=`<!-- card: ${JSON.stringify({template:id})} -->\n# Full title\n\nOriginal introduction.\n\n`+Array.from({length:6},(_,i)=>`## Section ${i+1}\n\nOriginal body ${i+1}.`).join('\n\n');
+    const [card]=renderCards(source);
+    assert.equal(card.templateTitleHtml+card.templateIntroHtml+card.sections.map(s=>s.html).join(''),card.html);
+    const html=buildDocument([card],SIZES.portrait,'','',css).split('<main')[1];
+    for(let i=1;i<=6;i++) assert.equal(html.split(`Original body ${i}.`).length-1,1);
+  }
+  assert.match(css,/\.card\.template-T12 \.template-section:nth-child\(n \+ 5\) \{ grid-column: 1 \/ -1/);
+  assert.match(css,/\.card\.template-T15 \.template-section:nth-child\(n \+ 3\) \{ grid-column: 1 \/ -1/);
+});
+
+test('T03 requires image descriptions and preserves text then full portrait DOM order', async () => {
+  for(const fields of [{},{alt:'Portrait'},{caption:'Fictional'}]) assert.throws(()=>renderCards(`<!-- card: ${JSON.stringify({template:'T03',image:'assets/synthetic-ceramic-artist.png',...fields})} -->\n# Title`),{code:'TEMPLATE_METADATA_REQUIRED'});
+  const resolver=await createAssetResolver(fileURLToPath(new URL('../examples/templates/',import.meta.url)));
+  const cards=renderCards(await readFile(new URL('../examples/templates/T03.md',import.meta.url),'utf8'),{resolveImage:resolver.resolveImage});
+  const html=buildDocument(cards,SIZES.portrait,'','',css).split('<main')[1];
+  assert.ok(html.indexOf('class="template-main"')<html.indexOf('class="card-figure'));
+  assert.equal(cards[0].image.width,1024);
+  assert.equal(cards[0].image.height,1536);
+  assert.match(getTemplate('T03').provenance.assets,/fictional adult portrait/);
+});
+
+test('M5 remains pending and decorative grids never override body size or crop images', () => {
+  for(const id of ['T03','T04','T07','T08','T11','T12','T15','T16']) {
+    assert.equal(getTemplate(id).status,'implemented-awaiting-visual-review');
+    const rules=[...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].filter(([,selector])=>selector.includes(`.template-${id}`));
+    assert.ok(rules.length>0);
+    for(const [, , rule] of rules) assert.doesNotMatch(rule,/--text-size\s*:|--note-size\s*:|object-fit:\s*cover|overflow:\s*hidden|text-overflow:\s*ellipsis/);
+  }
 });

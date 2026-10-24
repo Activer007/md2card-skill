@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { runInNewContext } from 'node:vm';
 import { TEMPLATES, getTemplate, validateTemplateMetadata } from '../scripts/templates.mjs';
 import { renderCards } from '../scripts/markdown.mjs';
 import { parseSemanticDocument } from '../scripts/semantic.mjs';
@@ -153,4 +154,48 @@ test('M2 density keeps every source token and selects spacing-only classes', () 
     assert.match(html,new RegExp(`template-${id} family-[a-z]+ density-${density}`));
     assert.equal(html.split('Full body.').length-1,1);
   }
+});
+
+test('T21 shows escaped author-provided metric and label once in source order', () => {
+  const metadata={template:'T21',metric:'38% & <test>',label:'<script>label</script>',source:'Original evidence'};
+  const html=render(`<!-- card: ${JSON.stringify(metadata)} -->\n# Metric title\n\nOriginal body.`).split('<main')[1];
+  for(const text of ['38% &amp; &lt;test&gt;','&lt;script&gt;label&lt;/script&gt;','Original evidence']) assert.equal(html.split(text).length-1,1);
+  assert.doesNotMatch(html,/<script>/);
+  assert.ok(html.indexOf('Metric title')<html.indexOf('class="template-metric"'));
+  assert.ok(html.indexOf('class="template-metric"')<html.indexOf('Original body.'));
+});
+
+test('T21 requires an explicit nonempty value and label, never invented defaults', () => {
+  for(const fields of [{},{metric:'38%'},{label:'Name'},{metric:'',label:'Name'},{metric:'38%',label:'  '}]) {
+    assert.throws(()=>renderCards(`<!-- card: ${JSON.stringify({template:'T21',...fields})} -->\n# Title`),{code:'TEMPLATE_METADATA_REQUIRED'});
+  }
+  for(const id of ['T18','T22','T26','T29','T30']) for(const field of ['metric','label']) {
+    assert.throws(()=>renderCards(`<!-- card: ${JSON.stringify({template:id,[field]:'Original'})} -->\n# Title`),{code:'TEMPLATE_METADATA_UNSUPPORTED'});
+  }
+  const legacy=render('<!-- card: {"layout":"statistic"} -->\n# No fabricated data');
+  assert.doesNotMatch(legacy,/class="(?:template-metric|statistic-value)"/);
+});
+
+test('M3 poetry keeps original hard breaks and code is executable demonstration text', async () => {
+  for(const [id,breaks] of [['T29',2],['T30',3]]) {
+    const [card]=renderCards(await readFile(new URL(`../examples/templates/${id}.md`,import.meta.url),'utf8'));
+    assert.equal((card.html.match(/<br>/g)||[]).length,breaks);
+    assert.equal(card.templateTitleHtml+card.templateIntroHtml+card.sections.map(s=>s.html).join(''),card.html);
+  }
+  const source=await readFile(new URL('../examples/templates/T18.md',import.meta.url),'utf8');
+  const code=source.match(/```(?:js|javascript)\n([\s\S]*?)```/)?.[1];
+  assert.ok(code);
+  const output=[];
+  runInNewContext(code,{console:{log:value=>output.push(value)}},{timeout:1000});
+  assert.deepEqual(output,[150]);
+  assert.match(css,/\.card\.template-T18 \.template-section pre \{[^}]*font-size: 1em/);
+  assert.match(css,/\.card\.template-T21 \.template-metric \.statistic-label \{[^}]*font-size: 1em/);
+});
+
+test('enterprise demonstration header and configured footer use one fictional brand', async () => {
+  const source=await readFile(new URL('../examples/showcase-enterprise.md',import.meta.url),'utf8');
+  const brand=JSON.parse(await readFile(new URL('../examples/brand.json',import.meta.url),'utf8'));
+  const name=brand.name.split(' · ')[0];
+  assert.ok(renderCards(source)[0].metadata.eyebrow.startsWith(name+' /'));
+  assert.doesNotMatch(source,/NORTHSTAR/);
 });

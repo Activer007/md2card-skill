@@ -279,3 +279,9 @@ its original section. Density alters gaps only, not font sizes. The mobile base 
 at the 351px inner card width of the 375px preview. Actual nested text is measured
 in real Chromium, not inferred only from these tokens. Real pixels still require
 human review: typography checks do not prove composition quality or glyph safety.
+
+M3 adds opt-in T21 metric/label rendering. Both are required nonempty strings
+for this design and are escaped as text; missing fields fail with
+`TEMPLATE_METADATA_REQUIRED`. Other templates reject unsupported metric/label
+fields instead of discarding them. Legacy statistic behavior is unchanged.
+Implemented candidates without real artifact review remain unaccepted.

@@ -1,6 +1,6 @@
 # Family grammar and local typography
 
-This is the design contract for the R04/R05/R07 refinement round, not visual acceptance evidence. All 48 compositions keep their own source/slot contracts. Shared typography changes **T01–T48**, including the independent T04/T21 square and slide treatments. Their old raster/PDF reviews remain historical evidence, not acceptance of this revision. New screen, print and actual-mobile-width render review is required.
+This is the design contract for the R04/R05/R07 refinement round, not visual acceptance evidence. All 48 compositions keep their own source/slot contracts. Shared typography changes **T01–T48**, including the independent T04/T21 square and slide treatments. Their old raster/PDF reviews remain historical evidence, not acceptance of this revision. The exact current registered portraits now have [M2 acceptance](REFINEMENT_M2_ACCEPTANCE.md); four existing aspect-specific short fixtures also have current visual coverage, with final aspect binding pending R12. Other inputs/environments still require their own review.
 
 ## What a family controls
 
@@ -25,7 +25,7 @@ A family supplies a coherent hierarchy, reading rhythm and relationship between 
 | Pop / T41–T44 | Conversational reading, clear scene sequence and high-contrast shape vocabulary. Large pictures carry narrative, not generic decorative icons. | T41 question/answer blocks; T42 original numbered stickers; T43 two establishing scenes and panoramic resolution; T44 matched dimensions and paired dialogue. | Rounded local display/quote, sans body, mono numbers; leading 1.44, rhythm ×0.90. |
 | Nature / T45–T48 | Specimen and observation, material and context, action and illustration. Images stay complete; the design never implies scientific identification or product efficacy. | T45 full-measure introduction and specimen/observation pair; T46 material scene; T47 ingredient ledger and generous illustrated methods; T48 equal specimen plates with shared limits. | Literary display/quote, humanist body, serif provenance; leading 1.56, rhythm ×1.06. |
 
-T40 is a bounded detail-key exception: its prose/list leading is 1.4 and caption/source leading is 1.35, with unchanged body/note sizes. Its .8-width complete plate leaves a side rail for the existing key heading; explanations remain full-width. Fresh phone review must establish legibility.
+T40 is a bounded detail-key exception: its prose/list leading is 1.4 and caption/source leading is 1.35, with unchanged body/note sizes. Its .8-width complete plate leaves a side rail for the existing key heading; explanations remain full-width. The exact M2 phone views confirm the numbered plate and prose remain readable; other inputs still need review.
 
 The body line-height values are intentionally modest differences. A paragraph rhythm multiplier affects the existing paragraph gap, not text size. Composition-specific display sizes and quotation rhythms remain distinct. Code, table explanations, lists and metric labels are real body text, not footnotes.
 
@@ -71,8 +71,8 @@ A generic fallback is allowed and does not by itself fail strict mode. Missing r
 - Compact/standard/editorial density only changes space. It cannot select smaller fonts, compress text, scale the card, clamp lines, hide overflow, truncate labels or discard source content.
 - All 48 compositions retain their existing safe Markdown data structure. Title, paragraph, list, quotation, table, code, source metadata and original image payloads are preserved. Additional supported content must remain present and either fit or fail normally.
 - M1's wide T32/T34 reading arrangements remain sequential, not two cramped columns; T34's artificial drop cap stays removed.
-- Repository-owned aspect rules remain the final CSS section. The T21 portrait-specific restructuring does not leak into its square/slide grids, but shared typography still invalidates the previous rendered acceptance for all four T04/T21 non-portrait variants.
-- Source tests check registry/CSS consistency, role fallbacks, nominal floors, spacing-only density, full-image policies, all-template source preservation and unchanged aspect routing. They are not PNG/PDF or visual acceptance. New CI renders, overflow/tail checks, font-dependent line wrapping and human visual review remain required.
+- Repository-owned aspect rules remain the final CSS section. The T21 portrait-specific restructuring does not leak into its square/slide grids, but shared typography invalidated old acceptance for all four T04/T21 non-portrait variants. Exact current short-fixture pixels have since been independently reviewed; final aspect binding remains pending R12.
+- Source tests check registry/CSS consistency, role fallbacks, nominal floors, spacing-only density, full-image policies, all-template source preservation and unchanged aspect routing. They are not PNG/PDF or visual acceptance. Independent assistant pixel review now covers the exact M2 fixtures; it does not replace validation or review of new inputs, fonts or future changes.
 
 
 ## Exact M2 stage calibration
@@ -89,4 +89,4 @@ while retaining its horizontal inset, full-width natural-proportion images,
 all source words, image bytes, title/body/note sizes and leading. At 1080px wide,
 this recovers 67.392px, leaving about 24.8px in the source sizing model. No fixed
 text height, clipping, crop or relaxed overflow guard is introduced. The corrected
-composition still requires a fresh actual render and independent pixel review.
+composition was subsequently rendered and independently cleared in run 40073992849, then carried forward by exact pixel/PDF-raster identity to final run 40074554707. See the M2 acceptance record; the failed stage remains historical evidence.

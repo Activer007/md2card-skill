@@ -1,5 +1,7 @@
 # md2card-skill
 
+M1 首次独立出图已发现容量问题并准备源码修复，仍待修复版本重测与视觉验收；44/48 个注册示例导出，四个溢出。精确失败与修复边界见 [阶段出图记录](docs/REFINEMENT_M1_CALIBRATION.md)。
+
 把 Markdown 与长文整理成清晰、有设计感的知识卡片。
 
 这是一个可放入 Codex 或 Claude Code 技能目录的独立 Skill，也是一个可以直接运行的本地渲染工具。先做内容编排，再选原创主题，最后导出 HTML、PNG 或保留文本层的 PDF。

@@ -1,5 +1,7 @@
 # Rendering contract (phase 3)
 
+M1 首次独立出图已发现容量问题并准备源码修复，仍待修复版本重测与视觉验收；44/48 个注册示例导出，四个溢出。精确失败与修复边界见 [阶段出图记录](../docs/REFINEMENT_M1_CALIBRATION.md)。
+
 > 当前精修状态：13 套 v2 仍待新产物验收，35 套未变更设计保留 v1 验收。下面已有 48 套的历史结论不验证新设计。见 [R01–R12 计划](../docs/REFINEMENT_PLAN.md)。
 
 Phase 3 adds bounded, opt-in semantic pagination to the v2 renderer. See

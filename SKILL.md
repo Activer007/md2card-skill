@@ -5,6 +5,8 @@ description: Turn Markdown or supplied prose into polished, paginated knowledge 
 
 # Markdown to knowledge cards
 
+M1 首次独立出图已发现容量问题并准备源码修复，仍待修复版本重测与视觉验收；44/48 个注册示例导出，四个溢出。精确失败与修复边界见 [阶段出图记录](docs/REFINEMENT_M1_CALIBRATION.md)。
+
 Transform useful content into a coherent, legible card sequence. Preserve the
 user's meaning, language, requested length, and explicit visual choices.
 This skill is an independent implementation; do not fetch or copy website themes.

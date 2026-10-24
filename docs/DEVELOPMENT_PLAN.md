@@ -40,7 +40,7 @@
 
 ## 第三期范围与行为契约
 
-本期已完成下述源码、CI 与限定范围的视觉验收，保持独立草稿 PR，尚未合并。目标是保留原文的受限自动分页，不是自动写作或全版式排版引擎。
+本期已在独立 PR 中完成下述源码、CI 与限定范围的视觉验收；当前审阅及合并状态见 [PR #2](https://github.com/Activer007/md2card-skill/pull/2)。目标是保留原文的受限自动分页，不是自动写作或全版式排版引擎。
 
 - 默认 `--paginate manual`，保留显式分卡、八版式和现有元数据行为。`--paginate auto` 为主动选择，不默默增加卡片。
 - 自动模式仅接收 `explainer`、`steps`，卡片元数据仅允许 `layout`。其余版式或字段以 `PAGINATION_UNSUPPORTED_LAYOUT` / `PAGINATION_UNSUPPORTED_METADATA` 明确拒绝，不丢弃来源、说明或其他字段。
@@ -85,7 +85,7 @@
 - 超大代码示例按预期返回 `PAGINATION_ATOMIC_OVERFLOW`、退出码 2，定位源行 6–67；没有发布输出目录或裁切/部分产物。错误报告位于产物的 `pagination/atomic-error.json`。
 - 人工视觉检查覆盖四套联系表（全部 24 张缩略卡片）以及原尺寸 `lists/card-002.png`、`tables/card-002.png`、`paragraphs/card-002.png`、`references/card-004.png`。在这个范围内，编号、表头及显式来源分段保持，未发现裁切或缺字；没有声称全部 24 张原尺寸卡片均经逐字逐像素检查。
 - README 新增列表与表格联系表，均从该成功 CI 的产物原样复制；哈希与复现命令见 [展示来源记录](SHOWCASES.md#phase-3-automatic-pagination)。第二期原图片及证据保留，不用其证明第三期输出质量。
-- 第三期保持 [草稿 PR #2](https://github.com/Activer007/md2card-skill/pull/2)，未合并。后续文档/图片提交的精确 CI 状态单独记录于该 PR；此处的图片来源仍是上述代码提交。
+- 上述 `c3ed7803` 验收快照记录时，第三期处于草稿、未合并状态。后续文档、复审修复、精确 CI 与当前合并状态见 [PR #2](https://github.com/Activer007/md2card-skill/pull/2)；此处的图片来源仍是上述代码提交。
 
 ## 后续候选（未纳入第三期）
 

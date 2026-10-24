@@ -62,8 +62,10 @@ Visual acceptance covered all four new contact sheets and full-size
 `references/card-004.png`. Numbering, headers and explicit partitions were intact;
 no clipping or missing glyphs were observed in that scope. This is not exhaustive
 full-size glyph-by-glyph inspection. See [SHOWCASES.md](SHOWCASES.md#phase-3-automatic-pagination)
-for immutable image provenance and reproducible commands. Phase 3 remains a draft
-PR, not merged; later documentation/image CI is recorded separately in that PR.
+for immutable image provenance and reproducible commands. At the recorded
+`c3ed7803` acceptance snapshot, phase 3 was a draft and not merged. Later review
+fixes, exact-head CI and current merge status are recorded separately in
+[PR #2](https://github.com/Activer007/md2card-skill/pull/2).
 
 The independent review compared 576 complete-partition combinations with the
 manual renderer and 121 forced-fragment cases using a separate HTML parser.

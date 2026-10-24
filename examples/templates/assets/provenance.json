@@ -1,0 +1,35 @@
+{
+  "created": "2026-10-24",
+  "assets": [
+    {
+      "file": "synthetic-ceramic-artist.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sha256": "c5529de74c9f1fdf5b8eac2c61998614148f67c0a5138af84466a79dabe51ab1",
+      "type": "synthetic-generated-image",
+      "description": "AI-generated entirely fictional adult ceramic artist. No real person, biography or endorsement."
+    },
+    {
+      "file": "synthetic-reading-still-life.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+      "type": "synthetic-generated-image",
+      "description": "AI-generated landscape still life: an unbranded cup, glass, fern and blank notebook by a window. Not a documentary photograph."
+    },
+    {
+      "file": "synthetic-olive-twig.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sha256": "6eb92797db47185b3f9f61b449fac2b5e1077ede7ead834549719803f9af937e",
+      "type": "synthetic-generated-image",
+      "description": "AI-generated watercolor-style olive twig illustration with transparency. Not an existing botanical plate or a scientific identification reference."
+    }
+  ]
+}

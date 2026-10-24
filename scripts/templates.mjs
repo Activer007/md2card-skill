@@ -18,7 +18,15 @@ const entries = [
   {"id":"T22","name":"三指标证据板","family":"business","layout":"statistic","composition":"three-metric-evidence-board","purpose":"用三组指标与证据说明同一问题","image":"none","length":[80,160],"structure":"一个 H1；简短导语；恰好三个 H2，每个 H2 写短指标值，其后一个段落以加粗指标名开头，再说明分母或限定条件。","unsuitable":"需要横轴刻度的图表、超过三个指标或长篇方法学；请使用数据图或普通 explainer，不伪造指标凑版。","focus":"body","example":"examples/templates/T22.md"},
   {"id":"T26","name":"批注式学习清单","family":"journal","layout":"steps","composition":"annotated-study-checklist","purpose":"学习任务、复习清单与对应批注","image":"none","length":[80,150],"structure":"一个 H1；一句导语；两个 H2，每节包含两项简短无序清单及一个批注引用块。空方框是项目符号，不代表已完成。","unsuitable":"长嵌套任务、需要交互勾选或批注大于正文的内容；可改用普通 steps 或 explainer 分页。","focus":"body","example":"examples/templates/T26.md"},
   {"id":"T29","name":"题签留白书摘","family":"eastern","layout":"quote","composition":"title-label-quotation","purpose":"短书摘、原创语句与独立阅读理解","image":"none","length":[70,150],"structure":"一个短 H1；保留原始断句的引用块；一个 H2 下放个人理解；source 记录真实出处或原创身份。","unsuitable":"长篇节选、无法核对的名人语录和多级列表；不改句意、不虚构署名、不强制竖排。","focus":"quote","example":"examples/templates/T29.md"},
-  {"id":"T30","name":"横排诗文与小景","family":"eastern","layout":"quote","composition":"horizontal-poem-small-scenery","purpose":"短诗、散文片段与安静的创作札记","image":"none","length":[60,130],"structure":"一个 H1；引用块放四至六行横排诗文，并用 Markdown 硬换行保留行分隔；一个 H2 放札记；小景为模板自带原创 CSS 几何构图。","unsuitable":"长诗、要求原作插图或真实摄影的图文；请另选图文模板，不把几何小景当作照片。","focus":"quote","example":"examples/templates/T30.md"}
+  {"id":"T30","name":"横排诗文与小景","family":"eastern","layout":"quote","composition":"horizontal-poem-small-scenery","purpose":"短诗、散文片段与安静的创作札记","image":"none","length":[60,130],"structure":"一个 H1；引用块放四至六行横排诗文，并用 Markdown 硬换行保留行分隔；一个 H2 放札记；小景为模板自带原创 CSS 几何构图。","unsuitable":"长诗、要求原作插图或真实摄影的图文；请另选图文模板，不把几何小景当作照片。","focus":"quote","example":"examples/templates/T30.md"},
+  {"id":"T33","name":"报头式主题导读","family":"newspaper","layout":"cover","composition":"newspaper-masthead","purpose":"专题导读、读书周刊","image":"none","length":[80,170],"structure":"一个 H1 报头；一段导语；两个 H2 栏目。","unsuitable":"密集长文与多列表格；用普通解释卡分页。","focus":"title","example":"examples/templates/T33.md"},
+  {"id":"T34","name":"专栏式观点分析","family":"newspaper","layout":"explainer","composition":"column-analysis","purpose":"观点分析与方法讨论","image":"none","length":[90,170],"structure":"一个 H1；短导语；两个 H2，分别为主栏与窄侧栏。","unsuitable":"长引文与复杂嵌套；保留原文手动分卡。","focus":"body","example":"examples/templates/T34.md"},
+  {"id":"T37","name":"大图与底部信息带","family":"film","layout":"image-caption","composition":"film-hero-band","purpose":"影像记录、照片与短故事","image":"required","length":[35,95],"structure":"元数据 image 为主要照片；一个 H1；简短故事；caption 和 source 说明图像性质与来源。","unsuitable":"以大量文字为主的内容；用图文分栏或普通解释卡。","focus":"image","example":"examples/templates/T37.md","provenance":{"assets":"Original synthetic illustrations; fictional/AI identity disclosed in examples. See examples/templates/assets/provenance.json and README.md."}},
+  {"id":"T38","name":"接触印样式记录","family":"film","layout":"image-caption","composition":"contact-print-record","purpose":"多图观察、过程记录","image":"inline","length":[45,110],"structure":"一个 H1；两个 H2 图像记录，每节一个 Markdown 本地图片与一句说明。保持 DOM 读序。","unsuitable":"多于两幅的大型图集、长文；手动增加卡片，不隐藏图片。","focus":"image","example":"examples/templates/T38.md","inlineImageCount":{"min":2,"max":2},"imageSections":{"count":2,"perSection":1},"provenance":{"assets":"Original synthetic illustrations; fictional/AI identity disclosed in examples. See examples/templates/assets/provenance.json and README.md."}},
+  {"id":"T41","name":"色块问答","family":"pop","layout":"explainer","composition":"color-block-question-answer","purpose":"问题解释、概念问答","image":"none","length":[70,160],"structure":"H1 提出问题；导语说明背景；两个 H2 分别展开答案与边界。","unsuitable":"长表格、代码和多层论证；改用对应专用模板。","focus":"body","example":"examples/templates/T41.md"},
+  {"id":"T42","name":"贴纸式步骤卡","family":"pop","layout":"steps","composition":"sticker-steps","purpose":"轻量教程、三步行动","image":"none","length":[70,150],"structure":"一个 H1；三个有序列表项；保留真实列表编号。 本模板支持原始编号 0–99，超出使用普通 steps。","unsuitable":"密集嵌套步骤或代码；用技术教程或普通 steps 分页。","focus":"body","example":"examples/templates/T42.md","maxListNumber":99},
+  {"id":"T45","name":"植物留白笔记","family":"nature","layout":"explainer","composition":"botanical-margin-note","purpose":"自然观察、生活笔记","image":"required","length":[65,150],"structure":"元数据 image 为保全的植物插画；一个 H1；导语与一个 H2 观察记录。","unsuitable":"密集数据、植物鉴定或医疗建议；这是笔记版式，不是科学鉴定工具。","focus":"body","example":"examples/templates/T45.md","provenance":{"assets":"Original synthetic illustrations; fictional/AI identity disclosed in examples. See examples/templates/assets/provenance.json and README.md."}},
+  {"id":"T46","name":"暖色材料质感指南","family":"nature","layout":"image-caption","composition":"material-guide","purpose":"材质观察、生活物件使用笔记","image":"required","length":[70,150],"structure":"元数据 image 为材质场景；一个 H1；两个 H2 分别说明触感与养护边界。","unsuitable":"性能测评或未经证实的功效比较；保留产品真实资料。","focus":"body","example":"examples/templates/T46.md","provenance":{"assets":"Original synthetic illustrations; fictional/AI identity disclosed in examples. See examples/templates/assets/provenance.json and README.md."}}
 ];
 
 function freeze(value) {
@@ -29,7 +37,7 @@ export const TEMPLATES = freeze(entries.map(entry => ({
   ...entry, version: 1, status: entry.acceptance ? 'visually-reviewed' : 'implemented-awaiting-visual-review', aspects: ['portrait'], reading: 'mobile', density: 'standard',
   typography: { bodyWidthRatio: 0.043, noteWidthRatio: 0.0335, bodyLineHeight: 1.5 },
   spacing: { insetWidthRatio: 0.052, densityAffects: 'spacing-only' },
-  provenance: { design: 'Original md2card-skill composition, MIT', text: 'Original demonstration text; not an attributed external quotation', assets: 'No external assets; local system fonts only' }
+  provenance: { design: 'Original md2card-skill composition, MIT', text: 'Original demonstration text; not an attributed external quotation', assets: 'No external assets; local system fonts only', ...entry.provenance }
 })));
 const byId = new Map(TEMPLATES.map(entry => [entry.id, entry]));
 export const DENSITIES = Object.freeze(['compact', 'standard', 'editorial']);
@@ -46,17 +54,29 @@ export function validateTemplateMetadata(metadata, { width, height } = {}) {
   const template = getTemplate(metadata.template);
   if (metadata.layout !== undefined && metadata.layout !== template.layout) throw new Md2CardError('TEMPLATE_LAYOUT_MISMATCH', `${template.id} requires layout "${template.layout}"; remove the conflicting layout or choose another template.`, { template: template.id });
   if (metadata.density !== undefined && !DENSITIES.includes(metadata.density)) throw new Md2CardError('INVALID_TEMPLATE', `Density must be ${DENSITIES.join(', ')}. It changes spacing, never font size.`);
-  const unsupported = [...['metric', 'label'].filter(key => !template.supportedMetadata?.includes(key)), ...(template.image === 'none' ? ['alt', 'caption'] : [])].filter(key => metadata[key] !== undefined);
+  const unsupported = [...['metric', 'label'].filter(key => !template.supportedMetadata?.includes(key)), ...(['required', 'optional'].includes(template.image) ? [] : ['alt', 'caption'])].filter(key => metadata[key] !== undefined);
   if (unsupported.length) throw new Md2CardError('TEMPLATE_METADATA_UNSUPPORTED', `${template.id} does not display ${unsupported.join(', ')}. Choose a matching layout; metadata is never silently discarded.`, { fields: unsupported });
   const missing = (template.requiredMetadata ?? []).filter(key => typeof metadata[key] !== 'string' || !metadata[key].trim());
   if (missing.length) throw new Md2CardError('TEMPLATE_METADATA_REQUIRED', `${template.id} requires nonempty ${missing.join(', ')}. Supply the actual value and its label; no data is invented.`, { fields: missing });
-  if (metadata.image !== undefined && template.image === 'none') throw new Md2CardError('TEMPLATE_IMAGE_UNSUPPORTED', `${template.id} is text-only. Choose an image template or a legacy image-caption layout; the image is never discarded.`);
+  if (metadata.image !== undefined && !['required', 'optional'].includes(template.image)) throw new Md2CardError('TEMPLATE_IMAGE_UNSUPPORTED', `${template.id} does not accept a metadata image. Use its declared image mode or choose another template; images are never discarded.`);
+  if (template.image === 'required' && (typeof metadata.image !== 'string' || !metadata.image.trim())) throw new Md2CardError('TEMPLATE_IMAGE_REQUIRED', `${template.id} requires a local metadata image; provide image, alt and optional caption. Nothing is fetched automatically.`, { template: template.id });
   if (width !== undefined && Math.abs(width / height - 3 / 4) > 0.002) throw new Md2CardError('TEMPLATE_ASPECT_UNSUPPORTED', `${template.id} currently supports 3:4 only. Use --size portrait; other aspect ratios need independent composition acceptance.`);
   return template;
 }
 
 
 export function validateTemplateCard(card, template) {
+  if (!template) return;
+  const inlineImages = (card.html.match(/<img\b/g) ?? []).length;
+  if (template.image === 'none' && (inlineImages || card.image)) throw new Md2CardError('TEMPLATE_IMAGE_UNSUPPORTED', `${template.id} is text-only; images are never discarded.`);
+  if (template.image === 'inline' && card.image) throw new Md2CardError('TEMPLATE_IMAGE_UNSUPPORTED', `${template.id} uses inline images, not a separate metadata image.`);
+  if (template.image === 'required' && !card.image) throw new Md2CardError('TEMPLATE_IMAGE_REQUIRED', `${template.id} requires a resolver-validated local image.`);
+  if (template.inlineImageCount && (inlineImages < template.inlineImageCount.min || inlineImages > template.inlineImageCount.max)) throw new Md2CardError('TEMPLATE_IMAGE_COUNT', `${template.id} needs ${template.inlineImageCount.min}–${template.inlineImageCount.max} inline images. Supply complete image/description pairs or split the card.`, { template: template.id, actual: inlineImages });
+
+  if (template.imageSections) {
+    const sections = card.sections ?? [];
+    if (sections.length !== template.imageSections.count || /<img\b/.test(card.templateIntroHtml ?? '') || sections.some(section => (section.html.match(/<img\b/g) ?? []).length !== template.imageSections.perSection)) throw new Md2CardError('TEMPLATE_IMAGE_STRUCTURE', `${template.id} requires ${template.imageSections.count} H2 image records, each with ${template.imageSections.perSection} image. Keep every image with its own description or split the card.`, { template: template.id });
+  }
   if (template?.maxListNumber !== undefined) {
     for (const list of card.orderedLists ?? []) {
       if (list.start < 0 || list.start + list.count - 1 > template.maxListNumber) {

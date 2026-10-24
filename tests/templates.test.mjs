@@ -414,3 +414,18 @@ test('empty quotes or lists cannot satisfy required authored descriptions and op
     assert.throws(()=>render('<!-- card: {"template":"T44"} -->\n# Options\n\n'+options),{code:'TEMPLATE_OPTION_STRUCTURE'});
   }
 });
+
+test('same-source quote/list comparison exercises original semantics without per-template edits', async () => {
+  const source=await readFile(new URL('../examples/template-comparison-structures.md',import.meta.url),'utf8');
+  const base=renderCards(source)[0];
+  assert.match(base.html,/<blockquote>/);
+  assert.match(base.html,/<ol start="7">/);
+  for(const id of ['T02','T05','T14','T25']) {
+    const card=renderCards(`<!-- card: ${JSON.stringify({template:id})} -->\n${source}`)[0];
+    assert.equal(card.metadata.template,id);
+    assert.equal(card.source,base.source);
+    assert.equal(card.html,base.html);
+    assert.equal(card.templateTitleHtml+card.templateIntroHtml+card.sections.map(section=>section.html).join(''),base.html);
+    assert.doesNotThrow(()=>buildDocument([card],SIZES.portrait,'','',css));
+  }
+});

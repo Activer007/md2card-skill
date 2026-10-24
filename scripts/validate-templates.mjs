@@ -14,6 +14,8 @@ const comparison=[];
 const boundaries=[];
 const legacyRegressions=[];
 const errors=[];
+const regressionPins=JSON.parse(await readFile('docs/template-m1-provenance.json','utf8'));
+const acceptedRegressions=[];
 for(const template of TEMPLATES) {
  try {
   const out=path.join(root,template.id);
@@ -45,6 +47,13 @@ for(const template of TEMPLATES) {
       mobile.push({viewportWidth,...audit,file,sha256:createHash('sha256').update(bytes).digest('hex')});
     }
   } finally {await closeBrowser(renderer.browser);}
+  const pin=regressionPins.records.find(item=>item.id===template.id);
+  if(pin) {
+    const actual=manifest.artifacts.find(item=>item.file==='card-001.png')?.sha256;
+    const unchanged=manifest.inputSha256===pin.input && actual===pin.png;
+    acceptedRegressions.push({id:template.id,status:unchanged?'byte-identical':'requires-new-pixel-review',expectedInput:pin.input,actualInput:manifest.inputSha256,expectedPng:pin.png,actualPng:actual});
+    if(!unchanged)errors.push({id:template.id,scope:'accepted-regression',code:'VISUAL_REGRESSION_CHANGED',message:'Accepted default pixels changed; inspect and explicitly re-review, never refresh the pin automatically.'});
+  }
   results.push({id:template.id,composition:template.composition,status:'rendered-not-visually-reviewed',input:template.example,cardCount:manifest.cardCount,pdf:manifest.qa.pdf.status,mobile});
  } catch(error) { errors.push({id:template.id,code:error.code ?? 'VALIDATION_FAILED',message:error.message}); console.error(template.id,error); }
 }
@@ -57,6 +66,16 @@ for(const id of ['T01','T02','T06','T09','T10','T13','T14','T17']) {
  } catch(error) { errors.push({id,scope:'comparison',code:error.code ?? 'VALIDATION_FAILED',message:error.message}); console.error(id,error); }
 }
 if(comparison.length>1&&new Set(comparison.map(item=>item.inputSha256)).size!==1)throw new Error('Same-content comparison source diverged.');
+// A second unchanged source contains the actual quote/list semantics rather
+// than judging quotation or numbered-ticket designs from prose-only content.
+const structureComparison=[];
+for(const id of ['T02','T05','T14','T25']) {
+  try {
+    const manifest=await exportCards(parseOptions(['examples/template-comparison-structures.md','--template',id,'--out',path.join(root,'comparison-structures',id),'--strict','--preview']));
+    structureComparison.push({id,inputSha256:manifest.inputSha256,cards:manifest.cardCount,pdf:manifest.qa.pdf.status});
+  } catch(error) { errors.push({id,scope:'structure-comparison',code:error.code??'VALIDATION_FAILED',message:error.message}); }
+}
+if(structureComparison.length>1&&new Set(structureComparison.map(item=>item.inputSha256)).size!==1)throw new Error('Structured comparison source diverged.');
 // The explicit historical Bold regression keeps both H1 strings untouched.
 try {
   const manifest=await exportCards(parseOptions(['examples/regression-bold-title-group.md','--theme','bold','--out',path.join(root,'legacy-bold-title-group'),'--strict','--preview']));
@@ -66,20 +85,20 @@ try {
 // shrink, discard content or publish clipped files. These are synthetic QA text.
 const longBody='# 长文边界测试\n\n'+('这是合成的容量测试文本，必须完整保留，不能缩字或隐藏。'.repeat(80))+'\n';
 for(const template of TEMPLATES) {
-  const out=path.join(root,'boundaries',template.id);
-  const {metadata,source}=parseCardMetadata(await readFile(template.example,'utf8'));
-  const longInput=path.join(root,`long-boundary-${template.id}.md`);
-  await writeFile(longInput,`<!-- card: ${JSON.stringify(metadata)} -->\n${source}\n\n${longBody}`);
   try {
-    await exportCards(parseOptions([longInput,'--asset-root',path.dirname(template.example),'--out',out,'--format','html','--strict']));
-    throw new Error(`${template.id}: oversized paragraph unexpectedly succeeded.`);
-  } catch(error) {
-    if(error.code!=='CONTENT_OVERFLOW')throw error;
+    const out=path.join(root,'boundaries',template.id);
+    const {metadata,source}=parseCardMetadata(await readFile(template.example,'utf8'));
+    const longInput=path.join(root,`long-boundary-${template.id}.md`);
+    await writeFile(longInput,`<!-- card: ${JSON.stringify(metadata)} -->\n${source}\n\n${longBody}`);
+    let failure;
+    try { await exportCards(parseOptions([longInput,'--asset-root',path.dirname(template.example),'--out',out,'--format','html','--strict'])); }
+    catch(error) { failure=error; }
+    if(failure?.code!=='CONTENT_OVERFLOW')throw failure??new Error(`${template.id}: oversized paragraph unexpectedly succeeded.`);
     const report=JSON.parse(await readFile(path.join(out,'overflow.json'),'utf8'));
     if(report.code!=='CONTENT_OVERFLOW')throw new Error('Missing overflow evidence.');
-    boundaries.push({id:template.id,status:'expected-overflow',code:error.code});
-  }
+    boundaries.push({id:template.id,status:'expected-overflow',code:failure.code});
+  } catch(error) { errors.push({id:template.id,scope:'long-boundary',code:error.code??'VALIDATION_FAILED',message:error.message}); }
 }
-await writeFile(path.join(root,'summary.json'),JSON.stringify({schemaVersion:1,results,comparison,boundaries,legacyRegressions,errors},null,2)+'\n');
+await writeFile(path.join(root,'summary.json'),JSON.stringify({schemaVersion:1,results,comparison,structureComparison,boundaries,legacyRegressions,acceptedRegressions,errors},null,2)+'\n');
 if(errors.length)throw new Error(`Template acceptance failed: ${JSON.stringify(errors)}`);
-console.log(`Rendered ${results.length} composed templates, native PDFs and mobile375/390 previews. Human pixel review still required.`);
+console.log(`Rendered ${results.length} composed templates, native PDFs and mobile375/390 previews. Independent pixel review still required.`);

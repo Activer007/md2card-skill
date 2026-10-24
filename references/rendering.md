@@ -1,8 +1,6 @@
 # Rendering contract (phase 3)
 
-M1 已完成 13 套 v2 注册示例的真实 PNG、375/390 手机图与原生 PDF 独立验收；其余 35 套未变更 v1 保留原有证据。图库展示这 48 个当前精确示例。见 [有限范围验收](../docs/REFINEMENT_M1_ACCEPTANCE.md)；后续阶段不会继承本批截图。
-
-> 当前精修状态：13 套 v2 已完成本批注册示例验收，35 套未变更设计保留 v1 验收。下面已有 48 套的历史结论不验证新设计。见 [R01–R12 计划](../docs/REFINEMENT_PLAN.md)。
+> 当前 M2：48 个 standard / portrait 精确注册示例已独立复核并绑定当前 PNG，35 套 v2 / 13 套 v3。v1 / M1 v2 历史不变。四个既有 T04/T21 square/slide 短例已有当前产物复核，最终画幅绑定待 R12；最终 48-current 图库 UI 仍待发布后精确树验证。 见 [M2 精确验收](../docs/REFINEMENT_M2_ACCEPTANCE.md)。
 
 Phase 3 adds bounded, opt-in semantic pagination to the v2 renderer. See
 [the development plan](../docs/DEVELOPMENT_PLAN.md) for commit-specific code, local,
@@ -370,8 +368,9 @@ cannot be set by input metadata. Every supplied source fragment remains intact.
 
 Only T04 and T21 currently implement independent square (1:1) and slide (16:9)
 compositions in addition to portrait. The four registered standard-density short
-examples have actual full PNG, 375/390 phone and native-PDF visual acceptance;
-this does not extend to arbitrary content or dimensions. Other templates still
+examples have current independently reviewed full PNG, 375/390 phone and native-PDF
+artifacts; final aspect-specific registry binding remains pending R12. The other
+successful aspect controls remain technical-only; this does not extend to arbitrary content or dimensions. Other templates still
 reject those ratios. Use --size or
 matching custom dimensions; public aspect metadata is not supported. The existing
 0.002 ratio tolerance is unchanged. The registry exposes per-aspect composition,

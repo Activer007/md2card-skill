@@ -17,6 +17,7 @@ async function temp(t) {
 function mockDependencies({ launchError, runError, cleanupError } = {}) {
   const calls = [];
   return { calls,
+    preflight: async () => {}, // Injected lifecycle tests do not audit the committed page.
     model: async () => model,
     launch: async () => {
       calls.push('launch-stub');
@@ -175,6 +176,7 @@ test('stalled page/image evaluation records failure and closes context and brows
   const context = { setDefaultTimeout() {}, setDefaultNavigationTimeout() {}, on() {}, async route() {}, async newPage() { return page; }, async close() { calls.push('context-close'); } };
   const browser = { version: () => 'source-stall-test', async newContext() { return context; } };
   const dependencies = {
+    preflight: async () => {},
     model: async () => model,
     launch: async () => ({ browser, executablePath: '/mock/no-browser', close: async () => { calls.push('browser-close'); } }),
     runChecks: async (_browser, options, _model, report) => withPage(browser, options, new Set(), report, 'stalled-evaluation', true, async () => {

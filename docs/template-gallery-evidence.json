@@ -46,6 +46,38 @@
       },
       "reviewSha256": "66f6bdb11e44e772fab6307fbe63a7d5ebb5d4a79e9e0de4c124ba4842d425d1",
       "evidenceSha256": "60ccb0ef73eba8de28eabc6313b35db84fce5b52716df6a8c93b676c557c39e4"
+    },
+    {
+      "id": "refinement-m2-v2",
+      "review": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+      "evidence": "docs/refinement-m2-v2-provenance.json",
+      "previewDirectory": "docs/images/refinement-m2-run-40074554707",
+      "scope": {
+        "version": 2,
+        "density": "standard",
+        "aspect": "portrait",
+        "width": 1080,
+        "height": 1440,
+        "pagination": "manual"
+      },
+      "reviewSha256": "78f78b9aeaa5655df31406bcbc0cad09509772b7058d95fb4877dd61a3b93797",
+      "evidenceSha256": "48e838a2e5799b1f75fb99f6286fb0dde4aa03343ca554a069d5f1b9534379a3"
+    },
+    {
+      "id": "refinement-m2-v3",
+      "review": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+      "evidence": "docs/refinement-m2-v3-provenance.json",
+      "previewDirectory": "docs/images/refinement-m2-run-40074554707",
+      "scope": {
+        "version": 3,
+        "density": "standard",
+        "aspect": "portrait",
+        "width": 1080,
+        "height": 1440,
+        "pagination": "manual"
+      },
+      "reviewSha256": "78f78b9aeaa5655df31406bcbc0cad09509772b7058d95fb4877dd61a3b93797",
+      "evidenceSha256": "c5c510c524fed2aa3471caf0fc5e15f097b741cccf254ac05e8cb85ce8cae392"
     }
   ]
 }

@@ -1,0 +1,3786 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M2",
+  "fixtureOnly": false,
+  "publicationReady": true,
+  "runAssociation": "Exact remote head, CI merge-preview checkout/tree and artifact digest independently verified against GitHub receipt; product-state promotion has a separate source/gallery review.",
+  "runId": 40074554707,
+  "runUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40074554707",
+  "codeCommit": "5ab221091d721e97c64a773165c82a082a88c8fd",
+  "codeTree": "6908866b74ad48baec0faea103f0eaf288a5e4db",
+  "mergePreview": "94185a1d17b5ed994ebc517cdbdab452a7b5f5ba",
+  "archiveSha256": "299546dc33337d122bf1b816bc85f4835b7760a149717bb669816e4a0a0d6112",
+  "acceptanceState": "independently-reviewed",
+  "independentReview": {
+    "reviewer": "Independent assistant reviewers; no human reviewer identity asserted",
+    "date": "2026-10-24",
+    "status": "pass-with-bounded-nonblocking-limitations",
+    "report": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+    "runId": 40074554707,
+    "codeTree": "6908866b74ad48baec0faea103f0eaf288a5e4db",
+    "surfaces": [
+      "full-size PNG",
+      "375 px natural viewport",
+      "390 px natural viewport",
+      "native PDF"
+    ],
+    "method": "Independent source and artifact review, direct full/mobile/native-PDF inspection of changed outputs, and exact PNG/native-PDF-raster identity carry-forward of previously inspected M2 outputs. Not raw CI audit approval or a human review claim.",
+    "carryForward": {
+      "fromRunId": 40073992849,
+      "registeredFullPngs": 48,
+      "registeredPhonePngs": 96,
+      "registeredNativePdfRasters": 48,
+      "registeredAuthoredInputs": 48,
+      "comparison": "All byte-identical to independently reviewed preceding M2 outputs; native PDFs compared as exact raster byte streams."
+    },
+    "priorDirectReviewRuns": [
+      40068790583,
+      40073498787,
+      40073992849
+    ],
+    "limitations": [
+      "T20 embedded interface microtext is contextual only; body-sized external explanations carry the meaning.",
+      "T48 retains a complete short 盖。 ending in the right description; this is a bounded nonblocking limit, not orphan-free typography.",
+      "T36 retains its earlier introductory 一谈。 tail. Exact registered examples do not certify arbitrary input, other density or canvas settings.",
+      "Actual CI-installed fonts were reviewed, not Windows/macOS or other font-environment equivalence.",
+      "Native PDF raster and extractable text checks do not certify tagged/accessible reading order, every viewer or real devices."
+    ],
+    "conclusion": "All 48 exact registered standard/portrait examples are independently clear for scoped acceptance; 35 current v2 plus 13 current v3. This does not approve future refinement stages or the post-binding gallery UI.",
+    "templates": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05",
+      "T07",
+      "T08",
+      "T09",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T17",
+      "T18",
+      "T21",
+      "T23",
+      "T25",
+      "T27",
+      "T28",
+      "T29",
+      "T30",
+      "T31",
+      "T33",
+      "T35",
+      "T36",
+      "T37",
+      "T38",
+      "T41",
+      "T42",
+      "T43",
+      "T44",
+      "T46",
+      "T47",
+      "T48"
+    ]
+  },
+  "artifactId": 12552767499,
+  "archiveUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40074554707/artifacts/12552767499",
+  "scope": {
+    "version": 2,
+    "density": "standard",
+    "aspect": "portrait",
+    "width": 1080,
+    "height": 1440,
+    "pagination": "manual"
+  },
+  "records": [
+    {
+      "id": "T01",
+      "version": 2,
+      "input": "4bc9e00e4b1fa63748f982fbfec4502c92d19ce1bbf5c8a001bbdf626cf356ab",
+      "png": "a2383f9baf4ade0203e178ca537791b813969cbfef17dafd41315628a8198d57",
+      "pdf": "3fe3bac9d903dd9decfba48fd8ba1bd15e680450169627256098491a278faf2d",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "2a9fe6046bc37c67efee7e67bf4258e5cca088b45746302fb9537345dc209c57"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "dcb1baf57c569c51bfda838dc7bc5f6cc5d5f76f22934f59103e3590ae36b8df"
+        }
+      ],
+      "inputPath": "examples/templates/T01.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T01.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T01.png",
+      "archiveDirectory": "templates/T01",
+      "manifestSha256": "f6d1b944d301b6b7f0a369e6a5cc285b170ef46b068456922310c8178e67d77e",
+      "mobileAuditSha256": "26c6fd6a2265fbd9f0a37ed0db2a629d68e2875adbaa15ecc4f6301d5025fc89",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T01/cards.html",
+          "sha256": "10c8a41a6c9e73528bb51573b7ec60ae38ce0db4d33f64cb07b4f34f9e94cbc6",
+          "bytes": 136122,
+          "format": "html"
+        },
+        {
+          "file": "templates/T01/preview.html",
+          "sha256": "ef09d606aa5603c3748a723ed933c0e64f64e372107bc51d981cb52f80392847",
+          "bytes": 136940,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T01/cards.pdf",
+          "sha256": "3fe3bac9d903dd9decfba48fd8ba1bd15e680450169627256098491a278faf2d",
+          "bytes": 157374,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T01/card-001.png",
+          "sha256": "a2383f9baf4ade0203e178ca537791b813969cbfef17dafd41315628a8198d57",
+          "bytes": 149617,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1210
+        },
+        "used": {
+          "width": 968,
+          "height": 1210
+        },
+        "occupied": {
+          "height": 1209.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1210
+        },
+        "used": {
+          "width": 968,
+          "height": 1210
+        },
+        "occupied": {
+          "height": 1209.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T02",
+      "version": 2,
+      "input": "c2cd7c46f452e9bc21bdebd4c2c0a4af072cba56623a04a124b804186a3db74f",
+      "png": "3468ea9d952357a4a37596c85210790a235d456c5a10a9fc9d43cefb9d9141f3",
+      "pdf": "5f317a414bd880f54282ab6ceba557e8d494342b7cab63bc324b7d5a64984f16",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "25b9e72f95df0c23ab34f389d820b8af1f712430238252c5b56f2a06e42c3a13"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "ca5dc1fc4a18987e705311169e237fb11230ec04d4e60feb4b5f95371e4e59a1"
+        }
+      ],
+      "inputPath": "examples/templates/T02.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T02.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T02.png",
+      "archiveDirectory": "templates/T02",
+      "manifestSha256": "d0bfecc44193946782df96297fb9e77b3b1f1ae160cc67a788746eef5136a0a7",
+      "mobileAuditSha256": "f21765f06c491e876ec5e922743c0c053fc7a4b4cc68e7277c568303d777787d",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T02/cards.html",
+          "sha256": "6e6af6acc1ffc9bfc1338b09a34246170342a064f0455c1a17ab77e2cf7f8fde",
+          "bytes": 136158,
+          "format": "html"
+        },
+        {
+          "file": "templates/T02/preview.html",
+          "sha256": "3dc2ea42c3628dd8946986ea1002640f8a1dacf4bb7783ff7b8dfcb2293c0d83",
+          "bytes": 136976,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T02/cards.pdf",
+          "sha256": "5f317a414bd880f54282ab6ceba557e8d494342b7cab63bc324b7d5a64984f16",
+          "bytes": 191921,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T02/card-001.png",
+          "sha256": "3468ea9d952357a4a37596c85210790a235d456c5a10a9fc9d43cefb9d9141f3",
+          "bytes": 169927,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T03",
+      "version": 2,
+      "input": "32713699ea30fa210323a72f980845c056f851197cedbd7907a774009b732ce7",
+      "png": "87165fbe85fb9f0c3e2bd4af49d16f9cdf979e0efd855f98133cf118be3ba3d1",
+      "pdf": "8692668c387fc4fe547e61242e920ccdd34579da67a8c4526721a566375508d5",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "62e3dfb3574313cb31f66070a8bfa883148f2e97712e432a462301f7f531df58"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "0d15f9470432fdcbaeefbd7de8a5a0b80a98e11d2e347c7b7d6f8e0964e625b9"
+        }
+      ],
+      "inputPath": "examples/templates/T03.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T03.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T03.png",
+      "archiveDirectory": "templates/T03",
+      "manifestSha256": "c95cf79bd561616e41c71873e83b5ac88408a8774854c6d5a19a8f21776ba924",
+      "mobileAuditSha256": "977b296e337f04d462bb0f235f4a99191d2fb31bc77b2a60df5601fab2a5f80e",
+      "assets": [
+        {
+          "reference": "assets/synthetic-ceramic-artist.png",
+          "hash": "c5529de74c9f1fdf5b8eac2c61998614148f67c0a5138af84466a79dabe51ab1",
+          "mime": "image/png",
+          "width": 1024,
+          "height": 1536,
+          "bytes": 2166975,
+          "sourcePath": "examples/templates/assets/synthetic-ceramic-artist.png"
+        }
+      ],
+      "exports": [
+        {
+          "file": "templates/T03/cards.html",
+          "sha256": "8dff78a04fd67fdd60ed823ace408dd8f23bf5b404dca842c6681eb0fdf3e55a",
+          "bytes": 3025743,
+          "format": "html"
+        },
+        {
+          "file": "templates/T03/preview.html",
+          "sha256": "3af551d2bb69fadf8b22b29a41ebc61a52f26f943c7aadbaeae8473301808f36",
+          "bytes": 3026569,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T03/cards.pdf",
+          "sha256": "8692668c387fc4fe547e61242e920ccdd34579da67a8c4526721a566375508d5",
+          "bytes": 3941302,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T03/card-001.png",
+          "sha256": "87165fbe85fb9f0c3e2bd4af49d16f9cdf979e0efd855f98133cf118be3ba3d1",
+          "bytes": 442657,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T04",
+      "version": 2,
+      "input": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01",
+      "png": "5508d146a226ff729c56e871d4d476d8cee03810993bf21395d9063a42d57d0d",
+      "pdf": "d65463a908ebd6d6b6e3e3d0b47a9c35022154e41627bef58e3e3d73e3038e4a",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "e4128990eb600c8c14e984b4cd36b679d64bdcefc61df571355ad7e98f2e7a25"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "649c12534c9717be7ba44769c8dcb7879df30ced0679fc0f3778d88f4f7956f8"
+        }
+      ],
+      "inputPath": "examples/templates/T04.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T04.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T04.png",
+      "archiveDirectory": "templates/T04",
+      "manifestSha256": "040cbce8383ffe5dbf828a7c600d86c44793b9e217c86492aa8683d718b60274",
+      "mobileAuditSha256": "56991b96d7b7487ff38fd528b43780fc2ed51e31743490e45a8f79e7664751da",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T04/cards.html",
+          "sha256": "5a728b2e5bc37f03a3e9ec0922a55e19892c3dd31a0c6f5bc5e981467b82e904",
+          "bytes": 136317,
+          "format": "html"
+        },
+        {
+          "file": "templates/T04/preview.html",
+          "sha256": "49b3b56f49b268b919a781f597ded0185563b413ee8650a8cacd0f1b41396a9d",
+          "bytes": 137139,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T04/cards.pdf",
+          "sha256": "d65463a908ebd6d6b6e3e3d0b47a9c35022154e41627bef58e3e3d73e3038e4a",
+          "bytes": 208807,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T04/card-001.png",
+          "sha256": "5508d146a226ff729c56e871d4d476d8cee03810993bf21395d9063a42d57d0d",
+          "bytes": 190554,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T05",
+      "version": 2,
+      "input": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3",
+      "png": "8d39171b49e945f4f6b8016c29930b80a55dd2dd9360936b324c64622296b1df",
+      "pdf": "5f73c557a74c1e2cec2d6f3d150bf965781c76211a11a9c1ab4e328d278204be",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "5ae126764030297058ef7ccffc38be98d415b5ab1013f15c8c2071d574aa8b57"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "44bc4cd80e1e8ea7d657b6e39497f36d86545e39b42b2db7e9b692d0030de36e"
+        }
+      ],
+      "inputPath": "examples/templates/T05.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T05.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T05.png",
+      "archiveDirectory": "templates/T05",
+      "manifestSha256": "3aac7c2198dc4c720bb3325e9b9f082b710582c85a26fa8b20dac1eb96a3e886",
+      "mobileAuditSha256": "ee1ad756aefbd1c37475b963db6ee84d3dd6500197083ec4fa0cdca9b7478e9f",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T05/cards.html",
+          "sha256": "24dd356966b5b97e3182c3e323e37de9ab592439c1615aad5a5b7a733b872c08",
+          "bytes": 136000,
+          "format": "html"
+        },
+        {
+          "file": "templates/T05/preview.html",
+          "sha256": "10e53f483f605f6cb3c5bb36d2dcece4fd38b88e20cc06e46b09f7eedceb1f8d",
+          "bytes": 136818,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T05/cards.pdf",
+          "sha256": "5f73c557a74c1e2cec2d6f3d150bf965781c76211a11a9c1ab4e328d278204be",
+          "bytes": 166881,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T05/card-001.png",
+          "sha256": "8d39171b49e945f4f6b8016c29930b80a55dd2dd9360936b324c64622296b1df",
+          "bytes": 147658,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T07",
+      "version": 2,
+      "input": "a5c2b1e352e9fbf0046adbae2db9e9ffbf20b04127cc00a685228abb24f1859b",
+      "png": "d32688b8ece2900b31fdc3249f013af28b73e884adffe6b113d3ed5333cd6d4d",
+      "pdf": "9394e5e6ee748b9807c0a4a53bcbf8e94d39f9a2f1de69da6b64ddc2b5d51a35",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "eebba9fb8270d1ca4bc0b3dc305d2fdf28b8b998bae415ae8aca838ef9453628"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "a98c6257acefe2c422b95e010ed6dc3e70edfcabdc6b287d2d1a40d244b51166"
+        }
+      ],
+      "inputPath": "examples/templates/T07.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T07.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T07.png",
+      "archiveDirectory": "templates/T07",
+      "manifestSha256": "b6124f12b62941455c33a6a6f760959283ae969077ce7722873c9e6d59ab3857",
+      "mobileAuditSha256": "af800c2d50472c80ddfcc68fc296d03e8598658d36bf4f05b2ea60929410a307",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T07/cards.html",
+          "sha256": "0661b653a07137ac3de52f2a47c002b2b8bd960da9377de5702d21debfd89017",
+          "bytes": 136296,
+          "format": "html"
+        },
+        {
+          "file": "templates/T07/preview.html",
+          "sha256": "180160e692d5ac6e8d02b77d7747471ab17969b6b1bfa3be3ecb53f3642ce758",
+          "bytes": 137118,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T07/cards.pdf",
+          "sha256": "9394e5e6ee748b9807c0a4a53bcbf8e94d39f9a2f1de69da6b64ddc2b5d51a35",
+          "bytes": 189251,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T07/card-001.png",
+          "sha256": "d32688b8ece2900b31fdc3249f013af28b73e884adffe6b113d3ed5333cd6d4d",
+          "bytes": 148764,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1223
+        },
+        "used": {
+          "width": 968,
+          "height": 1223
+        },
+        "occupied": {
+          "height": 1222.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1223
+        },
+        "used": {
+          "width": 968,
+          "height": 1223
+        },
+        "occupied": {
+          "height": 1222.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T08",
+      "version": 2,
+      "input": "830992687d024eb17381b32142842d5741341bc6df1dd69a3566080f813672a9",
+      "png": "9fb96fcc37b18eed4ce585ff3b83d5a72d05e7b24c9cc3b7fc188cdc6d5c5ee4",
+      "pdf": "fe9c77bdc59a0818c2b1db29ca5de70b5a66439fa38e0aee13b7e1e643b4e91a",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "4ba882c2018a35b035a126f25690973ff1ccc842b7589d96d2c0ff79ff957a69"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "763b406b41a8307674c4b169372135090db91fb82bade0ddf6486e2dfaacd646"
+        }
+      ],
+      "inputPath": "examples/templates/T08.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T08.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T08.png",
+      "archiveDirectory": "templates/T08",
+      "manifestSha256": "1e7882d77a40dae8a3b7a01a6e8f55b9c4f498d92117f0b3108a0a931114e89b",
+      "mobileAuditSha256": "26767635f3e5c14df7bb34b0516f81ec23f2dfad64cb9822ec16c6fe73567d17",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T08/cards.html",
+          "sha256": "92d282f2ccba19208e04aae629ddc412009ec8cd0e887d796a88dd3e27d72e1f",
+          "bytes": 136080,
+          "format": "html"
+        },
+        {
+          "file": "templates/T08/preview.html",
+          "sha256": "fcedec6e50e78751c03d1b471189de91b423362a904ce5ff6f2fda38b94036e3",
+          "bytes": 136898,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T08/cards.pdf",
+          "sha256": "fe9c77bdc59a0818c2b1db29ca5de70b5a66439fa38e0aee13b7e1e643b4e91a",
+          "bytes": 213738,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T08/card-001.png",
+          "sha256": "9fb96fcc37b18eed4ce585ff3b83d5a72d05e7b24c9cc3b7fc188cdc6d5c5ee4",
+          "bytes": 164172,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T09",
+      "version": 2,
+      "input": "ad9e2eb19c811d879ec0f0df75332c83e4c67fbadaba7928df9c829aa17b6bca",
+      "png": "05c0b45fca7a0f41096414eb3c7e581d0410094abb8538d8c27a9a1472d06f3e",
+      "pdf": "539f8ebdf1f0b981538b616916eedc94f6394f49c63b0629b26409e0ec2dd08e",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "65a7fd21448cd3529b79aa4c9086484b3d3b0adea3b362ecf9e41a6ceef2e504"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "65dc6751f53ec51cdd8793194f8bf9f756c8e0bdf61e2c04e9315f3a48482948"
+        }
+      ],
+      "inputPath": "examples/templates/T09.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T09.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T09.png",
+      "archiveDirectory": "templates/T09",
+      "manifestSha256": "b62862343682dabcfc96fac4e466ab6668ca2bef335206a272f8cfeeaea55c4c",
+      "mobileAuditSha256": "bfc08c475ce65fb35c44ac17c1adf17cefb90ff0f3b9e092c348bbf7004cd0c1",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T09/cards.html",
+          "sha256": "e680d14368912845efd943f216809d3e4aa302ec91d8f9adb29b15330429b5f3",
+          "bytes": 136087,
+          "format": "html"
+        },
+        {
+          "file": "templates/T09/preview.html",
+          "sha256": "b2a4d483556740e67e874dbe17a34033b4f0bf7be72f914a237d78b818508628",
+          "bytes": 136905,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T09/cards.pdf",
+          "sha256": "539f8ebdf1f0b981538b616916eedc94f6394f49c63b0629b26409e0ec2dd08e",
+          "bytes": 164832,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T09/card-001.png",
+          "sha256": "05c0b45fca7a0f41096414eb3c7e581d0410094abb8538d8c27a9a1472d06f3e",
+          "bytes": 142708,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T11",
+      "version": 2,
+      "input": "4502d3b898bb1ccfe627927d971a9f3ae507c8848c651bce5a15a4bf44bf99bd",
+      "png": "6f70f2fb3209d264a6b5fd5c13a7c824f044dda6f763aff7347a43d5659b8403",
+      "pdf": "ebb07585452bdeede5d351862fd0bdd4a942d4973867a5af6b29a9d9688d43f3",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "a2e733000ac31d0e2fbef727d44b1afc266854d239c9e0d40c9cf4d3a9a75002"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "fe669b2e72e6708ad7d1a716cd0b85c71194d2cdb69faeecd3f928e0347faa3a"
+        }
+      ],
+      "inputPath": "examples/templates/T11.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T11.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T11.png",
+      "archiveDirectory": "templates/T11",
+      "manifestSha256": "80b5a84ef3093ed0030c9e9ac5adc5b788fe43b93ddbd57a61e8a8c9bc31a1ef",
+      "mobileAuditSha256": "387db34c9be28d73136a311eb6668ff34106d554c7e71a01cf717fbc61e5cbf3",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T11/cards.html",
+          "sha256": "f32295246407f069ef1097b72f5b647a04a1dad07c2ef0acd3b202a6802a6d08",
+          "bytes": 136282,
+          "format": "html"
+        },
+        {
+          "file": "templates/T11/preview.html",
+          "sha256": "62bf8b1d7410f2f9a552e88b09266e9e832ce50fe6c6830cfb32d7c8b0d8b05e",
+          "bytes": 137100,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T11/cards.pdf",
+          "sha256": "ebb07585452bdeede5d351862fd0bdd4a942d4973867a5af6b29a9d9688d43f3",
+          "bytes": 184145,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T11/card-001.png",
+          "sha256": "6f70f2fb3209d264a6b5fd5c13a7c824f044dda6f763aff7347a43d5659b8403",
+          "bytes": 201613,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T12",
+      "version": 2,
+      "input": "9e8261c88de67a4cf69b7604a866ac4efbfd49f50a8be400c6464ec6f8fd87c6",
+      "png": "703a6c7316c68c24a6bc0a7a55353448f15454c4a7f7ccff1d336aff5b54181d",
+      "pdf": "56d5aa9e062d8f02ad218b9e9addee15cfc8b72e800cbb7a633144ef9b3a5e9d",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "a7f17ecad2bc3256a2845a76022d2c8d36e406ff6e2506cf9588324ee4926064"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "7c772edf2b35cd21ed007f3154635f7a44b28b961698225c100902e8e8805b74"
+        }
+      ],
+      "inputPath": "examples/templates/T12.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T12.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T12.png",
+      "archiveDirectory": "templates/T12",
+      "manifestSha256": "d0ab728f400cdcfcce8198f10aab4bb384aab42867bbb8f1e8aa3b0f0469571a",
+      "mobileAuditSha256": "d2ca76432e136c5dac99a3f7897315cb43240e56c40a6032e51dbda19473d496",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T12/cards.html",
+          "sha256": "5dbc19171a9fc2cf3306d981fcbc158259600bf55c747e71a91140dcda6a9372",
+          "bytes": 136325,
+          "format": "html"
+        },
+        {
+          "file": "templates/T12/preview.html",
+          "sha256": "6ae1be1bbe07d449c60b4337bec5dee8416eb625311b37158b76045d93361ca3",
+          "bytes": 137148,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T12/cards.pdf",
+          "sha256": "56d5aa9e062d8f02ad218b9e9addee15cfc8b72e800cbb7a633144ef9b3a5e9d",
+          "bytes": 178676,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T12/card-001.png",
+          "sha256": "703a6c7316c68c24a6bc0a7a55353448f15454c4a7f7ccff1d336aff5b54181d",
+          "bytes": 170131,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T13",
+      "version": 2,
+      "input": "c8b2d96b0deb77d699978ad0546d05d4cd68482bf3dcb68ffd6b95a1d3ecffd1",
+      "png": "4edc66fb34246e25dd6dd3932fa5bc8d1f4be8b9e88c92d99656f47430eec5f8",
+      "pdf": "63a6c2c3a1c2ac5fd1da8e0b1b38d4d15a21ef1d4724dc54cec394e897e52d52",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "385cc493f5eb28f0f1aba577b3d23069b0c209f60da406c633aef1ab66701bb3"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "98223c318b3d03efc505f2e6c662203087b68452607345bf099584c92f5fdf36"
+        }
+      ],
+      "inputPath": "examples/templates/T13.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T13.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T13.png",
+      "archiveDirectory": "templates/T13",
+      "manifestSha256": "96fcb85b8c7c558694317f5deb2c0d73bbb466f084f93aa47026482cf2d207e2",
+      "mobileAuditSha256": "98bfa84e2c5ffe2ffe7a79605aa2883a626eb5f64ae5488ab06d0455b01a8b88",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T13/cards.html",
+          "sha256": "85beae695c375125a9b23907711e623e8dfa82fd3a5f4828577abf47c4794800",
+          "bytes": 136054,
+          "format": "html"
+        },
+        {
+          "file": "templates/T13/preview.html",
+          "sha256": "ec7e2482e6cacceef83e992b1a230f8f05387635ee844f9c23abedd423ac0429",
+          "bytes": 136872,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T13/cards.pdf",
+          "sha256": "63a6c2c3a1c2ac5fd1da8e0b1b38d4d15a21ef1d4724dc54cec394e897e52d52",
+          "bytes": 174348,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T13/card-001.png",
+          "sha256": "4edc66fb34246e25dd6dd3932fa5bc8d1f4be8b9e88c92d99656f47430eec5f8",
+          "bytes": 123211,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 956,
+          "height": 1221
+        },
+        "used": {
+          "width": 956,
+          "height": 1221
+        },
+        "occupied": {
+          "height": 1220.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 956,
+          "height": 1221
+        },
+        "used": {
+          "width": 956,
+          "height": 1221
+        },
+        "occupied": {
+          "height": 1220.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T14",
+      "version": 2,
+      "input": "e142fce016b13c96cc8403435721f601251e566fc0115053a27a0e0ed16e3cde",
+      "png": "46d0113c6b6f42e8a8ef1bfa575bdcc8e68fd2f9d09144498340a001e817906d",
+      "pdf": "bd137478d5f7398f62f8067f6c8931de1bce14363c3230d71f11e9175dfb07a5",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "d3e92cd3f3c9a55bbfcf0e2b91f9deaa32e21eafb8043207455228c1489ec5b9"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "1668354047f466d7349db05d19ecd2cba67d18a302b17013db48d0cfc0daa9c9"
+        }
+      ],
+      "inputPath": "examples/templates/T14.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T14.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T14.png",
+      "archiveDirectory": "templates/T14",
+      "manifestSha256": "98cc691a97285adfb76ab9e2711971717f140685c99cadac0b19ec36837589e1",
+      "mobileAuditSha256": "c5a7ab94b83e6343a62c0387da9f00fe7f8691ffbe201640c0049696899106de",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T14/cards.html",
+          "sha256": "31e32016886d210fd4a0550e9601ebb99f847dfe5eb037fa1350a9989c6980d9",
+          "bytes": 136109,
+          "format": "html"
+        },
+        {
+          "file": "templates/T14/preview.html",
+          "sha256": "3601d899662601a5f59010b1722fc7da23237649340bb5ca421b9217664046dc",
+          "bytes": 136927,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T14/cards.pdf",
+          "sha256": "bd137478d5f7398f62f8067f6c8931de1bce14363c3230d71f11e9175dfb07a5",
+          "bytes": 211411,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T14/card-001.png",
+          "sha256": "46d0113c6b6f42e8a8ef1bfa575bdcc8e68fd2f9d09144498340a001e817906d",
+          "bytes": 171670,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1221
+        },
+        "used": {
+          "width": 968,
+          "height": 1221
+        },
+        "occupied": {
+          "height": 1220.78125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1221
+        },
+        "used": {
+          "width": 968,
+          "height": 1221
+        },
+        "occupied": {
+          "height": 1220.78125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T15",
+      "version": 2,
+      "input": "5150d0f69956b983202407f4152ee6efdda873466ddfe1c97da0cc67b7f3c82e",
+      "png": "2d95939b1756f6ff38c55f503f86d0e40d5719bc3e6dc3ab34c455a6d97ca13d",
+      "pdf": "6123dcaa51050f20460f3a406a379a31349e953ee9215731868bf0090034fe23",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "ddf24126fc6fb62105458453e92fe06b3352be83f384c208236b584b542ff075"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "adb95f208b92519e06c91602bf2b0697da477398ec853a9171a4eabf3c61dba3"
+        }
+      ],
+      "inputPath": "examples/templates/T15.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T15.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T15.png",
+      "archiveDirectory": "templates/T15",
+      "manifestSha256": "5edeb1b58a9d1b38c7050c7cc808562d19fccd1c6fa52d42432efcbe182fc83e",
+      "mobileAuditSha256": "492cb0905118126eb9577cd1a118d586536c8b723c9cd59e9ce641671a6dba12",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T15/cards.html",
+          "sha256": "5fd857482d9805019e921873c84bb149d617ea7b2afd8524e8d3e224d6b3b7ab",
+          "bytes": 136255,
+          "format": "html"
+        },
+        {
+          "file": "templates/T15/preview.html",
+          "sha256": "c41a72ac97a23e837072d3e760edfc783836a3595f1c8b4603533774df44e9dc",
+          "bytes": 137078,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T15/cards.pdf",
+          "sha256": "6123dcaa51050f20460f3a406a379a31349e953ee9215731868bf0090034fe23",
+          "bytes": 181764,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T15/card-001.png",
+          "sha256": "2d95939b1756f6ff38c55f503f86d0e40d5719bc3e6dc3ab34c455a6d97ca13d",
+          "bytes": 159607,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1221
+        },
+        "used": {
+          "width": 968,
+          "height": 1221
+        },
+        "occupied": {
+          "height": 1220.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1221
+        },
+        "used": {
+          "width": 968,
+          "height": 1221
+        },
+        "occupied": {
+          "height": 1220.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T17",
+      "version": 2,
+      "input": "25bcaa60f48dc266d25806912de19a2b5010b12170508edc81a79099a4994246",
+      "png": "8a13d1220719c0a1409a0dd0c4c5d126f2294454ea5232f92a76773afaa51072",
+      "pdf": "ef6c4650d5c5b1dc5d200b1cef32e32af18a5f6adab6dbcb4d0c430e7f3d5954",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "de7badeb1b441feb8262f94ed6066f9fe380302936c13fc4ee6f61ae9e36f805"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "8cc820d8358aba96a171ff46ee3d5287268206caef22bb21dc3a65664cd4a64f"
+        }
+      ],
+      "inputPath": "examples/templates/T17.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T17.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T17.png",
+      "archiveDirectory": "templates/T17",
+      "manifestSha256": "1ee28e50da8323193c4e1baf293f9bcf776ca898efeb830dd0c691f9dd91b1e0",
+      "mobileAuditSha256": "875667ca82254c126760c6082a00f7c63c8a29f99de2b9f1337c50f4d9a18fd4",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T17/cards.html",
+          "sha256": "5225ac381012ce06921701073af31700103633c0fc0a3812d865fa1a6b35b1f6",
+          "bytes": 136277,
+          "format": "html"
+        },
+        {
+          "file": "templates/T17/preview.html",
+          "sha256": "873c9fe37cb8ab8599a7ca98c7aabf79d851441cef3c1589aca289e93bd7429e",
+          "bytes": 137099,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T17/cards.pdf",
+          "sha256": "ef6c4650d5c5b1dc5d200b1cef32e32af18a5f6adab6dbcb4d0c430e7f3d5954",
+          "bytes": 224036,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T17/card-001.png",
+          "sha256": "8a13d1220719c0a1409a0dd0c4c5d126f2294454ea5232f92a76773afaa51072",
+          "bytes": 170244,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T18",
+      "version": 2,
+      "input": "e80a9e0e61f48cf3483dab3e85972858a8811f8faceece5390b1eb8595fb12fb",
+      "png": "5319dd4b1ef08ce3ee871d565bb7d8fd1239327b0b87c9de05fe002227191f06",
+      "pdf": "5b866bf26a01ae4b4693e1eba5675001c35819be14751b85182f79dd0e622ce4",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "c7bc09cd90b23f4774060d1548b8d4b934b51b76a01bb902b55e26d4fc54c92b"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "ece086dc42fff1786373b76e042ba9dc45d18ec1bf9a00d35fe6dbc33f28b9b7"
+        }
+      ],
+      "inputPath": "examples/templates/T18.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T18.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T18.png",
+      "archiveDirectory": "templates/T18",
+      "manifestSha256": "d150303cf49af12ca094c2ff0a9a5fc616814d31a0253494a44f9f06721b666b",
+      "mobileAuditSha256": "72d707d2abade2dde4a6f42ea24c9eb159dad27ed542d5b25770c6e791b565d3",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T18/cards.html",
+          "sha256": "d69f360e64e420ba5d757a7889d4aff758478b95030253dde6841a33889f0504",
+          "bytes": 136177,
+          "format": "html"
+        },
+        {
+          "file": "templates/T18/preview.html",
+          "sha256": "cfce0974e2a879cda2123ef93dd51e7aadf213068641b07a0c615df7a240c7ec",
+          "bytes": 136999,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T18/cards.pdf",
+          "sha256": "5b866bf26a01ae4b4693e1eba5675001c35819be14751b85182f79dd0e622ce4",
+          "bytes": 181175,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T18/card-001.png",
+          "sha256": "5319dd4b1ef08ce3ee871d565bb7d8fd1239327b0b87c9de05fe002227191f06",
+          "bytes": 154064,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T21",
+      "version": 2,
+      "input": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+      "png": "d4aebb10c8f15591ba926ae849e3c8badb0666d317c2c4eb01fa49b13265d328",
+      "pdf": "744d76369e57c2b7252a69888bc58d334cf800bcc6c05f09b1da05bf91f6fe1b",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "2123aa4a9e0bdbea08ca4e4ec67517cbde98e47f11d275e34ec52b4f2c91300b"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "76956b858d85fccb094afa0e5fee768fb0773f40a4d40ef326f7dfab07c07216"
+        }
+      ],
+      "inputPath": "examples/templates/T21.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T21.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T21.png",
+      "archiveDirectory": "templates/T21",
+      "manifestSha256": "df271a37b84eb0ceeb45a4949662f937ffc452417053df52352f551911def5c4",
+      "mobileAuditSha256": "e7cce29165834a92aaa4df98958b7fec62a3e005b52ace081508b5b0bc9b4ed4",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T21/cards.html",
+          "sha256": "a8027634d7e9b44a368cee171a778538b8c899a520cafb9e75a1b82de5f3f4a3",
+          "bytes": 136226,
+          "format": "html"
+        },
+        {
+          "file": "templates/T21/preview.html",
+          "sha256": "07f22056fe09ef1938e0a08166c9b7324599fc116fed1e480a709c2c6eef59f6",
+          "bytes": 137048,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T21/cards.pdf",
+          "sha256": "744d76369e57c2b7252a69888bc58d334cf800bcc6c05f09b1da05bf91f6fe1b",
+          "bytes": 144892,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T21/card-001.png",
+          "sha256": "d4aebb10c8f15591ba926ae849e3c8badb0666d317c2c4eb01fa49b13265d328",
+          "bytes": 164623,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T23",
+      "version": 2,
+      "input": "9e21c45cc409b469aacb23f905a632560fbf5a4c69de01e8a8edbda96cfb6ed6",
+      "png": "842228c7c9143dcbd520ca58acc4eb912851a5ddcefe6094e5afbf662a24bb0b",
+      "pdf": "bc128aa1e465701c07f2a13eac0977938938df592341299eb5ad0bce7ec40529",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "0114f2cbab2cbc444f3b39449008c3a7a8a061bd3ea2d61487bb1d640a4e4782"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "8b55d571a08a2540e090c1e06bad87f8e31d48f8d842dc3f36fc9e70f7d85136"
+        }
+      ],
+      "inputPath": "examples/templates/T23.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T23.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T23.png",
+      "archiveDirectory": "templates/T23",
+      "manifestSha256": "a9ac7d05db13176a3ef30f84e124075d6909a7ce07eafab748c167f1da4323b3",
+      "mobileAuditSha256": "08b9a33d53a15e637dd99e994fc2e2966c6894212f771966a6b16e5aa568ca63",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T23/cards.html",
+          "sha256": "776a1a81da276ac3d959e81f2e3d99f767edf817ac9d4f4b4f5933e6076d3aad",
+          "bytes": 136253,
+          "format": "html"
+        },
+        {
+          "file": "templates/T23/preview.html",
+          "sha256": "5ef548de1fc4ee59cbc9f0b0d0bd49463e296713f0bc24cd671518a28ef0b9ff",
+          "bytes": 137076,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T23/cards.pdf",
+          "sha256": "bc128aa1e465701c07f2a13eac0977938938df592341299eb5ad0bce7ec40529",
+          "bytes": 163118,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T23/card-001.png",
+          "sha256": "842228c7c9143dcbd520ca58acc4eb912851a5ddcefe6094e5afbf662a24bb0b",
+          "bytes": 167325,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T25",
+      "version": 2,
+      "input": "70e7122d3a4089f2233b790548cf26bc244624d01cef7e44544fc26aaf924ae1",
+      "png": "09e497c19e8e2a37700b8c9b92ca7c8fabb378887d8cc391d4f79c2f65077b77",
+      "pdf": "3354c5fd05fe3da974e83be5897005973b95fd6a3f7df56bb70b6cb662721160",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "b6031169970b638db88b95fc2f3895d2b2064df4476f0923e234685476cbcf2e"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "925a8d24530660b538d61c44ca0b246bf32165331d4611ba98ce30e68e51986d"
+        }
+      ],
+      "inputPath": "examples/templates/T25.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T25.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T25.png",
+      "archiveDirectory": "templates/T25",
+      "manifestSha256": "6a39d3daff8e5ac03eee31209c1587621207707e98d5e938aaab65dca7b8d7a4",
+      "mobileAuditSha256": "93f033555df759a15c0bf5f5c3f34c8d96effedffdbaae437801bf200c8a48e8",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T25/cards.html",
+          "sha256": "18a82ca37d286c73abe5aeb984086423619d8f63effdc6951bed8f5bc4090c77",
+          "bytes": 136076,
+          "format": "html"
+        },
+        {
+          "file": "templates/T25/preview.html",
+          "sha256": "64cde19dd6397cca10b8736507a74ec31d42155086579f3278e5f5d9f7729128",
+          "bytes": 136898,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T25/cards.pdf",
+          "sha256": "3354c5fd05fe3da974e83be5897005973b95fd6a3f7df56bb70b6cb662721160",
+          "bytes": 196663,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T25/card-001.png",
+          "sha256": "09e497c19e8e2a37700b8c9b92ca7c8fabb378887d8cc391d4f79c2f65077b77",
+          "bytes": 146005,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T27",
+      "version": 2,
+      "input": "558e0eccd9f7e38475d254a9a622a178b6afda1097f25a8dfbcb3622f1164a4f",
+      "png": "6c1f77df3168cb17ecaf7644d274cf95ee66d781ef3bda265480f68b1c6c0661",
+      "pdf": "6e0634e396badf7d9f1adca0c6bbc709cd77f2c68a18a84813ef76dab0b3e785",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "9eacb0e3bb693cb22251054719e2cc55bf0f3ef62ca9d0c29bc918e5da842bcd"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "b8a9d1bf3a0f92c9fdcadeb3c3bca7b0268df1859bcceee3f7ea1cde596883cc"
+        }
+      ],
+      "inputPath": "examples/templates/T27.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T27.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T27.png",
+      "archiveDirectory": "templates/T27",
+      "manifestSha256": "1b0ba320d48100b72a3b88541ceec65192fabd152c84cb347a592aa7e0ccc5ec",
+      "mobileAuditSha256": "a826598c802919077bc0705c958e4f83ce4168ffed0517e5fe00939191eb9730",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T27/cards.html",
+          "sha256": "1e2c47a059ca1664fbf610e36332a005ec582b27c9e89d9bcc7cfcb3fcd196e6",
+          "bytes": 136264,
+          "format": "html"
+        },
+        {
+          "file": "templates/T27/preview.html",
+          "sha256": "5569eb98f7f91b9b85b8e922d6715166a0b6f0a6145f53f3150f919bb72f84ef",
+          "bytes": 137082,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T27/cards.pdf",
+          "sha256": "6e0634e396badf7d9f1adca0c6bbc709cd77f2c68a18a84813ef76dab0b3e785",
+          "bytes": 192222,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T27/card-001.png",
+          "sha256": "6c1f77df3168cb17ecaf7644d274cf95ee66d781ef3bda265480f68b1c6c0661",
+          "bytes": 170100,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T28",
+      "version": 2,
+      "input": "f21aad7532018e933214db6ea1e17740d899551e0023b6b6242ebd200344534d",
+      "png": "27a97cc1f218262fdc25557eb28a0dd98bcdf2baf71bad0ca5b6e6c43c0c96a6",
+      "pdf": "ed2d39875cc3eeedabc2360791ae286246e8c5f6db980470c6dac9d161307ae5",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "576eb619db843982a32be4a13b48a8f1f02c7254fd77f1aeae956d399b3e9348"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "9f2a76098159b4b3f1ce9896e15a82152d45d6890f36fbe8699f8578a3c9ad67"
+        }
+      ],
+      "inputPath": "examples/templates/T28.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T28.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T28.png",
+      "archiveDirectory": "templates/T28",
+      "manifestSha256": "df302f9cdbcad52887b47bbfb5c05a930ad95386d18a48c72ad763a3cc09c66c",
+      "mobileAuditSha256": "9abe0614be5a87b0e09e9b83f3ee458fe4e97f4ff8a320d132d7a1530e0da86b",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T28/cards.html",
+          "sha256": "a9df01e7e37fcd1fd01f2524c9c227d6971806c346e5e0fff47b34f880dbfc6a",
+          "bytes": 136145,
+          "format": "html"
+        },
+        {
+          "file": "templates/T28/preview.html",
+          "sha256": "bed45b0a5654fa65e1414e44b582dd3f4280eb4642d083e3486471a23bf40003",
+          "bytes": 136963,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T28/cards.pdf",
+          "sha256": "ed2d39875cc3eeedabc2360791ae286246e8c5f6db980470c6dac9d161307ae5",
+          "bytes": 195632,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T28/card-001.png",
+          "sha256": "27a97cc1f218262fdc25557eb28a0dd98bcdf2baf71bad0ca5b6e6c43c0c96a6",
+          "bytes": 159222,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1225
+        },
+        "used": {
+          "width": 968,
+          "height": 1225
+        },
+        "occupied": {
+          "height": 1224.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T29",
+      "version": 2,
+      "input": "7970b1a873fca64027899b99fb9fb13206339e0f64620962c2ec915d1a0385b8",
+      "png": "b0a44bd09245b94844f091ae3761ae58792f90aff6130ecc5acce310f1a67508",
+      "pdf": "f9a41e05472bca83ccf59f3fc6afb56b0c915c7b373553d6d983136c4aa9b718",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "8d17422b405b30c25d46f754cb8777a4b5bc605b723df539ffce370649f1cd79"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "8d72301de95b716f75db0e35469827715d5cb2f5df90f81b1593aa9bbf82c8e4"
+        }
+      ],
+      "inputPath": "examples/templates/T29.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T29.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T29.png",
+      "archiveDirectory": "templates/T29",
+      "manifestSha256": "6345fc4fbde2b1fb021fd5777fd285c749650fbe6180a70b09cf3bec4d1d8551",
+      "mobileAuditSha256": "92565d95e2254206091a7288646ab3c9319614d6d21649e2570410fd02e7fa40",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T29/cards.html",
+          "sha256": "87009547bb1e0c30a7a3fa73a8de6ef0a43740f0c06f3bf057923be957c84ad2",
+          "bytes": 136011,
+          "format": "html"
+        },
+        {
+          "file": "templates/T29/preview.html",
+          "sha256": "3b539283e0370942839364d37b414c7e99b5e636898c9ff2659fb0add503231d",
+          "bytes": 136829,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T29/cards.pdf",
+          "sha256": "f9a41e05472bca83ccf59f3fc6afb56b0c915c7b373553d6d983136c4aa9b718",
+          "bytes": 187610,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T29/card-001.png",
+          "sha256": "b0a44bd09245b94844f091ae3761ae58792f90aff6130ecc5acce310f1a67508",
+          "bytes": 128707,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T30",
+      "version": 2,
+      "input": "2017c9fc2ea9f612c6ac4fcd43c4dcb67ac75a107d45f6643777589218acf3e6",
+      "png": "37454dcd902601329676863b12a1f2a5e7a3ba4abab93c56454c6577dc8f378e",
+      "pdf": "80a929e819c7ee1556f100aeb2b767a2c59375ea011dc335019410d46ab5f27b",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "b9a0170747dabbfe2e41b293fc81078434fa09d830a8efbec51fcab14c835c94"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "242fcd666b4bb43514d4d6c7f6172e499614290f9fc19401c748d61a83ab5a10"
+        }
+      ],
+      "inputPath": "examples/templates/T30.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T30.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T30.png",
+      "archiveDirectory": "templates/T30",
+      "manifestSha256": "15a7916532b176f6d5aee7fa9939e040f82fa79eafcc7171665013740c0da582",
+      "mobileAuditSha256": "9f0fc8ed0060e7f1389238a23b4919374e977b7bbaa708097a10bf6135073827",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T30/cards.html",
+          "sha256": "577527567fc561b63d08ff0b4993bc44ad51c1db14730c6888fa6f4659a73874",
+          "bytes": 136016,
+          "format": "html"
+        },
+        {
+          "file": "templates/T30/preview.html",
+          "sha256": "3a2082af6f3d31327de6d06d28d8c8f2a5818996da48c574619ea5eebe4c9abb",
+          "bytes": 136834,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T30/cards.pdf",
+          "sha256": "80a929e819c7ee1556f100aeb2b767a2c59375ea011dc335019410d46ab5f27b",
+          "bytes": 181351,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T30/card-001.png",
+          "sha256": "37454dcd902601329676863b12a1f2a5e7a3ba4abab93c56454c6577dc8f378e",
+          "bytes": 139241,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T31",
+      "version": 2,
+      "input": "10c958c6615a0c052f45830e8b577bfc723e39e360e448179ba54103587733d5",
+      "png": "7f0977f0bd23ab13f1f8639cb58e60cbef82bb5c0fb93b573644a2b00a0dc9a8",
+      "pdf": "d5491973d646aa0243502b6041d20781509b0bfb1dad117f8898514f992dbb5d",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "df53f339083bfba4094519e3fbb2a2dc2449705e688fe8d73374ddc86558bb7a"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "594ba89836d200a3282b4974ad015dd9f722470e83f06d2112eafb7c1eb28f47"
+        }
+      ],
+      "inputPath": "examples/templates/T31.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T31.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T31.png",
+      "archiveDirectory": "templates/T31",
+      "manifestSha256": "9ffee5f3e85094b6c42d356cc76cb2bb6d57a228d6ee26e0b4130e8df4b81aaa",
+      "mobileAuditSha256": "cbaec1ff4c55feff04b387290388e8a73b1f742f0d6bbc36c20e5b5236a8c7fb",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T31/cards.html",
+          "sha256": "294c53991b5db45dc836d90792fc682a769e8a85f8d81657da23ed09bfb812dc",
+          "bytes": 136006,
+          "format": "html"
+        },
+        {
+          "file": "templates/T31/preview.html",
+          "sha256": "9d05d10c064550c3af16ce30e1432b48054580027617cb97e63c2dfcc27e2d20",
+          "bytes": 136824,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T31/cards.pdf",
+          "sha256": "d5491973d646aa0243502b6041d20781509b0bfb1dad117f8898514f992dbb5d",
+          "bytes": 174751,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T31/card-001.png",
+          "sha256": "7f0977f0bd23ab13f1f8639cb58e60cbef82bb5c0fb93b573644a2b00a0dc9a8",
+          "bytes": 127245,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T33",
+      "version": 2,
+      "input": "f806181a5d8264fced4ea19f275bc52eaeecb39b87f4705a5c5cea79cfe8d53a",
+      "png": "6311f6f041ab1fa8fbbc933b6467dba3ab20b94d53864f5cbad877699fb4ed03",
+      "pdf": "e77b1c7b9328a7ee8cb1883e28c3617df655ab46beb1ac1b376c275600223183",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "7168733e228c1ada5ed80217915c939359ce5eef2067b708bb77b049073f314b"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "5134a76624ee8e029441c8cf7a94234c2fae4334e1ace454a0799214e002129c"
+        }
+      ],
+      "inputPath": "examples/templates/T33.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T33.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T33.png",
+      "archiveDirectory": "templates/T33",
+      "manifestSha256": "f41709a25943e686833baed778f95ad9fba93d42cf4a07f0ff28efabf8633082",
+      "mobileAuditSha256": "8001369829b61bbddcf40eaa8d84b34b9bcf974e246396aa7106e0cc1c0737ed",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T33/cards.html",
+          "sha256": "f61c4e6bc35d425ed52c6325c9c48886c29ce9a886b7a9fe1ea0de007fb03ccb",
+          "bytes": 136104,
+          "format": "html"
+        },
+        {
+          "file": "templates/T33/preview.html",
+          "sha256": "641e9dcc9129fe1bbccf7a7d81dd9822496980ede69311eef963fb43f7bf02e2",
+          "bytes": 136922,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T33/cards.pdf",
+          "sha256": "e77b1c7b9328a7ee8cb1883e28c3617df655ab46beb1ac1b376c275600223183",
+          "bytes": 189197,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T33/card-001.png",
+          "sha256": "6311f6f041ab1fa8fbbc933b6467dba3ab20b94d53864f5cbad877699fb4ed03",
+          "bytes": 159026,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1222
+        },
+        "used": {
+          "width": 968,
+          "height": 1222
+        },
+        "occupied": {
+          "height": 1221.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T35",
+      "version": 2,
+      "input": "22162a975a4d53a330a7aae60651c600de2a30ad70ed8d15de99c54bd149c877",
+      "png": "a584ab78790a8ee70d23bc099c135f8bbad6537c8a6c1d82627f7b5eee8a08a8",
+      "pdf": "bf3ed3e73f9e0b76530ccd4c820c92671c21ab80b3c8c02ff0cf789e0acba045",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "cb04b38e6b3e884dff696c6033cf040e41047d25502e6f35ae0cbd67d578e05e"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "98e14edc97f34f4b56793b4814dc1610447017caee75d6f9049b897b9c5ceccc"
+        }
+      ],
+      "inputPath": "examples/templates/T35.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T35.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T35.png",
+      "archiveDirectory": "templates/T35",
+      "manifestSha256": "9e1fba6e0efa761aa778daba12145d763ffabdd8b538e62dcbbc44fbdf7a54e0",
+      "mobileAuditSha256": "075f2b273e89f183ecffab46e16da04c6c0cc05e1a0b26b1490fe6e3ee9f8f81",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T35/cards.html",
+          "sha256": "62903e20bd8fd876dc86e264b580088e94b75973cfcf4441dae68fd9180e05e5",
+          "bytes": 136347,
+          "format": "html"
+        },
+        {
+          "file": "templates/T35/preview.html",
+          "sha256": "4e0f72fe1290030e42e0da7840440683b0a379917b7ec30529af9a734cf43ef2",
+          "bytes": 137169,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T35/cards.pdf",
+          "sha256": "bf3ed3e73f9e0b76530ccd4c820c92671c21ab80b3c8c02ff0cf789e0acba045",
+          "bytes": 256803,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T35/card-001.png",
+          "sha256": "a584ab78790a8ee70d23bc099c135f8bbad6537c8a6c1d82627f7b5eee8a08a8",
+          "bytes": 214944,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1249
+        },
+        "used": {
+          "width": 968,
+          "height": 1249
+        },
+        "occupied": {
+          "height": 1248.90625
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1249
+        },
+        "used": {
+          "width": 968,
+          "height": 1249
+        },
+        "occupied": {
+          "height": 1248.90625
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T36",
+      "version": 2,
+      "input": "bb1133ffeb3d94641520db65d9574888539ddfe7c8d1ecef81b1310e7fc45d93",
+      "png": "e2a0474961a4c0ef8ecfa9015abdff2a1286690a38755d8124f82aec44fae077",
+      "pdf": "33952efef9a3f5e9032e1221aeeeacfcda46a36f72700f6db6092bf828fa4358",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "c83124d77728524152cb9bb287b2a7797f5eaad212892f4704f5ee4889deb393"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "9c4346c76061e856d0bca943f7ab681de10ab72c811ddb5932f302a09bea57e9"
+        }
+      ],
+      "inputPath": "examples/templates/T36.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T36.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T36.png",
+      "archiveDirectory": "templates/T36",
+      "manifestSha256": "a6d6bcc2e83d1b7114d99ea9df52ed9bc18b56818296cd1c29b8ef6af5a1ae3e",
+      "mobileAuditSha256": "c092e2858cbc9c62bb7294b87f59838d94d782048faf1426a6cfe71b7d6caaab",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T36/cards.html",
+          "sha256": "6103f181ba8b2d1b00ea5c752fcf63a0bc883a1f17fe704fe18620206ccdb8f3",
+          "bytes": 136602,
+          "format": "html"
+        },
+        {
+          "file": "templates/T36/preview.html",
+          "sha256": "479c9383db04c32242d11bff7262796bbdc50043578441e630aebc65914d225f",
+          "bytes": 137424,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T36/cards.pdf",
+          "sha256": "33952efef9a3f5e9032e1221aeeeacfcda46a36f72700f6db6092bf828fa4358",
+          "bytes": 188962,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T36/card-001.png",
+          "sha256": "e2a0474961a4c0ef8ecfa9015abdff2a1286690a38755d8124f82aec44fae077",
+          "bytes": 198798,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1247
+        },
+        "used": {
+          "width": 968,
+          "height": 1247
+        },
+        "occupied": {
+          "height": 1246.90625
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1247
+        },
+        "used": {
+          "width": 968,
+          "height": 1247
+        },
+        "occupied": {
+          "height": 1246.90625
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-with-bounded-nonblocking-limitations",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only.",
+        "limitation": "T36 retains its earlier introductory 一谈。 tail. Exact registered examples do not certify arbitrary input, other density or canvas settings."
+      }
+    },
+    {
+      "id": "T37",
+      "version": 2,
+      "input": "10092106b880769b4bb0064bd3a1cd395193500eec941651e40496083f22887c",
+      "png": "52d3ad898c38d1c91040cafefd4dff3d398e572636f4b86c8f14424ef2f91767",
+      "pdf": "57df71482f699709eda963e036916f1945ce1261cb10ac5167d5c5adc8dc17e7",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "142b5fb817a0c0b9ebc51ff72c6bfd9fffbe8643d86cf1ee0b667d581325d22a"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "1c3bc33c17f612062eba0d298d420b988a93fe640551dff2b278fc3304b3c8cc"
+        }
+      ],
+      "inputPath": "examples/templates/T37.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T37.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T37.png",
+      "archiveDirectory": "templates/T37",
+      "manifestSha256": "64b08da6822df98c5ed63488f7f90edd98ceef0565d2458135cd7ce0233bb9ad",
+      "mobileAuditSha256": "9adf85b949a356f3a7254ef4215db31f61de6c9ac7e7162268fb9b8eb99507e1",
+      "assets": [
+        {
+          "reference": "assets/synthetic-reading-still-life.png",
+          "hash": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "mime": "image/png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2274167,
+          "sourcePath": "examples/templates/assets/synthetic-reading-still-life.png"
+        }
+      ],
+      "exports": [
+        {
+          "file": "templates/T37/cards.html",
+          "sha256": "4922f25a38f1176433c8fb4193e06c359676fb2bbb486e65e296f16c752a9b1f",
+          "bytes": 3168326,
+          "format": "html"
+        },
+        {
+          "file": "templates/T37/preview.html",
+          "sha256": "fc46e082624ff3b84a26ad5f7b6642e198fcaa087baccbc4e244acb9033818a5",
+          "bytes": 3169152,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T37/cards.pdf",
+          "sha256": "57df71482f699709eda963e036916f1945ce1261cb10ac5167d5c5adc8dc17e7",
+          "bytes": 3824645,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T37/card-001.png",
+          "sha256": "52d3ad898c38d1c91040cafefd4dff3d398e572636f4b86c8f14424ef2f91767",
+          "bytes": 1009686,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1247
+        },
+        "used": {
+          "width": 968,
+          "height": 1247
+        },
+        "occupied": {
+          "height": 1247.09375
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1247
+        },
+        "used": {
+          "width": 968,
+          "height": 1247
+        },
+        "occupied": {
+          "height": 1247.09375
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T38",
+      "version": 2,
+      "input": "450b2d8cb523abb8e5811d8f04ce0c6aa89235f97b00caadf420e9035624bda0",
+      "png": "754fc36d95f1b605f955e50202e2e55207946fffd9d0424bdff7677f45bf7340",
+      "pdf": "8de1a1c4e9e5aa6a5d0c1d176b87eb9a936af2b6663a8e13417e09c808bd197e",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "699b67700a7670ea8bb84b2811e519b44a4bece2d10c51993372454ef48825e0"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "6a8258fb2e50e12b1f981ce3ba95ff3ba6c4c596d4346b18274da8f51e110843"
+        }
+      ],
+      "inputPath": "examples/templates/T38.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T38.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T38.png",
+      "archiveDirectory": "templates/T38",
+      "manifestSha256": "24ca9f5a4010076f936fa365151eadacfb665612516d8b9d095eab6930ac98ef",
+      "mobileAuditSha256": "a17193caf793ed138c804037cb9a53cc29b5e81fcbd4138a5d0b1c6fd393855d",
+      "assets": [
+        {
+          "reference": "assets/synthetic-reading-still-life.png",
+          "hash": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "mime": "image/png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2274167,
+          "sourcePath": "examples/templates/assets/synthetic-reading-still-life.png"
+        },
+        {
+          "reference": "assets/synthetic-ceramic-artist.png",
+          "hash": "c5529de74c9f1fdf5b8eac2c61998614148f67c0a5138af84466a79dabe51ab1",
+          "mime": "image/png",
+          "width": 1024,
+          "height": 1536,
+          "bytes": 2166975,
+          "sourcePath": "examples/templates/assets/synthetic-ceramic-artist.png"
+        }
+      ],
+      "exports": [
+        {
+          "file": "templates/T38/cards.html",
+          "sha256": "934daf7e422f97e0c21e35d05c0fedcb7389ffa8f1402810115234e1db728f20",
+          "bytes": 6057818,
+          "format": "html"
+        },
+        {
+          "file": "templates/T38/preview.html",
+          "sha256": "145f1e67f9871deba5f81c90b7be530826fc02383bb89d6c6513a6c9cc83a167",
+          "bytes": 6058644,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T38/cards.pdf",
+          "sha256": "8de1a1c4e9e5aa6a5d0c1d176b87eb9a936af2b6663a8e13417e09c808bd197e",
+          "bytes": 7625750,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T38/card-001.png",
+          "sha256": "754fc36d95f1b605f955e50202e2e55207946fffd9d0424bdff7677f45bf7340",
+          "bytes": 469612,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T41",
+      "version": 2,
+      "input": "26177685689025638d3bd1f7bbb102444140ede2d95abafbc6a787b86dd53743",
+      "png": "d00199b561c8a070f99d48873b987bb96cb0897e0d4291b0b312a0062a060051",
+      "pdf": "b969ab4ded7baa72ab25470b2951aa887eae2e39d4bd43cdd6b9104f373139a2",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "0cbddaa7ab108da5786d8248c198f29623f9ec3ff2af499e16fe2c2b73ff8705"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "b5f1f0950690ce4d84e21b438774aeab4123ffb3f93c06496f7928c549bf69e7"
+        }
+      ],
+      "inputPath": "examples/templates/T41.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T41.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T41.png",
+      "archiveDirectory": "templates/T41",
+      "manifestSha256": "4b06340255e7ed88291f893cd02430a7782cc8233fb539b86cea485f435eeedc",
+      "mobileAuditSha256": "33aff9a298565cf96dd6ebea15f2abdd577438371e01257f29f3450fd527c117",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T41/cards.html",
+          "sha256": "400775cb2b0bd9c9a591ba4d98af1faf0e73d106b029eab764fe80f0750c8af6",
+          "bytes": 136138,
+          "format": "html"
+        },
+        {
+          "file": "templates/T41/preview.html",
+          "sha256": "b91f116d70667d38cc6d5bf492b31f2c282cd2a6c8eef31b562112e835e57b2a",
+          "bytes": 136960,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T41/cards.pdf",
+          "sha256": "b969ab4ded7baa72ab25470b2951aa887eae2e39d4bd43cdd6b9104f373139a2",
+          "bytes": 173684,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T41/card-001.png",
+          "sha256": "d00199b561c8a070f99d48873b987bb96cb0897e0d4291b0b312a0062a060051",
+          "bytes": 141065,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T42",
+      "version": 2,
+      "input": "f4ac48aa990e7ac9b2e949a2ff872ef41c314f8c92ca6965411dff1621f66d66",
+      "png": "e8311b7004e7ba8e43802308c499569d29562bf131ca247717897d17022adc6b",
+      "pdf": "6f752d90c3eed7c328650005a8629389f6c291388fe3ca7f1396f769c38b6033",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "25f6dacbe56774916aa90e2d23ac78e06d5bd074431d1b4906201e9dfc706177"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "aaf43a0db4d63fcd8c84c9c6ff85cd23d457cd80cbf3ca50a75332b2cb3d3acf"
+        }
+      ],
+      "inputPath": "examples/templates/T42.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T42.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T42.png",
+      "archiveDirectory": "templates/T42",
+      "manifestSha256": "9a87433a0170029b61a53efc6acec1802c34c7402f67ffec4a78cd18d726eb29",
+      "mobileAuditSha256": "679f315ccc4b04b0251cbebc27b66e045080815c60aa68751d0683753f7d3469",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T42/cards.html",
+          "sha256": "286ab61a5bc95007009d46f87392227557aad4f8190466dfb6251642f5ea8949",
+          "bytes": 135981,
+          "format": "html"
+        },
+        {
+          "file": "templates/T42/preview.html",
+          "sha256": "b5f6bcca3f9f562d4d3000cb2ba89e43d212f72004d3e00001105ff671acaeae",
+          "bytes": 136799,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T42/cards.pdf",
+          "sha256": "6f752d90c3eed7c328650005a8629389f6c291388fe3ca7f1396f769c38b6033",
+          "bytes": 170123,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T42/card-001.png",
+          "sha256": "e8311b7004e7ba8e43802308c499569d29562bf131ca247717897d17022adc6b",
+          "bytes": 144399,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1223
+        },
+        "used": {
+          "width": 968,
+          "height": 1223
+        },
+        "occupied": {
+          "height": 1222.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1223
+        },
+        "used": {
+          "width": 968,
+          "height": 1223
+        },
+        "occupied": {
+          "height": 1222.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T43",
+      "version": 2,
+      "input": "0257f634cfb5ca7fc979a5b448a7c83e7fb30428c39b3330b67a3e0e6d7d14c3",
+      "png": "14ff7e2f05eb8eadbefe6b98ea0c669a3ca597d527d67491f13e4d751ae742cf",
+      "pdf": "12703f6a0b1379bea40653ee896ee4163dbb60594237ec997338128f83a40742",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "ec10f524fb16279313894e3ee251e5160a2bdbccd01d506f3a066f600914e2eb"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "524b15470d335d03de21278d9d968ff59ab003c9ad4e937badcbd9a6fcd03a78"
+        }
+      ],
+      "inputPath": "examples/templates/T43.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T43.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T43.png",
+      "archiveDirectory": "templates/T43",
+      "manifestSha256": "fe675caf4348b77cafbe93689889afd17c76bc98ae5870c8316483373374297e",
+      "mobileAuditSha256": "55b9e951383df97ee750d749b5a7177d78f6c86c27524f5d5e59c9bed96cba1e",
+      "assets": [
+        {
+          "reference": "assets/original-comic-search.png",
+          "hash": "b44035abe1383516b319c97df6b7323b092eb07aa8c84903eabc4ae6e3cc3649",
+          "mime": "image/png",
+          "width": 900,
+          "height": 480,
+          "bytes": 3685,
+          "sourcePath": "examples/templates/assets/original-comic-search.png"
+        },
+        {
+          "reference": "assets/original-comic-file.png",
+          "hash": "d09cde53ef0aeef02f5cc13767c4575c55a8936cc89ceb1486434a2bfb432346",
+          "mime": "image/png",
+          "width": 900,
+          "height": 480,
+          "bytes": 3131,
+          "sourcePath": "examples/templates/assets/original-comic-file.png"
+        },
+        {
+          "reference": "assets/original-comic-return.png",
+          "hash": "0c884371d29be8fb4d153ec1e74baa9dacca69c0ff30bf4e46cb92d0ba29ad23",
+          "mime": "image/png",
+          "width": 1200,
+          "height": 360,
+          "bytes": 3695,
+          "sourcePath": "examples/templates/assets/original-comic-return.png"
+        }
+      ],
+      "exports": [
+        {
+          "file": "templates/T43/cards.html",
+          "sha256": "44b4fc5b7c6bf708224db7ec0fba92f7b9bc29aeb751d8a50ec72e90606f44b2",
+          "bytes": 150734,
+          "format": "html"
+        },
+        {
+          "file": "templates/T43/preview.html",
+          "sha256": "4562914033c778354126381f540125d1d4a5d226c94db014557a36fcafadd988",
+          "bytes": 151560,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T43/cards.pdf",
+          "sha256": "12703f6a0b1379bea40653ee896ee4163dbb60594237ec997338128f83a40742",
+          "bytes": 178988,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T43/card-001.png",
+          "sha256": "14ff7e2f05eb8eadbefe6b98ea0c669a3ca597d527d67491f13e4d751ae742cf",
+          "bytes": 140667,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1327
+        },
+        "used": {
+          "width": 968,
+          "height": 1327
+        },
+        "occupied": {
+          "height": 1327.15625
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1327
+        },
+        "used": {
+          "width": 968,
+          "height": 1327
+        },
+        "occupied": {
+          "height": 1327.15625
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T44",
+      "version": 2,
+      "input": "f33a98d9c459f5f19ee9c284d1faea4a048a7340bcae9ff1b8b2a47259cfe509",
+      "png": "9fbdaaef2c7035a8789e185e500e0c68ea57cfc94b0db1fbff8ad2da7285190b",
+      "pdf": "0d34ad128bc811f92dfd9f5a91aa5934fe985315933225d776ae6233ae19f994",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "a239866f72136ff035baa1f8855cb54614f72a5335da04ead86854affeb2076c"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "e1d3d3fd79ede732a39af8bb998de6175a0b59915d1895344a83399134284219"
+        }
+      ],
+      "inputPath": "examples/templates/T44.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T44.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T44.png",
+      "archiveDirectory": "templates/T44",
+      "manifestSha256": "289f89fc2af73f19053c985517c853182bd4c7900c1238b518ee548afd7c1f69",
+      "mobileAuditSha256": "5bffc66d43bf8f8b99030fc57c4604fb00ca3adaf4edb6d0c02ab5cf07f047fe",
+      "assets": [],
+      "exports": [
+        {
+          "file": "templates/T44/cards.html",
+          "sha256": "602aaba882a0b9773da3b95ce5252458a3efc2949141101e3dc138b218ec2ac7",
+          "bytes": 136480,
+          "format": "html"
+        },
+        {
+          "file": "templates/T44/preview.html",
+          "sha256": "e39f6deaaca09e283306426a3ff3c96ad9d49aad179b882ddfe155006ddafe8b",
+          "bytes": 137303,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T44/cards.pdf",
+          "sha256": "0d34ad128bc811f92dfd9f5a91aa5934fe985315933225d776ae6233ae19f994",
+          "bytes": 251167,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T44/card-001.png",
+          "sha256": "9fbdaaef2c7035a8789e185e500e0c68ea57cfc94b0db1fbff8ad2da7285190b",
+          "bytes": 178386,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T46",
+      "version": 2,
+      "input": "b0314d1d97db0c571ba1c2e4da4727672ef3068863f659d2a72655ccea573c3f",
+      "png": "ac0a3ac74afdd447aec3b1cd6d060e6d55c010f5118d2f3017feddcae23288ec",
+      "pdf": "cb38ea5d5b85d520cd07d3680702d21ce2c80d35cba51d06aeb58e58be1693e9",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "2d02e97892f4c8b554caf0f48896781a179007bf48f3728a891a259f4e704fb2"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "d9989a0e7f6376aa19bf25a6d216739259ffcba8c2b714a8606b8d2bc36a0452"
+        }
+      ],
+      "inputPath": "examples/templates/T46.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T46.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T46.png",
+      "archiveDirectory": "templates/T46",
+      "manifestSha256": "b737b8ef08576967f8b68e464f7a95d1b4a47587513bee52de3fe081260d55e7",
+      "mobileAuditSha256": "7182fb46175be3be1a55bd2021e7908197596054ef9070e76be925a07f1061d8",
+      "assets": [
+        {
+          "reference": "assets/synthetic-reading-still-life.png",
+          "hash": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "mime": "image/png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2274167,
+          "sourcePath": "examples/templates/assets/synthetic-reading-still-life.png"
+        }
+      ],
+      "exports": [
+        {
+          "file": "templates/T46/cards.html",
+          "sha256": "09034be4015471776d18e00b367c96ef562c43e3d77019451112755e343ab006",
+          "bytes": 3168559,
+          "format": "html"
+        },
+        {
+          "file": "templates/T46/preview.html",
+          "sha256": "9e732ec1e65c4703fbeec4828c1cb45aca0bdf8d540057e1d20b67c1102bdf85",
+          "bytes": 3169385,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T46/cards.pdf",
+          "sha256": "cb38ea5d5b85d520cd07d3680702d21ce2c80d35cba51d06aeb58e58be1693e9",
+          "bytes": 3870643,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T46/card-001.png",
+          "sha256": "ac0a3ac74afdd447aec3b1cd6d060e6d55c010f5118d2f3017feddcae23288ec",
+          "bytes": 404440,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T47",
+      "version": 2,
+      "input": "77f100c5eaeb6f8e57bfc7cef7894b70c925a302b34670984e1ea2b4e8ed4b3c",
+      "png": "392cc98f0de40579627593a8972fe632f8f9e446af75877544fd2e1679ac0920",
+      "pdf": "fd4ca8249a6d1a4e6ee39ad0880a964865b132d11c9c2bdb5b15f904bc5bbff0",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "8a2597480bd7eaea32d854ccbb2f8a28bfb5fc75bbfab58fb803753ff9433b21"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "3e2920d41984aa6ac779dd2d0d42173b74ef07889704dda9488ab0d50c75809b"
+        }
+      ],
+      "inputPath": "examples/templates/T47.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T47.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T47.png",
+      "archiveDirectory": "templates/T47",
+      "manifestSha256": "4c52be08ca6c2eda8f2f4ad33d4e737467b122f2e5cb93fa901baf0f4d2d3821",
+      "mobileAuditSha256": "ea6ac847f34e102642689d1addbdfb477662a80cd74c2459145b354a973f7ec4",
+      "assets": [
+        {
+          "reference": "assets/original-cucumber-prep.png",
+          "hash": "c79fc314c22ac140a097fea9d493cc13a32512e0ab27c32bc7706302ab49a030",
+          "mime": "image/png",
+          "width": 900,
+          "height": 430,
+          "bytes": 5306,
+          "sourcePath": "examples/templates/assets/original-cucumber-prep.png"
+        },
+        {
+          "reference": "assets/original-cucumber-mix.png",
+          "hash": "f6a216b724a769c715cd3e3c4e8c3095551fa4a458821c73b6f7e1bcad2c697d",
+          "mime": "image/png",
+          "width": 900,
+          "height": 430,
+          "bytes": 6245,
+          "sourcePath": "examples/templates/assets/original-cucumber-mix.png"
+        }
+      ],
+      "exports": [
+        {
+          "file": "templates/T47/cards.html",
+          "sha256": "a8ce7daa6ecd718bd8314e118ea9b0ba80b60ea4fb65b5c03c734476063da017",
+          "bytes": 151945,
+          "format": "html"
+        },
+        {
+          "file": "templates/T47/preview.html",
+          "sha256": "75c84350af95d4ad6d754bc31dcf31c56eb677a96f8796e46b05c53e4ccaaaaf",
+          "bytes": 152763,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T47/cards.pdf",
+          "sha256": "fd4ca8249a6d1a4e6ee39ad0880a964865b132d11c9c2bdb5b15f904bc5bbff0",
+          "bytes": 214989,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T47/card-001.png",
+          "sha256": "392cc98f0de40579627593a8972fe632f8f9e446af75877544fd2e1679ac0920",
+          "bytes": 179403,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1251
+        },
+        "used": {
+          "width": 968,
+          "height": 1251
+        },
+        "occupied": {
+          "height": 1250.71875
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1251
+        },
+        "used": {
+          "width": 968,
+          "height": 1251
+        },
+        "occupied": {
+          "height": 1250.71875
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-for-exact-fixture",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only."
+      }
+    },
+    {
+      "id": "T48",
+      "version": 2,
+      "input": "1fe9b862f431079f0b7846c385e61734ecd5a72e44d1bac13c29f46d5ff71140",
+      "png": "844276bca78ef4c2677f5bed508a0813daed469fc34e2c8d94b60de0bf518e30",
+      "pdf": "3c3e4d6ffcb60fb0c67fe59681d25babc333d368b6d1b7ff13d02137d3ee7d1d",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "5893f8f9cda2de775c904cc0f476998c8d1d10d89ebea3fe0315213710764df4"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "a0edaa6220c4061dbe8e831cb48278882e7b1b094884189be8b702d1c0b5b945"
+        }
+      ],
+      "inputPath": "examples/templates/T48.md",
+      "inputUrl": "https://github.com/Activer007/md2card-skill/blob/5ab221091d721e97c64a773165c82a082a88c8fd/examples/templates/T48.md",
+      "previewPath": "docs/images/refinement-m2-run-40074554707/T48.png",
+      "archiveDirectory": "templates/T48",
+      "manifestSha256": "f276f9331e0b1e7c618a927cce5932c8539429d93f0d4a54fd5177bcb3c4a2ba",
+      "mobileAuditSha256": "29c8232110b4111c8919b544c1974c4fa30548dfaeb7be30ef3dc140a003f229",
+      "assets": [
+        {
+          "reference": "assets/original-open-tray.png",
+          "hash": "4ab3fcb7247a62b64db72226006c51ad60952fa1a0716d2a65165f4cdad87582",
+          "mime": "image/png",
+          "width": 900,
+          "height": 430,
+          "bytes": 3636,
+          "sourcePath": "examples/templates/assets/original-open-tray.png"
+        },
+        {
+          "reference": "assets/original-lidded-box.png",
+          "hash": "1ef2b2a5d944dc8c434363dbd8b7b845bbbfe817f7bfca956eea1b3b5f529e66",
+          "mime": "image/png",
+          "width": 900,
+          "height": 430,
+          "bytes": 3407,
+          "sourcePath": "examples/templates/assets/original-lidded-box.png"
+        }
+      ],
+      "exports": [
+        {
+          "file": "templates/T48/cards.html",
+          "sha256": "5b587a6cb830c891c9fbb9d23b6bd89bca988b2907c6c4debaa6ed54aa0fed1f",
+          "bytes": 146131,
+          "format": "html"
+        },
+        {
+          "file": "templates/T48/preview.html",
+          "sha256": "c5b9edd30ef04bb967dde8d73f74bde45bc07d941842deed8bbf144ce247e97c",
+          "bytes": 146954,
+          "format": "preview"
+        },
+        {
+          "file": "templates/T48/cards.pdf",
+          "sha256": "3c3e4d6ffcb60fb0c67fe59681d25babc333d368b6d1b7ff13d02137d3ee7d1d",
+          "bytes": 241619,
+          "format": "pdf"
+        },
+        {
+          "file": "templates/T48/card-001.png",
+          "sha256": "844276bca78ef4c2677f5bed508a0813daed469fc34e2c8d94b60de0bf518e30",
+          "bytes": 190135,
+          "format": "png"
+        }
+      ],
+      "environment": {
+        "node": "22.23.3",
+        "md2card": "3.0.0",
+        "markdownIt": "15.0.3",
+        "playwright": "1.64.1",
+        "pdfinfo": "pdfinfo version 24.02.0",
+        "pdftotext": "pdftotext version 24.02.0",
+        "chromium": "156.0.8078.4"
+      },
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1251
+        },
+        "used": {
+          "width": 968,
+          "height": 1251
+        },
+        "occupied": {
+          "height": 1250.71875
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1251
+        },
+        "used": {
+          "width": 968,
+          "height": 1251
+        },
+        "occupied": {
+          "height": 1250.71875
+        },
+        "overflow": []
+      },
+      "visualReview": {
+        "status": "pass-with-bounded-nonblocking-limitations",
+        "method": "Independent direct inspection and exact full/mobile/native-PDF-raster carry-forward; see review protocol.",
+        "scope": "Registered standard/portrait 1080x1440, manual pagination only.",
+        "limitation": "T48 retains a complete short 盖。 ending in the right description; this is a bounded nonblocking limit, not orphan-free typography."
+      }
+    }
+  ]
+}

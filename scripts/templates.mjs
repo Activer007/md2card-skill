@@ -1,3 +1,4 @@
+import { typographyForFamily } from './typography.mjs';
 import { Md2CardError } from './errors.mjs';
 
 // A registry entry describes a composed design, not a theme/size permutation.
@@ -42,7 +43,7 @@ const entries = [
   {"id":"T27","acceptance":"visual-upgrade","name":"时间线学习计划","family":"journal","layout":"steps","composition":"dated-study-timeline","purpose":"按阶段整理学习目标、练习与检验方式","image":"none","length":[80,150],"structure":"一个 H1；导语写总目标；三个 H2 使用作者提供的短时间标签，如第 1 周；各自一个段落写任务与检验。时间不由模板生成。","unsuitable":"精确排程、交互进度、多层子任务或过长日期；请转用日历或普通 steps，不把计划显示成已完成。","focus":"body","example":"examples/templates/T27.md"},
   {"id":"T28","acceptance":"visual-upgrade","maxListNumber":99,"name":"索引卡知识整理","family":"journal","layout":"steps","composition":"numbered-index-slips","purpose":"用稳定索引整理概念、定义与回看线索","image":"none","length":[80,150],"structure":"一个 H1；短导语；一个 H2 下放三个有序列表项，每项以加粗概念开头，再写解释。编号来自原始列表；固定索引签仅支持 0–99。","unsuitable":"超过 99 的编号、长嵌套列表或多段长定义；改用普通 steps 或分卡，保留原始编号，不重置为 1。","focus":"body","example":"examples/templates/T28.md"},
   {"id":"T31","acceptance":"visual-upgrade","name":"印章式个人语录","family":"eastern","layout":"quote","composition":"personal-quotation-geometric-seal","purpose":"呈现个人短句、真实人物原话与独立思考","image":"none","length":[55,120],"structure":"一个短 H1；引用块保留原始断句；一个 H2 下写个人理解。source 只记真实出处或原创身份；朱印仅为空白几何装饰，不生成作者姓名。","unsuitable":"无法核实的人物语录、长篇书摘或要求真实印鉴的内容；不虚构作者、印文或归属，必要时使用普通 quote。","focus":"quote","example":"examples/templates/T31.md"},
-  {"id":"T32","acceptance":"visual-upgrade","name":"书页章节解读","family":"eastern","layout":"explainer","composition":"chapter-excerpt-facing-reading","purpose":"区分章节摘句与读者解读，保留作品来源","image":"none","length":[90,170],"structure":"一个 H1；导语交代章节语境；两个 H2 分别放短引用块与个人理解，形成前后成对的全宽阅读带。引用与解读不能互相冒充。","unsuitable":"整章复制、长篇节选、窄栏长代码与不明出处文本；使用获授权的短摘句，或明确原创演示并手动分卡。","focus":"body","example":"examples/templates/T32.md"},
+  {"id":"T32","acceptance":"visual-upgrade","name":"书页章节解读","family":"eastern","layout":"explainer","composition":"chapter-excerpt-reading-bands","purpose":"区分章节摘句与读者解读，保留作品来源","image":"none","length":[90,170],"structure":"一个 H1；导语交代章节语境；两个 H2 分别放短引用块与个人理解，形成前后成对的全宽阅读带。引用与解读不能互相冒充。","unsuitable":"整章复制、长篇节选、窄栏长代码与不明出处文本；使用获授权的短摘句，或明确原创演示并手动分卡。","focus":"body","example":"examples/templates/T32.md"},
   {"id":"T35","acceptance":"visual-upgrade","name":"剪报拼贴资料卡","family":"newspaper","layout":"explainer","composition":"dated-source-clipping-stack","purpose":"并列保存资料片段、记录日期和各自出处","image":"none","length":[100,190],"structure":"一个 H1；短导语；两个 H2 资料片段，每节依次写明确日期/出处、引用块与必要边界。片段来源不得被省略或拼成新结论。","unsuitable":"未注明来源的摘句、需要暗示因果的拼贴或长篇全文；原文过长请手动分卡。","focus":"body","example":"examples/templates/T35.md","provenance":{"design":"Original md2card-skill composition, MIT","text":"Original explicitly fictional source fragments and dates; not actual event reporting.","assets":"No picture assets; local system fonts only."}},
   {"id":"T36","acceptance":"visual-upgrade","name":"大标题事件回顾","family":"newspaper","layout":"explainer","composition":"headline-event-record","purpose":"用大标题、真实日期和连续事实记录回顾事件","image":"none","length":[100,180],"structure":"一个 H1 事件标题；导语说明范围；三个 H2 包含作者提供的日期与事件名称；各节保留事实及资料链接。模板不生成日期或事实。","unsuitable":"没有来源的事件结论、跨时区却不注明口径的精确时间、宣传口号；不把未验证消息当事实。","focus":"title","example":"examples/templates/T36.md","provenance":{"design":"Original md2card-skill composition, MIT","text":"Original Chinese paraphrase of NASA Apollo 11 mission and lunar-event records; verified URLs in docs/template-source-references.json.","assets":"No picture assets; local system fonts only."}},
   {"id":"T39","acceptance":"visual-upgrade","name":"人像与侧栏故事","family":"film","layout":"image-caption","composition":"portrait-field-story-sidebar","purpose":"让完整人像成为主区，标题、故事与署名占据同一侧栏","image":"required","length":[55,110],"structure":"必需本地人像 image、真实 alt 和说明性质的 caption；一个短 H1；短导语与一至两个 H2。标题与正文共用较宽的右侧叙述栏，完整人像在左侧贯穿两区。","unsuitable":"无图人物报道、长传记、必须裁切才能成立的肖像；侧栏不是小字容器，保留主体或换图。","focus":"image","example":"examples/templates/T39.md","provenance":{"design":"Original md2card-skill composition, MIT","text":"Original explicitly fictional character story; not a real interview or biography.","assets":"Original AI-generated fictional adult portrait, reused without alteration; exact original hash recorded in the integrated provenance. See examples/templates/assets/provenance.json and README.md."},"requiredMetadata":["alt","caption"],"figureBeforeMain":true},
@@ -50,7 +51,7 @@ const entries = [
   {"id":"T43","acceptance":"visual-upgrade","name":"漫画分镜知识解释","family":"pop","layout":"image-caption","composition":"comic-two-scenes-wide-resolution","purpose":"用原创分镜呈现明确的情境、做法与结论边界","image":"inline","length":[70,140],"structure":"一个 H1；导语标明情境性质；三个 H2 按作者给定编号排序，每节一个本地 Markdown 原创/许可图片与一个短对话或说明；第三格横贯两栏。","unsuitable":"无许可漫画、连续长对白、图片数量与说明不一致，或为情节捏造事实；拆卡而非缩字。","focus":"image","example":"examples/templates/T43.md","provenance":{"design":"Original md2card-skill composition, MIT","text":"Original fictional comic dialogue and explanation; not experimental evidence.","assets":"Original code-native PNG illustrations; reproducible drawing source and SHA-256 provenance supplied. No third-party art or external fonts bundled. See examples/templates/assets/provenance.json and README.md."},"inlineImageCount":{"min":3,"max":3},"imageSections":{"perSection":1,"standalone":true,"descriptionRequired":true,"count":3}},
   {"id":"T44","acceptance":"visual-upgrade","name":"趣味双选项对比","family":"pop","layout":"comparison","composition":"dimension-led-paired-dialogues","purpose":"以同一维度逐行比较两个选项，不预设胜负","image":"none","length":[100,180],"structure":"一个 H1；导语明确两个选项；前两个 H2 分别是比较维度，每节两个引用块，保留同顺序的显式选项标签；后续 H2 为全宽条件。","unsuitable":"缺失一组选项、混用比较维度、评分推荐或过长气泡；不从缺失字段推断优劣。","focus":"body","example":"examples/templates/T44.md","provenance":{"design":"Original md2card-skill composition, MIT","text":"Original same-dimension comparison of two optional activities; no automatic recommendation or health claim.","assets":"No picture assets; local system fonts only."},"pairedQuoteSections":2},
   {"id":"T47","acceptance":"visual-upgrade","name":"料理步骤图文","family":"nature","layout":"steps","composition":"ingredient-band-illustrated-method","purpose":"材料清单、明确用量与逐步示意图配对","image":"inline","length":[90,160],"structure":"一个 H1；导语明确食谱是否实测；材料用无序列表写真实用量或注明未提供；两个 H2 写作者提供的步骤编号，每节一个 Markdown 步骤图与一段操作。","unsuitable":"漏量却要求精确配方、缺少步骤图、需要安全温度却未给出，或图文不一致；不得为美观补造数量。","focus":"body","example":"examples/templates/T47.md","provenance":{"design":"Original md2card-skill composition, MIT","text":"Original untested demonstration recipe with explicit quantities and non-scale illustrations; not measured results.","assets":"Original code-native PNG illustrations; reproducible drawing source and SHA-256 provenance supplied. No third-party art or external fonts bundled. See examples/templates/assets/provenance.json and README.md."},"inlineImageCount":{"min":2,"max":2},"imageSections":{"perSection":1,"standalone":true,"descriptionRequired":true,"count":2}},
-  {"id":"T48","acceptance":"visual-upgrade","name":"生活方式产品比较","family":"nature","layout":"comparison","composition":"product-specimen-comparison-rows","purpose":"让产品图、同一组对比字段与适用限制逐件对应","image":"inline","length":[100,180],"structure":"一个 H1；导语交代资料性质；前两个 H2 为产品，每节一个完整本地 Markdown 图片与相同顺序的两项字段；后续 H2 写共同限制。","unsuitable":"未经验证的价格、功效、评分、材质或实时推荐；示例对象虚构无品牌，不推断真实产品规格。","focus":"body","example":"examples/templates/T48.md","provenance":{"design":"Original md2card-skill composition, MIT","text":"Original comparison of fictional unbranded object structures; no real price, rating, material or efficacy claim.","assets":"Original code-native PNG illustrations; reproducible drawing source and SHA-256 provenance supplied. No third-party art or external fonts bundled. See examples/templates/assets/provenance.json and README.md."},"inlineImageCount":{"min":2,"max":2},"imageSections":{"perSection":1,"standalone":true,"descriptionRequired":true,"minimumCount":2,"imageSectionCount":2}}
+  {"id":"T48","acceptance":"visual-upgrade","name":"生活方式产品比较","family":"nature","layout":"comparison","composition":"paired-full-image-specimen-columns","purpose":"让产品图、同一组对比字段与适用限制逐件对应","image":"inline","length":[100,180],"structure":"一个 H1；导语交代资料性质；前两个 H2 为产品，组成等权双列；每节在完整本地 Markdown 图片后列出相同顺序的两项字段；后续 H2 写全宽共同限制。","unsuitable":"未经验证的价格、功效、评分、材质或实时推荐；示例对象虚构无品牌，不推断真实产品规格。","focus":"body","example":"examples/templates/T48.md","provenance":{"design":"Original md2card-skill composition, MIT","text":"Original comparison of fictional unbranded object structures; no real price, rating, material or efficacy claim.","assets":"Original code-native PNG illustrations; reproducible drawing source and SHA-256 provenance supplied. No third-party art or external fonts bundled. See examples/templates/assets/provenance.json and README.md."},"inlineImageCount":{"min":2,"max":2},"imageSections":{"perSection":1,"standalone":true,"descriptionRequired":true,"minimumCount":2,"imageSectionCount":2}}
 ];
 
 function freeze(value) {
@@ -76,12 +77,15 @@ const independentAspects = {
   }
 };
 // A changed design must earn new evidence. Old batches remain immutable history.
-export const REFINED_TEMPLATE_IDS = Object.freeze(['T06','T10','T16','T19','T20','T22','T24','T26','T32','T34','T39','T40','T45']);
+export const REFINED_TEMPLATE_IDS = Object.freeze(entries.map(entry => entry.id));
+export const M1_REFINED_TEMPLATE_IDS = Object.freeze(['T06','T10','T16','T19','T20','T22','T24','T26','T32','T34','T39','T40','T45']);
 function currentEntry(entry) {
   if (!REFINED_TEMPLATE_IDS.includes(entry.id)) return entry;
   const { acceptance, ...rest } = entry;
-  return { ...rest, version: 2, acceptance: 'refinement-m1-v2', historicalAcceptance: { batch: acceptance, version: 1 },
-    refinement: 'reading-image-focus-v2' };
+  const followsM1 = M1_REFINED_TEMPLATE_IDS.includes(entry.id);
+  return { ...rest, version: followsM1 ? 3 : 2, acceptance: followsM1 ? 'refinement-m2-v3' : 'refinement-m2-v2', historicalAcceptance: { batch: acceptance, version: 1 },
+    ...(followsM1 ? { historicalAcceptances: [{ batch: 'refinement-m1-v2', version: 2 }] } : {}),
+    refinement: 'family-art-direction-v2' };
 }
 function aspectLayouts(entry) {
   return Object.fromEntries([
@@ -89,15 +93,15 @@ function aspectLayouts(entry) {
       status: entry.acceptance ? 'visually-reviewed' : 'implemented-awaiting-visual-review',
       ...(entry.acceptance ? { acceptance: entry.acceptance } : {}) }],
     ...Object.entries(independentAspects[entry.id] ?? {}).map(([aspect, layout]) => [aspect, {
-      ...layout, version: 1, status: 'visually-reviewed', acceptance: 'visual-upgrade-aspects',
-      evidence: 'docs/aspect-upgrade-provenance.json',
-      boundaries: 'Reviewed only for the registered standard-density short example at its declared canvas size. Other input must pass screen/print measurement; no universal fit guarantee.'
+      ...layout, version: 2, status: 'implemented-awaiting-visual-review', historicalAcceptance: { batch: 'visual-upgrade-aspects', version: 1 },
+      historicalEvidence: 'docs/aspect-upgrade-provenance.json',
+      boundaries: 'Historical v1 evidence reviewed only the registered standard-density short example at its declared canvas size. Current v2 exact short-fixture PNG/mobile/native-PDF artifacts are independently reviewed in REFINEMENT_M2_ACCEPTANCE.md; final aspect-specific binding remains pending R12. No universal fit guarantee.'
     }])
   ]);
 }
 export const TEMPLATES = freeze(entries.map(currentEntry).map(entry => ({
   ...entry, version: entry.version ?? 1, status: entry.acceptance ? 'visually-reviewed' : 'implemented-awaiting-visual-review', aspects: ['portrait', ...Object.keys(independentAspects[entry.id] ?? {})], aspectLayouts: aspectLayouts(entry), reading: 'mobile', density: 'standard',
-  typography: { bodyWidthRatio: 0.043, noteWidthRatio: 0.0335, bodyLineHeight: 1.5 },
+  typography: typographyForFamily(entry.family),
   spacing: { insetWidthRatio: 0.052, densityAffects: 'spacing-only' },
   provenance: { design: 'Original md2card-skill composition, MIT', text: 'Original demonstration text; not an attributed external quotation', assets: 'No external assets; local system fonts only', ...entry.provenance }
 })));

@@ -27,8 +27,8 @@ test('only T04 and T21 add independently registered aspects; aspect variants nev
     assert.deepEqual(t.aspects,['portrait','square','slide']);
     assert.equal(new Set(Object.values(t.aspectLayouts).map(x=>x.composition)).size,3);
     for(const aspect of ['square','slide']) {
-      assert.equal(t.aspectLayouts[aspect].status,'visually-reviewed');
-      assert.equal(t.aspectLayouts[aspect].acceptance,'visual-upgrade-aspects');
+      assert.equal(t.aspectLayouts[aspect].status,'implemented-awaiting-visual-review');
+      assert.equal(t.aspectLayouts[aspect].historicalAcceptance.batch,'visual-upgrade-aspects');
       assert.match(t.aspectLayouts[aspect].boundaries,/registered standard-density short example/);
     }
   }
@@ -215,8 +215,9 @@ test('four short aspect previews are bound to exact inputs and actual output has
     const key = `${record.id}-${record.aspect}`;
     assert.ok(!seen.has(key)); seen.add(key);
     const layout = getTemplate(record.id).aspectLayouts[record.aspect];
-    assert.equal(layout.acceptance, 'visual-upgrade-aspects');
-    assert.equal(layout.evidence, 'docs/aspect-upgrade-provenance.json');
+    assert.equal(layout.historicalAcceptance.batch, 'visual-upgrade-aspects');
+    assert.equal(layout.acceptance, undefined);
+    assert.equal(layout.historicalEvidence, 'docs/aspect-upgrade-provenance.json');
     assert.equal(layout.example, record.input);
     assert.equal(digest(await readFile(new URL(`../${record.input}`, import.meta.url))), record.inputSha256);
     const png = await readFile(new URL(`../docs/images/aspects/${key}.png`, import.meta.url));

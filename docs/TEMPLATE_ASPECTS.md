@@ -1,5 +1,7 @@
 # M9 / LIB-05: independently designed aspect layouts
 
+> v2 字体与家族节奏更新后，T04/T21 的四个已有短例也需要新产物复核。下面的 v1 结果仅作为历史基线，不证明当前代码。
+
 Updated 2026-10-24. T04 and T21 each provide independent square (1:1) and slide
 (16:9) compositions. **All four authored short examples have been inspected in
 full PNG, 375/390px phone captures and native PDF output.** They add no template

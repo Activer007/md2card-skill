@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
+import { inspectLocalTypography } from './typography.mjs';
 
 const exec = promisify(execFile);
 const require = createRequire(import.meta.url);
@@ -120,6 +121,13 @@ export async function inspectEnvironment(options = {}, dependencies = {}) {
   } catch (error) {
     add('fontconfig:match', 'warn', 'fc-match is unavailable; default font selection was not verified.', { reason: error.code ?? 'COMMAND_FAILED' });
   }
+  fonts.typography = inspectLocalTypography(fonts.families, { scanAvailable: fonts.scanAvailable && fontEntries.length > 0 });
+  const genericFallbackStacks = Object.entries(fonts.typography.stacks).filter(([, stack]) => stack.selection === 'generic-fallback').map(([id]) => id);
+  add('font-roles', fonts.scanAvailable && fontEntries.length ? 'pass' : 'warn',
+    fonts.scanAvailable && fontEntries.length
+      ? 'Local display, body, numeric, quote and source font candidates were inspected. Generic fallback is allowed; per-glyph browser selection and visual family distinction remain unverified.'
+      : 'Local role-font availability is unverified. No font is downloaded; inspect the rendered output after installing local fonts.',
+    { localOnly: true, roleCount: 5, familyCount: 12, genericFallbackStacks, browserSelection: 'unverified' });
   if (glyphs.length) {
     if (!fonts.scanAvailable || !fontEntries.length) {
       add('cjk-glyphs', strict ? 'fail' : 'warn', 'CJK font coverage is unverified. Install a local CJK font and Fontconfig, then rerun --doctor; no web font will be fetched.', { requiredGlyphCount: glyphs.length, coverage: 'unverified' });

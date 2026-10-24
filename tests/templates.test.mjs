@@ -127,7 +127,7 @@ test('large list counters are rejected before they can overlap a fixed number ra
 
 const m2Ids = ['T02', 'T06', 'T09', 'T10', 'T13', 'T14'];
 test('M2 designs retain distinct compositions and explicit acceptance bindings', () => {
-  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length, TEMPLATES.filter(t=>t.acceptance).length);
+  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length, TEMPLATES.filter(t=>t.acceptance !== undefined).length);
   for (const id of m2Ids) assert.equal(getTemplate(id).status, getTemplate(id).acceptance ? 'visually-reviewed' : 'implemented-awaiting-visual-review');
   assert.equal(new Set(m2Ids.map(id=>getTemplate(id).composition)).size,6);
 });
@@ -261,7 +261,7 @@ test('first selected 24 are distinct compositions spanning all twelve families, 
   const ids=['T01','T02','T05','T06','T09','T10','T13','T14','T17','T18','T21','T22','T25','T26','T29','T30','T33','T34','T37','T38','T41','T42','T45','T46'];
   assert.equal(new Set(ids.map(id=>getTemplate(id).family)).size,12);
   assert.equal(new Set(ids.map(id=>getTemplate(id).composition)).size,24);
-  assert.equal(ids.filter(id=>getTemplate(id).status==='visually-reviewed').length, ids.filter(id=>getTemplate(id).acceptance).length);
+  assert.equal(ids.filter(id=>getTemplate(id).status==='visually-reviewed').length, ids.filter(id=>getTemplate(id).acceptance !== undefined).length);
 });
 
 test('M5 text grids preserve supplementary source sections without truncating to visual slots', () => {
@@ -401,7 +401,7 @@ test('48 reviewed compositions span twelve families without counting aspect vari
   for(const template of TEMPLATES) families.set(template.family,(families.get(template.family)||0)+1);
   assert.equal(families.size,12);
   assert.ok([...families.values()].every(count=>count===4));
-  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length, TEMPLATES.filter(t=>t.acceptance).length);
+  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length, TEMPLATES.filter(t=>t.acceptance !== undefined).length);
 });
 
 test('empty quotes or lists cannot satisfy required authored descriptions and options', async () => {
@@ -456,15 +456,17 @@ test('calibrated templates keep compact spacing below standard below editorial',
 
 test('R01–R06 refine measures, original image visibility and primary focus without altering content', async () => {
   assert.match(css, /template-T40 \.image-frame \{ height:auto; aspect-ratio:1200 \/ 680/);
-  assert.match(css, /template-T20 \.image-frame \{ height: calc\(var\(--card-height\) \* \.36\)/);
+  assert.match(css, /template-T20 \.image-frame \{ height: auto;/);
   assert.match(css, /template-T34 \.template-section:first-child p:first-of-type::first-letter \{ float:none; font:inherit/);
   assert.match(css, /text-wrap: pretty/);
   for (const id of ['T06','T10','T16','T19','T20','T22','T24','T26','T32','T34','T39','T40','T45']) {
     const entry = getTemplate(id);
-    assert.equal(entry.version, 2);
+    assert.equal(entry.version, 3);
     assert.equal(entry.historicalAcceptance.version, 1);
-    assert.equal(entry.acceptance, 'refinement-m1-v2');
+    assert.deepEqual(entry.historicalAcceptances, [{ batch: 'refinement-m1-v2', version: 2 }]);
+    assert.equal(entry.acceptance, 'refinement-m2-v3');
     assert.equal(entry.aspectLayouts.portrait.status, 'visually-reviewed');
+    assert.equal(entry.aspectLayouts.portrait.acceptance, entry.acceptance);
   }
 });
 
@@ -473,7 +475,7 @@ test('T19 open-grid headings do not escape the measured content box', () => {
   assert.match(css, /template-T19 \.template-section h2 \{ margin: 0 0 \.25em; padding: \.1em 0 \.25em/);
 });
 
-test('PR17 capacity corrections keep full-size reading and original stage typography', () => {
+test('M1 capacity corrections remain full-size under the explicit M2 typography roles', () => {
   for (const id of ['T24','T32','T34']) {
     const rules=[...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].filter(([,selector])=>selector.includes(`.template-${id}`));
     for(const [,selector,body] of rules) assert.doesNotMatch(body,/overflow:\s*hidden|line-clamp|text-overflow|transform:\s*scale/,selector);
@@ -482,8 +484,8 @@ test('PR17 capacity corrections keep full-size reading and original stage typogr
   assert.match(css,/template-T24 \.template-section table \{[^}]*font-size: 1em; line-height: 1\.5/);
   assert.match(css,/template-T32 \.template-sections \{ display: flex; flex-direction: column; gap: \.45em/);
   assert.match(css,/template-T34 \.template-sections \{ display:flex; flex-direction:column; gap:\.6em/);
-  assert.match(css,/template-T32 \.template-section blockquote \{[^}]*font: 500 1em\/1\.65 var\(--serif\)/);
-  assert.doesNotMatch(css,/--font-(?:display|body|source|numeric)/,'M1 must not silently import the later typography round');
+  assert.match(css,/template-T32 \.template-section blockquote \{[^}]*font: 500 1em\/1\.65 var\(--font-quote\)/);
+  assert.match(css,/--font-(?:display|body|source|numeric)/,'M2 intentionally introduces reviewed local font roles');
 });
 
 test('T40 full detail plate keeps readable numeric keys and a bounded authored heading rail', () => {

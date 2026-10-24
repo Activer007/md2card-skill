@@ -56,6 +56,11 @@ jobs:
       - name: Validate density, source text and image pressure cases
         if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
         run: node scripts/validate-visual-stress.mjs
+      - name: Verify static gallery evidence and browser behavior
+        if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
+        run: |
+          npm run gallery:check
+          npm run validate:gallery -- --allow-browser
       - name: Upload actual rendered showcase artifacts
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

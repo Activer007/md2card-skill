@@ -360,3 +360,15 @@ records; mixed text/image paragraphs fail rather than being split. T44 requires
 two sibling quote blocks in each of its first two comparison sections; nested
 quotes do not count as options. T39/T40 figure ordering is repository-owned and
 cannot be set by input metadata. Every supplied source fragment remains intact.
+
+## Independent aspect candidates (M9, source-only)
+
+Only T04 and T21 currently implement independent square (1:1) and slide (16:9)
+compositions in addition to portrait. These additions await real rendering and
+visual acceptance. Other templates still reject those ratios. Use --size or
+matching custom dimensions; public aspect metadata is not supported. The existing
+0.002 ratio tolerance is unchanged. The registry exposes per-aspect composition,
+example and status, while manifests record the actual derived aspect. Mobile
+body/source floors, manual defaults, auto rejection and overflow checks remain
+unchanged. A portrait source may legitimately overflow in square/slide. See
+[the aspect contract and pending validation plan](../docs/TEMPLATE_ASPECTS.md).

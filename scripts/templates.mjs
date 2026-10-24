@@ -57,8 +57,37 @@ function freeze(value) {
   if (value && typeof value === 'object') { Object.values(value).forEach(freeze); Object.freeze(value); }
   return value;
 }
+// Canvas dimensions, never metadata strings, select these repository-owned classes.
+// Keep the pre-M9 ratio tolerance; custom sizes must match one supported ratio.
+export const TEMPLATE_ASPECT_TOLERANCE = 0.002;
+export const TEMPLATE_ASPECTS = freeze([
+  { id: 'portrait', ratio: 3 / 4, numerator: 3, denominator: 4, className: 'template-aspect-portrait' },
+  { id: 'square', ratio: 1, numerator: 1, denominator: 1, className: 'template-aspect-square' },
+  { id: 'slide', ratio: 16 / 9, numerator: 16, denominator: 9, className: 'template-aspect-slide' }
+]);
+const independentAspects = {
+  T04: {
+    square: { composition: 'essay-thesis-rail', structure: 'Full-width title; thesis at left, sequential section stack at right; full-width source.', example: 'examples/aspects/T04-square.md' },
+    slide: { composition: 'essay-title-rail-section-rows', structure: 'Left title rail; right introduction and labeled section rows; full-width source band.', example: 'examples/aspects/T04-slide.md' }
+  },
+  T21: {
+    square: { composition: 'metric-paired-headline', structure: 'Title and metric form paired top panels; introduction and evidence below; full-width source.', example: 'examples/aspects/T21-square.md' },
+    slide: { composition: 'metric-source-rail-evidence', structure: 'Title, metric and source form a left rail; full-height evidence column at right.', example: 'examples/aspects/T21-slide.md' }
+  }
+};
+function aspectLayouts(entry) {
+  return Object.fromEntries([
+    ['portrait', { composition: entry.composition, example: entry.example, version: 1,
+      status: entry.acceptance ? 'visually-reviewed' : 'implemented-awaiting-visual-review',
+      ...(entry.acceptance ? { acceptance: entry.acceptance } : {}) }],
+    ...Object.entries(independentAspects[entry.id] ?? {}).map(([aspect, layout]) => [aspect, {
+      ...layout, version: 1, status: 'implemented-awaiting-visual-review',
+      boundaries: 'Unmeasured. Examples are source-only candidates, not fit evidence. Long input must fail unchanged if it overflows.'
+    }])
+  ]);
+}
 export const TEMPLATES = freeze(entries.map(entry => ({
-  ...entry, version: 1, status: entry.acceptance ? 'visually-reviewed' : 'implemented-awaiting-visual-review', aspects: ['portrait'], reading: 'mobile', density: 'standard',
+  ...entry, version: 1, status: entry.acceptance ? 'visually-reviewed' : 'implemented-awaiting-visual-review', aspects: ['portrait', ...Object.keys(independentAspects[entry.id] ?? {})], aspectLayouts: aspectLayouts(entry), reading: 'mobile', density: 'standard',
   typography: { bodyWidthRatio: 0.043, noteWidthRatio: 0.0335, bodyLineHeight: 1.5 },
   spacing: { insetWidthRatio: 0.052, densityAffects: 'spacing-only' },
   provenance: { design: 'Original md2card-skill composition, MIT', text: 'Original demonstration text; not an attributed external quotation', assets: 'No external assets; local system fonts only', ...entry.provenance }
@@ -70,7 +99,22 @@ export function getTemplate(id) {
   if (!template) throw new Md2CardError('INVALID_TEMPLATE', `Unknown template "${id}". Choose ${TEMPLATES.map(item => item.id).join(', ')}.`, { template: id });
   return template;
 }
+/** Resolve from actual canvas geometry, never from CSS, filenames or user classes. */
+export function resolveTemplateAspect(id, { width, height } = {}) {
+  const template = getTemplate(id);
+  if (![width, height].every(value => Number.isInteger(value) && value >= 200 && value <= 4096)) {
+    throw new Md2CardError('TEMPLATE_ASPECT_UNSUPPORTED', 'Template canvas dimensions must be integers from 200 to 4096 pixels.', { template: id, width, height });
+  }
+  // Exact integer comparison implements the same inclusive .002 window without
+  // rejecting boundary values such as 1002/1000 due to floating subtraction.
+  const aspect = TEMPLATE_ASPECTS.find(item => Math.abs(width * item.denominator - height * item.numerator) * (1 / TEMPLATE_ASPECT_TOLERANCE) <= height * item.denominator);
+  if (!aspect || !template.aspects.includes(aspect.id)) {
+    throw new Md2CardError('TEMPLATE_ASPECT_UNSUPPORTED', `${id} supports ${template.aspects.join(', ')} only. Choose a supported --size; an unimplemented aspect never stretches the portrait layout.`, { template: id, width, height, supported: template.aspects });
+  }
+  return aspect;
+}
 export function validateTemplateMetadata(metadata, { width, height } = {}) {
+  if (metadata.aspect !== undefined) throw new Md2CardError('TEMPLATE_ASPECT_METADATA_UNSUPPORTED', 'Card aspect metadata is not supported. Use --size or matching canvas dimensions; CSS classes are derived internally.');
   if (metadata.template === undefined) {
     if (metadata.density !== undefined) throw new Md2CardError('INVALID_TEMPLATE', 'Card density requires an explicit template. Legacy theme behavior is unchanged.');
     return null;
@@ -84,7 +128,7 @@ export function validateTemplateMetadata(metadata, { width, height } = {}) {
   if (missing.length) throw new Md2CardError('TEMPLATE_METADATA_REQUIRED', `${template.id} requires nonempty ${missing.join(', ')}. Supply the actual value and its label; no data is invented.`, { fields: missing });
   if (metadata.image !== undefined && !['required', 'optional'].includes(template.image)) throw new Md2CardError('TEMPLATE_IMAGE_UNSUPPORTED', `${template.id} does not accept a metadata image. Use its declared image mode or choose another template; images are never discarded.`);
   if (template.image === 'required' && (typeof metadata.image !== 'string' || !metadata.image.trim())) throw new Md2CardError('TEMPLATE_IMAGE_REQUIRED', `${template.id} requires a local metadata image; provide image, alt and optional caption. Nothing is fetched automatically.`, { template: template.id });
-  if (width !== undefined && Math.abs(width / height - 3 / 4) > 0.002) throw new Md2CardError('TEMPLATE_ASPECT_UNSUPPORTED', `${template.id} currently supports 3:4 only. Use --size portrait; other aspect ratios need independent composition acceptance.`);
+  if (width !== undefined || height !== undefined) resolveTemplateAspect(template.id, { width, height });
   return template;
 }
 

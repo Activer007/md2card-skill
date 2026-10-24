@@ -317,3 +317,18 @@ test('evidence bindings cannot omit pinned hashes or smuggle a remote path', asy
   await editJson(root, 'docs/template-gallery-evidence.json', data => { data.batches[0].evidence = 'https://example.test/evidence.json'; });
   await assert.rejects(buildGalleryModel({ root }), /unsafe repository path/);
 });
+
+
+test('aspect support is shown without promoting extra layouts or reusing portrait pixels', async () => {
+  const model = await buildGalleryModel();
+  for(const id of ['T04','T21']) {
+    const item=model.items.find(item=>item.id===id);
+    assert.deepEqual(item.aspects,['portrait','square','slide']);
+    assert.equal(item.preview,null);
+    for(const aspect of ['square','slide']) assert.equal(item.aspectLayouts[aspect].status,'implemented-awaiting-visual-review');
+  }
+  const html=renderGallery(model);
+  assert.match(html,/portrait \/ square \/ slide；支持不等于已验收/);
+  const bad=TEMPLATES.map(item=>item.id==='T04'?{...item,aspects:['portrait','unknown']}:item);
+  await assert.rejects(buildGalleryModel({templates:bad}),/invalid aspect contract/);
+});

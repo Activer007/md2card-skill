@@ -1,5 +1,5 @@
 import { escapeHtml, LAYOUTS } from './markdown.mjs';
-import { validateTemplateMetadata, validateTemplateCard } from './templates.mjs';
+import { validateTemplateMetadata, validateTemplateCard, resolveTemplateAspect } from './templates.mjs';
 
 export const THEMES = ['editorial', 'minimal', 'midnight', 'notebook', 'bold'];
 export { LAYOUTS };
@@ -105,8 +105,9 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
     if (!LAYOUTS.includes(layout)) throw new Error(`Card ${index} has unknown layout "${layout}".`);
     const template = validateTemplateMetadata(card.metadata ?? {}, { width, height });
     validateTemplateCard(card, template);
-    const templateClass = template ? ` template-card template-${template.id} family-${template.family} density-${card.metadata.density ?? template.density}` : '';
-    const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}"` : ''} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
+    const aspect = template ? resolveTemplateAspect(template.id, { width, height }) : null;
+    const templateClass = template ? ` template-card template-${template.id} family-${template.family} density-${card.metadata.density ?? template.density} ${aspect.className}` : '';
+    const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}" data-template-aspect="${aspect.id}"` : ''} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
     <div class="card-content">${cardContent(card, layout, template)}</div>
     ${footerHtml(options, index, cards.length)}
   </article>`;

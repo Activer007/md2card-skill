@@ -1,0 +1,479 @@
+{
+  "schemaVersion": 1,
+  "status": "source-only-awaiting-authorized-real-validation",
+  "cases": [
+    {
+      "template": "T04",
+      "scope": "aspect-specific-square",
+      "input": "examples/aspects/T04-square.md",
+      "inputSha256": "7329186d304df899bd4cd6f9dc163f2f918e78429287759b0ac4e4ed7baca137",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T04",
+      "scope": "aspect-specific-slide",
+      "input": "examples/aspects/T04-slide.md",
+      "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T04",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T04-slide.md",
+      "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T04",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T04-slide.md",
+      "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T04",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T04-slide.md",
+      "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T04",
+      "scope": "same-source-original",
+      "input": "examples/templates/T04.md",
+      "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T04",
+      "scope": "same-source-original",
+      "input": "examples/templates/T04.md",
+      "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T04",
+      "scope": "same-source-original",
+      "input": "examples/templates/T04.md",
+      "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T04",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T04-long.md",
+      "inputSha256": "c6ccff3bbb97b0570178514beb91ef598720a79e78c825ebd81337e64b5e3139",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T04",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T04-long.md",
+      "inputSha256": "c6ccff3bbb97b0570178514beb91ef598720a79e78c825ebd81337e64b5e3139",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T04",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T04-long.md",
+      "inputSha256": "c6ccff3bbb97b0570178514beb91ef598720a79e78c825ebd81337e64b5e3139",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T21",
+      "scope": "aspect-specific-square",
+      "input": "examples/aspects/T21-square.md",
+      "inputSha256": "ce4d422a73771fd67ee521259790849a8c4b9940328a9dbe8f1440bdd63db1d5",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "metric",
+        "label"
+      ],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T21",
+      "scope": "aspect-specific-slide",
+      "input": "examples/aspects/T21-slide.md",
+      "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "metric",
+        "label"
+      ],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T21",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T21-slide.md",
+      "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "metric",
+        "label"
+      ],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T21",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T21-slide.md",
+      "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "metric",
+        "label"
+      ],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T21",
+      "scope": "same-source-short",
+      "input": "examples/aspects/T21-slide.md",
+      "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "metric",
+        "label"
+      ],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T21",
+      "scope": "same-source-original",
+      "input": "examples/templates/T21.md",
+      "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "metric",
+        "label"
+      ],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T21",
+      "scope": "same-source-original",
+      "input": "examples/templates/T21.md",
+      "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "metric",
+        "label"
+      ],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T21",
+      "scope": "same-source-original",
+      "input": "examples/templates/T21.md",
+      "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "candidate-unmeasured-may-overflow",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "metric",
+        "label"
+      ],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T21",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T21-long.md",
+      "inputSha256": "f5c4971f578ed5fb2790150d2cb3a291e74bce450cff4deecfece1bb2f489dc1",
+      "aspect": "portrait",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "metric",
+        "label"
+      ],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T21",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T21-long.md",
+      "inputSha256": "f5c4971f578ed5fb2790150d2cb3a291e74bce450cff4deecfece1bb2f489dc1",
+      "aspect": "square",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "metric",
+        "label"
+      ],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    },
+    {
+      "template": "T21",
+      "scope": "same-source-long",
+      "input": "examples/aspects/T21-long.md",
+      "inputSha256": "f5c4971f578ed5fb2790150d2cb3a291e74bce450cff4deecfece1bb2f489dc1",
+      "aspect": "slide",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "expected": "expected-CONTENT_OVERFLOW-unverified",
+      "realRender": "not-performed",
+      "mobile375": "not-performed",
+      "mobile390": "not-performed",
+      "nativePdf": "not-performed",
+      "visualReview": "not-performed",
+      "requiredMetadata": [
+        "metric",
+        "label"
+      ],
+      "imageRequirements": "none; images rejected",
+      "provenance": "Original exercise; T21 metrics are explicitly fictional teaching data; no external assets or claims."
+    }
+  ]
+}

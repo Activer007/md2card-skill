@@ -128,6 +128,14 @@ node scripts/render.mjs /absolute/path/cards.md \
   --theme editorial --size portrait --format all
 ```
 
+For composed templates, consult the registry's per-aspect support and acceptance
+status. T04/T21 have source-only square/slide candidates; their real fit and visual
+acceptance remain pending. Other templates do not gain those aspects. Select
+`--size` or matching dimensions, never card `aspect` metadata. Keep the same
+mobile body/source floors and fail overflowing text unchanged; new shorter
+examples are separate authored inputs, not automatic edits to user content. See
+[the aspect contract](docs/TEMPLATE_ASPECTS.md).
+
 Use `node scripts/render.mjs --help` for the actual CLI contract. Install dependencies
 only when needed and permitted by the environment. The renderer needs Node.js,
 its package dependencies, and a working Playwright Chromium installation.

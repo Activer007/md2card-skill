@@ -931,3 +931,61 @@
 .card.template-T48 .template-section:nth-child(n + 3) p { margin:0; }
 .card.template-T48 .card-source { padding-top:.3em; border:0; }
 .card.template-T48 .card-footer { border-top:1px solid var(--line); }
+
+/* M9 independent aspect candidates: only T04 / T21, all real acceptance pending.
+ * Dimensions choose an internal enum; no aspect is sourced from user CSS.
+ * Body .043w and notes .0335w remain inherited, including in landscape.
+ * Intrinsic rows grow on excess content so normal screen/print QA rejects it.
+ */
+.card.template-T04.template-aspect-square .template-heading { text-align: left; padding-bottom: .35em; }
+.card.template-T04.template-aspect-square .template-main { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); column-gap: .8em; align-content: start; }
+.card.template-T04.template-aspect-square .template-intro { padding: .25em .5em 0 0; border: 0; border-top: .09em solid var(--accent); }
+.card.template-T04.template-aspect-square .template-sections { margin-top: 0; padding-left: .55em; border-left: .035em solid var(--line); }
+.card.template-T04.template-aspect-square .template-section h2 { margin-right: 1.5em; }
+.card.template-T04.template-aspect-square .card-source { text-align: right; }
+
+/* Landscape essay: a title rail and generous labeled reading rows, not three
+ * narrow newspaper columns. The source is a separate full-width bottom band. */
+.card.template-T04.template-aspect-slide .card-content { display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr); grid-template-rows: minmax(min-content, 1fr) auto; column-gap: .8em; row-gap: calc(var(--section-gap) * .55); }
+.card.template-T04.template-aspect-slide .template-heading { grid-column: 1; grid-row: 1; text-align: left; border-top: 0; border-left: .14em solid var(--ink); padding: .2em 0 0 .45em; }
+.card.template-T04.template-aspect-slide h1 { font-size: 1.45em; line-height: 1.22; }
+.card.template-T04.template-aspect-slide .template-main { grid-column: 2; grid-row: 1; }
+.card.template-T04.template-aspect-slide .template-intro { padding: 0 0 .2em; border-bottom: .06em solid var(--ink); }
+.card.template-T04.template-aspect-slide .template-sections { margin-top: calc(var(--section-gap) * .45); gap: calc(var(--section-gap) * .45); }
+.card.template-T04.template-aspect-slide .template-section { display: grid; grid-template-columns: minmax(0, .6fr) minmax(0, 1.4fr); column-gap: .45em; padding-top: .12em; }
+.card.template-T04.template-aspect-slide .template-section h2 { grid-column: 1; grid-row: 1; margin: 0; font-size: 1em; }
+.card.template-T04.template-aspect-slide .template-section > :not(h2) { grid-column: 2; }
+.card.template-T04.template-aspect-slide .template-section > :nth-child(2) { grid-row: 1; }
+.card.template-T04.template-aspect-slide .template-section::before { content: none; }
+.card.template-T04.template-aspect-slide .template-section p { margin: 0; }
+.card.template-T04.template-aspect-slide .card-source { grid-column: 1 / -1; grid-row: 2; padding-top: .25em; }
+.card.template-T04.template-aspect-slide .card-footer { margin-top: .3em; padding-top: .15em; }
+
+/* Square metric: paired title/metric top, evidence across the lower width.
+ * The metric label remains body text, not a small caption or detached number. */
+.card.template-T21.template-aspect-square .card-content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto minmax(min-content, 1fr) auto; column-gap: .7em; row-gap: calc(var(--section-gap) * .6); }
+.card.template-T21.template-aspect-square .template-heading { grid-column: 1; grid-row: 1; padding-top: .25em; }
+.card.template-T21.template-aspect-square h1 { font-size: 1.5em; }
+.card.template-T21.template-aspect-square .template-metric { grid-column: 2; grid-row: 1; border-bottom: 0; border-left: .06em solid var(--line); padding: .25em 0 .25em .45em; }
+.card.template-T21.template-aspect-square .template-metric .statistic-value { font-size: 3.1em; }
+.card.template-T21.template-aspect-square .template-metric .statistic-label { margin-top: .2em; }
+.card.template-T21.template-aspect-square .template-main { grid-column: 1 / -1; grid-row: 2; gap: calc(var(--section-gap) * .55); padding-top: .3em; border-top: .08em solid var(--ink); }
+.card.template-T21.template-aspect-square .card-source { grid-column: 1 / -1; grid-row: 3; padding: .25em .4em; }
+
+/* Landscape metric: left title/metric/source rail; full-height right evidence.
+ * At 1600x900 the body remains 68.8px, so verbose sources or evidence can fail.
+ * No fit-to-width scaling, height clipping, cropping or text-size override. */
+.card.template-T21.template-aspect-slide .card-content { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); grid-template-rows: auto minmax(min-content, 1fr) auto; column-gap: .8em; row-gap: calc(var(--section-gap) * .4); }
+.card.template-T21.template-aspect-slide .template-heading { grid-column: 1; grid-row: 1; padding-top: .2em; }
+.card.template-T21.template-aspect-slide h1 { font-size: 1.4em; }
+.card.template-T21.template-aspect-slide .template-metric { grid-column: 1; grid-row: 2; padding: 0; border: 0; align-self: start; }
+.card.template-T21.template-aspect-slide .template-metric .statistic-value { font-size: 3.2em; }
+.card.template-T21.template-aspect-slide .template-metric .statistic-label { margin-top: .18em; }
+.card.template-T21.template-aspect-slide .template-main { grid-column: 2; grid-row: 1 / 4; gap: calc(var(--section-gap) * .5); padding-left: .5em; border-left: .06em solid var(--line); }
+.card.template-T21.template-aspect-slide .template-intro { padding-bottom: .2em; border-bottom: .08em solid var(--ink); }
+.card.template-T21.template-aspect-slide .template-sections { grid-template-columns: minmax(0, 1fr); gap: calc(var(--section-gap) * .5); }
+.card.template-T21.template-aspect-slide .template-section { padding-top: .2em; border-top: 0; }
+.card.template-T21.template-aspect-slide .template-section + .template-section { border-top: .04em solid var(--line); }
+.card.template-T21.template-aspect-slide .template-section h2 { margin-bottom: .2em; }
+.card.template-T21.template-aspect-slide .card-source { grid-column: 1; grid-row: 3; padding: .2em .3em; }
+.card.template-T21.template-aspect-slide .card-footer { margin-top: .3em; padding-top: .15em; }

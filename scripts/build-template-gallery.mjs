@@ -89,13 +89,14 @@ export async function buildGalleryModel({ root = ROOT, templates = TEMPLATES } =
     const metadataMatch = /^<!-- card: (.+) -->$/.exec(firstLine);
     const metadata = metadataMatch ? parseJson(Buffer.from(metadataMatch[1]), `${template.id} metadata`) : null;
     if (metadata?.template !== template.id || (metadata.density ?? 'standard') !== template.density) fail(`example metadata disagrees with registry: ${template.id}`);
+    if (!Array.isArray(template.aspects) || !template.aspects.length || new Set(template.aspects).size !== template.aspects.length || template.aspects.some(aspect => !['portrait', 'square', 'slide'].includes(aspect))) fail(`invalid aspect contract: ${template.id}`);
     const item = { ...template, familyLabel: FAMILY_NAMES[template.family] ?? template.family, imageLabel: IMAGE_NAMES[template.image], inputSha256: digest(input), preview: null };
     if (template.acceptance !== undefined) {
       const batch = batches.get(template.acceptance);
       if (!batch || template.status !== 'visually-reviewed') fail(`missing acceptance binding or wrong status: ${template.id}`);
       const record = batch.records.get(template.id);
       if (!record || item.inputSha256 !== record.input) fail(`accepted input hash mismatch or missing record: ${template.id}`);
-      if (template.version !== batch.scope.version || template.density !== batch.scope.density || template.aspects?.length !== 1 || template.aspects[0] !== batch.scope.aspect) fail(`accepted scope differs from registry: ${template.id}`);
+      if (template.version !== batch.scope.version || template.density !== batch.scope.density || !template.aspects.includes(batch.scope.aspect) || template.aspectLayouts?.[batch.scope.aspect]?.acceptance !== template.acceptance || template.aspectLayouts?.[batch.scope.aspect]?.status !== 'visually-reviewed') fail(`accepted scope differs from registry: ${template.id}`);
       const preview = `docs/images/templates/${template.id}.png`;
       const bytes = await readRepoFile(root, preview);
       if (digest(bytes) !== record.png) fail(`accepted PNG hash mismatch: ${template.id}`);
@@ -127,7 +128,7 @@ function renderDetails(item) {
   const evidence = accepted ? `<div><dt>验收证据</dt><dd>${link(item.evidence.review, `${item.evidence.batch} 逐图复核记录`)} · ${link(item.evidence.path, '原始产物哈希记录')}<br>源码提交 <code>${e(item.evidence.codeCommit)}</code><br>完整代码树 <code>${e(item.evidence.codeTree)}</code></dd></div>
 ${field('已验收 PNG SHA-256', item.preview.sha256)}${field('证据文件 SHA-256', item.evidence.sha256)}` : field('验收证据', '尚无真实 PNG / 手机 / PDF 视觉验收包；源码实现不等于成品。');
   return `<details class="detail"><summary>结构、边界与复现 · ${e(item.id)}</summary>
-<dl>${field('输入结构', item.structure)}${field('不适用 / 限制', item.unsuitable)}${field('推荐内容量', `${item.length[0]}–${item.length[1]} 字，仅为选型参考，不保证放得下。`)}${field('版本 / 构图', `v${item.version} · ${item.composition} · ${item.layout}`)}${field('注册示例', `${item.density} 密度 · ${item.reading} 阅读预设 · 3:4 · manual`)}${field('其他密度', `${DENSITIES.join(' / ')} 仅改变间距，不缩小字体。当前真实预览只证明 standard 注册示例。`)}${field('设计来源', item.provenance.design)}${field('文字来源', item.provenance.text)}${field('素材来源', item.provenance.assets)}${field('当前示例 SHA-256', item.inputSha256)}${evidence}</dl>
+<dl>${field('输入结构', item.structure)}${field('不适用 / 限制', item.unsuitable)}${field('推荐内容量', `${item.length[0]}–${item.length[1]} 字，仅为选型参考，不保证放得下。`)}${field('版本 / 构图', `v${item.version} · ${item.composition} · ${item.layout}`)}${field('注册示例', `${item.density} 密度 · ${item.reading} 阅读预设 · 3:4 · manual`)}${field('源码支持画幅', `${item.aspects.join(' / ')}；支持不等于已验收。当前预览仅绑定上面的默认 3:4 示例，新增画幅均需独立证据。`)}${field('其他密度', `${DENSITIES.join(' / ')} 仅改变间距，不缩小字体。当前真实预览只证明 standard 注册示例。`)}${field('设计来源', item.provenance.design)}${field('文字来源', item.provenance.text)}${field('素材来源', item.provenance.assets)}${field('当前示例 SHA-256', item.inputSha256)}${evidence}</dl>
 <p class="command-label">在仓库根目录复现${accepted ? '同一输入' : '候选示例'}（需允许的 Chromium、中文字体与 Poppler 环境）：</p><pre><code>${e(item.command)}</code></pre>
 <p class="fine-print">输出目录必须为空或不存在。命令使用当前代码；要复现历史截图，还需匹配记录中的代码、字体与环境。这里不执行渲染。</p>
 </details>`;

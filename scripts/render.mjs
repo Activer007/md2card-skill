@@ -13,7 +13,7 @@ import { openRenderer, measureCards, closeBrowser, BROWSER_CLEANUP_TIMEOUT_MS } 
 import { inspectEnvironment } from './doctor.mjs';
 import { inspectPdf } from './qa.mjs';
 import { Md2CardError, normalizeError } from './errors.mjs';
-import { getTemplate, TEMPLATES } from './templates.mjs';
+import { getTemplate, TEMPLATES, resolveTemplateAspect } from './templates.mjs';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 export const VERSION = '3.0.0';
@@ -26,7 +26,7 @@ Usage: node scripts/render.mjs input.md --out ./output
        node scripts/render.mjs --doctor [--strict] [--json]
 
   --out DIR         Output directory, absent or empty (never overwrite).
-  --template ID     Use one composed template; manual 3:4 only
+  --template ID     Use one composed template; manual, registry-listed aspects only
   --list-templates  Print the supported template contracts as JSON
   --theme NAME      editorial (default), minimal, midnight, notebook, bold
   --format LIST     all (default), html, png, pdf or comma-separated list
@@ -329,7 +329,7 @@ export async function exportCards(options, dependencies = {}) {
       versions: { ...environment.versions, chromium: renderer.browser.version() }, budget: { ...budget, outputBytes, elapsedMs: now() - started },
       qa: { overflow: { screen: 'pass', print: 'pass' }, images: { status: 'pass', count: imageQa.length }, fonts: environment.fonts, pdf: pdfQa, visualReview: 'not-performed' },
       pagination,
-      cards: cards.map((card, index) => ({ index: card.index, layout: card.metadata.layout, ...(card.metadata.template ? { template: card.metadata.template, density: card.metadata.density ?? 'standard' } : {}), sourceLines: card.sourceLines, sourceSha256: hash(card.source), ...(card.provenance ? { provenance: card.provenance } : {}), screen: screenMeasurements[index], print: printMeasurements[index] })),
+      cards: cards.map((card, index) => ({ index: card.index, layout: card.metadata.layout, ...(card.metadata.template ? { template: card.metadata.template, density: card.metadata.density ?? 'standard', aspect: resolveTemplateAspect(card.metadata.template, options).id } : {}), sourceLines: card.sourceLines, sourceSha256: hash(card.source), ...(card.provenance ? { provenance: card.provenance } : {}), screen: screenMeasurements[index], print: printMeasurements[index] })),
       security: { rawHtml: 'escaped', images: 'validated-local-raster-only', assetBoundary: 'realpath-contained', networkRequests: 'blocked', clientScripts: 'disabled' }
     };
     const manifestJson = JSON.stringify(manifest, null, 2) + '\n';

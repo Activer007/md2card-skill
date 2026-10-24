@@ -137,3 +137,5 @@ npm run validate:gallery -- --allow-browser --out validation/gallery
 屏幕阅读器播报、对比度、独立视觉质量、实际菜单缩放及不同浏览器的兼容性仍另行记录。
 
 浏览器检查对全部 page/locator evaluate、evaluateAll（包括 image.decode Promise）单独设置 15 秒上限，不假定 Playwright 默认动作超时会覆盖求值。停滞时记录失败并走 context/browser 清理；源码替身回归覆盖这一故障。
+
+画幅支持单独读取注册表并显示为源码契约，不计为额外模板或额外预览。验收匹配具体画幅的 aspectLayouts 记录，不能把已验收的 portrait PNG 用于 square/slide；当前只有四套默认 portrait 的证据绑定。

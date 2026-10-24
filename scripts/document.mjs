@@ -55,8 +55,11 @@ function cardContent(card, layout, template) {
   const eyebrow = metadata.eyebrow ? `<p class="card-eyebrow">${metadata.eyebrow}</p>` : '';
   const source = metadata.source ? `<p class="card-source">${metadata.source}</p>` : '';
   if (template) {
+    const metric = template.supportedMetadata?.includes('metric') && metadata.metric ? `<p class="statistic-value">${metadata.metric}</p>` : '';
+    const label = template.supportedMetadata?.includes('label') && metadata.label ? `<p class="statistic-label">${metadata.label}</p>` : '';
+    const metricBlock = metric || label ? `<div class="template-metric">${metric}${label}</div>` : '';
     const sections = (card.sections ?? []).map((section, index) => `<section class="template-section" data-section="${index + 1}">${section.html}</section>`).join('\n');
-    return `<header class="template-heading">${eyebrow}<div class="template-title">${card.templateTitleHtml ?? ''}</div></header><div class="template-main"><div class="template-intro">${card.templateIntroHtml ?? card.html}</div>${sections ? `<div class="template-sections">${sections}</div>` : ''}</div>${figure(card, metadata)}${source}`;
+    return `<header class="template-heading">${eyebrow}<div class="template-title">${card.templateTitleHtml ?? ''}</div></header>${metricBlock}<div class="template-main"><div class="template-intro">${card.templateIntroHtml ?? card.html}</div>${sections ? `<div class="template-sections">${sections}</div>` : ''}</div>${figure(card, metadata)}${source}`;
   }
   let body;
   if (layout === 'comparison' || layout === 'case-study') {

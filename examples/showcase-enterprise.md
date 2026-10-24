@@ -1,4 +1,4 @@
-<!-- card: {"layout":"cover","eyebrow":"NORTHSTAR STUDIO / FICTIONAL DEMO"} -->
+<!-- card: {"layout":"cover","eyebrow":"FIELDNOTES / FICTIONAL DEMO"} -->
 # 让复杂信息
 # 更容易使用
 

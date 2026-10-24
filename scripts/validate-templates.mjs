@@ -4,6 +4,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { TEMPLATES } from './templates.mjs';
+import { parseCardMetadata } from './markdown.mjs';
 import { parseOptions, exportCards } from './render.mjs';
 import { openRenderer, closeBrowser } from './browser.mjs';
 const root=path.resolve('validation/templates');
@@ -32,7 +33,7 @@ for(const template of TEMPLATES) {
         const card=document.querySelector('.card');
         const scale=card.getBoundingClientRect().width/card.offsetWidth;
         const visible=element=>element.textContent.trim()&&element.getBoundingClientRect().width>0;
-        const body=[...card.querySelectorAll('.template-intro p,.template-intro li,.template-section p,.template-section li,td,th,pre code')].filter(visible);
+        const body=[...card.querySelectorAll('.template-intro p,.template-intro li,.template-section p,.template-section li,.template-metric .statistic-label,td,th,pre code')].filter(visible);
         const notes=[...card.querySelectorAll('.card-source,.card-eyebrow,.card-footer,figcaption')].filter(visible);
         return {cardWidth:card.getBoundingClientRect().width,bodyMin:body.length?Math.min(...body.map(e=>parseFloat(getComputedStyle(e).fontSize)*scale)):null,noteMin:notes.length?Math.min(...notes.map(e=>parseFloat(getComputedStyle(e).fontSize)*scale)):null};
       });
@@ -63,12 +64,14 @@ try {
 } catch(error) { errors.push({id:'bold-title-group',scope:'legacy-regression',code:error.code ?? 'VALIDATION_FAILED',message:error.message}); }
 // An oversized whole paragraph is intentionally unsuitable. It must fail, not
 // shrink, discard content or publish clipped files. These are synthetic QA text.
-const longInput=path.join(root,'long-boundary.md');
-await writeFile(longInput,'# 长文边界测试\n\n'+('这是合成的容量测试文本，必须完整保留，不能缩字或隐藏。'.repeat(80))+'\n');
+const longBody='# 长文边界测试\n\n'+('这是合成的容量测试文本，必须完整保留，不能缩字或隐藏。'.repeat(80))+'\n';
 for(const template of TEMPLATES) {
   const out=path.join(root,'boundaries',template.id);
+  const {metadata}=parseCardMetadata(await readFile(template.example,'utf8'));
+  const longInput=path.join(root,`long-boundary-${template.id}.md`);
+  await writeFile(longInput,`<!-- card: ${JSON.stringify(metadata)} -->\n${longBody}`);
   try {
-    await exportCards(parseOptions([longInput,'--template',template.id,'--out',out,'--format','html','--strict']));
+    await exportCards(parseOptions([longInput,'--asset-root',path.dirname(template.example),'--out',out,'--format','html','--strict']));
     throw new Error(`${template.id}: oversized paragraph unexpectedly succeeded.`);
   } catch(error) {
     if(error.code!=='CONTENT_OVERFLOW')throw error;

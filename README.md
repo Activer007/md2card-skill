@@ -30,7 +30,7 @@
 
 ### 企业介绍（虚构示例）
 
-![虚构团队介绍：服务理念、三个协作阶段和交付边界，不包含真实业绩数据](docs/images/showcase-enterprise.png)
+企业示例正在修正页眉/页脚的虚构品牌一致性，新的真实预览待验收；旧截图不代表当前输入。见 [M3 修正记录](docs/TEMPLATE_M3.md)。
 
 ## 八种语义版式
 
@@ -312,3 +312,5 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 ### 下一批候选（待视觉验收）
 
 M2 新增 T02/T06/T09/T10/T13/T14 六种独立构图，当前仅完成源码实现与测试。已验收成品仍为 4 套；使用说明和待验证边界见 [M2 候选记录](docs/TEMPLATE_M2.md)。
+
+M3 的 T18/T21/T22/T26/T29/T30 六种技术、证据与阅读构图也已完成源码实现。累计实现 16 套、已验收仍为 4 套；详见 [M3 候选记录](docs/TEMPLATE_M3.md)。

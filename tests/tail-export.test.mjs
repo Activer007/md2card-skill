@@ -122,3 +122,11 @@ test('direct export API rejects nonboolean opt-in before opening any renderer', 
     openRenderer: async () => assert.fail('invalid opt-in must reject before launch')
   }), { code: 'INVALID_OPTIONS' });
 });
+
+
+test('real tail gate requires actual list and table movement, not a successful no-op', async () => {
+  const validator = await readFile(new URL('../scripts/validate-tail.mjs', import.meta.url), 'utf8');
+  assert.match(validator, /name: 'lists', input: 'examples\/pagination-lists\.md', height: 1100/);
+  assert.match(validator, /\['lists', 'tables'\]\.includes\(item\.name\)/);
+  assert.match(validator, /balance\.appliedPartitions > 0/);
+});

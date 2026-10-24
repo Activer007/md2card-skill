@@ -13,7 +13,7 @@
       "brandFile": "examples/brand.json",
       "assetRoot": "examples",
       "footer": "证据阅读 · 原创示例",
-      "density": "standard",
+      "density": "compact",
       "size": "portrait",
       "paginate": "manual"
     },
@@ -27,7 +27,7 @@
       "brandFile": "examples/series/brand-tech.json",
       "assetRoot": "examples",
       "footer": "均值练习 · 原创示例",
-      "density": "standard",
+      "density": "compact",
       "size": "portrait",
       "paginate": "manual"
     }

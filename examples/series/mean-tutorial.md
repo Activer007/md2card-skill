@@ -1,4 +1,4 @@
-<!-- card: {"template":"T18","density":"standard","eyebrow":"FIELDNOTES / 均值练习","source":"原创 JavaScript · 三条耗时均为虚构数据"} -->
+<!-- card: {"template":"T18","density":"compact","eyebrow":"FIELDNOTES / 均值练习","source":"原创 JavaScript · 三条耗时均为虚构数据"} -->
 # 先算三条记录
 
 三条耗时为 120、180、150 毫秒；本例只求它们的算术平均值。
@@ -18,7 +18,7 @@ console.log(sum / ms.length);
 
 ===
 
-<!-- card: {"template":"T18","density":"standard","eyebrow":"FIELDNOTES / 均值练习","source":"原创 JavaScript · 输入限有限非负数，单位毫秒"} -->
+<!-- card: {"template":"T18","density":"compact","eyebrow":"FIELDNOTES / 均值练习","source":"原创 JavaScript · 输入限有限非负数，单位毫秒"} -->
 # 空输入不冒充零
 
 把计算包成函数；没有记录时返回 null，而不是声称耗时为零。
@@ -40,7 +40,7 @@ mean([]) 返回 null；mean([120, 180, 150]) 返回 150。函数本身不打印�
 
 ===
 
-<!-- card: {"template":"T17","density":"standard","eyebrow":"FIELDNOTES / 均值练习","source":"原创边界说明 · 不含真实系统性能结论"} -->
+<!-- card: {"template":"T17","density":"compact","eyebrow":"FIELDNOTES / 均值练习","source":"原创边界说明 · 不含真实系统性能结论"} -->
 # 算对，还要用对
 
 前两张代码只是教学计算，不是完整的数据清洗或性能分析工具。

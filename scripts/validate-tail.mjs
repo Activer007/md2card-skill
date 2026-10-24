@@ -15,7 +15,7 @@ const root = path.resolve('validation/tail');
 const cases = [
   { name: 'paragraphs', input: 'examples/pagination-tail.md', height: 650, markers: /TAIL_\d{2}/g, expectedCounts: [5, 1], balancedCounts: [3, 3] },
   { name: 'locked', input: 'examples/pagination-tail-locked.md', height: 650, markers: /LOCK_[AB]\d{2}/g, expectedCounts: [5, 5, 1, 5, 1], balancedCounts: [5, 3, 3, 3, 3] },
-  { name: 'lists', input: 'examples/pagination-lists.md', height: 900, markers: /STEP_A\d{2}/g },
+  { name: 'lists', input: 'examples/pagination-lists.md', height: 1100, markers: /STEP_A\d{2}/g },
   { name: 'tables', input: 'examples/pagination-tables.md', height: 900, markers: /ROW_A\d{2}/g }
 ];
 const results = [];
@@ -82,6 +82,9 @@ for (const item of cases) {
     for (const record of balanced.pagination.balance.partitions.filter(record => record.outcome === 'improved')) for (const media of ['screen', 'print']) {
       assert.ok(record.after[media].right > record.before[media].right);
       assert.ok(record.before[media].gap - record.after[media].gap >= balanced.pagination.balance.policy.minGapImprovement - 1e-9);
+    }
+    if (['lists', 'tables'].includes(item.name)) {
+      assert.ok(balanced.pagination.balance.appliedPartitions > 0, `${item.name}: require a real semantic transfer, not no-op fidelity`);
     }
     if (item.expectedCounts) {
       // These are explicit calibration gates, not inferred success. If real

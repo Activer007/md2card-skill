@@ -429,3 +429,26 @@ test('same-source quote/list comparison exercises original semantics without per
     assert.doesNotThrow(()=>buildDocument([card],SIZES.portrait,'','',css));
   }
 });
+
+
+test('authored action examples parse intended emphasis without literal delimiters', async () => {
+  for (const [id, count] of [['T14', 4], ['T42', 3]]) {
+    const [card] = renderCards(await readFile(new URL(`../examples/templates/${id}.md`, import.meta.url), 'utf8'));
+    assert.doesNotMatch(card.html, /\*\*/);
+    assert.equal((card.html.match(/<strong>/g) ?? []).length, count);
+  }
+});
+
+
+test('calibrated templates keep compact spacing below standard below editorial', () => {
+  for (const id of ['T03','T16','T19','T24','T27','T28','T35','T36','T38','T40','T43','T44','T46','T47','T48']) {
+    const values = ['', '.density-compact', '.density-editorial'].map(suffix => {
+      const selector = `.card.template-${id}${suffix} {`;
+      const start = css.indexOf(selector);
+      assert.ok(start >= 0, selector);
+      const body = css.slice(start + selector.length, css.indexOf('}', start));
+      return ['section', 'paragraph'].map(token => Number(body.match(new RegExp(`--${token}-gap: ([.0-9]+)em`))[1]));
+    });
+    for (const token of [0, 1]) assert.ok(values[1][token] < values[0][token] && values[0][token] < values[2][token], id);
+  }
+});

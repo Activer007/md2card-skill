@@ -149,7 +149,7 @@
 .card.template-T09 .card-eyebrow { grid-column: 1 / -1; margin-bottom: 1.1em; color: var(--ink); }
 .card.template-T09 .template-title { grid-column: 1; }
 .card.template-T09 h1 { font-size: 2.5em; font-weight: 850; line-height: 1.12; letter-spacing: -.055em; }
-.card.template-T09 .template-heading::after { content: ''; grid-column: 2; width: 3.65em; height: 3.65em; border: .72em solid var(--accent); border-right-color: transparent; border-radius: 50%; transform: rotate(-45deg); }
+.card.template-T09 .template-heading::after { content: ''; grid-column: 2; width: 2.55em; height: 2.55em; justify-self: center; margin: .55em 0; border: .72em solid var(--accent); border-right-color: transparent; border-radius: 50%; transform: rotate(-45deg); }
 .card.template-T09 .template-intro { padding: .65em .75em; border-left: .65em solid var(--ink); background: var(--panel); }
 .card.template-T09 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: .85em; row-gap: var(--section-gap); padding-top: .25em; }
 .card.template-T09 .template-section { padding-top: .65em; border-top: .035em solid var(--ink); }
@@ -231,14 +231,14 @@
   --paper: #13202b; --ink: #edf4f8; --muted: #bbc9d2;
   --accent: var(--brand-accent, #88d9ef); --panel: #0b151e; --line: #536b7b;
 }
-.card.template-T18 .template-heading { border: 1px solid var(--line); border-bottom: 0; padding: .5em .65em .55em; background: #243643; }
+.card.template-T18 .template-heading { border: 1px solid var(--line); border-bottom: 0; padding: .3em .45em .35em; background: #243643; }
 .card.template-T18 .card-eyebrow { display: flex; align-items: center; gap: .7em; color: var(--muted); font-family: var(--mono); letter-spacing: .025em; }
 .card.template-T18 .card-eyebrow::before { content: ''; display: block; flex: 0 0 1.95em; height: .55em; background: radial-gradient(circle at .275em 50%, #9aadb8 0 .22em, transparent .24em), radial-gradient(circle at .975em 50%, #9aadb8 0 .22em, transparent .24em), radial-gradient(circle at 1.675em 50%, #9aadb8 0 .22em, transparent .24em); }
 .card.template-T18 h1 { font-size: 1.6em; letter-spacing: -.025em; }
-.card.template-T18 .template-main { border: 1px solid var(--line); border-top: 0; padding: .55em .7em; background: var(--panel); }
+.card.template-T18 .template-main { border: 1px solid var(--line); border-top: 0; padding: .3em .25em; background: var(--panel); }
 .card.template-T18 .template-heading + .template-main { margin-top: calc(-1 * var(--section-gap)); }
 .card.template-T18 .template-section h2 { color: var(--accent); font-family: var(--mono); font-size: 1em; margin-bottom: .25em; padding-bottom: .2em; border-bottom: 1px solid var(--line); }
-.card.template-T18 .template-section pre { margin: .5em 0 0; padding: .55em .6em; border: 1px solid var(--line); border-left: .14em solid var(--accent); border-radius: 0; background: #182a36; font-size: 1em; line-height: 1.4; }
+.card.template-T18 .template-section pre { margin: .25em 0 0; padding: .3em .25em; border: 1px solid var(--line); border-left: .14em solid var(--accent); border-radius: 0; background: #182a36; font-size: 1em; line-height: 1.4; }
 .card.template-T18 .template-section pre code { font-size: 1em; color: var(--ink); }
 .card.template-T18 code { color: var(--accent); background: #243643; }
 .card.template-T18 .template-section p { margin-top: .35em; }
@@ -380,7 +380,7 @@
 .card.template-T37 .template-main { grid-row:3; padding:0 .6em; }
 .card.template-T37 .card-source { grid-row:4; }
 
-.card.template-T38 { --paper:#e7e1d3; --ink:#242924; --muted:#545c50; --accent:var(--brand-accent,#875035); --line:#9da48f; }
+.card.template-T38 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#e7e1d3; --ink:#242924; --muted:#545c50; --accent:var(--brand-accent,#875035); --line:#9da48f; }
 .card.template-T38 .template-heading { border-bottom:.11em solid var(--ink); padding-bottom:.65em; }
 .card.template-T38 h1 { font-size:1.65em; }
 .card.template-T38 .template-intro:empty { display:none; }
@@ -388,9 +388,9 @@
 .card.template-T38 .template-section { counter-increment:contact; padding:.4em; background:#f9f5e9; border:.035em solid #aeb3a1; }
 .card.template-T38 .template-section h2 { font-size:1em; line-height:1.3; font-family:var(--serif); }
 .card.template-T38 .template-section::before { content:counter(contact,decimal-leading-zero); display:block; margin-bottom:.45em; color:var(--accent); font:700 var(--note-size)/1.4 var(--mono); }
-.card.template-T38 .markdown-image { width:100%; max-height:none; height:calc(var(--card-height) * .28); margin:.35em 0; padding:.1em; background:#18221e; object-fit:contain; }
+.card.template-T38 .markdown-image { width:100%; max-height:none; height:calc(var(--card-height) * .245); margin:.35em 0; padding:.1em; background:#18221e; object-fit:contain; }
 .card.template-T38 .template-section p { margin:.5em 0 0; }
-.card.template-T38 .template-section:nth-child(even) { margin-top:1.2em; }
+.card.template-T38 .template-section:nth-child(even) { margin-top:.7em; }
 .card.template-T38 .card-source { border-top:0; }
 
 .card.template-T41 { --paper:#f8eadc; --ink:#30273d; --muted:#655269; --accent:var(--brand-accent,#862e62); --line:#ba9bb1; --panel:#f1c8dc; }
@@ -426,12 +426,12 @@
 .card.template-T45 .image-frame { height:calc(var(--card-height) * .42); border:0; background:transparent; }
 .card.template-T45 .card-source { grid-column:1/-1; border-top:0; }
 
-.card.template-T46 { --paper:#f2e7d4; --ink:#513d2e; --muted:#71604b; --accent:var(--brand-accent,#8c512f); --line:#bdab91; --panel:#e5d2b5; }
-.card.template-T46 .card-content { display:grid; grid-template-columns:1fr; grid-template-rows:auto auto 1fr auto; gap:.6em; }
+.card.template-T46 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#f2e7d4; --ink:#513d2e; --muted:#71604b; --accent:var(--brand-accent,#8c512f); --line:#bdab91; --panel:#e5d2b5; }
+.card.template-T46 .card-content { display:grid; grid-template-columns:1fr; grid-template-rows:auto auto 1fr auto; gap:.4em; }
 .card.template-T46 .template-heading { grid-row:1; border-top:.1em solid var(--accent); padding-top:.6em; }
 .card.template-T46 h1 { font-family:var(--serif); font-size:1.65em; }
 .card.template-T46 .card-figure { grid-row:2; margin:0; }
-.card.template-T46 .image-frame { height:calc(var(--card-height) * .26); padding:.12em; border:1px solid var(--line); background:#e6d4b9; }
+.card.template-T46 .image-frame { height:calc(var(--card-height) * .23); padding:.12em; border:1px solid var(--line); background:#e6d4b9; }
 .card.template-T46 .template-main { grid-row:3; }
 .card.template-T46 .template-sections { display:grid; grid-template-columns:1fr 1fr; gap:.7em; }
 .card.template-T46 .template-section { padding:.55em; border-top:.08em solid var(--accent); background:#faf2e2; }
@@ -446,15 +446,15 @@
 /* T03 — portrait feature. A full-width masthead precedes a genuine text/image
  * spread; the source closes the whole spread. The figure follows the main in
  * DOM and occupies the right-hand column visually. No crop is implied. */
-.card.template-T03 { --paper: #f7f2e9; --ink: #2d302b; --muted: #5e6256; --accent: var(--brand-accent, #8b442d); --line: #bab5a6; --panel: #ebe4d4; }
-.card.template-T03 .card-content { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr); grid-template-rows: auto 1fr auto; column-gap: .85em; row-gap: var(--section-gap); align-content: start; }
+.card.template-T03 { --section-gap: .4em; --paragraph-gap: .3em; --paper: #f7f2e9; --ink: #2d302b; --muted: #5e6256; --accent: var(--brand-accent, #8b442d); --line: #bab5a6; --panel: #ebe4d4; }
+.card.template-T03 .card-content { display: grid; grid-template-columns: minmax(0, 1.32fr) minmax(0, .68fr); grid-template-rows: auto 1fr auto; column-gap: .85em; row-gap: var(--section-gap); align-content: start; }
 .card.template-T03 .template-heading { grid-column: 1 / -1; padding: .35em 0 .55em; border-top: .07em solid var(--ink); border-bottom: .035em solid var(--ink); }
 .card.template-T03 .card-eyebrow { margin-bottom: .5em; color: var(--muted); letter-spacing: .07em; }
 .card.template-T03 h1 { font: 650 1.95em/1.18 var(--serif); letter-spacing: -.02em; }
 .card.template-T03 .template-main { grid-column: 1; grid-row: 2; padding-top: .1em; }
-.card.template-T03 .template-intro { padding-bottom: .55em; border-bottom: 1px solid var(--line); }
+.card.template-T03 .template-intro { padding-bottom: .3em; border-bottom: 1px solid var(--line); }
 .card.template-T03 .template-section h2 { font-family: var(--serif); font-weight: 650; color: var(--accent); }
-.card.template-T03 .template-section + .template-section { padding-top: .5em; border-top: 1px solid var(--line); }
+.card.template-T03 .template-section + .template-section { padding-top: .3em; border-top: 1px solid var(--line); }
 .card.template-T03 .card-figure { grid-column: 2; grid-row: 2; align-self: start; margin: 0; padding-top: .1em; }
 .card.template-T03 .image-frame { height: auto; aspect-ratio: 2 / 3; border: 0; background: var(--panel); }
 .card.template-T03 .card-image { object-fit: contain; }
@@ -583,13 +583,13 @@
 /* T16 — opinion collection. A reverse masthead and independently offset
  * monochrome statement sheets, each with a short accent tab. The title is not
  * oversized and each opinion reads vertically, unlike T13's argument strips. */
-.card.template-T16 { --paper: #f9f9f4; --ink: #202620; --muted: #535d50; --accent: var(--brand-accent, #8b3224); --line: #a3afa0; --panel: #e9eee2; }
+.card.template-T16 { --section-gap: .4em; --paragraph-gap: .3em; --paper: #f9f9f4; --ink: #202620; --muted: #535d50; --accent: var(--brand-accent, #8b3224); --line: #a3afa0; --panel: #e9eee2; }
 .card.template-T16 .template-heading { --ink: #f9f9f4; --accent: #e5ed94; --muted: #e2e8dc; --panel: #3b4434; --line: #9ca98e; padding: .45em .65em; background: #202620; color: var(--ink); border-left: .28em solid #d6e879; }
 .card.template-T16 .card-eyebrow { margin-bottom: .35em; color: var(--muted); letter-spacing: .025em; }
 .card.template-T16 h1 { font-size: 1.7em; font-weight: 850; line-height: 1.16; }
 .card.template-T16 .template-intro { padding-left: .65em; border-left: .07em solid var(--ink); }
 .card.template-T16 .template-sections { gap: .5em; }
-.card.template-T16 .template-section { margin-right: .6em; padding: .25em .55em .3em; border: .055em solid var(--ink); border-left: .16em solid var(--accent); background: #fffef9; }
+.card.template-T16 .template-section { margin-right: .6em; padding: .18em .55em .2em; border: .055em solid var(--ink); border-left: .16em solid var(--accent); background: #fffef9; }
 .card.template-T16 .template-section h2 { display: table; margin-bottom: .25em; padding-bottom: .15em; border-bottom: .14em solid #d6e879; font-weight: 850; font-size: 1.05em; }
 .card.template-T16 .template-section p { margin: 0; }
 .card.template-T16 .template-section:nth-child(even) { --ink: #f9f9f4; --accent: #e5ed94; --muted: #e2e8dc; --panel: #3b4434; --line: #9ca98e; margin-left: .6em; margin-right: 0; border-color: #202620; border-left-color: #d6e879; background: #202620; color: var(--ink); }
@@ -603,7 +603,7 @@
 
 /* T19 — a shared input band above a four-module architecture matrix. The
  * module titles, boundaries and responsibilities all come from author text. */
-.card.template-T19 {
+.card.template-T19 { --section-gap: .4em; --paragraph-gap: .3em;
   --paper: #111e29; --ink: #edf5fa; --muted: #bacbd7;
   --accent: var(--brand-accent, #8fd8e6); --panel: #1d3443; --line: #536e80;
 }
@@ -612,9 +612,9 @@
 .card.template-T19 h1 { font-size: 1.7em; letter-spacing: -.025em; }
 .card.template-T19 .template-intro { padding: .55em .65em; border: 1px solid var(--line); border-left: .14em solid var(--accent); background: #172b39; }
 .card.template-T19 .template-intro p { margin: 0; }
-.card.template-T19 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .6em; padding: .6em; border: 1px dashed var(--line); }
-.card.template-T19 .template-section { padding: .5em .55em .6em; border: 1px solid var(--line); background: var(--panel); }
-.card.template-T19 .template-section h2 { margin: 0 -.55em .45em; padding: .15em .55em .4em; border-bottom: 1px solid var(--line); color: var(--accent); font: 750 1em/1.4 var(--mono); letter-spacing: 0; }
+.card.template-T19 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .4em; padding: .3em; border: 1px dashed var(--line); }
+.card.template-T19 .template-section { padding: .3em .3em .35em; border: 1px solid var(--line); background: var(--panel); }
+.card.template-T19 .template-section h2 { margin: 0 -.3em .25em; padding: .1em .3em .25em; border-bottom: 1px solid var(--line); color: var(--accent); font: 750 1em/1.4 var(--mono); letter-spacing: 0; }
 .card.template-T19 .template-section p { margin: 0; }
 .card.template-T19 .card-source { padding-top: .5em; border: 0; }
 .card.template-T19 .card-footer { border-top: 1px solid var(--line); font-family: var(--mono); }
@@ -631,11 +631,11 @@
 .card.template-T20 .template-main { flex: 0 0 auto; }
 .card.template-T20 .template-intro p { margin: 0; }
 .card.template-T20 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .6em; }
-.card.template-T20 .template-section { padding: .55em .6em; border-top: .08em solid var(--accent); border-radius: 0 0 .28em .28em; background: var(--panel); }
+.card.template-T20 .template-section { padding: .35em .4em; border-top: .08em solid var(--accent); border-radius: 0 0 .28em .28em; background: var(--panel); }
 .card.template-T20 .template-section h2 { margin-bottom: .25em; color: var(--accent); font-size: 1em; }
 .card.template-T20 .template-section p { margin: 0; }
 .card.template-T20 .card-figure { margin: 0; }
-.card.template-T20 .image-frame { height: calc(var(--card-height) * .255); padding: .15em; border: 1px solid var(--line); border-radius: .25em; background: #0e1425; }
+.card.template-T20 .image-frame { height: calc(var(--card-height) * .21); padding: .15em; border: 1px solid var(--line); border-radius: .25em; background: #0e1425; }
 .card.template-T20 .card-image { width: 100%; height: 100%; object-fit: contain; }
 .card.template-T20 .card-figure figcaption { margin: .4em 0 0; color: var(--muted); }
 .card.template-T20 .card-source { padding-top: .35em; border: 0; }
@@ -664,7 +664,7 @@
 /* T24 — report masthead, real comparison table, then decision criteria.
  * First column is a short code (12%); both explanation columns get 44%.
  * All cells explicitly inherit full body size. No nested em reductions. */
-.card.template-T24 {
+.card.template-T24 { --section-gap: .4em; --paragraph-gap: .3em;
   --paper: #faf9f4; --ink: #263746; --muted: #596775;
   --accent: var(--brand-accent, #315b79); --panel: #e8edf0; --line: #b3bec6;
 }
@@ -674,20 +674,20 @@
 .card.template-T24 .template-intro p { margin: 0; }
 .card.template-T24 .template-section h2 { margin-bottom: .4em; color: var(--accent); font-size: 1em; }
 .card.template-T24 .template-section table { width: 100%; table-layout: fixed; margin: .3em 0 0; border-collapse: collapse; font-size: 1em; line-height: 1.5; }
-.card.template-T24 .template-section th, .card.template-T24 .template-section td { padding: .4em .24em; border-bottom: 1px solid var(--line); vertical-align: top; font-size: inherit; line-height: inherit; overflow-wrap: anywhere; }
+.card.template-T24 .template-section th, .card.template-T24 .template-section td { padding: .18em .24em; border-bottom: 1px solid var(--line); vertical-align: top; font-size: inherit; line-height: inherit; overflow-wrap: anywhere; }
 .card.template-T24 .template-section th { border-top: .08em solid var(--ink); background: var(--panel); color: var(--ink); }
 .card.template-T24 .template-section th:first-child, .card.template-T24 .template-section td:first-child { width: 12%; padding-left: .12em; padding-right: .12em; text-align: center; font-family: var(--mono); font-variant-numeric: tabular-nums; }
 .card.template-T24 .template-section th:nth-child(2), .card.template-T24 .template-section td:nth-child(2), .card.template-T24 .template-section th:nth-child(3), .card.template-T24 .template-section td:nth-child(3) { width: 44%; }
 .card.template-T24 .template-section tbody tr:nth-child(even) { background: #f0f3f3; }
 .card.template-T24 .template-section tbody tr:last-child td { border-bottom: .065em solid var(--ink); }
-.card.template-T24 .template-section + .template-section { padding: .6em .65em; border-left: .12em solid var(--accent); background: var(--panel); }
+.card.template-T24 .template-section + .template-section { padding: .3em .4em; border-left: .12em solid var(--accent); background: var(--panel); }
 .card.template-T24 .template-section p { margin: 0; }
 .card.template-T24 .card-source { padding-top: .4em; border: 0; }
 .card.template-T24 .card-footer { border-top: 3px double var(--line); }
 
 /* T27 — author-written time labels in a dedicated left column; reading tasks
  * sit to the right of a blank-space timeline. CSS never invents dates. */
-.card.template-T27 {
+.card.template-T27 { --section-gap: .4em; --paragraph-gap: .3em;
   --paper: #fbf5e9; --ink: #443d32; --muted: #6e6252;
   --accent: var(--brand-accent, #835039); --panel: #efe3cf; --line: #bba98c;
 }
@@ -696,9 +696,9 @@
 .card.template-T27 h1 { font: 650 1.8em/1.25 var(--serif); letter-spacing: -.025em; }
 .card.template-T27 .template-intro { padding: .6em .7em; border-left: .1em solid var(--accent); background: var(--panel); }
 .card.template-T27 .template-intro p { margin: 0; }
-.card.template-T27 .template-sections { position: relative; gap: .9em; }
+.card.template-T27 .template-sections { position: relative; gap: .45em; }
 .card.template-T27 .template-sections::before { content: ''; position: absolute; left: 4.6em; top: .5em; bottom: .55em; width: .04em; background: var(--line); }
-.card.template-T27 .template-section { position: relative; display: grid; grid-template-columns: 4em minmax(0, 1fr); column-gap: 1.25em; align-items: start; padding: .35em 0 .55em; }
+.card.template-T27 .template-section { position: relative; display: grid; grid-template-columns: 4em minmax(0, 1fr); column-gap: 1.25em; align-items: start; padding: .2em 0 .3em; }
 .card.template-T27 .template-section::before { content: ''; position: absolute; left: 4.4em; top: .7em; width: .44em; height: .44em; border: .08em solid var(--accent); border-radius: 50%; background: var(--paper); }
 .card.template-T27 .template-section > :not(h2) { grid-column: 2; }
 .card.template-T27 .template-section h2 { grid-column: 1; grid-row: 1; margin: 0; color: var(--accent); font: 750 1em/1.5 var(--sans); }
@@ -709,7 +709,7 @@
 /* T28 — rectangular index slips with a reserved tab for the real list number.
  * Keep native list-item counters, including an authored start other than 1.
  * The registry limits fixed-width tabs to 0–99. Nested lists keep native markers. */
-.card.template-T28 {
+.card.template-T28 { --section-gap: .4em; --paragraph-gap: .3em;
   --paper: #f2eee4; --ink: #414337; --muted: #5b5e4e;
   --accent: var(--brand-accent, #59683e); --panel: #fffaf0; --line: #a9ad94;
 }
@@ -719,10 +719,10 @@
 .card.template-T28 .template-intro p { margin: 0; }
 .card.template-T28 .template-section h2 { margin-bottom: .65em; color: var(--muted); font-size: 1em; }
 .card.template-T28 .template-intro > ol, .card.template-T28 .template-section > ol { list-style: none; margin: 0; padding: 0; }
-.card.template-T28 .template-intro > ol > li, .card.template-T28 .template-section > ol > li { position: relative; margin: 0 0 .65em; min-height: 2.8em; padding: .5em .65em .5em 2.85em; border: 1px solid var(--line); border-top: .075em solid var(--accent); background: var(--panel); }
+.card.template-T28 .template-intro > ol > li, .card.template-T28 .template-section > ol > li { position: relative; margin: 0 0 .4em; min-height: 2.8em; padding: .35em .4em .35em 2.85em; border: 1px solid var(--line); border-top: .075em solid var(--accent); background: var(--panel); }
 .card.template-T28 .template-intro > ol > li::before, .card.template-T28 .template-section > ol > li::before { content: counter(list-item, decimal-leading-zero); position: absolute; top: -.075em; left: .4em; width: 1.8em; padding: .36em .1em .45em; border: 1px solid var(--line); border-top: 0; color: var(--accent); background: #e4e8d8; text-align: center; font: 750 1em/1.2 var(--mono); font-variant-numeric: tabular-nums; }
 .card.template-T28 .template-intro > ol > li > p, .card.template-T28 .template-section > ol > li > p { margin: 0; }
-.card.template-T28 .template-intro > ol > li > strong:first-child, .card.template-T28 .template-section > ol > li > strong:first-child, .card.template-T28 .template-intro > ol > li > p > strong:first-child, .card.template-T28 .template-section > ol > li > p > strong:first-child { display: block; margin-bottom: .18em; color: var(--accent); }
+.card.template-T28 .template-intro > ol > li > strong:first-child, .card.template-T28 .template-section > ol > li > strong:first-child, .card.template-T28 .template-intro > ol > li > p > strong:first-child, .card.template-T28 .template-section > ol > li > p > strong:first-child { display: inline; margin-right: .15em; color: var(--accent); }
 .card.template-T28 .card-source, .card.template-T28 .card-footer { border: 0; }
 
 /* T31 — a large personal quotation plus an empty geometric vermilion seal.
@@ -774,36 +774,36 @@
 
 /* T35: individually attributed clippings on staggered, non-overlapping sheets.
  * The tape is an empty normal-flow strip, never an overlay across glyphs. */
-.card.template-T35 { --paper:#e8e1d1; --ink:#30352e; --muted:#59604f; --accent:var(--brand-accent,#825235); --panel:#f2e8cf; --line:#a4a18c; }
-.card.template-T35 .template-heading { padding:.2em 0 .4em; border-bottom:.07em solid var(--ink); }
+.card.template-T35 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#e8e1d1; --ink:#30352e; --muted:#59604f; --accent:var(--brand-accent,#825235); --panel:#f2e8cf; --line:#a4a18c; }
+.card.template-T35 .template-heading { padding:.1em 0 .25em; border-bottom:.07em solid var(--ink); }
 .card.template-T35 .card-eyebrow { color:var(--muted); font-family:var(--mono); letter-spacing:.04em; }
 .card.template-T35 h1 { font:700 1.85em/1.22 var(--serif); }
 .card.template-T35 .template-intro p { margin:0; }
-.card.template-T35 .template-sections { gap:.6em; }
-.card.template-T35 .template-section { margin-right:.6em; padding:.35em .65em .5em; border:1px solid var(--line); border-bottom:.065em dashed var(--line); background:#fffaf0; box-shadow:.09em .12em 0 #c9c1ad; }
+.card.template-T35 .template-sections { gap:.4em; }
+.card.template-T35 .template-section { margin-right:.6em; padding:.2em .35em .25em; border:1px solid var(--line); border-bottom:.065em dashed var(--line); background:#fffaf0; box-shadow:.09em .12em 0 #c9c1ad; }
 .card.template-T35 .template-section:nth-child(even) { margin-left:.6em; margin-right:0; background:#f4efd8; }
-.card.template-T35 .template-section::before { content:''; display:block; width:3em; height:.22em; margin:0 0 .35em .15em; background:#c3c1a3; }
+.card.template-T35 .template-section::before { content:''; display:block; width:3em; height:.12em; margin:0 0 .1em .15em; background:#c3c1a3; }
 .card.template-T35 .template-section h2 { margin-bottom:.15em; font-family:var(--serif); font-size:1em; }
-.card.template-T35 .template-section p { margin:.25em 0; }
-.card.template-T35 .template-section blockquote { margin:.3em 0; padding:.35em .5em; border-left:.055em solid var(--accent); background:var(--panel); }
+.card.template-T35 .template-section p { margin:.1em 0; }
+.card.template-T35 .template-section blockquote { margin:.15em 0; padding:.15em .3em; border-left:.055em solid var(--accent); background:var(--panel); }
 .card.template-T35 .template-section blockquote p { margin:0; }
 .card.template-T35 .card-source { padding-top:.4em; border:0; }
-.card.template-T35 .card-footer { border-top:1px dashed var(--line); }
+.card.template-T35 .card-footer { border-top:1px dashed var(--line); margin-top:.4em; padding-top:.3em; }
 
 /* T36: an oversized report headline above a full-width event ledger.
  * Unlike a manifesto, authored dates and linked factual records drive the page. */
-.card.template-T36 { --paper:#faf5e8; --ink:#272d2a; --muted:#565e53; --accent:var(--brand-accent,#8c3929); --panel:#eee5d3; --line:#a3a391; }
-.card.template-T36 .template-heading { padding:.3em 0 .5em; border-top:.14em solid var(--ink); border-bottom:3px double var(--ink); }
+.card.template-T36 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#faf5e8; --ink:#272d2a; --muted:#565e53; --accent:var(--brand-accent,#8c3929); --panel:#eee5d3; --line:#a3a391; }
+.card.template-T36 .template-heading { padding:.05em 0 .1em; border-top:.14em solid var(--ink); border-bottom:3px double var(--ink); }
 .card.template-T36 .card-eyebrow { margin-bottom:.45em; font-family:var(--mono); color:var(--accent); letter-spacing:.06em; }
 .card.template-T36 h1 { font:800 2.15em/1.17 var(--serif); letter-spacing:-.04em; }
 .card.template-T36 .template-intro { padding-bottom:.45em; border-bottom:1px solid var(--line); font-family:var(--serif); }
 .card.template-T36 .template-intro p { margin:0; }
-.card.template-T36 .template-sections { gap:.5em; }
-.card.template-T36 .template-section { padding:.25em .5em .5em; border-bottom:1px solid var(--line); }
-.card.template-T36 .template-section h2 { display:table; margin-bottom:.25em; padding:.1em .4em; border-left:.12em solid var(--accent); background:var(--panel); font-size:1em; font-family:var(--mono); letter-spacing:0; }
+.card.template-T36 .template-sections { gap:.4em; }
+.card.template-T36 .template-section { padding:.1em .15em .2em; border-bottom:1px solid var(--line); }
+.card.template-T36 .template-section h2 { display:table; margin-bottom:.15em; padding:0 .25em; border-left:.12em solid var(--accent); background:var(--panel); font-size:1em; font-family:var(--mono); letter-spacing:0; }
 .card.template-T36 .template-section p { margin:0; }
 .card.template-T36 .card-source { border:0; padding-top:.3em; }
-.card.template-T36 .card-footer { border-top:3px double var(--ink); }
+.card.template-T36 .card-footer { border-top:3px double var(--ink); margin-top:.4em; padding-top:.3em; }
 
 /* T39: the intact portrait spans the title AND narrative zones. The heading
  * is part of the story sidebar, unlike T03's full-width title + text/image row.
@@ -829,27 +829,27 @@
 /* T40: a complete, explicitly supplied detail source, then its numbered key.
  * Number bubbles remain in normal float flow, with a reserved two-digit rail.
  * Never reset the list-item counter; the registry limits its width to 0–99. */
-.card.template-T40 { --paper:#f3f2e8; --ink:#303c37; --muted:#58655a; --accent:var(--brand-accent,#426457); --panel:#e2e8db; --line:#a4b09e; }
-.card.template-T40 .template-heading { padding:.25em 0 .5em; border-bottom:.065em solid var(--ink); }
+.card.template-T40 { --section-gap: .35em; --paragraph-gap: .3em; --paper:#f3f2e8; --ink:#303c37; --muted:#58655a; --accent:var(--brand-accent,#426457); --panel:#e2e8db; --line:#a4b09e; }
+.card.template-T40 .template-heading { padding:0 0 .2em; border-bottom:.065em solid var(--ink); }
 .card.template-T40 h1 { font-size:1.7em; letter-spacing:-.03em; }
-.card.template-T40 .card-eyebrow { margin-bottom:.5em; color:var(--accent); letter-spacing:.05em; }
+.card.template-T40 .card-eyebrow { margin-bottom:.25em; color:var(--accent); letter-spacing:.05em; }
 .card.template-T40 .card-figure { margin:0; }
-.card.template-T40 .image-frame { height:calc(var(--card-height) * .255); padding:.1em; border:1px solid var(--line); background:#ece7d7; }
+.card.template-T40 .image-frame { height:calc(var(--card-height) * .18); padding:.1em; border:1px solid var(--line); background:#ece7d7; }
 .card.template-T40 .card-image { width:100%; height:100%; object-fit:contain; }
 .card.template-T40 .card-figure figcaption { margin:.35em 0 0; color:var(--muted); }
 .card.template-T40 .template-main { flex:0 0 auto; }
 .card.template-T40 .template-intro p { margin:0; }
-.card.template-T40 .template-section h2 { margin-bottom:.4em; font-size:1em; }
+.card.template-T40 .template-section h2 { margin-bottom:.15em; font-size:1em; }
 .card.template-T40 .template-intro > ol, .card.template-T40 .template-section > ol { list-style:none; margin:0; padding:0; }
-.card.template-T40 .template-intro > ol > li, .card.template-T40 .template-section > ol > li { display:list-item; min-height:2em; margin:0 0 .4em; padding:.35em .3em .35em 2.15em; border-top:1px solid var(--line); }
+.card.template-T40 .template-intro > ol > li, .card.template-T40 .template-section > ol > li { display:list-item; min-height:2em; margin:0 0 .2em; padding:.1em .15em .1em 2.15em; border-top:1px solid var(--line); }
 .card.template-T40 .template-intro > ol > li::before, .card.template-T40 .template-section > ol > li::before { content:counter(list-item,decimal); float:left; width:1.6em; min-height:1.6em; margin-left:-2.15em; padding:.2em .1em; border:.045em solid var(--accent); border-radius:50%; color:var(--accent); text-align:center; font:750 1em/1.15 var(--mono); }
 .card.template-T40 .template-intro > ol > li > p, .card.template-T40 .template-section > ol > li > p { margin:0; }
-.card.template-T40 .card-source { padding-top:.35em; border:0; }
-.card.template-T40 .card-footer { border-top:1px solid var(--line); }
+.card.template-T40 .card-source { padding-top:.1em; border:0; }
+.card.template-T40 .card-footer { border-top:1px solid var(--line); margin-top:.4em; padding-top:.3em; }
 
 /* T43: two side-by-side scene frames and one wide resolution frame. Artwork
  * carries no embedded dialogue; all dialogue remains real searchable text. */
-.card.template-T43 { --paper:#f7efd8; --ink:#3c353e; --muted:#665868; --accent:var(--brand-accent,#803b53); --panel:#eee0ea; --line:#b6a4b3; }
+.card.template-T43 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#f7efd8; --ink:#3c353e; --muted:#665868; --accent:var(--brand-accent,#803b53); --panel:#eee0ea; --line:#b6a4b3; }
 .card.template-T43 .template-heading { padding:.35em .45em .5em; border:.07em solid var(--ink); border-radius:.3em .3em 0 0; background:#ead283; }
 .card.template-T43 .card-eyebrow { margin-bottom:.4em; color:var(--ink); letter-spacing:.04em; }
 .card.template-T43 h1 { font-size:1.7em; font-weight:850; }
@@ -858,12 +858,12 @@
 .card.template-T43 .template-section { padding:.4em; border:.065em solid var(--ink); background:#fffaf0; }
 .card.template-T43 .template-section h2 { margin-bottom:.3em; font:750 1em/1.3 var(--mono); letter-spacing:0; }
 .card.template-T43 .template-section > p:has(> .markdown-image:only-child) { margin:0; }
-.card.template-T43 .markdown-image { width:100%; height:3.25em; max-height:none; margin:0; object-fit:contain; background:#f2eadb; }
-.card.template-T43 .template-section blockquote { margin:.4em 0 0; padding:.35em .4em; border:.04em solid var(--ink); border-radius:.45em .45em .45em 0; background:#f5e4a6; }
+.card.template-T43 .markdown-image { width:100%; height:2.7em; max-height:none; margin:0; object-fit:contain; background:#f2eadb; }
+.card.template-T43 .template-section blockquote { margin:.2em 0 0; padding:.2em .3em; border:.04em solid var(--ink); border-radius:.45em .45em .45em 0; background:#f5e4a6; }
 .card.template-T43 .template-section blockquote p { margin:0; }
 .card.template-T43 .template-section:nth-child(2) blockquote { border-radius:.45em .45em 0 .45em; background:#dce8db; }
 .card.template-T43 .template-section:nth-child(n + 3) { grid-column:1 / -1; }
-.card.template-T43 .template-section:nth-child(n + 3) .markdown-image { height:3em; }
+.card.template-T43 .template-section:nth-child(n + 3) .markdown-image { height:2.3em; }
 .card.template-T43 .template-section > p { margin:.35em 0 0; }
 .card.template-T43 .card-source { padding-top:.3em; border:0; }
 .card.template-T43 .card-footer { border-top:.065em solid var(--ink); }
@@ -871,19 +871,19 @@
 /* T44: dimensions are rows; the same two options speak in paired bubbles.
  * This is not a continuous left/right camp divider or asymmetric two-column
  * essay. Neither bubble receives a winner badge or generated recommendation. */
-.card.template-T44 { --paper:#f4edf4; --ink:#3e3447; --muted:#655870; --accent:var(--brand-accent,#7a365a); --panel:#e6dbee; --line:#b3a1bc; }
+.card.template-T44 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#f4edf4; --ink:#3e3447; --muted:#655870; --accent:var(--brand-accent,#7a365a); --panel:#e6dbee; --line:#b3a1bc; }
 .card.template-T44 .template-heading { padding:.3em 0 .45em; text-align:center; }
 .card.template-T44 .card-eyebrow { margin-bottom:.45em; color:var(--muted); letter-spacing:.025em; }
 .card.template-T44 h1 { font-size:1.85em; font-weight:850; letter-spacing:-.035em; }
 .card.template-T44 .template-intro { padding:.4em .55em; border-radius:1em; background:#e5e8d9; text-align:center; }
 .card.template-T44 .template-intro p { margin:0; }
-.card.template-T44 .template-sections { gap:.6em; }
+.card.template-T44 .template-sections { gap:.4em; }
 .card.template-T44 .template-section { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:.35em .65em; align-items:start; }
 .card.template-T44 .template-section h2 { grid-column:1 / -1; margin:0; padding:.1em .3em; border-bottom:1px solid var(--line); text-align:center; font-size:1em; }
-.card.template-T44 .template-section blockquote { margin:0; padding:.4em .45em; border:1px solid var(--line); border-radius:.65em .65em .65em 0; background:#f0d9ba; }
+.card.template-T44 .template-section blockquote { margin:0; padding:.2em .2em; border:1px solid var(--line); border-radius:.65em .65em .65em 0; background:#f0d9ba; }
 .card.template-T44 .template-section blockquote:nth-of-type(2) { border-radius:.65em .65em 0 .65em; background:#d8e5de; }
 .card.template-T44 .template-section blockquote p { margin:0; }
-.card.template-T44 .template-section blockquote strong { display:block; margin-bottom:.2em; color:var(--ink); }
+.card.template-T44 .template-section blockquote strong { display:inline; margin-right:.2em; color:var(--ink); }
 .card.template-T44 .template-section > :not(h2):not(blockquote) { grid-column:1 / -1; }
 .card.template-T44 .template-section:nth-child(n + 3) { display:block; padding:.4em .5em; border:1px dashed var(--line); border-radius:.4em; }
 .card.template-T44 .template-section:nth-child(n + 3) h2 { margin-bottom:.25em; padding:0; border:0; text-align:left; }
@@ -894,16 +894,16 @@
 /* T47: an ingredient band above two full-width illustrated method rows.
  * Each H2, full original illustration and operation keep their Markdown order.
  * Number labels are authored headings, not CSS-generated or reset steps. */
-.card.template-T47 { --paper:#f8f3e3; --ink:#394334; --muted:#606b53; --accent:var(--brand-accent,#546d35); --panel:#e9e5c9; --line:#adb394; }
+.card.template-T47 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#f8f3e3; --ink:#394334; --muted:#606b53; --accent:var(--brand-accent,#546d35); --panel:#e9e5c9; --line:#adb394; }
 .card.template-T47 .template-heading { padding:.35em 0 .55em; border-bottom:.07em solid var(--accent); }
 .card.template-T47 .card-eyebrow { margin-bottom:.45em; color:var(--accent); letter-spacing:.04em; }
 .card.template-T47 h1 { font:700 1.85em/1.22 var(--serif); }
-.card.template-T47 .template-intro { padding:.45em .6em; border:1px solid var(--line); background:var(--panel); }
+.card.template-T47 .template-intro { padding:.3em .4em; border:1px solid var(--line); background:var(--panel); }
 .card.template-T47 .template-intro p { margin:0 0 .3em; }
 .card.template-T47 .template-intro ul { margin:0; padding-left:1.15em; }
 .card.template-T47 .template-intro li { margin:.1em 0; padding-left:.05em; }
-.card.template-T47 .template-sections { gap:.6em; }
-.card.template-T47 .template-section { display:grid; grid-template-columns:minmax(0,6em) minmax(0,1fr); gap:.35em .65em; align-items:start; padding-bottom:.45em; border-bottom:1px solid var(--line); }
+.card.template-T47 .template-sections { gap:.45em; }
+.card.template-T47 .template-section { display:grid; grid-template-columns:minmax(0,4.5em) minmax(0,1fr); gap:.25em .45em; align-items:start; padding-bottom:.2em; border-bottom:1px solid var(--line); }
 .card.template-T47 .template-section h2 { grid-column:1 / -1; margin:0; color:var(--accent); font-size:1em; }
 .card.template-T47 .template-section > p:has(> .markdown-image:only-child) { grid-column:1; margin:0; }
 .card.template-T47 .template-section > :not(h2):not(p:has(> .markdown-image:only-child)) { grid-column:2; margin:0; }
@@ -913,24 +913,94 @@
 
 /* T48: horizontal product specimens, with identical fields beside each image.
  * Contrast the objects by matched fields, not a rating, price, or winner tile. */
-.card.template-T48 { --paper:#f1efe5; --ink:#344038; --muted:#5b675b; --accent:var(--brand-accent,#6c563c); --panel:#e2e7da; --line:#a7b09d; }
-.card.template-T48 .template-heading { padding:.3em 0 .5em; border-top:.07em solid var(--accent); }
-.card.template-T48 .card-eyebrow { margin-bottom:.45em; color:var(--muted); letter-spacing:.04em; }
+.card.template-T48 { --section-gap: .4em; --paragraph-gap: .3em; --paper:#f1efe5; --ink:#344038; --muted:#5b675b; --accent:var(--brand-accent,#6c563c); --panel:#e2e7da; --line:#a7b09d; }
+.card.template-T48 .template-heading { padding:.1em 0 .2em; border-top:.07em solid var(--accent); }
+.card.template-T48 .card-eyebrow { margin-bottom:.2em; color:var(--muted); letter-spacing:.04em; }
 .card.template-T48 h1 { font:700 1.75em/1.25 var(--serif); }
 .card.template-T48 .template-intro p { margin:0; }
-.card.template-T48 .template-sections { gap:.6em; }
-.card.template-T48 .template-section { display:grid; grid-template-columns:minmax(0,6.5em) minmax(0,1fr); gap:.35em .65em; align-items:start; padding:.4em .5em .5em; border:1px solid var(--line); background:#fbf8ee; }
-.card.template-T48 .template-section h2 { grid-column:1 / -1; margin:0; padding-bottom:.25em; border-bottom:1px solid var(--line); font-family:var(--serif); font-size:1em; }
+.card.template-T48 .template-sections { gap:.4em; }
+.card.template-T48 .template-section { display:grid; grid-template-columns:minmax(0,4.5em) minmax(0,1fr); gap:.2em .45em; align-items:start; padding:.1em .35em .15em; border:1px solid var(--line); background:#fbf8ee; }
+.card.template-T48 .template-section h2 { grid-column:1 / -1; margin:0; padding-bottom:.1em; border-bottom:1px solid var(--line); font-family:var(--serif); font-size:1em; }
 .card.template-T48 .template-section > p:has(> .markdown-image:only-child) { grid-column:1; margin:0; }
 .card.template-T48 .template-section > :not(h2):not(p:has(> .markdown-image:only-child)) { grid-column:2; margin:0; }
 .card.template-T48 .markdown-image { width:100%; height:3.7em; max-height:none; margin:0; object-fit:contain; background:var(--panel); }
 .card.template-T48 .template-section ul { padding-left:1.1em; }
-.card.template-T48 .template-section li { margin:0 0 .25em; padding-left:0; }
-.card.template-T48 .template-section:nth-child(n + 3) { display:block; padding:.45em .6em; border:0; border-left:.12em solid var(--accent); background:var(--panel); }
+.card.template-T48 .template-section li { margin:0 0 .1em; padding-left:0; }
+.card.template-T48 .template-section li:last-child { margin-bottom:0; }
+.card.template-T48 .template-section:nth-child(n + 3) { display:block; padding:.25em .4em; border:0; border-left:.12em solid var(--accent); background:var(--panel); }
 .card.template-T48 .template-section:nth-child(n + 3) h2 { margin-bottom:.25em; padding:0; border:0; }
 .card.template-T48 .template-section:nth-child(n + 3) p { margin:0; }
-.card.template-T48 .card-source { padding-top:.3em; border:0; }
-.card.template-T48 .card-footer { border-top:1px solid var(--line); }
+.card.template-T48 .card-source { padding-top:.1em; border:0; }
+.card.template-T48 .card-footer { border-top:1px solid var(--line); margin-top:.4em; padding-top:.3em; }
+
+/* Clipping labels share a metadata row only when the authored paragraph
+ * directly follows its H2; quotation and later paragraphs keep full width. */
+.card.template-T35 .template-section:has(> h2 + p) { display:grid; grid-template-columns:minmax(0,.5fr) minmax(0,1.5fr); column-gap:.35em; }
+.card.template-T35 .template-section:has(> h2 + p)::before { grid-column:1 / -1; grid-row:1; }
+.card.template-T35 .template-section:has(> h2 + p) > h2 { grid-column:1; grid-row:2; margin:0; align-self:baseline; }
+.card.template-T35 .template-section:has(> h2 + p) > h2 + p { grid-column:2; grid-row:2; margin:0; align-self:baseline; text-align:right; }
+.card.template-T35 .template-section:has(> h2 + p) > :not(h2):not(h2 + p) { grid-column:1 / -1; }
+/* Product images span their heading and field row. Descriptions remain in
+ * DOM order and any later limitation sections retain their full-width band. */
+.card.template-T48 .template-section:nth-child(-n + 2) > h2 { grid-column:2; grid-row:1; }
+.card.template-T48 .template-section:nth-child(-n + 2) > p:has(> .markdown-image:only-child) { grid-column:1; grid-row:1 / span 2; }
+
+/* Calibrated furniture retains compact < standard < editorial spacing. */
+.card.template-T03.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T03.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T16.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T16.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T19.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T19.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T24.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T24.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T27.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T27.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T28.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T28.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T35.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T35.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T36.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T36.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T38.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T38.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T40.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T40.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T43.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T43.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T44.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T44.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T46.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T46.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T47.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T47.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+.card.template-T48.density-compact { --section-gap: .28em; --paragraph-gap: .2em; }
+.card.template-T48.density-editorial { --section-gap: .58em; --paragraph-gap: .4em; }
+
+/* Real-render calibration: compact essays reserve less list furniture, never smaller type. */
+.card.template-T04.density-compact ul, .card.template-T04.density-compact ol { margin: .2em 0; }
+.card.template-T04.density-compact li { margin: .1em 0; }
+.card.template-T04.density-compact li ul, .card.template-T04.density-compact li ol { margin: .05em 0; }
+
+.card.template-T04.density-compact .template-sections { gap: .12em; }
+.card.template-T04.density-compact .template-section h2 { margin-bottom: .08em; }
+.card.template-T04.density-compact .template-section p { margin-top: .12em; }
+.card.template-T04.density-compact .card-source { padding-top: .1em; }
+.card.template-T17.density-compact .template-heading { padding: .2em .7em; }
+.card.template-T17.density-compact .template-sections { gap: .2em; }
+.card.template-T18.density-compact .card-eyebrow { margin-bottom: .35em; }
+.card.template-T18.density-compact .template-section h2 { padding-bottom: .1em; }
+
+/* Compact-only furniture adjustments for the unchanged authored series and URL pressure input. */
+.card.template-T04.density-compact, .card.template-T18.density-compact { --section-gap: .35em; }
+.card.template-T04.density-compact .template-heading { padding: 0 0 .1em; }
+.card.template-T04.density-compact .template-intro { padding: 0 .3em .1em; }
+.card.template-T04.density-compact .template-section + .template-section { padding-top: .12em; }
+.card.template-T04.density-compact .card-footer, .card.template-T18.density-compact .card-footer { margin-top: .4em; padding-top: .3em; }
+.card.template-T18.density-compact .template-heading { padding: .15em .45em .2em; }
+.card.template-T18.density-compact .template-main { padding-top: .2em; padding-bottom: .2em; }
+.card.template-T18.density-compact .template-section pre { padding-top: .2em; padding-bottom: .2em; }
+.card.template-T18.density-compact .card-source { padding-top: .1em; }
 
 /* M9 independent aspect candidates: only T04 / T21, all real acceptance pending.
  * Dimensions choose an internal enum; no aspect is sourced from user CSS.
@@ -946,12 +1016,12 @@
 
 /* Landscape essay: a title rail and generous labeled reading rows, not three
  * narrow newspaper columns. The source is a separate full-width bottom band. */
-.card.template-T04.template-aspect-slide .card-content { display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr); grid-template-rows: minmax(min-content, 1fr) auto; column-gap: .8em; row-gap: calc(var(--section-gap) * .55); }
+.card.template-T04.template-aspect-slide .card-content { display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr); grid-template-rows: minmax(min-content, 1fr) auto; column-gap: .8em; row-gap: calc(var(--section-gap) * .2); }
 .card.template-T04.template-aspect-slide .template-heading { grid-column: 1; grid-row: 1; text-align: left; border-top: 0; border-left: .14em solid var(--ink); padding: .2em 0 0 .45em; }
 .card.template-T04.template-aspect-slide h1 { font-size: 1.45em; line-height: 1.22; }
 .card.template-T04.template-aspect-slide .template-main { grid-column: 2; grid-row: 1; }
 .card.template-T04.template-aspect-slide .template-intro { padding: 0 0 .2em; border-bottom: .06em solid var(--ink); }
-.card.template-T04.template-aspect-slide .template-sections { margin-top: calc(var(--section-gap) * .45); gap: calc(var(--section-gap) * .45); }
+.card.template-T04.template-aspect-slide .template-sections { margin-top: calc(var(--section-gap) * .25); gap: calc(var(--section-gap) * .25); }
 .card.template-T04.template-aspect-slide .template-section { display: grid; grid-template-columns: minmax(0, .6fr) minmax(0, 1.4fr); column-gap: .45em; padding-top: .12em; }
 .card.template-T04.template-aspect-slide .template-section h2 { grid-column: 1; grid-row: 1; margin: 0; font-size: 1em; }
 .card.template-T04.template-aspect-slide .template-section > :not(h2) { grid-column: 2; }

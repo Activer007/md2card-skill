@@ -43,6 +43,19 @@ function trimBlankLines(lines) {
   let last = lines.length;
   while (first < last && /^[ \t]*$/.test(lines[first])) first++;
   while (last > first && /^[ \t]*$/.test(lines[last - 1])) last--;
+  if (first < last && last < lines.length) {
+    // A final newline or blank line can still be fenced-code content, including
+    // an unclosed fence inside a list/quote. Count consumed content lines from
+    // parser tokens rather than guessing closing fences from raw indentation.
+    // Keep the following boundary too: joining without it would lose the last
+    // code newline. A closed fence already has a later nonblank closing marker.
+    for (const token of parser.parse(lines.join('\n'), { references: Object.create(null) })) {
+      if (token.type === 'fence' && token.map && token.content.endsWith('\n')) {
+        const contentLines = token.content.split('\n').length - 1;
+        last = Math.max(last, Math.min(lines.length, token.map[0] + contentLines + 2));
+      }
+    }
+  }
   return lines.slice(first, last).join('\n');
 }
 

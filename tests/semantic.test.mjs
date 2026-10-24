@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
+import MarkdownIt from 'markdown-it';
 import {
   AUTO_LAYOUTS, MAX_SEMANTIC_ATOMS, parseSemanticDocument,
   renderSemanticCard, validateSemanticCoverage, semanticManifest
@@ -119,6 +120,28 @@ test('fenced, nested fenced and indented code protect literal === and remain ato
   }
   const document = parseSemanticDocument('A long paragraph\nwith a second line\n\n> A quote\n>\n> - nested\n> - list\n\n```js\nconst tag = "<tag>";\n```');
   assert.deepEqual(document.atoms.map(atom => atom.kind), ['paragraph', 'quote', 'code']);
+});
+
+test('manual and automatic modes conserve terminal code whitespace against an independent parser', () => {
+  const independentParser = new MarkdownIt({ html: false });
+  for (const fence of ['```', '~~~']) {
+    for (const source of [
+      `\n\n${fence}\ncode  \n\n`,
+      `\n\n${fence}\ncode  \n \n\t\n`,
+      `- item\n\n  ${fence}\n  code  \n  \n\n`,
+      `> ${fence}\n> code  \n\n`,
+      `${fence}\ncode\n\n${fence}\n\n\n`,
+      '\n\n    code  \n    \n\n'
+    ]) {
+      const document = parseSemanticDocument(source);
+      const [card] = wholeCards(document);
+      assert.equal(card.html, independentParser.render(source), JSON.stringify(source));
+      assert.equal(card.html, renderCards(source)[0].html, JSON.stringify(source));
+      assert.equal(validateSemanticCoverage(document, [card]).valid, true);
+      assertSourceAccounting(document);
+      assert.deepEqual(document.atoms[0].sourceRange.map(offset => document.sourceMap.normalizedToOriginal[offset]), document.atoms[0].originalRange);
+    }
+  }
 });
 
 test('tight and loose lists retain complete nested items and original paragraph visibility', () => {

@@ -272,7 +272,14 @@ export async function exportCards(options, dependencies = {}) {
     if (options.preview) { await write(path.join(staging, 'preview.html'), buildPreviewDocument(cards, options, themeCss, layoutCss)); await record('preview', 'preview.html'); }
     let pdfQa = { status: 'not-requested' };
     if (options.formats.includes('pdf')) {
-      await page.pdf({ path: path.join(staging, 'cards.pdf'), printBackground: true, preferCSSPageSize: true, displayHeaderFooter: false, timeout: checkTime(), margin: { top: 0, bottom: 0, left: 0, right: 0 } });
+      // Playwright PDF generation has no timeout option. Request bytes only so
+      // the deadline can interrupt it without a late result writing to staging.
+      checkTime();
+      const pdf = await withinDeadline(page.pdf({ printBackground: true, preferCSSPageSize: true, displayHeaderFooter: false, margin: { top: 0, bottom: 0, left: 0, right: 0 } }));
+      checkTime();
+      if (!Buffer.isBuffer(pdf) || pdf.length < 5 || !pdf.subarray(0, 5).equals(Buffer.from('%PDF-'))) fail('PDF_FILE_INVALID', 'Chromium did not return a valid PDF buffer.');
+      if (outputBytes + pdf.length > LIMITS.outputBytes) fail('OUTPUT_BUDGET', 'Generated output exceeds 256 MiB. Split the deck or reduce image density.');
+      await write(path.join(staging, 'cards.pdf'), pdf);
       const textContent = await withinDeadline(page.locator('.card-content').allTextContents());
       pdfQa = await inspectPdf(path.join(staging, 'cards.pdf'), { expectedPages: cards.length, requireTools: options.strict, expectedText: textContent.join(' ').trim() });
       await record('pdf', 'cards.pdf');

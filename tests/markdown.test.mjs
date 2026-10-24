@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import MarkdownIt from 'markdown-it';
 import { splitCards, renderCards, escapeHtml } from '../scripts/markdown.mjs';
 import { parseOptions } from '../scripts/render.mjs';
 import { buildDocument } from '../scripts/document.mjs';
@@ -85,6 +86,31 @@ test('blank-line trimming never strips indentation or trailing code spaces', () 
   assert.equal(cards[0].html, '<pre><code>first  \n===\nthird  \n</code></pre>\n');
   assert.equal(cards[1].source, '\tsecond  ');
   assert.match(cards[1].html, /<pre><code>second  \n/);
+});
+
+test('boundary trimming preserves fenced-code newlines, including unclosed nested fences', () => {
+  const independentParser = new MarkdownIt({ html: false });
+  for (const fence of ['```', '````', '~~~', '~~~~']) {
+    for (const closed of [false, true]) {
+      for (const prefix of ['', '<!-- card: {"layout":"explainer"} -->\n\n']) {
+        for (const nested of ['', '  ', '> ']) {
+          const opener = nested === '  ' ? '- item\n\n' : '';
+          const source = `\n\n${opener}${nested}${fence}text\n${nested}code  \n${nested} \n${nested}\t\n${closed ? `${nested}${fence}\n` : ''}\n\n`;
+          const [card] = renderCards(prefix + source);
+          assert.equal(card.html, independentParser.render(source), JSON.stringify({ fence, closed, prefix, nested }));
+          if (closed) assert.ok(!card.source.endsWith('\n'), 'Closed-fence boundary whitespace is still trimmed.');
+        }
+      }
+    }
+    const source = `\n${fence}\ncode\n\n${fence}\n\n===\n\n[ref]: https://example.test\n\n[ref]`;
+    const cards = renderCards(source);
+    assert.equal(cards.length, 2);
+    assert.equal(cards[0].html, '<pre><code>code\n\n</code></pre>\n');
+    assert.match(cards[1].html, /href="https:\/\/example.test"/);
+    assert.deepEqual(cards[0].sourceLines, [1, 6]);
+    assert.deepEqual(cards[1].sourceLines, [8, 11]);
+    assert.equal(renderCards(`${fence}\ncode`)[0].html, '<pre><code>code</code></pre>\n');
+  }
 });
 
 test('nested fences and indented code protect literal separators', () => {

@@ -10,6 +10,35 @@ failure injection, unit tests, and real-browser/PDF exports. Passing CI alone is
 not evidence that all bugs are absent. Each finding below resulted in a concrete
 behavior change and a focused regression, rather than only a wider happy-path run.
 
+## Pre-merge source follow-up (2026-10-24)
+
+A fresh audit of the exact PR head found and fixed two additional edge cases:
+
+- Manual boundary trimming removed final newlines and blank lines from unclosed
+  fenced code, including fences nested in lists and quotes. For example,
+  `alpha\n~~~\ncode\n\n` lost both code newlines in manual mode while automatic
+  mode preserved them. Trimming now uses parser-token content line counts to
+  retain those boundaries. Closed-fence padding still trims normally; explicit
+  partitions, metadata, indented code and source locations remain unchanged.
+- The pinned Playwright PDF implementation has no PDF timeout option and uses an
+  unbounded transport call. Passing `timeout` to a directly awaited PDF-to-path
+  operation therefore did not enforce the render deadline. A stalled PDF plus
+  stalled browser cleanup reproduced an export still pending with staging after
+  its deadline. PDF generation now returns bytes through the shared deadline
+  race; only the export owner writes them after buffer/header and output-budget
+  checks. Late settlement cannot recreate staging or publish partial output.
+
+Focused regressions compare terminal code against a separate Markdown parser,
+cover backtick/tilde and closed/unclosed/nested fences, and inject late PDF
+resolution/rejection, write failures, invalid buffers and exhausted output bytes.
+An additional 5,625-case differential sweep produced 5,343 matching accepted
+manual/automatic renderings and 282 expected empty-input/orphan-heading rejections,
+with no remaining mismatch or unexpected error. The full local suite passed
+138 tests and explicitly skipped 17 browser tests, with no failures. Local PDF
+tool tests ran without Chromium. These are source/injected-test results, not new
+real-browser export evidence; fresh exact-commit mandatory CI is required before
+merging these fixes. The older 148-test CI evidence below predates them.
+
 ## Phase 3 source review (2026-10-23)
 
 The opt-in path has completed independent core source review and 127 local unit

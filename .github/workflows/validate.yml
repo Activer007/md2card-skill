@@ -50,6 +50,9 @@ jobs:
       - name: Render composed templates and measure actual mobile type
         if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
         run: node scripts/validate-templates.mjs
+      - name: Validate explicit footer modes without discarding source text
+        if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
+        run: node scripts/validate-footers.mjs
       - name: Validate optional authored series
         if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
         run: node scripts/validate-series.mjs

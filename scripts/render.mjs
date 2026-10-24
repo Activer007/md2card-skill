@@ -7,7 +7,7 @@ import { parseArgs } from 'node:util';
 import { renderCards } from './markdown.mjs';
 import { parseSemanticDocument } from './semantic.mjs';
 import { paginateSemanticDocument } from './pagination.mjs';
-import { buildDocument, buildPreviewDocument, SIZES, THEMES } from './document.mjs';
+import { buildDocument, buildPreviewDocument, SIZES, THEMES, FOOTER_MODES } from './document.mjs';
 import { createAssetResolver } from './assets.mjs';
 import { openRenderer, measureCards, closeBrowser, BROWSER_CLEANUP_TIMEOUT_MS } from './browser.mjs';
 import { inspectEnvironment } from './doctor.mjs';
@@ -37,6 +37,7 @@ Usage: node scripts/render.mjs input.md --out ./output
   --height PX       Override height, integer 200–4096
   --scale N         PNG density 0.5–3 (default 1); not PDF page size
   --footer TEXT     Optional footer text
+  --footer-mode MODE legacy (default), poster, series, report; retains attribution
   --title TEXT      Document title, defaults to filename
   --lang TAG        Language tag (default zh-CN)
   --browser PATH    Chromium executable, or CHROMIUM_PATH
@@ -70,12 +71,13 @@ export function parseOptions(argv) {
   try { parsed = parseArgs({ args: argv, allowPositionals: true, strict: true, options: {
     template: { type: 'string' }, 'list-templates': { type: 'boolean' }, out: { type: 'string' }, theme: { type: 'string', default: 'editorial' }, format: { type: 'string', default: 'all' }, paginate: { type: 'string', default: 'manual' }, 'balance-tail': { type: 'boolean', default: false },
     size: { type: 'string', default: 'portrait' }, width: { type: 'string' }, height: { type: 'string' }, scale: { type: 'string', default: '1' },
-    footer: { type: 'string', default: '' }, title: { type: 'string' }, lang: { type: 'string', default: 'zh-CN' }, browser: { type: 'string' },
+    footer: { type: 'string', default: '' }, 'footer-mode': { type: 'string', default: 'legacy' }, title: { type: 'string' }, lang: { type: 'string', default: 'zh-CN' }, browser: { type: 'string' },
     'asset-root': { type: 'string' }, brand: { type: 'string' }, preview: { type: 'boolean', default: false }, 'contact-sheet': { type: 'boolean', default: false },
     strict: { type: 'boolean', default: false }, doctor: { type: 'boolean', default: false }, json: { type: 'boolean', default: false },
     'timeout-ms': { type: 'string', default: '120000' }, help: { type: 'boolean', short: 'h' }, version: { type: 'boolean' }
   } }); } catch (error) { fail('INVALID_OPTIONS', error.message); }
   const { values, positionals } = parsed;
+  if (!FOOTER_MODES.includes(values['footer-mode'])) fail('INVALID_OPTIONS', `--footer-mode accepts ${FOOTER_MODES.join(', ')}.`);
   if (values['balance-tail'] && values.paginate !== 'auto') fail('INVALID_OPTIONS', '--balance-tail requires --paginate auto; manual boundaries are never rebalanced.');
   if (values['list-templates']) return { listTemplates: true };
   if (values.template !== undefined) getTemplate(values.template);
@@ -99,7 +101,7 @@ export function parseOptions(argv) {
   const input = path.resolve(positionals[0]);
   return { ...values, input, out: path.resolve(values.out || path.join('output', path.parse(input).name)), width, height, scale, formats,
     title: values.title ?? path.basename(input), assetRoot: path.resolve(values['asset-root'] || path.dirname(input)), brandFile: values.brand ? path.resolve(values.brand) : undefined,
-    contactSheet: values['contact-sheet'], balanceTail: values['balance-tail'], timeoutMs };
+    contactSheet: values['contact-sheet'], balanceTail: values['balance-tail'], footerMode: values['footer-mode'], timeoutMs };
 }
 
 export function checkRenderBudget(cardCount, options) {
@@ -164,6 +166,8 @@ export function countDocumentAssets(cards, loadedAssets, brand) {
 }
 
 export async function exportCards(options, dependencies = {}) {
+  const footerMode = options.footerMode === undefined ? 'legacy' : options.footerMode;
+  if (!FOOTER_MODES.includes(footerMode)) fail('INVALID_OPTIONS', `footerMode accepts ${FOOTER_MODES.join(', ')}.`);
   if (options.balanceTail !== undefined && typeof options.balanceTail !== 'boolean') fail('INVALID_OPTIONS', 'balanceTail must be a boolean.');
   if (options.balanceTail && options.paginate !== 'auto') fail('INVALID_OPTIONS', '--balance-tail requires --paginate auto; manual boundaries are never rebalanced.');
   // Explicit dependency seams support deterministic lifecycle tests, not alternate
@@ -193,7 +197,7 @@ export async function exportCards(options, dependencies = {}) {
   }
   let budget = checkRenderBudget(semanticDocument?.partitions.length ?? cards.length, options);
   const brand = await loadBrand(options.brandFile, assets.resolveImage);
-  options = { ...options, brand };
+  options = { ...options, brand, footerMode };
   const [themeCss, layoutCss, templateCss] = await Promise.all(['themes.css', 'layouts.css', 'templates.css'].map(file => readFile(path.join(ROOT, 'assets', file), 'utf8')));
   const documentHtml = (selectedCards, paginationProbe = false) => {
     countDocumentAssets(selectedCards, assets.getAssets(), brand);
@@ -323,7 +327,7 @@ export async function exportCards(options, dependencies = {}) {
     const loadedAssets = assets.getAssets().map(({ dataUrl, ...asset }) => asset);
     const manifest = {
       schemaVersion: 2, status: 'success', generator: { name: 'md2card-skill', version: VERSION }, createdAt: new Date().toISOString(),
-      input: path.basename(options.input), inputSha256: hash(markdown), title: options.title, theme: options.theme,
+      input: path.basename(options.input), inputSha256: hash(markdown), title: options.title, theme: options.theme, footerMode,
       styleSha256: { themes: hash(themeCss), layouts: hash(layoutCss), templates: hash(templateCss) }, brand: brand ? { name: brand.name, accent: brand.accent, logoHash: brand.logo?.hash } : null,
       dimensions: { width: options.width, height: options.height }, pngScale: options.scale, formats: options.formats, cardCount: cards.length, artifacts, assets: loadedAssets, assetUsage,
       versions: { ...environment.versions, chromium: renderer.browser.version() }, budget: { ...budget, outputBytes, elapsedMs: now() - started },

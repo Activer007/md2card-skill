@@ -2,6 +2,7 @@ import { escapeHtml, LAYOUTS } from './markdown.mjs';
 import { validateTemplateMetadata, validateTemplateCard, resolveTemplateAspect } from './templates.mjs';
 
 export const THEMES = ['editorial', 'minimal', 'midnight', 'notebook', 'bold'];
+export const FOOTER_MODES = Object.freeze(['legacy', 'poster', 'series', 'report']);
 export { LAYOUTS };
 export const SIZES = {
   portrait: { width: 1080, height: 1440 },
@@ -73,14 +74,18 @@ function cardContent(card, layout, template) {
   return `${eyebrow}${layout === 'image-caption' ? figure(card, metadata, true) : ''}${body}${layout !== 'image-caption' ? figure(card, metadata) : ''}${source}`;
 }
 
-function footerHtml(options, index, count) {
+function footerHtml(options, index, count, footerMode) {
   const brandName = plainText(options.brand?.name, 'Brand name');
   const footer = plainText(options.footer, 'Footer');
   const logo = imageTag(options.brand?.logo, brandName ? '' : 'Brand logo', 'brand-logo');
   // A probe reserves the widest permitted page counter. Final exports always
   // replace it with the actual count and undergo full screen/print validation.
-  const counter = options.paginationProbe === true ? '200 / 200' : `${index} / ${count}`;
-  return `<footer class="card-footer"><div class="footer-identity">${logo}<div class="footer-meta">${brandName ? `<span class="brand-name">${brandName}</span>` : ''}${footer ? `<span class="footer-text">${footer}</span>` : ''}</div></div><span class="card-index">${counter}</span></footer>`;
+  const probe = options.paginationProbe === true;
+  const counter = probe ? '200 / 200' : footerMode === 'series' ? `${String(index).padStart(2, '0')} / ${String(count).padStart(2, '0')}` : `${index} / ${count}`;
+  // Only a final, single-card poster omits the generated counter. Keep the
+  // footer element in flow for measurement, and never remove supplied text.
+  const counterHtml = footerMode === 'poster' && count === 1 && !probe ? '' : `<span class="card-index">${counter}</span>`;
+  return `<footer class="card-footer"><div class="footer-identity">${logo}<div class="footer-meta">${brandName ? `<span class="brand-name">${brandName}</span>` : ''}${footer ? `<span class="footer-text">${footer}</span>` : ''}</div></div>${counterHtml}</footer>`;
 }
 
 /**
@@ -90,6 +95,8 @@ function footerHtml(options, index, count) {
  */
 export function buildDocument(cards, options, themeCss, layoutCss = '', templateCss = '') {
   const { width, height, theme = 'editorial' } = options;
+  const footerMode = options.footerMode === undefined ? 'legacy' : options.footerMode;
+  if (!FOOTER_MODES.includes(footerMode)) throw new Error(`Unknown footer mode "${footerMode}". Choose ${FOOTER_MODES.join(', ')}.`);
   if (![width, height].every(value => Number.isInteger(value) && value >= 200 && value <= 4096)) {
     throw new Error('Card dimensions must be integers from 200 to 4096 pixels.');
   }
@@ -107,9 +114,9 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
     validateTemplateCard(card, template);
     const aspect = template ? resolveTemplateAspect(template.id, { width, height }) : null;
     const templateClass = template ? ` template-card template-${template.id} family-${template.family} density-${card.metadata.density ?? template.density} ${aspect.className}` : '';
-    const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}" data-template-aspect="${aspect.id}"` : ''} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
+    const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}" data-template-aspect="${aspect.id}"` : ''}${footerMode === 'legacy' ? '' : ` data-footer-mode="${footerMode}"`} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
     <div class="card-content">${cardContent(card, layout, template)}</div>
-    ${footerHtml(options, index, cards.length)}
+    ${footerHtml(options, index, cards.length, footerMode)}
   </article>`;
     return preview ? `<section class="preview-item" aria-label="Preview card ${index}"><div class="preview-canvas">${article}</div><p class="preview-caption">${index} / ${cards.length} · ${layout} · ${width} × ${height}</p></section>` : article;
   }).join('\n');

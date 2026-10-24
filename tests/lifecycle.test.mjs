@@ -446,3 +446,137 @@ test('CLI template conflicts reject before acquiring a renderer and never remove
   await assert.rejects(() => exportCards({ ...options, template: 'T01' }, deps), { code: 'TEMPLATE_CONFLICT' });
   assert.equal(called, false);
 });
+
+test('direct export rejects invalid footer modes before file access or renderer acquisition', async () => {
+  for (const footerMode of ['', 'none', 'Poster', 'report" onclick="bad', null, false, 3, {}]) {
+    await assert.rejects(() => exportCards({ footerMode }, {
+      openRenderer: async () => assert.fail('invalid footer mode must reject before launch')
+    }), { code: 'INVALID_OPTIONS' });
+  }
+});
+
+test('default export records legacy and emits the same HTML as explicit legacy', async t => {
+  const { dir, options } = await workspace(t);
+  const fixture = rendererFixture();
+  const implicit = { ...options };
+  delete implicit.footerMode;
+  const manifest = await exportCards(implicit, dependencies(fixture.renderer));
+  assert.equal(manifest.footerMode, 'legacy');
+  const explicit = { ...options, footerMode: 'legacy', out: path.join(dir, 'explicit') };
+  const secondFixture = rendererFixture();
+  const secondManifest = await exportCards(explicit, dependencies(secondFixture.renderer));
+  assert.equal(secondManifest.footerMode, 'legacy');
+  assert.equal(await readFile(path.join(options.out, 'cards.html'), 'utf8'), await readFile(path.join(explicit.out, 'cards.html'), 'utf8'));
+  assert.equal(fixture.closeCalls(), 1);
+  assert.equal(secondFixture.closeCalls(), 1);
+});
+
+test('all footer modes export retained attribution and caveats in manual and measured auto paths', async t => {
+  for (const footerMode of ['legacy', 'poster', 'series', 'report']) for (const paginate of ['manual', 'auto']) {
+    await t.test(`${footerMode} / ${paginate}`, async subtest => {
+      const { dir, options } = await workspace(subtest);
+      const body = '# Original title\n\nBODY_ONE.\n\nSource: original paper <2026> & limitations.\n\nAI-assisted illustration; sample data, not a factual claim.';
+      const metadata = '<!-- card: {"source":"Metadata source <paper> & author; verify facts."} -->\n';
+      const source = (paginate === 'manual' ? metadata : '') + body;
+      const footer = 'Footer <caveat> & AI notice: independently verify facts.';
+      const brandFile = path.join(dir, 'brand.json');
+      await writeFile(path.join(dir, 'logo.png'), Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=', 'base64'));
+      await writeFile(brandFile, JSON.stringify({ name: 'Author <team> & company', logo: 'logo.png' }));
+      await writeFile(options.input, source);
+      const fixture = rendererFixture();
+      let content = '', media = 'screen';
+      const loads = [], measurements = [];
+      fixture.renderer.page.setContent = async html => { content = html; loads.push(html); };
+      fixture.renderer.page.emulateMedia = async value => { media = value.media; };
+      const result = await exportCards({ ...options, footerMode, paginate, footer, brandFile, preview: true }, dependencies(fixture.renderer, {
+        measureCards: async () => {
+          measurements.push({ media, content });
+          return [...content.matchAll(/<article\b[\s\S]*?<\/article>/g)].map((match, index) => {
+            const paragraphs = (match[0].match(/<p>/g) || []).length;
+            return { index: index + 1, available: { width: 500, height: 500 }, used: { width: 500, height: 500 }, occupied: { height: 100 * paragraphs },
+              overflow: paginate === 'auto' && paragraphs > 2 ? ['content-height'] : [] };
+          });
+        }
+      }));
+      assert.equal(result.footerMode, footerMode);
+      assert.equal(result.pagination.mode, paginate);
+      assert.equal(result.qa.visualReview, 'not-performed');
+      assert.equal(result.cardCount, paginate === 'auto' ? 2 : 1);
+      assert.equal(result.assetUsage.occurrences, result.cardCount, 'brand logo must remain on every card');
+      assert.equal(fixture.closeCalls(), 1);
+      assert.equal(JSON.parse(await readFile(path.join(options.out, 'manifest.json'), 'utf8')).footerMode, footerMode);
+      assert.deepEqual(measurements.slice(-2).map(item => item.media), ['screen', 'print']);
+      assert.equal(measurements.at(-2).content, loads.at(-1));
+      assert.equal(measurements.at(-1).content, loads.at(-1));
+      if (paginate === 'auto') {
+        assert.ok(loads.length > 1);
+        for (const probe of loads.slice(0, -1)) {
+          assert.match(probe, /class="card-index">200 \/ 200/);
+          assert.match(probe, /class="footer-text">Footer &lt;caveat&gt; &amp; AI notice: independently verify facts\./);
+          assert.match(probe, /class="brand-logo"/);
+        }
+        assert.equal(result.pagination.validation.status, 'pass');
+      }
+      for (const filename of ['cards.html', 'preview.html']) {
+        const html = await readFile(path.join(options.out, filename), 'utf8');
+        const articles = [...html.matchAll(/<article\b[\s\S]*?<\/article>/g)].map(match => match[0]);
+        assert.equal(articles.length, result.cardCount);
+        assert.equal(html.split('Source: original paper &lt;2026&gt; &amp; limitations.').length - 1, 1);
+        assert.equal(html.split('AI-assisted illustration; sample data, not a factual claim.').length - 1, 1);
+        assert.equal(html.split('BODY_ONE.').length - 1, 1);
+        if (paginate === 'manual') assert.match(html, /class="card-source">Metadata source &lt;paper&gt; &amp; author; verify facts\.<\/p>/);
+        assert.doesNotMatch(html, /class="card-index">200 \/ 200/);
+        for (const [index, article] of articles.entries()) {
+          assert.match(article, /class="footer-text">Footer &lt;caveat&gt; &amp; AI notice: independently verify facts\.<\/span>/);
+          assert.match(article, /class="brand-name">Author &lt;team&gt; &amp; company<\/span>/);
+          assert.match(article, /class="brand-logo"/);
+          if (footerMode === 'poster' && result.cardCount === 1) assert.doesNotMatch(article, /class="card-index"/);
+          else {
+            const expected = footerMode === 'series' ? `${String(index + 1).padStart(2, '0')} / ${String(result.cardCount).padStart(2, '0')}` : `${index + 1} / ${result.cardCount}`;
+            assert.ok(article.includes(`<span class="card-index">${expected}</span>`));
+          }
+        }
+      }
+      assert.equal(await readFile(options.input, 'utf8'), source);
+    });
+  }
+});
+
+test('poster auto keeps widest probes even when the final deck is one card', async t => {
+  const { options } = await workspace(t);
+  await writeFile(options.input, '# One card\n\nSource and AI caveat remain here.');
+  const fixture = rendererFixture();
+  const loads = [];
+  fixture.renderer.page.setContent = async html => { loads.push(html); };
+  const result = await exportCards({ ...options, paginate: 'auto', footerMode: 'poster', footer: 'Retain this caveat.' }, dependencies(fixture.renderer));
+  assert.equal(result.cardCount, 1);
+  assert.ok(loads.length > 1);
+  for (const probe of loads.slice(0, -1)) assert.match(probe, /class="card-index">200 \/ 200/);
+  assert.doesNotMatch(loads.at(-1), /class="card-index"/);
+  assert.match(loads.at(-1), /class="footer-text">Retain this caveat\./);
+  assert.match(loads.at(-1), /Source and AI caveat remain here\./);
+});
+
+test('footer modes never strip unsupported auto metadata to make input render', async t => {
+  const { options } = await workspace(t);
+  await writeFile(options.input, '<!-- card: {"source":"Original attribution; do not remove."} -->\n# Title\n\nBody.');
+  for (const footerMode of ['legacy', 'poster', 'series', 'report']) {
+    await assert.rejects(() => exportCards({ ...options, paginate: 'auto', footerMode }, {
+      openRenderer: async () => assert.fail('unsupported source metadata must reject before launch')
+    }), { code: 'PAGINATION_UNSUPPORTED_METADATA' });
+  }
+});
+
+test('opt-in footer modes still reject final print overflow rather than publish clipped output', async t => {
+  for (const footerMode of ['poster', 'series', 'report']) await t.test(footerMode, async subtest => {
+    const { options } = await workspace(subtest);
+    const fixture = rendererFixture();
+    let media;
+    fixture.renderer.page.emulateMedia = async value => { media = value.media; };
+    await assert.rejects(() => exportCards({ ...options, footerMode, footer: 'Must not be hidden to fit.' }, dependencies(fixture.renderer, {
+      measureCards: async () => [{ index: 1, available: { width: 1, height: 1 }, used: { width: 1, height: 1 }, overflow: media === 'print' ? ['footer'] : [] }]
+    })), { code: 'CONTENT_OVERFLOW' });
+    assert.deepEqual(await readdir(options.out), ['overflow.json']);
+    assert.equal(fixture.closeCalls(), 1);
+  });
+});

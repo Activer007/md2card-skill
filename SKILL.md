@@ -215,3 +215,7 @@ with editable Markdown when useful. Briefly state the theme, dimensions, card co
 and anything not verified. Keep previews clearly distinct from final exports.
 Never claim a file was generated or visually checked unless that actually happened.
 Do not upload, publish, or install this skill elsewhere unless asked.
+
+### Optional footer modes
+
+`--footer-mode legacy` remains the default. Choose `poster` to omit only a final single-card counter, `series` for padded sequence numbers, or `report` for a more explicit source/footer treatment. Supplied source, brand/logo, footer and AI/fact caveats remain intact in every mode; these are not fields to delete for visual cleanliness. Card metadata and automatic-pagination support do not expand. See [footer contract](docs/FOOTER_MODES.md). Fresh visual evidence is still pending.

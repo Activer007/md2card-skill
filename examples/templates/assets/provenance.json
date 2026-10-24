@@ -12,6 +12,16 @@
       "description": "AI-generated entirely fictional adult ceramic artist. No real person, biography or endorsement."
     },
     {
+      "file": "original-research-interface.png",
+      "dimensions": [
+        1400,
+        900
+      ],
+      "sha256": "eb73c9a92ff65b86036de6c1d486d999de71fe8225343c7d81272446f043f541",
+      "type": "original-interface-illustration",
+      "description": "Original raster drawing of a fictional research interface. Not a screenshot of an existing product."
+    },
+    {
       "file": "synthetic-reading-still-life.png",
       "dimensions": [
         1536,

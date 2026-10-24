@@ -595,3 +595,173 @@
 .card.template-T16 .template-section:nth-child(even) { --ink: #f9f9f4; --accent: #e5ed94; --muted: #e2e8dc; --panel: #3b4434; --line: #9ca98e; margin-left: .6em; margin-right: 0; border-color: #202620; border-left-color: #d6e879; background: #202620; color: var(--ink); }
 .card.template-T16 .card-source { border-top: 0; }
 .card.template-T16 .card-footer { border-top: .1em solid var(--ink); }
+
+/* M6: eight original expansion compositions, appended after the common base.
+ * Manual 3:4 cards only. Body / table / list / code stay at 1em or larger.
+ * No DOM reorder, truncation, cropping, font shrink, or density font override.
+ */
+
+/* T19 — a shared input band above a four-module architecture matrix. The
+ * module titles, boundaries and responsibilities all come from author text. */
+.card.template-T19 {
+  --paper: #111e29; --ink: #edf5fa; --muted: #bacbd7;
+  --accent: var(--brand-accent, #8fd8e6); --panel: #1d3443; --line: #536e80;
+}
+.card.template-T19 .template-heading { padding-bottom: .65em; border-bottom: .08em solid var(--accent); }
+.card.template-T19 .card-eyebrow { color: var(--muted); font-family: var(--mono); letter-spacing: .04em; }
+.card.template-T19 h1 { font-size: 1.7em; letter-spacing: -.025em; }
+.card.template-T19 .template-intro { padding: .55em .65em; border: 1px solid var(--line); border-left: .14em solid var(--accent); background: #172b39; }
+.card.template-T19 .template-intro p { margin: 0; }
+.card.template-T19 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .6em; padding: .6em; border: 1px dashed var(--line); }
+.card.template-T19 .template-section { padding: .5em .55em .6em; border: 1px solid var(--line); background: var(--panel); }
+.card.template-T19 .template-section h2 { margin: 0 -.55em .45em; padding: .15em .55em .4em; border-bottom: 1px solid var(--line); color: var(--accent); font: 750 1em/1.4 var(--mono); letter-spacing: 0; }
+.card.template-T19 .template-section p { margin: 0; }
+.card.template-T19 .card-source { padding-top: .5em; border: 0; }
+.card.template-T19 .card-footer { border-top: 1px solid var(--line); font-family: var(--mono); }
+
+/* T20 — product promise, two feature panels, then the intact interface image.
+ * The source DOM order is also the visible order. No text overlays the image. */
+.card.template-T20 {
+  --paper: #171b30; --ink: #f4f3fb; --muted: #c3c5da;
+  --accent: var(--brand-accent, #c2b4ff); --panel: #292e4b; --line: #656987;
+}
+.card.template-T20 .template-heading { padding-top: .35em; }
+.card.template-T20 .card-eyebrow { display: table; padding: .25em .55em; border: 1px solid var(--line); border-radius: 1.5em; color: var(--accent); letter-spacing: .04em; }
+.card.template-T20 h1 { font-size: 1.85em; font-weight: 800; letter-spacing: -.035em; }
+.card.template-T20 .template-main { flex: 0 0 auto; }
+.card.template-T20 .template-intro p { margin: 0; }
+.card.template-T20 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .6em; }
+.card.template-T20 .template-section { padding: .55em .6em; border-top: .08em solid var(--accent); border-radius: 0 0 .28em .28em; background: var(--panel); }
+.card.template-T20 .template-section h2 { margin-bottom: .25em; color: var(--accent); font-size: 1em; }
+.card.template-T20 .template-section p { margin: 0; }
+.card.template-T20 .card-figure { margin: 0; }
+.card.template-T20 .image-frame { height: calc(var(--card-height) * .255); padding: .15em; border: 1px solid var(--line); border-radius: .25em; background: #0e1425; }
+.card.template-T20 .card-image { width: 100%; height: 100%; object-fit: contain; }
+.card.template-T20 .card-figure figcaption { margin: .4em 0 0; color: var(--muted); }
+.card.template-T20 .card-source { padding-top: .35em; border: 0; }
+.card.template-T20 .card-footer { border-top: 1px solid var(--line); }
+
+/* T23 — problem and action are paired above a full-width result / limitation
+ * band. There are no generated performance figures or implied success claims. */
+.card.template-T23 {
+  --paper: #f5f5ee; --ink: #283b3c; --muted: #566665;
+  --accent: var(--brand-accent, #24655b); --panel: #e5ece5; --line: #a5b7ae;
+}
+.card.template-T23 .template-heading { padding-top: .55em; border-top: .14em solid var(--ink); }
+.card.template-T23 .card-eyebrow { margin-bottom: .5em; color: var(--accent); letter-spacing: .07em; }
+.card.template-T23 h1 { font-size: 1.75em; letter-spacing: -.035em; }
+.card.template-T23 .template-intro { padding-bottom: .6em; border-bottom: 1px solid var(--line); }
+.card.template-T23 .template-intro p { margin: 0; }
+.card.template-T23 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .75em; }
+.card.template-T23 .template-section { padding: .45em .55em .65em; border-top: .07em solid var(--ink); }
+.card.template-T23 .template-section:nth-child(2) { border: 1px solid var(--line); border-top: .07em solid var(--accent); background: #fbfcf6; }
+.card.template-T23 .template-section:nth-child(n+3) { grid-column: 1 / -1; padding: .65em .75em; border-top: 3px double var(--accent); background: var(--panel); }
+.card.template-T23 .template-section h2 { color: var(--accent); font-size: 1em; }
+.card.template-T23 .template-section p { margin: 0; }
+.card.template-T23 .card-source { border-top: 1px solid var(--line); }
+.card.template-T23 .card-footer { border: 0; }
+
+/* T24 — report masthead, real comparison table, then decision criteria.
+ * First column is a short code (12%); both explanation columns get 44%.
+ * All cells explicitly inherit full body size. No nested em reductions. */
+.card.template-T24 {
+  --paper: #faf9f4; --ink: #263746; --muted: #596775;
+  --accent: var(--brand-accent, #315b79); --panel: #e8edf0; --line: #b3bec6;
+}
+.card.template-T24 .template-heading { padding: .35em 0 .6em; border-top: .12em solid var(--ink); border-bottom: 1px solid var(--line); }
+.card.template-T24 .card-eyebrow { color: var(--accent); font-family: var(--mono); letter-spacing: .04em; }
+.card.template-T24 h1 { font-size: 1.7em; letter-spacing: -.03em; }
+.card.template-T24 .template-intro p { margin: 0; }
+.card.template-T24 .template-section h2 { margin-bottom: .4em; color: var(--accent); font-size: 1em; }
+.card.template-T24 .template-section table { width: 100%; table-layout: fixed; margin: .3em 0 0; border-collapse: collapse; font-size: 1em; line-height: 1.5; }
+.card.template-T24 .template-section th, .card.template-T24 .template-section td { padding: .4em .24em; border-bottom: 1px solid var(--line); vertical-align: top; font-size: inherit; line-height: inherit; overflow-wrap: anywhere; }
+.card.template-T24 .template-section th { border-top: .08em solid var(--ink); background: var(--panel); color: var(--ink); }
+.card.template-T24 .template-section th:first-child, .card.template-T24 .template-section td:first-child { width: 12%; padding-left: .12em; padding-right: .12em; text-align: center; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.card.template-T24 .template-section th:nth-child(2), .card.template-T24 .template-section td:nth-child(2), .card.template-T24 .template-section th:nth-child(3), .card.template-T24 .template-section td:nth-child(3) { width: 44%; }
+.card.template-T24 .template-section tbody tr:nth-child(even) { background: #f0f3f3; }
+.card.template-T24 .template-section tbody tr:last-child td { border-bottom: .065em solid var(--ink); }
+.card.template-T24 .template-section + .template-section { padding: .6em .65em; border-left: .12em solid var(--accent); background: var(--panel); }
+.card.template-T24 .template-section p { margin: 0; }
+.card.template-T24 .card-source { padding-top: .4em; border: 0; }
+.card.template-T24 .card-footer { border-top: 3px double var(--line); }
+
+/* T27 — author-written time labels in a dedicated left column; reading tasks
+ * sit to the right of a blank-space timeline. CSS never invents dates. */
+.card.template-T27 {
+  --paper: #fbf5e9; --ink: #443d32; --muted: #6e6252;
+  --accent: var(--brand-accent, #835039); --panel: #efe3cf; --line: #bba98c;
+}
+.card.template-T27 .template-heading { padding: .3em 0 .6em; border-bottom: .07em solid var(--accent); }
+.card.template-T27 .card-eyebrow { color: var(--muted); letter-spacing: .08em; }
+.card.template-T27 h1 { font: 650 1.8em/1.25 var(--serif); letter-spacing: -.025em; }
+.card.template-T27 .template-intro { padding: .6em .7em; border-left: .1em solid var(--accent); background: var(--panel); }
+.card.template-T27 .template-intro p { margin: 0; }
+.card.template-T27 .template-sections { position: relative; gap: .9em; }
+.card.template-T27 .template-sections::before { content: ''; position: absolute; left: 4.6em; top: .5em; bottom: .55em; width: .04em; background: var(--line); }
+.card.template-T27 .template-section { position: relative; display: grid; grid-template-columns: 4em minmax(0, 1fr); column-gap: 1.25em; align-items: start; padding: .35em 0 .55em; }
+.card.template-T27 .template-section::before { content: ''; position: absolute; left: 4.4em; top: .7em; width: .44em; height: .44em; border: .08em solid var(--accent); border-radius: 50%; background: var(--paper); }
+.card.template-T27 .template-section > :not(h2) { grid-column: 2; }
+.card.template-T27 .template-section h2 { grid-column: 1; grid-row: 1; margin: 0; color: var(--accent); font: 750 1em/1.5 var(--sans); }
+.card.template-T27 .template-section p { grid-column: 2; margin: 0; padding-bottom: .35em; border-bottom: 1px solid var(--line); }
+.card.template-T27 .card-source { padding-top: .4em; border: 0; }
+.card.template-T27 .card-footer { border-top: 1px solid var(--line); }
+
+/* T28 — rectangular index slips with a reserved tab for the real list number.
+ * Keep native list-item counters, including an authored start other than 1.
+ * The registry limits fixed-width tabs to 0–99. Nested lists keep native markers. */
+.card.template-T28 {
+  --paper: #f2eee4; --ink: #414337; --muted: #5b5e4e;
+  --accent: var(--brand-accent, #59683e); --panel: #fffaf0; --line: #a9ad94;
+}
+.card.template-T28 .template-heading { padding: .35em 0 .6em; border-bottom: 3px double var(--line); }
+.card.template-T28 .card-eyebrow { color: var(--accent); font-family: var(--mono); letter-spacing: .04em; }
+.card.template-T28 h1 { font: 650 1.75em/1.25 var(--serif); }
+.card.template-T28 .template-intro p { margin: 0; }
+.card.template-T28 .template-section h2 { margin-bottom: .65em; color: var(--muted); font-size: 1em; }
+.card.template-T28 .template-intro > ol, .card.template-T28 .template-section > ol { list-style: none; margin: 0; padding: 0; }
+.card.template-T28 .template-intro > ol > li, .card.template-T28 .template-section > ol > li { position: relative; margin: 0 0 .65em; min-height: 2.8em; padding: .5em .65em .5em 2.85em; border: 1px solid var(--line); border-top: .075em solid var(--accent); background: var(--panel); }
+.card.template-T28 .template-intro > ol > li::before, .card.template-T28 .template-section > ol > li::before { content: counter(list-item, decimal-leading-zero); position: absolute; top: -.075em; left: .4em; width: 1.8em; padding: .36em .1em .45em; border: 1px solid var(--line); border-top: 0; color: var(--accent); background: #e4e8d8; text-align: center; font: 750 1em/1.2 var(--mono); font-variant-numeric: tabular-nums; }
+.card.template-T28 .template-intro > ol > li > p, .card.template-T28 .template-section > ol > li > p { margin: 0; }
+.card.template-T28 .template-intro > ol > li > strong:first-child, .card.template-T28 .template-section > ol > li > strong:first-child, .card.template-T28 .template-intro > ol > li > p > strong:first-child, .card.template-T28 .template-section > ol > li > p > strong:first-child { display: block; margin-bottom: .18em; color: var(--accent); }
+.card.template-T28 .card-source, .card.template-T28 .card-footer { border: 0; }
+
+/* T31 — a large personal quotation plus an empty geometric vermilion seal.
+ * The seal has no glyph, name or attribution, and occupies its own grid cell. */
+.card.template-T31 {
+  --paper: #f7f2e7; --ink: #393a30; --muted: #696556;
+  --accent: var(--brand-accent, #9b3d2e); --panel: #eee8db; --line: #b8b19e;
+}
+.card.template-T31 .template-heading { padding: .5em 0 .8em; border-bottom: 1px solid var(--line); text-align: center; }
+.card.template-T31 .card-eyebrow { color: var(--muted); letter-spacing: .12em; }
+.card.template-T31 h1 { font: 600 1.55em/1.3 var(--serif); letter-spacing: .08em; }
+.card.template-T31 .template-main { display: flex; flex-direction: column; justify-content: center; }
+.card.template-T31 .template-intro { display: grid; grid-template-columns: minmax(0, 1fr) 1.8em; align-items: end; gap: .5em; padding: .55em 0 .8em; }
+.card.template-T31 .template-intro > * { grid-column: 1; }
+.card.template-T31 .template-intro > blockquote { margin: 0; padding: 0; border: 0; background: transparent; font: 600 1.3em/1.8 var(--serif); letter-spacing: .025em; }
+.card.template-T31 .template-intro > blockquote p { margin: 0; }
+.card.template-T31 .template-intro::after { content: ''; grid-column: 2; grid-row: 1; display: block; width: 1.6em; height: 1.6em; margin-bottom: .3em; border: .12em double var(--accent); background: linear-gradient(var(--accent), var(--accent)) 25% 25% / 27% 16% no-repeat, linear-gradient(var(--accent), var(--accent)) 25% 62% / 16% 27% no-repeat, linear-gradient(var(--accent), var(--accent)) 74% 63% / 29% 16% no-repeat, linear-gradient(var(--accent), var(--accent)) 70% 27% / 16% 24% no-repeat; }
+.card.template-T31 .template-sections { padding-top: .75em; border-top: 1px solid var(--line); }
+.card.template-T31 .template-section h2 { color: var(--accent); font: 650 1em/1.4 var(--serif); letter-spacing: .04em; }
+.card.template-T31 .template-section p { margin: 0; }
+.card.template-T31 .card-source { padding: .45em 0; border: 0; }
+.card.template-T31 .card-footer { border-top: 1px solid var(--line); }
+
+/* T32 — a facing-page reading spread: original chapter excerpt on the left,
+ * interpretation on the right. The gutter is empty; no simulated author text. */
+.card.template-T32 {
+  --paper: #eee9dc; --ink: #3e3c33; --muted: #6a6556;
+  --accent: var(--brand-accent, #8b4834); --panel: #faf7ed; --line: #bdb29e;
+}
+.card.template-T32 .template-heading { padding: .45em 0 .65em; border-top: .07em solid var(--ink); }
+.card.template-T32 .card-eyebrow { color: var(--accent); letter-spacing: .1em; }
+.card.template-T32 h1 { font: 650 1.75em/1.25 var(--serif); letter-spacing: .025em; }
+.card.template-T32 .template-intro { padding-bottom: .6em; border-bottom: 1px solid var(--line); }
+.card.template-T32 .template-intro p { margin: 0; }
+.card.template-T32 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .5em; padding-bottom: .18em; border-bottom: 3px double var(--line); }
+.card.template-T32 .template-section { padding: .65em .6em .8em; border: 1px solid var(--line); border-bottom: 0; background: var(--panel); }
+.card.template-T32 .template-section h2 { padding-bottom: .4em; margin-bottom: .6em; border-bottom: 1px solid var(--line); color: var(--accent); font: 650 1em/1.4 var(--serif); }
+.card.template-T32 .template-section blockquote { padding: 0; margin: 0; border: 0; background: transparent; font: 500 1em/1.65 var(--serif); }
+.card.template-T32 .template-section blockquote p, .card.template-T32 .template-section p { margin: 0; }
+.card.template-T32 .template-section:nth-child(n+3) { grid-column: 1 / -1; }
+.card.template-T32 .card-source { border: 0; padding-top: .45em; }
+.card.template-T32 .card-footer { border-top: 1px solid var(--line); }

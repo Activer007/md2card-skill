@@ -95,3 +95,127 @@
 .card.template-T25 .template-sections { padding: .75em .65em; border-top: .06em solid var(--line); border-bottom: .06em solid var(--line); background: #fffaf0; }
 .card.template-T25 .template-section h2 { display: table; border-bottom: .08em solid var(--accent); padding-bottom: .16em; font-family: var(--serif); }
 .card.template-T25 .card-source { border: 0; }
+
+/* M2 original compositions. Append after the shared template foundation.
+ * These selectors change six IDs only. Body and note sizes continue to use
+ * the canvas-relative foundation; density changes spacing, never font size.
+ * Decorative geometry occupies a reserved area or an actual module boundary.
+ */
+
+/* T02 — quotation feature: a compact masthead, a large real quotation, then
+ * two evidence columns. Attribution remains the single .card-source node. */
+.card.template-T02 { --paper: #f7f3e9; --ink: #292b2c; --muted: #5d5b55; --accent: var(--brand-accent, #9d3d2e); --line: #b7afa1; --panel: #eee6d6; }
+.card.template-T02 .template-heading { padding: .1em 0 .6em; border-top: .13em solid var(--ink); border-bottom: .035em solid var(--ink); }
+.card.template-T02 .card-eyebrow { margin-top: .65em; margin-bottom: .4em; color: var(--muted); }
+.card.template-T02 h1 { font-size: 1.3em; font-family: var(--serif); font-weight: 650; letter-spacing: -.015em; }
+.card.template-T02 .template-intro > blockquote { margin: 0; padding: .1em 0 .05em .55em; border: 0; border-left: .065em solid var(--accent); background: transparent; font-family: var(--serif); font-size: 1.48em; font-weight: 650; line-height: 1.48; letter-spacing: -.025em; }
+.card.template-T02 .template-intro > blockquote p { margin: 0; }
+.card.template-T02 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .75em; counter-reset: evidence; padding-top: .7em; border-top: .035em solid var(--ink); }
+.card.template-T02 .template-section { counter-increment: evidence; }
+.card.template-T02 .template-section + .template-section { border-left: 1px solid var(--line); padding-left: .75em; }
+.card.template-T02 .template-section::before { content: counter(evidence, decimal-leading-zero); display: block; margin-bottom: .45em; color: var(--accent); font: 750 var(--note-size)/1.2 var(--mono); }
+.card.template-T02 .template-section h2 { font-family: var(--serif); font-weight: 650; }
+.card.template-T02 .card-source { padding-left: .7em; border-top: 0; border-left: .08em solid var(--accent); }
+.card.template-T02 .card-footer { border-top: 3px double var(--ink); }
+
+/* T06 — asymmetric comparison: a narrow index-like header and two unequal
+ * panels. The quieter position starts lower; the broad decision panel leads.
+ * Additional H2 sections remain full-width, never silently disappear. */
+.card.template-T06 { --paper: #f6f7f3; --ink: #172726; --muted: #4f5e58; --accent: var(--brand-accent, #ba392b); --line: #aab6ae; --panel: #e5eae2; }
+.card.template-T06 .template-heading { display: grid; grid-template-columns: minmax(0, .33fr) minmax(0, 1fr); gap: .65em; align-items: start; padding-top: .6em; border-top: .16em solid var(--ink); }
+.card.template-T06 .card-eyebrow { margin: 0; padding-top: .2em; color: var(--accent); font-family: var(--mono); letter-spacing: .02em; }
+.card.template-T06 .template-title { grid-column: 2; }
+.card.template-T06 h1 { font-size: 1.9em; font-weight: 800; line-height: 1.17; }
+.card.template-T06 .template-intro { padding: .45em 0 .65em; border-bottom: .035em solid var(--ink); }
+.card.template-T06 .template-sections { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); align-items: start; gap: .7em; counter-reset: comparison; }
+.card.template-T06 .template-section { counter-increment: comparison; padding: .65em .55em; }
+.card.template-T06 .template-section::before { content: counter(comparison, decimal-leading-zero); display: block; margin-bottom: .55em; color: var(--accent); font: 750 var(--note-size)/1.2 var(--mono); }
+.card.template-T06 .template-section:first-child { margin-top: .95em; border-top: .13em solid var(--ink); background: var(--panel); }
+.card.template-T06 .template-section:nth-child(2) { --ink: #f6f7f3; --accent: #f6f7f3; --muted: #d3ddd7; --panel: #2d423b; --line: #819189; padding-top: .85em; padding-bottom: .85em; background: #172726; color: var(--ink); }
+.card.template-T06 .template-section:nth-child(2) h2,
+.card.template-T06 .template-section:nth-child(2) strong,
+.card.template-T06 .template-section:nth-child(2) a,
+.card.template-T06 .template-section:nth-child(2)::before { color: #f6f7f3; }
+.card.template-T06 .template-section:nth-child(n + 3) { grid-column: 1 / -1; padding: .65em 0; border-top: .035em solid var(--ink); }
+.card.template-T06 .template-section h2 { padding-bottom: .45em; border-bottom: 1px solid currentColor; }
+.card.template-T06 .template-section p { margin-bottom: 0; }
+.card.template-T06 .card-footer { border-top: .09em solid var(--ink); }
+
+/* T09 — geometric cover: title and an open circular form share a deliberate
+ * two-column heading. A bar organizes the lead; square/circle keys organize
+ * the supporting sections. No shape is placed behind the title or body. */
+.card.template-T09 { --paper: #f4eedf; --ink: #202827; --muted: #555b55; --accent: var(--brand-accent, #b9402c); --line: #a7a697; --panel: #ecd36b; }
+.card.template-T09 .template-heading { display: grid; grid-template-columns: minmax(0, 1fr) 3.65em; column-gap: .6em; align-items: end; padding-top: .15em; padding-bottom: .75em; border-bottom: .13em solid var(--ink); }
+.card.template-T09 .card-eyebrow { grid-column: 1 / -1; margin-bottom: 1.1em; color: var(--ink); }
+.card.template-T09 .template-title { grid-column: 1; }
+.card.template-T09 h1 { font-size: 2.5em; font-weight: 850; line-height: 1.12; letter-spacing: -.055em; }
+.card.template-T09 .template-heading::after { content: ''; grid-column: 2; width: 3.65em; height: 3.65em; border: .72em solid var(--accent); border-right-color: transparent; border-radius: 50%; transform: rotate(-45deg); }
+.card.template-T09 .template-intro { padding: .65em .75em; border-left: .65em solid var(--ink); background: var(--panel); }
+.card.template-T09 .template-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: .85em; row-gap: var(--section-gap); padding-top: .25em; }
+.card.template-T09 .template-section { padding-top: .65em; border-top: .035em solid var(--ink); }
+.card.template-T09 .template-section h2::before { content: ''; display: block; width: .75em; height: .75em; margin-bottom: .6em; background: var(--ink); }
+.card.template-T09 .template-section:nth-child(even) h2::before { border-radius: 50%; background: var(--accent); }
+.card.template-T09 .card-source { border-top: 0; }
+.card.template-T09 .card-footer { border-top: .11em solid var(--ink); }
+
+/* T10 — modular concept collage: the intro and first H2 occupy different
+ * cells; the next H2 spans the grid as a wide synthesis module. display:
+ * contents changes layout only: DOM order and all supplied text stay intact. */
+.card.template-T10 { --paper: #f0ebdd; --ink: #252a2a; --muted: #575c57; --accent: var(--brand-accent, #a63322); --line: #aca99c; --panel: #f1ce5a; }
+.card.template-T10 .template-heading { padding: .3em 0 .65em; border-bottom: .12em solid var(--ink); }
+.card.template-T10 .card-eyebrow { margin-bottom: .55em; color: var(--ink); }
+.card.template-T10 h1 { font-size: 1.8em; font-weight: 850; letter-spacing: -.04em; }
+.card.template-T10 .template-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-content: start; gap: var(--section-gap); }
+.card.template-T10 .template-intro { --ink: #fffaf0; --accent: #fffaf0; --muted: #e3e7ef; --panel: #344f88; --line: #c3cedd; padding: .75em .65em; background: #263f77; color: var(--ink); }
+.card.template-T10 .template-intro::before { content: ''; display: block; width: 1.3em; height: 1.3em; margin-bottom: .65em; border-radius: 50%; background: #f1ce5a; }
+.card.template-T10 .template-intro strong,
+.card.template-T10 .template-intro a { color: #fffaf0; }
+.card.template-T10 .template-sections { display: contents; }
+.card.template-T10 .template-intro + .template-sections { margin: 0; }
+.card.template-T10 .template-section { padding: .75em .65em; background: var(--panel); }
+.card.template-T10 .template-section:first-child::before { content: ''; display: block; width: 1.3em; height: 1.3em; margin-bottom: .65em; border: .2em solid var(--ink); }
+.card.template-T10 .template-section:nth-child(n + 2) { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); column-gap: .75em; background: #ead6c7; border-left: .22em solid #a63322; }
+.card.template-T10 .template-section:nth-child(n + 2) h2 { grid-column: 1; grid-row: 1; margin: 0; }
+.card.template-T10 .template-section:nth-child(n + 2) h2::before { content: ''; display: block; width: 1.15em; height: .55em; margin: .1em 0 .65em; background: #a63322; }
+.card.template-T10 .template-section:nth-child(n + 2) > :not(h2) { grid-column: 2; }
+.card.template-T10 .template-section:nth-child(n + 2) > :nth-child(2) { margin-top: 0; }
+.card.template-T10 .card-source { border-top: 0; }
+.card.template-T10 .card-footer { border-top: .09em solid var(--ink); }
+
+/* T13 — declaration poster: a single oversized title group, one editorial
+ * lead, then hard-edged argument strips. Frame and emphasis are structural,
+ * not repeated underlines on each title or a smaller body type workaround. */
+.card.template-T13 { --paper: #f2dc62; --ink: #20231f; --muted: #4e503c; --accent: var(--brand-accent, #873422); --line: #777455; --panel: #fff5c4; border: calc(var(--card-width) * .009) solid var(--ink); }
+.card.template-T13 .card-eyebrow { display: table; margin-bottom: .7em; padding: .25em .55em; background: var(--ink); color: #fff9dd; letter-spacing: .045em; }
+.card.template-T13 .template-title { padding-bottom: .55em; border-bottom: .2em solid var(--ink); }
+.card.template-T13 h1 { font-size: 2.85em; font-weight: 900; line-height: 1.04; letter-spacing: -.055em; }
+.card.template-T13 .template-intro { padding: .05em 0 .05em .65em; border-left: .2em solid var(--ink); font-weight: 650; }
+.card.template-T13 .template-sections { gap: .55em; }
+.card.template-T13 .template-section { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.65fr); column-gap: .65em; padding: .6em .65em; border: .07em solid var(--ink); background: var(--panel); }
+.card.template-T13 .template-section h2 { grid-column: 1; grid-row: 1; margin: 0; font-weight: 850; }
+.card.template-T13 .template-section > :not(h2) { grid-column: 2; }
+.card.template-T13 .template-section > :nth-child(2) { margin-top: 0; }
+.card.template-T13 .template-section:nth-child(even) { --ink: #fff9dd; --accent: #fff9dd; --muted: #dfe1cc; --panel: #353a2d; --line: #8d927f; border-color: #20231f; background: #20231f; color: var(--ink); }
+.card.template-T13 .template-section:nth-child(even) h2,
+.card.template-T13 .template-section:nth-child(even) strong,
+.card.template-T13 .template-section:nth-child(even) a { color: #fff9dd; }
+.card.template-T13 .card-source { border-top: 0; }
+.card.template-T13 .card-footer { border-top: .13em solid var(--ink); font-weight: 700; }
+
+/* T14 — action ticket: a black ticket head, a numbered stub rail, perforated
+ * action rows and empty print checkboxes. Actual Markdown list counters are
+ * retained; the squares are decoration, not fabricated completion states. */
+.card.template-T14 { --paper: #faf7ed; --ink: #212724; --muted: #525d55; --accent: var(--brand-accent, #973c29); --line: #9caaa0; --panel: #ebece1; }
+.card.template-T14 .template-heading { --ink: #faf7ed; --accent: #f0d360; --panel: #344239; padding: .6em .7em .7em; background: #212724; color: var(--ink); }
+.card.template-T14 .card-eyebrow { margin-bottom: .55em; color: #f0d360; font-family: var(--mono); letter-spacing: .035em; }
+.card.template-T14 h1 { font-size: 1.75em; font-weight: 850; line-height: 1.17; }
+.card.template-T14 .template-intro > p { padding: 0 .15em; }
+.card.template-T14 .template-intro > ol { list-style: none; margin: .55em 0 0; padding: 0; border: .05em solid var(--ink); border-top-width: .13em; background: linear-gradient(to right, var(--panel) 0, var(--panel) 1.85em, transparent 1.85em); }
+.card.template-T14 .template-intro > ol > li { position: relative; margin: 0; padding: .42em 1.25em .42em 2.25em; border-bottom: .04em dashed var(--line); }
+.card.template-T14 .template-intro > ol > li:last-child { border-bottom: 0; }
+.card.template-T14 .template-intro > ol > li::before { content: counter(list-item, decimal-leading-zero); position: absolute; top: .65em; left: .4em; color: var(--ink); font: 750 var(--note-size)/1.5 var(--mono); }
+.card.template-T14 .template-intro > ol > li::after { content: ''; position: absolute; top: .72em; right: .4em; width: .53em; height: .53em; border: .055em solid var(--ink); }
+.card.template-T14 .template-intro > ol > li > p { margin: 0; }
+.card.template-T14 .template-sections { border-top: .05em dashed var(--line); padding-top: .6em; }
+.card.template-T14 .card-source { border-top: 0; padding-top: .3em; }
+.card.template-T14 .card-footer { padding-top: .7em; border-top: .07em dashed var(--ink); font-family: var(--mono); }

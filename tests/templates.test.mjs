@@ -112,8 +112,45 @@ test('composed templates never inherit legacy theme treatments', () => {
 
 
 test('large list counters are rejected before they can overlap a fixed number rail', () => {
-  for(const start of [7,98]) assert.doesNotThrow(()=>render(`<!-- card: {"template":"T05"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`));
-  for(const start of [99,100,123456789]) assert.throws(()=>render(`<!-- card: {"template":"T05"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`),{code:'TEMPLATE_LIST_RANGE'});
+  for (const id of ['T05', 'T14']) {
+    for(const start of [7,98]) assert.doesNotThrow(()=>render(`<!-- card: {"template":"${id}"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`));
+    for(const start of [99,100,123456789]) assert.throws(()=>render(`<!-- card: {"template":"${id}"} -->\n# List\n\n${start}. First.\n${start+1}. Second.`),{code:'TEMPLATE_LIST_RANGE'});
+  }
   const [legacy]=renderCards('<!-- card: {"layout":"steps"} -->\n# List\n\n123456789. First.');
   assert.match(legacy.html,/<ol start="123456789">/);
+});
+
+const m2Ids = ['T02', 'T06', 'T09', 'T10', 'T13', 'T14'];
+test('unrendered M2 designs stay distinct from visually accepted M1 counts', () => {
+  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length,4);
+  for (const id of m2Ids) assert.equal(getTemplate(id).status,'implemented-awaiting-visual-review');
+  assert.equal(new Set(m2Ids.map(id=>getTemplate(id).composition)).size,6);
+});
+
+test('M2 templates preserve additional sections, repeated titles and explicit boundaries', () => {
+  const source='# First title\n# Second title\n\n> Original quotation.\n\n## One\n\nFirst body.\n\n## Two\n\nSecond body.\n\n## Three\n\nUnabridged extra body.';
+  for (const id of m2Ids) {
+    const annotated=`<!-- card: ${JSON.stringify({template:id,source:'Source text'})} -->\n${source}`;
+    const cards=renderCards(annotated+'\n\n===\n\n'+annotated);
+    assert.equal(cards.length,2);
+    for (const card of cards) assert.equal(card.templateTitleHtml+card.templateIntroHtml+card.sections.map(s=>s.html).join(''),card.html);
+    const html=buildDocument(cards,SIZES.portrait,'','',css).split('<main')[1];
+    for (const text of ['First title','Second title','Original quotation.','Unabridged extra body.','Source text']) assert.equal(html.split(text).length-1,2,`${id}: ${text}`);
+  }
+});
+
+test('M2 unsupported assets and scalar metadata fail instead of disappearing', () => {
+  for(const id of m2Ids) {
+    for(const field of ['metric','label','alt','caption']) assert.throws(()=>renderCards(`<!-- card: ${JSON.stringify({template:id,[field]:'Retain me'})} -->\n# Title`),{code:'TEMPLATE_METADATA_UNSUPPORTED'});
+    assert.throws(()=>renderCards(`<!-- card: ${JSON.stringify({template:id,image:'local.png'})} -->\n# Title`),{code:'TEMPLATE_IMAGE_UNSUPPORTED'});
+    assert.throws(()=>validateTemplateMetadata({template:id},SIZES.slide),{code:'TEMPLATE_ASPECT_UNSUPPORTED'});
+  }
+});
+
+test('M2 density keeps every source token and selects spacing-only classes', () => {
+  for(const id of m2Ids) for(const density of ['compact','standard','editorial']) {
+    const html=render(`<!-- card: ${JSON.stringify({template:id,density})} -->\n# Title\n\nFull body.`);
+    assert.match(html,new RegExp(`template-${id} family-[a-z]+ density-${density}`));
+    assert.equal(html.split('Full body.').length-1,1);
+  }
 });

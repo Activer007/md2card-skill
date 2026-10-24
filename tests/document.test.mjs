@@ -165,3 +165,13 @@ test('steps layout preserves the Markdown ordered-list starting value', () => {
   assert.match(layoutCss, /content: counter\(list-item, decimal-leading-zero\)/);
   assert.doesNotMatch(layoutCss, /counter-(?:reset|increment): step/);
 });
+
+test('Bold consecutive H1 rules join titles without changing source markup', () => {
+  const source='# Main title\n# Companion title\n\nParagraph.\n\n# Later title\n\nLater paragraph.';
+  const cards=renderCards(source);
+  const html=render(cards,{theme:'bold'});
+  assert.ok(html.includes(cards[0].html));
+  assert.match(themeCss,/\.theme-bold h1:has\(\+ h1\) \{[^}]*border-bottom: 0;/);
+  assert.match(themeCss,/\.theme-bold h1 \+ h1 \{ margin-top: 0; \}/);
+  assert.match(themeCss,/\.theme-bold h1 \{[^}]*border-bottom: 0\.08em solid var\(--ink\)/);
+});

@@ -198,7 +198,7 @@ export async function activateSkipLink(page, timeoutMs = 15000) {
   assert.equal(page.url(), destination.href);
 }
 
-async function keyboardAudit(page) {
+async function keyboardAudit(page, model) {
   await page.reload({ waitUntil: 'load' });
   await page.locator('[data-filter-panel]').waitFor({ state: 'visible' });
   const labels = await evaluateSafely(page, 'evaluate', () => ['family-filter', 'purpose-filter', 'image-filter', 'density-filter'].map(id => ({ id, labels: [...document.getElementById(id).labels].map(label => label.textContent.trim()) })));
@@ -220,10 +220,12 @@ async function keyboardAudit(page) {
     sequence.push(focus.id);
   }
   await page.keyboard.press('Tab');
-  assert.equal(await evaluateSafely(page, 'evaluate', () => document.activeElement.className), 'preview-link');
+  const next = await evaluateSafely(page, 'evaluate', () => ({ className: document.activeElement.className, template: document.activeElement.closest('[data-template-card]')?.id, href: document.activeElement.getAttribute('href') }));
+  if (model.accepted.length) assert.equal(next.className, 'preview-link');
+  else { assert.equal(next.template, model.pending[0].id); assert.equal(next.href, `../../${model.pending[0].example}`); }
   await page.keyboard.press('Shift+Tab');
   assert.equal(await evaluateSafely(page, 'evaluate', () => document.activeElement.id), 'reset-filters');
-  const summary = page.locator('.accepted-card summary').first();
+  const summary = page.locator('[data-template-card] summary').first();
   await summary.focus();
   await page.keyboard.press('Enter');
   assert.equal(await evaluateSafely(summary, 'evaluate', element => element.parentElement.open), true);
@@ -294,7 +296,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
       assert.equal(visible, model.items.length);
       return { visible };
     });
-    await recordCheck(report, 'native labels, keyboard focus and details', () => keyboardAudit(page));
+    await recordCheck(report, 'native labels, keyboard focus and details', () => keyboardAudit(page, model));
     for (const scenario of [
       { name: 'desktop-1280', width: 1280, height: 900, zoom: 1 },
       { name: 'mobile-375', width: 375, height: 812, zoom: 1 },
@@ -317,7 +319,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
       });
       for (const section of ['accepted', 'pending']) await recordCheck(report, `${scenario.name}: capture ${section}`, async () => {
         await evaluateSafely(page, 'evaluate', section => {
-          const target = document.querySelector(section === 'accepted' ? '.accepted-card' : '#pending-title');
+          const target = document.querySelector(section === 'accepted' ? '.accepted-card' : '#pending-title') ?? document.querySelector('#accepted-title');
           target.scrollIntoView({ block: 'start', behavior: 'instant' });
         }, section);
         await snapshot(page, out, report, `${scenario.name}-${section}`, `Viewport screenshot: start of ${section} gallery section; not a full-page capture.`);
@@ -326,7 +328,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
         // Exercise long commands/hashes across every template, without injecting CSS.
         await evaluateSafely(page, 'evaluate', () => { for (const detail of document.querySelectorAll('details')) detail.open = true; });
         const geometry = await evaluateSafely(page, 'evaluate', inspectReflow);
-        await page.locator('.accepted-card summary').first().scrollIntoViewIfNeeded();
+        await page.locator('[data-template-card] summary').first().scrollIntoViewIfNeeded();
         await snapshot(page, out, report, `${scenario.name}-detail`, 'Viewport screenshot: first expanded acceptance/detail block.');
         assert.ok(geometry.documentWidth <= geometry.viewport + 1 && geometry.bodyWidth <= geometry.viewport + 1, JSON.stringify(geometry));
         assert.deepEqual(geometry.offenders, []);
@@ -340,7 +342,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
       const links = await evaluateSafely(page.locator('[data-template-card] .links a'), 'evaluateAll', anchors => anchors.map(anchor => anchor.getAttribute('href')));
       for (const item of model.items) assert.ok(links.includes(`../../${item.example}`));
       assert.equal(await page.locator('noscript').isVisible(), true);
-      const summary = page.locator('.accepted-card summary').first();
+      const summary = page.locator('[data-template-card] summary').first();
       await summary.focus(); await page.keyboard.press('Enter');
       assert.equal(await evaluateSafely(summary, 'evaluate', element => element.parentElement.open), true);
       await page.setViewportSize({ width: 390, height: 844 });

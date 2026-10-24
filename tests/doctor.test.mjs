@@ -256,3 +256,39 @@ test('PDF QA verifies a real tiny searchable PDF with Poppler when available, wi
   assert.equal(report.searchable, true);
   assert.equal(report.textCharacters, 22);
 });
+
+test('doctor reports local role-font candidates without claiming browser selection', async () => {
+  const defaults = doctorDependencies();
+  const report = await inspectEnvironment({ lang: 'en' }, doctorDependencies({
+    runCommand: async (command, args) => command === 'fc-list'
+      ? { stdout: 'Noto Serif CJK SC,思源宋体\t20-7e 4e00-9fff\nLiberation Mono\t20-7e\n' }
+      : defaults.runCommand(command, args)
+  }));
+  assert.equal(check(report, 'font-roles').status, 'pass');
+  assert.equal(report.fonts.typography.localOnly, true);
+  assert.equal(report.fonts.typography.stacks.literary.firstInstalledCandidate, 'Noto Serif CJK SC');
+  assert.equal(report.fonts.typography.stacks.mono.firstInstalledCandidate, 'Liberation Mono');
+  assert.equal(report.fonts.typography.stacks.sans.selection, 'generic-fallback');
+  assert.equal(report.fonts.typography.stacks.sans.firstInstalledCandidate, null);
+  assert.equal(report.fonts.typography.stacks.sans.fallback, 'sans-serif');
+  assert.equal(report.fonts.typography.stacks.serif.browserSelection, 'unverified');
+  assert.equal(Object.keys(report.fonts.typography.families).length, 12);
+  assert.equal(report.fonts.typography.families.eastern.roles.quote, 'literary');
+  assert.equal(report.fonts.typography.families.technology.roles.numeric, 'mono');
+});
+
+test('doctor does not mistake unknown role inventory or similar font names for installation', async () => {
+  const defaults = doctorDependencies();
+  for (const fonts of [null, '', 'Not Noto Serif CJK SC\t20-7e\n']) {
+    const report = await inspectEnvironment({ lang: 'en' }, doctorDependencies({
+      runCommand: async (command, args) => {
+        if (command !== 'fc-list') return defaults.runCommand(command, args);
+        if (fonts === null) throw missing();
+        return { stdout: fonts };
+      }
+    }));
+    assert.equal(report.fonts.typography.stacks.literary.firstInstalledCandidate, null);
+    assert.equal(report.fonts.typography.stacks.literary.selection, fonts ? 'generic-fallback' : 'unverified');
+    assert.equal(check(report, 'font-roles').status, fonts ? 'pass' : 'warn');
+  }
+});

@@ -456,7 +456,7 @@ test('calibrated templates keep compact spacing below standard below editorial',
 
 test('R01–R06 refine measures, original image visibility and primary focus without altering content', async () => {
   assert.match(css, /template-T40 \.image-frame \{ height:auto; aspect-ratio:1200 \/ 680/);
-  assert.match(css, /template-T20 \.image-frame \{ height: calc\(var\(--card-height\) \* \.36\)/);
+  assert.match(css, /template-T20 \.image-frame \{ height: auto;/);
   assert.match(css, /template-T34 \.template-section:first-child p:first-of-type::first-letter \{ float:none; font:inherit/);
   assert.match(css, /text-wrap: pretty/);
   for (const id of ['T06','T10','T16','T19','T20','T22','T24','T26','T32','T34','T39','T40','T45']) {

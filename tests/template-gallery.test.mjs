@@ -83,15 +83,15 @@ test('build order and HTML are deterministic across registry iteration order', a
   assert.doesNotMatch(html, /generatedAt|Date\(/);
 });
 
-test('all 48 previews preserve their own exact provenance, input hashes and dimensions', async () => {
+test('any currently bound previews preserve their exact provenance, input hashes and dimensions', async () => {
   for (const item of model.accepted) {
     const evidence = JSON.parse(await readFile(path.join(ROOT, item.evidence.path), 'utf8'));
     const record = evidence.records.find(entry => entry.id === item.id);
     assert.equal(item.preview.sha256, record.png);
     assert.equal(item.inputSha256, record.input);
     assert.equal(sha(await readFile(path.join(ROOT, item.preview.path))), record.png);
-    assert.equal(item.preview.width, 1080);
-    assert.equal(item.preview.height, 1440);
+    if (item.preview) assert.equal(item.preview.width, 1080);
+    if (item.preview) assert.equal(item.preview.height, 1440);
     assert.equal(item.evidence.codeCommit, evidence.codeCommit);
     assert.ok(html.includes(item.preview.sha256));
     assert.ok(html.includes(item.command));
@@ -194,9 +194,9 @@ test('bad evidence hash, duplicate and missing records are explicit failures', a
 });
 
 test('version, state and density changes cannot reuse historical acceptance', async () => {
-  for (const changes of [{ version: 2 }, { density: 'compact' }, { aspects: ['square'] }, { status: 'implemented-awaiting-visual-review' }, { acceptance: 'missing-batch' }]) {
+  for (const changes of [{ version: 1 }, { density: 'compact' }, { status: 'visually-reviewed' }, { acceptance: 'missing-batch' }]) {
     const templates = TEMPLATES.map(item => item.id === 'T01' ? { ...item, ...changes } : item);
-    await assert.rejects(buildGalleryModel({ templates }), /scope differs|metadata disagrees|missing acceptance binding|wrong status/);
+    await assert.rejects(buildGalleryModel({ templates }), /scope differs|metadata disagrees|missing acceptance binding|wrong status|invalid historical acceptance|unrecognized pending status/);
   }
   await assert.rejects(buildGalleryModel({ templates: TEMPLATES.filter(item => item.id !== 'T01') }), /orphaned acceptance record/);
 });
@@ -238,7 +238,7 @@ test('mock DOM progressively enables controls without hiding default results', (
   assert.equal(dom.panel.hidden, false);
   assert.equal(dom.visible().length, model.items.length);
   assert.equal(dom.ids['filter-result'].textContent, `显示 ${model.accepted.length} 个已验收示例，${model.pending.length} 个待验收候选。`);
-  assert.equal(dom.acceptedEmpty.hidden, true);
+  assert.equal(dom.acceptedEmpty.hidden, model.accepted.length > 0);
   assert.equal(dom.pendingEmpty.hidden, model.pending.length > 0);
   const incomplete = mockDom({ incomplete: true });
   assert.equal(incomplete.panel.hidden, true);
@@ -289,7 +289,7 @@ test('combined filters, repeated events and reset preserve correct counts', () =
   dom.set('density-filter', 'standard');
   dom.set('purpose-filter', 'T38', 'input');
   assert.deepEqual(dom.visible(), ['T38']);
-  assert.equal(dom.ids['filter-result'].textContent, '显示 1 个已验收示例，0 个待验收候选。');
+  assert.equal(dom.ids['filter-result'].textContent, model.items.find(item => item.id === 'T38').preview ? '显示 1 个已验收示例，0 个待验收候选。' : '显示 0 个已验收示例，1 个待验收候选。');
   dom.set('family-filter', 'film');
   assert.deepEqual(dom.visible(), ['T38']);
   dom.set('image-filter', 'none');
@@ -325,8 +325,9 @@ test('aspect support is shown without promoting extra layouts or reusing portrai
   for(const id of ['T04','T21']) {
     const item=model.items.find(item=>item.id===id);
     assert.deepEqual(item.aspects,['portrait','square','slide']);
-    assert.equal(item.preview.aspect,'portrait');
-    for(const aspect of ['square','slide']) assert.equal(item.aspectLayouts[aspect].status,'visually-reviewed');
+    assert.equal(item.preview,null);
+    assert.equal(item.history.version,1);
+    for(const aspect of ['square','slide']) assert.equal(item.aspectLayouts[aspect].status,'implemented-awaiting-visual-review');
   }
   const html=renderGallery(model);
   assert.match(html,/portrait \/ square \/ slide；支持不等于已验收/);
@@ -343,13 +344,13 @@ test('a genuinely pending fixture keeps all source details but never inherits a 
   await editJson(root, 'docs/template-gallery-evidence.json', data => { data.batches.find(batch => batch.id === 'visual-upgrade').evidenceSha256 = digest; });
   const templates = TEMPLATES.map(item => {
     if (item.id !== 'T48') return item;
-    const { acceptance, ...pending } = item;
+    const { acceptance, historicalAcceptance, ...pending } = item;
     const { acceptance: portraitAcceptance, ...portrait } = item.aspectLayouts.portrait;
     return { ...pending, status: 'implemented-awaiting-visual-review', aspectLayouts: { portrait: { ...portrait, status: 'implemented-awaiting-visual-review' } } };
   });
   const mixed = await buildGalleryModel({ root, templates });
-  assert.equal(mixed.accepted.length, model.accepted.length - 1);
-  assert.deepEqual(mixed.pending.map(item => item.id), [...model.pending.map(item => item.id), 'T48'].sort());
+  assert.equal(mixed.accepted.length, model.accepted.length - Number(Boolean(model.items.find(item => item.id === 'T48').preview)));
+  assert.deepEqual(mixed.pending.map(item => item.id), [...new Set([...model.pending.map(item => item.id), 'T48'])].sort());
   const pending = mixed.pending.find(item => item.id === 'T48');
   assert.equal(pending.preview, null);
   const article = renderGallery(mixed).match(/<article id="T48"[\s\S]*?<\/article>/)[0];
@@ -387,7 +388,44 @@ test('versioned preview directories require their actual review links, not obsol
   await writeFile(reviewPath, review);
   await editJson(root, 'docs/template-gallery-evidence.json', data => { data.batches[0].reviewSha256 = sha(Buffer.from(review)); });
   const custom = await buildGalleryModel({ root });
-  assert.equal(custom.items.find(item => item.id === 'T01').preview.path, 'docs/images/templates-v2/T01.png');
+  assert.equal(custom.items.find(item => item.id === 'T01').history.previewPath, 'docs/images/templates-v2/T01.png');
   await editJson(root, 'docs/template-gallery-evidence.json', data => { data.batches[0].previewDirectory = '../escape'; });
   await assert.rejects(buildGalleryModel({ root }), /unsafe repository path/);
+});
+
+
+async function syntheticAcceptedV2(t) {
+  const root = await fixture(t);
+  const input = await readFile(path.join(root, 'examples/templates/T01.md'));
+  const png = await readFile(path.join(root, 'docs/images/templates/T01.png'));
+  await mkdir(path.join(root, 'docs/images/unit-v2'), { recursive: true });
+  await writeFile(path.join(root, 'docs/images/unit-v2/T01.png'), png);
+  const evidence = { schemaVersion: 1, codeCommit: 'a'.repeat(40), codeTree: 'b'.repeat(40), archiveSha256: 'c'.repeat(64), records: [{ id:'T01',input:sha(input),png:sha(png),pdf:'d'.repeat(64) }] };
+  const review = 'SYNTHETIC UNIT FIXTURE ONLY: not production visual acceptance.\n## unit-v2\n' + evidence.codeCommit + '\n[PNG](images/unit-v2/T01.png) [input](../examples/templates/T01.md)\n';
+  await writeFile(path.join(root,'docs/unit-v2-proof.json'),JSON.stringify(evidence));
+  await writeFile(path.join(root,'docs/unit-v2-review.md'),review);
+  await editJson(root,'docs/template-gallery-evidence.json',data=>data.batches.push({id:'unit-v2',previewDirectory:'docs/images/unit-v2',scope:{version:2,density:'standard',aspect:'portrait',width:1080,height:1440,pagination:'manual'},review:'docs/unit-v2-review.md',reviewSha256:sha(Buffer.from(review)),evidence:'docs/unit-v2-proof.json',evidenceSha256:sha(Buffer.from(JSON.stringify(evidence)))}));
+  const templates=TEMPLATES.map(item=>item.id==='T01'?{...item,acceptance:'unit-v2',status:'visually-reviewed',aspectLayouts:{...item.aspectLayouts,portrait:{...item.aspectLayouts.portrait,acceptance:'unit-v2',status:'visually-reviewed'}}}:item);
+  return {root,templates};
+}
+test('synthetic current-v2 acceptance exercises a nonempty accepted path beside 47 pending designs',async t=>{
+  const {root,templates}=await syntheticAcceptedV2(t);
+  const current=await buildGalleryModel({root,templates});
+  assert.equal(current.accepted.length,1);assert.equal(current.pending.length,47);
+  const item=current.accepted[0];assert.equal(item.version,2);assert.equal(item.preview.version,2);assert.equal(item.preview.path,'docs/images/unit-v2/T01.png');
+  assert.equal(item.history.version,1);
+  const output=renderGallery(current);assert.match(output,/src="\.\.\/\.\.\/docs\/images\/unit-v2\/T01.png"/);assert.equal((output.match(/<img /g)||[]).length,1);
+  const wrong=templates.map(t=>t.id==='T01'?{...t,version:3}:t);
+  await assert.rejects(buildGalleryModel({root,templates:wrong}),/accepted scope differs/);
+  await writeFile(path.join(root,'docs/images/unit-v2/T01.png'),'altered');
+  await assert.rejects(buildGalleryModel({root,templates}),/accepted PNG hash mismatch/);
+});
+test('synthetic current-v2 acceptance rejects stale input and review links independently',async t=>{
+  const {root,templates}=await syntheticAcceptedV2(t);
+  const input=path.join(root,'examples/templates/T01.md');const original=await readFile(input);
+  await writeFile(input,Buffer.concat([original,Buffer.from('\nUnreviewed text.\n')]));
+  await assert.rejects(buildGalleryModel({root,templates}),/accepted input hash mismatch/);await writeFile(input,original);
+  const reviewPath=path.join(root,'docs/unit-v2-review.md');const review=(await readFile(reviewPath,'utf8')).replace('images/unit-v2/','images/templates/');await writeFile(reviewPath,review);
+  await editJson(root,'docs/template-gallery-evidence.json',data=>{data.batches.find(b=>b.id==='unit-v2').reviewSha256=sha(Buffer.from(review));});
+  await assert.rejects(buildGalleryModel({root,templates}),/review is missing exact preview/);
 });

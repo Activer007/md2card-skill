@@ -12,7 +12,7 @@
     "test": "node --test tests/*.test.mjs",
     "test:integration": "node --test tests/export.test.mjs tests/pagination-export.test.mjs",
     "doctor": "node scripts/render.mjs --doctor",
-    "test:unit": "node --test tests/markdown.test.mjs tests/assets.test.mjs tests/document.test.mjs tests/doctor.test.mjs tests/options.test.mjs tests/lifecycle.test.mjs tests/semantic.test.mjs tests/pagination.test.mjs tests/tail-balance.test.mjs tests/tail-export.test.mjs tests/templates.test.mjs tests/series.test.mjs tests/visual-stress.test.mjs tests/template-gallery.test.mjs tests/gallery-validation.test.mjs tests/aspects.test.mjs tests/validate-aspects.test.mjs",
+    "test:unit": "node --test tests/markdown.test.mjs tests/assets.test.mjs tests/document.test.mjs tests/doctor.test.mjs tests/options.test.mjs tests/lifecycle.test.mjs tests/semantic.test.mjs tests/pagination.test.mjs tests/tail-balance.test.mjs tests/tail-export.test.mjs tests/templates.test.mjs tests/series.test.mjs tests/visual-stress.test.mjs tests/template-gallery.test.mjs tests/gallery-validation.test.mjs tests/aspects.test.mjs tests/validate-aspects.test.mjs tests/refinement-typography.test.mjs",
     "validate:tail": "node scripts/validate-tail.mjs",
     "validate:templates": "node scripts/validate-templates.mjs",
     "test:series": "node --test tests/series.test.mjs",
@@ -23,7 +23,8 @@
     "test:gallery": "node --test tests/template-gallery.test.mjs tests/gallery-validation.test.mjs",
     "validate:gallery": "node scripts/validate-gallery.mjs",
     "test:aspects": "node --test tests/aspects.test.mjs tests/validate-aspects.test.mjs",
-    "validate:aspects": "node scripts/validate-aspects.mjs"
+    "validate:aspects": "node scripts/validate-aspects.mjs",
+    "test:typography": "node --test tests/refinement-typography.test.mjs tests/doctor.test.mjs"
   },
   "engines": {
     "node": ">=20"

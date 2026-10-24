@@ -131,7 +131,7 @@ node scripts/render.mjs /absolute/path/cards.md \
 For an optional composed design, inspect `node scripts/render.mjs --list-templates`
 and the [offline gallery](docs/gallery/index.html), then match its content/image
 contract to the supplied source. There are 48 independent designs across 12
-families. Check each registry version: 13 refined v2 designs currently await
+families. Check each registry version: 48 refined v2 designs currently await
 fresh visual acceptance. Historical v1 standard/portrait examples have PNG, phone and
 native-PDF evidence in [the acceptance record](docs/TEMPLATE_UPGRADE_ACCEPTANCE.md).
 Do not treat example acceptance as a guarantee for arbitrary input. Select a

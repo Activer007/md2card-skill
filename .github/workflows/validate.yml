@@ -41,6 +41,8 @@ jobs:
         run: node scripts/validate-showcases.mjs
       - name: Validate semantic pagination and safe atomic failures
         run: node scripts/validate-pagination.mjs
+      - name: Render composed templates and measure actual mobile type
+        run: node scripts/validate-templates.mjs
       - name: Upload actual rendered showcase artifacts
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

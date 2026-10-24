@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "runId": 40049224481,
+  "runUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40049224481",
+  "codeCommit": "e3de9ac46c04865a113ef9569860517ec4650d87",
+  "codeTree": "e19020270a6e4e618eea4b8a7bcb613d454c1157",
+  "mergePreview": "46142d43379c45fc2d3653b8d51fd33cfde84400",
+  "artifactId": 12542488042,
+  "archiveSha256": "5a51aa791bb55d47847d63161e05e54cc130c799f2aad16b8a9a63197259d9be",
+  "records": [
+    {
+      "id": "T01",
+      "input": "4bc9e00e4b1fa63748f982fbfec4502c92d19ce1bbf5c8a001bbdf626cf356ab",
+      "png": "18f2e81a00183cf5d976571d2b99fab2b272e13fefb357379543ec3e69ec988a",
+      "pdf": "cdc1e82c3dcfb2249b92f549c59c3512e79dc2786b876fca136bc762c79339a3"
+    },
+    {
+      "id": "T05",
+      "input": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3",
+      "png": "ea8b91888547a6396eb8d3059d97ab89828fb84949e512a532dcdd6e1f784f44",
+      "pdf": "a29101a101e91567d51810f11b0c3dfe337d5cfc0d60b1da6b6726f957b196ed"
+    },
+    {
+      "id": "T17",
+      "input": "25bcaa60f48dc266d25806912de19a2b5010b12170508edc81a79099a4994246",
+      "png": "cb5e4c11363faca52421f5f4a6ab095a48dde0d92b7c99c1d59d82c3d95af873",
+      "pdf": "5325e3dd5ddf16f0b2b625c908601d81ed790f0219ac5e92a83e93f764c26c7b"
+    },
+    {
+      "id": "T25",
+      "input": "70e7122d3a4089f2233b790548cf26bc244624d01cef7e44544fc26aaf924ae1",
+      "png": "1665eb811f88796cd4302c0a11f53b2d2f9659129ff973ee0888c2f22407c575",
+      "pdf": "84eebc178ec81888a8ab53bcacae24b298f404ac8f440fa2663f965d99343928"
+    }
+  ],
+  "mobileAudit": [
+    {
+      "id": "T01",
+      "composition": "cover-sidebar",
+      "status": "rendered-not-visually-reviewed",
+      "input": "examples/templates/T01.md",
+      "cardCount": 1,
+      "pdf": "pass",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "4d398433994804db474f1c4c6ed77e3f752a1e52db367144f6a6d1372eeaf2c4"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "d6049b2b0ebf217d36d202f0a45fc777611f8806b7faf6b4f316af788846f0b3"
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "composition": "numbered-index",
+      "status": "rendered-not-visually-reviewed",
+      "input": "examples/templates/T05.md",
+      "cardCount": 1,
+      "pdf": "pass",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "1ffcae24ff522877a61715557c5626274e2993e358175b32fe8351afcae30c3d"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "04a22da5b2fa50f05faf3efe49269171e8ef6acac844be98e14d90a38bc6569d"
+        }
+      ]
+    },
+    {
+      "id": "T17",
+      "composition": "mechanism-rail",
+      "status": "rendered-not-visually-reviewed",
+      "input": "examples/templates/T17.md",
+      "cardCount": 1,
+      "pdf": "pass",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "7c319ca45935f94ec1179c12858971dc098dd82d00ad4f4604db3032d00ec889"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "f43dde62ceb7c41f36e2c2d515d2f21b81338c14a20aef43836fbc03a903dbca"
+        }
+      ]
+    },
+    {
+      "id": "T25",
+      "composition": "reading-note",
+      "status": "rendered-not-visually-reviewed",
+      "input": "examples/templates/T25.md",
+      "cardCount": 1,
+      "pdf": "pass",
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cardWidth": 351,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585,
+          "file": "mobile-375.png",
+          "sha256": "60b335135e982354cf4bf4c4f1217582452a574b1a9511b5c44d12847528c997"
+        },
+        {
+          "viewportWidth": 390,
+          "cardWidth": 366,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001,
+          "file": "mobile-390.png",
+          "sha256": "8181b185d2b7b17a92523b89324aad291db3607a65e309974a1d20ab3f2c86ba"
+        }
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "id": "T01",
+      "inputSha256": "b475df920e7b57829a6458f98c4636f2b874c457d2d254a088e6f36e2d386553",
+      "cards": 1,
+      "pdf": "pass"
+    },
+    {
+      "id": "T17",
+      "inputSha256": "b475df920e7b57829a6458f98c4636f2b874c457d2d254a088e6f36e2d386553",
+      "cards": 1,
+      "pdf": "pass"
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "T01",
+      "status": "expected-overflow",
+      "code": "CONTENT_OVERFLOW"
+    },
+    {
+      "id": "T05",
+      "status": "expected-overflow",
+      "code": "CONTENT_OVERFLOW"
+    },
+    {
+      "id": "T17",
+      "status": "expected-overflow",
+      "code": "CONTENT_OVERFLOW"
+    },
+    {
+      "id": "T25",
+      "status": "expected-overflow",
+      "code": "CONTENT_OVERFLOW"
+    }
+  ],
+  "hashesVerified": 32
+}

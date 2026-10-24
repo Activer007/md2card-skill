@@ -254,3 +254,28 @@ exact code being checked; current evidence is linked in the development plan.
 expected atomic-overflow failure. A denied local Chromium launch is a blocked
 check, not a reason to bypass sandbox restrictions or report browser tests as
 passing.
+
+## Composed template contract (visual M1, opt-in)
+
+`--list-templates` prints repository-owned contracts; `--template T01` selects one
+for a whole manually paginated deck. Alternatively, first-line metadata accepts
+`template` and optional `density` (`compact`, `standard`, `editorial`). A template
+implies its semantic layout. Explicit conflicting layouts or CLI/per-card IDs
+fail instead of silently reinterpreting content. IDs are allowlisted and never
+used as a filesystem path, CSS or HTML input. Templates remain independent of
+legacy themes; changing a palette does not create another counted design.
+
+The initial four designs support only 3:4 and manual pagination. Automatic mode
+still rejects template/density metadata and supports layout-only explainer/steps.
+Text-only designs reject image metadata and inline images rather than hide them.
+Raw HTML escaping, local asset validation, all output/resource budgets, screen
+and print overflow checks and native searchable PDF verification remain in force.
+
+Template title/intro/section slots are derived from the safe Markdown tokens. A
+leading group of H1 headings becomes one visual title group; no wording, section,
+quote, list, source or explicit `===` boundary is rewritten. A later H1 remains in
+its original section. Density alters gaps only, not font sizes. The mobile base is
+0.043 × canvas width and notes are 0.0335 × canvas width, giving 15.09px / 11.76px
+at the 351px inner card width of the 375px preview. Actual nested text is measured
+in real Chromium, not inferred only from these tokens. Real pixels still require
+human review: typography checks do not prove composition quality or glyph safety.

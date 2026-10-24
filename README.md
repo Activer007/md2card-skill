@@ -284,3 +284,27 @@ tests/                  解析与导出测试
 这是独立编写的原创实现，不是上述项目的 fork，也与其维护者或服务不存在隶属、授权或背书关系。没有复制其源代码、CSS、模板、品牌图形或文案；主题使用编辑设计、极简、深色技术、横线笔记与图形海报等通用设计语言重新创作。
 
 本仓库原创代码、样式和文档采用 [MIT License](LICENSE)。依赖项、外部链接内容与用户输入各自保留原有许可和权利；本许可不覆盖它们。详见 [NOTICE](NOTICE)。
+
+## 成品模板库升级（进行中）
+
+成品模板是完整构图，不把主题 × 配色 × 画幅算成模板数量。新版工作按 [九个中等规模里程碑](docs/VISUAL_MILESTONES.md) 分批推进；首批目标 24 套，最终目标 48 套，均须经过源码审查和真实 PNG / 手机 / PDF 验收。
+
+M1 已完成四套设计的源码、真实导出与逐图验收：T01 编辑专题侧栏、T05 瑞士数字索引、T17 深色机制轨道、T25 便签阅读摘记。当前验收数量为 4，不是 24 或 48；范围、限制与精确来源见 [模板验收记录](docs/TEMPLATE_ACCEPTANCE.md)。
+
+以下均是本仓库实际导出的原始 PNG，不是概念设计图：
+
+| T01 编辑专题 | T05 数字索引 |
+| --- | --- |
+| ![T01 专题与侧栏](docs/images/templates/T01.png) | ![T05 原始编号清单](docs/images/templates/T05.png) |
+| T17 深色机制 | T25 阅读便签 |
+| ![T17 机制轨道](docs/images/templates/T17.png) | ![T25 摘句与批注](docs/images/templates/T25.png) |
+
+```bash
+node scripts/render.mjs --list-templates
+node scripts/render.mjs examples/templates/T01.md --out output/T01 --preview
+node scripts/render.mjs my-note.md --template T25 --out output/my-note
+```
+
+也可在卡片第一行选择 `<!-- card: {"template":"T05","density":"standard"} -->`。模板目前仅支持默认手动分页和 3:4 画幅，其他模式明确报错；原五主题与八版式的默认行为保持不变。`compact` / `standard` / `editorial` 只改变间距，不缩小正文。新模板使用独立手机字阶，在 375 / 390px 视口的实际 351 / 366px 卡片宽度上检查正文和来源字号。
+
+每套模板的用途、推荐长度、结构、图片需求、不适用场景、来源与完整输入都在 `--list-templates` 输出中。推荐字数只是选型参考，实际溢出检查不会被绕过；不合适的内容应换模板或保留原文增加显式分段，不能静默删字。

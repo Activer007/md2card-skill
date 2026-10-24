@@ -40,6 +40,110 @@
       "sha256": "6eb92797db47185b3f9f61b449fac2b5e1077ede7ead834549719803f9af937e",
       "type": "synthetic-generated-image",
       "description": "AI-generated watercolor-style olive twig illustration with transparency. Not an existing botanical plate or a scientific identification reference."
+    },
+    {
+      "file": "original-seam-detail.png",
+      "dimensions": [
+        1200,
+        680
+      ],
+      "sha256": "f3741fbfe7ce6f2689f106542e23796b9ae6ada5c683ad82256d8cffde177c40",
+      "type": "original-code-native-raster",
+      "description": "Full-frame original close-up illustration of a fictional fabric edge. Marker 1 points to parallel short stitches; marker 2 points to crossed lines. Not cropped from another image; not a manufacturing or strength claim.",
+      "source": "scripts/create-template-art.py",
+      "license": "MIT; original artwork created for md2card-skill",
+      "notDocumentary": true
+    },
+    {
+      "file": "original-comic-search.png",
+      "dimensions": [
+        900,
+        480
+      ],
+      "sha256": "b44035abe1383516b319c97df6b7323b092eb07aa8c84903eabc4ae6e3cc3649",
+      "type": "original-code-native-raster",
+      "description": "Original fictional scene: a geometric adult-like character beside three blank loose cards. No embedded dialogue; the explanation stays in Markdown.",
+      "source": "scripts/create-template-art.py",
+      "license": "MIT; original artwork created for md2card-skill",
+      "notDocumentary": true
+    },
+    {
+      "file": "original-comic-file.png",
+      "dimensions": [
+        900,
+        480
+      ],
+      "sha256": "d09cde53ef0aeef02f5cc13767c4575c55a8936cc89ceb1486434a2bfb432346",
+      "type": "original-code-native-raster",
+      "description": "Original fictional scene: a blank card with a colored tab being placed in an unbranded folder. No factual performance claim.",
+      "source": "scripts/create-template-art.py",
+      "license": "MIT; original artwork created for md2card-skill",
+      "notDocumentary": true
+    },
+    {
+      "file": "original-comic-return.png",
+      "dimensions": [
+        1200,
+        360
+      ],
+      "sha256": "0c884371d29be8fb4d153ec1e74baa9dacca69c0ff30bf4e46cb92d0ba29ad23",
+      "type": "original-code-native-raster",
+      "description": "Original fictional scene: the same geometric character holds a tabbed card beside an unbranded folder. Arrow only illustrates the authored return step, not a factual finding.",
+      "source": "scripts/create-template-art.py",
+      "license": "MIT; original artwork created for md2card-skill",
+      "notDocumentary": true
+    },
+    {
+      "file": "original-cucumber-prep.png",
+      "dimensions": [
+        900,
+        430
+      ],
+      "sha256": "c79fc314c22ac140a097fea9d493cc13a32512e0ab27c32bc7706302ab49a030",
+      "type": "original-code-native-raster",
+      "description": "Original schematic cucumber and cut slices on an unbranded cutting board. Illustration does not encode portion size or safe cutting instruction.",
+      "source": "scripts/create-template-art.py",
+      "license": "MIT; original artwork created for md2card-skill",
+      "notDocumentary": true
+    },
+    {
+      "file": "original-cucumber-mix.png",
+      "dimensions": [
+        900,
+        430
+      ],
+      "sha256": "f6a216b724a769c715cd3e3c4e8c3095551fa4a458821c73b6f7e1bcad2c697d",
+      "type": "original-code-native-raster",
+      "description": "Original schematic bowl of cucumber slices and a spoon. No promise of a tested recipe, precise volume, nutrition or health effect.",
+      "source": "scripts/create-template-art.py",
+      "license": "MIT; original artwork created for md2card-skill",
+      "notDocumentary": true
+    },
+    {
+      "file": "original-open-tray.png",
+      "dimensions": [
+        900,
+        430
+      ],
+      "sha256": "4ab3fcb7247a62b64db72226006c51ad60952fa1a0716d2a65165f4cdad87582",
+      "type": "original-code-native-raster",
+      "description": "Original fictional unbranded open desktop tray. Drawing demonstrates an open top only; dimensions, material, durability, capacity and prices are unspecified.",
+      "source": "scripts/create-template-art.py",
+      "license": "MIT; original artwork created for md2card-skill",
+      "notDocumentary": true
+    },
+    {
+      "file": "original-lidded-box.png",
+      "dimensions": [
+        900,
+        430
+      ],
+      "sha256": "1ef2b2a5d944dc8c434363dbd8b7b845bbbfe817f7bfca956eea1b3b5f529e66",
+      "type": "original-code-native-raster",
+      "description": "Original fictional unbranded desktop box with its separate lid shown just above it. No dimensions, material, waterproofing, price, rating or health claim.",
+      "source": "scripts/create-template-art.py",
+      "license": "MIT; original artwork created for md2card-skill",
+      "notDocumentary": true
     }
   ]
 }

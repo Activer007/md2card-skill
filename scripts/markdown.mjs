@@ -148,6 +148,33 @@ function resolveTokenImages(tokens, env) {
   }
 }
 
+// Source structure for the few templates with strict paired-image/option contracts.
+// Derived from tokens, not HTML regexes that confuse nested quotes or mixed text.
+function sectionShape(tokens) {
+  let standaloneImageParagraphs = 0, topLevelBlockquotes = 0, nonemptyTopLevelBlockquotes = 0, descriptionBlocks = 0;
+  const hasText = value => /[^\s\u200b-\u200f\u202a-\u202e\u2060-\u206f\ufeff]/u.test(value ?? '');
+  const authoredText = selected => selected.some(token =>
+    (token.type === 'inline' && (token.children ?? []).some(child => child.type !== 'image' && hasText(child.content))) ||
+    (['fence', 'code_block'].includes(token.type) && hasText(token.content)));
+  for (let index = 0; index < tokens.length; index++) {
+    const token = tokens[index];
+    if (token.level !== 0) continue;
+    if (['blockquote_open', 'bullet_list_open', 'ordered_list_open'].includes(token.type)) {
+      let end = index + 1;
+      while (end < tokens.length && !(tokens[end].level === token.level && tokens[end].nesting === -1)) end++;
+      const nonempty = authoredText(tokens.slice(index + 1, end));
+      if (token.type === 'blockquote_open') { topLevelBlockquotes++; if (nonempty) nonemptyTopLevelBlockquotes++; }
+      if (nonempty) descriptionBlocks++;
+    }
+    if (token.type === 'paragraph_open') {
+      const children = tokens[index + 1]?.children ?? [];
+      if (children.length === 1 && children[0].type === 'image') standaloneImageParagraphs++;
+      else if (authoredText([tokens[index + 1]])) descriptionBlocks++;
+    }
+  }
+  return { standaloneImageParagraphs, topLevelBlockquotes, nonemptyTopLevelBlockquotes, descriptionBlocks };
+}
+
 function sectionHtml(tokens, env) {
   const starts = [];
   tokens.forEach((token, index) => {
@@ -162,7 +189,8 @@ function sectionHtml(tokens, env) {
     introHtml: render(tokens.slice(0, starts[0] ?? tokens.length)),
     sections: starts.map((start, index) => ({
       heading: parser.renderer.renderInlineAsText(tokens[start + 1]?.children ?? [], parser.options, env),
-      html: render(tokens.slice(start, starts[index + 1] ?? tokens.length))
+      html: render(tokens.slice(start, starts[index + 1] ?? tokens.length)),
+      shape: sectionShape(tokens.slice(start, starts[index + 1] ?? tokens.length))
     }))
   };
 }

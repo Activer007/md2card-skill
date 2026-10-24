@@ -1,0 +1,12 @@
+{
+  "T36": {
+    "accessed":"2026-10-24",
+    "textStatus":"Original Chinese paraphrase; no quoted slogan or transcript.",
+    "sources":[
+      {"url":"https://www.nasa.gov/mission/apollo-11/","title":"Apollo 11 - NASA","supports":["Launch: July 16, 1969","Splashdown: July 24, 1969"]},
+      {"url":"https://www.nasa.gov/wp-content/uploads/static/history/ap11ann/ap11events.html","title":"Apollo 11: Record of Lunar Events","supports":["Lunar landing: 20 July 1969 GMT","Armstrong on lunar surface: 21 July 1969 GMT; landing and first step must not be conflated"]}
+    ],
+    "datePolicy":"The example reports dates, not precise seconds. The separate landing and first-step event dates are not collapsed or relabeled."
+  },
+  "otherExamples":"Original fictional or instructional demonstration text, explicitly disclosed where a scene, person, recipe or product is fictional or untested. No real price, rating, nutritional claim, biography or performance result is invented."
+}

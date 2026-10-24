@@ -292,3 +292,10 @@ metadata image/caption fields they cannot display. T38 needs exactly two H2
 records with one inline image each. All assets still use the same local resolver
 and budgets. Image frames preserve full content with object-fit: contain; no
 crop is implied by the template. Image provenance accompanies source assets.
+
+M7 validates strict paired records from parser-token shape. T43/T47/T48 require
+standalone, unlinked image paragraphs and explanations in their declared H2
+records; mixed text/image paragraphs fail rather than being split. T44 requires
+two sibling quote blocks in each of its first two comparison sections; nested
+quotes do not count as options. T39/T40 figure ordering is repository-owned and
+cannot be set by input metadata. Every supplied source fragment remains intact.

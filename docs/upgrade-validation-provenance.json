@@ -1,0 +1,1947 @@
+{
+  "schemaVersion": 1,
+  "runId": 40058009275,
+  "runUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40058009275",
+  "codeCommit": "018a3bc2f0012ec6a6f83608fbd92c0a88e2f493",
+  "codeTree": "2d0e7278196ee71cb0ab349c4ce8b10e9ca40f41",
+  "mergePreview": "73a74d3a3a00d00314061c41e5e58dfb16650176",
+  "artifactId": 12546556001,
+  "archiveSha256": "419ce9625206c59a2804c095d0af1307acb87903025fada6f94410acfffc47b7",
+  "scope": "Bounded authored fixtures only; expected overflow/asset rejections are not visual passes.",
+  "suites": {
+    "series": {
+      "summarySha256": "4641e2deeca065efa574eeaa232776332f72aef7c5ff706522bf88e29d6af3db",
+      "results": [
+        {
+          "id": "evidence-reading",
+          "inputSha256": "d622a2932210e64a31078f9f737b97cf4c9ec96dc38589682729aaf51d99da35",
+          "status": "exported-not-visually-reviewed",
+          "cardCount": 5
+        },
+        {
+          "id": "mean-tutorial",
+          "inputSha256": "faac1e4f4661669c3b9678161baf2f238e4a90c5d767c7e0af7839002e9673df",
+          "status": "exported-not-visually-reviewed",
+          "cardCount": 3
+        }
+      ],
+      "artifacts": [
+        {
+          "file": "series/evidence-reading/card-001-mobile-375.png",
+          "sha256": "feb2c889a888fbe9113fa0b8e322441d0ed01ffdbd2cb7f1f88a44df77f2160a"
+        },
+        {
+          "file": "series/evidence-reading/card-001-mobile-390.png",
+          "sha256": "4f3c42495c22c1044b7b2c4a43743fffdb508c339ab129ec3c00ac0f77c686bf"
+        },
+        {
+          "file": "series/evidence-reading/card-001.png",
+          "sha256": "8d3aeaaecbaf7fd4932974f776c68178bc85dc0e040144b711a467c2d640c708"
+        },
+        {
+          "file": "series/evidence-reading/card-002-mobile-375.png",
+          "sha256": "cec7fd380962148590a8121455d935f4ed5c310d40d85e152f0479a8f6200682"
+        },
+        {
+          "file": "series/evidence-reading/card-002-mobile-390.png",
+          "sha256": "18843bdd5c45a2d1d1db16e6e5654f23a2586298eb9791c0533cf03b2ff4ced6"
+        },
+        {
+          "file": "series/evidence-reading/card-002.png",
+          "sha256": "723f192c6fc58a9f6318b21a27ebd5d32b8dba9ba0a67903c73136091ccb2180"
+        },
+        {
+          "file": "series/evidence-reading/card-003-mobile-375.png",
+          "sha256": "d114c7d5e6dca204cea6624b38e4a6805a130d25401f3d6e2c9286138a5eb110"
+        },
+        {
+          "file": "series/evidence-reading/card-003-mobile-390.png",
+          "sha256": "850cdb513e6ced83076d7d1b2972f7e33a22944f373031a6808d4a0563611efa"
+        },
+        {
+          "file": "series/evidence-reading/card-003.png",
+          "sha256": "e199dde1805e55ad88dc2e5c3667f90ccb170c320af8d9c548d57c8bee80f9a5"
+        },
+        {
+          "file": "series/evidence-reading/card-004-mobile-375.png",
+          "sha256": "e0661054255bc93dd14f285ab21f91e07d6b3648b0d6e6731e8085b312513cfa"
+        },
+        {
+          "file": "series/evidence-reading/card-004-mobile-390.png",
+          "sha256": "c709ba3901a02fd4a617d47fe3b09424f37da5587a4ef843cf36f122675d8162"
+        },
+        {
+          "file": "series/evidence-reading/card-004.png",
+          "sha256": "65e803fcaec3ea266472b00cc5290929214f3e3c6a906efd416946e2445ab497"
+        },
+        {
+          "file": "series/evidence-reading/card-005-mobile-375.png",
+          "sha256": "6157787281d9f5db958f45c7b5775d0700418b0d7ed77a8fa1bd902371eb5d32"
+        },
+        {
+          "file": "series/evidence-reading/card-005-mobile-390.png",
+          "sha256": "d3419fe21da46c82c07fd71a85ac94883570fff054c802c69e814962404b55ec"
+        },
+        {
+          "file": "series/evidence-reading/card-005.png",
+          "sha256": "222fb727fb585b9fa7bf85eca3b55b6483c7d462dce4df006d1216c3ca097d63"
+        },
+        {
+          "file": "series/evidence-reading/cards.pdf",
+          "sha256": "d9da6686c38f1421a86cb4e159f5a1eb17f4de9f542a217471b1104938c12e6f"
+        },
+        {
+          "file": "series/evidence-reading/contact-sheet.png",
+          "sha256": "801282dc3ae0902b86b032263254bb37f03a6ecef23e0239409b2440ddb13a32"
+        },
+        {
+          "file": "series/mean-tutorial/card-001-mobile-375.png",
+          "sha256": "d30c6de0dc8fcca6a6a69838456ae5690e69688c2bbaee7e939574de86267fdb"
+        },
+        {
+          "file": "series/mean-tutorial/card-001-mobile-390.png",
+          "sha256": "3ed750a3083beb0942924b6dca38a7391ff1069559c8d316d6db73862a9e8cbe"
+        },
+        {
+          "file": "series/mean-tutorial/card-001.png",
+          "sha256": "5561f49d654e2292c5b6f6ef1d2bf88ea21e29004fc971545b8199c0a76db46f"
+        },
+        {
+          "file": "series/mean-tutorial/card-002-mobile-375.png",
+          "sha256": "18ac86d2c36610438dc900db39c84fe386b478be903f1f159d690efff0639b1a"
+        },
+        {
+          "file": "series/mean-tutorial/card-002-mobile-390.png",
+          "sha256": "f698c77537814d5bdde9a9cf6761e8d47611e87e3cf650e94bfad771796b62fe"
+        },
+        {
+          "file": "series/mean-tutorial/card-002.png",
+          "sha256": "f67b6f52e04f4efebb8a03ee3fe4cb2f3b67df6399883f8c6d7c2859f1ca1eb9"
+        },
+        {
+          "file": "series/mean-tutorial/card-003-mobile-375.png",
+          "sha256": "c7a9ce7ef7c53e20647ea26eb30210eb9f04f84375b1bf23a7ee3adefee29acc"
+        },
+        {
+          "file": "series/mean-tutorial/card-003-mobile-390.png",
+          "sha256": "8cddf13ff5a7990d2c65f1453a5cdd3a632852f620cbca7c2594a5f47dfeed1c"
+        },
+        {
+          "file": "series/mean-tutorial/card-003.png",
+          "sha256": "9f6279df8cfb46867d3c618ce2b12ad9c5b174e4c8834acec2f1691fc2c5ab58"
+        },
+        {
+          "file": "series/mean-tutorial/cards.pdf",
+          "sha256": "7662bdd31750d0b6d59ccd7a4c1d0b75393bbde6dad5d3da1bc07ad279318b63"
+        },
+        {
+          "file": "series/mean-tutorial/contact-sheet.png",
+          "sha256": "114c82a8c397d6cd75195189340bcecb2fa8214846fed1331205e9ea50f83e28"
+        }
+      ]
+    },
+    "tail": {
+      "summarySha256": "0800db6b77946699d1b5c098436d51a4ad5d4c18a06602fee2949d1bf7987eb3",
+      "results": [
+        {
+          "name": "paragraphs",
+          "input": "examples/pagination-tail.md",
+          "inputSha256": "3c5d8fa851d06767fb044cf2bd371db85c4302f94280ddc526249559c36f43b9",
+          "status": "pass",
+          "decks": [
+            {
+              "directory": "paragraphs-greedy",
+              "cards": 2,
+              "balance": {
+                "enabled": false,
+                "algorithm": "bounded-tail-groups-v1",
+                "outcome": "disabled",
+                "attempts": 0,
+                "probes": 0,
+                "appliedPartitions": 0,
+                "fallback": null,
+                "limits": {
+                  "candidatesPerPartition": 8,
+                  "probes": 64
+                },
+                "policy": {
+                  "maxTailUtilization": 0.35,
+                  "minUtilizationGap": 0.25,
+                  "minGapImprovement": 0.05
+                },
+                "partitions": []
+              }
+            },
+            {
+              "directory": "paragraphs-balanced",
+              "cards": 2,
+              "balance": {
+                "enabled": true,
+                "algorithm": "bounded-tail-groups-v1",
+                "outcome": "improved",
+                "attempts": 2,
+                "probes": 4,
+                "appliedPartitions": 1,
+                "fallback": null,
+                "limits": {
+                  "candidatesPerPartition": 8,
+                  "probes": 64
+                },
+                "policy": {
+                  "maxTailUtilization": 0.35,
+                  "minUtilizationGap": 0.25,
+                  "minGapImprovement": 0.05
+                },
+                "partitions": [
+                  {
+                    "partitionIndex": 1,
+                    "cardIndexes": [
+                      1,
+                      2
+                    ],
+                    "outcome": "improved",
+                    "attempts": 2,
+                    "probes": 4,
+                    "fallback": null,
+                    "termination": "balanced",
+                    "movedGroupIds": [
+                      "p1-g4",
+                      "p1-g5"
+                    ],
+                    "candidates": [
+                      {
+                        "movedGroups": 1,
+                        "outcome": "viable",
+                        "utilization": {
+                          "screen": {
+                            "left": 0.6876554726368159,
+                            "right": 0.31763059701492535,
+                            "gap": 0.37002487562189057
+                          },
+                          "print": {
+                            "left": 0.6876554726368159,
+                            "right": 0.31763059701492535,
+                            "gap": 0.37002487562189057
+                          }
+                        }
+                      },
+                      {
+                        "movedGroups": 2,
+                        "outcome": "selected",
+                        "utilization": {
+                          "screen": {
+                            "left": 0.5026430348258707,
+                            "right": 0.5026430348258707,
+                            "gap": 0
+                          },
+                          "print": {
+                            "left": 0.5026430348258707,
+                            "right": 0.5026430348258707,
+                            "gap": 0
+                          }
+                        }
+                      }
+                    ],
+                    "before": {
+                      "screen": {
+                        "left": 0.8726679104477612,
+                        "right": 0.1326181592039801,
+                        "gap": 0.740049751243781
+                      },
+                      "print": {
+                        "left": 0.8726679104477612,
+                        "right": 0.1326181592039801,
+                        "gap": 0.740049751243781
+                      }
+                    },
+                    "after": {
+                      "screen": {
+                        "left": 0.5026430348258707,
+                        "right": 0.5026430348258707,
+                        "gap": 0
+                      },
+                      "print": {
+                        "left": 0.5026430348258707,
+                        "right": 0.5026430348258707,
+                        "gap": 0
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "locked",
+          "input": "examples/pagination-tail-locked.md",
+          "inputSha256": "58d38f3fd782316e3433336c4b5ff926dc3ad8c22d960beb2bb9eb451322ed5d",
+          "status": "pass",
+          "decks": [
+            {
+              "directory": "locked-greedy",
+              "cards": 5,
+              "balance": {
+                "enabled": false,
+                "algorithm": "bounded-tail-groups-v1",
+                "outcome": "disabled",
+                "attempts": 0,
+                "probes": 0,
+                "appliedPartitions": 0,
+                "fallback": null,
+                "limits": {
+                  "candidatesPerPartition": 8,
+                  "probes": 64
+                },
+                "policy": {
+                  "maxTailUtilization": 0.35,
+                  "minUtilizationGap": 0.25,
+                  "minGapImprovement": 0.05
+                },
+                "partitions": []
+              }
+            },
+            {
+              "directory": "locked-balanced",
+              "cards": 5,
+              "balance": {
+                "enabled": true,
+                "algorithm": "bounded-tail-groups-v1",
+                "outcome": "improved",
+                "attempts": 4,
+                "probes": 8,
+                "appliedPartitions": 2,
+                "fallback": null,
+                "limits": {
+                  "candidatesPerPartition": 8,
+                  "probes": 64
+                },
+                "policy": {
+                  "maxTailUtilization": 0.35,
+                  "minUtilizationGap": 0.25,
+                  "minGapImprovement": 0.05
+                },
+                "partitions": [
+                  {
+                    "partitionIndex": 1,
+                    "cardIndexes": [
+                      2,
+                      3
+                    ],
+                    "outcome": "improved",
+                    "attempts": 2,
+                    "probes": 4,
+                    "fallback": null,
+                    "termination": "balanced",
+                    "movedGroupIds": [
+                      "p1-g9",
+                      "p1-g10"
+                    ],
+                    "candidates": [
+                      {
+                        "movedGroups": 1,
+                        "outcome": "viable",
+                        "utilization": {
+                          "screen": {
+                            "left": 0.6876554726368159,
+                            "right": 0.31763059701492535,
+                            "gap": 0.37002487562189057
+                          },
+                          "print": {
+                            "left": 0.6876554726368159,
+                            "right": 0.31763059701492535,
+                            "gap": 0.37002487562189057
+                          }
+                        }
+                      },
+                      {
+                        "movedGroups": 2,
+                        "outcome": "selected",
+                        "utilization": {
+                          "screen": {
+                            "left": 0.5026430348258707,
+                            "right": 0.5026430348258707,
+                            "gap": 0
+                          },
+                          "print": {
+                            "left": 0.5026430348258707,
+                            "right": 0.5026430348258707,
+                            "gap": 0
+                          }
+                        }
+                      }
+                    ],
+                    "before": {
+                      "screen": {
+                        "left": 0.8726679104477612,
+                        "right": 0.1326181592039801,
+                        "gap": 0.740049751243781
+                      },
+                      "print": {
+                        "left": 0.8726679104477612,
+                        "right": 0.1326181592039801,
+                        "gap": 0.740049751243781
+                      }
+                    },
+                    "after": {
+                      "screen": {
+                        "left": 0.5026430348258707,
+                        "right": 0.5026430348258707,
+                        "gap": 0
+                      },
+                      "print": {
+                        "left": 0.5026430348258707,
+                        "right": 0.5026430348258707,
+                        "gap": 0
+                      }
+                    }
+                  },
+                  {
+                    "partitionIndex": 2,
+                    "cardIndexes": [
+                      4,
+                      5
+                    ],
+                    "outcome": "improved",
+                    "attempts": 2,
+                    "probes": 4,
+                    "fallback": null,
+                    "termination": "balanced",
+                    "movedGroupIds": [
+                      "p2-g4",
+                      "p2-g5"
+                    ],
+                    "candidates": [
+                      {
+                        "movedGroups": 1,
+                        "outcome": "viable",
+                        "utilization": {
+                          "screen": {
+                            "left": 0.6876554726368159,
+                            "right": 0.31763059701492535,
+                            "gap": 0.37002487562189057
+                          },
+                          "print": {
+                            "left": 0.6876554726368159,
+                            "right": 0.31763059701492535,
+                            "gap": 0.37002487562189057
+                          }
+                        }
+                      },
+                      {
+                        "movedGroups": 2,
+                        "outcome": "selected",
+                        "utilization": {
+                          "screen": {
+                            "left": 0.5026430348258707,
+                            "right": 0.5026430348258707,
+                            "gap": 0
+                          },
+                          "print": {
+                            "left": 0.5026430348258707,
+                            "right": 0.5026430348258707,
+                            "gap": 0
+                          }
+                        }
+                      }
+                    ],
+                    "before": {
+                      "screen": {
+                        "left": 0.8726679104477612,
+                        "right": 0.1326181592039801,
+                        "gap": 0.740049751243781
+                      },
+                      "print": {
+                        "left": 0.8726679104477612,
+                        "right": 0.1326181592039801,
+                        "gap": 0.740049751243781
+                      }
+                    },
+                    "after": {
+                      "screen": {
+                        "left": 0.5026430348258707,
+                        "right": 0.5026430348258707,
+                        "gap": 0
+                      },
+                      "print": {
+                        "left": 0.5026430348258707,
+                        "right": 0.5026430348258707,
+                        "gap": 0
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "lists",
+          "input": "examples/pagination-lists.md",
+          "inputSha256": "fddbad9f4dd94d51a3fb2cd68adf2ec583412fa119612a3b36f9df22a7539862",
+          "status": "pass",
+          "decks": [
+            {
+              "directory": "lists-greedy",
+              "cards": 5,
+              "balance": {
+                "enabled": false,
+                "algorithm": "bounded-tail-groups-v1",
+                "outcome": "disabled",
+                "attempts": 0,
+                "probes": 0,
+                "appliedPartitions": 0,
+                "fallback": null,
+                "limits": {
+                  "candidatesPerPartition": 8,
+                  "probes": 64
+                },
+                "policy": {
+                  "maxTailUtilization": 0.35,
+                  "minUtilizationGap": 0.25,
+                  "minGapImprovement": 0.05
+                },
+                "partitions": []
+              }
+            },
+            {
+              "directory": "lists-balanced",
+              "cards": 5,
+              "balance": {
+                "enabled": true,
+                "algorithm": "bounded-tail-groups-v1",
+                "outcome": "improved",
+                "attempts": 2,
+                "probes": 4,
+                "appliedPartitions": 1,
+                "fallback": null,
+                "limits": {
+                  "candidatesPerPartition": 8,
+                  "probes": 64
+                },
+                "policy": {
+                  "maxTailUtilization": 0.35,
+                  "minUtilizationGap": 0.25,
+                  "minGapImprovement": 0.05
+                },
+                "partitions": [
+                  {
+                    "partitionIndex": 1,
+                    "cardIndexes": [
+                      4,
+                      5
+                    ],
+                    "outcome": "improved",
+                    "attempts": 2,
+                    "probes": 4,
+                    "fallback": null,
+                    "termination": "boundaries-exhausted",
+                    "movedGroupIds": [
+                      "p1-g11"
+                    ],
+                    "candidates": [
+                      {
+                        "movedGroups": 1,
+                        "outcome": "selected",
+                        "utilization": {
+                          "screen": {
+                            "left": 0.6671618251173709,
+                            "right": 0.6045884683098591,
+                            "gap": 0.06257335680751175
+                          },
+                          "print": {
+                            "left": 0.6671618251173709,
+                            "right": 0.6045884683098591,
+                            "gap": 0.06257335680751175
+                          }
+                        }
+                      },
+                      {
+                        "movedGroups": 2,
+                        "outcome": "no-improvement",
+                        "utilization": {
+                          "screen": {
+                            "left": 0.32047755281690143,
+                            "right": 0.9512727406103286,
+                            "gap": 0.6307951877934272
+                          },
+                          "print": {
+                            "left": 0.32047755281690143,
+                            "right": 0.9512727406103286,
+                            "gap": 0.6307951877934272
+                          }
+                        }
+                      }
+                    ],
+                    "before": {
+                      "screen": {
+                        "left": 0.9512727406103286,
+                        "right": 0.32047755281690143,
+                        "gap": 0.6307951877934272
+                      },
+                      "print": {
+                        "left": 0.9512727406103286,
+                        "right": 0.32047755281690143,
+                        "gap": 0.6307951877934272
+                      }
+                    },
+                    "after": {
+                      "screen": {
+                        "left": 0.6671618251173709,
+                        "right": 0.6045884683098591,
+                        "gap": 0.06257335680751175
+                      },
+                      "print": {
+                        "left": 0.6671618251173709,
+                        "right": 0.6045884683098591,
+                        "gap": 0.06257335680751175
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "tables",
+          "input": "examples/pagination-tables.md",
+          "inputSha256": "f8d541e78f1f73621744758232381c4c60de5cca403e1dbdb4318e20e99fec84",
+          "status": "pass",
+          "decks": [
+            {
+              "directory": "tables-greedy",
+              "cards": 6,
+              "balance": {
+                "enabled": false,
+                "algorithm": "bounded-tail-groups-v1",
+                "outcome": "disabled",
+                "attempts": 0,
+                "probes": 0,
+                "appliedPartitions": 0,
+                "fallback": null,
+                "limits": {
+                  "candidatesPerPartition": 8,
+                  "probes": 64
+                },
+                "policy": {
+                  "maxTailUtilization": 0.35,
+                  "minUtilizationGap": 0.25,
+                  "minGapImprovement": 0.05
+                },
+                "partitions": []
+              }
+            },
+            {
+              "directory": "tables-balanced",
+              "cards": 6,
+              "balance": {
+                "enabled": true,
+                "algorithm": "bounded-tail-groups-v1",
+                "outcome": "improved",
+                "attempts": 2,
+                "probes": 4,
+                "appliedPartitions": 1,
+                "fallback": null,
+                "limits": {
+                  "candidatesPerPartition": 8,
+                  "probes": 64
+                },
+                "policy": {
+                  "maxTailUtilization": 0.35,
+                  "minUtilizationGap": 0.25,
+                  "minGapImprovement": 0.05
+                },
+                "partitions": [
+                  {
+                    "partitionIndex": 1,
+                    "cardIndexes": [
+                      5,
+                      6
+                    ],
+                    "outcome": "improved",
+                    "attempts": 2,
+                    "probes": 4,
+                    "fallback": null,
+                    "termination": "balanced",
+                    "movedGroupIds": [
+                      "p1-g23",
+                      "p1-g24"
+                    ],
+                    "candidates": [
+                      {
+                        "movedGroups": 1,
+                        "outcome": "viable",
+                        "utilization": {
+                          "screen": {
+                            "left": 0.7254601226993865,
+                            "right": 0.4145897239263804,
+                            "gap": 0.31087039877300615
+                          },
+                          "print": {
+                            "left": 0.7254601226993865,
+                            "right": 0.4145897239263804,
+                            "gap": 0.31087039877300615
+                          }
+                        }
+                      },
+                      {
+                        "movedGroups": 2,
+                        "outcome": "selected",
+                        "utilization": {
+                          "screen": {
+                            "left": 0.5700249233128835,
+                            "right": 0.5700249233128835,
+                            "gap": 0
+                          },
+                          "print": {
+                            "left": 0.5700249233128835,
+                            "right": 0.5700249233128835,
+                            "gap": 0
+                          }
+                        }
+                      }
+                    ],
+                    "before": {
+                      "screen": {
+                        "left": 0.8808953220858896,
+                        "right": 0.2591545245398773,
+                        "gap": 0.6217407975460123
+                      },
+                      "print": {
+                        "left": 0.8808953220858896,
+                        "right": 0.2591545245398773,
+                        "gap": 0.6217407975460123
+                      }
+                    },
+                    "after": {
+                      "screen": {
+                        "left": 0.5700249233128835,
+                        "right": 0.5700249233128835,
+                        "gap": 0
+                      },
+                      "print": {
+                        "left": 0.5700249233128835,
+                        "right": 0.5700249233128835,
+                        "gap": 0
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "file": "tail/lists-balanced/card-001.png",
+          "sha256": "3b317d546bab68b7aaa0dfe61807a7c794b8184c8dff1b0582c00eedcc58e345"
+        },
+        {
+          "file": "tail/lists-balanced/card-002.png",
+          "sha256": "8dd0c29d65a0eba9ebb7766464791be07d59c32fe359d6fa6716f33e248042b7"
+        },
+        {
+          "file": "tail/lists-balanced/card-003.png",
+          "sha256": "521a471c390af78ee04c090c8c89359c4a07007f8072aa2d4ce8b54335521e97"
+        },
+        {
+          "file": "tail/lists-balanced/card-004.png",
+          "sha256": "ba9de38d062934375d8b887c63261cfe448dd5da92834e86cd451bdea511fd55"
+        },
+        {
+          "file": "tail/lists-balanced/card-005.png",
+          "sha256": "a57d687656629840178f7181f71db40ea0df6d57267993c6ae5ee038ddd81685"
+        },
+        {
+          "file": "tail/lists-balanced/cards.pdf",
+          "sha256": "be35f4ab9c6e4e9ded3e049bce79a540a46621b18b55f0cdb97d8a91d871a2cf"
+        },
+        {
+          "file": "tail/lists-balanced/contact-sheet.png",
+          "sha256": "1e09c335d0770d765c2dee84427e536db88492bce88744aab81ae1d57844cb90"
+        },
+        {
+          "file": "tail/lists-greedy/card-001.png",
+          "sha256": "3b317d546bab68b7aaa0dfe61807a7c794b8184c8dff1b0582c00eedcc58e345"
+        },
+        {
+          "file": "tail/lists-greedy/card-002.png",
+          "sha256": "8dd0c29d65a0eba9ebb7766464791be07d59c32fe359d6fa6716f33e248042b7"
+        },
+        {
+          "file": "tail/lists-greedy/card-003.png",
+          "sha256": "521a471c390af78ee04c090c8c89359c4a07007f8072aa2d4ce8b54335521e97"
+        },
+        {
+          "file": "tail/lists-greedy/card-004.png",
+          "sha256": "1abc28029a4eaebb86f8bf7688f1a7d537ac49e1f98a4206ee6583413b172690"
+        },
+        {
+          "file": "tail/lists-greedy/card-005.png",
+          "sha256": "0707dc7ea8931dacb12f77027542e964257b3f4b59c6979cc034059214a4a730"
+        },
+        {
+          "file": "tail/lists-greedy/cards.pdf",
+          "sha256": "711cac7d4b01b9ff8f8d85a8b1965fb1469c1c47455444f3a678dada4e93eb02"
+        },
+        {
+          "file": "tail/lists-greedy/contact-sheet.png",
+          "sha256": "c3a540e72a40558913cc7a14066af1c95b74422bd7951cb2fdfbb3ffcd06bc07"
+        },
+        {
+          "file": "tail/locked-balanced/card-001.png",
+          "sha256": "bbf1bf23db48518d8556e56d6f4ee704653e9c14850ab168893a17ac9b21e1ac"
+        },
+        {
+          "file": "tail/locked-balanced/card-002.png",
+          "sha256": "d496047cc2941b19acc7db332d3a23c27d09a2168a52c01d894d906a349ea20b"
+        },
+        {
+          "file": "tail/locked-balanced/card-003.png",
+          "sha256": "914b02b5bae97109bd07f962d27a3ce2b836ccb419dbe2d156bc4e003e1bca27"
+        },
+        {
+          "file": "tail/locked-balanced/card-004.png",
+          "sha256": "cd267495c203e88d2af54da33765bed04f09d9a9665bc0b2d1a55a41400f64f8"
+        },
+        {
+          "file": "tail/locked-balanced/card-005.png",
+          "sha256": "0c4b5d7ac12785ca7acec001ce2e604faf21b289ba9ddefed170f69ee64951f0"
+        },
+        {
+          "file": "tail/locked-balanced/cards.pdf",
+          "sha256": "967ffb08ec56bebd890f7033accb892d9328db77904ef3d8bc61a002741a3a8c"
+        },
+        {
+          "file": "tail/locked-balanced/contact-sheet.png",
+          "sha256": "8200575ae9f58b2f9582b1127539853c21b6891a030cfef295aa7aafd01cf1ef"
+        },
+        {
+          "file": "tail/locked-greedy/card-001.png",
+          "sha256": "bbf1bf23db48518d8556e56d6f4ee704653e9c14850ab168893a17ac9b21e1ac"
+        },
+        {
+          "file": "tail/locked-greedy/card-002.png",
+          "sha256": "25d3f9fc2e4be02248510220e40f9cab34854bdc8063136c55e70c719edf81fb"
+        },
+        {
+          "file": "tail/locked-greedy/card-003.png",
+          "sha256": "4fd2c44593aaf393b5a9dd77c1bb8e60ed7704060ba91a7c9445cce5de9c1aaa"
+        },
+        {
+          "file": "tail/locked-greedy/card-004.png",
+          "sha256": "73c473e1a47ee65ffafca86955892fc0fdec391a795ec012ed0659951f3c9d38"
+        },
+        {
+          "file": "tail/locked-greedy/card-005.png",
+          "sha256": "5f97dfe9175e55b30d9de75a8f8c36b4f779f414f412ecbed7e31e3f93d76c3a"
+        },
+        {
+          "file": "tail/locked-greedy/cards.pdf",
+          "sha256": "6b652a40ba28a70ee229b713915eb79e2a0545c1c96429b9843c697c3723201c"
+        },
+        {
+          "file": "tail/locked-greedy/contact-sheet.png",
+          "sha256": "cd5db4eee69d80f30372aa8fe403b403aa6afd9df2c3fb4f3162ef81c3619334"
+        },
+        {
+          "file": "tail/paragraphs-balanced/card-001.png",
+          "sha256": "581179b677236717dd315aaf122be3be3dabeb721fe9f9ad93a1e01333aa4926"
+        },
+        {
+          "file": "tail/paragraphs-balanced/card-002.png",
+          "sha256": "b1b486309071a73764cd921543cbdd409a86b8c35bd80b48f53f5085d13d2052"
+        },
+        {
+          "file": "tail/paragraphs-balanced/cards.pdf",
+          "sha256": "739f09684ff344237f7652ff313aaea84189756e93950b3dee10d34cbeb7cbb6"
+        },
+        {
+          "file": "tail/paragraphs-balanced/contact-sheet.png",
+          "sha256": "3041586a5d1050e61134392377de3facdd42e2aef42ad11632932e9e01e965d3"
+        },
+        {
+          "file": "tail/paragraphs-greedy/card-001.png",
+          "sha256": "48b0c402ff46fca08b8eaa481b3fc6db578e4dc1d8f440627c3c0bb81e917d07"
+        },
+        {
+          "file": "tail/paragraphs-greedy/card-002.png",
+          "sha256": "9b1eb0e2eb69c2545af6ccde5879f9ce2ebd4b8b1c6daff2ddccdae74e398e07"
+        },
+        {
+          "file": "tail/paragraphs-greedy/cards.pdf",
+          "sha256": "65904cd43bb4d1ac7291788612bf8ed499c285577b230a31d579b49bde1f7e6d"
+        },
+        {
+          "file": "tail/paragraphs-greedy/contact-sheet.png",
+          "sha256": "28e1c170902402750979e019e5f02c878a3d372f3a5c96f92d0b63fe1e0abb96"
+        },
+        {
+          "file": "tail/tables-balanced/card-001.png",
+          "sha256": "a1d59f8bd3e71bb0c7864832b796489ee0c667f8f55bf479208017dc1f0e3725"
+        },
+        {
+          "file": "tail/tables-balanced/card-002.png",
+          "sha256": "3cb1ef88d82c0455515686e17dfcb6efee138b9bc279751e00be9985335ec8e2"
+        },
+        {
+          "file": "tail/tables-balanced/card-003.png",
+          "sha256": "f9b613619234b20ac37933e687bcfcfccf84a5be25700be1cece7617951b6fac"
+        },
+        {
+          "file": "tail/tables-balanced/card-004.png",
+          "sha256": "d8930226cbf5102264a8040c2d75ad4078f0b26ba11c93cd4151d233b168729c"
+        },
+        {
+          "file": "tail/tables-balanced/card-005.png",
+          "sha256": "3a148eef75c07c20494c981b56d72a126de0bbf7968c5b78ca976053aad26e76"
+        },
+        {
+          "file": "tail/tables-balanced/card-006.png",
+          "sha256": "e83062d0e7ae50fd9cef96cab528fa7b270955a3ed0bf45a66d73e6ddebdaa6c"
+        },
+        {
+          "file": "tail/tables-balanced/cards.pdf",
+          "sha256": "51c7f8c78d3b1d85d92d94078d9313e65638d760271caab348c25420098cd216"
+        },
+        {
+          "file": "tail/tables-balanced/contact-sheet.png",
+          "sha256": "8360490ffa71e66ba8b42119b435268f93014d9cba59ca0f48269e2eaeb29f00"
+        },
+        {
+          "file": "tail/tables-greedy/card-001.png",
+          "sha256": "a1d59f8bd3e71bb0c7864832b796489ee0c667f8f55bf479208017dc1f0e3725"
+        },
+        {
+          "file": "tail/tables-greedy/card-002.png",
+          "sha256": "3cb1ef88d82c0455515686e17dfcb6efee138b9bc279751e00be9985335ec8e2"
+        },
+        {
+          "file": "tail/tables-greedy/card-003.png",
+          "sha256": "f9b613619234b20ac37933e687bcfcfccf84a5be25700be1cece7617951b6fac"
+        },
+        {
+          "file": "tail/tables-greedy/card-004.png",
+          "sha256": "d8930226cbf5102264a8040c2d75ad4078f0b26ba11c93cd4151d233b168729c"
+        },
+        {
+          "file": "tail/tables-greedy/card-005.png",
+          "sha256": "0a87a134638bec96d71c26cc9a49a8cd5f6c021eeffb5895b6dc2dd14814c513"
+        },
+        {
+          "file": "tail/tables-greedy/card-006.png",
+          "sha256": "36f1aec06de4976c45442013f94bbffa7031e5efef2a8ba14953030a8aef9c47"
+        },
+        {
+          "file": "tail/tables-greedy/cards.pdf",
+          "sha256": "d12260340689159d151ccedfcf5b406828259b6cf33df7a9077dcc6bc8ef0ffd"
+        },
+        {
+          "file": "tail/tables-greedy/contact-sheet.png",
+          "sha256": "ebc9ea8219bec9664a167e8c1578cde1fb08fa73e6a66296b91249607f7a4774"
+        }
+      ]
+    },
+    "visual-stress": {
+      "summarySha256": "91061794c66743d6a118f87f21e8974f95678f46c4840312a084be576c062918",
+      "results": [
+        {
+          "id": "short-compact",
+          "template": "T01",
+          "input": "validation/visual-stress/inputs/short-compact.md",
+          "inputSha256": "742f82737efdce3a82c963098002ba0da2040a05be6042b43e701888fd6a4025",
+          "bodySha256": "b475df920e7b57829a6458f98c4636f2b874c457d2d254a088e6f36e2d386553",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "short-standard",
+          "template": "T01",
+          "input": "validation/visual-stress/inputs/short-standard.md",
+          "inputSha256": "5ad787e4b2e8be9c37d86da09aac733b5b8913ac7dbc19316b08269297c4204c",
+          "bodySha256": "b475df920e7b57829a6458f98c4636f2b874c457d2d254a088e6f36e2d386553",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "short-editorial",
+          "template": "T01",
+          "input": "validation/visual-stress/inputs/short-editorial.md",
+          "inputSha256": "b9ebe77b76def92056af6afc6b3012008c60929c5ab017cf14f66fb3cb7ed48e",
+          "bodySha256": "b475df920e7b57829a6458f98c4636f2b874c457d2d254a088e6f36e2d386553",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "medium-nested-url",
+          "template": "T04",
+          "input": "validation/visual-stress/inputs/medium-nested-url.md",
+          "inputSha256": "2bb6d4ad094766c5fcae20b0f9a74fd4e3c8c8d2b27e0e6404ce084c0120f513",
+          "bodySha256": "7b421a88af61ce2ad290e9955ed12a65c212131b715bed579e051a6c9f1f7550",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "medium-code",
+          "template": "T18",
+          "input": "validation/visual-stress/inputs/medium-code.md",
+          "inputSha256": "6e6120fcbf92c28c95472d19da4846fe722dd2a220658a9990d99811490741db",
+          "bodySha256": "6f4576277330b01ad7094b277297d586b23ac9d8d206c38b207cfe445a238df9",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "medium-table",
+          "template": "T24",
+          "input": "validation/visual-stress/inputs/medium-table.md",
+          "inputSha256": "879886ec4d7885f8e3f1957246a28742ea87ffee49d551c59a8fc42a76111502",
+          "bodySha256": "63d04963f8642bf44bd5adaeeb03e33b841b51b3fbeb6dfbc1cd479f7eaf31df",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "long-compact",
+          "template": "T04",
+          "input": "validation/visual-stress/inputs/long-compact.md",
+          "inputSha256": "f59b76ae066398b21dba4684c7ae29c64062e066e843f8914cb4af11e060dac1",
+          "bodySha256": "e13d58d01ec907a62d683acfe73c3b72a4cba16ec01b3bb2dd4b4b77009d0f03",
+          "expected": "CONTENT_OVERFLOW",
+          "status": "expected-error",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "long-standard",
+          "template": "T04",
+          "input": "validation/visual-stress/inputs/long-standard.md",
+          "inputSha256": "41756e61593c31097e9c903bdcd70016d478dbbee244800992c6d9a171911cf4",
+          "bodySha256": "e13d58d01ec907a62d683acfe73c3b72a4cba16ec01b3bb2dd4b4b77009d0f03",
+          "expected": "CONTENT_OVERFLOW",
+          "status": "expected-error",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "long-editorial",
+          "template": "T04",
+          "input": "validation/visual-stress/inputs/long-editorial.md",
+          "inputSha256": "731015f168390f588d087debdea29d075a03e59f6a7502eb9822ea4cdbce0af6",
+          "bodySha256": "e13d58d01ec907a62d683acfe73c3b72a4cba16ec01b3bb2dd4b4b77009d0f03",
+          "expected": "CONTENT_OVERFLOW",
+          "status": "expected-error",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "notebook-headings",
+          "template": null,
+          "input": "validation/visual-stress/inputs/notebook-headings.md",
+          "inputSha256": "37196127cd31c4838678f69454fc25fe5994832cbc91abec470a41592943883b",
+          "bodySha256": "37196127cd31c4838678f69454fc25fe5994832cbc91abec470a41592943883b",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "image-landscape",
+          "template": "T37",
+          "input": "validation/visual-stress/inputs/image-landscape.md",
+          "inputSha256": "60b65800e6b8b3cd3b473a36a9a9221c57225616dc8f2a431f5b90c1b2e0e1f7",
+          "bodySha256": "2a86c906da6111d1d02adb7b551afd355c90471d6cb5af6ab405fcf8f9c6d3fc",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "image-portrait",
+          "template": "T39",
+          "input": "validation/visual-stress/inputs/image-portrait.md",
+          "inputSha256": "db92b7bebc3193bd18444140c75513dd92072d206ad282e966c62722f9e2e0ea",
+          "bodySha256": "51593a44d84c8634dcc58742158e9bc9d08e2e67f5f6be6173b351619e92205d",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "image-alpha",
+          "template": "T45",
+          "input": "validation/visual-stress/inputs/image-alpha.md",
+          "inputSha256": "0db6743f9a703ae03c19b612f3f360af9c9f71895b5c626f8befedb544ef3c8a",
+          "bodySha256": "86029c16265d84335a5409339fac8fd746aad4ad0ed1b197ae42dd12a16be787",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "image-screenshot",
+          "template": "T20",
+          "input": "validation/visual-stress/inputs/image-screenshot.md",
+          "inputSha256": "d1a44e05c14349ef0decd5f7a733a76b798464fc681248b83d8cc77dc6d69113",
+          "bodySha256": "2ff91f9657cb82a989032a2f6dbce04d14a5ac51351372d27e94e86a014c8ee5",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "image-extreme-wide",
+          "template": "T37",
+          "input": "validation/visual-stress/inputs/image-extreme-wide.md",
+          "inputSha256": "cfe8328511a5a0991e7abe3f08255f3d5be732492f829ef2680f7aa826a59ccf",
+          "bodySha256": "626da53938dbfc7b476a6f8f44c77d45e85bd4bb3c84bc39ca97272cb4a067b1",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "image-extreme-tall",
+          "template": "T37",
+          "input": "validation/visual-stress/inputs/image-extreme-tall.md",
+          "inputSha256": "5d06c1492ddb4e890370982ad6b3b304f8cf246465e7f29f32eb361098c9b80f",
+          "bodySha256": "626da53938dbfc7b476a6f8f44c77d45e85bd4bb3c84bc39ca97272cb4a067b1",
+          "expected": "success",
+          "status": "rendered-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "asset-missing",
+          "template": "T37",
+          "input": "validation/visual-stress/inputs/asset-missing.md",
+          "inputSha256": "b17120b0672885a2a0f8748fc6ac1f55e2da3092346adcaeb2afec3e37b7c228",
+          "bodySha256": "626da53938dbfc7b476a6f8f44c77d45e85bd4bb3c84bc39ca97272cb4a067b1",
+          "expected": "INVALID_ASSET",
+          "status": "expected-error",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "asset-corrupt",
+          "template": "T37",
+          "input": "validation/visual-stress/inputs/asset-corrupt.md",
+          "inputSha256": "8ad48f48d767b81cabb0498a6f17f979c236ae9c2668871df403ed20b3c3be0b",
+          "bodySha256": "626da53938dbfc7b476a6f8f44c77d45e85bd4bb3c84bc39ca97272cb4a067b1",
+          "expected": "INVALID_ASSET",
+          "status": "expected-error",
+          "visualReview": "not-performed"
+        }
+      ],
+      "artifacts": [
+        {
+          "file": "visual-stress/image-alpha/card-001.png",
+          "sha256": "e0f5561f2ac7cd37a2f99c0d388a030921b5315491ab5f8ddb6751adf5a0d92f"
+        },
+        {
+          "file": "visual-stress/image-alpha/cards.pdf",
+          "sha256": "d059412e9565b5574bd3cafb6a288ff4a9206ad3b9bb748952177510d1d37e6f"
+        },
+        {
+          "file": "visual-stress/image-alpha/contact-sheet.png",
+          "sha256": "d0aa98fdbff7e9c38abfec6d8e740a93aabfd9a6267bb83c19aac2771eb8a80d"
+        },
+        {
+          "file": "visual-stress/image-alpha/mobile-375.png",
+          "sha256": "9475a619fcdd3e45210ca395857ab9379259310e90adf3a014646feefd0862d6"
+        },
+        {
+          "file": "visual-stress/image-alpha/mobile-390.png",
+          "sha256": "3588616541486c3a50c72f8302d80ffc688953dd1b64678996665f9525f1aaec"
+        },
+        {
+          "file": "visual-stress/image-extreme-tall/card-001.png",
+          "sha256": "df3648a1d1c7cc78ca2051d36701e85b0215af84f11abc9e8dd2dc5b9ab464a7"
+        },
+        {
+          "file": "visual-stress/image-extreme-tall/cards.pdf",
+          "sha256": "ad056e3fec40198d4722f186c8f32d967aef8663cf23563229df7d948a56b141"
+        },
+        {
+          "file": "visual-stress/image-extreme-tall/contact-sheet.png",
+          "sha256": "15119af4d6d711f3eee1d85365daff5122364b896abe84ad864381c8be8aba58"
+        },
+        {
+          "file": "visual-stress/image-extreme-tall/mobile-375.png",
+          "sha256": "d3c3a4ea36146fdd15be267031859d7f53e4867d207682d46ba38fee90a09b62"
+        },
+        {
+          "file": "visual-stress/image-extreme-tall/mobile-390.png",
+          "sha256": "364697a5f62d7dd6b2b457e6b7e720201b99847777601f7c62ffd969f6bcf640"
+        },
+        {
+          "file": "visual-stress/image-extreme-wide/card-001.png",
+          "sha256": "059837f64f342e9ae1440c325596a04d3118cf77c22d8ae53ef15e1e4dbc59ac"
+        },
+        {
+          "file": "visual-stress/image-extreme-wide/cards.pdf",
+          "sha256": "eae4d3b29894afca826c811416afa19f03275029fa02d041e8d1ce9a4c10be22"
+        },
+        {
+          "file": "visual-stress/image-extreme-wide/contact-sheet.png",
+          "sha256": "a6c8c08b00a42580d3d38a8824d4e8b412311280ad2902d74ed49b6d3464a98e"
+        },
+        {
+          "file": "visual-stress/image-extreme-wide/mobile-375.png",
+          "sha256": "e33bdc0d862d84c8b50110bceb4a5d98ed684021850d00773ced10c1a87ad465"
+        },
+        {
+          "file": "visual-stress/image-extreme-wide/mobile-390.png",
+          "sha256": "108605ed9afd98920472038347cd7d4e1b498ba32c72128c874da206fbf02a7f"
+        },
+        {
+          "file": "visual-stress/image-landscape/card-001.png",
+          "sha256": "84caca513abb334d240e4ea69fcb9ff814bac885bf7b3ca0881bb5e732fb6f3d"
+        },
+        {
+          "file": "visual-stress/image-landscape/cards.pdf",
+          "sha256": "5ffd17482a80df253337f47c7640940496b62898dfd989684fe39dced502abcb"
+        },
+        {
+          "file": "visual-stress/image-landscape/contact-sheet.png",
+          "sha256": "bd72093143373c3ef2236ce9eb05e02c7a90fdabbc7700c2576d44663cc7e8b2"
+        },
+        {
+          "file": "visual-stress/image-landscape/mobile-375.png",
+          "sha256": "8a7aebce19a11da51a5ce946238ccfc98352d4701ded5508197bcd2d546971c0"
+        },
+        {
+          "file": "visual-stress/image-landscape/mobile-390.png",
+          "sha256": "f4950a840501f15642bcd06c1a71d97493823b0a544845ad81e32b0acd8e968f"
+        },
+        {
+          "file": "visual-stress/image-portrait/card-001.png",
+          "sha256": "a473cc57b024b8c0a0ac98e81cc2742136f13259ec670d46e1c3b49ec7b4cfa6"
+        },
+        {
+          "file": "visual-stress/image-portrait/cards.pdf",
+          "sha256": "2fd2023403c0ded5ffb6035f800b182ae6bce9b62aceb97e99c92abe423deb09"
+        },
+        {
+          "file": "visual-stress/image-portrait/contact-sheet.png",
+          "sha256": "95f4e4218b4a16b68e675445300499796fc3192ce6062747dc862e7dfac95f7f"
+        },
+        {
+          "file": "visual-stress/image-portrait/mobile-375.png",
+          "sha256": "6b08c280d17881c2270b0b477a1e52c15ff7b52d873379e4311d3d34836d88ae"
+        },
+        {
+          "file": "visual-stress/image-portrait/mobile-390.png",
+          "sha256": "cd4a49a67ff28d594907fc5da68bae0e32bf9273fc04adb593fadf84b3db5c5d"
+        },
+        {
+          "file": "visual-stress/image-screenshot/card-001.png",
+          "sha256": "999629be4d218c3c401dcfb8d9231310108f45fa688c50f3fa205877d5f6d57b"
+        },
+        {
+          "file": "visual-stress/image-screenshot/cards.pdf",
+          "sha256": "78b393b8739d413791217fbcb5ec6d30f3583bc31646c4b3680d5c814c3f83ac"
+        },
+        {
+          "file": "visual-stress/image-screenshot/contact-sheet.png",
+          "sha256": "b9ffbcc943e1545d007ca721465dae1d89fc2a06202416d76fa89610a90764b1"
+        },
+        {
+          "file": "visual-stress/image-screenshot/mobile-375.png",
+          "sha256": "c17b2851493b207e20b32f66fddc4f82f920be4e67903224e9776d5b001e4cd9"
+        },
+        {
+          "file": "visual-stress/image-screenshot/mobile-390.png",
+          "sha256": "8249e9e29df008ef2cbd712e22ae61219d799b33e6ae843233f6d24927710626"
+        },
+        {
+          "file": "visual-stress/medium-code/card-001.png",
+          "sha256": "83a78d9ccc9544b0bd4628cde7eb4bc757b5e1d6ee9a6d3ff0ebb34ec63b799f"
+        },
+        {
+          "file": "visual-stress/medium-code/cards.pdf",
+          "sha256": "b7fbf208a962d2c16348a59e4c11aa423cc95cfb0d5005f2335c39a3df5035e1"
+        },
+        {
+          "file": "visual-stress/medium-code/contact-sheet.png",
+          "sha256": "3c9668ff5933aca3fd9f162ed3bec66942b3efb64ba6fae35d0240bb00fe7278"
+        },
+        {
+          "file": "visual-stress/medium-code/mobile-375.png",
+          "sha256": "7531311d5a343ba27b2fc4d23ae6f633bf316e4a179bb0a107661bac558b67a2"
+        },
+        {
+          "file": "visual-stress/medium-code/mobile-390.png",
+          "sha256": "f71162d689ae5866c57b5d0be5a68a158a7d736a82e02a38ae215804e152d4af"
+        },
+        {
+          "file": "visual-stress/medium-nested-url/card-001.png",
+          "sha256": "d607bac50fc4d5c935b5d23b38c6e4d0cfa83c847562a2d48ad2838709cef623"
+        },
+        {
+          "file": "visual-stress/medium-nested-url/cards.pdf",
+          "sha256": "c5c2f72692e4d1c46ff31649700de3c6388f23d9bd66ead5035445e17038b49d"
+        },
+        {
+          "file": "visual-stress/medium-nested-url/contact-sheet.png",
+          "sha256": "26cc26a193fb2d03c087cc9b0bb5c63541a1ffd0302f4ee7904c3edbf68db6f0"
+        },
+        {
+          "file": "visual-stress/medium-nested-url/mobile-375.png",
+          "sha256": "a0e25ee3d7f6ffd8f8ebda6c353a0473e09992bb19e1c11aece4e289b4971f0c"
+        },
+        {
+          "file": "visual-stress/medium-nested-url/mobile-390.png",
+          "sha256": "f052e7988072e91e5dba4726062c964fce25d64ec033f5d55ffa957069661c93"
+        },
+        {
+          "file": "visual-stress/medium-table/card-001.png",
+          "sha256": "87ee113848b2f99b417f8a5d689f5c73f6d3aeb34e4c0ed392590100d376055c"
+        },
+        {
+          "file": "visual-stress/medium-table/cards.pdf",
+          "sha256": "5bb2b5f801d9aa7f6fb3f822002a3f197c332c10c48177fe680cce315f939109"
+        },
+        {
+          "file": "visual-stress/medium-table/contact-sheet.png",
+          "sha256": "b053075380ad0ee8a0401aa49a5abe9c8b695df2399d0428c533723fc0da0adc"
+        },
+        {
+          "file": "visual-stress/medium-table/mobile-375.png",
+          "sha256": "6e2b49667ac208529606dd1f038ca11c80a8686bd7870ca0d70474e98fce5c3e"
+        },
+        {
+          "file": "visual-stress/medium-table/mobile-390.png",
+          "sha256": "a1c30bcb671029c0a2ec788fc4199daeb5422d22aa0e856b8e827d02047a18c5"
+        },
+        {
+          "file": "visual-stress/notebook-headings/card-001.png",
+          "sha256": "0edc8209e3abd398a9b9ab2a19472eb30b014f7926257cea30d4af5d4933787c"
+        },
+        {
+          "file": "visual-stress/notebook-headings/card-002.png",
+          "sha256": "2adfe193260126041c3778ae8fbcfdbbf09668928be84a7b65687d2bf39b60f0"
+        },
+        {
+          "file": "visual-stress/notebook-headings/cards.pdf",
+          "sha256": "fa40414b31a1280a4784e7110fdf7ba73af9c4d1cdd517d8893c89fd929bd774"
+        },
+        {
+          "file": "visual-stress/notebook-headings/contact-sheet.png",
+          "sha256": "92516b600bb3e5cf1dd889e4a73715d57108db27ce7dbb70333b12030059a244"
+        },
+        {
+          "file": "visual-stress/notebook-headings/mobile-375.png",
+          "sha256": "382d28621af888416a14d31a8defcd9adf878b6c2134a24faa44bcbb5b5d2057"
+        },
+        {
+          "file": "visual-stress/notebook-headings/mobile-390.png",
+          "sha256": "79610bab7f933b180950a020dc770c6506d64ec63d28e922c72a0f96bbb63238"
+        },
+        {
+          "file": "visual-stress/short-compact/card-001.png",
+          "sha256": "7f9a531ac3edd34f8ffcfd8e84663c9b2510bc7233763108b4987a780af44e61"
+        },
+        {
+          "file": "visual-stress/short-compact/cards.pdf",
+          "sha256": "4942d5a1032510d554d6bc313ea8ee2d7b513a3cdea9cca91d22f11190bafec1"
+        },
+        {
+          "file": "visual-stress/short-compact/contact-sheet.png",
+          "sha256": "429556ba8a681a437a9b56edcfbd30b874e3fc6eacd1f905aa91d1c3c0eeb342"
+        },
+        {
+          "file": "visual-stress/short-compact/mobile-375.png",
+          "sha256": "752f47dadaa05bbde6c6b3432dec6dd1529a168340b10947fe80cd6ad0795d39"
+        },
+        {
+          "file": "visual-stress/short-compact/mobile-390.png",
+          "sha256": "ef655954c66ae45eb9519e360ea5b81ee72f77e4a91fddbc8298a4817eee1b72"
+        },
+        {
+          "file": "visual-stress/short-editorial/card-001.png",
+          "sha256": "c2a17b7a074ee8454ce7b9136dfde65b61f48734a4793d46ba8409fd325dd655"
+        },
+        {
+          "file": "visual-stress/short-editorial/cards.pdf",
+          "sha256": "5c270cb6bedbd85ae79aaee75ed0d63aaad960d9c0759586cdf8abdfb353664e"
+        },
+        {
+          "file": "visual-stress/short-editorial/contact-sheet.png",
+          "sha256": "cd25a18e64a964a3313ef5c3b2593ad1041e25d721a6ebe9a0e6722464fc3944"
+        },
+        {
+          "file": "visual-stress/short-editorial/mobile-375.png",
+          "sha256": "d86bcb03b87940e9ab630021c2387f5f421970e4aa6f4c5933301d6218ddbdf0"
+        },
+        {
+          "file": "visual-stress/short-editorial/mobile-390.png",
+          "sha256": "128bb0ae74ae54c87f25f8de7cad94eeabe06cea7374b88095b0a621ceb3968d"
+        },
+        {
+          "file": "visual-stress/short-standard/card-001.png",
+          "sha256": "d86077202b453de5f7856ac04ad6ecdc5e7ec404a97c3b280709681f409ffc0e"
+        },
+        {
+          "file": "visual-stress/short-standard/cards.pdf",
+          "sha256": "83638e7ccf0475772fe7ef6329ac58f9c89bd057418ca8c9b239b15ae5a213aa"
+        },
+        {
+          "file": "visual-stress/short-standard/contact-sheet.png",
+          "sha256": "8f7ad49c4ae31bd8661d003e76f3475e51aa8d9013e5e81afac07e613f00c311"
+        },
+        {
+          "file": "visual-stress/short-standard/mobile-375.png",
+          "sha256": "00afd3e65223f3f4aef9868c7cd0d9669836b72e313406b551d0b9008525e432"
+        },
+        {
+          "file": "visual-stress/short-standard/mobile-390.png",
+          "sha256": "366330429c5ee980d46ba5722601407a2ce8746bb717abef9b1615559d991a89"
+        }
+      ]
+    },
+    "aspects": {
+      "summarySha256": "2ff12a904ea7e378172cd000d5d5ce09242e112cf399a7e026da5f1fd9a4a8aa",
+      "results": [
+        {
+          "id": "01-T04-aspect-specific-square-square",
+          "template": "T04",
+          "aspect": "square",
+          "scope": "aspect-specific-square",
+          "input": "examples/aspects/T04-square.md",
+          "inputSha256": "7329186d304df899bd4cd6f9dc163f2f918e78429287759b0ac4e4ed7baca137",
+          "expected": "candidate-unmeasured",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "02-T04-aspect-specific-slide-slide",
+          "template": "T04",
+          "aspect": "slide",
+          "scope": "aspect-specific-slide",
+          "input": "examples/aspects/T04-slide.md",
+          "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+          "expected": "candidate-unmeasured",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "03-T04-same-source-short-portrait",
+          "template": "T04",
+          "aspect": "portrait",
+          "scope": "same-source-short",
+          "input": "examples/aspects/T04-slide.md",
+          "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+          "expected": "candidate-unmeasured",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "04-T04-same-source-short-square",
+          "template": "T04",
+          "aspect": "square",
+          "scope": "same-source-short",
+          "input": "examples/aspects/T04-slide.md",
+          "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+          "expected": "candidate-unmeasured",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "05-T04-same-source-short-slide",
+          "template": "T04",
+          "aspect": "slide",
+          "scope": "same-source-short",
+          "input": "examples/aspects/T04-slide.md",
+          "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+          "expected": "candidate-unmeasured",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "06-T04-same-source-original-portrait",
+          "template": "T04",
+          "aspect": "portrait",
+          "scope": "same-source-original",
+          "input": "examples/templates/T04.md",
+          "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01",
+          "expected": "candidate-unmeasured-may-overflow",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "07-T04-same-source-original-square",
+          "template": "T04",
+          "aspect": "square",
+          "scope": "same-source-original",
+          "input": "examples/templates/T04.md",
+          "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01",
+          "expected": "candidate-unmeasured-may-overflow",
+          "actualOutcome": "overflow",
+          "status": "allowed-overflow",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "08-T04-same-source-original-slide",
+          "template": "T04",
+          "aspect": "slide",
+          "scope": "same-source-original",
+          "input": "examples/templates/T04.md",
+          "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01",
+          "expected": "candidate-unmeasured-may-overflow",
+          "actualOutcome": "overflow",
+          "status": "allowed-overflow",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "09-T04-same-source-long-portrait",
+          "template": "T04",
+          "aspect": "portrait",
+          "scope": "same-source-long",
+          "input": "examples/aspects/T04-long.md",
+          "inputSha256": "c6ccff3bbb97b0570178514beb91ef598720a79e78c825ebd81337e64b5e3139",
+          "expected": "expected-CONTENT_OVERFLOW-unverified",
+          "actualOutcome": "overflow",
+          "status": "expected-overflow",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "10-T04-same-source-long-square",
+          "template": "T04",
+          "aspect": "square",
+          "scope": "same-source-long",
+          "input": "examples/aspects/T04-long.md",
+          "inputSha256": "c6ccff3bbb97b0570178514beb91ef598720a79e78c825ebd81337e64b5e3139",
+          "expected": "expected-CONTENT_OVERFLOW-unverified",
+          "actualOutcome": "overflow",
+          "status": "expected-overflow",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "11-T04-same-source-long-slide",
+          "template": "T04",
+          "aspect": "slide",
+          "scope": "same-source-long",
+          "input": "examples/aspects/T04-long.md",
+          "inputSha256": "c6ccff3bbb97b0570178514beb91ef598720a79e78c825ebd81337e64b5e3139",
+          "expected": "expected-CONTENT_OVERFLOW-unverified",
+          "actualOutcome": "overflow",
+          "status": "expected-overflow",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "12-T21-aspect-specific-square-square",
+          "template": "T21",
+          "aspect": "square",
+          "scope": "aspect-specific-square",
+          "input": "examples/aspects/T21-square.md",
+          "inputSha256": "ce4d422a73771fd67ee521259790849a8c4b9940328a9dbe8f1440bdd63db1d5",
+          "expected": "candidate-unmeasured",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "13-T21-aspect-specific-slide-slide",
+          "template": "T21",
+          "aspect": "slide",
+          "scope": "aspect-specific-slide",
+          "input": "examples/aspects/T21-slide.md",
+          "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+          "expected": "candidate-unmeasured",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "14-T21-same-source-short-portrait",
+          "template": "T21",
+          "aspect": "portrait",
+          "scope": "same-source-short",
+          "input": "examples/aspects/T21-slide.md",
+          "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+          "expected": "candidate-unmeasured",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "15-T21-same-source-short-square",
+          "template": "T21",
+          "aspect": "square",
+          "scope": "same-source-short",
+          "input": "examples/aspects/T21-slide.md",
+          "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+          "expected": "candidate-unmeasured",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "16-T21-same-source-short-slide",
+          "template": "T21",
+          "aspect": "slide",
+          "scope": "same-source-short",
+          "input": "examples/aspects/T21-slide.md",
+          "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+          "expected": "candidate-unmeasured",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "17-T21-same-source-original-portrait",
+          "template": "T21",
+          "aspect": "portrait",
+          "scope": "same-source-original",
+          "input": "examples/templates/T21.md",
+          "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+          "expected": "candidate-unmeasured-may-overflow",
+          "actualOutcome": "exported",
+          "status": "exported-not-visually-reviewed",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "18-T21-same-source-original-square",
+          "template": "T21",
+          "aspect": "square",
+          "scope": "same-source-original",
+          "input": "examples/templates/T21.md",
+          "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+          "expected": "candidate-unmeasured-may-overflow",
+          "actualOutcome": "overflow",
+          "status": "allowed-overflow",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "19-T21-same-source-original-slide",
+          "template": "T21",
+          "aspect": "slide",
+          "scope": "same-source-original",
+          "input": "examples/templates/T21.md",
+          "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+          "expected": "candidate-unmeasured-may-overflow",
+          "actualOutcome": "overflow",
+          "status": "allowed-overflow",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "20-T21-same-source-long-portrait",
+          "template": "T21",
+          "aspect": "portrait",
+          "scope": "same-source-long",
+          "input": "examples/aspects/T21-long.md",
+          "inputSha256": "f5c4971f578ed5fb2790150d2cb3a291e74bce450cff4deecfece1bb2f489dc1",
+          "expected": "expected-CONTENT_OVERFLOW-unverified",
+          "actualOutcome": "overflow",
+          "status": "expected-overflow",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "21-T21-same-source-long-square",
+          "template": "T21",
+          "aspect": "square",
+          "scope": "same-source-long",
+          "input": "examples/aspects/T21-long.md",
+          "inputSha256": "f5c4971f578ed5fb2790150d2cb3a291e74bce450cff4deecfece1bb2f489dc1",
+          "expected": "expected-CONTENT_OVERFLOW-unverified",
+          "actualOutcome": "overflow",
+          "status": "expected-overflow",
+          "visualReview": "not-performed"
+        },
+        {
+          "id": "22-T21-same-source-long-slide",
+          "template": "T21",
+          "aspect": "slide",
+          "scope": "same-source-long",
+          "input": "examples/aspects/T21-long.md",
+          "inputSha256": "f5c4971f578ed5fb2790150d2cb3a291e74bce450cff4deecfece1bb2f489dc1",
+          "expected": "expected-CONTENT_OVERFLOW-unverified",
+          "actualOutcome": "overflow",
+          "status": "expected-overflow",
+          "visualReview": "not-performed"
+        }
+      ],
+      "artifacts": [
+        {
+          "file": "aspects/01-T04-aspect-specific-square-square/card-001-mobile-375.png",
+          "sha256": "67f129f664bf05ed520c479cee25d512d602e5d82e24e3267f34c0e1b3c74bbe"
+        },
+        {
+          "file": "aspects/01-T04-aspect-specific-square-square/card-001-mobile-390.png",
+          "sha256": "58c642a7b3551f8fb9dd13885eb70f5be6a4e63646665b1b39c37db777ae8f7b"
+        },
+        {
+          "file": "aspects/01-T04-aspect-specific-square-square/card-001.png",
+          "sha256": "036b8e26ff6638e86cc9baddfe7102976079735b1312811aaad44737074c33a8"
+        },
+        {
+          "file": "aspects/01-T04-aspect-specific-square-square/cards.pdf",
+          "sha256": "551dbfadd515962370a6e3e726665a5ee8d088b9f1eb0771f67dd9e686a0062e"
+        },
+        {
+          "file": "aspects/02-T04-aspect-specific-slide-slide/card-001-mobile-375.png",
+          "sha256": "c429a3ccbe2b427dbc757ee4d6b193a46cd847f0524f85e193cd1c117522b10b"
+        },
+        {
+          "file": "aspects/02-T04-aspect-specific-slide-slide/card-001-mobile-390.png",
+          "sha256": "a0022aac7f165864dfaa04957426ec3ce3d8e22a72810ebca7a27a7d6a074cd0"
+        },
+        {
+          "file": "aspects/02-T04-aspect-specific-slide-slide/card-001.png",
+          "sha256": "0ad84dc7c90afe835afa8a59e2349bc57c006ee8d25503178bad56b648f5cd75"
+        },
+        {
+          "file": "aspects/02-T04-aspect-specific-slide-slide/cards.pdf",
+          "sha256": "4f651052a98aaac57e922e1a754f2c2146186ef189e6d7ba1952ec9e1d3e74f5"
+        },
+        {
+          "file": "aspects/03-T04-same-source-short-portrait/card-001-mobile-375.png",
+          "sha256": "eab5fbaa018834335954f5ecfc4febb57c962cee9c28337a74fd16feaf228768"
+        },
+        {
+          "file": "aspects/03-T04-same-source-short-portrait/card-001-mobile-390.png",
+          "sha256": "99c164691ffe0bdebb7b7860e206e9e2d0046484b4945f4baeaab02fc5933963"
+        },
+        {
+          "file": "aspects/03-T04-same-source-short-portrait/card-001.png",
+          "sha256": "ce4730bb1a9f75e43460c2f1e5c93dbdbc55ea91f3c492d07b54d88ec197987b"
+        },
+        {
+          "file": "aspects/03-T04-same-source-short-portrait/cards.pdf",
+          "sha256": "3744c67ef00ace07995fbcce190b420a18fb6a66e6229b8a27caa207eec3888f"
+        },
+        {
+          "file": "aspects/04-T04-same-source-short-square/card-001-mobile-375.png",
+          "sha256": "6b3a383799edc74896ce186aadc4a8ddb9dd5640c810817c3d63f8eeb39b7de2"
+        },
+        {
+          "file": "aspects/04-T04-same-source-short-square/card-001-mobile-390.png",
+          "sha256": "2b92991d8cdda21314f10e879f2556bdf08dfb0172d59f3ec1f0d1f7b043996c"
+        },
+        {
+          "file": "aspects/04-T04-same-source-short-square/card-001.png",
+          "sha256": "d822cfc9de2b19718a9382c83345539bb4cd17043f89705410bace147449c5fe"
+        },
+        {
+          "file": "aspects/04-T04-same-source-short-square/cards.pdf",
+          "sha256": "d91b82a47eaa76a5cbd31a9696e126081f26f0845f7b9e1260b56afd3b215b18"
+        },
+        {
+          "file": "aspects/05-T04-same-source-short-slide/card-001-mobile-375.png",
+          "sha256": "c429a3ccbe2b427dbc757ee4d6b193a46cd847f0524f85e193cd1c117522b10b"
+        },
+        {
+          "file": "aspects/05-T04-same-source-short-slide/card-001-mobile-390.png",
+          "sha256": "a0022aac7f165864dfaa04957426ec3ce3d8e22a72810ebca7a27a7d6a074cd0"
+        },
+        {
+          "file": "aspects/05-T04-same-source-short-slide/card-001.png",
+          "sha256": "0ad84dc7c90afe835afa8a59e2349bc57c006ee8d25503178bad56b648f5cd75"
+        },
+        {
+          "file": "aspects/05-T04-same-source-short-slide/cards.pdf",
+          "sha256": "d0e25faf135eb1fe35efd244d05a5bb8bfd7468b71e1c136562c83fcff299924"
+        },
+        {
+          "file": "aspects/06-T04-same-source-original-portrait/card-001-mobile-375.png",
+          "sha256": "a250e9d65b3c2ec3726a8e5a5408e6e59489cc1992d52f7b2322b4ad51d2776e"
+        },
+        {
+          "file": "aspects/06-T04-same-source-original-portrait/card-001-mobile-390.png",
+          "sha256": "67d691a90175138cc8b6ceb5e3807081957b3f7427701c3b74efbae950846e0f"
+        },
+        {
+          "file": "aspects/06-T04-same-source-original-portrait/card-001.png",
+          "sha256": "850ad45d08cbdb1cde584ed2d15ae96efe79b63ef3f0416505f36a974197def5"
+        },
+        {
+          "file": "aspects/06-T04-same-source-original-portrait/cards.pdf",
+          "sha256": "c0df48ffbc6310cb27429bfe34190d501c0038ca2a02975b4a0255d6a228c902"
+        },
+        {
+          "file": "aspects/12-T21-aspect-specific-square-square/card-001-mobile-375.png",
+          "sha256": "1316a414c9898d031973785b348244c067297e83eeeb9b10cdb62619174508d0"
+        },
+        {
+          "file": "aspects/12-T21-aspect-specific-square-square/card-001-mobile-390.png",
+          "sha256": "8b97b258c9c63cd37d5d17ee4f2d6279d6e6105f93d74bf7d57689886e2f3eb6"
+        },
+        {
+          "file": "aspects/12-T21-aspect-specific-square-square/card-001.png",
+          "sha256": "cbd808bc9eb3cbfeaaf3eaf8a690e6c17d96ba9e528827498cb49890cfdce5e0"
+        },
+        {
+          "file": "aspects/12-T21-aspect-specific-square-square/cards.pdf",
+          "sha256": "5fff1af9931a3102c5278b78dc8291b157cb3c00435691f173b5f1f00470807c"
+        },
+        {
+          "file": "aspects/13-T21-aspect-specific-slide-slide/card-001-mobile-375.png",
+          "sha256": "f6c1f889e40a863a037f27233ca0eadc943d12a28fdaf10a8e1049de0a7c9f4a"
+        },
+        {
+          "file": "aspects/13-T21-aspect-specific-slide-slide/card-001-mobile-390.png",
+          "sha256": "5672b9ddc1bb6a5ea0f29e38343d0952758cbabc6175fbde860ee739af0278a7"
+        },
+        {
+          "file": "aspects/13-T21-aspect-specific-slide-slide/card-001.png",
+          "sha256": "43dc0c55583b3ed0c79a121c7bfabd369e767c21d101da9dc5b726575acde34e"
+        },
+        {
+          "file": "aspects/13-T21-aspect-specific-slide-slide/cards.pdf",
+          "sha256": "a894a372dc5677ed1a050c89664452de93d00081748483c3b1f3f4bc8044d4b4"
+        },
+        {
+          "file": "aspects/14-T21-same-source-short-portrait/card-001-mobile-375.png",
+          "sha256": "e5779380f626a85084a677be57e8f2405677aa4fdd25b6844f537bd89b8c9dea"
+        },
+        {
+          "file": "aspects/14-T21-same-source-short-portrait/card-001-mobile-390.png",
+          "sha256": "422b5ad44b30ae4e6bbcda02d7fded51ad4ed2468a6f6b8ecd0bb7b346f18eb0"
+        },
+        {
+          "file": "aspects/14-T21-same-source-short-portrait/card-001.png",
+          "sha256": "a83a934506ea858fe8a9e5e586e070946d76e56d8dad286eb253d7978a9c358b"
+        },
+        {
+          "file": "aspects/14-T21-same-source-short-portrait/cards.pdf",
+          "sha256": "87e07b4990828c750b363b7720135181f437fcb81b262ff3c4a97961fe923ec0"
+        },
+        {
+          "file": "aspects/15-T21-same-source-short-square/card-001-mobile-375.png",
+          "sha256": "7db26ea322c4167938366d6c4d50deb810669dc87a69a0bc9272d05cbf09c02e"
+        },
+        {
+          "file": "aspects/15-T21-same-source-short-square/card-001-mobile-390.png",
+          "sha256": "e7b5c651443582ae6df2668cf215c0e2479c6a652e77f9c2c56e31f5b9e54bbc"
+        },
+        {
+          "file": "aspects/15-T21-same-source-short-square/card-001.png",
+          "sha256": "62577b9fe4cc811fc7561145ca6a55448ceba2d6deda592f8dbcda087dcb0a7d"
+        },
+        {
+          "file": "aspects/15-T21-same-source-short-square/cards.pdf",
+          "sha256": "bd03faf31197484a6bff94ae58627ed80e6c2b804e388a3e134de428fa92b16b"
+        },
+        {
+          "file": "aspects/16-T21-same-source-short-slide/card-001-mobile-375.png",
+          "sha256": "f6c1f889e40a863a037f27233ca0eadc943d12a28fdaf10a8e1049de0a7c9f4a"
+        },
+        {
+          "file": "aspects/16-T21-same-source-short-slide/card-001-mobile-390.png",
+          "sha256": "5672b9ddc1bb6a5ea0f29e38343d0952758cbabc6175fbde860ee739af0278a7"
+        },
+        {
+          "file": "aspects/16-T21-same-source-short-slide/card-001.png",
+          "sha256": "43dc0c55583b3ed0c79a121c7bfabd369e767c21d101da9dc5b726575acde34e"
+        },
+        {
+          "file": "aspects/16-T21-same-source-short-slide/cards.pdf",
+          "sha256": "7280da8a47afb6eda696548d6a7a261fff4d99d21fa5a5995b2b486616a3682d"
+        },
+        {
+          "file": "aspects/17-T21-same-source-original-portrait/card-001-mobile-375.png",
+          "sha256": "aa1751872549b408a4d66dc543a625084d1e2689c6b7411daf41f00f0d0ef5fa"
+        },
+        {
+          "file": "aspects/17-T21-same-source-original-portrait/card-001-mobile-390.png",
+          "sha256": "5c801ea16922fd9cde7df0c6f8709a7f25e299bc81fb2d8e2902a907cde2cb2e"
+        },
+        {
+          "file": "aspects/17-T21-same-source-original-portrait/card-001.png",
+          "sha256": "385d43ba3b77466b7974716528b030e0cb4e94c261dfbf5cbf7ad5097f16f232"
+        },
+        {
+          "file": "aspects/17-T21-same-source-original-portrait/cards.pdf",
+          "sha256": "a19a11b2fe6afb254103948654322f58a65c8e65373d47b89effc67bb352b295"
+        }
+      ]
+    },
+    "gallery": {
+      "summarySha256": "02814abe00c3551c2a032126b0e05c453d0d2839e084375b4e501dedd341f927",
+      "results": [],
+      "checks": 51,
+      "reviewBoundary": "Existing four-preview page inspected; final48-preview page requires final commit verification. Native browser menu zoom and full screen-reader review not certified.",
+      "artifacts": [
+        {
+          "file": "gallery/desktop-1280-accepted.png",
+          "sha256": "21c7068986c8fa9a067ffdb7803c10546b96357cc6d04945e5537e87efe6dc22"
+        },
+        {
+          "file": "gallery/desktop-1280-detail.png",
+          "sha256": "a9077f6675c3fd31d9303f3c0a1a05ef29e45bfdbb69391525e6b0d895adf2ff"
+        },
+        {
+          "file": "gallery/desktop-1280-index.png",
+          "sha256": "3683b644233758b6bc741e0aa83669e517f383907d6c42de44501c43d2dd4dbb"
+        },
+        {
+          "file": "gallery/desktop-1280-pending.png",
+          "sha256": "4878b0d7a154dc5d76c5567b525e8ba9140e88d9251de09b24bd3463dba6134b"
+        },
+        {
+          "file": "gallery/mobile-375-accepted.png",
+          "sha256": "fda7d74a355eac62f519ba57675a212ea5017ec96c77df6d9bc15d3d0eaa4375"
+        },
+        {
+          "file": "gallery/mobile-375-detail.png",
+          "sha256": "5b79d257237042faf3e021ed3e2e3221ec36ab1928b9106ce369e7c831eae13a"
+        },
+        {
+          "file": "gallery/mobile-375-index.png",
+          "sha256": "7cbbf60216b3c44946c22644f8d1b2bfccb7046a3dafb6539733397e223723c3"
+        },
+        {
+          "file": "gallery/mobile-375-pending.png",
+          "sha256": "ab8dfc51c12e4b727b126f807bf80edb80601b7560e606c14944237c874bd76a"
+        },
+        {
+          "file": "gallery/mobile-390-accepted.png",
+          "sha256": "4226307c28441f88eb6a1a8a8ce566dd6aebbd186dde0e635c577d7d521f3f8b"
+        },
+        {
+          "file": "gallery/mobile-390-detail.png",
+          "sha256": "fce5141a85b0ac2e28928294fc311f88a084db558eef6e6e2b1305daad1758e8"
+        },
+        {
+          "file": "gallery/mobile-390-index.png",
+          "sha256": "fdfe635a17f08092ea0fc94c4f28887da268743f47b648ed72e0c00da6737185"
+        },
+        {
+          "file": "gallery/mobile-390-pending.png",
+          "sha256": "e65f1e5a890ce5000d072b1130861119a49c3cae5a67d4e125c059a75173e4db"
+        },
+        {
+          "file": "gallery/no-js-390-catalogue.png",
+          "sha256": "09a876a92fb3409e6bc6356b3126af8906a48fe10d6f415f05db9538f9ecf35a"
+        },
+        {
+          "file": "gallery/reflow-200-percent-accepted.png",
+          "sha256": "cf9e6375de411a1d87a26e15a6fae469cd13bfeed4c6c8a07944b0a951b3c042"
+        },
+        {
+          "file": "gallery/reflow-200-percent-detail.png",
+          "sha256": "7653139f19fcc40b90140cf3204b8121bb3de46975b46cdb42c97560fc6b1a55"
+        },
+        {
+          "file": "gallery/reflow-200-percent-index.png",
+          "sha256": "701ff812ee653348ce3516167d8e1d9c579cda4a183ac9362f46579bc9a45720"
+        },
+        {
+          "file": "gallery/reflow-200-percent-pending.png",
+          "sha256": "36c080effa77437731599170beabf391a3d58fe75a130b4d26ad61da218a58f3"
+        }
+      ]
+    }
+  },
+  "statusSemantics": "Per-case status fields preserve automated reports verbatim. Independent visual acceptance is recorded separately and never inferred from an automated pass.",
+  "independentReview": {
+    "portraits": "48 exact standard / portrait registered examples, full PNG + natural375/390 + native PDF",
+    "aspects": "Four registered short standard square/slide compositions and bounded same-source exports",
+    "series": "Both exact compact portrait recipes, 8 full PNG +16 phone captures +8 native PDF pages",
+    "stress": "13 expected-success fixtures /14 cards; five expected failures are rejection evidence, not visual outputs",
+    "tail": "All four paired greedy/opt-in fixtures, full PNG and native PDF; no phone-capture claim",
+    "gallery": "Four-preview page verified; final48-preview browser gate pending"
+  }
+}

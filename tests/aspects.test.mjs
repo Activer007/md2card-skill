@@ -12,10 +12,10 @@ import { parseOptions, exportCards } from '../scripts/render.mjs';
 const css = await readFile(new URL('../assets/templates.css', import.meta.url), 'utf8');
 const input = id => `<!-- card: ${JSON.stringify({ template:id, ...(id==='T21'?{metric:'38%',label:'提交率'}:{}), source:'原始来源' })} -->\n# 标题\n\n导语。\n\n## 甲\n\n完整原文甲。\n\n## 乙\n\n完整原文乙。`;
 
-test('only T04 and T21 add independently registered aspects; no IDs or acceptances are created', () => {
+test('only T04 and T21 add independently registered aspects; aspect variants never create extra design IDs', () => {
   assert.deepEqual(TEMPLATES.filter(t=>t.aspects.length>1).map(t=>t.id).sort(), ['T04','T21']);
   assert.equal(new Set(TEMPLATES.map(t=>t.id)).size,TEMPLATES.length);
-  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length,4);
+  assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length,48);
   for(const t of TEMPLATES) {
     assert.deepEqual(Object.keys(t.aspectLayouts),t.aspects);
     assert.equal(t.aspectLayouts.portrait.composition,t.composition);
@@ -27,9 +27,9 @@ test('only T04 and T21 add independently registered aspects; no IDs or acceptanc
     assert.deepEqual(t.aspects,['portrait','square','slide']);
     assert.equal(new Set(Object.values(t.aspectLayouts).map(x=>x.composition)).size,3);
     for(const aspect of ['square','slide']) {
-      assert.equal(t.aspectLayouts[aspect].status,'implemented-awaiting-visual-review');
-      assert.equal(t.aspectLayouts[aspect].acceptance,undefined);
-      assert.match(t.aspectLayouts[aspect].boundaries,/Unmeasured/);
+      assert.equal(t.aspectLayouts[aspect].status,'visually-reviewed');
+      assert.equal(t.aspectLayouts[aspect].acceptance,'visual-upgrade-aspects');
+      assert.match(t.aspectLayouts[aspect].boundaries,/registered standard-density short example/);
     }
   }
 });
@@ -200,4 +200,33 @@ test('source-only overflow double still rejects in either medium and publishes o
     assert.deepEqual(report.cards[0][medium].overflow,['content-height']);
     assert.equal(fake.closes(),1);
   }
+});
+
+
+test('four short aspect previews are bound to exact inputs and actual output hashes', async () => {
+  const evidence = JSON.parse(await readFile(new URL('../docs/aspect-upgrade-provenance.json', import.meta.url), 'utf8'));
+  assert.equal(evidence.records.length, 4);
+  assert.match(evidence.codeCommit, /^[a-f0-9]{40}$/);
+  assert.match(evidence.codeTree, /^[a-f0-9]{40}$/);
+  assert.match(evidence.archiveSha256, /^[a-f0-9]{64}$/);
+  const seen = new Set();
+  const digest = bytes => createHash('sha256').update(bytes).digest('hex');
+  for (const record of evidence.records) {
+    const key = `${record.id}-${record.aspect}`;
+    assert.ok(!seen.has(key)); seen.add(key);
+    const layout = getTemplate(record.id).aspectLayouts[record.aspect];
+    assert.equal(layout.acceptance, 'visual-upgrade-aspects');
+    assert.equal(layout.evidence, 'docs/aspect-upgrade-provenance.json');
+    assert.equal(layout.example, record.input);
+    assert.equal(digest(await readFile(new URL(`../${record.input}`, import.meta.url))), record.inputSha256);
+    const png = await readFile(new URL(`../docs/images/aspects/${key}.png`, import.meta.url));
+    assert.equal(digest(png), record.artifacts.find(item => item.format === 'png').sha256);
+    assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
+    assert.equal(png.readUInt32BE(16), SIZES[record.aspect].width);
+    assert.equal(png.readUInt32BE(20), SIZES[record.aspect].height);
+    assert.match(record.artifacts.find(item => item.format === 'pdf').sha256, /^[a-f0-9]{64}$/);
+    assert.deepEqual(record.mobile.map(item => item.viewportWidth), [375, 390]);
+    for (const mobile of record.mobile) assert.match(mobile.sha256, /^[a-f0-9]{64}$/);
+  }
+  assert.deepEqual([...seen].sort(), ['T04-slide', 'T04-square', 'T21-slide', 'T21-square']);
 });

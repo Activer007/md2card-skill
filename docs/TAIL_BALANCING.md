@@ -1,9 +1,17 @@
-# Optional sparse-tail balancing: source candidate
+# Optional sparse-tail balancing
 
-Status: implemented source candidate for M8 / VIS-06. Real Chromium rendering,
-PNG/PDF artifacts and independent visual acceptance are **pending**. The local browser
-launch was previously denied by the sandbox; this work never retries, bypasses,
-or changes that restriction. Execution in Actions requires a separate applicable authorization; publishing this draft does not authorize a merge.
+Updated 2026-10-24. `--balance-tail` is implemented and has real greedy/opt-in
+export evidence, not only controllable-geometry tests. The
+[third combined run](https://github.com/Activer007/md2card-skill/actions/runs/40058009275)
+passes all four paired gates on tree
+`2d0e7278196ee71cb0ab349c4ce8b10e9ca40f41`.
+Paragraph, locked-partition and table outputs already have independent full-PNG
+and native-PDF review from preceding runs.
+
+The new 1100px-high list pair also passed independent full-PNG/native-PDF review.
+Item 17 moves intact with its nested bullets: the last pages change from 3+1 to
+2+2 items, with numbering 17/18 preserved. All four paired cases now have scoped
+technical and visual evidence; see the [upgrade acceptance](TEMPLATE_UPGRADE_ACCEPTANCE.md).
 
 ## Design and scope
 
@@ -48,56 +56,71 @@ scoring occupancy, because excess occupied height is normal during overflow. A v
 no-improvement leaves the original pair untouched. Search limits, selected
 candidate, provisional candidates, fallback and termination are all reported.
 
-## Source-only verification
+## Observed paired results
 
-Run `npm run test:unit` or the dedicated source tests:
+The source text, fonts, dimensions and rendering options are identical within
+each greedy/opt-in pair. All use width 1080, minimal theme, scale 1 and auto
+pagination without template metadata.
+
+| Fixture | Height | Actual result |
+| --- | --- | --- |
+| Six paragraphs | 650 | Two pages change from `[5, 1]` to `[3, 3]` complete groups |
+| Locked partitions | 650 | Five pages change from `[5, 5, 1, 5, 1]` to `[5, 3, 3, 3, 3]`; both partitions stay separate |
+| Original ordered list | 1100 | Five pages retained; one complete group moves from page 4 to page 5 |
+| Original table | 900 | Six pages retained; two complete row groups move from page 5 to page 6 |
+
+For paragraphs and each locked tail, both-media occupancy changes from
+87.27% / 13.26% to 50.26% / 50.26%. For the table pair it changes from
+88.09% / 25.92% to 57.00% / 57.00%. The newly measured list tail changes from
+95.13% / 32.05% to 66.72% / 60.46%. These are measured layout extents including
+gaps/headers, not ink coverage or a promise that every tail can be balanced.
+
+The earlier 1200px list calibration produced four evenly filled three-item pages.
+It correctly did not move anything because the policy did not apply; that no-op
+was not accepted as proof of list redistribution. The 1100px case preserves the
+same original input and thresholds rather than deleting items or relaxing the
+35% sparsity policy.
+
+The gate checks exact source markers/order in HTML, preview and extracted PDF;
+source atoms/partitions, original numbering 7–18, complete table headers and
+repeated-header provenance; unchanged page counts; and byte-identical earlier
+PNGs outside each partition's final pair. Final screen and print overflow checks
+and all resource/probe budgets still apply.
+
+The tail suite creates previews but does not record a fresh 375/390px screenshot
+matrix. Its visual claim is paired full-size PNG/native PDF inspection, not a new
+mobile-type-scale acceptance. A dedicated real heading-chain/print-only-fault
+visual matrix is not claimed; controllable fault/atomicity tests remain separate.
+
+## Reproduce safely
+
+Source-only tests:
 
 ```sh
 node --test tests/pagination.test.mjs tests/tail-balance.test.mjs tests/options.test.mjs
+npm run test:unit
 ```
 
-`tests/tail-balance.test.mjs` is authored independently against the behavior
-contract. It exercises controllable geometry and faults without starting Chromium.
-The full suite can be run in this restricted environment only with explicit browser
-skipping (`MD2CARD_SKIP_BROWSER=1`, and no `MD2CARD_REQUIRE_BROWSER=1`). Skips are
-not rendering evidence. Test totals and executed commands belong in the delivery
-report, not a claim that the pending visual milestone is accepted.
+In an authorized environment with Chromium, CJK fonts and Poppler:
 
-## Executable real-browser gate and remaining acceptance
+```sh
+npm run validate:tail
+# Or use the optional behavior on your own supported source:
+node scripts/render.mjs long-explainer.md --out output/balanced \
+  --paginate auto --balance-tail --theme minimal --format all --preview
+```
 
-This plan is intentionally not an Actions enablement, workflow dispatch or merge.
-It may run only after the owner authorizes a suitable browser-capable environment.
-The existing read-only workflow gains one validation command, without changing permissions or enabling Actions. `npm run validate:tail` exports four greedy/opt-in pairs, collects all case failures, verifies HTML/preview/PDF source markers, locks partitions, checks ordered starts and repeated table headers, hashes artifacts, and records both-media balancing evidence. The 1080 × 650 paragraph geometry is an explicit uncalibrated assertion and will fail rather than silently count an unchanged tail as accepted.
+Use an empty/new output directory. `validate:tail` exports and compares all four
+pairs, collects failures, verifies source and artifact hashes, and writes
+`validation/tail/summary.json`. A technical pass retains its generated
+`pending-independent-pixel-review` status until a separate inspection record
+exists. Source tests use controlled geometry/faults and do not launch Chromium;
+explicitly skipped browser tests are not rendering evidence.
 
-1. Calibrate the executable paired baseline/opt-in gate using
-   `examples/pagination-tail.md` and `pagination-tail-locked.md`. The current hypothesis is minimal theme,
-   1080 × 650, scale 1, auto, no template, identical fonts/browser for both runs.
-   These dimensions have **not** been browser-verified. Confirm the six paragraphs
-   actually fit as five one-line groups and one on the tail, and fail or explicitly
-   recalibrate the fixture if not. Never infer a pass from this proposed size.
-2. Assert the baseline is `[5, 1]`, opt-in is `[3, 3]`, page count unchanged, and
-   measured gaps improve under the declared threshold in screen and print. Check
-   every marker exactly once in independent exported-DOM and extracted-PDF text,
-   including source order, hashes, manifest atom ranges and exact numbering.
-3. The runner also exports ordered-list and table fixtures, plus two explicit
-   partitions and a three-page partition. It compares earlier-page PNG hashes to the
-   greedy baseline and proves no cross-boundary moves. Add a dedicated real heading-chain case before final acceptance. Preserve list start values;
-   verify repeated table headers independently in DOM/PDF and their provenance.
-4. Exercise screen-fit/print-overflow candidates with a repository-owned test-only
-   print style applied through a measurement adapter, never user CSS. Assert the
-   optional candidate is rejected and final screen/print checks still run. Keep
-   this specialized geometry test separate from ordinary exported artifacts.
-5. Export and inspect an oversized paragraph, nested list item, quote, image, and
-   code block. They must remain atomic; oversized fresh-page blocks must fail with
-   `PAGINATION_ATOMIC_OVERFLOW`, not split or clip. Include intentionally sparse
-   locked sections and valid nonimproving tails that stay identical to greedy.
-6. Archive per-run commit SHA, command, font/browser/Poppler versions, input/style/
-   artifact hashes, both manifests, all PNGs, PDFs, mobile preview and contact sheet.
-   Require mandatory browser/PDF tooling in that approved CI run. Inspect every PNG
-   and final PDF for clipping, source loss, heading/list semantics, CJK/Latin glyphs,
-   footer collisions, repeated headers, and whether the less sparse ending actually
-   improves the series. Source tests and CI success alone cannot accept the design.
+The recorded local browser denial is not retried or bypassed. Real validation
+comes from the separately authorized existing read-only CI environment. A
+published branch or a successful run does not authorize a merge or deployment.
 
-Acceptance remains pending until these outputs exist and the independent pixel review is
-recorded for the exact code and fixtures. This slice does not close M8's unrelated
-image, table typography, density or title-review tasks, nor any M9 gallery task.
+This feature does not change default greedy/manual behavior, support arbitrary
+layouts in auto mode, or force sparse locked sections to fill. Content fidelity
+and explicit boundaries take precedence over cosmetic improvement.

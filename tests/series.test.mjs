@@ -190,9 +190,13 @@ test('actual tutorial code executes correctly, with independently checked nonemp
   for (const phrase of ['有限非负数', '累加溢出', '不是实际性能测量']) assert.ok(fixtures[1].source.includes(phrase));
 });
 
-test('new series do not promote candidate templates or reuse M1 acceptance for new content', () => {
-  assert.deepEqual(TEMPLATES.filter(template => template.status === 'visually-reviewed').map(template => template.id).sort(), ['T01', 'T05', 'T17', 'T25']);
-  for (const id of ['T04', 'T18', 'T21']) assert.equal(getTemplate(id).status, 'implemented-awaiting-visual-review');
+test('series keep their own input scope rather than borrowing portrait template acceptance', () => {
+  assert.equal(TEMPLATES.filter(template => template.status === 'visually-reviewed').length, 48);
+  for (const { cards } of fixtures) for (const card of cards) {
+    assert.equal(card.metadata.density, 'compact');
+    assert.equal(getTemplate(card.metadata.template).density, 'standard');
+    assert.notEqual(card.metadata.density, getTemplate(card.metadata.template).density);
+  }
 });
 
 // Importing the future real-browser validator is side-effect free. Only this

@@ -13,8 +13,23 @@
         "height": 1440,
         "pagination": "manual"
       },
-      "reviewSha256": "014d057a72f65cf2de1531e5f4b4dcb6bed83ca24a06580fe9383fc1a6545397",
+      "reviewSha256": "53f562b512ed133d7d68771c3ffb8b7feff17ee726779e9b609e4781ff16a81a",
       "evidenceSha256": "f75349e0c99885e618956a228ab3667aec94913d34ee5ef066e47272f1107a0a"
+    },
+    {
+      "id": "visual-upgrade",
+      "review": "docs/TEMPLATE_UPGRADE_ACCEPTANCE.md",
+      "evidence": "docs/template-upgrade-provenance.json",
+      "scope": {
+        "version": 1,
+        "density": "standard",
+        "aspect": "portrait",
+        "width": 1080,
+        "height": 1440,
+        "pagination": "manual"
+      },
+      "reviewSha256": "ff96bb349e7c5481d1a6e9a554179bd9718a47a0ecee5295d4d096c837b00ef6",
+      "evidenceSha256": "659331a6fb9b49d5d00d4a401731eded4abd671f3ef95f009642d3c4f2b9d1b6"
     }
   ]
 }

@@ -1192,7 +1192,9 @@
 .card.template-T21.template-aspect-portrait.density-compact .template-heading { padding-top: .25em; }
 .card.template-T21.template-aspect-portrait.density-compact .template-metric { padding: .2em 0 .35em; }
 .card.template-T21.template-aspect-portrait.density-compact .template-sections { gap: .3em; }
-.card.template-T21.template-aspect-portrait.density-compact .template-section { padding: .25em 0 .1em; }
+/* Compact evidence rows reserve five CJK label characters and give the body
+ * the remaining measure. Standard portrait and other aspects keep their tracks. */
+.card.template-T21.template-aspect-portrait.density-compact .template-section { grid-template-columns: minmax(0, .5fr) minmax(0, 1.5fr); padding: .25em 0 .1em; }
 .card.template-T21.template-aspect-portrait.density-compact .card-source { padding-top: .2em; }
 
 /* M9 independent aspect candidates: only T04 / T21, all real acceptance pending.

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "file": "synthetic-dark-vase.png",
+      "sha256": "f86e2d4b372af8d8d60527fc9bc65ccc871803ab4e527f773cc15ac7decce44f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "origin": "OpenAI built-in imagegen, newly generated 2026-10-26; no reference images",
+      "identity": "AI-generated fictional scene; no real person/place/product claimed",
+      "rights": "Original synthetic fixture; no third-party photo license inferred; no exclusive AI copyright claim"
+    },
+    {
+      "file": "synthetic-bright-shore.png",
+      "sha256": "94b7601ee96faa4b0ce93503199fad39a56fd31b9616a35537d0a132604d09f4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "origin": "OpenAI built-in imagegen, newly generated 2026-10-26; no reference images",
+      "identity": "AI-generated fictional scene; no real person/place/product claimed",
+      "rights": "Original synthetic fixture; no third-party photo license inferred; no exclusive AI copyright claim"
+    },
+    {
+      "file": "synthetic-quiet-portrait.png",
+      "sha256": "8770d0c4f7535dac64358655f2867b36acb29181e7cadbb46140bf68e272d3ec",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "origin": "OpenAI built-in imagegen, newly generated 2026-10-26; no reference images",
+      "identity": "AI-generated fictional scene; no real person/place/product claimed",
+      "rights": "Original synthetic fixture; no third-party photo license inferred; no exclusive AI copyright claim"
+    }
+  ]
+}

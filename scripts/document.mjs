@@ -26,6 +26,29 @@ const SCREENSHOT_STAGE_CSS = `
 }
 `;
 
+// Independent composition; never emitted for default cards. The backing covers
+// only the supplied title, and foreground is explicit on every actual text node
+// class/inline element so theme ink, links and brand accents cannot turn it black.
+const PHOTO_COVER_CSS = `
+.card.template-T37[data-visual-variant="photo-cover"] .card-content { grid-template-rows: auto minmax(min-content,1fr) auto; }
+.card.template-T37[data-visual-variant="photo-cover"] .template-main { grid-row: 2; }
+.card.template-T37[data-visual-variant="photo-cover"] .card-source { grid-row: 3; }
+.card.template-T37[data-visual-variant="photo-cover"] .photo-stage { position: relative; height: calc(var(--card-height) * .56); }
+.card.template-T37[data-visual-variant="photo-cover"] .card-image { display: block; width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: var(--photo-x) var(--photo-y); }
+.card.template-T37[data-visual-variant="photo-cover"] .photo-zone { position: absolute; width: 42%; height: 48%; margin: 0; display: flex; align-items: flex-start; }
+.card.template-T37[data-visual-variant="photo-cover"] [data-text-zone^="top-"] { top: 2%; }
+.card.template-T37[data-visual-variant="photo-cover"] [data-text-zone^="bottom-"] { bottom: 2%; align-items: flex-end; }
+.card.template-T37[data-visual-variant="photo-cover"] [data-text-zone$="left"] { left: 2%; }
+.card.template-T37[data-visual-variant="photo-cover"] [data-text-zone$="right"] { right: 2%; }
+.card.template-T37[data-visual-variant="photo-cover"] .template-heading { width: 100%; padding: .3em; background: var(--on-media-backing); border: 0; }
+.card.template-T37[data-visual-variant="photo-cover"] [data-media-tone="dark"] { --on-media: #fff; --on-media-backing: rgba(0,0,0,.76); }
+.card.template-T37[data-visual-variant="photo-cover"] [data-media-tone="light"] { --on-media: #111; --on-media-backing: rgba(255,255,255,.84); }
+.card.template-T37[data-visual-variant="photo-cover"] .photo-zone :is(.template-heading,.template-title,.card-eyebrow,h1,strong,em,a,code,s) { color: var(--on-media); }
+.card.template-T37[data-visual-variant="photo-cover"] .photo-zone :is(strong,em,a,code,s) { background: transparent; }
+.card.template-T37[data-visual-variant="photo-cover"] .photo-zone .card-eyebrow { font-size: .65em; line-height: 1.2; margin: 0 0 .3em; }
+.card.template-T37[data-visual-variant="photo-cover"] .photo-zone h1 { margin: 0; }
+`;
+
 function plainText(value, name) {
   if (value === undefined || value === null) return '';
   if (typeof value !== 'string') throw new Error(`${name} must be plain text.`);
@@ -74,6 +97,10 @@ function cardContent(card, layout, template) {
     const imageFigure = figure(card, metadata);
     const figureBeforeMain = template.figureBeforeMain || card.metadata?.visualVariant === 'screenshot-stage';
     const sections = (card.sections ?? []).map((section, index) => `<section class="template-section" data-section="${index + 1}">${section.html}</section>`).join('\n');
+    if (card.metadata?.visualVariant === 'photo-cover') {
+      const { focalX, focalY, textZone, mediaTone } = card.metadata;
+      return `<figure class="card-figure"><div class="photo-stage" style="--photo-x:${focalX}%;--photo-y:${focalY}%"><div class="photo-zone" data-text-zone="${textZone}" data-media-tone="${mediaTone}"><header class="template-heading">${eyebrow}<div class="template-title">${card.templateTitleHtml}</div></header></div>${imageTag(card.image, metadata.alt, 'card-image')}</div><figcaption>${metadata.caption}</figcaption></figure><div class="template-main"><div class="template-intro">${card.templateIntroHtml ?? card.html}</div>${sections ? `<div class="template-sections">${sections}</div>` : ''}</div>${source}`;
+    }
     return `<header class="template-heading">${eyebrow}<div class="template-title">${card.templateTitleHtml ?? ''}</div></header>${metricBlock}${figureBeforeMain ? imageFigure : ''}<div class="template-main"><div class="template-intro">${card.templateIntroHtml ?? card.html}</div>${sections ? `<div class="template-sections">${sections}</div>` : ''}</div>${figureBeforeMain ? '' : imageFigure}${source}`;
   }
   let body;
@@ -122,6 +149,7 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
   const defaultBodySize = normalizeBodySize(options.bodySize);
   let customBodySize = false;
   let screenshotStage = false;
+  let photoCover = false;
   const preview = options.preview === true;
   const body = cards.map((card, position) => {
     const index = position + 1;
@@ -132,7 +160,8 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
     const template = validateTemplateMetadata(card.metadata ?? {}, { width, height });
     validateTemplateCard(card, template);
     const variant = card.metadata?.visualVariant;
-    if (variant) screenshotStage = true;
+    if (variant === 'screenshot-stage') screenshotStage = true;
+    if (variant === 'photo-cover') photoCover = true;
     const aspect = template ? resolveTemplateAspect(template.id, { width, height }) : null;
     const templateClass = template ? ` template-card template-${template.id} family-${template.family} density-${card.metadata.density ?? template.density} ${aspect.className}` : '';
     const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}" data-template-aspect="${aspect.id}"` : ''}${variant ? ` data-visual-variant="${variant}"` : ''}${footerMode === 'legacy' ? '' : ` data-footer-mode="${footerMode}"`}${bodySize === 'medium' ? '' : ` data-body-size="${bodySize}"`} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
@@ -158,7 +187,7 @@ body { background: #e5e7eb; }
 .card { flex: none; }
 ${layoutCss}
 ${themeCss}
-${templateCss}${customBodySize ? `\n${bodySizeCss()}` : ''}${screenshotStage ? SCREENSHOT_STAGE_CSS : ''}
+${templateCss}${customBodySize ? `\n${bodySizeCss()}` : ''}${screenshotStage ? SCREENSHOT_STAGE_CSS : ''}${photoCover ? PHOTO_COVER_CSS : ''}
 ${preview ? `
 /* Preview transforms only the display; every .card retains its export canvas. */
 .deck-preview { width: 100%; min-width: 0; padding: 24px; gap: 24px; }

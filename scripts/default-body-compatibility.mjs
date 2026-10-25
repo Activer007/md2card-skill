@@ -11,6 +11,9 @@ const FILES = ['scripts/document.mjs', 'scripts/markdown.mjs', 'scripts/render.m
 export const STAGE_DEFAULT_PROOF = 'docs/visual-upgrade/m2a-default-compatibility.json';
 export const STAGE_DEFAULT_PROOF_SHA256 = 'f148ae42798c1b71f1c3e39ff42c4dc78acded4766918ce6e2dbfd4da1735bab';
 
+export const PHOTO_DEFAULT_PROOF = 'docs/visual-upgrade/m2b-default-compatibility.json';
+export const PHOTO_DEFAULT_PROOF_SHA256 = '2e290407070df29d08a7e1c997d15e13112a977a4593a50be83f2bdda8083e0b';
+
 export async function verifyDefaultBodyCompatibility(readRepoFile) {
   const proofBytes = await readRepoFile(DEFAULT_BODY_PROOF);
   assert.equal(sha256(proofBytes), DEFAULT_BODY_PROOF_SHA256, 'default body proof changed');
@@ -24,16 +27,23 @@ export async function verifyDefaultBodyCompatibility(readRepoFile) {
   for (const file of FILES) {
     assert.equal(stage.files[file].baselineSha256, proof.files[file].currentSha256, `${file}: compatibility chain differs`);
   }
-  for (const file of Object.keys(stage.files)) {
-    const expected = stage.files[file].currentSha256;
+  const photoBytes = await readRepoFile(PHOTO_DEFAULT_PROOF);
+  assert.equal(sha256(photoBytes), PHOTO_DEFAULT_PROOF_SHA256, 'photo default proof changed');
+  const photo = JSON.parse(photoBytes);
+  assert.equal(photo.scope, 'without-photo-cover-only');
+  assert.deepEqual(Object.keys(photo.files), [...Object.keys(stage.files), 'scripts/browser.mjs']);
+  for (const file of Object.keys(stage.files)) assert.equal(photo.files[file].baselineSha256, stage.files[file].currentSha256, `${file}: photo compatibility chain differs`);
+  for (const file of Object.keys(photo.files)) {
+    const expected = photo.files[file].currentSha256;
     assert.equal(sha256(await readRepoFile(file)), expected, `${file}: source root differs from default body proof`);
     assert.equal(sha256(await readEvidenceFile(ROOT, file)), expected, `${file}: executing semantics differ from default body proof`);
   }
   return Object.freeze({
-    files: [DEFAULT_BODY_PROOF, STAGE_DEFAULT_PROOF, ...Object.keys(stage.files)],
+    files: [DEFAULT_BODY_PROOF, STAGE_DEFAULT_PROOF, PHOTO_DEFAULT_PROOF, ...Object.keys(photo.files)],
     accepts(file, historicalHash) {
       return (Object.hasOwn(proof.files, file) && proof.files[file].baselineSha256 === (historicalHash ?? null)) ||
-        (file === 'scripts/templates.mjs' && stage.files[file].baselineSha256 === historicalHash);
+        (file === 'scripts/templates.mjs' && stage.files[file].baselineSha256 === historicalHash) ||
+        (file === 'scripts/browser.mjs' && photo.files[file].baselineSha256 === historicalHash);
     }
   });
 }

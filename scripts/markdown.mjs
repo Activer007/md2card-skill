@@ -28,7 +28,7 @@ parser.renderer.rules.link_open = (tokens, index, options, env, self) => {
 };
 
 export const LAYOUTS = Object.freeze(['cover', 'explainer', 'comparison', 'steps', 'image-caption', 'statistic', 'case-study', 'quote']);
-const METADATA_KEYS = new Set(['bodySize', 'template', 'density', 'layout', 'eyebrow', 'image', 'alt', 'caption', 'source', 'metric', 'label', 'visualVariant']);
+const METADATA_KEYS = new Set(['bodySize', 'template', 'density', 'layout', 'eyebrow', 'image', 'alt', 'caption', 'source', 'metric', 'label', 'visualVariant', 'imageRole', 'mediaFit', 'focalX', 'focalY', 'textZone', 'mediaTone', 'subjectSafety']);
 
 export function escapeHtml(text) {
   return String(text).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
@@ -93,6 +93,10 @@ export function validateCardMetadata(value, cardNumber = 1) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) fail('expected a JSON object.');
   for (const [key, item] of Object.entries(value)) {
     if (!METADATA_KEYS.has(key)) fail(`unknown key "${key}". Allowed keys: ${[...METADATA_KEYS].join(', ')}.`);
+    if (key === 'focalX' || key === 'focalY') {
+      if (typeof item !== 'number' || !Number.isFinite(item) || item < 0 || item > 100) fail(`"${key}" must be a finite JSON number from 0 to 100.`);
+      continue;
+    }
     if (typeof item !== 'string') fail(`"${key}" must be a plain string.`);
     if (/[\u0000-\u001f\u007f]/.test(item)) fail(`"${key}" must be a single-line plain string without control characters.`);
   }

@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-26",
+  "scope": "T37 photo-cover independent review, default compatibility and explicit refusals",
+  "baseCommit": "38bd0dbd44c8b85e3875fa70280f6d63167ed1c0",
+  "archive": {
+    "file": "docs/evidence/t37-photo-cover-m2b.tar.xz",
+    "bytes": 60182640,
+    "sha256": "c966f65664fcac0d3fb6a32ebf90842fbe89f5debe035074a5cf2818dc8e568b",
+    "entryPoint": "index.html",
+    "fileCount": 248
+  },
+  "automatedReportSha256": "51b141e74fbd8333a20f7462394519ca20463993ef6b6d5fc57549a5e764b1d3",
+  "visualReviewSha256": "71402f40af196edcfb7eb92cabbc0416b192e631c1dec99ce598d7f905506059",
+  "outcomes": {
+    "exported": 12,
+    "refused": 8,
+    "photoCovers": 4,
+    "explicitFallbacks": 3
+  },
+  "visualInspection": {
+    "individualViews": 54,
+    "description": "48 matrix PNG/mobile/PDF views, 2 differing screen/print image views, 4 additional unbranded original views. Agent review, not maintainer sign-off."
+  },
+  "tests": {
+    "unitInitial": {
+      "total": 608,
+      "passed": 606,
+      "failed": 2,
+      "reason": "Proof hash updated during run; no source runtime failure."
+    },
+    "affectedGroupAfterProofFreeze": {
+      "total": 50,
+      "passed": 50
+    },
+    "variantsFinal": {
+      "total": 12,
+      "passed": 12
+    },
+    "browserIntegration": {
+      "total": 21,
+      "passed": 21,
+      "skipped": 0
+    },
+    "gallery": "48 accepted defaults unchanged"
+  },
+  "defaultCompatibility": {
+    "historicalHtmlCases": 96,
+    "existingStageHtmlCases": 8,
+    "originalT37": [
+      "HTML",
+      "preview HTML",
+      "PNG",
+      "native PDF page"
+    ],
+    "unbrandedComparison": {
+      "scope": "Unmodified original T37 example, legacy footer, no brand, default medium",
+      "baseCommit": "38bd0dbd44c8b85e3875fa70280f6d63167ed1c0",
+      "comparisons": [
+        {
+          "file": "cards.html",
+          "sha256": "ccadedb51b7cc4dac8857acd3ad4455cacea7607d7de88aeb559d8ffeba6bce9"
+        },
+        {
+          "file": "preview.html",
+          "sha256": "53a75189c1050e6db31d24dd910abe218ad00e65c3ddb7295f09eec6e489041a"
+        },
+        {
+          "file": "card-001.png",
+          "sha256": "38ce27d83b0b7a03c7633a0253d0db55af813835563167340fac3bac0c3b6c72"
+        },
+        {
+          "file": "native-pdf.png",
+          "sha256": "cffdaada5b3cbe39e5220357ca1c294e6c1ef9252fece199e886d075d6d3a3f6"
+        }
+      ]
+    }
+  },
+  "limits": [
+    "Subject safety is author declared, not detected.",
+    "Original pixels remain embedded but cover visibly crops only after explicit permission.",
+    "Three-line title fit is fixture/font specific; overflow is a hard error.",
+    "No historical gallery acceptance is promoted.",
+    "Pure-black brand accent exposes unchanged default contrast issues; these defaults are compatibility comparisons, not newly visually accepted designs."
+  ],
+  "sourceHashes": [
+    {
+      "file": "package.json",
+      "sha256": "72110d8abd879c2484ba168e5e669bbeb68964d796b6b526b3778c0570b09624"
+    },
+    {
+      "file": "package-lock.json",
+      "sha256": "5231f646689a02d162273000fa067fa8c2c7c6e91db13a62f1c5af6506edeff8"
+    },
+    {
+      "file": "scripts/assets.mjs",
+      "sha256": "796990fa22f898dae08771d1f9122288454a483bdd3a27c5ed7b76c5c8b5a538"
+    },
+    {
+      "file": "scripts/body-size.mjs",
+      "sha256": "3f20c47c15f6f2cd57dc42b1e1fdce3d2fb06d932a486fcf92340b19325404ed"
+    },
+    {
+      "file": "scripts/browser.mjs",
+      "sha256": "3d07dfd8b9c7752026828813add8c6b49017db3b0514e404974975c8a0c0d3ca"
+    },
+    {
+      "file": "scripts/doctor.mjs",
+      "sha256": "fc31c63c8f3131fa91babc6c128aacba1f29468c24bdf015057ad8effc4f5275"
+    },
+    {
+      "file": "scripts/document.mjs",
+      "sha256": "41b0d0992ede307896b032c99e81a965969d0668a0da8dfa5c37bda4647df8b4"
+    },
+    {
+      "file": "scripts/errors.mjs",
+      "sha256": "64205ce10310494090ddfa760d653d1f4b2650e747277ea092f60c21cdda956b"
+    },
+    {
+      "file": "scripts/markdown.mjs",
+      "sha256": "b4388b5b50c38819ccc5ccc798160ee3e2ff968a9080a9b228067e5e03601ab8"
+    },
+    {
+      "file": "scripts/pagination.mjs",
+      "sha256": "737c9d3549d875a028d383a8e6b84032e636948ddbb1a56b41c3cb1d0af9deaf"
+    },
+    {
+      "file": "scripts/qa.mjs",
+      "sha256": "481e50d71b39eae75739f4007d5eb668654bf38de73cee9e4124eab6bae8a146"
+    },
+    {
+      "file": "scripts/refinement-input.mjs",
+      "sha256": "f0ad3a003e19e82a610ecab2a8c60446ded8ef99bdf98361f3a0304f74f6810c"
+    },
+    {
+      "file": "scripts/render.mjs",
+      "sha256": "36fdb6d15fecb6c2f7e99a015ee49dc7bbbaa16d0bdbb9e193b54490178f1ddb"
+    },
+    {
+      "file": "scripts/semantic.mjs",
+      "sha256": "e3c6d27090fd446764b233e94d32c71dc93e41a7e9a7170614c2bf503d6754cc"
+    },
+    {
+      "file": "scripts/tail-balance.mjs",
+      "sha256": "0510c67afa8c02aa3d5c28b82fa66ba52fa7eda202009b99fb8bb6cc4de79f7b"
+    },
+    {
+      "file": "scripts/templates.mjs",
+      "sha256": "49998ac92cab0354138ece7712551412c4ae9b8ebb4be93569a454312221bccb"
+    },
+    {
+      "file": "scripts/typography.mjs",
+      "sha256": "460833db17588bd00c3d1baf7150d6dac3bcb71e28518abf6d31e5bff0b4a180"
+    },
+    {
+      "file": "scripts/validate-refinement.mjs",
+      "sha256": "498ecfb527a96d8e09007365e74ac4f8fe561b08d40c9e6dbce82de7e1c4755c"
+    },
+    {
+      "file": "scripts/validate-visual-stress.mjs",
+      "sha256": "d06d076827a71c18f1dc62bded483b3e60b985335b3096a2555b37f9fe595b05"
+    },
+    {
+      "file": "assets/themes.css",
+      "sha256": "3636d2163b99d4bf6db3e8b073d0480dfa08ef98bf42f7fe89cdb8702e736835"
+    },
+    {
+      "file": "assets/layouts.css",
+      "sha256": "9d898b9ef473bd8b69599c502f5f94ebdffb8e2443b5cf24df484d05f6ec4cba"
+    },
+    {
+      "file": "assets/templates.css",
+      "sha256": "0baaaefe9f12db79e70464e09c4b11d68ab7c3313eb58ee4086ba4aefe7e382a"
+    },
+    {
+      "file": "scripts/validate-photo-cover.mjs",
+      "sha256": "d405fd37b5fc4e6f28b0d8aa37e9e0f00e21e583991e38cd36ade7b682a25c69"
+    }
+  ]
+}

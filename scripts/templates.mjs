@@ -141,8 +141,22 @@ export function resolveTemplateAspect(id, { width, height } = {}) {
   return aspect;
 }
 export function validateTemplateMetadata(metadata, { width, height } = {}) {
-  if (metadata.visualVariant !== undefined && (metadata.template !== 'T20' || metadata.visualVariant !== 'screenshot-stage')) {
-    throw new Md2CardError('INVALID_METADATA', 'visualVariant supports only "screenshot-stage" on explicit T20 cards.');
+  const photo = metadata.template === 'T37' && metadata.visualVariant === 'photo-cover';
+  if (metadata.visualVariant !== undefined && !photo && (metadata.template !== 'T20' || metadata.visualVariant !== 'screenshot-stage')) {
+    throw new Md2CardError('INVALID_METADATA', 'visualVariant supports only T20 "screenshot-stage" or T37 "photo-cover".');
+  }
+  const photoFields = ['imageRole', 'mediaFit', 'focalX', 'focalY', 'textZone', 'mediaTone', 'subjectSafety'];
+  if (!photo && photoFields.some(key => metadata[key] !== undefined)) throw new Md2CardError('INVALID_METADATA', 'Photo crop fields require explicit T37 photo-cover; other templates and image roles cannot crop.');
+  if (photo) {
+    const fail = detail => { throw new Md2CardError('INVALID_METADATA', `T37 photo-cover: ${detail} To preserve the complete image, remove visualVariant and all photo crop fields and use default T37.`); };
+    if (metadata.imageRole !== 'photo') fail('imageRole must be "photo", never a screenshot or evidence diagram.');
+    if (metadata.mediaFit !== 'cover') fail('mediaFit="cover" is required as explicit crop permission.');
+    for (const key of ['focalX', 'focalY']) if (typeof metadata[key] !== 'number' || !Number.isFinite(metadata[key]) || metadata[key] < 0 || metadata[key] > 100) fail(`${key} must be a finite JSON number from 0 to 100.`);
+    if (!['top-left', 'top-right', 'bottom-left', 'bottom-right'].includes(metadata.textZone)) fail('textZone must select one of the four corner regions; no safe zone means no overlay.');
+    if (!['dark', 'light'].includes(metadata.mediaTone)) fail('mediaTone must describe the selected region as "dark" or "light".');
+    if (metadata.subjectSafety !== 'clear') fail('subjectSafety="clear" requires the author to check both crop and text zone; blocked or uncertain subjects must not be overlaid.');
+    for (const key of ['alt', 'caption', 'source']) if (typeof metadata[key] !== 'string' || !metadata[key].trim()) fail(`nonempty ${key} is required to preserve identity and provenance.`);
+    if ((width !== undefined || height !== undefined) && resolveTemplateAspect('T37', { width, height }).id !== 'portrait') throw new Md2CardError('TEMPLATE_ASPECT_UNSUPPORTED', 'T37 photo-cover supports portrait only. Use default T37 for other supported aspects.');
   }
   if (metadata.aspect !== undefined) throw new Md2CardError('TEMPLATE_ASPECT_METADATA_UNSUPPORTED', 'Card aspect metadata is not supported. Use --size or matching canvas dimensions; CSS classes are derived internally.');
   if (metadata.template === undefined) {
@@ -166,6 +180,10 @@ export function validateTemplateMetadata(metadata, { width, height } = {}) {
 export function validateTemplateCard(card, template) {
   if (!template) return;
   const inlineImages = (card.html.match(/<img\b/g) ?? []).length;
+  if (card.metadata?.visualVariant === 'photo-cover') {
+    if (inlineImages) throw new Md2CardError('TEMPLATE_IMAGE_COUNT', 'T37 photo-cover accepts one metadata photo and no inline images. Split extra images into separate cards.');
+    if ((card.templateTitleHtml?.match(/<h1\b/g) ?? []).length !== 1 || (card.html.match(/<h1\b/g) ?? []).length !== 1) throw new Md2CardError('TEMPLATE_TITLE_REQUIRED', 'T37 photo-cover requires exactly one H1 title as extractable text.');
+  }
   if (card.metadata?.visualVariant === 'screenshot-stage' && inlineImages) throw new Md2CardError('TEMPLATE_IMAGE_COUNT', 'T20 screenshot-stage accepts one metadata image and no inline images. Split additional screenshots into separate cards.');
   if (template.image === 'none' && (inlineImages || card.image)) throw new Md2CardError('TEMPLATE_IMAGE_UNSUPPORTED', `${template.id} is text-only; images are never discarded.`);
   if (template.image === 'inline' && card.image) throw new Md2CardError('TEMPLATE_IMAGE_UNSUPPORTED', `${template.id} uses inline images, not a separate metadata image.`);

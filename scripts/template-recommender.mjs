@@ -44,7 +44,9 @@ function rankCandidate(template, card, summary, requestedAspect) {
   const variant = card.metadata.visualVariant;
   const structure = variant === 'screenshot-stage'
     ? '一个 H1；一句导语；两个 H2 功能短说明；一个本地 metadata image，alt/caption 说明性质。按标题、图像与图注、正文、来源的 DOM 顺序展示。'
-    : aspect.structure ?? template.structure;
+    : variant === 'photo-cover'
+      ? '一个 H1 作为照片上的可提取标题；作者明确授权 cover 裁切、焦点与安全文字区；图注、正文、来源和页脚保留在照片外。无法确认主体安全时回退默认 T37。'
+      : aspect.structure ?? template.structure;
   const explicit = card.metadata.template === template.id;
   const { layout, purpose } = templateRoleMatch(template, summary.role);
   const structureReasons = structuralReasons({ ...template, structure }, summary);
@@ -91,6 +93,7 @@ export function recommendTemplates({ cards, requestedAspect = 'portrait', pagina
         const reasonIds = [], details = [];
         if (paginate === 'auto') reasonIds.push('AUTO_TEMPLATE_UNSUPPORTED');
         if (!template.aspects.includes(requestedAspect)) reasonIds.push('TEMPLATE_ASPECT_UNSUPPORTED');
+        if (card.metadata.visualVariant === 'photo-cover' && requestedAspect !== 'portrait') reasonIds.push('TEMPLATE_ASPECT_UNSUPPORTED');
         const metadata = { ...card.metadata, template: template.id };
         // Keep explicitly authored layout constraints. An inferred/default layout
         // is not author intent; this local validation object is never written back.

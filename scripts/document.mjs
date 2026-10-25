@@ -1,3 +1,4 @@
+import { normalizeBodySize, sizeBodyText, bodySizeCss } from './body-size.mjs';
 import { escapeHtml, LAYOUTS } from './markdown.mjs';
 import { validateTemplateMetadata, validateTemplateCard, resolveTemplateAspect } from './templates.mjs';
 
@@ -105,17 +106,21 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
   if (accent !== undefined && (typeof accent !== 'string' || !/^#(?:[\da-f]{3}|[\da-f]{6})$/i.test(accent))) {
     throw new Error('Brand accent must be a hex color such as #126d64 or #0af.');
   }
+  const defaultBodySize = normalizeBodySize(options.bodySize);
+  let customBodySize = false;
   const preview = options.preview === true;
   const body = cards.map((card, position) => {
     const index = position + 1;
+    const bodySize = normalizeBodySize(card.metadata?.bodySize === undefined ? defaultBodySize : card.metadata.bodySize);
+    if (bodySize !== 'medium') customBodySize = true;
     const layout = card.metadata?.layout ?? 'explainer';
     if (!LAYOUTS.includes(layout)) throw new Error(`Card ${index} has unknown layout "${layout}".`);
     const template = validateTemplateMetadata(card.metadata ?? {}, { width, height });
     validateTemplateCard(card, template);
     const aspect = template ? resolveTemplateAspect(template.id, { width, height }) : null;
     const templateClass = template ? ` template-card template-${template.id} family-${template.family} density-${card.metadata.density ?? template.density} ${aspect.className}` : '';
-    const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}" data-template-aspect="${aspect.id}"` : ''}${footerMode === 'legacy' ? '' : ` data-footer-mode="${footerMode}"`} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
-    <div class="card-content">${cardContent(card, layout, template)}</div>
+    const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}" data-template-aspect="${aspect.id}"` : ''}${footerMode === 'legacy' ? '' : ` data-footer-mode="${footerMode}"`}${bodySize === 'medium' ? '' : ` data-body-size="${bodySize}"`} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
+    <div class="card-content">${sizeBodyText(cardContent(card, layout, template), bodySize)}</div>
     ${footerHtml(options, index, cards.length, footerMode)}
   </article>`;
     return preview ? `<section class="preview-item" aria-label="Preview card ${index}"><div class="preview-canvas">${article}</div><p class="preview-caption">${index} / ${cards.length} · ${layout} · ${width} × ${height}</p></section>` : article;
@@ -137,7 +142,7 @@ body { background: #e5e7eb; }
 .card { flex: none; }
 ${layoutCss}
 ${themeCss}
-${templateCss}
+${templateCss}${customBodySize ? `\n${bodySizeCss()}` : ''}
 ${preview ? `
 /* Preview transforms only the display; every .card retains its export canvas. */
 .deck-preview { width: 100%; min-width: 0; padding: 24px; gap: 24px; }

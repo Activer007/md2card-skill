@@ -1,3 +1,4 @@
+import {verifyDefaultBodyCompatibility} from './default-body-compatibility.mjs';
 // Offline verification of a curated CI binding. These pins were independently
 // checked against GitHub/Git and the original ZIP, not supplied by a gallery row.
 // This is a repository review trust anchor, not a signature or proof that a human
@@ -59,7 +60,9 @@ export function comparisonEvidenceReader(readRepoFile) {
     // read by the binder from the independently pinned Git tree as a separate file.
     const plan = JSON.parse(await readHash(`${root}/comparison-plan.json`, binding.comparisonSpecSha256));
     const files = new Map(manifest.files.map(entry => [entry.file, entry]));
+    const compatibility = await verifyDefaultBodyCompatibility(readRepoFile);
     for (const file of SEMANTIC_FILES) {
+      if (compatibility.accepts(file, files.get(file)?.sha256)) continue;
       assert.ok(files.has(file), `missing source semantics: ${file}`);
       if (file === 'package.json') {
         const original = await readHash(`${root}/source-package.json`, files.get(file).sha256);
@@ -81,7 +84,7 @@ export function comparisonEvidenceReader(readRepoFile) {
     equal(previous.identity, equivalence.oldIdentity);
     const ids = binding.groups.flatMap(group => group.records);
     equal(equivalence.records.map(record => record.id).sort(), [...ids].sort(), 'complete equivalence inventory');
-    const equivalenceFiles = [equivalenceFile, equivalence.previousReview.file];
+    const equivalenceFiles = [equivalenceFile, equivalence.previousReview.file, ...compatibility.files];
     for (const id of ids) {
       const record = binding.records.find(record => record.id === id), proof = equivalence.records.find(record => record.id === id);
       const old = previous.records.find(record => record.id === id); assert.ok(old, 'missing previous pixel review');

@@ -17,7 +17,7 @@ const MAX_TOTAL_BYTES = 256 * 1024 * 1024;
 // Evidence tools themselves may change without silently changing the source parser.
 export const SEMANTIC_FILES = Object.freeze([
   'package.json', 'package-lock.json',
-  ...['assets', 'browser', 'doctor', 'document', 'errors', 'markdown', 'pagination',
+  ...['assets', 'body-size', 'browser', 'doctor', 'document', 'errors', 'markdown', 'pagination',
     'qa', 'refinement-input', 'render', 'semantic', 'tail-balance', 'templates', 'typography',
     'validate-refinement', 'validate-visual-stress']
     .map(name => `scripts/${name}.mjs`),

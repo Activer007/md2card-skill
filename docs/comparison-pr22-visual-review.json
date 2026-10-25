@@ -1,0 +1,1345 @@
+{
+  "schemaVersion": 1,
+  "bindingSha256": "647ad2a81847358e4e84ee8eac4cc7f58604b457f665003ba64efa13c876576f",
+  "identity": {
+    "commit": "05f6bb6e484cb8887ea037e520a733db9303563d",
+    "tree": "9dee88002e629b44dbd7e141874fe5388b5e7b9d",
+    "sourceSha256": "473cd63ff3ff57cacdcf1bee29044d53bf02ce062b4b40bc027db529462859c1",
+    "runUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40079964688",
+    "artifactId": 12554054288,
+    "archiveSha256": "794985f23429b86be89a8790070ee4f2e4b168d8160239bcb5dfc06761d52d5b"
+  },
+  "scope": {
+    "density": "standard",
+    "aspect": "portrait",
+    "pagination": "manual",
+    "width": 1080,
+    "height": 1440
+  },
+  "reviewer": "Codex: prior independent pixel review retained only after byte-identical PNG/mobile and re-rasterized native-PDF identity checks",
+  "reviewedAt": "2026-10-24T17:09:45.499Z",
+  "records": [
+    {
+      "id": "short-T04",
+      "status": "reviewed-with-limitations",
+      "files": [
+        {
+          "file": "refinement/inputs/short-T04.md",
+          "sha256": "7f69262a8927f9c3dfdb4ffee6f5449226268e30124225d2b761f5250a20bf22"
+        },
+        {
+          "file": "refinement/short-T04/manifest.json",
+          "sha256": "01193a102cf2c9141450c1ac4b1abf70db54975d7642790faa588ee8c3392a9f"
+        },
+        {
+          "file": "refinement/short-T04/cards.html",
+          "sha256": "2595eb48279a687afd8a451eecc0f4b713d1a7deedd7342d6a7c919196a71233"
+        },
+        {
+          "file": "refinement/short-T04/preview.html",
+          "sha256": "a6a7c69a89f1ac35575f0b67967e25115fdf217b5be9cbfa5a51f7aa107761a6"
+        },
+        {
+          "file": "refinement/short-T04/cards.pdf",
+          "sha256": "0635d6b84093711e87b97af63f95ea32732c3fa978da5cd2d741180f9573705e"
+        },
+        {
+          "file": "refinement/short-T04/card-001.png",
+          "sha256": "8fc5852aa509f6e16f8b199432a0c0c21f548a6de81ac856e3eed744b6b2d7a9"
+        },
+        {
+          "file": "refinement/short-T04/contact-sheet.png",
+          "sha256": "745a388eb6313ea330f3ddfe9aebea94b558183450d31c595cfea6960e085e0e"
+        },
+        {
+          "file": "refinement/short-T04/mobile-375.png",
+          "sha256": "71063c6693ae03f5d443c1d703d3f11df5ac51da7a04076ac9a644b0aae1e943"
+        },
+        {
+          "file": "refinement/short-T04/mobile-390.png",
+          "sha256": "597928012702a0b6c7aa62dd1be9f48f406035d888af354d40a0aad226c5f59e"
+        },
+        {
+          "file": "refinement/short-T04/page-1-raw.txt",
+          "sha256": "ba38bf1b7a4356d7d3c39ac2e72775f48092cb0c2a611b01082c417a77487db1"
+        },
+        {
+          "file": "refinement/short-T04/page-1-layout.txt",
+          "sha256": "799b995c0aed297f3595d2fae13862a27228d2a2ff33efeae79793643077843d"
+        }
+      ],
+      "notes": [
+        "本例两段出现“处。”“断。”单字短尾；内容完整，但断行欠佳。可比较同组 T06/T10，不把本例视为无孤行排版。"
+      ],
+      "checks": {
+        "fullPng": "pass",
+        "mobile375": "pass",
+        "mobile390": "pass",
+        "nativePdf": "pass",
+        "sourcePreservation": "pass"
+      },
+      "pdfPageInspection": {
+        "pdfSha256": "0635d6b84093711e87b97af63f95ea32732c3fa978da5cd2d741180f9573705e",
+        "rasterSha256": "7d8c3e5d3ac2662b55414249f842fa70ee922c44b626508c554d43e297601c5f",
+        "renderer": "Poppler pdftoppm, 96 dpi, 1080x1440",
+        "pageCount": 1,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/short-T04.png"
+      },
+      "observation": "居中衬线标题、全宽导语和纵向分节清楚；正文与来源完整。两个末行分别为“处。”“断。”，手机图和 PDF 同样可见。",
+      "reviewBasis": {
+        "id": "short-T04",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/short-T04.md",
+            "sha256": "7f69262a8927f9c3dfdb4ffee6f5449226268e30124225d2b761f5250a20bf22"
+          },
+          {
+            "file": "refinement/short-T04/mobile-375.png",
+            "sha256": "71063c6693ae03f5d443c1d703d3f11df5ac51da7a04076ac9a644b0aae1e943"
+          },
+          {
+            "file": "refinement/short-T04/mobile-390.png",
+            "sha256": "597928012702a0b6c7aa62dd1be9f48f406035d888af354d40a0aad226c5f59e"
+          },
+          {
+            "file": "refinement/short-T04/card-001.png",
+            "sha256": "8fc5852aa509f6e16f8b199432a0c0c21f548a6de81ac856e3eed744b6b2d7a9"
+          },
+          {
+            "file": "refinement/short-T04/contact-sheet.png",
+            "sha256": "745a388eb6313ea330f3ddfe9aebea94b558183450d31c595cfea6960e085e0e"
+          },
+          {
+            "file": "refinement/short-T04/page-1-raw.txt",
+            "sha256": "ba38bf1b7a4356d7d3c39ac2e72775f48092cb0c2a611b01082c417a77487db1"
+          },
+          {
+            "file": "refinement/short-T04/page-1-layout.txt",
+            "sha256": "799b995c0aed297f3595d2fae13862a27228d2a2ff33efeae79793643077843d"
+          }
+        ],
+        "method": "byte-identical-full-and-mobile-PNG-plus-new-native-PDF-raster",
+        "nativePdf": {
+          "previousPdfSha256": "34a8bcf914836757594409a8a24ff8aa7f82dcce29ed602bdcf7bd0ae8c52211",
+          "newPdfSha256": "0635d6b84093711e87b97af63f95ea32732c3fa978da5cd2d741180f9573705e",
+          "equalRasterSha256": "7d8c3e5d3ac2662b55414249f842fa70ee922c44b626508c554d43e297601c5f",
+          "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/short-T04.png",
+          "pageCount": 1,
+          "pagePoints": [
+            810,
+            1080
+          ]
+        }
+      }
+    },
+    {
+      "id": "short-T06",
+      "status": "reviewed-exact-fixture",
+      "files": [
+        {
+          "file": "refinement/inputs/short-T06.md",
+          "sha256": "f8348a84050c9e9a256a9e872a399a4d33146b95ecd4f8f1f1512a5c457632b2"
+        },
+        {
+          "file": "refinement/short-T06/manifest.json",
+          "sha256": "19790b1672d81bc185153d30c651e9cb8cda6a7ed22378cc1fd7c36812b07d64"
+        },
+        {
+          "file": "refinement/short-T06/cards.html",
+          "sha256": "b0612f20f64cb0e948d0764d44632afe7c8adb571ad2575de269e159bda44698"
+        },
+        {
+          "file": "refinement/short-T06/preview.html",
+          "sha256": "ea9162467d5ffdc38fcb473b86a2948118e7447c6bb7a6b5e3a3d3e243581876"
+        },
+        {
+          "file": "refinement/short-T06/cards.pdf",
+          "sha256": "1ebbf1bdc5ec6bcfdb1e477374ad2034dcfc6ce9b2508dfa6dc59c78b46cd8bc"
+        },
+        {
+          "file": "refinement/short-T06/card-001.png",
+          "sha256": "021d752692658dd9608fda15feeb443577312466cbea46e4c5ef32a717eb4ca2"
+        },
+        {
+          "file": "refinement/short-T06/contact-sheet.png",
+          "sha256": "efd8a88facc52e914e6cb375217a6b5273629ce47e1dd21fc7d1db41b37add49"
+        },
+        {
+          "file": "refinement/short-T06/mobile-375.png",
+          "sha256": "1b467875f8e6819d8732410fe16698d448e51044efa28d3210651a83751ea26e"
+        },
+        {
+          "file": "refinement/short-T06/mobile-390.png",
+          "sha256": "5f4d0c279884afeb6e5eaa10c1663277788abb5e964b8d78fdfa53fccb55685a"
+        },
+        {
+          "file": "refinement/short-T06/page-1-raw.txt",
+          "sha256": "d01bfed87773c98734cd86e94b52dbeaf2e91e7ad6885ccc856b386e9d6e9532"
+        },
+        {
+          "file": "refinement/short-T06/page-1-layout.txt",
+          "sha256": "85b3d28615912e285bb02eb86d186d14a3040b80b6c5573d83cb98ff9d7fa39f"
+        }
+      ],
+      "notes": [],
+      "checks": {
+        "fullPng": "pass",
+        "mobile375": "pass",
+        "mobile390": "pass",
+        "nativePdf": "pass",
+        "sourcePreservation": "pass"
+      },
+      "pdfPageInspection": {
+        "pdfSha256": "1ebbf1bdc5ec6bcfdb1e477374ad2034dcfc6ce9b2508dfa6dc59c78b46cd8bc",
+        "rasterSha256": "04d6a9c29b7e18d3b93b243f386d003b19d6c251b024c1f8827e93132fd56636",
+        "renderer": "Poppler pdftoppm, 96 dpi, 1080x1440",
+        "pageCount": 1,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/short-T06.png"
+      },
+      "observation": "两块明暗对比面板形成明确阅读顺序；正文、两段小标题、来源和页码完整，手机尺寸可读。",
+      "reviewBasis": {
+        "id": "short-T06",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/short-T06.md",
+            "sha256": "f8348a84050c9e9a256a9e872a399a4d33146b95ecd4f8f1f1512a5c457632b2"
+          },
+          {
+            "file": "refinement/short-T06/mobile-375.png",
+            "sha256": "1b467875f8e6819d8732410fe16698d448e51044efa28d3210651a83751ea26e"
+          },
+          {
+            "file": "refinement/short-T06/mobile-390.png",
+            "sha256": "5f4d0c279884afeb6e5eaa10c1663277788abb5e964b8d78fdfa53fccb55685a"
+          },
+          {
+            "file": "refinement/short-T06/card-001.png",
+            "sha256": "021d752692658dd9608fda15feeb443577312466cbea46e4c5ef32a717eb4ca2"
+          },
+          {
+            "file": "refinement/short-T06/contact-sheet.png",
+            "sha256": "efd8a88facc52e914e6cb375217a6b5273629ce47e1dd21fc7d1db41b37add49"
+          },
+          {
+            "file": "refinement/short-T06/page-1-raw.txt",
+            "sha256": "d01bfed87773c98734cd86e94b52dbeaf2e91e7ad6885ccc856b386e9d6e9532"
+          },
+          {
+            "file": "refinement/short-T06/page-1-layout.txt",
+            "sha256": "85b3d28615912e285bb02eb86d186d14a3040b80b6c5573d83cb98ff9d7fa39f"
+          }
+        ],
+        "method": "byte-identical-full-and-mobile-PNG-plus-new-native-PDF-raster",
+        "nativePdf": {
+          "previousPdfSha256": "13ad8411f4e4d82627043fb9f82526a26e1297568aa7d88345edbee596d9fc10",
+          "newPdfSha256": "1ebbf1bdc5ec6bcfdb1e477374ad2034dcfc6ce9b2508dfa6dc59c78b46cd8bc",
+          "equalRasterSha256": "04d6a9c29b7e18d3b93b243f386d003b19d6c251b024c1f8827e93132fd56636",
+          "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/short-T06.png",
+          "pageCount": 1,
+          "pagePoints": [
+            810,
+            1080
+          ]
+        }
+      }
+    },
+    {
+      "id": "short-T10",
+      "status": "reviewed-exact-fixture",
+      "files": [
+        {
+          "file": "refinement/inputs/short-T10.md",
+          "sha256": "ca309f2d6abb1b7cfa4b5dd57c6f747844660dc1b2f6b6bbe376427d7cc9dd7c"
+        },
+        {
+          "file": "refinement/short-T10/manifest.json",
+          "sha256": "df6497cd4026e07bbf37c9b8288652e8827e680f7d43b3f9c6522f806404ce2e"
+        },
+        {
+          "file": "refinement/short-T10/cards.html",
+          "sha256": "8ed807c5b9991cbd2e5e56f1913a7d6edea6ac36a8a6761eff2a15816c8afaa1"
+        },
+        {
+          "file": "refinement/short-T10/preview.html",
+          "sha256": "be7d3498cfc4be2e51f19242a14796da4d9c030f6cbc6452a37d589ef9bc402e"
+        },
+        {
+          "file": "refinement/short-T10/cards.pdf",
+          "sha256": "53a4176586520f382765e033396fb80df22431ad4fc1b9cc2693f19e8ea3670e"
+        },
+        {
+          "file": "refinement/short-T10/card-001.png",
+          "sha256": "3247ce392db5f73f4eb062c583bce10d79a3f8c16c010409f4f7b4f0cb610b65"
+        },
+        {
+          "file": "refinement/short-T10/contact-sheet.png",
+          "sha256": "02910d8585d72a3abbe65371255d535c7d675178b0d6a7af3a8c1df98d403262"
+        },
+        {
+          "file": "refinement/short-T10/mobile-375.png",
+          "sha256": "c6f2675689b1de516240955f695090d89e224e4f1f463a526400b2a5fc267f9e"
+        },
+        {
+          "file": "refinement/short-T10/mobile-390.png",
+          "sha256": "c3d3633e8cffffa86a5b4650c80e121b994aff65e1868b416de2e3124e143b7f"
+        },
+        {
+          "file": "refinement/short-T10/page-1-raw.txt",
+          "sha256": "fff6b77dec624bf4c73ac84e222459855441075cac5cf2f2ced6848831dd43f2"
+        },
+        {
+          "file": "refinement/short-T10/page-1-layout.txt",
+          "sha256": "9e4827129c1415d169a9a44cee757e183f20545bc03d73f49812a3cbe57c283e"
+        }
+      ],
+      "notes": [],
+      "checks": {
+        "fullPng": "pass",
+        "mobile375": "pass",
+        "mobile390": "pass",
+        "nativePdf": "pass",
+        "sourcePreservation": "pass"
+      },
+      "pdfPageInspection": {
+        "pdfSha256": "53a4176586520f382765e033396fb80df22431ad4fc1b9cc2693f19e8ea3670e",
+        "rasterSha256": "18d96c73f6e0c82e1db527e3c5a52eb9ad0cf266e9c15e53ff39220a16d55268",
+        "renderer": "Poppler pdftoppm, 96 dpi, 1080x1440",
+        "pageCount": 1,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/short-T10.png"
+      },
+      "observation": "蓝色导语、右上分节、下方横向分节保持独立构图；大标题清楚，全部正文和来源可见。",
+      "reviewBasis": {
+        "id": "short-T10",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/short-T10.md",
+            "sha256": "ca309f2d6abb1b7cfa4b5dd57c6f747844660dc1b2f6b6bbe376427d7cc9dd7c"
+          },
+          {
+            "file": "refinement/short-T10/mobile-375.png",
+            "sha256": "c6f2675689b1de516240955f695090d89e224e4f1f463a526400b2a5fc267f9e"
+          },
+          {
+            "file": "refinement/short-T10/mobile-390.png",
+            "sha256": "c3d3633e8cffffa86a5b4650c80e121b994aff65e1868b416de2e3124e143b7f"
+          },
+          {
+            "file": "refinement/short-T10/card-001.png",
+            "sha256": "3247ce392db5f73f4eb062c583bce10d79a3f8c16c010409f4f7b4f0cb610b65"
+          },
+          {
+            "file": "refinement/short-T10/contact-sheet.png",
+            "sha256": "02910d8585d72a3abbe65371255d535c7d675178b0d6a7af3a8c1df98d403262"
+          },
+          {
+            "file": "refinement/short-T10/page-1-raw.txt",
+            "sha256": "fff6b77dec624bf4c73ac84e222459855441075cac5cf2f2ced6848831dd43f2"
+          },
+          {
+            "file": "refinement/short-T10/page-1-layout.txt",
+            "sha256": "9e4827129c1415d169a9a44cee757e183f20545bc03d73f49812a3cbe57c283e"
+          }
+        ],
+        "method": "byte-identical-full-and-mobile-PNG-plus-new-native-PDF-raster",
+        "nativePdf": {
+          "previousPdfSha256": "284e48fdebc6f40d6d4507c59ff520b45ed3866033629123f3175376a77b71fd",
+          "newPdfSha256": "53a4176586520f382765e033396fb80df22431ad4fc1b9cc2693f19e8ea3670e",
+          "equalRasterSha256": "18d96c73f6e0c82e1db527e3c5a52eb9ad0cf266e9c15e53ff39220a16d55268",
+          "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/short-T10.png",
+          "pageCount": 1,
+          "pagePoints": [
+            810,
+            1080
+          ]
+        }
+      }
+    },
+    {
+      "id": "short-T13",
+      "status": "reviewed-exact-fixture",
+      "files": [
+        {
+          "file": "refinement/inputs/short-T13.md",
+          "sha256": "8c3d6a133111e80093efbe43467761671b43165dffb983be57a75797937deaf3"
+        },
+        {
+          "file": "refinement/short-T13/manifest.json",
+          "sha256": "10ddbcbaa0839b0daa6bda6be31d7c60785b4c8d0d5429be33db8ea46f451fb7"
+        },
+        {
+          "file": "refinement/short-T13/cards.html",
+          "sha256": "4d3cb49a6a9e21b213143ba754cd45bd1986ace4f8fe7cedcb38dfa6054abf13"
+        },
+        {
+          "file": "refinement/short-T13/preview.html",
+          "sha256": "7215775be871c2d2f8def361993e1a12b9b83a3396252ed0f6825fd9ad5f2610"
+        },
+        {
+          "file": "refinement/short-T13/cards.pdf",
+          "sha256": "da6e188bb4f3c64b7441127442daf0a7ad3d873b04e29143fa15f31aee1bf029"
+        },
+        {
+          "file": "refinement/short-T13/card-001.png",
+          "sha256": "943741e95b1046b83b9b17e48ee6f0b58cc621d9f691f75f59c549b41759d1c3"
+        },
+        {
+          "file": "refinement/short-T13/contact-sheet.png",
+          "sha256": "f02498674252a12e62aa33d6791e3ab341eace00d40143bd345095cf81fe01c3"
+        },
+        {
+          "file": "refinement/short-T13/mobile-375.png",
+          "sha256": "014d4ec7227a19573213e01831772ea0328a5a371a5c2d9fed341c3fa95b3b00"
+        },
+        {
+          "file": "refinement/short-T13/mobile-390.png",
+          "sha256": "0ec48a732a9d25b38e553f1e6f6ce590be8c46d4130af6fe409fbe8de8901eaf"
+        },
+        {
+          "file": "refinement/short-T13/page-1-raw.txt",
+          "sha256": "a60fa8712a1fc73ad28ab25000d71098fd648f170aa48447635e086ac3a40e3d"
+        },
+        {
+          "file": "refinement/short-T13/page-1-layout.txt",
+          "sha256": "b4792be5c5f9fe72f68f4ceab32df85d1f0b5687710dbbba72fe2a2d76ede9ca"
+        }
+      ],
+      "notes": [],
+      "checks": {
+        "fullPng": "pass",
+        "mobile375": "pass",
+        "mobile390": "pass",
+        "nativePdf": "pass",
+        "sourcePreservation": "pass"
+      },
+      "pdfPageInspection": {
+        "pdfSha256": "da6e188bb4f3c64b7441127442daf0a7ad3d873b04e29143fa15f31aee1bf029",
+        "rasterSha256": "7970c863d5ce72381b754d0d6646cfede5ecdf46e206b2ac43e2765be75dbf86",
+        "renderer": "Poppler pdftoppm, 96 dpi, 1080x1440",
+        "pageCount": 1,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/short-T13.png"
+      },
+      "observation": "两行大标题与黄色海报构图适用于这个短例；两段横向内容及来源完整，没有裁切。",
+      "reviewBasis": {
+        "id": "short-T13",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/short-T13.md",
+            "sha256": "8c3d6a133111e80093efbe43467761671b43165dffb983be57a75797937deaf3"
+          },
+          {
+            "file": "refinement/short-T13/mobile-375.png",
+            "sha256": "014d4ec7227a19573213e01831772ea0328a5a371a5c2d9fed341c3fa95b3b00"
+          },
+          {
+            "file": "refinement/short-T13/mobile-390.png",
+            "sha256": "0ec48a732a9d25b38e553f1e6f6ce590be8c46d4130af6fe409fbe8de8901eaf"
+          },
+          {
+            "file": "refinement/short-T13/card-001.png",
+            "sha256": "943741e95b1046b83b9b17e48ee6f0b58cc621d9f691f75f59c549b41759d1c3"
+          },
+          {
+            "file": "refinement/short-T13/contact-sheet.png",
+            "sha256": "f02498674252a12e62aa33d6791e3ab341eace00d40143bd345095cf81fe01c3"
+          },
+          {
+            "file": "refinement/short-T13/page-1-raw.txt",
+            "sha256": "a60fa8712a1fc73ad28ab25000d71098fd648f170aa48447635e086ac3a40e3d"
+          },
+          {
+            "file": "refinement/short-T13/page-1-layout.txt",
+            "sha256": "b4792be5c5f9fe72f68f4ceab32df85d1f0b5687710dbbba72fe2a2d76ede9ca"
+          }
+        ],
+        "method": "byte-identical-full-and-mobile-PNG-plus-new-native-PDF-raster",
+        "nativePdf": {
+          "previousPdfSha256": "5da26566eb2ad9ae0c68da75cc0656733d5819bae41a6aca9cdc4cf0920b5ccb",
+          "newPdfSha256": "da6e188bb4f3c64b7441127442daf0a7ad3d873b04e29143fa15f31aee1bf029",
+          "equalRasterSha256": "7970c863d5ce72381b754d0d6646cfede5ecdf46e206b2ac43e2765be75dbf86",
+          "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/short-T13.png",
+          "pageCount": 1,
+          "pagePoints": [
+            810,
+            1080
+          ]
+        }
+      }
+    },
+    {
+      "id": "medium-T04",
+      "status": "reviewed-exact-fixture",
+      "files": [
+        {
+          "file": "refinement/inputs/medium-T04.md",
+          "sha256": "fc98383d14b7655028070298d02d22a8638e3c66e725bfedc105f07634bca20d"
+        },
+        {
+          "file": "refinement/medium-T04/manifest.json",
+          "sha256": "35be73bdd0206b4f9e542456f635f9a2f4c2a5b62d03aa062275d6b414738c2c"
+        },
+        {
+          "file": "refinement/medium-T04/cards.html",
+          "sha256": "2f8550df0a2cce575899f28f11efed6a518df402dac9651ec6381b7b311f12c5"
+        },
+        {
+          "file": "refinement/medium-T04/preview.html",
+          "sha256": "aaaa3eebb690cac6b149d52caa5e3acb660d87a6ce96cd5b481b591f150da7ba"
+        },
+        {
+          "file": "refinement/medium-T04/cards.pdf",
+          "sha256": "6ac6b5b2e133ff19db26cff4ed5ae101a3696b433d965d67af3ad0d27aabdce5"
+        },
+        {
+          "file": "refinement/medium-T04/card-001.png",
+          "sha256": "9ed47d29fd0bb12ea57c3c29dc8092799ba277bae15d7eb93c528304d362c5e7"
+        },
+        {
+          "file": "refinement/medium-T04/contact-sheet.png",
+          "sha256": "66fe007cdb2626e5d2e45d87afc39090a9bfd4031af3a7f57ac0c6e862d7b841"
+        },
+        {
+          "file": "refinement/medium-T04/mobile-375.png",
+          "sha256": "fbc312956b73ff5a0fff3510901b0a4095e614940a3e4b61c6715dc8d92ee16b"
+        },
+        {
+          "file": "refinement/medium-T04/mobile-390.png",
+          "sha256": "b86c4902e938ab97581c3d45b12d997e301b22b39872c4559f529a0fc06e3b54"
+        },
+        {
+          "file": "refinement/medium-T04/page-1-raw.txt",
+          "sha256": "e9d924f10d352a8a023a4a6005b68facaa4e6111eb96c76907aa5cef0ea13d5e"
+        },
+        {
+          "file": "refinement/medium-T04/page-1-layout.txt",
+          "sha256": "23e63c384a7d32b8dac86fbad0b3ae3525bcaf5a741503d259bbd9a0a197c2f9"
+        }
+      ],
+      "notes": [],
+      "checks": {
+        "fullPng": "pass",
+        "mobile375": "pass",
+        "mobile390": "pass",
+        "nativePdf": "pass",
+        "sourcePreservation": "pass"
+      },
+      "pdfPageInspection": {
+        "pdfSha256": "6ac6b5b2e133ff19db26cff4ed5ae101a3696b433d965d67af3ad0d27aabdce5",
+        "rasterSha256": "aaa36762f4251b4d04c9d1cdc5f8caf28e1cdd9b67265263294a2a22b323259a",
+        "renderer": "Poppler pdftoppm, 96 dpi, 1080x1440",
+        "pageCount": 1,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/medium-T04.png"
+      },
+      "observation": "纵向全宽阅读带容纳全部中篇原文，标题、段落、来源和页码清楚；未见遮挡或裁切。",
+      "reviewBasis": {
+        "id": "medium-T04",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/medium-T04.md",
+            "sha256": "fc98383d14b7655028070298d02d22a8638e3c66e725bfedc105f07634bca20d"
+          },
+          {
+            "file": "refinement/medium-T04/mobile-375.png",
+            "sha256": "fbc312956b73ff5a0fff3510901b0a4095e614940a3e4b61c6715dc8d92ee16b"
+          },
+          {
+            "file": "refinement/medium-T04/mobile-390.png",
+            "sha256": "b86c4902e938ab97581c3d45b12d997e301b22b39872c4559f529a0fc06e3b54"
+          },
+          {
+            "file": "refinement/medium-T04/card-001.png",
+            "sha256": "9ed47d29fd0bb12ea57c3c29dc8092799ba277bae15d7eb93c528304d362c5e7"
+          },
+          {
+            "file": "refinement/medium-T04/contact-sheet.png",
+            "sha256": "66fe007cdb2626e5d2e45d87afc39090a9bfd4031af3a7f57ac0c6e862d7b841"
+          },
+          {
+            "file": "refinement/medium-T04/page-1-raw.txt",
+            "sha256": "e9d924f10d352a8a023a4a6005b68facaa4e6111eb96c76907aa5cef0ea13d5e"
+          },
+          {
+            "file": "refinement/medium-T04/page-1-layout.txt",
+            "sha256": "23e63c384a7d32b8dac86fbad0b3ae3525bcaf5a741503d259bbd9a0a197c2f9"
+          }
+        ],
+        "method": "byte-identical-full-and-mobile-PNG-plus-new-native-PDF-raster",
+        "nativePdf": {
+          "previousPdfSha256": "f350e4c7fb6d7f3e450ceef244cee021ef448a435744d70cdfa45db1dd1d56c3",
+          "newPdfSha256": "6ac6b5b2e133ff19db26cff4ed5ae101a3696b433d965d67af3ad0d27aabdce5",
+          "equalRasterSha256": "aaa36762f4251b4d04c9d1cdc5f8caf28e1cdd9b67265263294a2a22b323259a",
+          "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/medium-T04.png",
+          "pageCount": 1,
+          "pagePoints": [
+            810,
+            1080
+          ]
+        }
+      }
+    },
+    {
+      "id": "medium-T06",
+      "status": "reviewed-exact-fixture",
+      "files": [
+        {
+          "file": "refinement/inputs/medium-T06.md",
+          "sha256": "6d3ad7d44e7f38ecaa9a30d56eea5f1fbd6dcbdf9b7e6fe75b3ca98f75b9ac1c"
+        },
+        {
+          "file": "refinement/medium-T06/manifest.json",
+          "sha256": "6d3cd7adba676457dfc64d290f08a2b692d8fc92082fd640e46b8a48732da61d"
+        },
+        {
+          "file": "refinement/medium-T06/cards.html",
+          "sha256": "eb58dab07a0d9abdf5d043a87cb2150c3c1937c622ec9243bfc979e34face10b"
+        },
+        {
+          "file": "refinement/medium-T06/preview.html",
+          "sha256": "46ae47b4aaa17007c3d1fec64ff2d4d7e8c3a99b73ac6518af4d9e50de0462b4"
+        },
+        {
+          "file": "refinement/medium-T06/cards.pdf",
+          "sha256": "139e62b8137324329db2b29519146d45a795de9077dc0edca007881258ff0728"
+        },
+        {
+          "file": "refinement/medium-T06/card-001.png",
+          "sha256": "b605868f5cee50806372903a6598cf899c51eedd57ab56831b658b5a3e5866a9"
+        },
+        {
+          "file": "refinement/medium-T06/contact-sheet.png",
+          "sha256": "dfedc0fbb204ac85fc442cb399e88becfd606e975b63fa35c42bf9efe55ab3df"
+        },
+        {
+          "file": "refinement/medium-T06/mobile-375.png",
+          "sha256": "72dec5feea2b3faaf7be54b926194da7893c2b9bcf0b982d045cc9954a3e2271"
+        },
+        {
+          "file": "refinement/medium-T06/mobile-390.png",
+          "sha256": "131f6b9111f3e3fd80ca760124d8eb2211da5b8fb630b3ca5c9c8f7959d41ab8"
+        },
+        {
+          "file": "refinement/medium-T06/page-1-raw.txt",
+          "sha256": "d5ae126b0c57d23a421f722dd6952aeca062d8ee86bfb43fc1d3b01752677c29"
+        },
+        {
+          "file": "refinement/medium-T06/page-1-layout.txt",
+          "sha256": "4859526042158cc1d4b4dd051da62fbf39a894011b6b9bce6e54d96d1f9a8564"
+        }
+      ],
+      "notes": [],
+      "checks": {
+        "fullPng": "pass",
+        "mobile375": "pass",
+        "mobile390": "pass",
+        "nativePdf": "pass",
+        "sourcePreservation": "pass"
+      },
+      "pdfPageInspection": {
+        "pdfSha256": "139e62b8137324329db2b29519146d45a795de9077dc0edca007881258ff0728",
+        "rasterSha256": "38a9fe4fde8f412d6db580dce748e57d6cfffd9e6f955253f886d4f94bb313fd",
+        "renderer": "Poppler pdftoppm, 96 dpi, 1080x1440",
+        "pageCount": 1,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/medium-T06.png"
+      },
+      "observation": "中篇形成较长的左右面板，全部原文和限定语保留；左栏以“出处。”结束，未出现单字独行或裁切。",
+      "reviewBasis": {
+        "id": "medium-T06",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/medium-T06.md",
+            "sha256": "6d3ad7d44e7f38ecaa9a30d56eea5f1fbd6dcbdf9b7e6fe75b3ca98f75b9ac1c"
+          },
+          {
+            "file": "refinement/medium-T06/mobile-375.png",
+            "sha256": "72dec5feea2b3faaf7be54b926194da7893c2b9bcf0b982d045cc9954a3e2271"
+          },
+          {
+            "file": "refinement/medium-T06/mobile-390.png",
+            "sha256": "131f6b9111f3e3fd80ca760124d8eb2211da5b8fb630b3ca5c9c8f7959d41ab8"
+          },
+          {
+            "file": "refinement/medium-T06/card-001.png",
+            "sha256": "b605868f5cee50806372903a6598cf899c51eedd57ab56831b658b5a3e5866a9"
+          },
+          {
+            "file": "refinement/medium-T06/contact-sheet.png",
+            "sha256": "dfedc0fbb204ac85fc442cb399e88becfd606e975b63fa35c42bf9efe55ab3df"
+          },
+          {
+            "file": "refinement/medium-T06/page-1-raw.txt",
+            "sha256": "d5ae126b0c57d23a421f722dd6952aeca062d8ee86bfb43fc1d3b01752677c29"
+          },
+          {
+            "file": "refinement/medium-T06/page-1-layout.txt",
+            "sha256": "4859526042158cc1d4b4dd051da62fbf39a894011b6b9bce6e54d96d1f9a8564"
+          }
+        ],
+        "method": "byte-identical-full-and-mobile-PNG-plus-new-native-PDF-raster",
+        "nativePdf": {
+          "previousPdfSha256": "278cafb9948d7616dc8cbe57e35b6f1aa620f41abce167ea3aaffd4a47d80f39",
+          "newPdfSha256": "139e62b8137324329db2b29519146d45a795de9077dc0edca007881258ff0728",
+          "equalRasterSha256": "38a9fe4fde8f412d6db580dce748e57d6cfffd9e6f955253f886d4f94bb313fd",
+          "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/medium-T06.png",
+          "pageCount": 1,
+          "pagePoints": [
+            810,
+            1080
+          ]
+        }
+      }
+    },
+    {
+      "id": "medium-T10",
+      "status": "reviewed-exact-fixture",
+      "files": [
+        {
+          "file": "refinement/inputs/medium-T10.md",
+          "sha256": "59585ef31eb841b172a0c4aec129406e527de15c2145c93fdd5e33588373a977"
+        },
+        {
+          "file": "refinement/medium-T10/manifest.json",
+          "sha256": "26de8f531d23ea8bb8e8a330d3a8cf3d34c7a4e36d60133b6de60f723a0ca634"
+        },
+        {
+          "file": "refinement/medium-T10/cards.html",
+          "sha256": "82386268802fb11dcd32417daee0de40feedece4bd1553bf948bdcaf1b22933b"
+        },
+        {
+          "file": "refinement/medium-T10/preview.html",
+          "sha256": "8d4d138f59114cc70c412b9340ea9522c2f1b47ef29d5bc8d4d7472a25f79a8b"
+        },
+        {
+          "file": "refinement/medium-T10/cards.pdf",
+          "sha256": "08107089ef869a633dbb697bfa9fe1f08ad73e6ea096e5d9eb100b0083d36acb"
+        },
+        {
+          "file": "refinement/medium-T10/card-001.png",
+          "sha256": "4805c80ec381113a890bbb960c403f4f3eda34cfc1d41de0e3b09450eed4ec68"
+        },
+        {
+          "file": "refinement/medium-T10/contact-sheet.png",
+          "sha256": "8bb35d589519d818e16655ca75c964e92c2a9c48617bd858f6dfd1c11b2de9b7"
+        },
+        {
+          "file": "refinement/medium-T10/mobile-375.png",
+          "sha256": "aba2ca8e877d1a9123f3b56cbb5646db196b988c097e9a6be3c94cdaa580c67c"
+        },
+        {
+          "file": "refinement/medium-T10/mobile-390.png",
+          "sha256": "2553cd8d770abfbded8c9e00673b74379555ef140e1dc7049306ef56a9b1f54f"
+        },
+        {
+          "file": "refinement/medium-T10/page-1-raw.txt",
+          "sha256": "eb8913bcfdf4c3769f83f08ccd95178c79c259c1a29b787bcea441e3cb6f983d"
+        },
+        {
+          "file": "refinement/medium-T10/page-1-layout.txt",
+          "sha256": "b16dbaef490f002dbba92645e19ab51afb9bc15af82bbaaefa9200a28da1f256"
+        }
+      ],
+      "notes": [],
+      "checks": {
+        "fullPng": "pass",
+        "mobile375": "pass",
+        "mobile390": "pass",
+        "nativePdf": "pass",
+        "sourcePreservation": "pass"
+      },
+      "pdfPageInspection": {
+        "pdfSha256": "08107089ef869a633dbb697bfa9fe1f08ad73e6ea096e5d9eb100b0083d36acb",
+        "rasterSha256": "4ad498fb04f6574f33c97e50b6e093b79feb39d418faf609a426eb6aa4924561",
+        "renderer": "Poppler pdftoppm, 96 dpi, 1080x1440",
+        "pageCount": 1,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/medium-T10.png"
+      },
+      "observation": "蓝色导语、右上内容与下方分节完整；底部小标题分两行，正文和来源仍清楚，未见重叠或裁切。",
+      "reviewBasis": {
+        "id": "medium-T10",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/medium-T10.md",
+            "sha256": "59585ef31eb841b172a0c4aec129406e527de15c2145c93fdd5e33588373a977"
+          },
+          {
+            "file": "refinement/medium-T10/mobile-375.png",
+            "sha256": "aba2ca8e877d1a9123f3b56cbb5646db196b988c097e9a6be3c94cdaa580c67c"
+          },
+          {
+            "file": "refinement/medium-T10/mobile-390.png",
+            "sha256": "2553cd8d770abfbded8c9e00673b74379555ef140e1dc7049306ef56a9b1f54f"
+          },
+          {
+            "file": "refinement/medium-T10/card-001.png",
+            "sha256": "4805c80ec381113a890bbb960c403f4f3eda34cfc1d41de0e3b09450eed4ec68"
+          },
+          {
+            "file": "refinement/medium-T10/contact-sheet.png",
+            "sha256": "8bb35d589519d818e16655ca75c964e92c2a9c48617bd858f6dfd1c11b2de9b7"
+          },
+          {
+            "file": "refinement/medium-T10/page-1-raw.txt",
+            "sha256": "eb8913bcfdf4c3769f83f08ccd95178c79c259c1a29b787bcea441e3cb6f983d"
+          },
+          {
+            "file": "refinement/medium-T10/page-1-layout.txt",
+            "sha256": "b16dbaef490f002dbba92645e19ab51afb9bc15af82bbaaefa9200a28da1f256"
+          }
+        ],
+        "method": "byte-identical-full-and-mobile-PNG-plus-new-native-PDF-raster",
+        "nativePdf": {
+          "previousPdfSha256": "b052e8530af37ea268f19bfd490dd629dd0f37d1f28fe6326db292ac1135ee85",
+          "newPdfSha256": "08107089ef869a633dbb697bfa9fe1f08ad73e6ea096e5d9eb100b0083d36acb",
+          "equalRasterSha256": "4ad498fb04f6574f33c97e50b6e093b79feb39d418faf609a426eb6aa4924561",
+          "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/medium-T10.png",
+          "pageCount": 1,
+          "pagePoints": [
+            810,
+            1080
+          ]
+        }
+      }
+    },
+    {
+      "id": "medium-T13",
+      "status": "reviewed-expected-overflow",
+      "files": [
+        {
+          "file": "refinement/inputs/medium-T13.md",
+          "sha256": "9ea410f814ba248ed54919a12b4cf2bd1ec15c6cddd3cd424f37741e7dba2913"
+        },
+        {
+          "file": "refinement/medium-T13/overflow.json",
+          "sha256": "09d594ca008ae8eab68448db5d78190cb1e5536ec874b43967494612227c69d1"
+        }
+      ],
+      "notes": [],
+      "checks": {
+        "exactInput": "pass",
+        "overflowDiagnostic": "pass",
+        "noSuccessClaim": "pass"
+      },
+      "observation": "完整中篇超过 T13 容量；screen/print 可用高度 1221、占用约 1433。没有成功预览，不缩字或删原文。",
+      "reviewBasis": {
+        "id": "medium-T13",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/medium-T13.md",
+            "sha256": "9ea410f814ba248ed54919a12b4cf2bd1ec15c6cddd3cd424f37741e7dba2913"
+          },
+          {
+            "file": "refinement/medium-T13/overflow.json",
+            "sha256": "09d594ca008ae8eab68448db5d78190cb1e5536ec874b43967494612227c69d1"
+          }
+        ],
+        "method": "byte-identical-input-and-refusal-diagnostic"
+      }
+    },
+    {
+      "id": "mixed-T04",
+      "status": "reviewed-exact-fixture",
+      "files": [
+        {
+          "file": "refinement/inputs/mixed-T04.md",
+          "sha256": "fb6d3da0b8188951d942545d68ae1355429c67326b76832d5eda0ef1989ef797"
+        },
+        {
+          "file": "refinement/mixed-T04/manifest.json",
+          "sha256": "d4db1af115fdfa308d21d026bbf1a7489b4fbd6eb25134e74215eea22594204a"
+        },
+        {
+          "file": "refinement/mixed-T04/cards.html",
+          "sha256": "eab5b8433242e3730e0d9794a1f8654156814d9c424722a6b6b928694a1d2d8c"
+        },
+        {
+          "file": "refinement/mixed-T04/preview.html",
+          "sha256": "5d4c4807a69f9762b62e90594630736e14b30a0224e51c99f8bf2a19ae796f0d"
+        },
+        {
+          "file": "refinement/mixed-T04/cards.pdf",
+          "sha256": "ade08b5a82b9614ef162ab14be4234578b3953f693e13b5b6bbe6388f0a65f96"
+        },
+        {
+          "file": "refinement/mixed-T04/card-001.png",
+          "sha256": "8a0e65ee99d030904214be686157de371979a675823214b98a60141b822c5edb"
+        },
+        {
+          "file": "refinement/mixed-T04/contact-sheet.png",
+          "sha256": "da9af53e39197050a40364f41f3c969672b891dcc44f9e2feed3c89bda244268"
+        },
+        {
+          "file": "refinement/mixed-T04/mobile-375.png",
+          "sha256": "9708139286527d327d4f79140137228b09ebf659c5bd61531ae967280036c17f"
+        },
+        {
+          "file": "refinement/mixed-T04/mobile-390.png",
+          "sha256": "9ffc5ded7da41a9788d96ca02a99c88d3d919af469ad53e3c6c85a59e5f2da7d"
+        },
+        {
+          "file": "refinement/mixed-T04/page-1-raw.txt",
+          "sha256": "c1458bd266bb8373d81f57fda546ce88f0f3e54226c59aa52e835bde1a717245"
+        },
+        {
+          "file": "refinement/mixed-T04/page-1-layout.txt",
+          "sha256": "dd5c657fbc075338d7aeb186e31e0c505de005171d2998e7f1f0921c463dde95"
+        }
+      ],
+      "notes": [],
+      "checks": {
+        "fullPng": "pass",
+        "mobile375": "pass",
+        "mobile390": "pass",
+        "nativePdf": "pass",
+        "sourcePreservation": "pass"
+      },
+      "pdfPageInspection": {
+        "pdfSha256": "ade08b5a82b9614ef162ab14be4234578b3953f693e13b5b6bbe6388f0a65f96",
+        "rasterSha256": "bf0852453b2d281d0bbbbdccb6f0bbc6bb2b0e5cbe0de417ad636cec7708a2e4",
+        "renderer": "Poppler pdftoppm, 96 dpi, 1080x1440",
+        "pageCount": 1,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/mixed-T04.png"
+      },
+      "observation": "中英文全宽段落可读，source/context 小标题和 interpretation/uncertain evidence 均完整，未见缺字或裁切。",
+      "reviewBasis": {
+        "id": "mixed-T04",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/mixed-T04.md",
+            "sha256": "fb6d3da0b8188951d942545d68ae1355429c67326b76832d5eda0ef1989ef797"
+          },
+          {
+            "file": "refinement/mixed-T04/mobile-375.png",
+            "sha256": "9708139286527d327d4f79140137228b09ebf659c5bd61531ae967280036c17f"
+          },
+          {
+            "file": "refinement/mixed-T04/mobile-390.png",
+            "sha256": "9ffc5ded7da41a9788d96ca02a99c88d3d919af469ad53e3c6c85a59e5f2da7d"
+          },
+          {
+            "file": "refinement/mixed-T04/card-001.png",
+            "sha256": "8a0e65ee99d030904214be686157de371979a675823214b98a60141b822c5edb"
+          },
+          {
+            "file": "refinement/mixed-T04/contact-sheet.png",
+            "sha256": "da9af53e39197050a40364f41f3c969672b891dcc44f9e2feed3c89bda244268"
+          },
+          {
+            "file": "refinement/mixed-T04/page-1-raw.txt",
+            "sha256": "c1458bd266bb8373d81f57fda546ce88f0f3e54226c59aa52e835bde1a717245"
+          },
+          {
+            "file": "refinement/mixed-T04/page-1-layout.txt",
+            "sha256": "dd5c657fbc075338d7aeb186e31e0c505de005171d2998e7f1f0921c463dde95"
+          }
+        ],
+        "method": "byte-identical-full-and-mobile-PNG-plus-new-native-PDF-raster",
+        "nativePdf": {
+          "previousPdfSha256": "dbf41fd0495979cb9179566ffc37575bdbd222d83e98414bb3b0028bcf138f70",
+          "newPdfSha256": "ade08b5a82b9614ef162ab14be4234578b3953f693e13b5b6bbe6388f0a65f96",
+          "equalRasterSha256": "bf0852453b2d281d0bbbbdccb6f0bbc6bb2b0e5cbe0de417ad636cec7708a2e4",
+          "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/mixed-T04.png",
+          "pageCount": 1,
+          "pagePoints": [
+            810,
+            1080
+          ]
+        }
+      }
+    },
+    {
+      "id": "mixed-T17",
+      "status": "reviewed-with-limitations",
+      "files": [
+        {
+          "file": "refinement/inputs/mixed-T17.md",
+          "sha256": "4cd950fff2e9ad85eded34249d2728bb5cb992806625daa3ba452c7323ccf3d6"
+        },
+        {
+          "file": "refinement/mixed-T17/manifest.json",
+          "sha256": "1f090332df6cd34275ed49f37b05fe30f4a712e34dd6c55b9645d2f463046687"
+        },
+        {
+          "file": "refinement/mixed-T17/cards.html",
+          "sha256": "a9dc0db76d0b316ff09c650eab28e9f19a685b8789d297c18fd410fbe999e721"
+        },
+        {
+          "file": "refinement/mixed-T17/preview.html",
+          "sha256": "4382d686d5c2d38ca6be6136d0497ef38dd3c1bf5346d1d2e9a3210ebd5a6ff0"
+        },
+        {
+          "file": "refinement/mixed-T17/cards.pdf",
+          "sha256": "4c1d24f882c3089e0e0be4186779acf94f14c1e2e593f542007708a6101a1f15"
+        },
+        {
+          "file": "refinement/mixed-T17/card-001.png",
+          "sha256": "6c635d3a1c3499285cc194590abb9d157f7631c4b08a11ec5ae3c638afc03ddb"
+        },
+        {
+          "file": "refinement/mixed-T17/contact-sheet.png",
+          "sha256": "c83f9225baf22d3b3191d5a43eb57e49acb7e9f45bf8143f61d657c4f7d43e21"
+        },
+        {
+          "file": "refinement/mixed-T17/mobile-375.png",
+          "sha256": "f223f86ced0495f45886dc1aaf4bd9630bb4a953470113f947c27e791f93927b"
+        },
+        {
+          "file": "refinement/mixed-T17/mobile-390.png",
+          "sha256": "05ff4fda78911000237bb915764c772e95a8b05e132fb63eb73d66b96144f4d4"
+        },
+        {
+          "file": "refinement/mixed-T17/page-1-raw.txt",
+          "sha256": "827ca5800263626c4b235067912b9175fe63d362035ccde228eba1389ee74fbe"
+        },
+        {
+          "file": "refinement/mixed-T17/page-1-layout.txt",
+          "sha256": "50fb3a432d079d15a1b80d364138da39367dd2123a6d55387b90b0c6853b9719"
+        }
+      ],
+      "notes": [
+        "本例出现“源。”“论。”单字短尾；内容完整，但断行欠佳。混排可比较同组 T04/T18。"
+      ],
+      "checks": {
+        "fullPng": "pass",
+        "mobile375": "pass",
+        "mobile390": "pass",
+        "nativePdf": "pass",
+        "sourcePreservation": "pass"
+      },
+      "pdfPageInspection": {
+        "pdfSha256": "4c1d24f882c3089e0e0be4186779acf94f14c1e2e593f542007708a6101a1f15",
+        "rasterSha256": "cd0227d06e57f213b67973965fd5943370afb49b137381b84512bb520733a9b3",
+        "renderer": "Poppler pdftoppm, 96 dpi, 1080x1440",
+        "pageCount": 1,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/mixed-T17.png"
+      },
+      "observation": "深色纵向编号路线和绿色小标题保持层级，正文与来源完整；两个段落分别出现“源。”“论。”单字短尾。",
+      "reviewBasis": {
+        "id": "mixed-T17",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/mixed-T17.md",
+            "sha256": "4cd950fff2e9ad85eded34249d2728bb5cb992806625daa3ba452c7323ccf3d6"
+          },
+          {
+            "file": "refinement/mixed-T17/mobile-375.png",
+            "sha256": "f223f86ced0495f45886dc1aaf4bd9630bb4a953470113f947c27e791f93927b"
+          },
+          {
+            "file": "refinement/mixed-T17/mobile-390.png",
+            "sha256": "05ff4fda78911000237bb915764c772e95a8b05e132fb63eb73d66b96144f4d4"
+          },
+          {
+            "file": "refinement/mixed-T17/card-001.png",
+            "sha256": "6c635d3a1c3499285cc194590abb9d157f7631c4b08a11ec5ae3c638afc03ddb"
+          },
+          {
+            "file": "refinement/mixed-T17/contact-sheet.png",
+            "sha256": "c83f9225baf22d3b3191d5a43eb57e49acb7e9f45bf8143f61d657c4f7d43e21"
+          },
+          {
+            "file": "refinement/mixed-T17/page-1-raw.txt",
+            "sha256": "827ca5800263626c4b235067912b9175fe63d362035ccde228eba1389ee74fbe"
+          },
+          {
+            "file": "refinement/mixed-T17/page-1-layout.txt",
+            "sha256": "50fb3a432d079d15a1b80d364138da39367dd2123a6d55387b90b0c6853b9719"
+          }
+        ],
+        "method": "byte-identical-full-and-mobile-PNG-plus-new-native-PDF-raster",
+        "nativePdf": {
+          "previousPdfSha256": "d4177cb5580dd2b6d9edab858c7319f915b36209499775385f515f0f56a3892e",
+          "newPdfSha256": "4c1d24f882c3089e0e0be4186779acf94f14c1e2e593f542007708a6101a1f15",
+          "equalRasterSha256": "cd0227d06e57f213b67973965fd5943370afb49b137381b84512bb520733a9b3",
+          "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/mixed-T17.png",
+          "pageCount": 1,
+          "pagePoints": [
+            810,
+            1080
+          ]
+        }
+      }
+    },
+    {
+      "id": "mixed-T18",
+      "status": "reviewed-exact-fixture",
+      "files": [
+        {
+          "file": "refinement/inputs/mixed-T18.md",
+          "sha256": "f536aec3fe1fe479dc7af34b4e01e2190d63ad42b404a8f80ee6693ef0c5d891"
+        },
+        {
+          "file": "refinement/mixed-T18/manifest.json",
+          "sha256": "bcbe3693009d5803062a27a16a09244ba73aeb678c64d7ba4b239cf6dbad6ccf"
+        },
+        {
+          "file": "refinement/mixed-T18/cards.html",
+          "sha256": "47332ed8b63f6524a69fe40238e8a000d816db710ba67ec55f8d36a733f77faf"
+        },
+        {
+          "file": "refinement/mixed-T18/preview.html",
+          "sha256": "1a2445d86295ddc3fc65a51a13908ccb4e442a3b3093de3d088d54df0ccce5c9"
+        },
+        {
+          "file": "refinement/mixed-T18/cards.pdf",
+          "sha256": "1ef2c1432716cc440f9491842ea22aadda40f102454a22908614917990e5f5d4"
+        },
+        {
+          "file": "refinement/mixed-T18/card-001.png",
+          "sha256": "618dd867a69f947ae6d61ecfc9796805d5f4e26602825846305e1842a4997c5b"
+        },
+        {
+          "file": "refinement/mixed-T18/contact-sheet.png",
+          "sha256": "ffc79340cddf718d396b3e8566f8018bd8e2dd788bb9e13baad77e23bd2c9d47"
+        },
+        {
+          "file": "refinement/mixed-T18/mobile-375.png",
+          "sha256": "e42c70f41ffb8ca8007ca44a62a885adfbdf215df43934d7a1aea8a58c4450ef"
+        },
+        {
+          "file": "refinement/mixed-T18/mobile-390.png",
+          "sha256": "49edb0c1928622bfaceb5fe0baa79a75c14beec547c464871caeb17156afc264"
+        },
+        {
+          "file": "refinement/mixed-T18/page-1-raw.txt",
+          "sha256": "9cf54cd4967c8b0456ead3281f81977d54d576143ba9dd1e532a962b3e6e50fe"
+        },
+        {
+          "file": "refinement/mixed-T18/page-1-layout.txt",
+          "sha256": "664ab1165c8c938ecb292893366a06c52385c1726c837f023126498c32fbdc3a"
+        }
+      ],
+      "notes": [],
+      "checks": {
+        "fullPng": "pass",
+        "mobile375": "pass",
+        "mobile390": "pass",
+        "nativePdf": "pass",
+        "sourcePreservation": "pass"
+      },
+      "pdfPageInspection": {
+        "pdfSha256": "1ef2c1432716cc440f9491842ea22aadda40f102454a22908614917990e5f5d4",
+        "rasterSha256": "ded4a1ade7c8ff971ab4ecbbcfc5895c2e9020e899cf558e4f58810b0004b003",
+        "renderer": "Poppler pdftoppm, 96 dpi, 1080x1440",
+        "pageCount": 1,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/mixed-T18.png"
+      },
+      "observation": "深色面板与蓝色分节标题清楚，中英内容完整；下方留白较大，属于本例短内容的构图节奏。",
+      "reviewBasis": {
+        "id": "mixed-T18",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/mixed-T18.md",
+            "sha256": "f536aec3fe1fe479dc7af34b4e01e2190d63ad42b404a8f80ee6693ef0c5d891"
+          },
+          {
+            "file": "refinement/mixed-T18/mobile-375.png",
+            "sha256": "e42c70f41ffb8ca8007ca44a62a885adfbdf215df43934d7a1aea8a58c4450ef"
+          },
+          {
+            "file": "refinement/mixed-T18/mobile-390.png",
+            "sha256": "49edb0c1928622bfaceb5fe0baa79a75c14beec547c464871caeb17156afc264"
+          },
+          {
+            "file": "refinement/mixed-T18/card-001.png",
+            "sha256": "618dd867a69f947ae6d61ecfc9796805d5f4e26602825846305e1842a4997c5b"
+          },
+          {
+            "file": "refinement/mixed-T18/contact-sheet.png",
+            "sha256": "ffc79340cddf718d396b3e8566f8018bd8e2dd788bb9e13baad77e23bd2c9d47"
+          },
+          {
+            "file": "refinement/mixed-T18/page-1-raw.txt",
+            "sha256": "9cf54cd4967c8b0456ead3281f81977d54d576143ba9dd1e532a962b3e6e50fe"
+          },
+          {
+            "file": "refinement/mixed-T18/page-1-layout.txt",
+            "sha256": "664ab1165c8c938ecb292893366a06c52385c1726c837f023126498c32fbdc3a"
+          }
+        ],
+        "method": "byte-identical-full-and-mobile-PNG-plus-new-native-PDF-raster",
+        "nativePdf": {
+          "previousPdfSha256": "8396583873eafabdb403eb58e0e267774f3927e38717d19aab5300442adf3163",
+          "newPdfSha256": "1ef2c1432716cc440f9491842ea22aadda40f102454a22908614917990e5f5d4",
+          "equalRasterSha256": "ded4a1ade7c8ff971ab4ecbbcfc5895c2e9020e899cf558e4f58810b0004b003",
+          "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/mixed-T18.png",
+          "pageCount": 1,
+          "pagePoints": [
+            810,
+            1080
+          ]
+        }
+      }
+    },
+    {
+      "id": "mixed-T33",
+      "status": "reviewed-with-limitations",
+      "files": [
+        {
+          "file": "refinement/inputs/mixed-T33.md",
+          "sha256": "6d28f67e09f63e94f9f1d9fd4640a6317eed74b362d0b60dce0af35ac413d221"
+        },
+        {
+          "file": "refinement/mixed-T33/manifest.json",
+          "sha256": "e8e92c79f0630a8e2c0ea3f5a83d810f36137903a0992651a20948bfc47498dc"
+        },
+        {
+          "file": "refinement/mixed-T33/cards.html",
+          "sha256": "4edf3207f7cf3b19ec9e30096866ed031273f17c29f275238ba3bd234f8fa656"
+        },
+        {
+          "file": "refinement/mixed-T33/preview.html",
+          "sha256": "abc7224a79ae2492926745d341c917080bb00e658f1143012e2333a71017e5d2"
+        },
+        {
+          "file": "refinement/mixed-T33/cards.pdf",
+          "sha256": "3d7ec7d43fae174886152180e313ed3b87c23d3663db859c7d9f56f9503c60e7"
+        },
+        {
+          "file": "refinement/mixed-T33/card-001.png",
+          "sha256": "6fd96b6607832114cc398411d0ef8d66f5d8419e3c7bc63440d8619dbfae8483"
+        },
+        {
+          "file": "refinement/mixed-T33/contact-sheet.png",
+          "sha256": "ddabd4852c525a2dbd07b7148eaa39e165c1a56d2c0af249f0402c7dcf202174"
+        },
+        {
+          "file": "refinement/mixed-T33/mobile-375.png",
+          "sha256": "7d8fc590e7d96c601709e8b94f2f446eefbbba71cf1e5fa6c77a159f84f79220"
+        },
+        {
+          "file": "refinement/mixed-T33/mobile-390.png",
+          "sha256": "4f17e391db25abb0a5b4562b339f9498af5aa5257529c466030c9a6c918aa3b2"
+        },
+        {
+          "file": "refinement/mixed-T33/page-1-raw.txt",
+          "sha256": "d126e97e4fa121036a5f0bc87d17f5c3ea5b37398726efd7a7a168dc7ff01295"
+        },
+        {
+          "file": "refinement/mixed-T33/page-1-layout.txt",
+          "sha256": "7c28846083d6591f0e4c0f645ba9a183139e45493292ad4e2940e6426efb208d"
+        }
+      ],
+      "notes": [
+        "窄栏让 uncertain 与 evidence 分行；本例保留完整文字，但英文较多时阅读更零碎。"
+      ],
+      "checks": {
+        "fullPng": "pass",
+        "mobile375": "pass",
+        "mobile390": "pass",
+        "nativePdf": "pass",
+        "sourcePreservation": "pass"
+      },
+      "pdfPageInspection": {
+        "pdfSha256": "3d7ec7d43fae174886152180e313ed3b87c23d3663db859c7d9f56f9503c60e7",
+        "rasterSha256": "5fa684dd9d16aceb35803fae4d2e15e788f3762a3a0de79eff0f609861730905",
+        "renderer": "Poppler pdftoppm, 96 dpi, 1080x1440",
+        "pageCount": 1,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/mixed-T33.png"
+      },
+      "observation": "衬线双栏保持版面特征，全部原文、来源和页码可见；右侧窄栏使 uncertain 与 evidence 分行，英文阅读节奏更碎。",
+      "reviewBasis": {
+        "id": "mixed-T33",
+        "previousReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "equalFiles": [
+          {
+            "file": "refinement/inputs/mixed-T33.md",
+            "sha256": "6d28f67e09f63e94f9f1d9fd4640a6317eed74b362d0b60dce0af35ac413d221"
+          },
+          {
+            "file": "refinement/mixed-T33/mobile-375.png",
+            "sha256": "7d8fc590e7d96c601709e8b94f2f446eefbbba71cf1e5fa6c77a159f84f79220"
+          },
+          {
+            "file": "refinement/mixed-T33/mobile-390.png",
+            "sha256": "4f17e391db25abb0a5b4562b339f9498af5aa5257529c466030c9a6c918aa3b2"
+          },
+          {
+            "file": "refinement/mixed-T33/card-001.png",
+            "sha256": "6fd96b6607832114cc398411d0ef8d66f5d8419e3c7bc63440d8619dbfae8483"
+          },
+          {
+            "file": "refinement/mixed-T33/contact-sheet.png",
+            "sha256": "ddabd4852c525a2dbd07b7148eaa39e165c1a56d2c0af249f0402c7dcf202174"
+          },
+          {
+            "file": "refinement/mixed-T33/page-1-raw.txt",
+            "sha256": "d126e97e4fa121036a5f0bc87d17f5c3ea5b37398726efd7a7a168dc7ff01295"
+          },
+          {
+            "file": "refinement/mixed-T33/page-1-layout.txt",
+            "sha256": "7c28846083d6591f0e4c0f645ba9a183139e45493292ad4e2940e6426efb208d"
+          }
+        ],
+        "method": "byte-identical-full-and-mobile-PNG-plus-new-native-PDF-raster",
+        "nativePdf": {
+          "previousPdfSha256": "62a77ec947a18429a6e997c7fcb28dc614f5674d7db3f1603b25cf172df995a4",
+          "newPdfSha256": "3d7ec7d43fae174886152180e313ed3b87c23d3663db859c7d9f56f9503c60e7",
+          "equalRasterSha256": "5fa684dd9d16aceb35803fae4d2e15e788f3762a3a0de79eff0f609861730905",
+          "rasterFile": "docs/evidence/refinement-run-40079964688/native-pdf-pages/mixed-T33.png",
+          "pageCount": 1,
+          "pagePoints": [
+            810,
+            1080
+          ]
+        }
+      }
+    }
+  ],
+  "visualEquivalence": {
+    "file": "docs/evidence/refinement-run-40079964688/visual-equivalence.json",
+    "sha256": "32b31b824947e506c8af5b0b528d8c7b5c60db17c882a5ea05e4b5a82fc65486"
+  }
+}

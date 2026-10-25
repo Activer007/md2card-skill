@@ -1,0 +1,1539 @@
+{
+  "schemaVersion": 1,
+  "status": "artifact-bound-visual-review-pending",
+  "visualReview": "not-performed",
+  "identity": {
+    "commit": "05f6bb6e484cb8887ea037e520a733db9303563d",
+    "tree": "9dee88002e629b44dbd7e141874fe5388b5e7b9d",
+    "sourceSha256": "473cd63ff3ff57cacdcf1bee29044d53bf02ce062b4b40bc027db529462859c1",
+    "runUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40079964688",
+    "artifactId": 12554054288,
+    "archiveSha256": "794985f23429b86be89a8790070ee4f2e4b168d8160239bcb5dfc06761d52d5b"
+  },
+  "summarySha256": "e4226f34f10611d1792097bdb584db5952a46a15fe7c9254b8ae191ee68cd57b",
+  "sourceManifestFileSha256": "69e49654cad4833e330d203ebf5015662958bdc96bbeccf2289af4b202e525fd",
+  "comparisonSpecSha256": "ad226397770725461e4cdfa9cbd5287643376aaa5dd525778734e13817125c76",
+  "scope": {
+    "density": "standard",
+    "aspect": "portrait",
+    "pagination": "manual",
+    "width": 1080,
+    "height": 1440
+  },
+  "counts": {
+    "cases": 22,
+    "exports": 17,
+    "refusals": 5,
+    "boundEntries": 199
+  },
+  "checks": {
+    "sourceSnapshot": "verified",
+    "artifactBytes": "verified",
+    "sourceDerivedHtml": "verified",
+    "pdfText": "verified-ci-records",
+    "localPdfExtraction": "not-performed",
+    "browserReplay": "not-performed"
+  },
+  "groups": [
+    {
+      "id": "short-reading",
+      "state": "pending",
+      "input": "examples/refinement/short-reading.md",
+      "bodySha256": "d1588f3f5868c569a91434228b3beb71417a6a8935ef93eda59eb31fb1c05b8e",
+      "records": [
+        "short-T04",
+        "short-T06",
+        "short-T10",
+        "short-T13"
+      ]
+    },
+    {
+      "id": "medium-reading",
+      "state": "pending",
+      "input": "examples/refinement/medium-reading.md",
+      "bodySha256": "eea3a2d0bcfa419a25a6e60b6d84cf48b39d711ac9311906ab042e31c13a5fac",
+      "records": [
+        "medium-T04",
+        "medium-T06",
+        "medium-T10",
+        "medium-T13"
+      ]
+    },
+    {
+      "id": "mixed-reading",
+      "state": "pending",
+      "input": "examples/refinement/mixed-reading.md",
+      "bodySha256": "9ad5321fd1b8a8f701da38442c6ecf31d286317b1fa59d8885e647d2a121a737",
+      "records": [
+        "mixed-T04",
+        "mixed-T17",
+        "mixed-T18",
+        "mixed-T33"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "id": "short-T04",
+      "template": "T04",
+      "version": 2,
+      "bodySha256": "d1588f3f5868c569a91434228b3beb71417a6a8935ef93eda59eb31fb1c05b8e",
+      "input": {
+        "file": "refinement/inputs/short-T04.md",
+        "bytes": 399,
+        "sha256": "7f69262a8927f9c3dfdb4ffee6f5449226268e30124225d2b761f5250a20bf22"
+      },
+      "sourceSha256": "445d8a5e5f2322123febe378bd96b08cbf265f948c8ead05a835f6814cb0c2b0",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/short-T04/manifest.json",
+        "sha256": "01193a102cf2c9141450c1ac4b1abf70db54975d7642790faa588ee8c3392a9f"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/short-T04/cards.html",
+          "bytes": 143357,
+          "sha256": "2595eb48279a687afd8a451eecc0f4b713d1a7deedd7342d6a7c919196a71233"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/short-T04/preview.html",
+          "bytes": 144179,
+          "sha256": "a6a7c69a89f1ac35575f0b67967e25115fdf217b5be9cbfa5a51f7aa107761a6"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/short-T04/cards.pdf",
+          "bytes": 139465,
+          "sha256": "0635d6b84093711e87b97af63f95ea32732c3fa978da5cd2d741180f9573705e"
+        },
+        {
+          "format": "png",
+          "file": "refinement/short-T04/card-001.png",
+          "bytes": 131153,
+          "sha256": "8fc5852aa509f6e16f8b199432a0c0c21f548a6de81ac856e3eed744b6b2d7a9"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/short-T04/contact-sheet.png",
+          "bytes": 27875,
+          "sha256": "745a388eb6313ea330f3ddfe9aebea94b558183450d31c595cfea6960e085e0e"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/short-T04/page-1-raw.txt",
+          "sha256": "ba38bf1b7a4356d7d3c39ac2e72775f48092cb0c2a611b01082c417a77487db1",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/short-T04/page-1-layout.txt",
+          "sha256": "799b995c0aed297f3595d2fae13862a27228d2a2ff33efeae79793643077843d",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/short-T04/mobile-375.png",
+          "sha256": "71063c6693ae03f5d443c1d703d3f11df5ac51da7a04076ac9a644b0aae1e943",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/short-T04/mobile-390.png",
+          "sha256": "597928012702a0b6c7aa62dd1be9f48f406035d888af354d40a0aad226c5f59e",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "short-T06",
+      "template": "T06",
+      "version": 3,
+      "bodySha256": "d1588f3f5868c569a91434228b3beb71417a6a8935ef93eda59eb31fb1c05b8e",
+      "input": {
+        "file": "refinement/inputs/short-T06.md",
+        "bytes": 399,
+        "sha256": "f8348a84050c9e9a256a9e872a399a4d33146b95ecd4f8f1f1512a5c457632b2"
+      },
+      "sourceSha256": "445d8a5e5f2322123febe378bd96b08cbf265f948c8ead05a835f6814cb0c2b0",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/short-T06/manifest.json",
+        "sha256": "19790b1672d81bc185153d30c651e9cb8cda6a7ed22378cc1fd7c36812b07d64"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/short-T06/cards.html",
+          "bytes": 143355,
+          "sha256": "b0612f20f64cb0e948d0764d44632afe7c8adb571ad2575de269e159bda44698"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/short-T06/preview.html",
+          "bytes": 144178,
+          "sha256": "ea9162467d5ffdc38fcb473b86a2948118e7447c6bb7a6b5e3a3d3e243581876"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/short-T06/cards.pdf",
+          "bytes": 159589,
+          "sha256": "1ebbf1bdc5ec6bcfdb1e477374ad2034dcfc6ce9b2508dfa6dc59c78b46cd8bc"
+        },
+        {
+          "format": "png",
+          "file": "refinement/short-T06/card-001.png",
+          "bytes": 132229,
+          "sha256": "021d752692658dd9608fda15feeb443577312466cbea46e4c5ef32a717eb4ca2"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/short-T06/contact-sheet.png",
+          "bytes": 29217,
+          "sha256": "efd8a88facc52e914e6cb375217a6b5273629ce47e1dd21fc7d1db41b37add49"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/short-T06/page-1-raw.txt",
+          "sha256": "d01bfed87773c98734cd86e94b52dbeaf2e91e7ad6885ccc856b386e9d6e9532",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/short-T06/page-1-layout.txt",
+          "sha256": "85b3d28615912e285bb02eb86d186d14a3040b80b6c5573d83cb98ff9d7fa39f",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/short-T06/mobile-375.png",
+          "sha256": "1b467875f8e6819d8732410fe16698d448e51044efa28d3210651a83751ea26e",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/short-T06/mobile-390.png",
+          "sha256": "5f4d0c279884afeb6e5eaa10c1663277788abb5e964b8d78fdfa53fccb55685a",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "short-T10",
+      "template": "T10",
+      "version": 3,
+      "bodySha256": "d1588f3f5868c569a91434228b3beb71417a6a8935ef93eda59eb31fb1c05b8e",
+      "input": {
+        "file": "refinement/inputs/short-T10.md",
+        "bytes": 399,
+        "sha256": "ca309f2d6abb1b7cfa4b5dd57c6f747844660dc1b2f6b6bbe376427d7cc9dd7c"
+      },
+      "sourceSha256": "445d8a5e5f2322123febe378bd96b08cbf265f948c8ead05a835f6814cb0c2b0",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/short-T10/manifest.json",
+        "sha256": "df6497cd4026e07bbf37c9b8288652e8827e680f7d43b3f9c6522f806404ce2e"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/short-T10/cards.html",
+          "bytes": 143355,
+          "sha256": "8ed807c5b9991cbd2e5e56f1913a7d6edea6ac36a8a6761eff2a15816c8afaa1"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/short-T10/preview.html",
+          "bytes": 144177,
+          "sha256": "be7d3498cfc4be2e51f19242a14796da4d9c030f6cbc6452a37d589ef9bc402e"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/short-T10/cards.pdf",
+          "bytes": 139179,
+          "sha256": "53a4176586520f382765e033396fb80df22431ad4fc1b9cc2693f19e8ea3670e"
+        },
+        {
+          "format": "png",
+          "file": "refinement/short-T10/card-001.png",
+          "bytes": 136175,
+          "sha256": "3247ce392db5f73f4eb062c583bce10d79a3f8c16c010409f4f7b4f0cb610b65"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/short-T10/contact-sheet.png",
+          "bytes": 30680,
+          "sha256": "02910d8585d72a3abbe65371255d535c7d675178b0d6a7af3a8c1df98d403262"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/short-T10/page-1-raw.txt",
+          "sha256": "fff6b77dec624bf4c73ac84e222459855441075cac5cf2f2ced6848831dd43f2",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/short-T10/page-1-layout.txt",
+          "sha256": "9e4827129c1415d169a9a44cee757e183f20545bc03d73f49812a3cbe57c283e",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/short-T10/mobile-375.png",
+          "sha256": "c6f2675689b1de516240955f695090d89e224e4f1f463a526400b2a5fc267f9e",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/short-T10/mobile-390.png",
+          "sha256": "c3d3633e8cffffa86a5b4650c80e121b994aff65e1868b416de2e3124e143b7f",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "short-T13",
+      "template": "T13",
+      "version": 2,
+      "bodySha256": "d1588f3f5868c569a91434228b3beb71417a6a8935ef93eda59eb31fb1c05b8e",
+      "input": {
+        "file": "refinement/inputs/short-T13.md",
+        "bytes": 399,
+        "sha256": "8c3d6a133111e80093efbe43467761671b43165dffb983be57a75797937deaf3"
+      },
+      "sourceSha256": "445d8a5e5f2322123febe378bd96b08cbf265f948c8ead05a835f6814cb0c2b0",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/short-T13/manifest.json",
+        "sha256": "10ddbcbaa0839b0daa6bda6be31d7c60785b4c8d0d5429be33db8ea46f451fb7"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/short-T13/cards.html",
+          "bytes": 143349,
+          "sha256": "4d3cb49a6a9e21b213143ba754cd45bd1986ace4f8fe7cedcb38dfa6054abf13"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/short-T13/preview.html",
+          "bytes": 144167,
+          "sha256": "7215775be871c2d2f8def361993e1a12b9b83a3396252ed0f6825fd9ad5f2610"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/short-T13/cards.pdf",
+          "bytes": 190976,
+          "sha256": "da6e188bb4f3c64b7441127442daf0a7ad3d873b04e29143fa15f31aee1bf029"
+        },
+        {
+          "format": "png",
+          "file": "refinement/short-T13/card-001.png",
+          "bytes": 145024,
+          "sha256": "943741e95b1046b83b9b17e48ee6f0b58cc621d9f691f75f59c549b41759d1c3"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/short-T13/contact-sheet.png",
+          "bytes": 33286,
+          "sha256": "f02498674252a12e62aa33d6791e3ab341eace00d40143bd345095cf81fe01c3"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/short-T13/page-1-raw.txt",
+          "sha256": "a60fa8712a1fc73ad28ab25000d71098fd648f170aa48447635e086ac3a40e3d",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/short-T13/page-1-layout.txt",
+          "sha256": "b4792be5c5f9fe72f68f4ceab32df85d1f0b5687710dbbba72fe2a2d76ede9ca",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/short-T13/mobile-375.png",
+          "sha256": "014d4ec7227a19573213e01831772ea0328a5a371a5c2d9fed341c3fa95b3b00",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/short-T13/mobile-390.png",
+          "sha256": "0ec48a732a9d25b38e553f1e6f6ce590be8c46d4130af6fe409fbe8de8901eaf",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "medium-T04",
+      "template": "T04",
+      "version": 2,
+      "bodySha256": "eea3a2d0bcfa419a25a6e60b6d84cf48b39d711ac9311906ab042e31c13a5fac",
+      "input": {
+        "file": "refinement/inputs/medium-T04.md",
+        "bytes": 621,
+        "sha256": "fc98383d14b7655028070298d02d22a8638e3c66e725bfedc105f07634bca20d"
+      },
+      "sourceSha256": "b165ad28487a2763f75cd80c087634f1d89fb3c126741235058088b838771d7d",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/medium-T04/manifest.json",
+        "sha256": "35be73bdd0206b4f9e542456f635f9a2f4c2a5b62d03aa062275d6b414738c2c"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/medium-T04/cards.html",
+          "bytes": 143580,
+          "sha256": "2f8550df0a2cce575899f28f11efed6a518df402dac9651ec6381b7b311f12c5"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/medium-T04/preview.html",
+          "bytes": 144402,
+          "sha256": "aaaa3eebb690cac6b149d52caa5e3acb660d87a6ce96cd5b481b591f150da7ba"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/medium-T04/cards.pdf",
+          "bytes": 191134,
+          "sha256": "6ac6b5b2e133ff19db26cff4ed5ae101a3696b433d965d67af3ad0d27aabdce5"
+        },
+        {
+          "format": "png",
+          "file": "refinement/medium-T04/card-001.png",
+          "bytes": 197280,
+          "sha256": "9ed47d29fd0bb12ea57c3c29dc8092799ba277bae15d7eb93c528304d362c5e7"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/medium-T04/contact-sheet.png",
+          "bytes": 41656,
+          "sha256": "66fe007cdb2626e5d2e45d87afc39090a9bfd4031af3a7f57ac0c6e862d7b841"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/medium-T04/page-1-raw.txt",
+          "sha256": "e9d924f10d352a8a023a4a6005b68facaa4e6111eb96c76907aa5cef0ea13d5e",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/medium-T04/page-1-layout.txt",
+          "sha256": "23e63c384a7d32b8dac86fbad0b3ae3525bcaf5a741503d259bbd9a0a197c2f9",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/medium-T04/mobile-375.png",
+          "sha256": "fbc312956b73ff5a0fff3510901b0a4095e614940a3e4b61c6715dc8d92ee16b",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/medium-T04/mobile-390.png",
+          "sha256": "b86c4902e938ab97581c3d45b12d997e301b22b39872c4559f529a0fc06e3b54",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "medium-T06",
+      "template": "T06",
+      "version": 3,
+      "bodySha256": "eea3a2d0bcfa419a25a6e60b6d84cf48b39d711ac9311906ab042e31c13a5fac",
+      "input": {
+        "file": "refinement/inputs/medium-T06.md",
+        "bytes": 621,
+        "sha256": "6d3ad7d44e7f38ecaa9a30d56eea5f1fbd6dcbdf9b7e6fe75b3ca98f75b9ac1c"
+      },
+      "sourceSha256": "b165ad28487a2763f75cd80c087634f1d89fb3c126741235058088b838771d7d",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/medium-T06/manifest.json",
+        "sha256": "6d3cd7adba676457dfc64d290f08a2b692d8fc92082fd640e46b8a48732da61d"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/medium-T06/cards.html",
+          "bytes": 143578,
+          "sha256": "eb58dab07a0d9abdf5d043a87cb2150c3c1937c622ec9243bfc979e34face10b"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/medium-T06/preview.html",
+          "bytes": 144401,
+          "sha256": "46ae47b4aaa17007c3d1fec64ff2d4d7e8c3a99b73ac6518af4d9e50de0462b4"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/medium-T06/cards.pdf",
+          "bytes": 219541,
+          "sha256": "139e62b8137324329db2b29519146d45a795de9077dc0edca007881258ff0728"
+        },
+        {
+          "format": "png",
+          "file": "refinement/medium-T06/card-001.png",
+          "bytes": 199658,
+          "sha256": "b605868f5cee50806372903a6598cf899c51eedd57ab56831b658b5a3e5866a9"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/medium-T06/contact-sheet.png",
+          "bytes": 43964,
+          "sha256": "dfedc0fbb204ac85fc442cb399e88becfd606e975b63fa35c42bf9efe55ab3df"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/medium-T06/page-1-raw.txt",
+          "sha256": "d5ae126b0c57d23a421f722dd6952aeca062d8ee86bfb43fc1d3b01752677c29",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/medium-T06/page-1-layout.txt",
+          "sha256": "4859526042158cc1d4b4dd051da62fbf39a894011b6b9bce6e54d96d1f9a8564",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/medium-T06/mobile-375.png",
+          "sha256": "72dec5feea2b3faaf7be54b926194da7893c2b9bcf0b982d045cc9954a3e2271",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/medium-T06/mobile-390.png",
+          "sha256": "131f6b9111f3e3fd80ca760124d8eb2211da5b8fb630b3ca5c9c8f7959d41ab8",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "medium-T10",
+      "template": "T10",
+      "version": 3,
+      "bodySha256": "eea3a2d0bcfa419a25a6e60b6d84cf48b39d711ac9311906ab042e31c13a5fac",
+      "input": {
+        "file": "refinement/inputs/medium-T10.md",
+        "bytes": 621,
+        "sha256": "59585ef31eb841b172a0c4aec129406e527de15c2145c93fdd5e33588373a977"
+      },
+      "sourceSha256": "b165ad28487a2763f75cd80c087634f1d89fb3c126741235058088b838771d7d",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/medium-T10/manifest.json",
+        "sha256": "26de8f531d23ea8bb8e8a330d3a8cf3d34c7a4e36d60133b6de60f723a0ca634"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/medium-T10/cards.html",
+          "bytes": 143578,
+          "sha256": "82386268802fb11dcd32417daee0de40feedece4bd1553bf948bdcaf1b22933b"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/medium-T10/preview.html",
+          "bytes": 144400,
+          "sha256": "8d4d138f59114cc70c412b9340ea9522c2f1b47ef29d5bc8d4d7472a25f79a8b"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/medium-T10/cards.pdf",
+          "bytes": 195186,
+          "sha256": "08107089ef869a633dbb697bfa9fe1f08ad73e6ea096e5d9eb100b0083d36acb"
+        },
+        {
+          "format": "png",
+          "file": "refinement/medium-T10/card-001.png",
+          "bytes": 204685,
+          "sha256": "4805c80ec381113a890bbb960c403f4f3eda34cfc1d41de0e3b09450eed4ec68"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/medium-T10/contact-sheet.png",
+          "bytes": 45073,
+          "sha256": "8bb35d589519d818e16655ca75c964e92c2a9c48617bd858f6dfd1c11b2de9b7"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/medium-T10/page-1-raw.txt",
+          "sha256": "eb8913bcfdf4c3769f83f08ccd95178c79c259c1a29b787bcea441e3cb6f983d",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/medium-T10/page-1-layout.txt",
+          "sha256": "b16dbaef490f002dbba92645e19ab51afb9bc15af82bbaaefa9200a28da1f256",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/medium-T10/mobile-375.png",
+          "sha256": "aba2ca8e877d1a9123f3b56cbb5646db196b988c097e9a6be3c94cdaa580c67c",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/medium-T10/mobile-390.png",
+          "sha256": "2553cd8d770abfbded8c9e00673b74379555ef140e1dc7049306ef56a9b1f54f",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "medium-T13",
+      "template": "T13",
+      "version": 2,
+      "bodySha256": "eea3a2d0bcfa419a25a6e60b6d84cf48b39d711ac9311906ab042e31c13a5fac",
+      "input": {
+        "file": "refinement/inputs/medium-T13.md",
+        "bytes": 621,
+        "sha256": "9ea410f814ba248ed54919a12b4cf2bd1ec15c6cddd3cd424f37741e7dba2913"
+      },
+      "sourceSha256": "b165ad28487a2763f75cd80c087634f1d89fb3c126741235058088b838771d7d",
+      "outcome": "expected-overflow",
+      "diagnostic": {
+        "file": "refinement/medium-T13/overflow.json",
+        "sha256": "09d594ca008ae8eab68448db5d78190cb1e5536ec874b43967494612227c69d1"
+      }
+    },
+    {
+      "id": "mixed-T04",
+      "template": "T04",
+      "version": 2,
+      "bodySha256": "9ad5321fd1b8a8f701da38442c6ecf31d286317b1fa59d8885e647d2a121a737",
+      "input": {
+        "file": "refinement/inputs/mixed-T04.md",
+        "bytes": 503,
+        "sha256": "fb6d3da0b8188951d942545d68ae1355429c67326b76832d5eda0ef1989ef797"
+      },
+      "sourceSha256": "b1c96e169507e5868b7286c9eee26b6d3835a97b8006596c6637c6a79ca5822b",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/mixed-T04/manifest.json",
+        "sha256": "d4db1af115fdfa308d21d026bbf1a7489b4fbd6eb25134e74215eea22594204a"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/mixed-T04/cards.html",
+          "bytes": 143461,
+          "sha256": "eab5b8433242e3730e0d9794a1f8654156814d9c424722a6b6b928694a1d2d8c"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/mixed-T04/preview.html",
+          "bytes": 144283,
+          "sha256": "5d4c4807a69f9762b62e90594630736e14b30a0224e51c99f8bf2a19ae796f0d"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/mixed-T04/cards.pdf",
+          "bytes": 141914,
+          "sha256": "ade08b5a82b9614ef162ab14be4234578b3953f693e13b5b6bbe6388f0a65f96"
+        },
+        {
+          "format": "png",
+          "file": "refinement/mixed-T04/card-001.png",
+          "bytes": 167075,
+          "sha256": "8a0e65ee99d030904214be686157de371979a675823214b98a60141b822c5edb"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/mixed-T04/contact-sheet.png",
+          "bytes": 33759,
+          "sha256": "da9af53e39197050a40364f41f3c969672b891dcc44f9e2feed3c89bda244268"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/mixed-T04/page-1-raw.txt",
+          "sha256": "c1458bd266bb8373d81f57fda546ce88f0f3e54226c59aa52e835bde1a717245",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/mixed-T04/page-1-layout.txt",
+          "sha256": "dd5c657fbc075338d7aeb186e31e0c505de005171d2998e7f1f0921c463dde95",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/mixed-T04/mobile-375.png",
+          "sha256": "9708139286527d327d4f79140137228b09ebf659c5bd61531ae967280036c17f",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/mixed-T04/mobile-390.png",
+          "sha256": "9ffc5ded7da41a9788d96ca02a99c88d3d919af469ad53e3c6c85a59e5f2da7d",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "mixed-T17",
+      "template": "T17",
+      "version": 2,
+      "bodySha256": "9ad5321fd1b8a8f701da38442c6ecf31d286317b1fa59d8885e647d2a121a737",
+      "input": {
+        "file": "refinement/inputs/mixed-T17.md",
+        "bytes": 503,
+        "sha256": "4cd950fff2e9ad85eded34249d2728bb5cb992806625daa3ba452c7323ccf3d6"
+      },
+      "sourceSha256": "b1c96e169507e5868b7286c9eee26b6d3835a97b8006596c6637c6a79ca5822b",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/mixed-T17/manifest.json",
+        "sha256": "1f090332df6cd34275ed49f37b05fe30f4a712e34dd6c55b9645d2f463046687"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/mixed-T17/cards.html",
+          "bytes": 143462,
+          "sha256": "a9dc0db76d0b316ff09c650eab28e9f19a685b8789d297c18fd410fbe999e721"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/mixed-T17/preview.html",
+          "bytes": 144284,
+          "sha256": "4382d686d5c2d38ca6be6136d0497ef38dd3c1bf5346d1d2e9a3210ebd5a6ff0"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/mixed-T17/cards.pdf",
+          "bytes": 176494,
+          "sha256": "4c1d24f882c3089e0e0be4186779acf94f14c1e2e593f542007708a6101a1f15"
+        },
+        {
+          "format": "png",
+          "file": "refinement/mixed-T17/card-001.png",
+          "bytes": 166886,
+          "sha256": "6c635d3a1c3499285cc194590abb9d157f7631c4b08a11ec5ae3c638afc03ddb"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/mixed-T17/contact-sheet.png",
+          "bytes": 35826,
+          "sha256": "c83f9225baf22d3b3191d5a43eb57e49acb7e9f45bf8143f61d657c4f7d43e21"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/mixed-T17/page-1-raw.txt",
+          "sha256": "827ca5800263626c4b235067912b9175fe63d362035ccde228eba1389ee74fbe",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/mixed-T17/page-1-layout.txt",
+          "sha256": "50fb3a432d079d15a1b80d364138da39367dd2123a6d55387b90b0c6853b9719",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/mixed-T17/mobile-375.png",
+          "sha256": "f223f86ced0495f45886dc1aaf4bd9630bb4a953470113f947c27e791f93927b",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/mixed-T17/mobile-390.png",
+          "sha256": "05ff4fda78911000237bb915764c772e95a8b05e132fb63eb73d66b96144f4d4",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "mixed-T18",
+      "template": "T18",
+      "version": 2,
+      "bodySha256": "9ad5321fd1b8a8f701da38442c6ecf31d286317b1fa59d8885e647d2a121a737",
+      "input": {
+        "file": "refinement/inputs/mixed-T18.md",
+        "bytes": 503,
+        "sha256": "f536aec3fe1fe479dc7af34b4e01e2190d63ad42b404a8f80ee6693ef0c5d891"
+      },
+      "sourceSha256": "b1c96e169507e5868b7286c9eee26b6d3835a97b8006596c6637c6a79ca5822b",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/mixed-T18/manifest.json",
+        "sha256": "bcbe3693009d5803062a27a16a09244ba73aeb678c64d7ba4b239cf6dbad6ccf"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/mixed-T18/cards.html",
+          "bytes": 143462,
+          "sha256": "47332ed8b63f6524a69fe40238e8a000d816db710ba67ec55f8d36a733f77faf"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/mixed-T18/preview.html",
+          "bytes": 144284,
+          "sha256": "1a2445d86295ddc3fc65a51a13908ccb4e442a3b3093de3d088d54df0ccce5c9"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/mixed-T18/cards.pdf",
+          "bytes": 168774,
+          "sha256": "1ef2c1432716cc440f9491842ea22aadda40f102454a22908614917990e5f5d4"
+        },
+        {
+          "format": "png",
+          "file": "refinement/mixed-T18/card-001.png",
+          "bytes": 160093,
+          "sha256": "618dd867a69f947ae6d61ecfc9796805d5f4e26602825846305e1842a4997c5b"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/mixed-T18/contact-sheet.png",
+          "bytes": 34091,
+          "sha256": "ffc79340cddf718d396b3e8566f8018bd8e2dd788bb9e13baad77e23bd2c9d47"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/mixed-T18/page-1-raw.txt",
+          "sha256": "9cf54cd4967c8b0456ead3281f81977d54d576143ba9dd1e532a962b3e6e50fe",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/mixed-T18/page-1-layout.txt",
+          "sha256": "664ab1165c8c938ecb292893366a06c52385c1726c837f023126498c32fbdc3a",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/mixed-T18/mobile-375.png",
+          "sha256": "e42c70f41ffb8ca8007ca44a62a885adfbdf215df43934d7a1aea8a58c4450ef",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/mixed-T18/mobile-390.png",
+          "sha256": "49edb0c1928622bfaceb5fe0baa79a75c14beec547c464871caeb17156afc264",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "mixed-T33",
+      "template": "T33",
+      "version": 2,
+      "bodySha256": "9ad5321fd1b8a8f701da38442c6ecf31d286317b1fa59d8885e647d2a121a737",
+      "input": {
+        "file": "refinement/inputs/mixed-T33.md",
+        "bytes": 503,
+        "sha256": "6d28f67e09f63e94f9f1d9fd4640a6317eed74b362d0b60dce0af35ac413d221"
+      },
+      "sourceSha256": "b1c96e169507e5868b7286c9eee26b6d3835a97b8006596c6637c6a79ca5822b",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/mixed-T33/manifest.json",
+        "sha256": "e8e92c79f0630a8e2c0ea3f5a83d810f36137903a0992651a20948bfc47498dc"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/mixed-T33/cards.html",
+          "bytes": 143453,
+          "sha256": "4edf3207f7cf3b19ec9e30096866ed031273f17c29f275238ba3bd234f8fa656"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/mixed-T33/preview.html",
+          "bytes": 144271,
+          "sha256": "abc7224a79ae2492926745d341c917080bb00e658f1143012e2333a71017e5d2"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/mixed-T33/cards.pdf",
+          "bytes": 186023,
+          "sha256": "3d7ec7d43fae174886152180e313ed3b87c23d3663db859c7d9f56f9503c60e7"
+        },
+        {
+          "format": "png",
+          "file": "refinement/mixed-T33/card-001.png",
+          "bytes": 195340,
+          "sha256": "6fd96b6607832114cc398411d0ef8d66f5d8419e3c7bc63440d8619dbfae8483"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/mixed-T33/contact-sheet.png",
+          "bytes": 37412,
+          "sha256": "ddabd4852c525a2dbd07b7148eaa39e165c1a56d2c0af249f0402c7dcf202174"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/mixed-T33/page-1-raw.txt",
+          "sha256": "d126e97e4fa121036a5f0bc87d17f5c3ea5b37398726efd7a7a168dc7ff01295",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/mixed-T33/page-1-layout.txt",
+          "sha256": "7c28846083d6591f0e4c0f645ba9a183139e45493292ad4e2940e6426efb208d",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/mixed-T33/mobile-375.png",
+          "sha256": "7d8fc590e7d96c601709e8b94f2f446eefbbba71cf1e5fa6c77a159f84f79220",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/mixed-T33/mobile-390.png",
+          "sha256": "4f17e391db25abb0a5b4562b339f9498af5aa5257529c466030c9a6c918aa3b2",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "long-T04",
+      "template": "T04",
+      "version": 2,
+      "bodySha256": "dfdf3c22ac0baa904c2d9e03fb62b0975059294536ac69c237a2c44d29f27035",
+      "input": {
+        "file": "refinement/inputs/long-T04.md",
+        "bytes": 3577,
+        "sha256": "30a79df14073a8984e3dcb79df40ddfa9df751ed9250f7b916b7878d884ea47c"
+      },
+      "sourceSha256": "11169ce9392502c69de1a7fbe66bab4a2c485a38ab01ee27e1e8d4f02822f169",
+      "outcome": "expected-overflow",
+      "diagnostic": {
+        "file": "refinement/long-T04/overflow.json",
+        "sha256": "ffbb21ca82513bd5bc0bf5d57f39b6fdf313f91dee66ca8e8df41c9034fb8963"
+      }
+    },
+    {
+      "id": "long-T06",
+      "template": "T06",
+      "version": 3,
+      "bodySha256": "dfdf3c22ac0baa904c2d9e03fb62b0975059294536ac69c237a2c44d29f27035",
+      "input": {
+        "file": "refinement/inputs/long-T06.md",
+        "bytes": 3577,
+        "sha256": "3034d982b72bb90c0782d2e7a1f74a90f792677fca0492781880ceff0d94e73a"
+      },
+      "sourceSha256": "11169ce9392502c69de1a7fbe66bab4a2c485a38ab01ee27e1e8d4f02822f169",
+      "outcome": "expected-overflow",
+      "diagnostic": {
+        "file": "refinement/long-T06/overflow.json",
+        "sha256": "efe4d8c090bcdd88f6355fdce666277a27151f8d15aa81d7f90fdc3acb106440"
+      }
+    },
+    {
+      "id": "long-T10",
+      "template": "T10",
+      "version": 3,
+      "bodySha256": "dfdf3c22ac0baa904c2d9e03fb62b0975059294536ac69c237a2c44d29f27035",
+      "input": {
+        "file": "refinement/inputs/long-T10.md",
+        "bytes": 3577,
+        "sha256": "6086a76f8ed06462a57ccf446efeafbbbf86fb1edd87322e225608ecd40481a4"
+      },
+      "sourceSha256": "11169ce9392502c69de1a7fbe66bab4a2c485a38ab01ee27e1e8d4f02822f169",
+      "outcome": "expected-overflow",
+      "diagnostic": {
+        "file": "refinement/long-T10/overflow.json",
+        "sha256": "830094afcd7de1ef668c9558641de1d73c6c5c2a042487dc9c3bc9dc178ba51f"
+      }
+    },
+    {
+      "id": "long-T13",
+      "template": "T13",
+      "version": 2,
+      "bodySha256": "dfdf3c22ac0baa904c2d9e03fb62b0975059294536ac69c237a2c44d29f27035",
+      "input": {
+        "file": "refinement/inputs/long-T13.md",
+        "bytes": 3577,
+        "sha256": "99b9fddfc3a28af11ac401580d87c64bf77f373289cdca243d916b50516fa9e7"
+      },
+      "sourceSha256": "11169ce9392502c69de1a7fbe66bab4a2c485a38ab01ee27e1e8d4f02822f169",
+      "outcome": "expected-overflow",
+      "diagnostic": {
+        "file": "refinement/long-T13/overflow.json",
+        "sha256": "021977444935b40197b67f631dd8ef87aaad27e83f27eb2a6741faecfd27bc50"
+      }
+    },
+    {
+      "id": "image-landscape",
+      "template": "T37",
+      "version": 2,
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "input": {
+        "file": "refinement/inputs/image-landscape.md",
+        "bytes": 422,
+        "sha256": "19b0a0f0a3291c7017a7512c2b583afe574401d6c8dca6688910efdeaf8c11ee"
+      },
+      "sourceSha256": "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/image-landscape/manifest.json",
+        "sha256": "82f3ee31dc7ce1c5de3232287045b05f19fb4b20f83544882ce48167425a7cba"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/image-landscape/cards.html",
+          "bytes": 3175555,
+          "sha256": "989ee5883a47d9885a1f4dec20c7064b3ef5323223cc644a161419dac510e2a7"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/image-landscape/preview.html",
+          "bytes": 3176381,
+          "sha256": "9ab88855affaeec8a35e8eb6b0ed9595f529287cbae328871813e4329e29d203"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/image-landscape/cards.pdf",
+          "bytes": 3811695,
+          "sha256": "38e7c4b73d756460b9f71bd89c1728e24acd1776cd081b7678fea5a08bef30cb"
+        },
+        {
+          "format": "png",
+          "file": "refinement/image-landscape/card-001.png",
+          "bytes": 998246,
+          "sha256": "15cf01a802880e98c0aaa2e06ccb9feda92e719870f0575ffeaf82d1d8d6bf78"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/image-landscape/contact-sheet.png",
+          "bytes": 97200,
+          "sha256": "0260c414e5b30b16dd9ef9add79dff7dd874882fab030285b5fdc95c45fbcbf3"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/image-landscape/page-1-raw.txt",
+          "sha256": "583776ae288e406e9e448ad1c803142a8371cb4f38de6cf30a799a5eb066f464",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/image-landscape/page-1-layout.txt",
+          "sha256": "e662ec276727bdedcad7e87c996857fce974cacc851b07526fc8db4fe6110b49",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/image-landscape/mobile-375.png",
+          "sha256": "f6e7d6081b7118b365d12d9454e13e7f729ebf4326a6a3e92c6143e755fb158a",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/image-landscape/mobile-390.png",
+          "sha256": "060e32275a342c6b0924abd2f9e5745d1ce3205f2585bf6f214a7c90098a2fc1",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "image-portrait",
+      "template": "T37",
+      "version": 2,
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "input": {
+        "file": "refinement/inputs/image-portrait.md",
+        "bytes": 424,
+        "sha256": "ae50022f6354ae4ae2e108553e0e2516f364bd52ed533c3d6fe70fcecb6ce4f3"
+      },
+      "sourceSha256": "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/image-portrait/manifest.json",
+        "sha256": "299d5dcc78c4557df8cbe3e2b79a4cb0f6a687cf616ae597090089afdf0a7a21"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/image-portrait/cards.html",
+          "bytes": 3032636,
+          "sha256": "19612ee58a140392e4f9bf7f2048b120e0d7c802d5033905c04b37a26e0dab8e"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/image-portrait/preview.html",
+          "bytes": 3033462,
+          "sha256": "ded3680fb55a3c383c6e698b340fe8c8c89d9b551319a50afd900706c30be0ca"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/image-portrait/cards.pdf",
+          "bytes": 3901145,
+          "sha256": "c9e19b47edceecb66a334c77721bf55925c549327951989456d6030293c608c0"
+        },
+        {
+          "format": "png",
+          "file": "refinement/image-portrait/card-001.png",
+          "bytes": 640246,
+          "sha256": "7e35f3c3a36a893b039d4e41a6065552c4a2e29065120451c85d15f71203f44b"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/image-portrait/contact-sheet.png",
+          "bytes": 66860,
+          "sha256": "45222475815aff2cb0e032dd171cdbc87f7b19460991a1efe1e0de456507914c"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/image-portrait/page-1-raw.txt",
+          "sha256": "252135781332a1abbad2a3862f246f9a25bd53a2b221d397dafad4d04fdeb01c",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/image-portrait/page-1-layout.txt",
+          "sha256": "79f1f3abee0b7b97cdd9d0a176edea20bcc7b0c3045d7cdb2f1f986c6ac432ea",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/image-portrait/mobile-375.png",
+          "sha256": "00d8d9de3692b07f03c2b1c2ac9da75b5b8f5af071acb6b8211257ca9a2e2d82",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/image-portrait/mobile-390.png",
+          "sha256": "08a206cefc0b3bcbf3c23adce99515ef38ce6326a56b893c6e28c6bfb7a13680",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "image-transparent",
+      "template": "T37",
+      "version": 2,
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "input": {
+        "file": "refinement/inputs/image-transparent.md",
+        "bytes": 414,
+        "sha256": "15aa202494f0f904e5729a41ba54e40c859f7f126f6e6fa8f54665695b278cc3"
+      },
+      "sourceSha256": "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/image-transparent/manifest.json",
+        "sha256": "020a035bbf4d0e390776eef994249e0f96147b1cfc10a883c5cfe78f8e0e48cb"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/image-transparent/cards.html",
+          "bytes": 3010077,
+          "sha256": "40e9d04867228ab569b649de5ab4d439afe35c79de464a72a7ad3f0ee65bfb6e"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/image-transparent/preview.html",
+          "bytes": 3010903,
+          "sha256": "4be4a2dbd0acaeba6b5de4774c691a3de807a903e0b1ffcd6569ad1e95278151"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/image-transparent/cards.pdf",
+          "bytes": 1560691,
+          "sha256": "25e9f09d3018b310a3005812510d1b4d495c6f884de70fe12486315e6285c983"
+        },
+        {
+          "format": "png",
+          "file": "refinement/image-transparent/card-001.png",
+          "bytes": 343708,
+          "sha256": "f0731d551a1d073f46888ce8dfaa0917d6b6c67f700f25f368498c34de0cd146"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/image-transparent/contact-sheet.png",
+          "bytes": 42994,
+          "sha256": "caacc63a5f16435f462a7457ab825ffcd44d1fa2d6e629888fc0dd758b0aa529"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/image-transparent/page-1-raw.txt",
+          "sha256": "f5dc937c4a050c8b7e9548a1a69402658161ba24c38cf60b683f3cc0419e572d",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/image-transparent/page-1-layout.txt",
+          "sha256": "7fce3476baaee8f878ec6f7b1653f5c9e95323530b5e9647c639c016327982e0",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/image-transparent/mobile-375.png",
+          "sha256": "1e1d87d2aac96c1f915490dc0120302387e4b89b300e1386532f0ce7dc6050c3",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/image-transparent/mobile-390.png",
+          "sha256": "1149a1b3da4086b9512b7bb11dd82112e7573523eb3f83ff10a7ae5155361289",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "image-interface",
+      "template": "T37",
+      "version": 2,
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "input": {
+        "file": "refinement/inputs/image-interface.md",
+        "bytes": 442,
+        "sha256": "a8fd834937d212bbf25381a9c6e45b6bd58af2b8f8d90f8c32bdaede4042f87c"
+      },
+      "sourceSha256": "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/image-interface/manifest.json",
+        "sha256": "728868603f9f0872d38a27745611d16695c9630a0867181aece0da09d7f13f0e"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/image-interface/cards.html",
+          "bytes": 245275,
+          "sha256": "c79a74180a7da822305a173faf996fa7e9d69823980a18436cb0ab62728f4247"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/image-interface/preview.html",
+          "bytes": 246101,
+          "sha256": "5616698e5a438412ba07e2e42ea8d1ce6f5d2305ba599e289bfb51bdbe0b1911"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/image-interface/cards.pdf",
+          "bytes": 203312,
+          "sha256": "d1238c87685f292a791a57fb1deec01b3e85ba743231531e1098fe230bdb5f00"
+        },
+        {
+          "format": "png",
+          "file": "refinement/image-interface/card-001.png",
+          "bytes": 172567,
+          "sha256": "8214bbd303b3666bd25921fc89f496abbd61aa71236d6a4f81e509958dd49449"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/image-interface/contact-sheet.png",
+          "bytes": 33268,
+          "sha256": "b05ad5babd9cb659c2287092ef24ddb47ff5ad981cbc8c2212e94b4f2545de7d"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/image-interface/page-1-raw.txt",
+          "sha256": "35c905842fcd8502319fe96df5c9c1e470774d633996d2a4d5198b7c2898743f",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/image-interface/page-1-layout.txt",
+          "sha256": "1ebd43c02db0a0c54955bd91d76b68883a2b9e0786f77d3eaa20425af8fb5457",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/image-interface/mobile-375.png",
+          "sha256": "2114ed763f8bb5a9f5e9d7b12ee1473fe7e824e54b2634035431c2224c05f70a",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/image-interface/mobile-390.png",
+          "sha256": "1d15cc0d755eba25e7215a77b04690d97233ed0eaf8c2ec2ee324d0ba5d5b335",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "image-wide",
+      "template": "T37",
+      "version": 2,
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "input": {
+        "file": "refinement/inputs/image-wide.md",
+        "bytes": 431,
+        "sha256": "0bfd656bf3dccfdfdc8e7760b9999238917a22dd3698d0d272fe194a733dd849"
+      },
+      "sourceSha256": "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/image-wide/manifest.json",
+        "sha256": "54a017adfd7cb412a8c0caa4f2f26d4acc124321766436101674fcf43b4075cc"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/image-wide/cards.html",
+          "bytes": 144173,
+          "sha256": "dd19607f05a7254da44b288a258964417d9cbfcf5cb483e49488e6382605c174"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/image-wide/preview.html",
+          "bytes": 144999,
+          "sha256": "57604c543ea899c6ca6a9008b70836a0ec72859294e1df529c046308e99192a6"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/image-wide/cards.pdf",
+          "bytes": 135073,
+          "sha256": "fdacefc3812d565ab23df132688ed84ea864f110e53b34a4cd07d890878068ba"
+        },
+        {
+          "format": "png",
+          "file": "refinement/image-wide/card-001.png",
+          "bytes": 100204,
+          "sha256": "aa7c7f66ecccbb21e99e1a6dd2f5458a14b665b682625569c36479817f3abc29"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/image-wide/contact-sheet.png",
+          "bytes": 21848,
+          "sha256": "92c02623a789c5be6fd9407c8da39d9db5fc4145977fa6cf7df92a4808c615d3"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/image-wide/page-1-raw.txt",
+          "sha256": "ae9540318b69601eaca32181660266c102b6e66690b44f7c004a8f0fc85d97ca",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/image-wide/page-1-layout.txt",
+          "sha256": "c3b9838f6f7402bd2d7985074922b8527cef502d0c66bb3f56d96843803c0cda",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/image-wide/mobile-375.png",
+          "sha256": "e771c11f9cd17a904469a0f93204ef55f5279ecdf18c392c93dd19e4ae833ae9",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/image-wide/mobile-390.png",
+          "sha256": "93c0d700ca1fdb0f7a297ecad5a4adec622efdff4eb8e842acd6ea9ef1e0ab04",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    },
+    {
+      "id": "image-tall",
+      "template": "T37",
+      "version": 2,
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "input": {
+        "file": "refinement/inputs/image-tall.md",
+        "bytes": 431,
+        "sha256": "c94927ec0f469dca4b30c686db5edf32ed67cfbc15e6b7a2adace432f388fd15"
+      },
+      "sourceSha256": "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045",
+      "outcome": "exported",
+      "manifest": {
+        "file": "refinement/image-tall/manifest.json",
+        "sha256": "14a0f21d974e29eeef7d0e881c2cc62dd102fa4b2bb0800100cc075ba5e78b8c"
+      },
+      "artifacts": [
+        {
+          "format": "html",
+          "file": "refinement/image-tall/cards.html",
+          "bytes": 145481,
+          "sha256": "d25bf5465702806e5bccbe3d86392fa7b1681ff549613a33fc7453dcca2e16af"
+        },
+        {
+          "format": "preview",
+          "file": "refinement/image-tall/preview.html",
+          "bytes": 146307,
+          "sha256": "84c3ec2a870cdf87c0c4b2c5ec6cf0a8ac91c1da08de70b2536d5d60d33ba8a3"
+        },
+        {
+          "format": "pdf",
+          "file": "refinement/image-tall/cards.pdf",
+          "bytes": 136186,
+          "sha256": "e3c7c38824c23e84ec8d98e31b700835713c6bf7bbb0196203ea90d081f64c81"
+        },
+        {
+          "format": "png",
+          "file": "refinement/image-tall/card-001.png",
+          "bytes": 99230,
+          "sha256": "6d388f1279bd9540d5b1ccb080939c3e3c53a9602aec4576d741c8decaa484a2"
+        },
+        {
+          "format": "contact-sheet",
+          "file": "refinement/image-tall/contact-sheet.png",
+          "bytes": 21830,
+          "sha256": "966f924db3d84d8071f215ad9f30382807628058fbb807a6c75bd99ffc621133"
+        }
+      ],
+      "pdfText": [
+        {
+          "file": "refinement/image-tall/page-1-raw.txt",
+          "sha256": "ae9540318b69601eaca32181660266c102b6e66690b44f7c004a8f0fc85d97ca",
+          "mode": "raw",
+          "page": 1
+        },
+        {
+          "file": "refinement/image-tall/page-1-layout.txt",
+          "sha256": "f371877a704b2d088df134d6fafb407ca9f6212b13662a3c85d41434dd6f99b4",
+          "mode": "layout",
+          "page": 1
+        }
+      ],
+      "mobile": [
+        {
+          "file": "refinement/image-tall/mobile-375.png",
+          "sha256": "e003c7886229fe50479377f7edf4eef15c142b1bc3e2d8783d7a88528077f426",
+          "width": 375,
+          "height": 800,
+          "bodyMin": 15.093,
+          "noteMin": 11.7585
+        },
+        {
+          "file": "refinement/image-tall/mobile-390.png",
+          "sha256": "c95f34263fb45784b4bd5248eb364b539512442d3a836ef17ddb3a415694a9d6",
+          "width": 390,
+          "height": 800,
+          "bodyMin": 15.738,
+          "noteMin": 12.261000000000001
+        }
+      ]
+    }
+  ]
+}

@@ -10,9 +10,9 @@ M2 的 48 个精确 standard / portrait 注册示例已完成独立助手源码�
 
 按 [R01–R12 精修计划](docs/REFINEMENT_PLAN.md) 推进，不增加模板数量。[离线模板图库](docs/gallery/index.html) 现绑定 48 个当前已验收 PNG，覆盖 12 个家族、各 4 个独立构图。验收仅覆盖精确输入、standard / 3:4、manual 和本次 CI 字体环境，不保证任意输入都能放下。
 
-T04/T21 的四个既有 square/slide 短例已有当前精确产物视觉复核，最终画幅绑定仍待 R12；不能扩张为全部 12 个技术导出或 48 × 3 验收。T20 图内微字仍仅作上下文；T48 右栏短尾“盖。”等有限限制保留。
+八个指定画幅短例已完成 full PNG、375/390 和 native PDF 独立复核，并由独立证据注册表绑定；T04/T21 四组合为 aspect-v2，T05/T13/T24/T37 四组合为 aspect-v1。仅限精确输入、standard/manual，不扩张为 48×3 或所有内容适配。 见[画幅复核](docs/ASPECT_PR22_REVIEW.md)。T20图内微字仍仅作上下文，T48右栏短尾等既有限制保留。
 
-下载完整仓库后打开 `docs/gallery/index.html`，GitHub 文件页本身不运行 HTML。图库只展示已绑定证据的真实输出；当前 48 预览绑定之后仍须在发布的精确树上进行真实浏览器复核；运行 40074554707 的 0-current / 48-pending 图库不能替代它。历史 v1 的 48 预览版本曾完成 51 项真实浏览器检查和 17 张界面截图复核，覆盖筛选、file:// CSP、键盘、无脚本回退与手机重排。原生菜单缩放与读屏仍未测试。使用方式见 [图库说明](docs/TEMPLATE_GALLERY.md)。
+下载完整仓库后打开 `docs/gallery/index.html`，GitHub 文件页本身不运行 HTML。图库只展示已绑定证据的真实输出；[当前本地候选复核](docs/GALLERY_PR22_UI_REVIEW.md)完成66项真实浏览器检查和29张截图逐图复核，覆盖筛选、file:// CSP、键盘、无脚本回退、手机重排和八个画幅证据链接。发布后仍须按精确输入变化重新验证，不能继承历史运行40074554707的0-current / 48-pending结果。原生菜单缩放与读屏仍未测试。使用方式见 [图库说明](docs/TEMPLATE_GALLERY.md)。
 
 以下四张为当前 M2 的精确真实 PNG；历史图仍保留在历史验收记录。输入与 PNG/PDF 哈希见 M2 验收。
 
@@ -323,7 +323,7 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 
 也可在卡片第一行选择 `<!-- card: {"template":"T05","density":"standard"} -->`。模板使用 `manual`，保留原文与 `===`；现有 `auto` 仍仅支持 layout-only `explainer` / `steps`。`compact` / `standard` / `editorial` 只调间距，不缩小正文。mobile 阅读字阶在实际 351/366px 内卡上检查，旧主题不会被暗中改成新字号。
 
-全部模板支持 3:4；**只有 T04/T21** 另外提供已验收短例的 1:1 / 16:9 独立重排，其他模板拒绝这两种比例。原 portrait 长度的输入在短画布可能明确溢出，不能把示例通过当作万能容量。见 [画幅与实测边界](docs/TEMPLATE_ASPECTS.md)。
+全部48套模板支持3:4；仅在 **6 个模板上增加 8 个额外画幅组合**：T04/T21各支持独立1:1与16:9，T05/T13仅增1:1，T24/T37仅增16:9，其余组合明确拒绝。当前13套v3/35套v2的精确standard/portrait示例已验收；八个指定画幅短例已完成 full PNG、375/390 和 native PDF 独立复核，并由独立证据注册表绑定；T04/T21 四组合为 aspect-v2，T05/T13/T24/T37 四组合为 aspect-v1。仅限精确输入、standard/manual，不扩张为 48×3 或所有内容适配。 T04/T21的v1 历史证据保持不变。原portrait输入在短画布仍可能溢出，不缩字、不删内容、不裁图。见[画幅与验证边界](docs/TEMPLATE_ASPECTS.md)。
 
 `--list-templates` 列出用途、推荐长度、结构、图片需求、来源与完整输入。推荐字数只是选型参考；放不下时保留原文与诊断，换模板或由你明确选择编辑/增加分段，不自动删字、改写、缩字或裁切。
 
@@ -333,7 +333,7 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 
 两组既有系列的当前 M2 精确产物已检查全部 8 张原图、16 张手机图及原生 PDF；18 案例压力矩阵中三个明确输出有独立视觉复核，其余技术控制不扩大为视觉验收。历史 v1 系列、压力和尾页记录保持原样。成功导出与预期拒绝分别记录，这些结果只覆盖明确输入，不扩张为任意内容保证。
 
-[可选尾页平衡](docs/TAIL_BALANCING.md) 只在同一显式分区的末两页移动完整语义组，保留页数、编号、表头和来源；不强制填满所有尾页。[压力验证](docs/VISUAL_STRESS.md) 分开记录成功导出与预期拒绝，不声称覆盖任意内容。T34 装饰首字的 PDF 抽取顺序、图片内微字及旧 Notebook 字号等明确限制见 [全 16 项状态](docs/VISUAL_BACKLOG_STATUS.md)。
+[可选尾页平衡](docs/TAIL_BALANCING.md) 只在同一显式分区的末两页移动完整语义组，保留页数、编号、表头和来源；不强制填满所有尾页。[压力验证](docs/VISUAL_STRESS.md) 分开记录成功导出与预期拒绝，不声称覆盖任意内容。历史 v1 T34 装饰首字曾影响 PDF 抽取顺序，当前 v3 已移除该处理且精确原生 PDF 已复核，但不承诺带标签的可访问阅读顺序；图片内微字、旧 Notebook 字号和本轮状态见 [历史与当前状态](docs/VISUAL_BACKLOG_STATUS.md)。
 
 实施顺序与独立审查门槛保留在 [九个里程碑](docs/VISUAL_MILESTONES.md)。新的真实结果与历史记录分开，不以 CI 全绿替代逐图检查。
 
@@ -344,6 +344,6 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 
 ### R09 / R10：按任务选型与真实同文测试
 
-图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v3 / v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：17 例计划完整导出、4 例长文及 T13 的指定中篇必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [docs/CONTENT_MATRIX.md](docs/CONTENT_MATRIX.md) 和 [docs/TEMPLATE_GALLERY.md](docs/TEMPLATE_GALLERY.md)。
+图库提供六条用途路线及短 / 中 / 中英混排三组同文，仍只有 48 套构图。run40079964688 的22案例已核验：17成功导出与5预期拒绝分别记录。三组绑定11个成功预览及T13指定中篇拒绝，精确PNG/手机图和新PDF页面的身份均核对；旧复核仅在像素逐字节相同时保留，短尾与窄栏限制继续显示。计划命令仅作源码检查，新内容仍需实际导出及独立复核。见[同文重新绑定](docs/COMPARISON_PR22_REVIEW.md)和[图库说明](docs/TEMPLATE_GALLERY.md)。
 
-R11 新增两条非封面/CTA 节奏：有条件比较 → 条件表 → 可撤回试用（T06/T24/T14），以及单图观察 → 双图对照 → 未知边界札记（T37/T38/T29）。共四组作者明确选择的系列、14 张卡；既有 A/B 八张已有 M2 精确产物复核；新增 C/D 六张与本 R11 阶段四组全量运行仍待真实 PNG/手机/PDF 及连读复核，不能继承旧输入的验收。详见 [系列配方](docs/SERIES_RECIPES.md)。
+R11 四组作者系列共5/3/3/3张，包含有条件比较→条件表→可撤回试用及单图观察→双图对照→未知边界札记。run40079867143的14卡已逐张检查full PNG、375/390和原生PDF，新增C/D六张使用自己的实际产物；品牌、页序、原文、代码、图片和限制保留，不强制封面/CTA或自动改写。见[系列独立复核](docs/SERIES_PR21_REVIEW.md)。该结论仅属于记录的PR21来源与产物，不自动证明其他树或本地重新排版等价。

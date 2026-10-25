@@ -6,7 +6,7 @@
 
 后续明确授权例外：用户要求合并 PR20，并在自动审批拒绝 Draft → Ready 后，明确回复“授权转为 Ready 并合并”。PR20 已按既有目标分支合并，见下方最新记录；该授权不扩展为推送本地未提交修复或合并 PR21/22。
 
-2026-10-24 已刷新远端：main=f67e516；PR20=7a66826；PR21=2229b0e；PR22=215976e。当前隔离工作区从 PR20 head 创建，原 main 和用户交接材料保留。
+2026-10-24 已刷新远端：main=f67e516；PR20=7a66826；PR21=2229b0e；PR22=215976e。首个隔离工作区从 PR20 head 创建；随后保留它并建立PR21、PR22候选，当前为codex/r6-aspect-evidence@215976e。原 main 和用户交接材料保留，最终分阶段交付见 [HANDOFF_DELIVERY.md](HANDOFF_DELIVERY.md)。
 
 ## 阶段 0：可重复的本地验证
 
@@ -36,18 +36,18 @@
 
 ## 阶段 3：PR22 安全和画幅
 
-- [ ] 展示 PR21 修复带入方式；修正 Windows fileURLToPath 与测试路径。
-- [ ] 修复 loadAspectCard 对输入及相关资源的 realpath 边界，覆盖 junction/symlink、相似前缀与根内合法文件。
-- [ ] 使用内容/语义不同的两个源根验证来源一致性，拒绝混用，不动态执行不可信代码。
-- [ ] 校验 run40079964688 产物，完整执行/核验 58 个技术案例；仅八个指定短例可进入额外画幅视觉绑定。
-- [ ] 保留默认溢出、图像比例、来源与失败关闭规则。
+- [x] 展示 PR21 修复带入方式；修正 Windows fileURLToPath 与测试路径。
+- [x] 修复 loadAspectCard 对输入及相关资源的 realpath 边界，覆盖 junction/symlink、相似前缀与根内合法文件。
+- [x] 使用内容/语义不同的两个源根验证来源一致性，拒绝混用，不动态执行不可信代码。
+- [x] 校验 run40079964688 产物，完整核验 58 个技术案例；仅八个指定短例进入额外画幅视觉绑定，未冒充本地卡片浏览器重跑。
+- [x] 保留默认溢出、图像比例、来源与失败关闭规则。
 
 ## 阶段 4：收尾与交付审计
 
-- [ ] README / SKILL / reference / 图库 / 验收记录状态一致，旧历史不改写。
-- [ ] 每阶段列出 branch、HEAD、修改文件、通过/失败/跳过/未执行项及证据范围。
-- [ ] 展示用户可审阅的文件清单和本地独有提交；保持用户手工核查提交与推送流程。
-- [ ] 按全部要求逐项审计，证据不足的项目明确保留未完成状态。
+- [x] README / SKILL / reference / 图库 / 验收记录状态一致，旧历史不改写。
+- [x] 每阶段列出 branch、HEAD、修改文件、通过/失败/跳过/未执行项及证据范围。
+- [x] 展示用户可审阅的文件清单和本地独有提交；保持用户手工核查提交与推送流程。
+- [x] 按全部要求逐项审计；本地交付范围完成，跳过项和范围外验收保持明确状态，未扩张通过结论。
 
 ## 执行记录
 
@@ -117,3 +117,31 @@
 - 四份原生PDF页数5/3/3/3、每页810×1080pt、无旋转。CI raw检查与本机pypdf兼容性问题分别记录：14页NFC有差异、6页NFKC仍有不匹配，未据此声称本机精确Unicode通过。
 - 公共修复带入后全量源测试528项：510通过、0失败、18跳过；日志 validation/handoff/r5-full-tests.log。gallery:check与git diff --check通过。未重跑浏览器排版；R4图库60项报告保留其原工作区/输入边界，不扩大为新阶段验收。
 - 下一步进入阶段3：从PR22原head建立接续候选，保留PR21必要改动；修复loadAspectCard输入与资源realpath边界、来源根/执行语义一致性及Windows路径测试，然后核验58技术案例和8个指定画幅短例。
+
+### 2026-10-25：阶段 3 来源边界与真实 58 案例技术核验
+
+- 工作区 E:/LHA/codex-worktree/r6-aspect-evidence/md2card-skill，分支 codex/r6-aspect-evidence，HEAD 215976eeeaa1f70d6a6820530fb20fcc7bdf8790。保留 PR22 原历史；带入 PR21 本地跟踪补丁及 249 个新增文件，补丁 SHA-256 为 2d46626b1b38ea61ef66240cf2badfe7c9943da777ad2759e779b7b6f2f354e6。package.json 和 TEMPLATE_GALLERY.md 的两处重叠显式整合，保留 PR22 的 --allow-browser 命令及八画幅/导航增量。未提交、推送或合并。
+- 新增 aspect-source.mjs：在模块初始化时固定执行源码的语义文件字节，其他 source root 必须匹配解析、渲染、样式、运行依赖及校验模块；只把外部根作为数据读取。不同样式、解析器、浏览器模块、runner、依赖或 lockfile 在命令执行/导出/浏览器获取前拒绝。
+- 输入、图片、图片引用和资源根先做 realpath 与 path.relative 边界检查；读取受大小限制，导出使用已解析路径。回归覆盖相似前缀的外部目录 junction、整个 assetRoot 越界、嵌套图片目录越界及根内合法 junction，保留原有更严格的图片资源根限制。修正所有相关 URL.pathname 与硬编码 /tmp 测试路径。
+- 全量源测试实际结果 480 项：455 通过、7 失败、18 跳过。7 个失败均为图库接续：旧 PR20 同文证据被 PR22 已变更的 templates.mjs/CSS 严格身份检查拒绝，其中两份测试模块未能初始化，因此 480 不是完整预期测试数量。日志 validation/handoff/r6-full-tests.log。安全与画幅测试通过；尚不能称全量通过或本地候选可交付。
+- 已核对 GitHub run40079964688 / artifact12554054288，原始 ZIP 211,679,152 bytes，SHA-256 794985f23429b86be89a8790070ee4f2e4b168d8160239bcb5dfc06761d52d5b。CI commit05f6bb6e484cb8887ea037e520a733db9303563d，tree9dee88002e629b44dbd7e141874fe5388b5e7b9d，与 PR22 head tree 一致；来源181文件/8,083,375bytes通过Git blob与SHA双核对。
+- validation/handoff/audit-pr22-aspects.mjs 对原始 ZIP 的全部 247 个 aspects 文件完成离线技术核验：58案例 = 28成功导出、8允许的原始长文溢出、14预期压力溢出、8不支持比例拒绝。28份HTML/preview由匹配语义重建并逐字节一致，PDF/PNG/375/390、原始PDF raw文本、全部输入/图片/样式/manifest、溢出诊断均绑定；8种不支持比例以真实 exporter 在禁用环境/浏览器 seam 下再次确认拒绝。审计输出 pr22-aspect-audit.json。
+- 以上是现有 CI 字节的技术复核，不是修复后浏览器重跑，也未授予8个画幅短例视觉验收。下一步：原生 PDF 与8例独立逐图复核；用 PR22 实际同文产物重新绑定图库，保留历史 PR20 记录，不放宽源码一致性检查；之后全量复验和阶段4状态收尾。
+
+### 2026-10-25：阶段 3 八例独立复核完成，注册集成仍 pending
+
+- 安全和画幅定向最终测试47/47通过，0失败、0跳过，日志 validation/handoff/r6-aspect-source-tests-final.log。前述全量图库7项失败尚未消除，不能用定向通过替代全量通过。
+- 对指定8例逐一查看8张full PNG、16张375/390手机图及8张原生PDF页面，共32张实际图像。独立记录 docs/ASPECT_PR22_REVIEW.md 与 docs/aspect-pr22-visual-review.json；T04 square保留“解释”分行、末行“释。”的限制，其余7例未观察到裁切/遮挡。T37原图比例、边缘与“AI合成，非摄影”图注完整；T21分母/边界、T24表格与不作排名、T05编号、T13不替代证据均保留。没有改写输入或样式。
+- 新证据目录 docs/evidence/aspects-run-40079964688/ 保存247个原始案例产物（57,828,783 bytes）、8张独立原生PDF页面、来源清单/计划及技术/PDF审计。所有真实CI报告保留not-performed，独立复核不倒改机器输出。版本分别为T04/T21四组合aspect-v2、新T05/T13/T24/T37四组合aspect-v1，与portrait版本分别记录。
+- 全部28份原生PDF均单页无旋转。方形/portrait页面尺寸与名义值一致；8份slide为1200×675.12 pt，名义值1200×675 pt，相差0.12 pt。保留四张指定slide的完整1600×901页面图，没有裁剪或缩放掩盖偏差。CI raw文本NFC检查已验证；本机pypdf20页NFC有差异、6页NFKC有差异，不声称本机精确Unicode通过。
+- 阶段3仍未完成：八例需接入独立画幅注册绑定与拒绝伪造/旧产物的校验；旧PR20同文证据须用PR22实际产物重新绑定，最终本地图库UI和全量测试待复验。阶段4入口文档一致性及最终交付审计仍待处理。所有工作保留为本地候选，未提交/推送/合并PR21或PR22。
+
+### 2026-10-25：阶段3集成与阶段4本地交付完成
+
+- 前述pending与失败段落是当时记录，保持不变。本轮新增独立画幅证据注册表和aspect-evidence.mjs，严格核对八例来源/版本/输入/实际产物，27项攻击回归包含于完整测试。图库新增八组证据原生链接，不增加模板计数。原始CI报告及逐图JSON的历史binding-pending不倒改，后续集成由独立注册表表达。
+- PR22同文重新绑定run40079964688：22例17导出/5拒绝，全部199个原始条目核验，固定binder摘要647ad2a81847358e4e84ee8eac4cc7f58604b457f665003ba64efa13c876576f。11例PNG/375/390与重新生成的11张原生PDF页面均与已复核像素相同；新PDF身份单独绑定，旧记录保留。见COMPARISON_PR22_REVIEW.md及visual-equivalence.json。
+- 完整源测试582项：564通过、0失败、18跳过（17卡片浏览器、1完整Poppler文本工具），日志validation/handoff/r6-final-source-tests.log。Windows来源与画幅定向47/47，无跳过；最终入口文档变更后17/17定向复验。默认glob和显式test:unit均包含全部新增测试。
+- 首轮最终图库65项页面检查通过、关闭超时，整轮保留失败。确认旧进程退出后，保持浏览器沙箱与CSP，独立复跑66/66通过；29张截图全部逐张查看，365个受测输入摘要与当前文件一致。见GALLERY_PR22_UI_REVIEW.md及gallery-pr22-ui-review.json；不以本地UI结果代替Windows卡片渲染或CI字体等价。
+- README/SKILL/reference/图库/内容/系列/画幅/状态文档对齐，最终gallery:check与diff检查通过。R08页脚、跨系统字体、读屏与原生菜单缩放等自身范围仍保留未验证状态。
+- HANDOFF_DELIVERY.md按原COPY_TO_CODEX及REVIEW-CHECKLIST逐项列证据和范围；handoff-candidates.json列出R4/R5/R6全部155/261/684个候选文件、摘要及前后阶段关系，三个工作区均无本地独有提交、无实际暂存。各阶段已跟踪差异另保存在忽略目录的delivery-tracked.patch。
+- 最终审计validation/handoff/final-delivery-audit.json核对三个候选全部文件与摘要、原始交接包四个SHA、main、保护源码/原文/样式、完整测试日志、UI报告/截图/输入、八例证据及文档链接，全部通过。用户核查后自行提交和推送；未推送本地修复、未创建远端PR、未合并PR21/22、未修改Actions或认证。

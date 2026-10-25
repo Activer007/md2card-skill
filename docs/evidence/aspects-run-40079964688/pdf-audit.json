@@ -1,0 +1,787 @@
+{
+  "schemaVersion": 1,
+  "identity": {
+    "runId": 40079964688,
+    "artifactId": 12554054288,
+    "commit": "05f6bb6e484cb8887ea037e520a733db9303563d",
+    "tree": "9dee88002e629b44dbd7e141874fe5388b5e7b9d",
+    "sourceSha256": "473cd63ff3ff57cacdcf1bee29044d53bf02ce062b4b40bc027db529462859c1",
+    "archiveSha256": "794985f23429b86be89a8790070ee4f2e4b168d8160239bcb5dfc06761d52d5b"
+  },
+  "bindingSha256": "ca9e7a89e5874a041d4533168787c8a83b9f0b697c435f0077e544fbf3bdcc63",
+  "status": "native-pdf-audited-visual-review-pending",
+  "records": [
+    {
+      "id": "01-T04-aspect-specific-square-square",
+      "pdfSha256": "6f647d602153f8cf7e1354c77312e7efc6fd088e92d7bd8b0328fe4c1b25b78c",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        810
+      ],
+      "actualPagePoints": [
+        810,
+        810
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "12958603843e95a6cd8f1a5b31ba53ad6013befe205e009426388dedcf32baa3",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed",
+      "raster": "01-T04-aspect-specific-square-square.png",
+      "rasterSha256": "709129773f17c6a6e982e38e12d069e5823392d61cb0fdf739b17ddf8c68c135"
+    },
+    {
+      "id": "02-T04-aspect-specific-slide-slide",
+      "pdfSha256": "e0edc94c9f92121f26cfbfd613045de1a854d460106341acf796ee0a9b7a84b0",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        1200,
+        675
+      ],
+      "actualPagePoints": [
+        1200,
+        675.12
+      ],
+      "pointDelta": [
+        0,
+        0.12000000000000455
+      ],
+      "dimensionsMatchWithinPoint1": false,
+      "textSha256": "c1c5053bbd6c4e97da57e58392d447575d11a88e44895cca29ced6edb6eaf9ec",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed",
+      "raster": "02-T04-aspect-specific-slide-slide.png",
+      "rasterSha256": "6917f85192ba6347d24c60c371e3083609967b0933e313743a2d34afa45886b4"
+    },
+    {
+      "id": "03-T04-same-source-short-portrait",
+      "pdfSha256": "ddcbfd2a247bd4cc7d3df0bc7dd1e183394eb2dfdd97aa7e9bb0856dac9a71ce",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "dc583d29deb7241eed7d909fdfe317be93a9b50f95d69d5ce3c417c7330a085d",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "04-T04-same-source-short-square",
+      "pdfSha256": "3142615c00a069594529defee93a05813dd36ed26e86df979559c9e8f250c0e2",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        810
+      ],
+      "actualPagePoints": [
+        810,
+        810
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "40deb33c52c6bff88aa848aa1937bae98ea794ff981f55653d5a31d48ea1be64",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "05-T04-same-source-short-slide",
+      "pdfSha256": "fe8b1097088ebf85761b9f82f7dd80716e8e326ccb1aaa9a98af670594bbf0f6",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        1200,
+        675
+      ],
+      "actualPagePoints": [
+        1200,
+        675.12
+      ],
+      "pointDelta": [
+        0,
+        0.12000000000000455
+      ],
+      "dimensionsMatchWithinPoint1": false,
+      "textSha256": "c1c5053bbd6c4e97da57e58392d447575d11a88e44895cca29ced6edb6eaf9ec",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "06-T04-same-source-original-portrait",
+      "pdfSha256": "5798b39caf3dc465a592430d9fdab6d652673d7e680730e0f6aee02fb413ce08",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "f9cd65a93debde81171efb8f9cecaefe93de04be09e8a619f91ce80930519716",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "给观察留一点时间",
+        "先留下看见的，再慢慢形成判断。",
+        "先写看见的",
+        "把动作、环境和顺序记清楚。与其写下笼统判断，不如保留当时发生了什么。",
+        "将猜测另起一段，说明它来自哪条观察。尚未解释的部分，不必急着补出答案。",
+        "再去寻找支持或推翻猜测的细节。让笔记成为下一次提问的起点，而不是终点。",
+        "FIELD ESSAY / 专题正文",
+        "原创编辑练习 · 非研究结论"
+      ],
+      "compatibilityNfkcMissing": [
+        "先留下看见的，再慢慢形成判断。",
+        "先写看见的"
+      ],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "12-T21-aspect-specific-square-square",
+      "pdfSha256": "beceb7676b0ac70f413c7fcfc1666fd438e8025029c51df4df9a0c1d5d2972b1",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        810
+      ],
+      "actualPagePoints": [
+        810,
+        810
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "b76fbd51c8ae843d07a4247d47f16ced06958e78c5fab17015fa960193a42626",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "口径",
+        "分母为开始练习的人。",
+        "虚构教学数据：100 人开始，38 人提交。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed",
+      "raster": "12-T21-aspect-specific-square-square.png",
+      "rasterSha256": "cbef4ad8c863afef4dcd7b063484edfc11e8b0ae95a4df27c6acf61e50e0f219"
+    },
+    {
+      "id": "13-T21-aspect-specific-slide-slide",
+      "pdfSha256": "006711e2fc204ba4625abc1acd5870747c1197ccc254f2a4299d0db45bc7296a",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        1200,
+        675
+      ],
+      "actualPagePoints": [
+        1200,
+        675.12
+      ],
+      "pointDelta": [
+        0,
+        0.12000000000000455
+      ],
+      "dimensionsMatchWithinPoint1": false,
+      "textSha256": "3fba98528997b2c2746499a47005f667de5d170ad0f8c055da8e7572244cee80",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "分母为开始者。",
+        "口径",
+        "提交即计入。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed",
+      "raster": "13-T21-aspect-specific-slide-slide.png",
+      "rasterSha256": "c637b30ccef59e67351a7254e781f629f61dd56ea3523656eb373efa7a25c0ae"
+    },
+    {
+      "id": "14-T21-same-source-short-portrait",
+      "pdfSha256": "f04deed201a72dea6b10bccb79005c18767e9147259bf19d78d73a09414d1287",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "80bbf19548626998e97035de17c81292fee3d07798a802772250fba83cff576b",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "分母为开始者。",
+        "口径",
+        "提交即计入。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "15-T21-same-source-short-square",
+      "pdfSha256": "8945cbd315907b7a6763684a29d06fce41f30c5163f65185bdc71cd84122f7b0",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        810
+      ],
+      "actualPagePoints": [
+        810,
+        810
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "ce5b2f2b240ae4d8a45fa0e8849764f66c9e5581a5089698f44311b2d53bdf60",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "分母为开始者。",
+        "口径",
+        "提交即计入。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "16-T21-same-source-short-slide",
+      "pdfSha256": "078b3f7c788aebcbe71c52c262b80ca60592fd20be118f1a31fa4041834b74ed",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        1200,
+        675
+      ],
+      "actualPagePoints": [
+        1200,
+        675.12
+      ],
+      "pointDelta": [
+        0,
+        0.12000000000000455
+      ],
+      "dimensionsMatchWithinPoint1": false,
+      "textSha256": "3fba98528997b2c2746499a47005f667de5d170ad0f8c055da8e7572244cee80",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "分母为开始者。",
+        "口径",
+        "提交即计入。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "17-T21-same-source-original-portrait",
+      "pdfSha256": "ed55bcd2991bf352f1fc8bb6f1e595c2b5467bfeb26e60879b05674822a25cde",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "401d53803a1d16691e4c6fde72b115d61d1b0b28dfa6d7aab99a3ac62f2da0df",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "统计口径",
+        "开始练习的人为分母，提交作答即计为完成。",
+        "另查作答质量与退出原因，不单凭比例判断学习效果。",
+        "虚构演示：假设 100 人开始练习，38 人提交；非真实项目数据。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "23-T05-aspect-specific-square-square",
+      "pdfSha256": "cfd938bc60b0f5269bbd1285a8f7a6a4a46086b1bbbc7e1319192d0234a4e494",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        810
+      ],
+      "actualPagePoints": [
+        810,
+        810
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "27f026979e8c5cb11af8061df6df3e060a67e900784cd61e9fee549d834ca640",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "边界\n何时不再适用？",
+        "行动\n下一步查什么？",
+        "原创清单 · 保留输入编号"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed",
+      "raster": "23-T05-aspect-specific-square-square.png",
+      "rasterSha256": "085f6515ec93869868bb3dcabcdfd2ebeb5e77c106d9c0255c7d1284b6950448"
+    },
+    {
+      "id": "24-T05-same-source-short-portrait",
+      "pdfSha256": "346e795152c7227d1a45e1799c1c240e604b9e227a1aa94ffa35f7cdbf9c323b",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "b9549b412335d5a02d967254ac0928a0f405ee1213209fc992f608786ceb5f09",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "边界\n何时不再适用？",
+        "行动\n下一步查什么？",
+        "原创清单 · 保留输入编号"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "25-T05-same-source-short-square",
+      "pdfSha256": "015bc592010310ab4cd8392a99b5ac802d3879e3505f6a4cfc816e35162b4310",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        810
+      ],
+      "actualPagePoints": [
+        810,
+        810
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "27f026979e8c5cb11af8061df6df3e060a67e900784cd61e9fee549d834ca640",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "边界\n何时不再适用？",
+        "行动\n下一步查什么？",
+        "原创清单 · 保留输入编号"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "26-T05-same-source-original-portrait",
+      "pdfSha256": "1004dfa43c5a5b48645f2d9349e15cdc7369f037a7403fc707468f9ffacede15",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "939ce9132e2d6ea5620032ce73873c955d1c6998ebf18e49f60e801bc4e3153b",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "给阅读一个顺序",
+        "寻找依据\n找到支持结论的原始材料，记下出处。",
+        "标明边界\n哪些条件改变时，结论可能不再成立？",
+        "留下行动\n用一句话写下下一次查证的方向。",
+        "READING INDEX / 阅读方法",
+        "原创方法示例 · 编号来自输入列表"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "32-T13-aspect-specific-square-square",
+      "pdfSha256": "b6a4c7baca01df83ec654a90535f095e31fe6453984e1d28a6de3fdfef3a852e",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        810
+      ],
+      "actualPagePoints": [
+        810,
+        810
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "e2d3924f031382d1d5b38042fad738cea63c98a27adf6bc67918f51306a3f1aa",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed",
+      "raster": "32-T13-aspect-specific-square-square.png",
+      "rasterSha256": "078edcb6cd2cf6b760a35b5016408ec6528a46b4ea72ee61ce903d61c12bbf8c"
+    },
+    {
+      "id": "33-T13-same-source-short-portrait",
+      "pdfSha256": "80fdec95f44f8a772dc96ce9a61ffa1113d21212c9f480b9da5d6fb11f2d4184",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "cc3e55c1dc287c557cc3dac17333ddc8327afe1a0251c5eb83c169b86804acd6",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "34-T13-same-source-short-square",
+      "pdfSha256": "0d909d3302af1c118ccffc68dfc85022658c32b1ee7ab98cef2255b19235ba96",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        810
+      ],
+      "actualPagePoints": [
+        810,
+        810
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "e2d3924f031382d1d5b38042fad738cea63c98a27adf6bc67918f51306a3f1aa",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "35-T13-same-source-original-portrait",
+      "pdfSha256": "701d0ad5fed6e3383a0dd454eaef154a81adc99851db4d9009ff9796948c25d2",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "0f63a488ea95aeba65846bbb7dfe79eb4e1242e5658a0385bfb562e75e2de55f",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "把想法交给现实，在反馈中完善下一版。",
+        "定义一个小而完整的结果，今天就能展示和验证。",
+        "MAKE IT REAL / 行动主张",
+        "原创工作方法 · 高风险操作须遵守专项流程"
+      ],
+      "compatibilityNfkcMissing": [
+        "原创工作方法 · 高风险操作须遵守专项流程"
+      ],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "41-T24-aspect-specific-slide-slide",
+      "pdfSha256": "824fde4de0105f6fb4c77db857f947d9dd1ba388d892816d269b4b5558b0ea49",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        1200,
+        675
+      ],
+      "actualPagePoints": [
+        1200,
+        675.12
+      ],
+      "pointDelta": [
+        0,
+        0.12000000000000455
+      ],
+      "dimensionsMatchWithinPoint1": false,
+      "textSha256": "f29061f3e46439d40f327e00420660bd98899342d374d7eb9e0dfe34e3785b26",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "方式对照",
+        "用途",
+        "原创方法对照 · 不作排名"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed",
+      "raster": "41-T24-aspect-specific-slide-slide.png",
+      "rasterSha256": "59ee3f04655862e66edfad51ba13ebb909623059e4f9288880370bba5655b585"
+    },
+    {
+      "id": "42-T24-same-source-short-portrait",
+      "pdfSha256": "1a7ad9a68c11f37f58d2277b4438375bd25f66b9bf6c6ab84d79a957188aa34c",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "de40827106327f3960cc8ac35803d39ff5d882c71437e4fddf045536cd183ba6",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "方式对照",
+        "用途",
+        "原创方法对照 · 不作排名"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "43-T24-same-source-short-slide",
+      "pdfSha256": "8ceb4fb4c70d7d704a1251c18d27c6ccf64a99cba927f99fe257e15c2d43e8cf",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        1200,
+        675
+      ],
+      "actualPagePoints": [
+        1200,
+        675.12
+      ],
+      "pointDelta": [
+        0,
+        0.12000000000000455
+      ],
+      "dimensionsMatchWithinPoint1": false,
+      "textSha256": "f29061f3e46439d40f327e00420660bd98899342d374d7eb9e0dfe34e3785b26",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "方式对照",
+        "用途",
+        "原创方法对照 · 不作排名"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "44-T24-same-source-original-portrait",
+      "pdfSha256": "bc9671b627ef03ff3817f4ca5d2afbf062dcd3361bffebc9691905857ee7b5c0",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "a90bf31aeed30b5feb0f58a0f4aeff66ecca26415da9f853eee3eb26a3c004bc",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "三种读书记录方式",
+        "编号只是索引，不表示优劣。",
+        "方式对照",
+        "适用情形",
+        "回原文核对偏差",
+        "COMPARISON NOTE / 先看适用条件",
+        "原创方式对照 · 非产品测评或性能排名"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "50-T37-aspect-specific-slide-slide",
+      "pdfSha256": "633e05df75aa859ca1088d99d45407656cfcd9b07f83310c686e90b988ade288",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        1200,
+        675
+      ],
+      "actualPagePoints": [
+        1200,
+        675.12
+      ],
+      "pointDelta": [
+        0,
+        0.12000000000000455
+      ],
+      "dimensionsMatchWithinPoint1": false,
+      "textSha256": "443410a219fd1a123c9d542c5c443611427e76091e7021a6a38b8d4e56aff890",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "窗边慢一拍",
+        "先看光影，再写所见。",
+        "原创合成图像与文案",
+        "AI 合成，非摄影。"
+      ],
+      "compatibilityNfkcMissing": [
+        "先看光影，再写所见。"
+      ],
+      "visualReview": "not-performed",
+      "raster": "50-T37-aspect-specific-slide-slide.png",
+      "rasterSha256": "612647fe50050957af26101fae587812ca1367d9348ebec53090bcbe694399cb"
+    },
+    {
+      "id": "51-T37-same-source-short-portrait",
+      "pdfSha256": "17c91faf20c078a4bd9c86f5cabcc02100197b521fb142509264d08de797806d",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "5125d914ffa47ef46c6af6500d60eebe998f403add8bb44ed4ec8167dedc731d",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "窗边慢一拍",
+        "先看光影，再写所见。",
+        "原创合成图像与文案",
+        "AI 合成，非摄影。"
+      ],
+      "compatibilityNfkcMissing": [
+        "先看光影，再写所见。"
+      ],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "52-T37-same-source-short-slide",
+      "pdfSha256": "3594369a6e88d836d6373b6d405ac924d0a688e129f21e551fa4b1b488c2cf7c",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        1200,
+        675
+      ],
+      "actualPagePoints": [
+        1200,
+        675.12
+      ],
+      "pointDelta": [
+        0,
+        0.12000000000000455
+      ],
+      "dimensionsMatchWithinPoint1": false,
+      "textSha256": "443410a219fd1a123c9d542c5c443611427e76091e7021a6a38b8d4e56aff890",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "窗边慢一拍",
+        "先看光影，再写所见。",
+        "原创合成图像与文案",
+        "AI 合成，非摄影。"
+      ],
+      "compatibilityNfkcMissing": [
+        "先看光影，再写所见。"
+      ],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "53-T37-same-source-original-portrait",
+      "pdfSha256": "4d8a0583d7d8421cfc74d12186ae5400c45f0c0c565dd4f0f623a56470dde183",
+      "pageCount": 1,
+      "expectedPagePoints": [
+        810,
+        1080
+      ],
+      "actualPagePoints": [
+        810,
+        1080
+      ],
+      "pointDelta": [
+        0,
+        0
+      ],
+      "dimensionsMatchWithinPoint1": true,
+      "textSha256": "d6184b60616280584a66ae65d4ac15bebded015496f579cac2c28c8fe7d2faf4",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "在窗边留一页空白",
+        "光线移过桌面，纸张留下温暖的阴影。先观察，再写下一件真正看见的事。",
+        "原创合成图像与文案 · 默认完整保留图像比例",
+        "图像为 AI 生成，不是现场摄影记录。"
+      ],
+      "compatibilityNfkcMissing": [
+        "在窗边留一页空白",
+        "光线移过桌面，纸张留下温暖的阴影。先观察，再写下一件真正看见的事。"
+      ],
+      "visualReview": "not-performed"
+    }
+  ]
+}

@@ -21,6 +21,7 @@ async function fixture(t, { root: sourceRoot = ROOT, templates = TEMPLATES } = {
   const bindings = JSON.parse(await readFile(path.join(sourceRoot, 'docs/template-gallery-evidence.json'), 'utf8'));
   const files = new Set(['docs/template-gallery-evidence.json', 'docs/TEMPLATE_ASPECTS.md', 'docs/TEMPLATE_GALLERY.md', 'docs/gallery-comparisons.json', 'examples/refinement', 'docs/gallery', 'examples/templates']);
   for (const group of sourceModel.comparisons) for (const file of group.evidenceFiles ?? []) files.add(file);
+  for (const file of sourceModel.aspectEvidence.evidenceFiles) files.add(file);
   for (const batch of bindings.batches) {
     files.add(batch.review);
     files.add(batch.evidence);

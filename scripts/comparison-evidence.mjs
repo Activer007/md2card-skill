@@ -9,16 +9,18 @@ import { SEMANTIC_FILES, sha256, evidencePath, readEvidenceFile } from './eviden
 import { buildRefinementTextInput } from './refinement-input.mjs';
 
 export const COMPARISON_BATCH = Object.freeze({
-  id: 'refinement-run-40079675432',
-  root: 'docs/evidence/refinement-run-40079675432',
-  bindingSha256: 'aa7b421b28031cdeece6650a73ff8376f19a3369d27c06b4a5e8db87d013745f',
+  id: 'refinement-run-40079964688',
+  root: 'docs/evidence/refinement-run-40079964688',
+  bindingSha256: '647ad2a81847358e4e84ee8eac4cc7f58604b457f665003ba64efa13c876576f',
+  equivalenceSha256: '32b31b824947e506c8af5b0b528d8c7b5c60db17c882a5ea05e4b5a82fc65486',
+  previousReviewSha256: 'aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2',
   identity: Object.freeze({
-    commit: 'ba10171bd67651af6b7b24b45ce854a31d738fcb',
-    tree: '29ac782a1160a18c487170c5342805e745d29d53',
-    sourceSha256: '71ce209fda6f84cec14eef3c6468ac2b58cd78c43ffbc15a7b8c4c9c42fb4682',
-    runUrl: 'https://github.com/Activer007/md2card-skill/actions/runs/40079675432',
-    artifactId: 12554412890,
-    archiveSha256: '218dfc6d0d0c8a73d3606ca1883d05983393273c5d3113a7079257b8c2f16b3b'
+    commit: '05f6bb6e484cb8887ea037e520a733db9303563d',
+    tree: '9dee88002e629b44dbd7e141874fe5388b5e7b9d',
+    sourceSha256: '473cd63ff3ff57cacdcf1bee29044d53bf02ce062b4b40bc027db529462859c1',
+    runUrl: 'https://github.com/Activer007/md2card-skill/actions/runs/40079964688',
+    artifactId: 12554054288,
+    archiveSha256: '794985f23429b86be89a8790070ee4f2e4b168d8160239bcb5dfc06761d52d5b'
   })
 });
 const SHA = /^[a-f0-9]{64}$/;
@@ -68,7 +70,33 @@ export function comparisonEvidenceReader(readRepoFile) {
         equal(sha256(await readEvidenceFile(EXECUTION_ROOT, file)), files.get(file).sha256, `executing semantics differ: ${file}`);
       }
     }
-    return { binding, plan };
+    // Current CI source differs from PR20. Retain the prior visual observation
+    // only with pinned evidence of identical pixels, not a declared equivalence.
+    const equivalenceFile = `${root}/visual-equivalence.json`;
+    const equivalence = JSON.parse(await readHash(equivalenceFile, COMPARISON_BATCH.equivalenceSha256));
+    equal(equivalence.newIdentity, binding.identity, 'equivalence source identity');
+    equal(equivalence.newBindingSha256, COMPARISON_BATCH.bindingSha256);
+    equal(equivalence.previousReview, { file: 'docs/comparison-visual-review.json', sha256: COMPARISON_BATCH.previousReviewSha256 });
+    const previous = JSON.parse(await readHash(equivalence.previousReview.file, COMPARISON_BATCH.previousReviewSha256));
+    equal(previous.identity, equivalence.oldIdentity);
+    const ids = binding.groups.flatMap(group => group.records);
+    equal(equivalence.records.map(record => record.id).sort(), [...ids].sort(), 'complete equivalence inventory');
+    const equivalenceFiles = [equivalenceFile, equivalence.previousReview.file];
+    for (const id of ids) {
+      const record = binding.records.find(record => record.id === id), proof = equivalence.records.find(record => record.id === id);
+      const old = previous.records.find(record => record.id === id); assert.ok(old, 'missing previous pixel review');
+      equal(proof.previousReviewSha256, COMPARISON_BATCH.previousReviewSha256);
+      const unchanged = [record.input, ...(record.mobile ?? []), ...(record.artifacts ?? []).filter(a => ['png', 'contact-sheet'].includes(a.format)), ...(record.pdfText ?? []), ...(record.diagnostic ? [record.diagnostic] : [])];
+      equal(proof.equalFiles, unchanged.map(({ file, sha256 }) => ({ file, sha256 })), 'exact equivalent files');
+      for (const entry of unchanged) equal(old.files.find(file => file.file === entry.file)?.sha256, entry.sha256, 'previously reviewed byte identity');
+      if (record.outcome === 'exported') {
+        const rasterFile = `${root}/native-pdf-pages/${id}.png`;
+        equal(proof.nativePdf, { previousPdfSha256: old.pdfPageInspection.pdfSha256, newPdfSha256: record.artifacts.find(a => a.format === 'pdf').sha256,
+          equalRasterSha256: old.pdfPageInspection.rasterSha256, rasterFile, pageCount: 1, pagePoints: [810, 1080] });
+        await readHash(rasterFile, old.pdfPageInspection.rasterSha256); equivalenceFiles.push(rasterFile);
+      }
+    }
+    return { binding, plan, equivalenceFiles };
   };
   return async (group, versions) => {
     try {
@@ -77,7 +105,7 @@ export function comparisonEvidenceReader(readRepoFile) {
       // ignoring conflicting fields that could mislead reviewers.
       equal(Object.keys(group.evidence).sort(), ['batch', 'review', 'reviewSha256', 'visualReview', 'visualReviewSha256'].sort(), 'comparison evidence fields');
       batchPromise ??= load();
-      const { binding, plan } = await batchPromise;
+      const { binding, plan, equivalenceFiles } = await batchPromise;
       const original = plan.groups.find(item => item.id === group.id);
       assert.ok(original, 'unknown bound group');
       for (const field of ['input', 'inputSha256', 'templates']) equal(group[field], original[field], `bound group ${field}`);
@@ -126,7 +154,7 @@ export function comparisonEvidenceReader(readRepoFile) {
       const evidenceFiles = [...new Set([
         `${COMPARISON_BATCH.root}/binding.json`, `${COMPARISON_BATCH.root}/comparison-plan.json`, `${COMPARISON_BATCH.root}/source-package.json`,
         `${COMPARISON_BATCH.root}/refinement/source-files.json`, `${COMPARISON_BATCH.root}/refinement/summary.json`,
-        ...SEMANTIC_FILES, proof.review, proof.visualReview,
+        ...SEMANTIC_FILES, ...equivalenceFiles, proof.review, proof.visualReview,
         ...selected.flatMap(record => comparisonRecordFiles(record).map(entry => `${COMPARISON_BATCH.root}/${entry.file}`))
       ])];
       return { previews, refusals, evidenceFiles };

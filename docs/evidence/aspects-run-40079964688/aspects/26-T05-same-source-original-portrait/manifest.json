@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 2,
+  "status": "success",
+  "generator": {
+    "name": "md2card-skill",
+    "version": "3.0.0"
+  },
+  "createdAt": "2026-10-24T09:03:14.059Z",
+  "input": "T05.md",
+  "inputSha256": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3",
+  "title": "T05.md",
+  "theme": "editorial",
+  "footerMode": "legacy",
+  "styleSha256": {
+    "themes": "3636d2163b99d4bf6db3e8b073d0480dfa08ef98bf42f7fe89cdb8702e736835",
+    "layouts": "9d898b9ef473bd8b69599c502f5f94ebdffb8e2443b5cf24df484d05f6ec4cba",
+    "templates": "0baaaefe9f12db79e70464e09c4b11d68ab7c3313eb58ee4086ba4aefe7e382a"
+  },
+  "brand": null,
+  "dimensions": {
+    "width": 1080,
+    "height": 1440
+  },
+  "pngScale": 1,
+  "formats": [
+    "html",
+    "png",
+    "pdf"
+  ],
+  "cardCount": 1,
+  "artifacts": [
+    {
+      "format": "html",
+      "file": "cards.html",
+      "bytes": 143321,
+      "sha256": "7431e335d91cdc91cd4566086dfa20d6c879f02ac9b448a9e77d1540ce067a6b"
+    },
+    {
+      "format": "preview",
+      "file": "preview.html",
+      "bytes": 144139,
+      "sha256": "032f09e0cdf1fe28e2e0a11c082d424f30acdab1331236ab4205fbae87d457f6"
+    },
+    {
+      "format": "pdf",
+      "file": "cards.pdf",
+      "bytes": 166881,
+      "sha256": "1004dfa43c5a5b48645f2d9349e15cdc7369f037a7403fc707468f9ffacede15"
+    },
+    {
+      "format": "png",
+      "file": "card-001.png",
+      "bytes": 147658,
+      "sha256": "8d39171b49e945f4f6b8016c29930b80a55dd2dd9360936b324c64622296b1df",
+      "card": 1
+    }
+  ],
+  "assets": [],
+  "assetUsage": {
+    "occurrences": 0,
+    "pixels": 0,
+    "embeddedBytes": 0,
+    "loadedBytes": 0
+  },
+  "versions": {
+    "node": "22.23.3",
+    "md2card": "3.0.0",
+    "markdownIt": "15.0.3",
+    "playwright": "1.64.1",
+    "pdfinfo": "pdfinfo version 24.02.0",
+    "pdftotext": "pdftotext version 24.02.0",
+    "chromium": "156.0.8078.4"
+  },
+  "budget": {
+    "estimatedPixels": 1555200,
+    "cardPixels": 1555200,
+    "contactSheet": null,
+    "maxPixels": 200000000,
+    "maxOutputBytes": 268435456,
+    "timeoutMs": 120000,
+    "outputBytes": 601999,
+    "elapsedMs": 989
+  },
+  "qa": {
+    "overflow": {
+      "screen": "pass",
+      "print": "pass"
+    },
+    "images": {
+      "status": "pass",
+      "count": 0
+    },
+    "fonts": {
+      "scanAvailable": true,
+      "families": [
+        "Bitstream Charter",
+        "Courier 10 Pitch",
+        "DejaVu Math TeX Gyre",
+        "DejaVu Sans",
+        "DejaVu Sans Mono",
+        "DejaVu Sans,DejaVu Sans Condensed",
+        "DejaVu Sans,DejaVu Sans Light",
+        "DejaVu Serif",
+        "DejaVu Serif,DejaVu Serif Condensed",
+        "FreeMono",
+        "FreeSans",
+        "FreeSerif",
+        "IPAGothic,IPAゴシック",
+        "IPAPGothic,IPA Pゴシック,䥐䅐䝯瑨楣",
+        "Lato",
+        "Lato,Lato Black",
+        "Lato,Lato Hairline",
+        "Lato,Lato Heavy",
+        "Lato,Lato Light",
+        "Lato,Lato Medium",
+        "Lato,Lato Semibold",
+        "Lato,Lato Thin",
+        "Liberation Mono",
+        "Liberation Sans",
+        "Liberation Serif",
+        "Loma",
+        "Noto Color Emoji",
+        "Noto Sans CJK HK",
+        "Noto Sans CJK JP",
+        "Noto Sans CJK KR",
+        "Noto Sans CJK SC",
+        "Noto Sans CJK TC",
+        "Noto Sans Mono CJK HK",
+        "Noto Sans Mono CJK JP",
+        "Noto Sans Mono CJK KR",
+        "Noto Sans Mono CJK SC",
+        "Noto Sans Mono CJK TC",
+        "Noto Serif CJK HK",
+        "Noto Serif CJK JP",
+        "Noto Serif CJK KR",
+        "Noto Serif CJK SC",
+        "Noto Serif CJK TC",
+        "Unifont",
+        "Unifont CSUR",
+        "Unifont Sample",
+        "Unifont Upper",
+        "Unifont-JP",
+        "WenQuanYi Zen Hei Mono,文泉驛等寬正黑,文泉驿等宽正黑",
+        "WenQuanYi Zen Hei Sharp,文泉驛點陣正黑,文泉驿点阵正黑",
+        "WenQuanYi Zen Hei,文泉驛正黑,文泉驿正黑"
+      ],
+      "cjkFamilies": [
+        "Noto Sans CJK HK",
+        "Noto Sans CJK JP",
+        "Noto Sans CJK KR",
+        "Noto Sans CJK SC",
+        "Noto Sans CJK TC",
+        "Noto Sans Mono CJK HK",
+        "Noto Sans Mono CJK JP",
+        "Noto Sans Mono CJK KR",
+        "Noto Sans Mono CJK SC",
+        "Noto Sans Mono CJK TC",
+        "Noto Serif CJK HK",
+        "Noto Serif CJK JP",
+        "Noto Serif CJK KR",
+        "Noto Serif CJK SC",
+        "Noto Serif CJK TC",
+        "Unifont",
+        "Unifont Sample",
+        "Unifont-JP",
+        "WenQuanYi Zen Hei Mono,文泉驛等寬正黑,文泉驿等宽正黑",
+        "WenQuanYi Zen Hei Sharp,文泉驛點陣正黑,文泉驿点阵正黑",
+        "WenQuanYi Zen Hei,文泉驛正黑,文泉驿正黑"
+      ],
+      "requiredGlyphCount": 86,
+      "missingGlyphs": [],
+      "matchedFamily": "Noto Sans CJK SC",
+      "typography": {
+        "schemaVersion": 1,
+        "localOnly": true,
+        "browserSelection": "unverified",
+        "stacks": {
+          "sans": {
+            "requestedFamilies": [
+              "Inter",
+              "Helvetica Neue",
+              "Arial",
+              "Noto Sans CJK SC",
+              "Noto Sans SC",
+              "PingFang SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Sans CJK SC",
+            "fallback": "sans-serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "humanist": {
+            "requestedFamilies": [
+              "Aptos",
+              "Segoe UI",
+              "Optima",
+              "Noto Sans CJK SC",
+              "Noto Sans SC",
+              "PingFang SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Sans CJK SC",
+            "fallback": "sans-serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "geometric": {
+            "requestedFamilies": [
+              "Futura",
+              "Avenir Next",
+              "Century Gothic",
+              "Noto Sans CJK SC",
+              "Noto Sans SC",
+              "PingFang SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Sans CJK SC",
+            "fallback": "sans-serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "emphatic": {
+            "requestedFamilies": [
+              "Arial Black",
+              "Franklin Gothic Heavy",
+              "Noto Sans CJK SC",
+              "Noto Sans SC",
+              "PingFang SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Sans CJK SC",
+            "fallback": "sans-serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "serif": {
+            "requestedFamilies": [
+              "Iowan Old Style",
+              "Palatino Linotype",
+              "Georgia",
+              "Noto Serif CJK SC",
+              "Noto Serif SC",
+              "Source Han Serif SC",
+              "Songti SC",
+              "SimSun"
+            ],
+            "availableFamilies": [
+              "Noto Serif CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Serif CJK SC",
+            "fallback": "serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "literary": {
+            "requestedFamilies": [
+              "Noto Serif CJK SC",
+              "Noto Serif SC",
+              "Source Han Serif SC",
+              "Songti SC",
+              "SimSun",
+              "Georgia"
+            ],
+            "availableFamilies": [
+              "Noto Serif CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Serif CJK SC",
+            "fallback": "serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "rounded": {
+            "requestedFamilies": [
+              "Avenir Next",
+              "Trebuchet MS",
+              "Noto Sans CJK SC",
+              "Noto Sans SC",
+              "PingFang SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Sans CJK SC",
+            "fallback": "sans-serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "mono": {
+            "requestedFamilies": [
+              "SFMono-Regular",
+              "Cascadia Mono",
+              "Consolas",
+              "Liberation Mono",
+              "Noto Sans Mono CJK SC",
+              "Noto Sans CJK SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Liberation Mono",
+              "Noto Sans Mono CJK SC",
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Liberation Mono",
+            "fallback": "monospace",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          }
+        },
+        "families": {
+          "editorial": {
+            "profile": "local-roles-editorial-v2",
+            "roles": {
+              "display": "serif",
+              "body": "sans",
+              "numeric": "sans",
+              "quote": "serif",
+              "source": "sans"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.52,
+            "quoteLineHeight": 1.64,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 1.04
+          },
+          "swiss": {
+            "profile": "local-roles-swiss-v2",
+            "roles": {
+              "display": "sans",
+              "body": "sans",
+              "numeric": "geometric",
+              "quote": "sans",
+              "source": "mono"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.46,
+            "quoteLineHeight": 1.55,
+            "bodyLetterSpacing": -0.005,
+            "paragraphGapScale": 0.9
+          },
+          "bauhaus": {
+            "profile": "local-roles-bauhaus-v2",
+            "roles": {
+              "display": "geometric",
+              "body": "sans",
+              "numeric": "geometric",
+              "quote": "geometric",
+              "source": "sans"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.48,
+            "quoteLineHeight": 1.56,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 0.94
+          },
+          "brutalist": {
+            "profile": "local-roles-brutalist-v2",
+            "roles": {
+              "display": "emphatic",
+              "body": "sans",
+              "numeric": "mono",
+              "quote": "sans",
+              "source": "mono"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.44,
+            "quoteLineHeight": 1.5,
+            "bodyLetterSpacing": -0.005,
+            "paragraphGapScale": 0.86
+          },
+          "technology": {
+            "profile": "local-roles-technology-v2",
+            "roles": {
+              "display": "humanist",
+              "body": "humanist",
+              "numeric": "mono",
+              "quote": "humanist",
+              "source": "mono"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.48,
+            "quoteLineHeight": 1.56,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 0.92
+          },
+          "business": {
+            "profile": "local-roles-business-v2",
+            "roles": {
+              "display": "sans",
+              "body": "humanist",
+              "numeric": "sans",
+              "quote": "serif",
+              "source": "sans"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.46,
+            "quoteLineHeight": 1.56,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 0.94
+          },
+          "journal": {
+            "profile": "local-roles-journal-v2",
+            "roles": {
+              "display": "serif",
+              "body": "humanist",
+              "numeric": "mono",
+              "quote": "literary",
+              "source": "mono"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.58,
+            "quoteLineHeight": 1.7,
+            "bodyLetterSpacing": 0.005,
+            "paragraphGapScale": 1.08
+          },
+          "eastern": {
+            "profile": "local-roles-eastern-v2",
+            "roles": {
+              "display": "literary",
+              "body": "literary",
+              "numeric": "serif",
+              "quote": "literary",
+              "source": "humanist"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.6,
+            "quoteLineHeight": 1.82,
+            "bodyLetterSpacing": 0.015,
+            "paragraphGapScale": 1.12
+          },
+          "newspaper": {
+            "profile": "local-roles-newspaper-v2",
+            "roles": {
+              "display": "serif",
+              "body": "literary",
+              "numeric": "mono",
+              "quote": "serif",
+              "source": "sans"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.48,
+            "quoteLineHeight": 1.6,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 0.94
+          },
+          "film": {
+            "profile": "local-roles-film-v2",
+            "roles": {
+              "display": "serif",
+              "body": "humanist",
+              "numeric": "mono",
+              "quote": "serif",
+              "source": "mono"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.5,
+            "quoteLineHeight": 1.64,
+            "bodyLetterSpacing": 0.005,
+            "paragraphGapScale": 1.02
+          },
+          "pop": {
+            "profile": "local-roles-pop-v2",
+            "roles": {
+              "display": "rounded",
+              "body": "sans",
+              "numeric": "mono",
+              "quote": "rounded",
+              "source": "sans"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.44,
+            "quoteLineHeight": 1.5,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 0.9
+          },
+          "nature": {
+            "profile": "local-roles-nature-v2",
+            "roles": {
+              "display": "literary",
+              "body": "humanist",
+              "numeric": "sans",
+              "quote": "literary",
+              "source": "serif"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.56,
+            "quoteLineHeight": 1.68,
+            "bodyLetterSpacing": 0.005,
+            "paragraphGapScale": 1.06
+          }
+        }
+      }
+    },
+    "pdf": {
+      "schemaVersion": 1,
+      "status": "pass",
+      "ok": true,
+      "pageCount": 1,
+      "textCharacters": 129,
+      "searchable": true,
+      "checks": [
+        {
+          "id": "pdf-pages",
+          "status": "pass",
+          "message": "PDF contains 1 page(s).",
+          "details": {
+            "expectedPages": 1,
+            "actualPages": 1
+          }
+        },
+        {
+          "id": "pdf-text",
+          "status": "pass",
+          "message": "PDF contains extractable, searchable text.",
+          "details": {
+            "textCharacters": 129,
+            "expectedSnippetCount": 0
+          }
+        }
+      ],
+      "tools": {
+        "pdfinfo": true,
+        "pdftotext": true
+      }
+    },
+    "visualReview": "not-performed"
+  },
+  "pagination": {
+    "mode": "manual"
+  },
+  "cards": [
+    {
+      "index": 1,
+      "layout": "steps",
+      "template": "T05",
+      "density": "standard",
+      "aspect": "portrait",
+      "sourceLines": [
+        1,
+        12
+      ],
+      "sourceSha256": "d50e666a54c8213827c1a997f15b6c5bfce8e775c7685afe05305359c09f5bf3",
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1224
+        },
+        "used": {
+          "width": 968,
+          "height": 1224
+        },
+        "occupied": {
+          "height": 1223.578125
+        },
+        "overflow": []
+      }
+    }
+  ],
+  "security": {
+    "rawHtml": "escaped",
+    "images": "validated-local-raster-only",
+    "assetBoundary": "realpath-contained",
+    "networkRequests": "blocked",
+    "clientScripts": "disabled"
+  }
+}

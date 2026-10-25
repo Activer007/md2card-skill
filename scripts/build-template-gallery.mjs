@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { TEMPLATES, DENSITIES } from './templates.mjs';
 import { buildTaskGuide, buildComparisonModel } from './gallery-discovery.mjs';
+import { buildAspectEvidence } from './aspect-evidence.mjs';
 
 export const ROOT = fileURLToPath(new URL('../', import.meta.url));
 export const GALLERY_PATH = 'docs/gallery/index.html';
@@ -147,7 +148,9 @@ export async function buildGalleryModel({ root = ROOT, templates = TEMPLATES } =
     if (!items.some(item => item.id === id && (item.acceptance === batch.id || item.histories.some(history => history.batch === batch.id)))) fail(`orphaned acceptance record: ${batch.id}/${id}`);
   }
   items.sort((a, b) => compare(a.id, b.id));
-  return { schemaVersion: 1, tasks: buildTaskGuide(items), comparisons: await buildComparisonModel(items, relative => readRepoFile(root, relative)), items, accepted: items.filter(item => item.preview), pending: items.filter(item => !item.preview), families: [...new Set(items.map(item => item.family))].sort(compare).map(value => ({ value, label: FAMILY_NAMES[value] ?? value })), densities: [...DENSITIES] };
+  const aspectEvidence = await buildAspectEvidence(items, relative => readRepoFile(root, relative));
+  for (const item of items) item.aspectEvidence = aspectEvidence.entries.filter(entry => entry.template === item.id);
+  return { schemaVersion: 1, aspectEvidence, tasks: buildTaskGuide(items), comparisons: await buildComparisonModel(items, relative => readRepoFile(root, relative)), items, accepted: items.filter(item => item.preview), pending: items.filter(item => !item.preview), families: [...new Set(items.map(item => item.family))].sort(compare).map(value => ({ value, label: FAMILY_NAMES[value] ?? value })), densities: [...DENSITIES] };
 }
 
 const e = escapeHtml;
@@ -157,11 +160,12 @@ const field = (label, value) => `<div><dt>${e(label)}</dt><dd>${e(value)}</dd></
 
 function renderDetails(item) {
   const accepted = item.preview !== null;
+  const aspectEvidence = (item.aspectEvidence ?? []).map(entry => `<div data-aspect-evidence="${e(entry.id)}"><dt>${e(entry.aspect)} 精确短例 · aspect-v${entry.aspectVersion}</dt><dd>${link(entry.input, '原始输入')} · ${link(entry.views.fullPng.file, '完整 PNG')} · ${link(entry.views.mobile375.file, '375px')} · ${link(entry.views.mobile390.file, '390px')} · ${link(entry.views.nativePdf.file, '原生 PDF')} · ${link('docs/ASPECT_PR22_REVIEW.md', '独立画幅复核')}<br>${e(entry.notes)}${entry.limitations.map(note => `<br>${e(note)}`).join('')}<br>仅此 standard / manual 短例；不增加模板数，不证明其他内容可适配。</dd></div>`).join('');
   const evidence = accepted ? `<div><dt>验收证据</dt><dd>${link(item.evidence.review, `${item.evidence.batch} 逐图复核记录`)} · ${link(item.evidence.path, '原始产物哈希记录')}<br>源码提交 <code>${e(item.evidence.codeCommit)}</code><br>完整代码树 <code>${e(item.evidence.codeTree)}</code></dd></div>
 ${field('已验收 PNG SHA-256', item.preview.sha256)}${field('证据文件 SHA-256', item.evidence.sha256)}` : field('验收证据', '尚无当前版本的真实 PNG / 手机 / PDF 视觉验收包；源码实现不等于成品。');
   const history = item.histories.map(entry => `<div><dt>历史版本 v${entry.version}</dt><dd>${e(`v${entry.version} 的 ${entry.batch} 仅为旧设计证据，不证明当前 v${item.version}。`)}<br>${link(entry.previewPath, `v${entry.version} 历史 PNG`)} · ${link(entry.review, `${entry.batch} 逐图复核记录`)} · ${link(entry.path, '历史产物哈希记录')}<br>历史源码提交 <code>${e(entry.codeCommit)}</code></dd></div>`).join('');
   return `<details class="detail"><summary>结构、边界与复现 · ${e(item.id)}</summary>
-<dl>${field('输入结构', item.structure)}${field('不适用 / 限制', item.unsuitable)}${field('推荐内容量', `${item.length[0]}–${item.length[1]} 字，仅为选型参考，不保证放得下。`)}${field('版本 / 构图', `v${item.version} · ${item.composition} · ${item.layout}`)}${field('注册示例', `${item.density} 密度 · ${item.reading} 阅读预设 · 3:4 · manual`)}${field('源码支持画幅', `${item.aspects.join(' / ')}；支持不等于已验收。当前预览仅绑定上面的默认 3:4 示例；T04 / T21 的四个指定短例保留历史证据；共用字体更新后须重新验收，见画幅说明。`)}${field('其他密度', `${DENSITIES.join(' / ')} 仅改变间距，不缩小字体。当前真实预览只证明 standard 注册示例。`)}${field('设计来源', item.provenance.design)}${field('文字来源', item.provenance.text)}${field('素材来源', item.provenance.assets)}${field('当前示例 SHA-256', item.inputSha256)}${evidence}${history}</dl>
+<dl>${field('输入结构', item.structure)}${field('不适用 / 限制', item.unsuitable)}${field('推荐内容量', `${item.length[0]}–${item.length[1]} 字，仅为选型参考，不保证放得下。`)}${field('版本 / 构图', `v${item.version} · ${item.composition} · ${item.layout}`)}${field('注册示例', `${item.density} 密度 · ${item.reading} 阅读预设 · 3:4 · manual`)}${field('源码支持画幅', `${item.aspects.join(' / ')}；支持不等于已验收。仅在 6 个模板上增加 8 个额外画幅组合：T04/T21 各增 square 与 slide，T05/T13 仅增 square，T24/T37 仅增 slide。当前预览仅绑定上面的精确 standard / 3:4 示例。八个指定短例已通过独立证据注册表绑定，相关输入、完整图、手机图和PDF见本条详情；T04/T21四组合为aspect-v2并保留v1 历史证据，T05/T13/T24/T37四组合为aspect-v1。其他内容仍须实测，见画幅说明。`)}${field('其他密度', `${DENSITIES.join(' / ')} 仅改变间距，不缩小字体。当前真实预览只证明 standard 注册示例；历史图只证明对应旧版，均不代替其他密度验收。`)}${field('设计来源', item.provenance.design)}${field('文字来源', item.provenance.text)}${field('素材来源', item.provenance.assets)}${field('当前示例 SHA-256', item.inputSha256)}${evidence}${aspectEvidence}${history}</dl>
 <p class="command-label">在仓库根目录复现${accepted ? '同一输入' : '候选示例'}（需允许的 Chromium、中文字体与 Poppler 环境）：</p><pre><code>${e(item.command)}</code></pre>
 <p class="fine-print">输出目录必须为空或不存在。命令使用当前代码；要复现历史截图，还需匹配记录中的代码、字体与环境。这里不执行渲染。</p>
 </details>`;

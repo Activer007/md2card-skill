@@ -117,6 +117,9 @@ test('comparison acceptance rejects rehashed declarations and incomplete visual 
     ['changed styles', f => f.files.set('assets/templates.css', Buffer.from('different styles'))],
     ['forged binding with fresh self-hash', f => { f.binding.identity.commit = '1'.repeat(40); const bytes = json(f.binding); f.files.set(`${root}/binding.json`, bytes); f.review.bindingSha256 = sha256(bytes); }],
     ['forged source manifest', async f => { const manifest = JSON.parse(await read(`${root}/refinement/source-files.json`)); manifest.git.tree = '2'.repeat(40); f.files.set(`${root}/refinement/source-files.json`, json(manifest)); }]
+    ,['forged visual equivalence', f => f.files.set(`${root}/visual-equivalence.json`, json({status:'equivalent'}))]
+    ,['missing re-rasterized PDF page', f => f.files.set(`${root}/native-pdf-pages/short-T04.png`, null)]
+    ,['altered previous visual review', f => f.files.set('docs/comparison-visual-review.json', json({claimed:'reviewed'}))]
   ];
   for (const [name, mutate] of mutations) await t.test(name, async () => {
     const f = await fixture(); await mutate(f);

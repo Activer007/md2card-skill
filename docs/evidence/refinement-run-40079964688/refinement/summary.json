@@ -1,0 +1,3259 @@
+{
+  "schemaVersion": 1,
+  "mode": "browser",
+  "status": "browser-checked-visual-review-pending",
+  "sourceSha256": "473cd63ff3ff57cacdcf1bee29044d53bf02ce062b4b40bc027db529462859c1",
+  "git": {
+    "commit": "05f6bb6e484cb8887ea037e520a733db9303563d",
+    "tree": "9dee88002e629b44dbd7e141874fe5388b5e7b9d",
+    "dirty": false
+  },
+  "sourceManifest": "source-files.json",
+  "browser": "attempted",
+  "visualReview": "not-performed",
+  "designCount": 48,
+  "acceptedCountUnchanged": 48,
+  "results": [
+    {
+      "id": "short-T04",
+      "template": "T04",
+      "density": "standard",
+      "length": "short",
+      "group": "same-short-reading",
+      "expected": "success",
+      "input": "validation/refinement/inputs/short-T04.md",
+      "inputSha256": "7f69262a8927f9c3dfdb4ffee6f5449226268e30124225d2b761f5250a20bf22",
+      "bodySha256": "d1588f3f5868c569a91434228b3beb71417a6a8935ef93eda59eb31fb1c05b8e",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/short-T04.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T04",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/short-T04/manifest.json",
+        "sha256": "01193a102cf2c9141450c1ac4b1abf70db54975d7642790faa588ee8c3392a9f"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "445d8a5e5f2322123febe378bd96b08cbf265f948c8ead05a835f6814cb0c2b0"
+        ],
+        "segments": [
+          [
+            "给笔记留一条线索",
+            "记录不是把材料搬进另一处。先写下自己想回答的问题。",
+            "找到联系",
+            "说明这条材料与问题有什么关系，保留原始出处。",
+            "留下边界",
+            "不能确定的地方先标记，回看原文后再作判断。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "ba38bf1b7a4356d7d3c39ac2e72775f48092cb0c2a611b01082c417a77487db1",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T04/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "799b995c0aed297f3595d2fae13862a27228d2a2ff33efeae79793643077843d",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T04/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093,
+                15.093,
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "71063c6693ae03f5d443c1d703d3f11df5ac51da7a04076ac9a644b0aae1e943"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738,
+                15.738,
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "597928012702a0b6c7aa62dd1be9f48f406035d888af354d40a0aad226c5f59e"
+        }
+      ]
+    },
+    {
+      "id": "short-T06",
+      "template": "T06",
+      "density": "standard",
+      "length": "short",
+      "group": "same-short-reading",
+      "expected": "success",
+      "input": "validation/refinement/inputs/short-T06.md",
+      "inputSha256": "f8348a84050c9e9a256a9e872a399a4d33146b95ecd4f8f1f1512a5c457632b2",
+      "bodySha256": "d1588f3f5868c569a91434228b3beb71417a6a8935ef93eda59eb31fb1c05b8e",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/short-T06.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T06",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/short-T06/manifest.json",
+        "sha256": "19790b1672d81bc185153d30c651e9cb8cda6a7ed22378cc1fd7c36812b07d64"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "445d8a5e5f2322123febe378bd96b08cbf265f948c8ead05a835f6814cb0c2b0"
+        ],
+        "segments": [
+          [
+            "给笔记留一条线索",
+            "记录不是把材料搬进另一处。先写下自己想回答的问题。",
+            "找到联系",
+            "说明这条材料与问题有什么关系，保留原始出处。",
+            "留下边界",
+            "不能确定的地方先标记，回看原文后再作判断。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "d01bfed87773c98734cd86e94b52dbeaf2e91e7ad6885ccc856b386e9d6e9532",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T06/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "85b3d28615912e285bb02eb86d186d14a3040b80b6c5573d83cb98ff9d7fa39f",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T06/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093,
+                15.093,
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "1b467875f8e6819d8732410fe16698d448e51044efa28d3210651a83751ea26e"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738,
+                15.738,
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "5f4d0c279884afeb6e5eaa10c1663277788abb5e964b8d78fdfa53fccb55685a"
+        }
+      ]
+    },
+    {
+      "id": "short-T10",
+      "template": "T10",
+      "density": "standard",
+      "length": "short",
+      "group": "same-short-reading",
+      "expected": "success",
+      "input": "validation/refinement/inputs/short-T10.md",
+      "inputSha256": "ca309f2d6abb1b7cfa4b5dd57c6f747844660dc1b2f6b6bbe376427d7cc9dd7c",
+      "bodySha256": "d1588f3f5868c569a91434228b3beb71417a6a8935ef93eda59eb31fb1c05b8e",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/short-T10.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T10",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/short-T10/manifest.json",
+        "sha256": "df6497cd4026e07bbf37c9b8288652e8827e680f7d43b3f9c6522f806404ce2e"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "445d8a5e5f2322123febe378bd96b08cbf265f948c8ead05a835f6814cb0c2b0"
+        ],
+        "segments": [
+          [
+            "给笔记留一条线索",
+            "记录不是把材料搬进另一处。先写下自己想回答的问题。",
+            "找到联系",
+            "说明这条材料与问题有什么关系，保留原始出处。",
+            "留下边界",
+            "不能确定的地方先标记，回看原文后再作判断。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "fff6b77dec624bf4c73ac84e222459855441075cac5cf2f2ced6848831dd43f2",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T10/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "9e4827129c1415d169a9a44cee757e183f20545bc03d73f49812a3cbe57c283e",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T10/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093,
+                15.093,
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "c6f2675689b1de516240955f695090d89e224e4f1f463a526400b2a5fc267f9e"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738,
+                15.738,
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "c3d3633e8cffffa86a5b4650c80e121b994aff65e1868b416de2e3124e143b7f"
+        }
+      ]
+    },
+    {
+      "id": "short-T13",
+      "template": "T13",
+      "density": "standard",
+      "length": "short",
+      "group": "same-short-reading",
+      "expected": "success",
+      "input": "validation/refinement/inputs/short-T13.md",
+      "inputSha256": "8c3d6a133111e80093efbe43467761671b43165dffb983be57a75797937deaf3",
+      "bodySha256": "d1588f3f5868c569a91434228b3beb71417a6a8935ef93eda59eb31fb1c05b8e",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/short-T13.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T13",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/short-T13/manifest.json",
+        "sha256": "10ddbcbaa0839b0daa6bda6be31d7c60785b4c8d0d5429be33db8ea46f451fb7"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "445d8a5e5f2322123febe378bd96b08cbf265f948c8ead05a835f6814cb0c2b0"
+        ],
+        "segments": [
+          [
+            "给笔记留一条线索",
+            "记录不是把材料搬进另一处。先写下自己想回答的问题。",
+            "找到联系",
+            "说明这条材料与问题有什么关系，保留原始出处。",
+            "留下边界",
+            "不能确定的地方先标记，回看原文后再作判断。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "a60fa8712a1fc73ad28ab25000d71098fd648f170aa48447635e086ac3a40e3d",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T13/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "b4792be5c5f9fe72f68f4ceab32df85d1f0b5687710dbbba72fe2a2d76ede9ca",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/short-T13/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093,
+                15.093,
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "014d4ec7227a19573213e01831772ea0328a5a371a5c2d9fed341c3fa95b3b00"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738,
+                15.738,
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "0ec48a732a9d25b38e553f1e6f6ce590be8c46d4130af6fe409fbe8de8901eaf"
+        }
+      ]
+    },
+    {
+      "id": "medium-T04",
+      "template": "T04",
+      "density": "standard",
+      "length": "medium",
+      "group": "same-medium-reading",
+      "expected": "success",
+      "input": "validation/refinement/inputs/medium-T04.md",
+      "inputSha256": "fc98383d14b7655028070298d02d22a8638e3c66e725bfedc105f07634bca20d",
+      "bodySha256": "eea3a2d0bcfa419a25a6e60b6d84cf48b39d711ac9311906ab042e31c13a5fac",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/medium-T04.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/medium-T04",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/medium-T04/manifest.json",
+        "sha256": "35be73bdd0206b4f9e542456f635f9a2f4c2a5b62d03aa062275d6b414738c2c"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "b165ad28487a2763f75cd80c087634f1d89fb3c126741235058088b838771d7d"
+        ],
+        "segments": [
+          [
+            "让笔记可以再次使用",
+            "一条笔记不必包办整篇文章。把材料、问题和自己的理解分开，下一次回来时才知道哪句话需要重新核对。",
+            "从具体问题出发",
+            "写下你想解释的现象，再记录与它有关的片段。不要只摘下结论，还要留下条件、对象和原始出处。",
+            "为下次回看留路",
+            "用一句自己的话说明材料为什么有用。暂时无法判断的地方标记为疑问，不把猜测写成原文的主张。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "e9d924f10d352a8a023a4a6005b68facaa4e6111eb96c76907aa5cef0ea13d5e",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/medium-T04/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "23e63c384a7d32b8dac86fbad0b3ae3525bcaf5a741503d259bbd9a0a197c2f9",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/medium-T04/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093,
+                15.093,
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "fbc312956b73ff5a0fff3510901b0a4095e614940a3e4b61c6715dc8d92ee16b"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738,
+                15.738,
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "b86c4902e938ab97581c3d45b12d997e301b22b39872c4559f529a0fc06e3b54"
+        }
+      ]
+    },
+    {
+      "id": "medium-T06",
+      "template": "T06",
+      "density": "standard",
+      "length": "medium",
+      "group": "same-medium-reading",
+      "expected": "success",
+      "input": "validation/refinement/inputs/medium-T06.md",
+      "inputSha256": "6d3ad7d44e7f38ecaa9a30d56eea5f1fbd6dcbdf9b7e6fe75b3ca98f75b9ac1c",
+      "bodySha256": "eea3a2d0bcfa419a25a6e60b6d84cf48b39d711ac9311906ab042e31c13a5fac",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/medium-T06.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/medium-T06",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/medium-T06/manifest.json",
+        "sha256": "6d3cd7adba676457dfc64d290f08a2b692d8fc92082fd640e46b8a48732da61d"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "b165ad28487a2763f75cd80c087634f1d89fb3c126741235058088b838771d7d"
+        ],
+        "segments": [
+          [
+            "让笔记可以再次使用",
+            "一条笔记不必包办整篇文章。把材料、问题和自己的理解分开，下一次回来时才知道哪句话需要重新核对。",
+            "从具体问题出发",
+            "写下你想解释的现象，再记录与它有关的片段。不要只摘下结论，还要留下条件、对象和原始出处。",
+            "为下次回看留路",
+            "用一句自己的话说明材料为什么有用。暂时无法判断的地方标记为疑问，不把猜测写成原文的主张。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "d5ae126b0c57d23a421f722dd6952aeca062d8ee86bfb43fc1d3b01752677c29",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/medium-T06/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "4859526042158cc1d4b4dd051da62fbf39a894011b6b9bce6e54d96d1f9a8564",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/medium-T06/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093,
+                15.093,
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "72dec5feea2b3faaf7be54b926194da7893c2b9bcf0b982d045cc9954a3e2271"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738,
+                15.738,
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "131f6b9111f3e3fd80ca760124d8eb2211da5b8fb630b3ca5c9c8f7959d41ab8"
+        }
+      ]
+    },
+    {
+      "id": "medium-T10",
+      "template": "T10",
+      "density": "standard",
+      "length": "medium",
+      "group": "same-medium-reading",
+      "expected": "success",
+      "input": "validation/refinement/inputs/medium-T10.md",
+      "inputSha256": "59585ef31eb841b172a0c4aec129406e527de15c2145c93fdd5e33588373a977",
+      "bodySha256": "eea3a2d0bcfa419a25a6e60b6d84cf48b39d711ac9311906ab042e31c13a5fac",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/medium-T10.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/medium-T10",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/medium-T10/manifest.json",
+        "sha256": "26de8f531d23ea8bb8e8a330d3a8cf3d34c7a4e36d60133b6de60f723a0ca634"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "b165ad28487a2763f75cd80c087634f1d89fb3c126741235058088b838771d7d"
+        ],
+        "segments": [
+          [
+            "让笔记可以再次使用",
+            "一条笔记不必包办整篇文章。把材料、问题和自己的理解分开，下一次回来时才知道哪句话需要重新核对。",
+            "从具体问题出发",
+            "写下你想解释的现象，再记录与它有关的片段。不要只摘下结论，还要留下条件、对象和原始出处。",
+            "为下次回看留路",
+            "用一句自己的话说明材料为什么有用。暂时无法判断的地方标记为疑问，不把猜测写成原文的主张。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "eb8913bcfdf4c3769f83f08ccd95178c79c259c1a29b787bcea441e3cb6f983d",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/medium-T10/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "b16dbaef490f002dbba92645e19ab51afb9bc15af82bbaaefa9200a28da1f256",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/medium-T10/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093,
+                15.093,
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "aba2ca8e877d1a9123f3b56cbb5646db196b988c097e9a6be3c94cdaa580c67c"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738,
+                15.738,
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "2553cd8d770abfbded8c9e00673b74379555ef140e1dc7049306ef56a9b1f54f"
+        }
+      ]
+    },
+    {
+      "id": "medium-T13",
+      "template": "T13",
+      "density": "standard",
+      "length": "medium",
+      "group": "same-medium-reading",
+      "expected": "CONTENT_OVERFLOW",
+      "input": "validation/refinement/inputs/medium-T13.md",
+      "inputSha256": "9ea410f814ba248ed54919a12b4cf2bd1ec15c6cddd3cd424f37741e7dba2913",
+      "bodySha256": "eea3a2d0bcfa419a25a6e60b6d84cf48b39d711ac9311906ab042e31c13a5fac",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/medium-T13.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/medium-T13",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": null,
+      "status": "expected-error",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "b165ad28487a2763f75cd80c087634f1d89fb3c126741235058088b838771d7d"
+        ],
+        "segments": [
+          [
+            "让笔记可以再次使用",
+            "一条笔记不必包办整篇文章。把材料、问题和自己的理解分开，下一次回来时才知道哪句话需要重新核对。",
+            "从具体问题出发",
+            "写下你想解释的现象，再记录与它有关的片段。不要只摘下结论，还要留下条件、对象和原始出处。",
+            "为下次回看留路",
+            "用一句自己的话说明材料为什么有用。暂时无法判断的地方标记为疑问，不把猜测写成原文的主张。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "diagnostic": {
+        "file": "overflow.json",
+        "sha256": "09d594ca008ae8eab68448db5d78190cb1e5536ec874b43967494612227c69d1"
+      },
+      "code": "CONTENT_OVERFLOW"
+    },
+    {
+      "id": "mixed-T04",
+      "template": "T04",
+      "density": "standard",
+      "length": "mixed",
+      "group": "same-mixed-reading",
+      "expected": "success",
+      "input": "validation/refinement/inputs/mixed-T04.md",
+      "inputSha256": "fb6d3da0b8188951d942545d68ae1355429c67326b76832d5eda0ef1989ef797",
+      "bodySha256": "9ad5321fd1b8a8f701da38442c6ecf31d286317b1fa59d8885e647d2a121a737",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/mixed-T04.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T04",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/mixed-T04/manifest.json",
+        "sha256": "d4db1af115fdfa308d21d026bbf1a7489b4fbd6eb25134e74215eea22594204a"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "b1c96e169507e5868b7286c9eee26b6d3835a97b8006596c6637c6a79ca5822b"
+        ],
+        "segments": [
+          [
+            "原文与解释分开放",
+            "A note is a trace, not a verdict. 这是一条原创练习，不是外部研究结论。",
+            "保留 source",
+            "先记录原句，再写自己的 interpretation。链接只是查找入口，不代表已经核对来源。",
+            "核对 context",
+            "回看适用对象与限定条件。遇到 uncertain evidence，先留下问题，不补造数字或结论。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "c1458bd266bb8373d81f57fda546ce88f0f3e54226c59aa52e835bde1a717245",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T04/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "dd5c657fbc075338d7aeb186e31e0c505de005171d2998e7f1f0921c463dde95",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T04/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093,
+                15.093,
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "9708139286527d327d4f79140137228b09ebf659c5bd61531ae967280036c17f"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738,
+                15.738,
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "9ffc5ded7da41a9788d96ca02a99c88d3d919af469ad53e3c6c85a59e5f2da7d"
+        }
+      ]
+    },
+    {
+      "id": "mixed-T17",
+      "template": "T17",
+      "density": "standard",
+      "length": "mixed",
+      "group": "same-mixed-reading",
+      "expected": "success",
+      "input": "validation/refinement/inputs/mixed-T17.md",
+      "inputSha256": "4cd950fff2e9ad85eded34249d2728bb5cb992806625daa3ba452c7323ccf3d6",
+      "bodySha256": "9ad5321fd1b8a8f701da38442c6ecf31d286317b1fa59d8885e647d2a121a737",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/mixed-T17.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T17",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/mixed-T17/manifest.json",
+        "sha256": "1f090332df6cd34275ed49f37b05fe30f4a712e34dd6c55b9645d2f463046687"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "b1c96e169507e5868b7286c9eee26b6d3835a97b8006596c6637c6a79ca5822b"
+        ],
+        "segments": [
+          [
+            "原文与解释分开放",
+            "A note is a trace, not a verdict. 这是一条原创练习，不是外部研究结论。",
+            "保留 source",
+            "先记录原句，再写自己的 interpretation。链接只是查找入口，不代表已经核对来源。",
+            "核对 context",
+            "回看适用对象与限定条件。遇到 uncertain evidence，先留下问题，不补造数字或结论。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "827ca5800263626c4b235067912b9175fe63d362035ccde228eba1389ee74fbe",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T17/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "50fb3a432d079d15a1b80d364138da39367dd2123a6d55387b90b0c6853b9719",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T17/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093,
+                15.093,
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "f223f86ced0495f45886dc1aaf4bd9630bb4a953470113f947c27e791f93927b"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738,
+                15.738,
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "05ff4fda78911000237bb915764c772e95a8b05e132fb63eb73d66b96144f4d4"
+        }
+      ]
+    },
+    {
+      "id": "mixed-T18",
+      "template": "T18",
+      "density": "standard",
+      "length": "mixed",
+      "group": "same-mixed-reading",
+      "expected": "success",
+      "input": "validation/refinement/inputs/mixed-T18.md",
+      "inputSha256": "f536aec3fe1fe479dc7af34b4e01e2190d63ad42b404a8f80ee6693ef0c5d891",
+      "bodySha256": "9ad5321fd1b8a8f701da38442c6ecf31d286317b1fa59d8885e647d2a121a737",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/mixed-T18.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T18",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/mixed-T18/manifest.json",
+        "sha256": "bcbe3693009d5803062a27a16a09244ba73aeb678c64d7ba4b239cf6dbad6ccf"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "b1c96e169507e5868b7286c9eee26b6d3835a97b8006596c6637c6a79ca5822b"
+        ],
+        "segments": [
+          [
+            "原文与解释分开放",
+            "A note is a trace, not a verdict. 这是一条原创练习，不是外部研究结论。",
+            "保留 source",
+            "先记录原句，再写自己的 interpretation。链接只是查找入口，不代表已经核对来源。",
+            "核对 context",
+            "回看适用对象与限定条件。遇到 uncertain evidence，先留下问题，不补造数字或结论。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "9cf54cd4967c8b0456ead3281f81977d54d576143ba9dd1e532a962b3e6e50fe",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T18/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "664ab1165c8c938ecb292893366a06c52385c1726c837f023126498c32fbdc3a",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T18/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093,
+                15.093,
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "e42c70f41ffb8ca8007ca44a62a885adfbdf215df43934d7a1aea8a58c4450ef"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738,
+                15.738,
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "49edb0c1928622bfaceb5fe0baa79a75c14beec547c464871caeb17156afc264"
+        }
+      ]
+    },
+    {
+      "id": "mixed-T33",
+      "template": "T33",
+      "density": "standard",
+      "length": "mixed",
+      "group": "same-mixed-reading",
+      "expected": "success",
+      "input": "validation/refinement/inputs/mixed-T33.md",
+      "inputSha256": "6d28f67e09f63e94f9f1d9fd4640a6317eed74b362d0b60dce0af35ac413d221",
+      "bodySha256": "9ad5321fd1b8a8f701da38442c6ecf31d286317b1fa59d8885e647d2a121a737",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/mixed-T33.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T33",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/mixed-T33/manifest.json",
+        "sha256": "e8e92c79f0630a8e2c0ea3f5a83d810f36137903a0992651a20948bfc47498dc"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "b1c96e169507e5868b7286c9eee26b6d3835a97b8006596c6637c6a79ca5822b"
+        ],
+        "segments": [
+          [
+            "原文与解释分开放",
+            "A note is a trace, not a verdict. 这是一条原创练习，不是外部研究结论。",
+            "保留 source",
+            "先记录原句，再写自己的 interpretation。链接只是查找入口，不代表已经核对来源。",
+            "核对 context",
+            "回看适用对象与限定条件。遇到 uncertain evidence，先留下问题，不补造数字或结论。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "d126e97e4fa121036a5f0bc87d17f5c3ea5b37398726efd7a7a168dc7ff01295",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T33/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "7c28846083d6591f0e4c0f645ba9a183139e45493292ad4e2940e6426efb208d",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/mixed-T33/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093,
+                15.093,
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "7d8fc590e7d96c601709e8b94f2f446eefbbba71cf1e5fa6c77a159f84f79220"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738,
+                15.738,
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                },
+                {
+                  "level": 2,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "4f17e391db25abb0a5b4562b339f9498af5aa5257529c466030c9a6c918aa3b2"
+        }
+      ]
+    },
+    {
+      "id": "long-T04",
+      "template": "T04",
+      "density": "standard",
+      "length": "long",
+      "group": "same-long-reading",
+      "expected": "CONTENT_OVERFLOW",
+      "input": "validation/refinement/inputs/long-T04.md",
+      "inputSha256": "30a79df14073a8984e3dcb79df40ddfa9df751ed9250f7b916b7878d884ea47c",
+      "bodySha256": "dfdf3c22ac0baa904c2d9e03fb62b0975059294536ac69c237a2c44d29f27035",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/long-T04.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/long-T04",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": null,
+      "status": "expected-error",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "11169ce9392502c69de1a7fbe66bab4a2c485a38ab01ee27e1e8d4f02822f169"
+        ],
+        "segments": [
+          [
+            "一份需要分卡的阅读记录",
+            "这篇原创长文用于检查模板是否会诚实拒绝超出容量的内容。它不是论文节选，也没有把某位作者的话改写成示例。阅读的目的不是让一个固定画布显得充实，而是让读者能够区分材料、解释和仍然没有解决的问题。当内容超过一张卡片的承载范围时，正确结果是提出分卡方案，保留完整原文，而不是删除后半段或把文字缩到无法阅读。",
+            "问题比收藏更具体",
+            "开始记录之前，可以先说明自己想弄清哪一件事。这个问题不必宏大，但需要足够具体，才能帮助我们判断材料为什么值得留下。收藏一篇文章可能只是因为标题有趣，也可能因为其中一个例子与眼前的工作相似。把这两种理由写清楚，下一次回看时就不必重新猜测当时的意图。遇到新的证据，原来的问题也可以改变；记录问题的变化，比假装一开始就知道答案更有用。",
+            "出处不只是一个链接",
+            "链接能够帮助寻找网页，却不能代替对内容的核对。同一篇文章可能有更新时间、适用地区、研究对象和限定条件。摘录时如果只保留最醒目的结论，而丢掉这些背景，笔记就可能比原文说得更确定。引用和转述也需要分开：引号里的文字应当保持原句，自己的解释则明确写成理解或推测。无法访问原始材料时，最好说明这一点，而不是把二手摘要当成已经读过的证据。",
+            "结构应当帮助判断",
+            "表格适合比较相同维度，但并不是所有材料都能合理地放进相同的列。如果两个对象的条件并不对称，强行填满表格可能会制造不存在的可比性。列表适合呈现有边界的项目，也不能把连续论证随意拆成孤立的短句。选择标题、段落、引用或图片时，应先判断它们怎样保留原有关系，再考虑画面是否整齐。装饰能够提示阅读路线，但不应取代缺失的解释。",
+            "图片也有证据边界",
+            "一张示意图可以帮助理解结构，却未必说明真实物品的材质、尺寸或性能。生成图像可以用于明确标注的虚构情境，不能被当成纪实记录。截图中的小字即使在原始大图里清晰，缩放到手机卡片后也可能无法辨认。此时应保留整图和比例，在图外提供作者已经写出的必要说明；没有裁切授权时，不应为了让局部更大而悄悄切掉其他内容。",
+            "回看不是确认偏见",
+            "复习笔记时，不只是寻找支持自己原有想法的句子。也可以记录哪些材料改变了判断，哪些问题仍然缺少依据。如果两个来源看似矛盾，应先检查它们讨论的对象、时间和定义是否相同。不能解决的差异可以继续保留，不必在一张漂亮卡片里给出一个过早的结论。记录的不确定性不是版面缺陷，而是读者理解材料边界的重要部分。",
+            "留下可继续的入口",
+            "最后一段不必强行成为总结或行动号召。它可以是一条待核对的出处、一个更具体的问题，或者对当前理解范围的说明。下一次阅读时，沿着这个入口继续即可。这个示例要求完整保留全部段落、标点和限定语。任何成功导出都必须通过屏幕与打印的真实几何检查；如果一张卡片放不下，应报告溢出，不能把拒绝误写成已适配。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "diagnostic": {
+        "file": "overflow.json",
+        "sha256": "ffbb21ca82513bd5bc0bf5d57f39b6fdf313f91dee66ca8e8df41c9034fb8963"
+      },
+      "code": "CONTENT_OVERFLOW"
+    },
+    {
+      "id": "long-T06",
+      "template": "T06",
+      "density": "standard",
+      "length": "long",
+      "group": "same-long-reading",
+      "expected": "CONTENT_OVERFLOW",
+      "input": "validation/refinement/inputs/long-T06.md",
+      "inputSha256": "3034d982b72bb90c0782d2e7a1f74a90f792677fca0492781880ceff0d94e73a",
+      "bodySha256": "dfdf3c22ac0baa904c2d9e03fb62b0975059294536ac69c237a2c44d29f27035",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/long-T06.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/long-T06",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": null,
+      "status": "expected-error",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "11169ce9392502c69de1a7fbe66bab4a2c485a38ab01ee27e1e8d4f02822f169"
+        ],
+        "segments": [
+          [
+            "一份需要分卡的阅读记录",
+            "这篇原创长文用于检查模板是否会诚实拒绝超出容量的内容。它不是论文节选，也没有把某位作者的话改写成示例。阅读的目的不是让一个固定画布显得充实，而是让读者能够区分材料、解释和仍然没有解决的问题。当内容超过一张卡片的承载范围时，正确结果是提出分卡方案，保留完整原文，而不是删除后半段或把文字缩到无法阅读。",
+            "问题比收藏更具体",
+            "开始记录之前，可以先说明自己想弄清哪一件事。这个问题不必宏大，但需要足够具体，才能帮助我们判断材料为什么值得留下。收藏一篇文章可能只是因为标题有趣，也可能因为其中一个例子与眼前的工作相似。把这两种理由写清楚，下一次回看时就不必重新猜测当时的意图。遇到新的证据，原来的问题也可以改变；记录问题的变化，比假装一开始就知道答案更有用。",
+            "出处不只是一个链接",
+            "链接能够帮助寻找网页，却不能代替对内容的核对。同一篇文章可能有更新时间、适用地区、研究对象和限定条件。摘录时如果只保留最醒目的结论，而丢掉这些背景，笔记就可能比原文说得更确定。引用和转述也需要分开：引号里的文字应当保持原句，自己的解释则明确写成理解或推测。无法访问原始材料时，最好说明这一点，而不是把二手摘要当成已经读过的证据。",
+            "结构应当帮助判断",
+            "表格适合比较相同维度，但并不是所有材料都能合理地放进相同的列。如果两个对象的条件并不对称，强行填满表格可能会制造不存在的可比性。列表适合呈现有边界的项目，也不能把连续论证随意拆成孤立的短句。选择标题、段落、引用或图片时，应先判断它们怎样保留原有关系，再考虑画面是否整齐。装饰能够提示阅读路线，但不应取代缺失的解释。",
+            "图片也有证据边界",
+            "一张示意图可以帮助理解结构，却未必说明真实物品的材质、尺寸或性能。生成图像可以用于明确标注的虚构情境，不能被当成纪实记录。截图中的小字即使在原始大图里清晰，缩放到手机卡片后也可能无法辨认。此时应保留整图和比例，在图外提供作者已经写出的必要说明；没有裁切授权时，不应为了让局部更大而悄悄切掉其他内容。",
+            "回看不是确认偏见",
+            "复习笔记时，不只是寻找支持自己原有想法的句子。也可以记录哪些材料改变了判断，哪些问题仍然缺少依据。如果两个来源看似矛盾，应先检查它们讨论的对象、时间和定义是否相同。不能解决的差异可以继续保留，不必在一张漂亮卡片里给出一个过早的结论。记录的不确定性不是版面缺陷，而是读者理解材料边界的重要部分。",
+            "留下可继续的入口",
+            "最后一段不必强行成为总结或行动号召。它可以是一条待核对的出处、一个更具体的问题，或者对当前理解范围的说明。下一次阅读时，沿着这个入口继续即可。这个示例要求完整保留全部段落、标点和限定语。任何成功导出都必须通过屏幕与打印的真实几何检查；如果一张卡片放不下，应报告溢出，不能把拒绝误写成已适配。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "diagnostic": {
+        "file": "overflow.json",
+        "sha256": "efe4d8c090bcdd88f6355fdce666277a27151f8d15aa81d7f90fdc3acb106440"
+      },
+      "code": "CONTENT_OVERFLOW"
+    },
+    {
+      "id": "long-T10",
+      "template": "T10",
+      "density": "standard",
+      "length": "long",
+      "group": "same-long-reading",
+      "expected": "CONTENT_OVERFLOW",
+      "input": "validation/refinement/inputs/long-T10.md",
+      "inputSha256": "6086a76f8ed06462a57ccf446efeafbbbf86fb1edd87322e225608ecd40481a4",
+      "bodySha256": "dfdf3c22ac0baa904c2d9e03fb62b0975059294536ac69c237a2c44d29f27035",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/long-T10.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/long-T10",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": null,
+      "status": "expected-error",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "11169ce9392502c69de1a7fbe66bab4a2c485a38ab01ee27e1e8d4f02822f169"
+        ],
+        "segments": [
+          [
+            "一份需要分卡的阅读记录",
+            "这篇原创长文用于检查模板是否会诚实拒绝超出容量的内容。它不是论文节选，也没有把某位作者的话改写成示例。阅读的目的不是让一个固定画布显得充实，而是让读者能够区分材料、解释和仍然没有解决的问题。当内容超过一张卡片的承载范围时，正确结果是提出分卡方案，保留完整原文，而不是删除后半段或把文字缩到无法阅读。",
+            "问题比收藏更具体",
+            "开始记录之前，可以先说明自己想弄清哪一件事。这个问题不必宏大，但需要足够具体，才能帮助我们判断材料为什么值得留下。收藏一篇文章可能只是因为标题有趣，也可能因为其中一个例子与眼前的工作相似。把这两种理由写清楚，下一次回看时就不必重新猜测当时的意图。遇到新的证据，原来的问题也可以改变；记录问题的变化，比假装一开始就知道答案更有用。",
+            "出处不只是一个链接",
+            "链接能够帮助寻找网页，却不能代替对内容的核对。同一篇文章可能有更新时间、适用地区、研究对象和限定条件。摘录时如果只保留最醒目的结论，而丢掉这些背景，笔记就可能比原文说得更确定。引用和转述也需要分开：引号里的文字应当保持原句，自己的解释则明确写成理解或推测。无法访问原始材料时，最好说明这一点，而不是把二手摘要当成已经读过的证据。",
+            "结构应当帮助判断",
+            "表格适合比较相同维度，但并不是所有材料都能合理地放进相同的列。如果两个对象的条件并不对称，强行填满表格可能会制造不存在的可比性。列表适合呈现有边界的项目，也不能把连续论证随意拆成孤立的短句。选择标题、段落、引用或图片时，应先判断它们怎样保留原有关系，再考虑画面是否整齐。装饰能够提示阅读路线，但不应取代缺失的解释。",
+            "图片也有证据边界",
+            "一张示意图可以帮助理解结构，却未必说明真实物品的材质、尺寸或性能。生成图像可以用于明确标注的虚构情境，不能被当成纪实记录。截图中的小字即使在原始大图里清晰，缩放到手机卡片后也可能无法辨认。此时应保留整图和比例，在图外提供作者已经写出的必要说明；没有裁切授权时，不应为了让局部更大而悄悄切掉其他内容。",
+            "回看不是确认偏见",
+            "复习笔记时，不只是寻找支持自己原有想法的句子。也可以记录哪些材料改变了判断，哪些问题仍然缺少依据。如果两个来源看似矛盾，应先检查它们讨论的对象、时间和定义是否相同。不能解决的差异可以继续保留，不必在一张漂亮卡片里给出一个过早的结论。记录的不确定性不是版面缺陷，而是读者理解材料边界的重要部分。",
+            "留下可继续的入口",
+            "最后一段不必强行成为总结或行动号召。它可以是一条待核对的出处、一个更具体的问题，或者对当前理解范围的说明。下一次阅读时，沿着这个入口继续即可。这个示例要求完整保留全部段落、标点和限定语。任何成功导出都必须通过屏幕与打印的真实几何检查；如果一张卡片放不下，应报告溢出，不能把拒绝误写成已适配。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "diagnostic": {
+        "file": "overflow.json",
+        "sha256": "830094afcd7de1ef668c9558641de1d73c6c5c2a042487dc9c3bc9dc178ba51f"
+      },
+      "code": "CONTENT_OVERFLOW"
+    },
+    {
+      "id": "long-T13",
+      "template": "T13",
+      "density": "standard",
+      "length": "long",
+      "group": "same-long-reading",
+      "expected": "CONTENT_OVERFLOW",
+      "input": "validation/refinement/inputs/long-T13.md",
+      "inputSha256": "99b9fddfc3a28af11ac401580d87c64bf77f373289cdca243d916b50516fa9e7",
+      "bodySha256": "dfdf3c22ac0baa904c2d9e03fb62b0975059294536ac69c237a2c44d29f27035",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/long-T13.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/long-T13",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": null,
+      "status": "expected-error",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [],
+        "cardImages": [
+          []
+        ],
+        "headingLevels": [
+          [
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        ],
+        "sourceHashes": [
+          "11169ce9392502c69de1a7fbe66bab4a2c485a38ab01ee27e1e8d4f02822f169"
+        ],
+        "segments": [
+          [
+            "一份需要分卡的阅读记录",
+            "这篇原创长文用于检查模板是否会诚实拒绝超出容量的内容。它不是论文节选，也没有把某位作者的话改写成示例。阅读的目的不是让一个固定画布显得充实，而是让读者能够区分材料、解释和仍然没有解决的问题。当内容超过一张卡片的承载范围时，正确结果是提出分卡方案，保留完整原文，而不是删除后半段或把文字缩到无法阅读。",
+            "问题比收藏更具体",
+            "开始记录之前，可以先说明自己想弄清哪一件事。这个问题不必宏大，但需要足够具体，才能帮助我们判断材料为什么值得留下。收藏一篇文章可能只是因为标题有趣，也可能因为其中一个例子与眼前的工作相似。把这两种理由写清楚，下一次回看时就不必重新猜测当时的意图。遇到新的证据，原来的问题也可以改变；记录问题的变化，比假装一开始就知道答案更有用。",
+            "出处不只是一个链接",
+            "链接能够帮助寻找网页，却不能代替对内容的核对。同一篇文章可能有更新时间、适用地区、研究对象和限定条件。摘录时如果只保留最醒目的结论，而丢掉这些背景，笔记就可能比原文说得更确定。引用和转述也需要分开：引号里的文字应当保持原句，自己的解释则明确写成理解或推测。无法访问原始材料时，最好说明这一点，而不是把二手摘要当成已经读过的证据。",
+            "结构应当帮助判断",
+            "表格适合比较相同维度，但并不是所有材料都能合理地放进相同的列。如果两个对象的条件并不对称，强行填满表格可能会制造不存在的可比性。列表适合呈现有边界的项目，也不能把连续论证随意拆成孤立的短句。选择标题、段落、引用或图片时，应先判断它们怎样保留原有关系，再考虑画面是否整齐。装饰能够提示阅读路线，但不应取代缺失的解释。",
+            "图片也有证据边界",
+            "一张示意图可以帮助理解结构，却未必说明真实物品的材质、尺寸或性能。生成图像可以用于明确标注的虚构情境，不能被当成纪实记录。截图中的小字即使在原始大图里清晰，缩放到手机卡片后也可能无法辨认。此时应保留整图和比例，在图外提供作者已经写出的必要说明；没有裁切授权时，不应为了让局部更大而悄悄切掉其他内容。",
+            "回看不是确认偏见",
+            "复习笔记时，不只是寻找支持自己原有想法的句子。也可以记录哪些材料改变了判断，哪些问题仍然缺少依据。如果两个来源看似矛盾，应先检查它们讨论的对象、时间和定义是否相同。不能解决的差异可以继续保留，不必在一张漂亮卡片里给出一个过早的结论。记录的不确定性不是版面缺陷，而是读者理解材料边界的重要部分。",
+            "留下可继续的入口",
+            "最后一段不必强行成为总结或行动号召。它可以是一条待核对的出处、一个更具体的问题，或者对当前理解范围的说明。下一次阅读时，沿着这个入口继续即可。这个示例要求完整保留全部段落、标点和限定语。任何成功导出都必须通过屏幕与打印的真实几何检查；如果一张卡片放不下，应报告溢出，不能把拒绝误写成已适配。",
+            "原创阅读练习 · 非外部引文，不构成研究结论",
+            "1 / 1"
+          ]
+        ]
+      },
+      "diagnostic": {
+        "file": "overflow.json",
+        "sha256": "021977444935b40197b67f631dd8ef87aaad27e83f27eb2a6741faecfd27bc50"
+      },
+      "code": "CONTENT_OVERFLOW"
+    },
+    {
+      "id": "image-landscape",
+      "template": "T37",
+      "density": "standard",
+      "length": "image-aspect",
+      "group": "same-image-caption",
+      "expected": "success",
+      "input": "validation/refinement/inputs/image-landscape.md",
+      "inputSha256": "19b0a0f0a3291c7017a7512c2b583afe574401d6c8dca6688910efdeaf8c11ee",
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/image-landscape.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-landscape",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/image-landscape/manifest.json",
+        "sha256": "82f3ee31dc7ce1c5de3232287045b05f19fb4b20f83544882ce48167425a7cba"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [
+          {
+            "reference": "examples/templates/assets/synthetic-reading-still-life.png",
+            "hash": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+            "mime": "image/png",
+            "width": 1536,
+            "height": 1024,
+            "bytes": 2274167
+          }
+        ],
+        "cardImages": [
+          [
+            {
+              "hash": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+              "width": 1536,
+              "height": 1024
+            }
+          ]
+        ],
+        "headingLevels": [
+          [
+            1
+          ]
+        ],
+        "sourceHashes": [
+          "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045"
+        ],
+        "segments": [
+          [
+            "先保留完整画面",
+            "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+            "原创图像比例练习 · 图片性质以图注为准",
+            "AI 生成插画，不是纪实照片。",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "583776ae288e406e9e448ad1c803142a8371cb4f38de6cf30a799a5eb066f464",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-landscape/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "e662ec276727bdedcad7e87c996857fce974cacc851b07526fc8db4fe6110b49",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-landscape/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 1536,
+                  "naturalHeight": 1024,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "f6e7d6081b7118b365d12d9454e13e7f729ebf4326a6a3e92c6143e755fb158a"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 1536,
+                  "naturalHeight": 1024,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "060e32275a342c6b0924abd2f9e5745d1ce3205f2585bf6f214a7c90098a2fc1"
+        }
+      ]
+    },
+    {
+      "id": "image-portrait",
+      "template": "T37",
+      "density": "standard",
+      "length": "image-aspect",
+      "group": "same-image-caption",
+      "expected": "success",
+      "input": "validation/refinement/inputs/image-portrait.md",
+      "inputSha256": "ae50022f6354ae4ae2e108553e0e2516f364bd52ed533c3d6fe70fcecb6ce4f3",
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/image-portrait.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-portrait",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/image-portrait/manifest.json",
+        "sha256": "299d5dcc78c4557df8cbe3e2b79a4cb0f6a687cf616ae597090089afdf0a7a21"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [
+          {
+            "reference": "examples/templates/assets/synthetic-ceramic-artist.png",
+            "hash": "c5529de74c9f1fdf5b8eac2c61998614148f67c0a5138af84466a79dabe51ab1",
+            "mime": "image/png",
+            "width": 1024,
+            "height": 1536,
+            "bytes": 2166975
+          }
+        ],
+        "cardImages": [
+          [
+            {
+              "hash": "c5529de74c9f1fdf5b8eac2c61998614148f67c0a5138af84466a79dabe51ab1",
+              "width": 1024,
+              "height": 1536
+            }
+          ]
+        ],
+        "headingLevels": [
+          [
+            1
+          ]
+        ],
+        "sourceHashes": [
+          "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045"
+        ],
+        "segments": [
+          [
+            "先保留完整画面",
+            "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+            "原创图像比例练习 · 图片性质以图注为准",
+            "AI 虚构人物，非真实访谈。",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "252135781332a1abbad2a3862f246f9a25bd53a2b221d397dafad4d04fdeb01c",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-portrait/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "79f1f3abee0b7b97cdd9d0a176edea20bcc7b0c3045d7cdb2f1f986c6ac432ea",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-portrait/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 1024,
+                  "naturalHeight": 1536,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "00d8d9de3692b07f03c2b1c2ac9da75b5b8f5af071acb6b8211257ca9a2e2d82"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 1024,
+                  "naturalHeight": 1536,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "08a206cefc0b3bcbf3c23adce99515ef38ce6326a56b893c6e28c6bfb7a13680"
+        }
+      ]
+    },
+    {
+      "id": "image-transparent",
+      "template": "T37",
+      "density": "standard",
+      "length": "image-aspect",
+      "group": "same-image-caption",
+      "expected": "success",
+      "input": "validation/refinement/inputs/image-transparent.md",
+      "inputSha256": "15aa202494f0f904e5729a41ba54e40c859f7f126f6e6fa8f54665695b278cc3",
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/image-transparent.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-transparent",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/image-transparent/manifest.json",
+        "sha256": "020a035bbf4d0e390776eef994249e0f96147b1cfc10a883c5cfe78f8e0e48cb"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [
+          {
+            "reference": "examples/templates/assets/synthetic-olive-twig.png",
+            "hash": "6eb92797db47185b3f9f61b449fac2b5e1077ede7ead834549719803f9af937e",
+            "mime": "image/png",
+            "width": 1024,
+            "height": 1536,
+            "bytes": 2150058
+          }
+        ],
+        "cardImages": [
+          [
+            {
+              "hash": "6eb92797db47185b3f9f61b449fac2b5e1077ede7ead834549719803f9af937e",
+              "width": 1024,
+              "height": 1536
+            }
+          ]
+        ],
+        "headingLevels": [
+          [
+            1
+          ]
+        ],
+        "sourceHashes": [
+          "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045"
+        ],
+        "segments": [
+          [
+            "先保留完整画面",
+            "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+            "原创图像比例练习 · 图片性质以图注为准",
+            "AI 插画，不用于植物鉴定。",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "f5dc937c4a050c8b7e9548a1a69402658161ba24c38cf60b683f3cc0419e572d",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-transparent/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "7fce3476baaee8f878ec6f7b1653f5c9e95323530b5e9647c639c016327982e0",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-transparent/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 1024,
+                  "naturalHeight": 1536,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "1e1d87d2aac96c1f915490dc0120302387e4b89b300e1386532f0ce7dc6050c3"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 1024,
+                  "naturalHeight": 1536,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "1149a1b3da4086b9512b7bb11dd82112e7573523eb3f83ff10a7ae5155361289"
+        }
+      ]
+    },
+    {
+      "id": "image-interface",
+      "template": "T37",
+      "density": "standard",
+      "length": "image-aspect",
+      "group": "same-image-caption",
+      "expected": "success",
+      "input": "validation/refinement/inputs/image-interface.md",
+      "inputSha256": "a8fd834937d212bbf25381a9c6e45b6bd58af2b8f8d90f8c32bdaede4042f87c",
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/image-interface.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-interface",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/image-interface/manifest.json",
+        "sha256": "728868603f9f0872d38a27745611d16695c9630a0867181aece0da09d7f13f0e"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [
+          {
+            "reference": "examples/templates/assets/original-research-interface.png",
+            "hash": "eb73c9a92ff65b86036de6c1d486d999de71fe8225343c7d81272446f043f541",
+            "mime": "image/png",
+            "width": 1400,
+            "height": 900,
+            "bytes": 76441
+          }
+        ],
+        "cardImages": [
+          [
+            {
+              "hash": "eb73c9a92ff65b86036de6c1d486d999de71fe8225343c7d81272446f043f541",
+              "width": 1400,
+              "height": 900
+            }
+          ]
+        ],
+        "headingLevels": [
+          [
+            1
+          ]
+        ],
+        "sourceHashes": [
+          "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045"
+        ],
+        "segments": [
+          [
+            "先保留完整画面",
+            "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+            "原创图像比例练习 · 图片性质以图注为准",
+            "非真实产品截图；图内微字不作为手机正文。",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "35c905842fcd8502319fe96df5c9c1e470774d633996d2a4d5198b7c2898743f",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-interface/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "1ebd43c02db0a0c54955bd91d76b68883a2b9e0786f77d3eaa20425af8fb5457",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-interface/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 1400,
+                  "naturalHeight": 900,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "2114ed763f8bb5a9f5e9d7b12ee1473fe7e824e54b2634035431c2224c05f70a"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 1400,
+                  "naturalHeight": 900,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "1d15cc0d755eba25e7215a77b04690d97233ed0eaf8c2ec2ee324d0ba5d5b335"
+        }
+      ]
+    },
+    {
+      "id": "image-wide",
+      "template": "T37",
+      "density": "standard",
+      "length": "image-aspect",
+      "group": "same-image-caption",
+      "expected": "success",
+      "input": "validation/refinement/inputs/image-wide.md",
+      "inputSha256": "0bfd656bf3dccfdfdc8e7760b9999238917a22dd3698d0d272fe194a733dd849",
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/image-wide.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-wide",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/image-wide/manifest.json",
+        "sha256": "54a017adfd7cb412a8c0caa4f2f26d4acc124321766436101674fcf43b4075cc"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [
+          {
+            "reference": "examples/visual-stress/assets/extreme-wide.png",
+            "hash": "c61dd839c63a74f489647059f15d1e42f45c88d13bae2c0883f5c379c2036c95",
+            "mime": "image/png",
+            "width": 1600,
+            "height": 80,
+            "bytes": 620
+          }
+        ],
+        "cardImages": [
+          [
+            {
+              "hash": "c61dd839c63a74f489647059f15d1e42f45c88d13bae2c0883f5c379c2036c95",
+              "width": 1600,
+              "height": 80
+            }
+          ]
+        ],
+        "headingLevels": [
+          [
+            1
+          ]
+        ],
+        "sourceHashes": [
+          "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045"
+        ],
+        "segments": [
+          [
+            "先保留完整画面",
+            "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+            "原创图像比例练习 · 图片性质以图注为准",
+            "完整边缘用于核对比例，不是摄影作品。",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "ae9540318b69601eaca32181660266c102b6e66690b44f7c004a8f0fc85d97ca",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-wide/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "c3b9838f6f7402bd2d7985074922b8527cef502d0c66bb3f56d96843803c0cda",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-wide/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 1600,
+                  "naturalHeight": 80,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "e771c11f9cd17a904469a0f93204ef55f5279ecdf18c392c93dd19e4ae833ae9"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 1600,
+                  "naturalHeight": 80,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "93c0d700ca1fdb0f7a297ecad5a4adec622efdff4eb8e842acd6ea9ef1e0ab04"
+        }
+      ]
+    },
+    {
+      "id": "image-tall",
+      "template": "T37",
+      "density": "standard",
+      "length": "image-aspect",
+      "group": "same-image-caption",
+      "expected": "success",
+      "input": "validation/refinement/inputs/image-tall.md",
+      "inputSha256": "c94927ec0f469dca4b30c686db5edf32ed67cfbc15e6b7a2adace432f388fd15",
+      "bodySha256": "1572fb7bbe3765faef3b0d3defdb03feea88768ace301fef297e96a3adbfbdd2",
+      "command": [
+        "node",
+        "scripts/render.mjs",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/inputs/image-tall.md",
+        "--asset-root",
+        "/home/runner/work/md2card-skill/md2card-skill/",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-tall",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "manifest": {
+        "file": "validation/refinement/image-tall/manifest.json",
+        "sha256": "14a0f21d974e29eeef7d0e881c2cc62dd102fa4b2bb0800100cc075ba5e78b8c"
+      },
+      "status": "rendered-not-visually-reviewed",
+      "visualReview": "not-performed",
+      "source": {
+        "cardCount": 1,
+        "assets": [
+          {
+            "reference": "examples/visual-stress/assets/extreme-tall.png",
+            "hash": "75b50efdf18540ebc82d6297ffa9b31ace0f93b203a029fcdba18e2d2e5cabe6",
+            "mime": "image/png",
+            "width": 80,
+            "height": 1600,
+            "bytes": 1601
+          }
+        ],
+        "cardImages": [
+          [
+            {
+              "hash": "75b50efdf18540ebc82d6297ffa9b31ace0f93b203a029fcdba18e2d2e5cabe6",
+              "width": 80,
+              "height": 1600
+            }
+          ]
+        ],
+        "headingLevels": [
+          [
+            1
+          ]
+        ],
+        "sourceHashes": [
+          "71f323b49b04bd52ecc6081794d5c6224720fc1fc845a21f0af56be7a62f9045"
+        ],
+        "segments": [
+          [
+            "先保留完整画面",
+            "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+            "原创图像比例练习 · 图片性质以图注为准",
+            "完整边缘用于核对比例，不是摄影作品。",
+            "1 / 1"
+          ]
+        ]
+      },
+      "pdfText": [
+        {
+          "page": 1,
+          "mode": "raw",
+          "file": "page-1-raw.txt",
+          "sha256": "ae9540318b69601eaca32181660266c102b6e66690b44f7c004a8f0fc85d97ca",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-raw",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-tall/cards.pdf",
+            "-"
+          ]
+        },
+        {
+          "page": 1,
+          "mode": "layout",
+          "file": "page-1-layout.txt",
+          "sha256": "f371877a704b2d088df134d6fafb407ca9f6212b13662a3c85d41434dd6f99b4",
+          "command": [
+            "pdftotext",
+            "-f",
+            "1",
+            "-l",
+            "1",
+            "-enc",
+            "UTF-8",
+            "-layout",
+            "/home/runner/work/md2card-skill/md2card-skill/validation/refinement/image-tall/cards.pdf",
+            "-"
+          ]
+        }
+      ],
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 351,
+              "bodySizes": [
+                15.093
+              ],
+              "bodyMin": 15.093,
+              "noteMin": 11.7585,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 80,
+                  "naturalHeight": 1600,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-375.png",
+          "sha256": "e003c7886229fe50479377f7edf4eef15c142b1bc3e2d8783d7a88528077f426"
+        },
+        {
+          "viewportWidth": 390,
+          "cards": [
+            {
+              "index": 1,
+              "counter": "1 / 1",
+              "footer": "",
+              "cardWidth": 366,
+              "bodySizes": [
+                15.738
+              ],
+              "bodyMin": 15.738,
+              "noteMin": 12.261000000000001,
+              "images": [
+                {
+                  "decoded": true,
+                  "fit": "contain",
+                  "naturalWidth": 80,
+                  "naturalHeight": 1600,
+                  "visible": true
+                }
+              ],
+              "headings": [
+                {
+                  "level": 1,
+                  "background": "rgba(0, 0, 0, 0)"
+                }
+              ]
+            }
+          ],
+          "file": "mobile-390.png",
+          "sha256": "c95f34263fb45784b4bd5248eb364b539512442d3a836ef17ddb3a415694a9d6"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

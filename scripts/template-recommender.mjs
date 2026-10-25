@@ -41,7 +41,10 @@ function structuralReasons(template, summary) {
 function rankCandidate(template, card, summary, requestedAspect) {
   const f = summary.features;
   const aspect = template.aspectLayouts[requestedAspect];
-  const structure = aspect.structure ?? template.structure;
+  const variant = card.metadata.visualVariant;
+  const structure = variant === 'screenshot-stage'
+    ? '一个 H1；一句导语；两个 H2 功能短说明；一个本地 metadata image，alt/caption 说明性质。按标题、图像与图注、正文、来源的 DOM 顺序展示。'
+    : aspect.structure ?? template.structure;
   const explicit = card.metadata.template === template.id;
   const { layout, purpose } = templateRoleMatch(template, summary.role);
   const structureReasons = structuralReasons({ ...template, structure }, summary);
@@ -64,9 +67,9 @@ function rankCandidate(template, card, summary, requestedAspect) {
       ...(template.image === 'required' ? ['IMAGE_REQUIRED_MET'] : []),
       ...(template.requiredMetadata?.length ? ['REQUIRED_METADATA_MET'] : []), ...structureReasons,
       ...(lengthFit ? ['WITHIN_REGISTRY_LENGTH_GUIDANCE'] : [])],
-    caveats: unique(['RENDER_NOT_PERFORMED', ...summary.caveats, ...risks,
+    caveats: unique(['RENDER_NOT_PERFORMED', ...summary.caveats, ...risks, ...(variant ? ['VISUAL_VARIANT_REVIEW_REQUIRED'] : []),
       ...(aspect.status === 'visually-reviewed' ? [] : ['REGISTRY_ASPECT_REVIEW_PENDING'])]),
-    evidence: { layout: template.layout, aspect: requestedAspect, aspectRegistryStatus: aspect.status, purpose: template.purpose, structure,
+    evidence: { layout: template.layout, aspect: requestedAspect, aspectRegistryStatus: variant ? 'variant-independent-review-required' : aspect.status, purpose: template.purpose, structure,
       unsuitable: template.unsuitable, lengthGuidance: [...template.length], actualCharacters: f.characters },
     priority: [Number(explicit), Number(layout), Number(purpose), -risks.length, structureReasons.length, Number(lengthFit)],
     requiresUserSelection: true };
@@ -114,7 +117,7 @@ export function recommendTemplates({ cards, requestedAspect = 'portrait', pagina
       return { ...summary, ...(paginate === 'auto' ? { caveats: [...summary.caveats, 'AUTO_LAYOUTS_EXPLAINER_STEPS_ONLY'] } : {}),
         selectionStatus: paginate === 'auto' ? 'manual-templates-only' : !compatible.length ? 'no-compatible-template'
           : summary.role === 'unknown' ? selected.length ? 'author-template-only' : 'insufficient-role-evidence' : 'candidates-available',
-        candidates: selected.map((candidate, i) => ({ ...candidate, rank: i + 1 })),
+        candidates: selected.map((candidate, i) => ({ ...candidate, ...(card.metadata.visualVariant ? { visualVariant: card.metadata.visualVariant } : {}), rank: i + 1 })),
         compatibleCount: compatible.length, omittedCompatibleTemplateIds: compatible.filter(c => !selectedIds.has(c.templateId)).map(c => c.templateId), rejected };
     }) };
 }

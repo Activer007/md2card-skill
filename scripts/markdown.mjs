@@ -28,7 +28,7 @@ parser.renderer.rules.link_open = (tokens, index, options, env, self) => {
 };
 
 export const LAYOUTS = Object.freeze(['cover', 'explainer', 'comparison', 'steps', 'image-caption', 'statistic', 'case-study', 'quote']);
-const METADATA_KEYS = new Set(['bodySize', 'template', 'density', 'layout', 'eyebrow', 'image', 'alt', 'caption', 'source', 'metric', 'label']);
+const METADATA_KEYS = new Set(['bodySize', 'template', 'density', 'layout', 'eyebrow', 'image', 'alt', 'caption', 'source', 'metric', 'label', 'visualVariant']);
 
 export function escapeHtml(text) {
   return String(text).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);

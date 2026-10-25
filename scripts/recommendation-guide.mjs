@@ -21,7 +21,10 @@ export function describeCandidate(candidate, item, aspect) {
   let acceptedExample = null;
   // A portrait PNG never substitutes for a square/slide example. The caller
   // supplies a model that has verified actual bytes, versions and review scope.
-  if (aspect === 'portrait' && item.preview) {
+  if (candidate.visualVariant) {
+    // Default-template evidence does not certify an opt-in composition.
+    acceptedExample = null;
+  } else if (aspect === 'portrait' && item.preview) {
     acceptedExample = { status: 'reviewed-exact-fixture', aspect, input: item.example,
       inputSha256: item.inputSha256, png: { file: item.preview.path, sha256: item.preview.sha256 },
       scope: { density: item.preview.density, pagination: item.preview.pagination, width: item.preview.width, height: item.preview.height },
@@ -39,7 +42,7 @@ export function describeCandidate(candidate, item, aspect) {
     textStructure: candidate.evidence.structure, lengthGuidance: [...item.length], supportedAspects: [...item.aspects],
     unsuitable: item.unsuitable },
     gallery: `docs/gallery/index.html#${item.id}`, acceptedExample,
-    exampleStatus: acceptedExample ? 'reviewed-exact-input-only' : 'no-reviewed-example-for-requested-aspect',
+    exampleStatus: candidate.visualVariant ? 'no-reviewed-example-for-requested-variant' : acceptedExample ? 'reviewed-exact-input-only' : 'no-reviewed-example-for-requested-aspect',
     inputRenderability: 'not-verified', recommendationIsRenderGuarantee: false };
 }
 
@@ -60,6 +63,7 @@ export function formatRecommendationText(report) {
     lines.push('', `卡片 ${card.index} · ${labels[card.role]} (${card.role}) · ${card.selectionStatus}`);
     if (!card.candidates.length) lines.push('没有推荐候选；不猜选或补造必要字段。');
     for (const item of card.candidates) {
+      if (item.visualVariant) lines.push(`显式构图: ${item.visualVariant}`);
       lines.push(`${item.rank}. ${item.templateId} ${item.name}`, `   理由: ${item.reasonIds.map(id => explanations[id] ?? id).join('；')}`,
         `   用途: ${item.evidence.purpose}`,
         `   图片: ${item.conditions.image}；必需字段: ${item.conditions.requiredMetadata.join(', ') || '无'}`,
@@ -67,7 +71,7 @@ export function formatRecommendationText(report) {
         `   支持画幅: ${item.conditions.supportedAspects.join(', ')}`, `   不适合: ${item.conditions.unsuitable}`,
         `   限制: ${item.caveats.join(', ')}`, `   图库: ${item.gallery}`,
         item.acceptedExample ? `   已验收的精确示例: ${item.acceptedExample.input} → ${item.acceptedExample.png.file}；复核: ${item.acceptedExample.review}`
-          : '   请求画幅暂无已验收示例；不能借用竖版验收。');
+          : item.visualVariant ? '   请求变体暂无独立图库验收；不能借用默认模板验收。' : '   请求画幅暂无已验收示例；不能借用竖版验收。');
       if (item.acceptedExample) {
         const example = item.acceptedExample;
         lines.push(`   示例验收状态: ${example.status}`,

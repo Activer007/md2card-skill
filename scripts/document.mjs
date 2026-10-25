@@ -14,6 +14,18 @@ export const SIZES = {
 const TEXT_FIELDS = ['eyebrow', 'alt', 'caption', 'source', 'metric', 'label'];
 const IMAGE_MIMES = new Set(['image/png', 'image/jpeg', 'image/webp']);
 
+// Opt-in CSS is emitted only for the validated variant. Legacy documents keep
+// their exact bytes, including the stylesheet; no registry version is promoted.
+const SCREENSHOT_STAGE_CSS = `
+.card.template-T20[data-visual-variant="screenshot-stage"] .image-frame {
+  background: #0e141c; outline: 1px solid var(--line);
+}
+.card.template-T20[data-visual-variant="screenshot-stage"] .card-image {
+  width: 100%; height: auto; max-height: calc(var(--card-height) * .52);
+  object-fit: contain; object-position: center;
+}
+`;
+
 function plainText(value, name) {
   if (value === undefined || value === null) return '';
   if (typeof value !== 'string') throw new Error(`${name} must be plain text.`);
@@ -60,8 +72,9 @@ function cardContent(card, layout, template) {
     const label = template.supportedMetadata?.includes('label') && metadata.label ? `<p class="statistic-label">${metadata.label}</p>` : '';
     const metricBlock = metric || label ? `<div class="template-metric">${metric}${label}</div>` : '';
     const imageFigure = figure(card, metadata);
+    const figureBeforeMain = template.figureBeforeMain || card.metadata?.visualVariant === 'screenshot-stage';
     const sections = (card.sections ?? []).map((section, index) => `<section class="template-section" data-section="${index + 1}">${section.html}</section>`).join('\n');
-    return `<header class="template-heading">${eyebrow}<div class="template-title">${card.templateTitleHtml ?? ''}</div></header>${metricBlock}${template.figureBeforeMain ? imageFigure : ''}<div class="template-main"><div class="template-intro">${card.templateIntroHtml ?? card.html}</div>${sections ? `<div class="template-sections">${sections}</div>` : ''}</div>${template.figureBeforeMain ? '' : imageFigure}${source}`;
+    return `<header class="template-heading">${eyebrow}<div class="template-title">${card.templateTitleHtml ?? ''}</div></header>${metricBlock}${figureBeforeMain ? imageFigure : ''}<div class="template-main"><div class="template-intro">${card.templateIntroHtml ?? card.html}</div>${sections ? `<div class="template-sections">${sections}</div>` : ''}</div>${figureBeforeMain ? '' : imageFigure}${source}`;
   }
   let body;
   if (layout === 'comparison' || layout === 'case-study') {
@@ -108,6 +121,7 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
   }
   const defaultBodySize = normalizeBodySize(options.bodySize);
   let customBodySize = false;
+  let screenshotStage = false;
   const preview = options.preview === true;
   const body = cards.map((card, position) => {
     const index = position + 1;
@@ -117,9 +131,11 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
     if (!LAYOUTS.includes(layout)) throw new Error(`Card ${index} has unknown layout "${layout}".`);
     const template = validateTemplateMetadata(card.metadata ?? {}, { width, height });
     validateTemplateCard(card, template);
+    const variant = card.metadata?.visualVariant;
+    if (variant) screenshotStage = true;
     const aspect = template ? resolveTemplateAspect(template.id, { width, height }) : null;
     const templateClass = template ? ` template-card template-${template.id} family-${template.family} density-${card.metadata.density ?? template.density} ${aspect.className}` : '';
-    const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}" data-template-aspect="${aspect.id}"` : ''}${footerMode === 'legacy' ? '' : ` data-footer-mode="${footerMode}"`}${bodySize === 'medium' ? '' : ` data-body-size="${bodySize}"`} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
+    const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}" data-template-aspect="${aspect.id}"` : ''}${variant ? ` data-visual-variant="${variant}"` : ''}${footerMode === 'legacy' ? '' : ` data-footer-mode="${footerMode}"`}${bodySize === 'medium' ? '' : ` data-body-size="${bodySize}"`} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
     <div class="card-content">${sizeBodyText(cardContent(card, layout, template), bodySize)}</div>
     ${footerHtml(options, index, cards.length, footerMode)}
   </article>`;
@@ -142,7 +158,7 @@ body { background: #e5e7eb; }
 .card { flex: none; }
 ${layoutCss}
 ${themeCss}
-${templateCss}${customBodySize ? `\n${bodySizeCss()}` : ''}
+${templateCss}${customBodySize ? `\n${bodySizeCss()}` : ''}${screenshotStage ? SCREENSHOT_STAGE_CSS : ''}
 ${preview ? `
 /* Preview transforms only the display; every .card retains its export canvas. */
 .deck-preview { width: 100%; min-width: 0; padding: 24px; gap: 24px; }

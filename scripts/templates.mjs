@@ -141,6 +141,9 @@ export function resolveTemplateAspect(id, { width, height } = {}) {
   return aspect;
 }
 export function validateTemplateMetadata(metadata, { width, height } = {}) {
+  if (metadata.visualVariant !== undefined && (metadata.template !== 'T20' || metadata.visualVariant !== 'screenshot-stage')) {
+    throw new Md2CardError('INVALID_METADATA', 'visualVariant supports only "screenshot-stage" on explicit T20 cards.');
+  }
   if (metadata.aspect !== undefined) throw new Md2CardError('TEMPLATE_ASPECT_METADATA_UNSUPPORTED', 'Card aspect metadata is not supported. Use --size or matching canvas dimensions; CSS classes are derived internally.');
   if (metadata.template === undefined) {
     if (metadata.density !== undefined) throw new Md2CardError('INVALID_TEMPLATE', 'Card density requires an explicit template. Legacy theme behavior is unchanged.');
@@ -163,6 +166,7 @@ export function validateTemplateMetadata(metadata, { width, height } = {}) {
 export function validateTemplateCard(card, template) {
   if (!template) return;
   const inlineImages = (card.html.match(/<img\b/g) ?? []).length;
+  if (card.metadata?.visualVariant === 'screenshot-stage' && inlineImages) throw new Md2CardError('TEMPLATE_IMAGE_COUNT', 'T20 screenshot-stage accepts one metadata image and no inline images. Split additional screenshots into separate cards.');
   if (template.image === 'none' && (inlineImages || card.image)) throw new Md2CardError('TEMPLATE_IMAGE_UNSUPPORTED', `${template.id} is text-only; images are never discarded.`);
   if (template.image === 'inline' && card.image) throw new Md2CardError('TEMPLATE_IMAGE_UNSUPPORTED', `${template.id} uses inline images, not a separate metadata image.`);
   if (template.image === 'required' && !card.image) throw new Md2CardError('TEMPLATE_IMAGE_REQUIRED', `${template.id} requires a resolver-validated local image.`);

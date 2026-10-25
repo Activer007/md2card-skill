@@ -61,15 +61,20 @@ async function geometry(page) {
       backing:zone?getComputedStyle(heading).backgroundColor:null,bodyFont:getComputedStyle(card.querySelector('.template-main p')).fontSize};
   });
 }
-function checkGeometry(g,metadata,mode) {
+export function checkPhotoGeometry(g,metadata,mode) {
   assert.ok(g.complete);assert.equal(g.alt,metadata.alt);assert.equal(g.fit,mode==='photo'?'cover':'contain');
   if(mode!=='photo')return;
+  assert.equal(g.position,`${metadata.focalX}% ${metadata.focalY}%`,'Crop focal position differs from author permission');
+  assert.equal(g.backing,metadata.mediaTone==='dark'?'rgba(0, 0, 0, 0.76)':'rgba(255, 255, 255, 0.84)','Local contrast backing differs from reviewed contract');
   const s=g.zone,h=g.heading;
   assert.ok(h.x>=s.x-1&&h.right<=s.right+1&&h.y>=s.y-1&&h.bottom<=s.bottom+1,'Title outside declared safe region');
   assert.ok(g.imageBox.bottom<g.source.y&&g.source.bottom<=g.footer.y+1,'Photo/source/footer overlap');
   const expected=metadata.mediaTone==='dark'?'rgb(255, 255, 255)':'rgb(17, 17, 17)';
   assert.ok(g.foreground.length>0);for(const f of g.foreground)assert.equal(f.color,expected,`${f.tag} foreground`);
   assert.ok(g.crop.x>=-1e-6&&g.crop.y>=-1e-6&&g.crop.x+g.crop.width<=g.natural[0]+1e-6&&g.crop.y+g.crop.height<=g.natural[1]+1e-6);
+}
+async function readyPhotoView(page) {
+  await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(image=>image.decode()));});
 }
 export async function validatePhotoCover({out,browser,baselineRoot}) {
   const selected=selectPhotoFixtures(await readdir(FIXTURES));
@@ -112,10 +117,10 @@ export async function validatePhotoCover({out,browser,baselineRoot}) {
         }
         const views={};record.views=views;await page.setViewportSize({width:1144,height:1504});
         for(const media of ['screen','print']) {
-          await page.emulateMedia({media});await page.setContent(html);await page.evaluate(()=>document.fonts.ready);
+          await page.emulateMedia({media});await page.setContent(html);await readyPhotoView(page);
           assert.deepEqual((await measureCards(page))[0].overflow,[]);
           const g=await geometry(page);g.imageSha256=hash(Buffer.from(g.imageData,'base64'));delete g.imageData;
-          assert.equal(g.imageSha256,oldCards[0].image.hash);checkGeometry(g,metadata,mode);views[media]=g;
+          assert.equal(g.imageSha256,oldCards[0].image.hash);checkPhotoGeometry(g,metadata,mode);views[media]=g;
           if(id==='three-line'&&mode==='photo')assert.equal(g.titleLines,3);
           await page.locator('.card').screenshot({path:path.join(target,`${media}.png`)});
         }
@@ -134,8 +139,8 @@ export async function validatePhotoCover({out,browser,baselineRoot}) {
         }
         const preview=await readFile(path.join(target,'preview.html'),'utf8');await page.emulateMedia({media:'screen'});
         for(const width of [375,390]) {
-          await page.setViewportSize({width,height:900});await page.setContent(preview);await page.evaluate(()=>document.fonts.ready);
-          const g=await geometry(page);delete g.imageData;checkGeometry(g,metadata,mode);views[`mobile${width}`]=g;
+          await page.setViewportSize({width,height:900});await page.setContent(preview);await readyPhotoView(page);
+          const g=await geometry(page);delete g.imageData;checkPhotoGeometry(g,metadata,mode);views[`mobile${width}`]=g;
           await page.screenshot({path:path.join(target,`mobile-${width}.png`)});
         }
         if(mode==='photo')assert.equal(views.screen.bodyFont,records.find(r=>r.id===id&&r.mode==='default').views.screen.bodyFont);

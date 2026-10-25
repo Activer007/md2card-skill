@@ -7,14 +7,21 @@ import { buildDocument, SIZES } from '../scripts/document.mjs';
 import { validateTemplateMetadata, TEMPLATES } from '../scripts/templates.mjs';
 import { recommendTemplates } from '../scripts/template-recommender.mjs';
 import { parseSemanticDocument } from '../scripts/semantic.mjs';
-import { defaultPhotoInput, PHOTO_CASES, selectPhotoFixtures } from '../scripts/validate-photo-cover.mjs';
+import { defaultPhotoInput, PHOTO_CASES, selectPhotoFixtures, checkPhotoGeometry } from '../scripts/validate-photo-cover.mjs';
+import { fileURLToPath } from 'node:url';
 import { readdir } from 'node:fs/promises';
 
-const root=new URL('../',import.meta.url).pathname.replace(/^\/([A-Za-z]:)/,'$1');
+const root=fileURLToPath(new URL('../',import.meta.url));
 const source=await readFile(new URL('../examples/visual-upgrade/t37/dark.md',import.meta.url),'utf8');
 const meta=JSON.parse(source.match(/<!-- card: (.+) -->/)[1]);
 const input=m=>source.replace(/<!-- card: .+ -->/,()=>`<!-- card: ${JSON.stringify(m)} -->`);
 const parse=async text=>renderCards(text,{resolveImage:(await createAssetResolver(root)).resolveImage});
+
+test('visual verifier refuses lost crop focus or contrast backing even when boxes fit',()=>{
+  const geometry={complete:true,alt:meta.alt,fit:'cover',position:'100% 50%',backing:'rgba(0, 0, 0, 0.76)',zone:{x:0,y:0,right:100,bottom:100},heading:{x:1,y:1,right:99,bottom:99},imageBox:{bottom:100},source:{y:110,bottom:130},footer:{y:140},foreground:[{tag:'H1',color:'rgb(255, 255, 255)'}],crop:{x:10,y:0,width:90,height:100},natural:[100,100]};
+  checkPhotoGeometry(geometry,meta,'photo');
+  for(const mutation of [{position:'0% 50%'},{backing:'rgba(0, 0, 0, 0)'},{foreground:[{tag:'H1',color:'rgb(0, 0, 0)'}]}])assert.throws(()=>checkPhotoGeometry({...geometry,...mutation},meta,'photo'));
+});
 
 test('crop authorization and author safety are explicit, typed and template scoped',()=>{
   assert.equal(validateCardMetadata(meta).visualVariant,'photo-cover');

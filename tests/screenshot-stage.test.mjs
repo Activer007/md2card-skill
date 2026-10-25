@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir, mkdtemp, writeFile, rm, mkdir, symlink } from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderCards, validateCardMetadata } from '../scripts/markdown.mjs';
 import { createAssetResolver } from '../scripts/assets.mjs';
@@ -9,6 +11,7 @@ import { parseSemanticDocument } from '../scripts/semantic.mjs';
 import { recommendTemplates } from '../scripts/template-recommender.mjs';
 import { describeCandidate } from '../scripts/recommendation-guide.mjs';
 import { TEMPLATES } from '../scripts/templates.mjs';
+import { STAGE_CASES, selectStageFixtures, defaultStageInput, prepareStageOutput, verifyStageBaseline, validateScreenshotStage } from '../scripts/validate-screenshot-stage.mjs';
 
 const root = fileURLToPath(new URL('../examples/templates/', import.meta.url));
 const source = await readFile(new URL('../examples/templates/T20.md', import.meta.url), 'utf8');
@@ -68,4 +71,44 @@ test('recommendations cannot borrow default T20 visual acceptance for the varian
   const described = describeCandidate(candidate, item, 'portrait');
   assert.equal(described.acceptedExample, null);
   assert.equal(described.exampleStatus, 'no-reviewed-example-for-requested-variant');
+});
+
+test('real fixture inventory excludes documentation and refuses incomplete/new cases', async () => {
+  const files = await readdir(new URL('../examples/visual-upgrade/t20/',import.meta.url));
+  const selected = selectStageFixtures(files);
+  assert.equal(selected.length,14);
+  assert.ok(!selected.includes('README.md'));
+  assert.deepEqual(selected,STAGE_CASES.map(id=>`${id}.md`));
+  assert.throws(()=>selectStageFixtures(files.filter(file=>file!=='original.md')));
+  assert.throws(()=>selectStageFixtures([...files,'extra.md']));
+});
+
+test('default counterpart removes the opt-in despite key order/spacing, without rewriting text', () => {
+  const text = '<!-- card: { "visualVariant" : "screenshot-stage", "source":"Literal $& $$ $1", "template":"T20" } -->\r\n# Keep $& and 中文\r\n';
+  const result = defaultStageInput(text);
+  assert.deepEqual(JSON.parse(result.match(/<!-- card: (.+) -->/)[1]),{source:'Literal $& $$ $1',template:'T20'});
+  assert.equal(result.slice(result.indexOf('\r\n')),text.slice(text.indexOf('\r\n')));
+  assert.throws(()=>defaultStageInput('<!-- card: {"template":"T20"} -->\n# Missing mode'));
+});
+
+test('validation refuses nonempty output before overwriting any evidence or launching Chromium', async t => {
+  const dir=await mkdtemp(path.join(os.tmpdir(),'md2card-stage-review-'));
+  t.after(()=>rm(dir,{recursive:true,force:true}));
+  await writeFile(path.join(dir,'original-default.md'),'preserve input');
+  await writeFile(path.join(dir,'progress.json'),'preserve report');
+  await assert.rejects(validateScreenshotStage({out:dir,browser:'missing-browser'}),/must be empty/);
+  assert.equal(await readFile(path.join(dir,'original-default.md'),'utf8'),'preserve input');
+  assert.equal(await readFile(path.join(dir,'progress.json'),'utf8'),'preserve report');
+  const empty=path.join(dir,'empty'); await mkdir(empty);
+  assert.equal(await prepareStageOutput(empty),empty);
+  const link=path.join(dir,'link'); await symlink(empty,link,process.platform==='win32'?'junction':'dir');
+  await assert.rejects(prepareStageOutput(link),/symlinks/);
+  await assert.rejects(prepareStageOutput(fileURLToPath(new URL('../examples/',import.meta.url))),/under validation/);
+});
+
+test('mismatched baseline bytes cannot be presented as the pinned historical commit', async () => {
+  // No Git history required: Actions uses a shallow checkout. Production runs
+  // read the pinned Git blobs; only this isolated negative test supplies bytes.
+  await assert.rejects(verifyStageBaseline(fileURLToPath(new URL('../',import.meta.url)),
+    async () => Buffer.from('different committed bytes')),/Baseline differs/);
 });

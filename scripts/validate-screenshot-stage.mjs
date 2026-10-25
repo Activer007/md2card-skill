@@ -2,24 +2,67 @@
 // Independent opt-in evidence. Does not change historical gallery acceptance.
 import assert from 'node:assert/strict';
 import path from 'node:path';
-import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir, lstat, realpath } from 'node:fs/promises';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createHash } from 'node:crypto';
 import { openRenderer, closeBrowser, measureCards } from './browser.mjs';
-import { buildDocument, SIZES } from './document.mjs';
-import { renderCards } from './markdown.mjs';
+import { SIZES } from './document.mjs';
 import { createAssetResolver } from './assets.mjs';
 import { exportCards, parseOptions } from './render.mjs';
 import { inspectPdf } from './qa.mjs';
+import { SEMANTIC_FILES, readEvidenceFile } from './evidence-source.mjs';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 const exec = promisify(execFile);
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const writeJson = (file, value) => writeFile(file, JSON.stringify(value, null, 2) + '\n');
 const fixtures = path.join(ROOT, 'examples/visual-upgrade/t20');
-const read = name => readFile(path.join(ROOT, name), 'utf8');
+const BASE_COMMIT = 'd73f405c4b5a1891b79fbe51fdb009bd55c4cf69';
+export const STAGE_CASES = Object.freeze(['dense-ui','desktop-16x9','desktop-4x3','invalid-data','invalid-file','invalid-remote','invalid-svg','invalid-traversal','long-body','long-source','long-title','original','overflow','tall-phone']);
+
+export function selectStageFixtures(names) {
+  const actual = names.filter(name => name.endsWith('.md') && name !== 'README.md').sort();
+  assert.deepEqual(actual, STAGE_CASES.map(id => `${id}.md`), 'Stage fixture inventory differs; review missing or new cases explicitly.');
+  return actual;
+}
+
+export function defaultStageInput(source) {
+  // Parse the single-line JSON so whitespace and key order cannot leave the
+  // opt-in enabled in both halves of an apparent default/variant comparison.
+  const match = /^(\s*<!--\s*card\s*:\s*)(.+?)(\s*-->[^\S\r\n]*)(\r?\n|$)/.exec(source);
+  assert.ok(match, 'Stage fixture requires first-line card metadata.');
+  const metadata = JSON.parse(match[2]);
+  assert.equal(metadata.template, 'T20');
+  assert.equal(metadata.visualVariant, 'screenshot-stage');
+  delete metadata.visualVariant;
+  return source.replace(match[0], () => `${match[1]}${JSON.stringify(metadata)}${match[3]}${match[4]}`);
+}
+
+export async function prepareStageOutput(out) {
+  const absolute = path.resolve(out), root = await realpath(ROOT);
+  const relative = path.relative(root, absolute);
+  const outside = relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative);
+  assert.ok(relative && (outside || relative.split(path.sep)[0] === 'validation'), 'Output inside the repository must be under validation/.');
+  await mkdir(absolute, {recursive:true});
+  assert.ok(!(await lstat(absolute)).isSymbolicLink() && await realpath(absolute) === absolute, 'Validation output must not use symlinks.');
+  assert.equal((await readdir(absolute)).length, 0, 'Validation output must be empty; existing evidence is never overwritten.');
+  return absolute;
+}
+
+const readBaselineFile = async file => (await exec('git', ['show', `${BASE_COMMIT}:${file}`],
+  {cwd:ROOT,encoding:'buffer',windowsHide:true,maxBuffer:8*1024*1024,timeout:20000})).stdout;
+
+export async function verifyStageBaseline(root, readCommitted = readBaselineFile) {
+  const files = [];
+  for (const file of SEMANTIC_FILES) {
+    const digest = hash(await readCommitted(file));
+    assert.equal(hash(await readEvidenceFile(root,file)),digest, `Baseline differs from ${BASE_COMMIT}: ${file}`);
+    files.push({file,sha256:digest});
+  }
+  return {commit:BASE_COMMIT,files};
+}
 
 async function geometry(page) {
   return page.locator('.card').evaluate(card => {
@@ -40,19 +83,22 @@ async function geometry(page) {
 }
 
 export async function validateScreenshotStage({ out, browser, baselineRoot }) {
-  await mkdir(out, { recursive:true });
-  const css = await Promise.all(['themes','layouts','templates'].map(name => read(`assets/${name}.css`)));
+  const selected = selectStageFixtures(await readdir(fixtures));
+  const baselineIdentity = baselineRoot ? await verifyStageBaseline(baselineRoot) : null;
+  out = await prepareStageOutput(out);
+  const css = baselineRoot ? await Promise.all(['themes','layouts','templates'].map(name => readFile(path.join(baselineRoot,`assets/${name}.css`),'utf8'))) : null;
   const baseline = baselineRoot ? await import(pathToFileURL(path.join(baselineRoot,'scripts/document.mjs'))) : null;
+  const baselineMarkdown = baselineRoot ? await import(pathToFileURL(path.join(baselineRoot,'scripts/markdown.mjs'))) : null;
   const baselineExport = baselineRoot ? (await import(pathToFileURL(path.join(baselineRoot,'scripts/render.mjs')))).exportCards : null;
   const renderer = await openRenderer({ ...SIZES.portrait, browser, timeoutMs:30000 });
   const records = [];
   try {
     const {page} = renderer;
-    for (const file of (await readdir(fixtures)).filter(n=>n.endsWith('.md')).sort()) {
+    for (const file of selected) {
       const id = file.slice(0,-3), source = await readFile(path.join(fixtures,file),'utf8');
       const variants = ['default','stage'];
       for (const mode of variants) {
-        const key = `${id}-${mode}`, input = mode==='default' ? source.replace(',"visualVariant":"screenshot-stage"','') : source;
+        const key = `${id}-${mode}`, input = mode==='default' ? defaultStageInput(source) : source;
         const inputFile = path.join(out,`${key}.md`); await writeFile(inputFile,input);
         const target = path.join(out,key);
         const options = parseOptions([inputFile,'--out',target,'--asset-root',ROOT,'--format','all','--preview','--strict','--footer-mode','poster', ...(browser?['--browser',browser]:[])]);
@@ -74,7 +120,7 @@ export async function validateScreenshotStage({ out, browser, baselineRoot }) {
         assert.ok(!id.startsWith('invalid-') && id!=='overflow', `${key}: invalid input exported`);
         const html = await readFile(path.join(target,'cards.html'),'utf8');
         if (baseline && mode==='default') {
-          const assets = await createAssetResolver(ROOT), cards=renderCards(input,{resolveImage:assets.resolveImage});
+          const assets = await createAssetResolver(ROOT), cards=baselineMarkdown.renderCards(input,{resolveImage:assets.resolveImage});
           const oldHtml = baseline.buildDocument(cards,{...options,preview:false},...css);
           assert.equal(html,oldHtml,`${key}: default HTML changed`);
           record.baselineHtmlSha256=hash(oldHtml);
@@ -139,9 +185,9 @@ export async function validateScreenshotStage({ out, browser, baselineRoot }) {
       else if(!['report.json','progress.json'].includes(entry.name)) {const bytes=await readFile(file);files.push({file:path.relative(out,file).replaceAll('\\','/'),bytes:bytes.length,sha256:hash(bytes)});}
     }}
     await inventory(out);
-    const sourceFiles=['scripts/document.mjs','scripts/markdown.mjs','scripts/templates.mjs','scripts/render.mjs','scripts/assets.mjs','scripts/browser.mjs','scripts/qa.mjs','scripts/doctor.mjs','scripts/validate-screenshot-stage.mjs','assets/themes.css','assets/layouts.css','assets/templates.css'];
+    const sourceFiles=['scripts/document.mjs','scripts/markdown.mjs','scripts/templates.mjs','scripts/render.mjs','scripts/assets.mjs','scripts/browser.mjs','scripts/qa.mjs','scripts/doctor.mjs','scripts/validate-screenshot-stage.mjs','scripts/evidence-source.mjs','assets/themes.css','assets/layouts.css','assets/templates.css'];
     const sourceHashes=await Promise.all(sourceFiles.map(async file=>({file,sha256:hash(await readFile(path.join(ROOT,file)))})));
-    const report={schemaVersion:1,scope:'T20 screenshot-stage independent exact fixtures',baseCommit:'d73f405c4b5a1891b79fbe51fdb009bd55c4cf69',browser:await renderer.browser.version(),sourceHashes,records,files,
+    const report={schemaVersion:1,scope:'T20 screenshot-stage independent exact fixtures',baseCommit:baselineIdentity?.commit ?? null,baselineIdentity,browser:await renderer.browser.version(),sourceHashes,records,files,
       visualReview:'pending',limitations:['Complete screenshots do not imply every UI microglyph is phone-readable.','Tall screenshots retain their entire height and can become very narrow.','No historical gallery acceptance is promoted.']};
     await writeJson(path.join(out,'report.json'),report);return report;
   } finally { await closeBrowser(renderer.browser); }

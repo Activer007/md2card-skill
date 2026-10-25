@@ -2,6 +2,8 @@
 
 本轮开始时重新 `git fetch origin main`，main 仍为 `70383b8f05fbf56112bdf10dd9fddf7b9920756a`，tree 为 `6c58c1e61d4150248bf7ff6a79b46f3bf68e6408`。工作分支 `codex/m1a-template-matching`。已核对唯一模板注册表、受控元数据、TEMPLATE_GALLERY、M0 记录及当前开发包 Goal 1A/1B；此次只做 P11–P12，独立 CLI 和图库/Skill 接入属于 M1-B。
 
+合并前已同步先行合并的 M0 PR #26（main `a614dbbc86a77b1cfa91af3e54f1ec04bb059142`），遵循 [ADR-001](visual-upgrade/ADR-001.md) 的默认兼容、只读分析与验收边界。M0 未改变运行时代码，本 PR 也不新增视觉验收范围。
+
 ## 使用与信任边界
 
 两个同步纯函数：
@@ -18,7 +20,7 @@ const report = recommendTemplates({ cards, requestedAspect: 'portrait' });
 const json = JSON.stringify(report, null, 2);
 ```
 
-图片输入由调用者先用已有 `createAssetResolver(trustedAssetRoot)` 获得 resolver，再传给 `renderCards(markdown, { resolveImage: resolver.resolveImage })`。库函数只接收这一受信的解析结果；它不是新的原始 JSON/图片安全入口，不能把手写 cards、远程 URL、未验证图像当作受信内容。
+图片输入由调用者先用已有 `const resolver = await createAssetResolver(trustedAssetRoot)` 获得 resolver，再传给 `renderCards(markdown, { resolveImage: resolver.resolveImage })`。该异步步骤属于调用者；两个推荐库函数仍为同步纯函数。库函数只接收这一受信的解析结果；它不是新的原始 JSON/图片安全入口，不能把手写 cards、远程 URL、未验证图像当作受信内容。
 
 角色摘要复用现有 parser token、sections、orderedLists、受控作者元数据与已嵌入图片，不改变 Markdown、HTML、元数据或输入对象；共享引用定义按原解析器规则收集。没有文件、网络、模型、浏览器或导出调用。`sourceLines` 是已有解析器给出的原始卡片范围；heading 的 `bodyLines` 是移除卡片元数据后的正文相对行号，不冒充原文件绝对行号。
 
@@ -80,6 +82,8 @@ node scripts/build-template-gallery.mjs --check
 
 `package.json` 增加 `test:recommendations` 并纳入 `test:unit`，不改依赖版本或渲染参数。完整 argv/退出码/日志保存在本地 `validation/m1a/commands/`。
 
-首次副作用测试因 Node 文件读取白名单未覆盖 Windows junction 中间路径而失败；修复测试的模块读取许可后通过，产品代码未添加任何 IO 权限。本地定向检查未运行浏览器、PNG/PDF 导出或全套 integration，不声称新的视觉验收；PR 全量 CI 状态以 GitHub 为准。M0 的 Fontconfig/Poppler 环境限制仍在；本次纯函数、源级契约和默认 HTML 回归不依赖这些工具。
+首次副作用测试因 Node 文件读取白名单未覆盖 Windows junction 中间路径而失败；修复测试的模块读取许可后通过，产品代码未添加任何 IO 权限。
+
+随后在 `CHROMIUM_PATH` 指向真实 Chrome、`MD2CARD_REQUIRE_BROWSER=1` 下完成 `node --test tests/*.test.mjs`：605 项中 603 通过、0 失败、2 跳过，包含真实浏览器 PNG/PDF 导出回归。两个跳过及其他未执行的 PDF 文本提取子检查因缺少 `pdftotext`，不能标为严格 PDF 通过；M0 的 Fontconfig 限制也仍在。仓库 GitHub Actions 当前禁用，没有本 PR 的云端 CI 结果。导出回归不等于新的模板视觉验收。
 
 M1-B 可在此 API 上增加独立只读 CLI 和图库/Skill 指南。默认 render.mjs、受控元数据白名单、唯一模板注册表、document/browser/assets/semantic 和 CSS 均未修改。

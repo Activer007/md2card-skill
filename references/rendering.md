@@ -439,3 +439,11 @@ node scripts/render.mjs article.md --out ./output --body-size 大
 48 个 portrait 示例、8 个指定画幅示例、5 个主题 × 8 个布局。
 图库只对记录中固定的源码哈希接受这次默认档兼容；证据绑定工具仍要求完整源码快照一致。
 运行 `npm run test:body-size` 可复查字号行为和默认 HTML 对照。
+
+## Read-only recommendation before rendering
+
+`node scripts/recommend-templates.mjs input.md --json` reports candidates and
+conditions without exporting or editing the source. Use `--format text` for a
+readable summary. See [recommendations.md](recommendations.md) for the independent
+CLI, safe image root, exact-aspect reviewed links and refusal examples.
+Recommendation is not a render guarantee; the renderer options above are unchanged.

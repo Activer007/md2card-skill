@@ -29,10 +29,10 @@
 
 ## 阶段 2：PR21 系列接续
 
-- [ ] 展示 PR20 必要改动的带入方式，保留 PR21 历史和独立范围。
-- [ ] 校验 run40079867143 原始产物与四组系列，共 14 张卡。
-- [ ] 检查原文、来源、代码、图片、品牌、页脚、页序及连续阅读。
-- [ ] 新增六张不继承既有八张或 portrait 单例的视觉结论。
+- [x] 展示 PR20 必要改动的带入方式，保留 PR21 历史和独立范围。
+- [x] 校验 run40079867143 原始产物与四组系列，共 14 张卡。
+- [x] 检查原文、来源、代码、图片、品牌、页脚、页序及连续阅读。
+- [x] 新增六张不继承既有八张或 portrait 单例的视觉结论。
 
 ## 阶段 3：PR22 安全和画幅
 
@@ -107,3 +107,13 @@
 - 首次真实图库验证在受限执行环境中遇到 GPU 子进程退出及浏览器崩溃。正式权限下保持 Chromium 沙箱、CSP 和请求白名单，通过 60/60 项。修正页面过时状态说明后再次执行，最终仍为 60/60，25 张截图已独立查看；精确 263 个输入摘要及机器报告保存在 docs/gallery-ui-review.json，可读说明在 docs/GALLERY_UI_REVIEW.md。此结果只证明当前未提交本地候选，原生菜单缩放、辅助技术及其他浏览器仍未验证。
 - PR21 仍为 open draft，head 2229b0e73147a27f5e2273208fded6497521a57a，base refine/r4-content-gallery。已通过连接器获取 run40079867143 / artifact12553849934 并下载原始 ZIP；实际 SHA-256 与 GitHub digest 均为 f6393c44356ee2bab20bcdfa4aaf977bb4433ff175bf7887987f7da25b886708。已获取 CI commit20bcb5256cee43071b1efd43448a9308966620f7，其 tree 为 c1d255e6abd7ef1f32cc26d469a3f6343a6d935a，与 PR21 head tree 相同。尚未给 14 张系列卡片授予本轮视觉验收。
 - 当前本地改动应作为 PR20 合并后的新补充 PR 候选；PR21/22 各自专项修复继续留在对应 PR 历史上。尚未提交、推送或创建新 PR。下一步校验四组系列的来源、HTML、PDF、手机图、品牌及页序，再独立逐张复核。
+
+### 2026-10-25：阶段 2 精确产物复核与独立工作区
+
+- 当前工作区 E:/LHA/codex-worktree/r5-series-evidence/md2card-skill，分支 codex/r5-series-evidence，HEAD 2229b0e73147a27f5e2273208fded6497521a57a。本地独有提交 0；未提交、推送或合并 PR21。原 R4 工作区全部本地候选继续保留。
+- 基于 PR21 原 head 创建新工作区，逐文件核对原始快照后恢复 LF 字节，使用 git apply --check 验证公共补丁后带入 11 个已跟踪文件的修改及 144 个新增文件，保留 PR21 自己的 12 文件增量和合并历史。补丁摘要 d0974cc693c8dd35c4ebc8e571d4874168c952b47654b18d6ccf6868c0989a0b；带入清单在 validation/handoff/r4-carry-forward.json。没有更改渲染器、模板样式、Actions 或认证。
+- 原始 ZIP 的四组系列共 14 卡、85 个文件全部核对。来源173文件/7,943,324bytes与精确Git树一致；HTML和预览HTML由匹配语义重建后与ZIP逐字节一致。PDF/PNG/手机图、品牌Logo/accent、图片原始身份及许可、卡序、页脚、列表编号、模板版本、screen/print诊断均记录于 docs/evidence/series-run-40079867143/technical-audit.json。
+- 独立查看14张full PNG、28张375/390手机图及四份原生PDF的14页新栅格图。新增C/D六张没有继承旧结论。A组首字“一”的下沉辨识以及“确。”“例。”“实。”短尾保留为限制，未改写内容。逐卡结论与哈希见 docs/SERIES_PR21_REVIEW.md 和 docs/series-pr21-visual-review.json。
+- 四份原生PDF页数5/3/3/3、每页810×1080pt、无旋转。CI raw检查与本机pypdf兼容性问题分别记录：14页NFC有差异、6页NFKC仍有不匹配，未据此声称本机精确Unicode通过。
+- 公共修复带入后全量源测试528项：510通过、0失败、18跳过；日志 validation/handoff/r5-full-tests.log。gallery:check与git diff --check通过。未重跑浏览器排版；R4图库60项报告保留其原工作区/输入边界，不扩大为新阶段验收。
+- 下一步进入阶段3：从PR22原head建立接续候选，保留PR21必要改动；修复loadAspectCard输入与资源realpath边界、来源根/执行语义一致性及Windows路径测试，然后核验58技术案例和8个指定画幅短例。

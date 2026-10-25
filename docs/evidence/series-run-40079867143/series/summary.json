@@ -1,0 +1,2178 @@
+{
+  "schemaVersion": 1,
+  "revision": "20bcb5256cee43071b1efd43448a9308966620f7",
+  "inventorySha256": "2fba467bb6ace1fee52e423dae13cd14b25f340ee85c183676e782b85d439112",
+  "visualReview": "not-performed",
+  "results": [
+    {
+      "id": "evidence-reading",
+      "status": "exported-not-visually-reviewed",
+      "argv": [
+        "examples/series/evidence-reading.md",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/series/evidence-reading",
+        "--paginate",
+        "manual",
+        "--size",
+        "portrait",
+        "--asset-root",
+        "examples",
+        "--brand",
+        "examples/brand.json",
+        "--footer",
+        "证据阅读 · 原创示例",
+        "--title",
+        "完成，不等于学会",
+        "--format",
+        "all",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "inputSha256": "d622a2932210e64a31078f9f737b97cf4c9ec96dc38589682729aaf51d99da35",
+      "brandFile": "examples/brand.json",
+      "brandFileSha256": "40d9d406a8b68254a95386b87a5ffd8c9575881459931bc7200acca0e08b8dcb",
+      "contentImages": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "manifestSha256": "a164004364797d1744a222c9e0138ca6feb690a8f8374c1683593b58cde48d5a",
+      "cardCount": 5,
+      "pdf": {
+        "schemaVersion": 1,
+        "status": "pass",
+        "ok": true,
+        "pageCount": 5,
+        "textCharacters": 863,
+        "searchable": true,
+        "checks": [
+          {
+            "id": "pdf-pages",
+            "status": "pass",
+            "message": "PDF contains 5 page(s).",
+            "details": {
+              "expectedPages": 5,
+              "actualPages": 5
+            }
+          },
+          {
+            "id": "pdf-text",
+            "status": "pass",
+            "message": "PDF contains extractable, searchable text.",
+            "details": {
+              "textCharacters": 863,
+              "expectedSnippetCount": 0
+            }
+          }
+        ],
+        "tools": {
+          "pdfinfo": true,
+          "pdftotext": true
+        }
+      },
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "index": 1,
+          "template": "T01",
+          "cardWidth": 351,
+          "cardHeight": 467.9999694824219,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "1 / 5",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "证据阅读 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-001-mobile-375.png",
+          "sha256": "e0ce12d7fb964f989e6bff4fff73454f87f29c1e3541a472be81725b8461d88c"
+        },
+        {
+          "viewportWidth": 375,
+          "index": 2,
+          "template": "T05",
+          "cardWidth": 351,
+          "cardHeight": 468,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "2 / 5",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "证据阅读 · 原创示例",
+          "body": [
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [
+            1
+          ],
+          "images": [],
+          "file": "card-002-mobile-375.png",
+          "sha256": "8a2113e51ff5a8de3c8f05f03a8777cad5d5fa2167fa0b3788d8a50bc8e943c0"
+        },
+        {
+          "viewportWidth": 375,
+          "index": 3,
+          "template": "T04",
+          "cardWidth": 351,
+          "cardHeight": 468,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "3 / 5",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "证据阅读 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-003-mobile-375.png",
+          "sha256": "43beb69bc4bc0e07dae3a408da7436545d2e5b76c231f66a1936da685b2cdbee"
+        },
+        {
+          "viewportWidth": 375,
+          "index": 4,
+          "template": "T21",
+          "cardWidth": 351,
+          "cardHeight": 468,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "4 / 5",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "证据阅读 · 原创示例",
+          "body": [
+            {
+              "selector": "statistic-label",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-004-mobile-375.png",
+          "sha256": "91a0d58d19967be19143bbd3bc003d7002f5994c7292a3feb72ba3a6e81aa7eb"
+        },
+        {
+          "viewportWidth": 375,
+          "index": 5,
+          "template": "T25",
+          "cardWidth": 351,
+          "cardHeight": 468,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "5 / 5",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "证据阅读 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-005-mobile-375.png",
+          "sha256": "f6e12720be6b477dc9c1b13880648c3806e44ec00319bcabe7745c326ba834f2"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 1,
+          "template": "T01",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "1 / 5",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "证据阅读 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-001-mobile-390.png",
+          "sha256": "a5af89dfc3475a3990bb04b1626f18065b192d85a66c9a821f65a454c88627e3"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 2,
+          "template": "T05",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "2 / 5",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "证据阅读 · 原创示例",
+          "body": [
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [
+            1
+          ],
+          "images": [],
+          "file": "card-002-mobile-390.png",
+          "sha256": "53c8656e09887c38babd75a59b7426254f9e06c74c3e4bb8fb63e37e41af8fb5"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 3,
+          "template": "T04",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "3 / 5",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "证据阅读 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-003-mobile-390.png",
+          "sha256": "1bc71cc125a93f8cdbf772844ccee8df974fbb3a7076ab9861a3983da3c4ce1e"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 4,
+          "template": "T21",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "4 / 5",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "证据阅读 · 原创示例",
+          "body": [
+            {
+              "selector": "statistic-label",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-004-mobile-390.png",
+          "sha256": "d55b23e6e6186d04be07c796d9d21749749970e1ed7019f7e0c996c25d46af22"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 5,
+          "template": "T25",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "5 / 5",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "证据阅读 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-005-mobile-390.png",
+          "sha256": "fc971fa736e7d486b0c915197cad5beec8aff5c4d13b22cfeed2c00cd0e5156e"
+        }
+      ]
+    },
+    {
+      "id": "mean-tutorial",
+      "status": "exported-not-visually-reviewed",
+      "argv": [
+        "examples/series/mean-tutorial.md",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/series/mean-tutorial",
+        "--paginate",
+        "manual",
+        "--size",
+        "portrait",
+        "--asset-root",
+        "examples",
+        "--brand",
+        "examples/series/brand-tech.json",
+        "--footer",
+        "均值练习 · 原创示例",
+        "--title",
+        "算术平均值：三张练习",
+        "--format",
+        "all",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "inputSha256": "faac1e4f4661669c3b9678161baf2f238e4a90c5d767c7e0af7839002e9673df",
+      "brandFile": "examples/series/brand-tech.json",
+      "brandFileSha256": "854e26959f5ad34f8e837c76c89d440e504b563610a75e42f3455f09e38cd99a",
+      "contentImages": [
+        [],
+        [],
+        []
+      ],
+      "manifestSha256": "408098a38a44c0bf8616d6edfc92b0dccd4fb12833589291599c397416a2c61c",
+      "cardCount": 3,
+      "pdf": {
+        "schemaVersion": 1,
+        "status": "pass",
+        "ok": true,
+        "pageCount": 3,
+        "textCharacters": 697,
+        "searchable": true,
+        "checks": [
+          {
+            "id": "pdf-pages",
+            "status": "pass",
+            "message": "PDF contains 3 page(s).",
+            "details": {
+              "expectedPages": 3,
+              "actualPages": 3
+            }
+          },
+          {
+            "id": "pdf-text",
+            "status": "pass",
+            "message": "PDF contains extractable, searchable text.",
+            "details": {
+              "textCharacters": 697,
+              "expectedSnippetCount": 0
+            }
+          }
+        ],
+        "tools": {
+          "pdfinfo": true,
+          "pdftotext": true
+        }
+      },
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "index": 1,
+          "template": "T18",
+          "cardWidth": 351,
+          "cardHeight": 467.9999694824219,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "1 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "均值练习 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "language-js",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-001-mobile-375.png",
+          "sha256": "058baa18ed104c0f822cab31fcf27a9457910df4cd9c2d36f39da1568d271078"
+        },
+        {
+          "viewportWidth": 375,
+          "index": 2,
+          "template": "T18",
+          "cardWidth": 351,
+          "cardHeight": 468,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "2 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "均值练习 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "language-js",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-002-mobile-375.png",
+          "sha256": "dbd1067fa701be9c690f7f163c35d228cf47d3fb1470cbcaf313ccc097b4a0c2"
+        },
+        {
+          "viewportWidth": 375,
+          "index": 3,
+          "template": "T17",
+          "cardWidth": 351,
+          "cardHeight": 468,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "3 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "均值练习 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-003-mobile-375.png",
+          "sha256": "f0c7243717a317cd420fcdd9f8064f5ef242f327031aabe3b27548ed2cc75b45"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 1,
+          "template": "T18",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "1 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "均值练习 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "language-js",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-001-mobile-390.png",
+          "sha256": "e3056be8246da4152e3255c59768308a3bfa622958f883ea93578d189448c476"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 2,
+          "template": "T18",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "2 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "均值练习 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "language-js",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-002-mobile-390.png",
+          "sha256": "781c00d11c4dfd34083f405851fd2d3a34b330ca2c9df730ae9f12e6b9480714"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 3,
+          "template": "T17",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "3 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "均值练习 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-003-mobile-390.png",
+          "sha256": "c6f7f8c3b514e8aaa0b75351d39e3189a361f3d5c408a90c30da47fe536b28d5"
+        }
+      ]
+    },
+    {
+      "id": "note-format-decision",
+      "status": "exported-not-visually-reviewed",
+      "argv": [
+        "examples/series/note-format-decision.md",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/series/note-format-decision",
+        "--paginate",
+        "manual",
+        "--size",
+        "portrait",
+        "--asset-root",
+        "examples",
+        "--brand",
+        "examples/brand.json",
+        "--footer",
+        "记录选择 · 原创示例",
+        "--title",
+        "记录方式：先比较，再试用",
+        "--format",
+        "all",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "inputSha256": "5ef6945490e2c363971de77af09d419544c85dbe93c65649b1694fce9be7b045",
+      "brandFile": "examples/brand.json",
+      "brandFileSha256": "40d9d406a8b68254a95386b87a5ffd8c9575881459931bc7200acca0e08b8dcb",
+      "contentImages": [
+        [],
+        [],
+        []
+      ],
+      "manifestSha256": "47c717e70baa471c2277449bcebc67f3a9cdce1eb09226fdd0a274fed5e7a413",
+      "cardCount": 3,
+      "pdf": {
+        "schemaVersion": 1,
+        "status": "pass",
+        "ok": true,
+        "pageCount": 3,
+        "textCharacters": 549,
+        "searchable": true,
+        "checks": [
+          {
+            "id": "pdf-pages",
+            "status": "pass",
+            "message": "PDF contains 3 page(s).",
+            "details": {
+              "expectedPages": 3,
+              "actualPages": 3
+            }
+          },
+          {
+            "id": "pdf-text",
+            "status": "pass",
+            "message": "PDF contains extractable, searchable text.",
+            "details": {
+              "textCharacters": 549,
+              "expectedSnippetCount": 0
+            }
+          }
+        ],
+        "tools": {
+          "pdfinfo": true,
+          "pdftotext": true
+        }
+      },
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "index": 1,
+          "template": "T06",
+          "cardWidth": 351,
+          "cardHeight": 467.9999694824219,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "1 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "记录选择 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-001-mobile-375.png",
+          "sha256": "273d3b725b9d8e35476ab219e96e80fd49ffca80bacb41edb918555c4fdc33a8"
+        },
+        {
+          "viewportWidth": 375,
+          "index": 2,
+          "template": "T24",
+          "cardWidth": 351,
+          "cardHeight": 468,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "2 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "记录选择 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "th",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "th",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "th",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-002-mobile-375.png",
+          "sha256": "49ac623b74691d147db0e3d280db34b861cd5e9af0fcf7d142d90f6340db8054"
+        },
+        {
+          "viewportWidth": 375,
+          "index": 3,
+          "template": "T14",
+          "cardWidth": 351,
+          "cardHeight": 468,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "3 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "记录选择 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [
+            1
+          ],
+          "images": [],
+          "file": "card-003-mobile-375.png",
+          "sha256": "e7c318786164eb3a1758cb6fc67d3cb55e6c1ad2acd6cafedf9818f0327ae6e5"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 1,
+          "template": "T06",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "1 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "记录选择 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-001-mobile-390.png",
+          "sha256": "0d609af20edb3e45c3256f5e4f7da5dd55d2989ef19cc5921d70cea2a05e509c"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 2,
+          "template": "T24",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "2 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "记录选择 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "th",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "th",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "th",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "td",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-002-mobile-390.png",
+          "sha256": "83225cf1a5b34322e2c79f77c0f4fe8b97494a5bf4f7ba8361c0dc463d884720"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 3,
+          "template": "T14",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "3 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "记录选择 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "li",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [
+            1
+          ],
+          "images": [],
+          "file": "card-003-mobile-390.png",
+          "sha256": "89edc9648db6c6d60e4a3434f536331b1232ebc98316d9c86575034bbfafbb62"
+        }
+      ]
+    },
+    {
+      "id": "object-observation",
+      "status": "exported-not-visually-reviewed",
+      "argv": [
+        "examples/series/object-observation.md",
+        "--out",
+        "/home/runner/work/md2card-skill/md2card-skill/validation/series/object-observation",
+        "--paginate",
+        "manual",
+        "--size",
+        "portrait",
+        "--asset-root",
+        "examples",
+        "--brand",
+        "examples/series/brand-adaptive.json",
+        "--footer",
+        "物件观察 · 原创示例",
+        "--title",
+        "物件观察：看见与未知",
+        "--format",
+        "all",
+        "--strict",
+        "--preview",
+        "--contact-sheet"
+      ],
+      "inputSha256": "4ba35e81ced8834bc94edeefb8b135f82d78c8ada5211405c2923497c68969c3",
+      "brandFile": "examples/series/brand-adaptive.json",
+      "brandFileSha256": "6f571990fdb2b7aa22059597e4e33c8131c1b977221dfbde29f41ef367254b0f",
+      "assetProvenance": "examples/templates/assets/provenance.json",
+      "assetProvenanceSha256": "9487bccb859a2e83d14408a0592b5d188b995c3350a8b6bcd43b9ded931eb51f",
+      "contentImages": [
+        [
+          {
+            "reference": "templates/assets/original-open-tray.png",
+            "alt": "原创无品牌托盘插画，顶部敞开，四周有边沿；非实物照片。",
+            "kind": "metadata",
+            "sha256": "4ab3fcb7247a62b64db72226006c51ad60952fa1a0716d2a65165f4cdad87582",
+            "width": 900,
+            "height": 430,
+            "license": "MIT; original artwork created for md2card-skill"
+          }
+        ],
+        [
+          {
+            "reference": "templates/assets/original-open-tray.png",
+            "alt": "原创托盘示意，顶部敞开，完整画幅。",
+            "kind": "inline",
+            "sha256": "4ab3fcb7247a62b64db72226006c51ad60952fa1a0716d2a65165f4cdad87582",
+            "width": 900,
+            "height": 430,
+            "license": "MIT; original artwork created for md2card-skill"
+          },
+          {
+            "reference": "templates/assets/original-lidded-box.png",
+            "alt": "原创收纳盒示意，独立盒盖画在盒体上方，完整画幅。",
+            "kind": "inline",
+            "sha256": "1ef2b2a5d944dc8c434363dbd8b7b845bbbfe817f7bfca956eea1b3b5f529e66",
+            "width": 900,
+            "height": 430,
+            "license": "MIT; original artwork created for md2card-skill"
+          }
+        ],
+        []
+      ],
+      "manifestSha256": "aa7746024c43bcf3886e21f739ddb5d0dad9719a7f1194f003e58ef89c7ec5e8",
+      "cardCount": 3,
+      "pdf": {
+        "schemaVersion": 1,
+        "status": "pass",
+        "ok": true,
+        "pageCount": 3,
+        "textCharacters": 406,
+        "searchable": true,
+        "checks": [
+          {
+            "id": "pdf-pages",
+            "status": "pass",
+            "message": "PDF contains 3 page(s).",
+            "details": {
+              "expectedPages": 3,
+              "actualPages": 3
+            }
+          },
+          {
+            "id": "pdf-text",
+            "status": "pass",
+            "message": "PDF contains extractable, searchable text.",
+            "details": {
+              "textCharacters": 406,
+              "expectedSnippetCount": 0
+            }
+          }
+        ],
+        "tools": {
+          "pdfinfo": true,
+          "pdftotext": true
+        }
+      },
+      "mobile": [
+        {
+          "viewportWidth": 375,
+          "index": 1,
+          "template": "T37",
+          "cardWidth": 351,
+          "cardHeight": 467.9999694824219,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "1 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "物件观察 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "figcaption",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [
+            {
+              "alt": "原创无品牌托盘插画，顶部敞开，四周有边沿；非实物照片。",
+              "complete": true,
+              "naturalWidth": 900,
+              "naturalHeight": 430,
+              "width": 314.4984130859375,
+              "height": 150.2566375732422,
+              "objectFit": "contain"
+            }
+          ],
+          "file": "card-001-mobile-375.png",
+          "sha256": "df09f3f8e7ecc1246408aaa97c14f0fda6fe43e21d2cd1729dadcbdc765adbf8"
+        },
+        {
+          "viewportWidth": 375,
+          "index": 2,
+          "template": "T38",
+          "cardWidth": 351,
+          "cardHeight": 468,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "2 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "物件观察 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [
+            {
+              "alt": "原创托盘示意，顶部敞开，完整画幅。",
+              "complete": true,
+              "naturalWidth": 900,
+              "naturalHeight": 430,
+              "width": 140.7605438232422,
+              "height": 114.658935546875,
+              "objectFit": "contain"
+            },
+            {
+              "alt": "原创收纳盒示意，独立盒盖画在盒体上方，完整画幅。",
+              "complete": true,
+              "naturalWidth": 900,
+              "naturalHeight": 430,
+              "width": 140.76052856445312,
+              "height": 114.658935546875,
+              "objectFit": "contain"
+            }
+          ],
+          "file": "card-002-mobile-375.png",
+          "sha256": "9678ff6948e230d0ed9366382ec826f313d17af0e5d11a2a9994a56e9077d286"
+        },
+        {
+          "viewportWidth": 375,
+          "index": 3,
+          "template": "T29",
+          "cardWidth": 351,
+          "cardHeight": 468,
+          "canvasWidth": 1080,
+          "scale": 0.325,
+          "counter": "3 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "物件观察 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 60.372,
+              "effectiveSize": 19.6209
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.093
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 11.7585
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-003-mobile-375.png",
+          "sha256": "ff1be0ee6352c17d4dbbdd0df81883446d1311cf7dcd81ac04714f9045a9bc36"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 1,
+          "template": "T37",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "1 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "物件观察 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "figcaption",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [
+            {
+              "alt": "原创无品牌托盘插画，顶部敞开，四周有边沿；非实物照片。",
+              "complete": true,
+              "naturalWidth": 900,
+              "naturalHeight": 430,
+              "width": 327.93853759765625,
+              "height": 156.67791748046875,
+              "objectFit": "contain"
+            }
+          ],
+          "file": "card-001-mobile-390.png",
+          "sha256": "3b223c439b0c08677b2feae771404bc2b765d8c557ab8e166df5999bc2d125c5"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 2,
+          "template": "T38",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "2 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "物件观察 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [
+            {
+              "alt": "原创托盘示意，顶部敞开，完整画幅。",
+              "complete": true,
+              "naturalWidth": 900,
+              "naturalHeight": 430,
+              "width": 146.77593994140625,
+              "height": 119.55892944335938,
+              "objectFit": "contain"
+            },
+            {
+              "alt": "原创收纳盒示意，独立盒盖画在盒体上方，完整画幅。",
+              "complete": true,
+              "naturalWidth": 900,
+              "naturalHeight": 430,
+              "width": 146.7759552001953,
+              "height": 119.55892944335938,
+              "objectFit": "contain"
+            }
+          ],
+          "file": "card-002-mobile-390.png",
+          "sha256": "d28c722c4f3203baed6a6807e3ef0b8305caa20cf0da84be7f67ea61e208d5a4"
+        },
+        {
+          "viewportWidth": 390,
+          "index": 3,
+          "template": "T29",
+          "cardWidth": 366,
+          "cardHeight": 488,
+          "canvasWidth": 1080,
+          "scale": 0.3388888888888889,
+          "counter": "3 / 3",
+          "brand": "FIELDNOTES · 示例品牌",
+          "footer": "物件观察 · 原创示例",
+          "body": [
+            {
+              "selector": "p",
+              "fontSize": 60.372,
+              "effectiveSize": 20.459400000000002
+            },
+            {
+              "selector": "p",
+              "fontSize": 46.44,
+              "effectiveSize": 15.738
+            }
+          ],
+          "notes": [
+            {
+              "selector": "card-eyebrow",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-source",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "brand-name",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "footer-text",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            },
+            {
+              "selector": "card-index",
+              "fontSize": 36.18,
+              "effectiveSize": 12.261000000000001
+            }
+          ],
+          "listStarts": [],
+          "images": [],
+          "file": "card-003-mobile-390.png",
+          "sha256": "448097e198ba4522c42faa24071a1b7585e6d39a00cfcf210ad67d1f4850de22"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

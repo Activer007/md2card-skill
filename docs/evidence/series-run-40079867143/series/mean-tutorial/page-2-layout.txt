@@ -1,0 +1,24 @@
+                   均值练习
+空输入不冒充零
+    FIELDNOTES /
+
+
+
+
+把计算包成函数；没有记录时返回 null，而不
+是声称耗时为零。
+定义：保留缺失状态
+ function mean(ms) {
+   if (!ms.length) return null;
+   let sum = 0;
+   for (const n of ms) sum += n;
+   return sum / ms.length;
+ }
+
+检查：调用后看返回值
+mean([]) 返回 null；mean([120, 180, 150])
+返回 150。函数本身不打印结果。
+原创 JavaScript · 输入限有限非负数，单位毫秒
+   FIELDNOTES · 示例品牌
+   均值练习 · 原创示例                2 / 3
+

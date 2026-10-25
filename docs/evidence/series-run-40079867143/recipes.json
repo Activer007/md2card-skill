@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Optional authored examples only; not consumed by the renderer and never an instruction to arrange user content.",
+  "status": "source-only-awaiting-render-and-visual-review",
+  "recipes": [
+    {
+      "id": "evidence-reading",
+      "input": "examples/series/evidence-reading.md",
+      "title": "完成，不等于学会",
+      "cardCount": 5,
+      "templates": [
+        "T01",
+        "T05",
+        "T04",
+        "T21",
+        "T25"
+      ],
+      "roles": [
+        "cover",
+        "body",
+        "explanation",
+        "evidence",
+        "closing"
+      ],
+      "brandFile": "examples/brand.json",
+      "assetRoot": "examples",
+      "footer": "证据阅读 · 原创示例",
+      "density": "compact",
+      "size": "portrait",
+      "paginate": "manual",
+      "contentImages": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "id": "mean-tutorial",
+      "input": "examples/series/mean-tutorial.md",
+      "title": "算术平均值：三张练习",
+      "cardCount": 3,
+      "templates": [
+        "T18",
+        "T18",
+        "T17"
+      ],
+      "roles": [
+        "body-code",
+        "body-code",
+        "explanation"
+      ],
+      "brandFile": "examples/series/brand-tech.json",
+      "assetRoot": "examples",
+      "footer": "均值练习 · 原创示例",
+      "density": "compact",
+      "size": "portrait",
+      "paginate": "manual",
+      "contentImages": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "id": "note-format-decision",
+      "input": "examples/series/note-format-decision.md",
+      "title": "记录方式：先比较，再试用",
+      "cardCount": 3,
+      "templates": [
+        "T06",
+        "T24",
+        "T14"
+      ],
+      "roles": [
+        "contrast",
+        "decision-table",
+        "reversible-trial"
+      ],
+      "brandFile": "examples/brand.json",
+      "assetRoot": "examples",
+      "footer": "记录选择 · 原创示例",
+      "density": "standard",
+      "size": "portrait",
+      "paginate": "manual",
+      "contentImages": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "id": "object-observation",
+      "input": "examples/series/object-observation.md",
+      "title": "物件观察：看见与未知",
+      "cardCount": 3,
+      "templates": [
+        "T37",
+        "T38",
+        "T29"
+      ],
+      "roles": [
+        "single-image-observation",
+        "paired-image-observation",
+        "limits-note"
+      ],
+      "brandFile": "examples/series/brand-adaptive.json",
+      "assetRoot": "examples",
+      "footer": "物件观察 · 原创示例",
+      "density": "standard",
+      "size": "portrait",
+      "paginate": "manual",
+      "contentImages": [
+        [
+          "templates/assets/original-open-tray.png"
+        ],
+        [
+          "templates/assets/original-open-tray.png",
+          "templates/assets/original-lidded-box.png"
+        ],
+        []
+      ],
+      "assetProvenance": "examples/templates/assets/provenance.json"
+    }
+  ]
+}

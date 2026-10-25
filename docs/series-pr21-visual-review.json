@@ -1,0 +1,949 @@
+{
+  "schemaVersion": 1,
+  "identity": {
+    "commit": "20bcb5256cee43071b1efd43448a9308966620f7",
+    "tree": "c1d255e6abd7ef1f32cc26d469a3f6343a6d935a",
+    "sourceSha256": "7fdf3dffe57964e1def4d337eddb6d51bcd8c34b475bfda4ba87f15fff3fb4db",
+    "runId": 40079867143,
+    "artifactId": 12553849934,
+    "archiveSha256": "f6393c44356ee2bab20bcdfa4aaf977bb4433ff175bf7887987f7da25b886708"
+  },
+  "technicalAuditSha256": "11e5cef626d15065d669663ab32a06e1d99a88dbea8439adf519c55d42ab3e61",
+  "pdfAuditSha256": "ea98c63661eb8cedb719495426b5edb3f7b8d440bee9e1d898fdaf0614499e80",
+  "reviewedAt": "2026-10-24T16:35:09.866Z",
+  "reviewer": "Codex independent inspection of all 14 full PNGs, 28 mobile card images and 14 native PDF pages",
+  "scope": {
+    "density": "standard",
+    "size": "portrait",
+    "pagination": "manual",
+    "series": 4,
+    "cards": 14
+  },
+  "records": [
+    {
+      "series": "evidence-reading",
+      "index": 1,
+      "template": "T01",
+      "version": 2,
+      "inputSha256": "d622a2932210e64a31078f9f737b97cf4c9ec96dc38589682729aaf51d99da35",
+      "sourceSha256": "e6b3df87209c32c77b38d7c8409bee7ca5aae0e877b71c6cfbe48d2a45ac0eba",
+      "files": [
+        {
+          "file": "series/evidence-reading/card-001.png",
+          "bytes": 176588,
+          "sha256": "a6cb772f0c1e914c6d7c270086670bbb3efd3f2b5bdce0b00ba8c222268627af"
+        },
+        {
+          "file": "series/evidence-reading/card-001-mobile-375.png",
+          "bytes": 52020,
+          "sha256": "e0ce12d7fb964f989e6bff4fff73454f87f29c1e3541a472be81725b8461d88c"
+        },
+        {
+          "file": "series/evidence-reading/card-001-mobile-390.png",
+          "bytes": 55122,
+          "sha256": "a5af89dfc3475a3990bb04b1626f18065b192d85a66c9a821f65a454c88627e3"
+        },
+        {
+          "file": "series/evidence-reading/cards.pdf",
+          "bytes": 573942,
+          "sha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc"
+        }
+      ],
+      "pdfPage": {
+        "series": "evidence-reading",
+        "index": 1,
+        "pdfSha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc",
+        "pageCount": 5,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "evidence-reading-001.png",
+        "rasterSha256": "1f3f7371d60edd423ecfc68a105cd8b0869f2fb78e2f577062a47559a79fe854",
+        "textSha256": "9a3c664e86e009228238d002de5d576e1960e20a0528368a98508a50f7164247",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 11,
+        "exactNfcMissing": [
+          "一份练习记录能说明谁提交了作答，却不能单凭提交率证明谁已掌握知识。先问数字回答了什么，再看它没有回答什么。",
+          "这组卡片",
+          "从阅读问题走到统计口径，最后留下需要核实的边界。",
+          "示例范围",
+          "只讨论一组虚构练习，不推断真实课程或人群。",
+          "原创教学示例 · 后文记录全部虚构",
+          "FIELDNOTES · 示例品牌",
+          "证据阅读 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-with-layout-limitations",
+      "observation": "封面与两栏原文完整；首字“一”下沉造型呈长横，需结合后续“份”识别，存在阅读辨识限制。"
+    },
+    {
+      "series": "evidence-reading",
+      "index": 2,
+      "template": "T05",
+      "version": 2,
+      "inputSha256": "d622a2932210e64a31078f9f737b97cf4c9ec96dc38589682729aaf51d99da35",
+      "sourceSha256": "299f12a5375a58fdaff9f01b61fd99d9e7b5504b100ea26f365c51fcc09d75cd",
+      "files": [
+        {
+          "file": "series/evidence-reading/card-002.png",
+          "bytes": 160236,
+          "sha256": "76caa17330ee994c7bccf434996d9fad7f6056def0ceec410ae40fdae35a3dee"
+        },
+        {
+          "file": "series/evidence-reading/card-002-mobile-375.png",
+          "bytes": 48629,
+          "sha256": "8a2113e51ff5a8de3c8f05f03a8777cad5d5fa2167fa0b3788d8a50bc8e943c0"
+        },
+        {
+          "file": "series/evidence-reading/card-002-mobile-390.png",
+          "bytes": 53069,
+          "sha256": "53c8656e09887c38babd75a59b7426254f9e06c74c3e4bb8fb63e37e41af8fb5"
+        },
+        {
+          "file": "series/evidence-reading/cards.pdf",
+          "bytes": 573942,
+          "sha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc"
+        }
+      ],
+      "pdfPage": {
+        "series": "evidence-reading",
+        "index": 2,
+        "pdfSha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc",
+        "pageCount": 5,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "evidence-reading-002.png",
+        "rasterSha256": "f57d324aaa106e2d5d74e2a445bd2f3aa1e27aaf87d43570316441fefaac6f15",
+        "textSha256": "9e7de2282cf512f4c4b10c79b4e2fa2f6cb52abc0a170ece368195f08f5e043b",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 9,
+        "exactNfcMissing": [
+          "算的是哪段时间？ 写清开始和截止范围，不拿不同观察期直接比较。",
+          "想回答什么？ 提交率描述提交行为，理解程度需要另有依据。",
+          "FIELDNOTES · 示例品牌",
+          "证据阅读 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-exact-fixture",
+      "observation": "01–03 问题顺序、条件与来源完整；未见遮挡或裁切。"
+    },
+    {
+      "series": "evidence-reading",
+      "index": 3,
+      "template": "T04",
+      "version": 2,
+      "inputSha256": "d622a2932210e64a31078f9f737b97cf4c9ec96dc38589682729aaf51d99da35",
+      "sourceSha256": "b49ef751f175aef32cc783c3cd541972af9aa48787cd6e7ff90304fb6de1f0d7",
+      "files": [
+        {
+          "file": "series/evidence-reading/card-003.png",
+          "bytes": 187388,
+          "sha256": "7957ebebad0a0f5c1b4458f2b9a9f9f82106670e765620f2b75d0adf6497d222"
+        },
+        {
+          "file": "series/evidence-reading/card-003-mobile-375.png",
+          "bytes": 55507,
+          "sha256": "43beb69bc4bc0e07dae3a408da7436545d2e5b76c231f66a1936da685b2cdbee"
+        },
+        {
+          "file": "series/evidence-reading/card-003-mobile-390.png",
+          "bytes": 58089,
+          "sha256": "1bc71cc125a93f8cdbf772844ccee8df974fbb3a7076ab9861a3983da3c4ce1e"
+        },
+        {
+          "file": "series/evidence-reading/cards.pdf",
+          "bytes": 573942,
+          "sha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc"
+        }
+      ],
+      "pdfPage": {
+        "series": "evidence-reading",
+        "index": 3,
+        "pdfSha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc",
+        "pageCount": 5,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "evidence-reading-003.png",
+        "rasterSha256": "11554ce8edb65713bcda026376ce38d95c37cb9fcaa9a25d84d3a1cab9c1cfb5",
+        "textSha256": "a333ba3b8e173472a29b6beb56443171320f31d6b43741aa3784c1e7241e0737",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 13,
+        "exactNfcMissing": [
+          "让分子和分母对齐",
+          "这组虚构记录使用同一批人、同一观察期，避免口径错配。",
+          "分母：开始练习的人",
+          "虚构第 1 周共 7 天，20 人至少开始一次练习，每人只计一次。",
+          "分子：期内提交的人",
+          "其中 12 人在这 7 天内提交作答；重复提交仍只计一人。",
+          "不能顺手推出什么",
+          "原创统计口径示例 · 非真实调查",
+          "FIELDNOTES · 示例品牌",
+          "证据阅读 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [
+          "让分子和分母对齐"
+        ],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-with-layout-limitations",
+      "observation": "分子/分母、7 天、20 人和 12 人完整；结尾“确。”为单字短尾，内容可读但断行欠佳。"
+    },
+    {
+      "series": "evidence-reading",
+      "index": 4,
+      "template": "T21",
+      "version": 2,
+      "inputSha256": "d622a2932210e64a31078f9f737b97cf4c9ec96dc38589682729aaf51d99da35",
+      "sourceSha256": "6f742ba22c112f0019d25ae36d051b8eb306aec1f3945e81f7a6af2e14ee4c36",
+      "files": [
+        {
+          "file": "series/evidence-reading/card-004.png",
+          "bytes": 174824,
+          "sha256": "1061698796f9925536d81c5bdd376474dd82ea597c3c6a8dd67007dd9f1a972b"
+        },
+        {
+          "file": "series/evidence-reading/card-004-mobile-375.png",
+          "bytes": 52403,
+          "sha256": "91a0d58d19967be19143bbd3bc003d7002f5994c7292a3feb72ba3a6e81aa7eb"
+        },
+        {
+          "file": "series/evidence-reading/card-004-mobile-390.png",
+          "bytes": 56469,
+          "sha256": "d55b23e6e6186d04be07c796d9d21749749970e1ed7019f7e0c996c25d46af22"
+        },
+        {
+          "file": "series/evidence-reading/cards.pdf",
+          "bytes": 573942,
+          "sha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc"
+        }
+      ],
+      "pdfPage": {
+        "series": "evidence-reading",
+        "index": 4,
+        "pdfSha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc",
+        "pageCount": 5,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "evidence-reading-004.png",
+        "rasterSha256": "813c9267f909162bd42aedbe1f51b1e70bd874d53b55cc8c5cebd51b9d98ef5b",
+        "textSha256": "ea5eed7815ecd763c652df99f1c8528324a2166b25af93440598af6f8cf19dad",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 13,
+        "exactNfcMissing": [
+          "只解释这个比例",
+          "12 ÷ 20 = 60%，是提交人数占开始人数的比例。",
+          "口径与范围",
+          "虚构第 1 周共 7 天，20 名开始者中有 12 人提交；每人只计一次。",
+          "未评作答质量，也无对照组；不能证明学会、进步或推广效果。",
+          "FIELDNOTES · 示例品牌",
+          "证据阅读 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-with-layout-limitations",
+      "observation": "60%、12÷20、统计口径与非学习效果声明完整；公式说明末尾“例。”短尾保留。"
+    },
+    {
+      "series": "evidence-reading",
+      "index": 5,
+      "template": "T25",
+      "version": 2,
+      "inputSha256": "d622a2932210e64a31078f9f737b97cf4c9ec96dc38589682729aaf51d99da35",
+      "sourceSha256": "aad7da8055e860d3739397276cea383cce99a9eba1ea661676c438d0cf024326",
+      "files": [
+        {
+          "file": "series/evidence-reading/card-005.png",
+          "bytes": 175628,
+          "sha256": "2b3b618d3a6f0ef6efbc1dbf72c224004d49347819709459b26b088aeac52314"
+        },
+        {
+          "file": "series/evidence-reading/card-005-mobile-375.png",
+          "bytes": 52319,
+          "sha256": "f6e12720be6b477dc9c1b13880648c3806e44ec00319bcabe7745c326ba834f2"
+        },
+        {
+          "file": "series/evidence-reading/card-005-mobile-390.png",
+          "bytes": 55995,
+          "sha256": "fc971fa736e7d486b0c915197cad5beec8aff5c4d13b22cfeed2c00cd0e5156e"
+        },
+        {
+          "file": "series/evidence-reading/cards.pdf",
+          "bytes": 573942,
+          "sha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc"
+        }
+      ],
+      "pdfPage": {
+        "series": "evidence-reading",
+        "index": 5,
+        "pdfSha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc",
+        "pageCount": 5,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "evidence-reading-005.png",
+        "rasterSha256": "3d26aeb73e21770f8eba0e699e58be5bec6719d076d437e77e5302717b2dca36",
+        "textSha256": "305bf075cccdf98c15b648894af4e163a6463a33b84185851b166f50143c2351",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 9,
+        "exactNfcMissing": [
+          "比例说明发生了多少，判断还需要知道发生了什么，以及哪些信息仍然缺席。",
+          "作答质量、未提交原因和后续理解程度，都没有出现在这份虚构记录里。把这些空缺保留下来，比替数字补上一个漂亮结论更诚实。",
+          "FIELDNOTES · 示例品牌",
+          "证据阅读 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-with-layout-limitations",
+      "observation": "原创摘句与证据边界完整；正文最后“实。”单字短尾保留，未声称零孤行。"
+    },
+    {
+      "series": "mean-tutorial",
+      "index": 1,
+      "template": "T18",
+      "version": 2,
+      "inputSha256": "faac1e4f4661669c3b9678161baf2f238e4a90c5d767c7e0af7839002e9673df",
+      "sourceSha256": "f857dc25248f42a29ae26ce9eec4549c53e933131fb16d0f8f5d9a6a0a159dfc",
+      "files": [
+        {
+          "file": "series/mean-tutorial/card-001.png",
+          "bytes": 170627,
+          "sha256": "b6da40e78a4faaf9cfc70d538c74fdb667a8b40a229099542c7c9e7f37855483"
+        },
+        {
+          "file": "series/mean-tutorial/card-001-mobile-375.png",
+          "bytes": 49246,
+          "sha256": "058baa18ed104c0f822cab31fcf27a9457910df4cd9c2d36f39da1568d271078"
+        },
+        {
+          "file": "series/mean-tutorial/card-001-mobile-390.png",
+          "bytes": 53056,
+          "sha256": "e3056be8246da4152e3255c59768308a3bfa622958f883ea93578d189448c476"
+        },
+        {
+          "file": "series/mean-tutorial/cards.pdf",
+          "bytes": 396813,
+          "sha256": "961f45fe944067567d2a5c99f1add3317fa24b236a449669adc0719fca7796ba"
+        }
+      ],
+      "pdfPage": {
+        "series": "mean-tutorial",
+        "index": 1,
+        "pdfSha256": "961f45fe944067567d2a5c99f1add3317fa24b236a449669adc0719fca7796ba",
+        "pageCount": 3,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "mean-tutorial-001.png",
+        "rasterSha256": "16834ac22ce521e1303680abea468385fc66b6dd89b9aae42ceb5dbe75f2002f",
+        "textSha256": "ffcce30dca9e4709144390477a000b34080fb4e1c408828b232e88ee0d23d519",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 11,
+        "exactNfcMissing": [
+          "运行：逐项累加",
+          "分母为 3 条记录。结果不是实际性能测量，也不代表更大的样本。",
+          "FIELDNOTES · 示例品牌",
+          "均值练习 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-exact-fixture",
+      "observation": "四行求均值代码与三条虚构数据完整，输出 150 和分母 3 的说明可读。"
+    },
+    {
+      "series": "mean-tutorial",
+      "index": 2,
+      "template": "T18",
+      "version": 2,
+      "inputSha256": "faac1e4f4661669c3b9678161baf2f238e4a90c5d767c7e0af7839002e9673df",
+      "sourceSha256": "4968700db1719c26553c23cde7fe60e7d7d8d4743bb65e7c51c5b2f8e3b18be9",
+      "files": [
+        {
+          "file": "series/mean-tutorial/card-002.png",
+          "bytes": 183396,
+          "sha256": "d6f256d425d9b13b58c298e7ca83e685143305aaf3c2a5ea616e74a2bc1cfa70"
+        },
+        {
+          "file": "series/mean-tutorial/card-002-mobile-375.png",
+          "bytes": 53115,
+          "sha256": "dbd1067fa701be9c690f7f163c35d228cf47d3fb1470cbcaf313ccc097b4a0c2"
+        },
+        {
+          "file": "series/mean-tutorial/card-002-mobile-390.png",
+          "bytes": 57692,
+          "sha256": "781c00d11c4dfd34083f405851fd2d3a34b330ca2c9df730ae9f12e6b9480714"
+        },
+        {
+          "file": "series/mean-tutorial/cards.pdf",
+          "bytes": 396813,
+          "sha256": "961f45fe944067567d2a5c99f1add3317fa24b236a449669adc0719fca7796ba"
+        }
+      ],
+      "pdfPage": {
+        "series": "mean-tutorial",
+        "index": 2,
+        "pdfSha256": "961f45fe944067567d2a5c99f1add3317fa24b236a449669adc0719fca7796ba",
+        "pageCount": 3,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "mean-tutorial-002.png",
+        "rasterSha256": "27fdf03567053b6e1df3d655bd9c83827e95fc465cb169109ad6b165ea20a580",
+        "textSha256": "dd009060491de4d76f8445153a40a3beecd9908ce25812a460d0b460af93b68b",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 11,
+        "exactNfcMissing": [
+          "空输入不冒充零",
+          "把计算包成函数；没有记录时返回 null，而不是声称耗时为零。",
+          "检查：调用后看返回值",
+          "mean([]) 返回 null；mean([120, 180, 150]) 返回 150。函数本身不打印结果。",
+          "原创 JavaScript · 输入限有限非负数，单位毫秒",
+          "FIELDNOTES · 示例品牌",
+          "均值练习 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-exact-fixture",
+      "observation": "六行函数代码完整，空数组返回 null 与正常输入返回 150 的例子清楚；保留非负有限数条件。"
+    },
+    {
+      "series": "mean-tutorial",
+      "index": 3,
+      "template": "T17",
+      "version": 2,
+      "inputSha256": "faac1e4f4661669c3b9678161baf2f238e4a90c5d767c7e0af7839002e9673df",
+      "sourceSha256": "f097a5b88336ba9177e5e4e900e4cbcf2d2b28cf355486d153bbb94127a8447d",
+      "files": [
+        {
+          "file": "series/mean-tutorial/card-003.png",
+          "bytes": 210530,
+          "sha256": "d4207e697574663d667c3d85c28c11d454e7aa4af8b38ee4a596905e440f3e5d"
+        },
+        {
+          "file": "series/mean-tutorial/card-003-mobile-375.png",
+          "bytes": 63746,
+          "sha256": "f0c7243717a317cd420fcdd9f8064f5ef242f327031aabe3b27548ed2cc75b45"
+        },
+        {
+          "file": "series/mean-tutorial/card-003-mobile-390.png",
+          "bytes": 68097,
+          "sha256": "c6f7f8c3b514e8aaa0b75351d39e3189a361f3d5c408a90c30da47fe536b28d5"
+        },
+        {
+          "file": "series/mean-tutorial/cards.pdf",
+          "bytes": 396813,
+          "sha256": "961f45fe944067567d2a5c99f1add3317fa24b236a449669adc0719fca7796ba"
+        }
+      ],
+      "pdfPage": {
+        "series": "mean-tutorial",
+        "index": 3,
+        "pdfSha256": "961f45fe944067567d2a5c99f1add3317fa24b236a449669adc0719fca7796ba",
+        "pageCount": 3,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "mean-tutorial-003.png",
+        "rasterSha256": "55471bbd2f01145c945c932efd07718ee7baec40287c0bf186b271ace08600ed",
+        "textSha256": "7e712b79f8342bc6c96ed27094772e1cdf6efca51301132320357116b2db2b95",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 13,
+        "exactNfcMissing": [
+          "算对，还要用对",
+          "前两张代码只是教学计算，不是完整的数据清洗或性能分析工具。",
+          "输入边界",
+          "只传有限非负数，统一用毫秒；字符串和缺失值须先单独处理。",
+          "示例未防止累加溢出。真实输入需约束数量与大小，并核对计算结果。",
+          "均值不能揭示全部波动；不要把三条虚构记录推广为真实系统表现。",
+          "FIELDNOTES · 示例品牌",
+          "均值练习 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-exact-fixture",
+      "observation": "输入、数值和解释三条边界顺序清楚，保留溢出限制与非真实系统性能说明。"
+    },
+    {
+      "series": "note-format-decision",
+      "index": 1,
+      "template": "T06",
+      "version": 3,
+      "inputSha256": "5ef6945490e2c363971de77af09d419544c85dbe93c65649b1694fce9be7b045",
+      "sourceSha256": "259145bc40f695d9a2326b3bed981f39e350c73ae891db42aabfa91db74f32ff",
+      "files": [
+        {
+          "file": "series/note-format-decision/card-001.png",
+          "bytes": 187133,
+          "sha256": "f1040b4f165224d8a877f693bcfa5fa1ad57ab2411de7fb40fce2ddacb377323"
+        },
+        {
+          "file": "series/note-format-decision/card-001-mobile-375.png",
+          "bytes": 56898,
+          "sha256": "273d3b725b9d8e35476ab219e96e80fd49ffca80bacb41edb918555c4fdc33a8"
+        },
+        {
+          "file": "series/note-format-decision/card-001-mobile-390.png",
+          "bytes": 60536,
+          "sha256": "0d609af20edb3e45c3256f5e4f7da5dd55d2989ef19cc5921d70cea2a05e509c"
+        },
+        {
+          "file": "series/note-format-decision/cards.pdf",
+          "bytes": 448172,
+          "sha256": "e07678c40e51555a6d2c4fd41c0264c781e04c0d9e75d0901ec26dd46a2da898"
+        }
+      ],
+      "pdfPage": {
+        "series": "note-format-decision",
+        "index": 1,
+        "pdfSha256": "e07678c40e51555a6d2c4fd41c0264c781e04c0d9e75d0901ec26dd46a2da898",
+        "pageCount": 3,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "note-format-decision-001.png",
+        "rasterSha256": "e8522b57fc0e2163669d2f1071f84fee269c2c32a4e3aeb74da72da46b04bd3d",
+        "textSha256": "f86934a17aeb2262d2e0ba442336b46ea2cd5b02d466b7ec2f6a9431727f49e9",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 11,
+        "exactNfcMissing": [
+          "先想下次怎样用笔记，再选择载体。这里比较的是记录需要，不是工具排名。",
+          "想随手画关系、翻看一页的整体，可以从纸本开始；仍要约定存放位置。",
+          "留在文件里",
+          "需要检索词语或持续修订，可以试用数字文件；先确认格式能否导出，不把保存等同于备份。",
+          "原创情境对照 · 不比较产品，也不预设优胜者",
+          "FIELDNOTES · 示例品牌",
+          "记录选择 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [
+          "想随手画关系、翻看一页的整体，可以从纸本开始；仍要约定存放位置。"
+        ],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-exact-fixture",
+      "observation": "两栏保持作者原意，纸本/数字均附条件，不预设胜者；375/390 手机图可读。"
+    },
+    {
+      "series": "note-format-decision",
+      "index": 2,
+      "template": "T24",
+      "version": 3,
+      "inputSha256": "5ef6945490e2c363971de77af09d419544c85dbe93c65649b1694fce9be7b045",
+      "sourceSha256": "d7920ad17d727565cbbe4ba3e39a7757d51e4715ab207201c7e15cf273743d0d",
+      "files": [
+        {
+          "file": "series/note-format-decision/card-002.png",
+          "bytes": 171525,
+          "sha256": "96d529348a335bce393cc7d5e78fcc6fb0e22218a9dbb9e0ed5e5c5e5fa589a3"
+        },
+        {
+          "file": "series/note-format-decision/card-002-mobile-375.png",
+          "bytes": 53819,
+          "sha256": "49ac623b74691d147db0e3d280db34b861cd5e9af0fcf7d142d90f6340db8054"
+        },
+        {
+          "file": "series/note-format-decision/card-002-mobile-390.png",
+          "bytes": 57170,
+          "sha256": "83225cf1a5b34322e2c79f77c0f4fe8b97494a5bf4f7ba8361c0dc463d884720"
+        },
+        {
+          "file": "series/note-format-decision/cards.pdf",
+          "bytes": 448172,
+          "sha256": "e07678c40e51555a6d2c4fd41c0264c781e04c0d9e75d0901ec26dd46a2da898"
+        }
+      ],
+      "pdfPage": {
+        "series": "note-format-decision",
+        "index": 2,
+        "pdfSha256": "e07678c40e51555a6d2c4fd41c0264c781e04c0d9e75d0901ec26dd46a2da898",
+        "pageCount": 3,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "note-format-decision-002.png",
+        "rasterSha256": "a9ef21461b385b30fe6d481d008f00aa6a7ff464f0e943368c1dff10901a35e5",
+        "textSha256": "5f17bee6b214c9f0f248f713eea9c1b032e61b8fef17a0afae5f5b9d6bb7c2d2",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 22,
+        "exactNfcMissing": [
+          "把条件摆在前面",
+          "同一个人，不同任务也可以换一种方式。",
+          "看整页关系",
+          "能否自由画线",
+          "长期保留",
+          "不必一次定终身",
+          "先选最重要的一项，再接受其余取舍。没有哪种载体自动满足全部需要。",
+          "原创选择框架 · 字母是索引，不是评分",
+          "FIELDNOTES · 示例品牌",
+          "记录选择 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [
+          "看整页关系",
+          "长期保留"
+        ],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-exact-fixture",
+      "observation": "三列表格 A/B/C 行顺序及条件完整，不把字母当评分；下方取舍说明保留。"
+    },
+    {
+      "series": "note-format-decision",
+      "index": 3,
+      "template": "T14",
+      "version": 2,
+      "inputSha256": "5ef6945490e2c363971de77af09d419544c85dbe93c65649b1694fce9be7b045",
+      "sourceSha256": "5058cf448f21c47ea858d0dc5a9431abb1c32e8110861ff7caa82d09d64f6c50",
+      "files": [
+        {
+          "file": "series/note-format-decision/card-003.png",
+          "bytes": 177413,
+          "sha256": "6e569d5e75f930c7623a236044699ec16826bc718f700787b08539b6603c6dd7"
+        },
+        {
+          "file": "series/note-format-decision/card-003-mobile-375.png",
+          "bytes": 55310,
+          "sha256": "e7c318786164eb3a1758cb6fc67d3cb55e6c1ad2acd6cafedf9818f0327ae6e5"
+        },
+        {
+          "file": "series/note-format-decision/card-003-mobile-390.png",
+          "bytes": 59098,
+          "sha256": "89edc9648db6c6d60e4a3434f536331b1232ebc98316d9c86575034bbfafbb62"
+        },
+        {
+          "file": "series/note-format-decision/cards.pdf",
+          "bytes": 448172,
+          "sha256": "e07678c40e51555a6d2c4fd41c0264c781e04c0d9e75d0901ec26dd46a2da898"
+        }
+      ],
+      "pdfPage": {
+        "series": "note-format-decision",
+        "index": 3,
+        "pdfSha256": "e07678c40e51555a6d2c4fd41c0264c781e04c0d9e75d0901ec26dd46a2da898",
+        "pageCount": 3,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "note-format-decision-003.png",
+        "rasterSha256": "9845d8d2efc940ea48672fcc471efa09fae2465cb025549f79effcef05ea040d",
+        "textSha256": "0ce1aefb9046df705e8a5488f16f31100af8fc6e05e3fa200dca7550fe7823a3",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 10,
+        "exactNfcMissing": [
+          "先试一条真实笔记",
+          "不急着迁走旧记录。用一个可撤回的小试验，检查选择是否适合自己。",
+          "留一条记录：选眼前的任务，不编造理想使用场景。",
+          "隔天再找回：记录从哪里找、卡在哪里，不把一次顺手当成定论。",
+          "检查退出方式：试着复制或导出，保留原件，再决定是否继续。",
+          "原创试用清单 · 不是已完成任务或效果证明",
+          "FIELDNOTES · 示例品牌",
+          "记录选择 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-exact-fixture",
+      "observation": "三步小试验及空方框完整，未自动勾选；可撤回、不编造场景和保留原件说明可见。"
+    },
+    {
+      "series": "object-observation",
+      "index": 1,
+      "template": "T37",
+      "version": 2,
+      "inputSha256": "4ba35e81ced8834bc94edeefb8b135f82d78c8ada5211405c2923497c68969c3",
+      "sourceSha256": "bb39acff313a5fdb0b74599568ceed2376eaf21ef1cf653e572d159fc21328f4",
+      "files": [
+        {
+          "file": "series/object-observation/card-001.png",
+          "bytes": 125670,
+          "sha256": "f9e811715ce051c1dfea3a9af2ae1f09d0744a4358108a9157a516dc52b14efc"
+        },
+        {
+          "file": "series/object-observation/card-001-mobile-375.png",
+          "bytes": 36751,
+          "sha256": "df09f3f8e7ecc1246408aaa97c14f0fda6fe43e21d2cd1729dadcbdc765adbf8"
+        },
+        {
+          "file": "series/object-observation/card-001-mobile-390.png",
+          "bytes": 40499,
+          "sha256": "3b223c439b0c08677b2feae771404bc2b765d8c557ab8e166df5999bc2d125c5"
+        },
+        {
+          "file": "series/object-observation/cards.pdf",
+          "bytes": 429941,
+          "sha256": "5f18770a47bd237177a6ded036046edabf17797aa2bb8e77b56c909313985222"
+        }
+      ],
+      "pdfPage": {
+        "series": "object-observation",
+        "index": 1,
+        "pdfSha256": "5f18770a47bd237177a6ded036046edabf17797aa2bb8e77b56c909313985222",
+        "pageCount": 3,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "object-observation-001.png",
+        "rasterSha256": "b05fe0b30ac4257b66b2699cb303d3abd6225d89e9bc7a70025914c69635aa32",
+        "textSha256": "47d9cefa2e3e8d6a5ad21913f14e1512dd3d8f2c751c3055325c78cb710a043b",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 8,
+        "exactNfcMissing": [
+          "先看见一个开口",
+          "边沿围出一块敞开的空间。图里没有盒盖，但也没有尺寸标尺；先记下看见的，不急着说它能装多少。",
+          "原创图像与文案 · 仅描述画中结构",
+          "原创示意插画 · 完整画幅，非实物照片。",
+          "FIELDNOTES · 示例品牌",
+          "物件观察 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [
+          "先看见一个开口",
+          "边沿围出一块敞开的空间。图里没有盒盖，但也没有尺寸标尺；先记下看见的，不急着说它能装多少。"
+        ],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-exact-fixture",
+      "observation": "单张托盘原图边缘完整，原创插画/非实物说明、标题、正文及来源可见。"
+    },
+    {
+      "series": "object-observation",
+      "index": 2,
+      "template": "T38",
+      "version": 2,
+      "inputSha256": "4ba35e81ced8834bc94edeefb8b135f82d78c8ada5211405c2923497c68969c3",
+      "sourceSha256": "23bc6dea9e7cac5b2097482ca10fc6790138e1c353b7413dadb94292c41e5e4d",
+      "files": [
+        {
+          "file": "series/object-observation/card-002.png",
+          "bytes": 120951,
+          "sha256": "2500b48ae7901108a8679678043119be3034cc804f72f3755a6d87e34da20395"
+        },
+        {
+          "file": "series/object-observation/card-002-mobile-375.png",
+          "bytes": 34476,
+          "sha256": "9678ff6948e230d0ed9366382ec826f313d17af0e5d11a2a9994a56e9077d286"
+        },
+        {
+          "file": "series/object-observation/card-002-mobile-390.png",
+          "bytes": 36869,
+          "sha256": "d28c722c4f3203baed6a6807e3ef0b8305caa20cf0da84be7f67ea61e208d5a4"
+        },
+        {
+          "file": "series/object-observation/cards.pdf",
+          "bytes": 429941,
+          "sha256": "5f18770a47bd237177a6ded036046edabf17797aa2bb8e77b56c909313985222"
+        }
+      ],
+      "pdfPage": {
+        "series": "object-observation",
+        "index": 2,
+        "pdfSha256": "5f18770a47bd237177a6ded036046edabf17797aa2bb8e77b56c909313985222",
+        "pageCount": 3,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "object-observation-002.png",
+        "rasterSha256": "4c631d15b2388759e49af6e830181cc4257c31024c77fb19a72258a591698f4c",
+        "textSha256": "f5f7aef7fcc7d7350134f94d5b8df17ee3ba3161bf5351998d70ed7a2bbda238",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 10,
+        "exactNfcMissing": [
+          "开口直接可见；没有画出盖子。",
+          "盖与盒分开画出；不表示盖子会悬浮。",
+          "两图均为原创虚构物件插画 · 非同一实物前后照",
+          "FIELDNOTES · 示例品牌",
+          "物件观察 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [
+          "开口直接可见；没有画出盖子。"
+        ],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-exact-fixture",
+      "observation": "两图按原身份和比例呈现，保留“不是同一实物前后照”与“盖子不会悬浮”的限制。"
+    },
+    {
+      "series": "object-observation",
+      "index": 3,
+      "template": "T29",
+      "version": 2,
+      "inputSha256": "4ba35e81ced8834bc94edeefb8b135f82d78c8ada5211405c2923497c68969c3",
+      "sourceSha256": "7f93b919f207233b913e009624a6b3bb2ace7014efed60eddab4cfad8bcf1b81",
+      "files": [
+        {
+          "file": "series/object-observation/card-003.png",
+          "bytes": 185584,
+          "sha256": "774b207f09ad2b44617713dc62af1bb2c4af3bbaeeae3ff1e2bd8f315b0be391"
+        },
+        {
+          "file": "series/object-observation/card-003-mobile-375.png",
+          "bytes": 51961,
+          "sha256": "ff1be0ee6352c17d4dbbdd0df81883446d1311cf7dcd81ac04714f9045a9bc36"
+        },
+        {
+          "file": "series/object-observation/card-003-mobile-390.png",
+          "bytes": 55501,
+          "sha256": "448097e198ba4522c42faa24071a1b7585e6d39a00cfcf210ad67d1f4850de22"
+        },
+        {
+          "file": "series/object-observation/cards.pdf",
+          "bytes": 429941,
+          "sha256": "5f18770a47bd237177a6ded036046edabf17797aa2bb8e77b56c909313985222"
+        }
+      ],
+      "pdfPage": {
+        "series": "object-observation",
+        "index": 3,
+        "pdfSha256": "5f18770a47bd237177a6ded036046edabf17797aa2bb8e77b56c909313985222",
+        "pageCount": 3,
+        "pagePoints": [
+          810,
+          1080
+        ],
+        "raster": "object-observation-003.png",
+        "rasterSha256": "33b50a838e00ff7fa2b98d058e51a88a136494999e3a49a49766c49ec06daf79",
+        "textSha256": "2aceef57d7cda6fefb5ab9f644ad8a21a3f419b88486cf23d5a453d8b542285f",
+        "textExtraction": "pypdf plain",
+        "sourceSegments": 9,
+        "exactNfcMissing": [
+          "看见的是画面给出的线索；没有画出的条件，不能靠一个顺手的故事补齐。",
+          "这次没有看见什么",
+          "两幅图没有给出尺寸、材质和承重，颜色也不能证明材料。它们可以练习描述，却不能替代实物核对，更不是购买建议。",
+          "FIELDNOTES · 示例品牌",
+          "物件观察 · 原创示例"
+        ],
+        "compatibilityNfkcMissing": [
+          "看见的是画面给出的线索；没有画出的条件，不能靠一个顺手的故事补齐。",
+          "这次没有看见什么"
+        ],
+        "visualReview": "not-performed"
+      },
+      "review": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdf": "reviewed",
+        "sourceBrandFooterOrder": "reviewed"
+      },
+      "status": "reviewed-exact-fixture",
+      "observation": "原创摘句与观察札记分区清楚，缺少尺寸/材质/承重和非购买建议说明完整。"
+    }
+  ],
+  "boundaries": [
+    "Exact CI artifact only; no inheritance from portrait or older series",
+    "PDF text extractor compatibility differences retained; no local exact Unicode pass",
+    "Local candidate; not a PR merge or published acceptance"
+  ]
+}

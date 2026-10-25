@@ -7,9 +7,23 @@ import { readEvidenceFile, sha256 } from '../scripts/evidence-source.mjs';
 import { renderCards } from '../scripts/markdown.mjs';
 import { buildDocument } from '../scripts/document.mjs';
 import { defaultBodyFixtures } from './helpers/body-size-fixtures.mjs';
+import { PHOTO_DEFAULT_PROOF } from '../scripts/default-body-compatibility.mjs';
+import { createAssetResolver } from '../scripts/assets.mjs';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const read = file => readEvidenceFile(ROOT, file);
+
+test('existing T20 stage HTML remains equal to independently generated pre-photo fixtures', async () => {
+  const proof = JSON.parse(await read(PHOTO_DEFAULT_PROOF));
+  const css = await Promise.all(['themes','layouts','templates'].map(name=>readFile(new URL(`../assets/${name}.css`,import.meta.url),'utf8')));
+  const resolver = (await createAssetResolver(ROOT)).resolveImage;
+  assert.equal(proof.stageRecords.length,8);
+  for (const record of proof.stageRecords) {
+    const source = (await read(record.input)).toString('utf8');
+    assert.equal(sha256(source),record.inputSha256);
+    assert.equal(sha256(buildDocument(renderCards(source,{resolveImage:resolver}),record.options,...css)),record.baselineHtmlSha256,record.input);
+  }
+});
 
 test('96 medium/default outputs match independently generated pre-feature HTML hashes', async () => {
   const proof = JSON.parse(await read(DEFAULT_BODY_PROOF));

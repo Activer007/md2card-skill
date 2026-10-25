@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "38bd0dbd44c8b85e3875fa70280f6d63167ed1c0",
+  "scope": "without-photo-cover-only",
+  "verification": "Original 96 independently pinned default HTML cases, original T37 HTML/PNG/native PDF, and existing T20 stage fixture HTML. New photo-cover is independent evidence.",
+  "files": {
+    "scripts/document.mjs": {
+      "baselineSha256": "aeea8e08db2b8f18e6a7dd6414d7f47ffd7ba8490b456e7ee96c820641858a82",
+      "currentSha256": "41b0d0992ede307896b032c99e81a965969d0668a0da8dfa5c37bda4647df8b4"
+    },
+    "scripts/markdown.mjs": {
+      "baselineSha256": "38135e00dc61b48aa602fed35d34709bcaf680d3b4ee9b583330128be79a3f42",
+      "currentSha256": "b4388b5b50c38819ccc5ccc798160ee3e2ff968a9080a9b228067e5e03601ab8"
+    },
+    "scripts/render.mjs": {
+      "baselineSha256": "4e01da2e2561994b650391aebdfff87e09ae72a1827c73a6e380ebe28861f94e",
+      "currentSha256": "36fdb6d15fecb6c2f7e99a015ee49dc7bbbaa16d0bdbb9e193b54490178f1ddb"
+    },
+    "scripts/body-size.mjs": {
+      "baselineSha256": "3f20c47c15f6f2cd57dc42b1e1fdce3d2fb06d932a486fcf92340b19325404ed",
+      "currentSha256": "3f20c47c15f6f2cd57dc42b1e1fdce3d2fb06d932a486fcf92340b19325404ed"
+    },
+    "scripts/templates.mjs": {
+      "baselineSha256": "f342193fbf7b402d43dec450cca8c4c6aeeaa864beedb3e2537848e45dfece22",
+      "currentSha256": "49998ac92cab0354138ece7712551412c4ae9b8ebb4be93569a454312221bccb"
+    },
+    "scripts/browser.mjs": {
+      "baselineSha256": "4234faa5663d3dada5ffeb9c8e6aa8840d7d43e0021796f4fe68b1a4ede3314e",
+      "currentSha256": "3d07dfd8b9c7752026828813add8c6b49017db3b0514e404974975c8a0c0d3ca"
+    }
+  },
+  "stageRecords": [
+    {
+      "input": "examples/visual-upgrade/t20/dense-ui.md",
+      "inputSha256": "82b9213ad769f99b088b90064b389065787ea8371d894c23914386cd55b11f7b",
+      "baselineHtmlSha256": "ef660549a9b4aac72274f19d61e224615d1b3c610f02db06b01a13f6490309c3",
+      "options": {
+        "width": 1080,
+        "height": 1440,
+        "footerMode": "poster"
+      }
+    },
+    {
+      "input": "examples/visual-upgrade/t20/desktop-16x9.md",
+      "inputSha256": "81283a350e0bbdb1ce690704e5833d4746668e6670d65c3d34131c737ad7ca31",
+      "baselineHtmlSha256": "02fe217184cd3c8e000575ac2f702c5d98da3778f6f1836b4aa94e94622888f5",
+      "options": {
+        "width": 1080,
+        "height": 1440,
+        "footerMode": "poster"
+      }
+    },
+    {
+      "input": "examples/visual-upgrade/t20/desktop-4x3.md",
+      "inputSha256": "21d2b38ddbef2f66c0771887f8a489cc8446e9a35c926dbfd2a06be453c2d5f4",
+      "baselineHtmlSha256": "59aae1956e5cb7e17c78f921034fff99655d60203a5e05cd8ea7ce618a6fb122",
+      "options": {
+        "width": 1080,
+        "height": 1440,
+        "footerMode": "poster"
+      }
+    },
+    {
+      "input": "examples/visual-upgrade/t20/long-body.md",
+      "inputSha256": "d5d4e2295d7f62716d32e7e827df7ec6760427e4f553ed0188ae95816ade1dd4",
+      "baselineHtmlSha256": "39080e95dfd856084af2f324f14b86f81b0937d60a9f910b34f4e5a55824e92a",
+      "options": {
+        "width": 1080,
+        "height": 1440,
+        "footerMode": "poster"
+      }
+    },
+    {
+      "input": "examples/visual-upgrade/t20/long-source.md",
+      "inputSha256": "a0e41d6af84d3a2dcd98340f88dd5852cf3dd8b5ad27dc7c4c201029e2dfb462",
+      "baselineHtmlSha256": "e7e7b430f4eb6c0024d7352aabf7f3eb6ece264970736641ff18014c1b7533fa",
+      "options": {
+        "width": 1080,
+        "height": 1440,
+        "footerMode": "poster"
+      }
+    },
+    {
+      "input": "examples/visual-upgrade/t20/long-title.md",
+      "inputSha256": "4b6e858d6fd7fb959ce1849e23b79bdf2a8b96eb3cd0b5f4070432cf70c2a3ee",
+      "baselineHtmlSha256": "a50273e1687d5cd3cf04c3a887d773b2628067d72f17c81ac276e98d724e186d",
+      "options": {
+        "width": 1080,
+        "height": 1440,
+        "footerMode": "poster"
+      }
+    },
+    {
+      "input": "examples/visual-upgrade/t20/original.md",
+      "inputSha256": "465e6d99549bae730be228f7620b263e7c685307a42766df7bdf80eb6524f5d0",
+      "baselineHtmlSha256": "fde3bbd8c0d202ee737929803d6e3c0c57c57f84201c7cb3d99c56a70b1473d2",
+      "options": {
+        "width": 1080,
+        "height": 1440,
+        "footerMode": "poster"
+      }
+    },
+    {
+      "input": "examples/visual-upgrade/t20/tall-phone.md",
+      "inputSha256": "ff491f389bf9af72365962c2c246dc7bd4007f5219433bcede6ecf337f7fdf48",
+      "baselineHtmlSha256": "4ac41d1ae224a1440af55dc820ac0a7104770be71e3e0fb9512d74c3dd8f98ba",
+      "options": {
+        "width": 1080,
+        "height": 1440,
+        "footerMode": "poster"
+      }
+    }
+  ]
+}

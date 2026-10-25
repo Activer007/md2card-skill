@@ -110,6 +110,14 @@ export async function measureCards(page) {
     if (footer.scrollHeight > footer.clientHeight + tolerance || footer.scrollWidth > footer.clientWidth + tolerance) problems.push('footer');
     if (bounds.bottom > footerBounds.top + tolerance) problems.push('content-footer-overlap');
     if (footerBounds.bottom > cardBounds.bottom + tolerance) problems.push('footer-height');
+    // Bounded author-selected photo region: reject spill, never hide/shrink it.
+    for (const zone of content.querySelectorAll('.photo-zone')) {
+      const safe = zone.getBoundingClientRect();
+      for (const element of zone.querySelectorAll('*')) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < safe.top - tolerance || rect.left < safe.left - tolerance || rect.bottom > safe.bottom + tolerance || rect.right > safe.right + tolerance || element.scrollWidth > element.clientWidth + tolerance && element.clientWidth > 0) problems.push('photo-text-zone');
+      }
+    }
     for (const element of content.querySelectorAll('*')) {
       const rect = element.getBoundingClientRect();
       // Content is a stretched flex item: scrollHeight cannot reveal a sparse

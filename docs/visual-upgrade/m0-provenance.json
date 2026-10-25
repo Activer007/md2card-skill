@@ -1,0 +1,2002 @@
+{
+  "schemaVersion": 1,
+  "status": "baseline-frozen-with-explicit-limitations",
+  "baseline": {
+    "commit": "70383b8f05fbf56112bdf10dd9fddf7b9920756a",
+    "tree": "6c58c1e61d4150248bf7ff6a79b46f3bf68e6408",
+    "packageVersion": "3.0.0"
+  },
+  "evidenceDirectory": "validation/visual-upgrade/m0-70383b8-20261025",
+  "archive": {
+    "file": "docs/evidence/visual-upgrade-m0-70383b8.zip",
+    "bytes": 18766431,
+    "sha256": "267907d443b21040bc8826d37a721b7f536f8cbb71899b797ab84aca6432ac99"
+  },
+  "indexSha256": "875711745732cedf844cea58d255c03334f6e26157f067b2fb03ba18ed2dec89",
+  "environment": {
+    "node": "v24.16.0",
+    "os": {
+      "platform": "win32",
+      "release": "10.0.26200",
+      "architecture": "x64"
+    },
+    "chrome": "156.0.8078.48",
+    "dependencies": {
+      "markdown-it": "15.0.3",
+      "playwright": "1.64.1"
+    },
+    "python": {
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\10747\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "packages": {
+        "pypdf": "6.10.0",
+        "pdfplumber": "0.11.9",
+        "pypdfium2": "5.14.0",
+        "Pillow": "12.3.0"
+      },
+      "tools": {
+        "pdfinfo": {
+          "path": "C:\\Users\\10747\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdfinfo.EXE",
+          "version": {
+            "command": [
+              "C:\\Users\\10747\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdfinfo.EXE",
+              "-v"
+            ],
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "pdfinfo version 26.07.0\nCopyright 2005-2026 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC\n"
+          },
+          "status": "available"
+        },
+        "pdftoppm": {
+          "path": "C:\\Users\\10747\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.EXE",
+          "version": {
+            "command": [
+              "C:\\Users\\10747\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.EXE",
+              "-v"
+            ],
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": "pdftoppm version 26.07.0\nCopyright 2005-2026 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC\n"
+          },
+          "status": "available"
+        },
+        "pdftotext": {
+          "path": null,
+          "version": null,
+          "status": "BLOCKED: executable missing"
+        },
+        "fc-list": {
+          "path": null,
+          "version": null,
+          "status": "BLOCKED: executable missing"
+        },
+        "fc-match": {
+          "path": null,
+          "version": null,
+          "status": "BLOCKED: executable missing"
+        }
+      },
+      "fontTools": "not installed; font name/version tables read directly from SFNT files"
+    },
+    "fonts": [
+      {
+        "file": "C:\\Windows\\Fonts\\NotoSansSC-VF.ttf",
+        "sha256": "763146584cf0710223441356b4395e279021b0806c196614377a7a0174ae074a",
+        "bytes": 17773244,
+        "faces": [
+          {
+            "1": [
+              "Noto Sans SC"
+            ],
+            "2": [
+              "Regular"
+            ],
+            "4": [
+              "Noto Sans SC"
+            ],
+            "5": [
+              "Version 2.04;241114210130;non-release"
+            ],
+            "6": [
+              "NotoSansSC-Thin"
+            ],
+            "17": [
+              "Thin"
+            ]
+          }
+        ]
+      },
+      {
+        "file": "C:\\Windows\\Fonts\\NotoSerifSC-VF.ttf",
+        "sha256": "a4aed9985a5916fbf6690456f8732a9fccd517938e353165d4142b4f11a39280",
+        "bytes": 25129160,
+        "faces": [
+          {
+            "1": [
+              "Noto Serif SC"
+            ],
+            "2": [
+              "Regular"
+            ],
+            "4": [
+              "Noto Serif SC"
+            ],
+            "5": [
+              "Version 2.02;241114204558;non-release"
+            ],
+            "6": [
+              "NotoSerifSC-ExtraLight"
+            ],
+            "17": [
+              "ExtraLight"
+            ]
+          }
+        ]
+      },
+      {
+        "file": "C:\\Windows\\Fonts\\CascadiaMono.ttf",
+        "sha256": "0e141cb99609f6f10ad05313fd1807d5cc9e28658dcbb35ab162e52ff67dc718",
+        "bytes": 371352,
+        "faces": [
+          {
+            "1": [
+              "Cascadia Mono"
+            ],
+            "2": [
+              "Regular"
+            ],
+            "4": [
+              "Cascadia Mono Regular"
+            ],
+            "5": [
+              "Version 2102.025"
+            ],
+            "6": [
+              "CascadiaMono-Roman"
+            ],
+            "17": [
+              "Roman"
+            ]
+          }
+        ]
+      },
+      {
+        "file": "C:\\Windows\\Fonts\\msyh.ttc",
+        "sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f",
+        "bytes": 19704352,
+        "faces": [
+          {
+            "1": [
+              "Microsoft YaHei",
+              "微软雅黑"
+            ],
+            "2": [
+              "Arrunta",
+              "Navadno",
+              "Normaali",
+              "Normal",
+              "Normale",
+              "Normalny",
+              "Normál",
+              "Normálne",
+              "Regular",
+              "Standaard",
+              "Standard",
+              "obyčejné",
+              "Κανονικά",
+              "Обычный"
+            ],
+            "4": [
+              "Microsoft YaHei",
+              "微软雅黑"
+            ],
+            "5": [
+              "Version 6.31"
+            ],
+            "6": [
+              "MicrosoftYaHei",
+              "MicrosoftYaHeiRegular"
+            ]
+          },
+          {
+            "1": [
+              "Microsoft YaHei UI"
+            ],
+            "2": [
+              "Arrunta",
+              "Navadno",
+              "Normaali",
+              "Normal",
+              "Normale",
+              "Normalny",
+              "Normál",
+              "Normálne",
+              "Regular",
+              "Standaard",
+              "Standard",
+              "obyčejné",
+              "Κανονικά",
+              "Обычный"
+            ],
+            "4": [
+              "Microsoft YaHei UI",
+              "Microsoft Yahei UI"
+            ],
+            "5": [
+              "Version 6.31"
+            ],
+            "6": [
+              "MicrosoftYaHeiUI",
+              "MicrosoftYaHeiUIRegular"
+            ]
+          }
+        ]
+      },
+      {
+        "file": "C:\\Windows\\Fonts\\msyhbd.ttc",
+        "sha256": "4508821b3dffe01f0ef5e5326a3e60df705a44633858811f67b6982dce3f6ee6",
+        "bytes": 16883552,
+        "faces": [
+          {
+            "1": [
+              "Microsoft YaHei",
+              "微软雅黑"
+            ],
+            "2": [
+              "Bold",
+              "Fet",
+              "Fett",
+              "Félkövér",
+              "Gras",
+              "Grassetto",
+              "Halvfet",
+              "Kalın",
+              "Krepko",
+              "Lihavoitu",
+              "Lodia",
+              "Negreta",
+              "Negrita",
+              "Negrito",
+              "Pogrubiony",
+              "Tučné",
+              "Vet",
+              "fed",
+              "tučné",
+              "Έντονα",
+              "Полужирный"
+            ],
+            "4": [
+              "Microsoft YaHei Bold",
+              "Microsoft YaHei Fet",
+              "Microsoft YaHei Fett",
+              "Microsoft YaHei Félkövér",
+              "Microsoft YaHei Gras",
+              "Microsoft YaHei Grassetto",
+              "Microsoft YaHei Halvfet",
+              "Microsoft YaHei Kalın",
+              "Microsoft YaHei Krepko",
+              "Microsoft YaHei Lihavoitu",
+              "Microsoft YaHei Lodia",
+              "Microsoft YaHei Negreta",
+              "Microsoft YaHei Negrita",
+              "Microsoft YaHei Negrito",
+              "Microsoft YaHei Pogrubiony",
+              "Microsoft YaHei Tučné",
+              "Microsoft YaHei Vet",
+              "Microsoft YaHei fed",
+              "Microsoft YaHei tučné",
+              "Microsoft YaHei Έντονα",
+              "Microsoft YaHei Полужирный",
+              "微软雅黑 Bold"
+            ],
+            "5": [
+              "Version 6.31"
+            ],
+            "6": [
+              "MicrosoftYaHei-Bold"
+            ]
+          },
+          {
+            "1": [
+              "Microsoft YaHei UI"
+            ],
+            "2": [
+              "Bold",
+              "Fet",
+              "Fett",
+              "Félkövér",
+              "Gras",
+              "Grassetto",
+              "Halvfet",
+              "Kalın",
+              "Krepko",
+              "Lihavoitu",
+              "Lodia",
+              "Negreta",
+              "Negrita",
+              "Negrito",
+              "Pogrubiony",
+              "Tučné",
+              "Vet",
+              "fed",
+              "tučné",
+              "Έντονα",
+              "Полужирный"
+            ],
+            "4": [
+              "Microsoft YaHei UI Bold",
+              "Microsoft YaHei UI Fet",
+              "Microsoft YaHei UI Fett",
+              "Microsoft YaHei UI Félkövér",
+              "Microsoft YaHei UI Gras",
+              "Microsoft YaHei UI Grassetto",
+              "Microsoft YaHei UI Halvfet",
+              "Microsoft YaHei UI Kalın",
+              "Microsoft YaHei UI Krepko",
+              "Microsoft YaHei UI Lihavoitu",
+              "Microsoft YaHei UI Lodia",
+              "Microsoft YaHei UI Negreta",
+              "Microsoft YaHei UI Negrita",
+              "Microsoft YaHei UI Negrito",
+              "Microsoft YaHei UI Pogrubiony",
+              "Microsoft YaHei UI Tučné",
+              "Microsoft YaHei UI Vet",
+              "Microsoft YaHei UI fed",
+              "Microsoft YaHei UI tučné",
+              "Microsoft YaHei UI Έντονα",
+              "Microsoft YaHei UI Полужирный",
+              "Microsoft Yahei UI Bold"
+            ],
+            "5": [
+              "Version 6.31"
+            ],
+            "6": [
+              "MicrosoftYaHeiUI-Bold"
+            ]
+          }
+        ]
+      },
+      {
+        "file": "C:\\Windows\\Fonts\\arial.ttf",
+        "sha256": "b3658eadae55e682b5f69eb64c439c1ecc8f196c0bb8d4756d145d13bc86476a",
+        "bytes": 1045720,
+        "faces": [
+          {
+            "1": [
+              "Arial"
+            ],
+            "2": [
+              "Arrunta",
+              "Navadno",
+              "Normaali",
+              "Normal",
+              "Normale",
+              "Normalny",
+              "Normál",
+              "Normálne",
+              "Regular",
+              "Standaard",
+              "Standard",
+              "normal",
+              "obyčejné",
+              "thường",
+              "Κανονικά",
+              "Обычный"
+            ],
+            "4": [
+              "Arial"
+            ],
+            "5": [
+              "Version 7.06"
+            ],
+            "6": [
+              "ArialMT"
+            ]
+          }
+        ]
+      },
+      {
+        "file": "C:\\Windows\\Fonts\\arialbd.ttf",
+        "sha256": "e8f4e3baf6cc35fed6fcce3a540e8b39e8f6cda1d22a28f2ec8f526fef7a43f5",
+        "bytes": 989780,
+        "faces": [
+          {
+            "1": [
+              "Arial"
+            ],
+            "2": [
+              "Bold",
+              "Fet",
+              "Fett",
+              "Félkövér",
+              "Gras",
+              "Grassetto",
+              "Halvfet",
+              "Kalın",
+              "Krepko",
+              "Lihavoitu",
+              "Lodia",
+              "Negreta",
+              "Negrita",
+              "Negrito",
+              "Pogrubiony",
+              "Tučné",
+              "Vet",
+              "fed",
+              "tučné",
+              "đậm",
+              "Έντονα",
+              "Полужирный"
+            ],
+            "4": [
+              "Arial Bold",
+              "Arial Fet",
+              "Arial Fett",
+              "Arial Félkövér",
+              "Arial Gras",
+              "Arial Grassetto",
+              "Arial Halvfet",
+              "Arial Kalın",
+              "Arial Krepko",
+              "Arial Lihavoitu",
+              "Arial Lodia",
+              "Arial Negreta",
+              "Arial Negrita",
+              "Arial Negrito",
+              "Arial Pogrubiony",
+              "Arial Tučné",
+              "Arial Vet",
+              "Arial fed",
+              "Arial tučné",
+              "Arial đậm",
+              "Arial Έντονα",
+              "Arial Полужирный"
+            ],
+            "5": [
+              "Version 7.06"
+            ],
+            "6": [
+              "Arial-BoldMT"
+            ]
+          }
+        ]
+      },
+      {
+        "file": "C:\\Windows\\Fonts\\GOTHIC.TTF",
+        "sha256": "3a9cbb5d75b2a2b0d22dc94571608e4e9dc7b88e825374985880c5722c1c9e5f",
+        "bytes": 137568,
+        "faces": [
+          {
+            "1": [
+              "Century Gothic"
+            ],
+            "2": [
+              "Arrunta",
+              "Navadno",
+              "Normaali",
+              "Normal",
+              "Normale",
+              "Normalny",
+              "Normál",
+              "Normálne",
+              "Regular",
+              "Standaard",
+              "Standard",
+              "normal",
+              "obyčejné",
+              "Κανονικά",
+              "Обычный"
+            ],
+            "4": [
+              "Century Gothic"
+            ],
+            "5": [
+              "Version 2.35"
+            ],
+            "6": [
+              "CenturyGothic"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "planHashes": [
+    {
+      "file": "00_总体开发计划.md",
+      "sha256": "a06b437e843836a1a373dd07004dfbe1bfbe9ad8805e685f851be9d7159fcd17"
+    },
+    {
+      "file": "01_现状基线与设计原则.md",
+      "sha256": "7ae60dc9876958aee67e4cd15b556e1380fe86b83ea5b0e04ad4095aadd3fffc"
+    },
+    {
+      "file": "02_技术方案与数据契约.md",
+      "sha256": "1bea6975df9e472647aec35fd194d7d6de29923ab6e93f62a46f7329c69b716d"
+    },
+    {
+      "file": "03_任务拆解与里程碑.md",
+      "sha256": "80915b69e1d51a5e4e97c56bde1312fddaa491af27634b30a5cd83df70816075"
+    },
+    {
+      "file": "04_测试矩阵与验收标准.md",
+      "sha256": "7a5a6951fe1657d4b70f6c83b993a9135429775fbda9f32e6c544df6eaaef109"
+    },
+    {
+      "file": "05_Codex_Goal提示词.md",
+      "sha256": "fe229d199757a9199dae8b9ab7dab5fb22709ad6e5fd63f4efee6c5aecd181e0"
+    },
+    {
+      "file": "06_借鉴映射与风险登记.md",
+      "sha256": "1ffee17a5e777ea419d698b9666425758f2d52a2289f2399116ffdb685262502"
+    },
+    {
+      "file": "07_PR与交付模板.md",
+      "sha256": "4f4f5e0ac4cde8a823298627d17851dc66b98dabc0f859877b1ccc2609b31f3c"
+    },
+    {
+      "file": "08_实施检查清单.md",
+      "sha256": "a16a9ab13235bb695bea8944fae2c88542a60c107d9ce0d56954f3a786e041b3"
+    },
+    {
+      "file": "README.md",
+      "sha256": "da0dafc5b4d620316f466a48d4746a83349f83182be907c12cdcb38db9ed5315"
+    }
+  ],
+  "sourceHashes": [
+    {
+      "file": "SKILL.md",
+      "sha256": "245a110be0a0f70e797760ea8631b710b3c7f11b975ce423d0d95a69bc3d6268"
+    },
+    {
+      "file": "assets/layouts.css",
+      "sha256": "9d898b9ef473bd8b69599c502f5f94ebdffb8e2443b5cf24df484d05f6ec4cba"
+    },
+    {
+      "file": "assets/templates.css",
+      "sha256": "0baaaefe9f12db79e70464e09c4b11d68ab7c3313eb58ee4086ba4aefe7e382a"
+    },
+    {
+      "file": "assets/themes.css",
+      "sha256": "3636d2163b99d4bf6db3e8b073d0480dfa08ef98bf42f7fe89cdb8702e736835"
+    },
+    {
+      "file": "package-lock.json",
+      "sha256": "5231f646689a02d162273000fa067fa8c2c7c6e91db13a62f1c5af6506edeff8"
+    },
+    {
+      "file": "package.json",
+      "sha256": "a9a639ca48ae6e1c4958a1e1a303aae2261fa804fc9cc33d7d0c65f9cccc6a7b"
+    },
+    {
+      "file": "scripts/aspect-evidence.mjs",
+      "sha256": "b52c21e6f03210610a8854e5d64402cc209e32af3c9bc369bf20cf31e004a0db"
+    },
+    {
+      "file": "scripts/aspect-source.mjs",
+      "sha256": "662b3d65d103d1b62f017b3e15230f4fc0de33b4127c95be16c055e222fb871b"
+    },
+    {
+      "file": "scripts/assets.mjs",
+      "sha256": "796990fa22f898dae08771d1f9122288454a483bdd3a27c5ed7b76c5c8b5a538"
+    },
+    {
+      "file": "scripts/bind-refinement-evidence.mjs",
+      "sha256": "539fbde67bd2331be3cc0ffdc7165e40126843ebd2423336570b993e2d93adfd"
+    },
+    {
+      "file": "scripts/body-size.mjs",
+      "sha256": "3f20c47c15f6f2cd57dc42b1e1fdce3d2fb06d932a486fcf92340b19325404ed"
+    },
+    {
+      "file": "scripts/browser.mjs",
+      "sha256": "4234faa5663d3dada5ffeb9c8e6aa8840d7d43e0021796f4fe68b1a4ede3314e"
+    },
+    {
+      "file": "scripts/build-template-gallery.mjs",
+      "sha256": "e60009e06cb52fe86540a5f5bc4d2ed3c0b8f84f6b7b1172ca9dc7f26f6f444f"
+    },
+    {
+      "file": "scripts/comparison-evidence.mjs",
+      "sha256": "eaf346d371d5cb5fb991c191b490bd907f96f3932994479945b184374ec04768"
+    },
+    {
+      "file": "scripts/create-template-art.py",
+      "sha256": "c1ec0c15ad7bf99a2dff36d6a4a08374f14bc4aaf755b2043d311436c1294c1c"
+    },
+    {
+      "file": "scripts/create-visual-stress-assets.mjs",
+      "sha256": "d207c55a5ab714aec5efd4fb080a96bfd6ac2f4059cfd69b2f37a644555a3d61"
+    },
+    {
+      "file": "scripts/default-body-compatibility.mjs",
+      "sha256": "f86bda002026b414ab1084522bb7dbaa25a5a9f018d8264570bf84033a171c8b"
+    },
+    {
+      "file": "scripts/doctor.mjs",
+      "sha256": "fc31c63c8f3131fa91babc6c128aacba1f29468c24bdf015057ad8effc4f5275"
+    },
+    {
+      "file": "scripts/document.mjs",
+      "sha256": "f3aa4c93b2e4bcbb5c31eb5bee637b3c1e7c1cddcf1ffcff326392cf75c47efa"
+    },
+    {
+      "file": "scripts/errors.mjs",
+      "sha256": "64205ce10310494090ddfa760d653d1f4b2650e747277ea092f60c21cdda956b"
+    },
+    {
+      "file": "scripts/evidence-archive.mjs",
+      "sha256": "21ffd73b4c6d3b2774de50777f7f6c1d010e33a0471f2cd9afd33a7f393de76a"
+    },
+    {
+      "file": "scripts/evidence-source.mjs",
+      "sha256": "5df64a4d89a1c7d6eea9eb2852ae7a05a843b9b32859651380150487697b3e59"
+    },
+    {
+      "file": "scripts/gallery-discovery.mjs",
+      "sha256": "f2ebb88eb74d862b89306a231f9082f3db16cb35fd9a20a977337d2f54e155fe"
+    },
+    {
+      "file": "scripts/make-example-assets.mjs",
+      "sha256": "f2dcdd8eb3162c8f7677430d0dc32fe26d69ff54b23082951ae44c404aaf3124"
+    },
+    {
+      "file": "scripts/markdown.mjs",
+      "sha256": "033012815ac5f65e2ef95e459c5477ec2095d46df33fe2807d3e6b558d29de8a"
+    },
+    {
+      "file": "scripts/package-comparison-evidence.mjs",
+      "sha256": "c0a97a17339c21e16ec23291141c4349e645e4c493fa30a6f6144d4689c96859"
+    },
+    {
+      "file": "scripts/pagination.mjs",
+      "sha256": "737c9d3549d875a028d383a8e6b84032e636948ddbb1a56b41c3cb1d0af9deaf"
+    },
+    {
+      "file": "scripts/qa.mjs",
+      "sha256": "481e50d71b39eae75739f4007d5eb668654bf38de73cee9e4124eab6bae8a146"
+    },
+    {
+      "file": "scripts/refinement-audit.mjs",
+      "sha256": "91cc545afb08406186e925dc4ce24f4e602bd8b4753bed2818f911811e6653e1"
+    },
+    {
+      "file": "scripts/refinement-input.mjs",
+      "sha256": "f0ad3a003e19e82a610ecab2a8c60446ded8ef99bdf98361f3a0304f74f6810c"
+    },
+    {
+      "file": "scripts/render.mjs",
+      "sha256": "4f2a6172c7693495298f3d6319217cc7d826c9798ec6595c1a8f57de14c34eab"
+    },
+    {
+      "file": "scripts/semantic.mjs",
+      "sha256": "e3c6d27090fd446764b233e94d32c71dc93e41a7e9a7170614c2bf503d6754cc"
+    },
+    {
+      "file": "scripts/tail-balance.mjs",
+      "sha256": "0510c67afa8c02aa3d5c28b82fa66ba52fa7eda202009b99fb8bb6cc4de79f7b"
+    },
+    {
+      "file": "scripts/templates.mjs",
+      "sha256": "6a8c6bd137c9fa8e6f2bbdc2e0d630d2eb19c372fe04c476bcf4e5d4362e5f4d"
+    },
+    {
+      "file": "scripts/typography.mjs",
+      "sha256": "460833db17588bd00c3d1baf7150d6dac3bcb71e28518abf6d31e5bff0b4a180"
+    },
+    {
+      "file": "scripts/validate-aspects.mjs",
+      "sha256": "d3e5dd5ea4c0245172298f256aad76e57056b15bb5d765d761a9e4d1abc1e5a3"
+    },
+    {
+      "file": "scripts/validate-footers.mjs",
+      "sha256": "d9ebb7adc36b4bc20e360cf9ba67689dfe0d17319a7c337f614d63786ef94671"
+    },
+    {
+      "file": "scripts/validate-gallery.mjs",
+      "sha256": "3651f554af02a3440e8f811e22ec16936095d883c760b95b89bf0b2a06a639f6"
+    },
+    {
+      "file": "scripts/validate-pagination.mjs",
+      "sha256": "6cf46263e931d670f9c0274b300a38dbb6a32e0b832f85873e594c12fdc8e2b5"
+    },
+    {
+      "file": "scripts/validate-refinement.mjs",
+      "sha256": "498ecfb527a96d8e09007365e74ac4f8fe561b08d40c9e6dbce82de7e1c4755c"
+    },
+    {
+      "file": "scripts/validate-series.mjs",
+      "sha256": "eb7a93a9bf602bc8593d6798dbfcc88d2eeb6f61e6002a9d74dadcfa24894711"
+    },
+    {
+      "file": "scripts/validate-showcases.mjs",
+      "sha256": "f2e2f731c5755bf86a8dc63424d2c5f880eb950034210df7e000466682e08340"
+    },
+    {
+      "file": "scripts/validate-tail.mjs",
+      "sha256": "92899bff99985ccc8feda3fc99fd75ed0bd67d9ca54c945cbd3934c563c2f092"
+    },
+    {
+      "file": "scripts/validate-templates.mjs",
+      "sha256": "906bd3cc3229ebb2e2cd3b1642428b5cdef76dc5c80d83ae83a961dce20234d1"
+    },
+    {
+      "file": "scripts/validate-visual-stress.mjs",
+      "sha256": "d06d076827a71c18f1dc62bded483b3e60b985335b3096a2555b37f9fe595b05"
+    }
+  ],
+  "templates": [
+    {
+      "id": "T01",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T05",
+      "version": 2,
+      "aspects": [
+        "portrait",
+        "square"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T17",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T25",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T02",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T06",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T09",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T10",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T13",
+      "version": 2,
+      "aspects": [
+        "portrait",
+        "square"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T14",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T18",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T21",
+      "version": 2,
+      "aspects": [
+        "portrait",
+        "square",
+        "slide"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T22",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T26",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T29",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T30",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T33",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T34",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T37",
+      "version": 2,
+      "aspects": [
+        "portrait",
+        "slide"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T38",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T41",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T42",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T45",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T46",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T03",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T04",
+      "version": 2,
+      "aspects": [
+        "portrait",
+        "square",
+        "slide"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T07",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T08",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T11",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T12",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T15",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T16",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T19",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T20",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T23",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T24",
+      "version": 3,
+      "aspects": [
+        "portrait",
+        "slide"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T27",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T28",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T31",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T32",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T35",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T36",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T39",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T40",
+      "version": 3,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T43",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T44",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T47",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    },
+    {
+      "id": "T48",
+      "version": 2,
+      "aspects": [
+        "portrait"
+      ],
+      "status": "visually-reviewed"
+    }
+  ],
+  "layouts": [
+    "cover",
+    "explainer",
+    "comparison",
+    "steps",
+    "image-caption",
+    "statistic",
+    "case-study",
+    "quote"
+  ],
+  "commands": [
+    {
+      "name": "doctor-strict",
+      "exitCode": 1,
+      "startedAt": "2026-10-25T14:05:20.477Z",
+      "finishedAt": "2026-10-25T14:05:21.371Z"
+    },
+    {
+      "name": "doctor",
+      "exitCode": 0,
+      "startedAt": "2026-10-25T14:05:19.214Z",
+      "finishedAt": "2026-10-25T14:05:20.345Z"
+    },
+    {
+      "name": "gallery-browser",
+      "exitCode": 0,
+      "startedAt": "2026-10-25T14:09:49.846Z",
+      "finishedAt": "2026-10-25T14:10:22.518Z"
+    },
+    {
+      "name": "gallery-check",
+      "exitCode": 0,
+      "startedAt": "2026-10-25T14:08:25.774Z",
+      "finishedAt": "2026-10-25T14:08:26.924Z"
+    },
+    {
+      "name": "goldens-retry",
+      "exitCode": 0,
+      "startedAt": "2026-10-25T14:07:06.156Z",
+      "finishedAt": "2026-10-25T14:07:27.232Z"
+    },
+    {
+      "name": "goldens",
+      "exitCode": 1,
+      "startedAt": "2026-10-25T14:06:27.444Z",
+      "finishedAt": "2026-10-25T14:06:28.375Z"
+    },
+    {
+      "name": "integration",
+      "exitCode": 0,
+      "startedAt": "2026-10-25T14:09:35.532Z",
+      "finishedAt": "2026-10-25T14:10:39.927Z"
+    },
+    {
+      "name": "pdf-crosscheck",
+      "exitCode": 0,
+      "startedAt": "2026-10-25T14:14:45.830Z",
+      "finishedAt": "2026-10-25T14:14:46.821Z"
+    },
+    {
+      "name": "pdf-font-audit",
+      "exitCode": 1,
+      "startedAt": "2026-10-25T14:11:45.093Z",
+      "finishedAt": "2026-10-25T14:11:51.222Z"
+    },
+    {
+      "name": "rejections-retry",
+      "exitCode": 0,
+      "startedAt": "2026-10-25T14:09:28.166Z",
+      "finishedAt": "2026-10-25T14:09:29.686Z"
+    },
+    {
+      "name": "rejections",
+      "exitCode": 1,
+      "startedAt": "2026-10-25T14:08:23.877Z",
+      "finishedAt": "2026-10-25T14:08:25.699Z"
+    },
+    {
+      "name": "unit",
+      "exitCode": 0,
+      "startedAt": "2026-10-25T14:04:42.674Z",
+      "finishedAt": "2026-10-25T14:11:28.223Z"
+    }
+  ],
+  "goldens": [
+    {
+      "id": "T20",
+      "input": "examples/templates/T20.md",
+      "inputSha256": "0b56fdfa68cf2f94e3d8249cf48beaebe1de3941dc38cd2f22eb631b80c9f483",
+      "styleSha256": {
+        "themes": "3636d2163b99d4bf6db3e8b073d0480dfa08ef98bf42f7fe89cdb8702e736835",
+        "layouts": "9d898b9ef473bd8b69599c502f5f94ebdffb8e2443b5cf24df484d05f6ec4cba",
+        "templates": "0baaaefe9f12db79e70464e09c4b11d68ab7c3313eb58ee4086ba4aefe7e382a"
+      },
+      "assets": [
+        {
+          "reference": "assets/original-research-interface.png",
+          "hash": "eb73c9a92ff65b86036de6c1d486d999de71fe8225343c7d81272446f043f541",
+          "mime": "image/png",
+          "width": 1400,
+          "height": 900,
+          "bytes": 76441
+        }
+      ],
+      "output": "outputs/T20"
+    },
+    {
+      "id": "T37",
+      "input": "examples/templates/T37.md",
+      "inputSha256": "10092106b880769b4bb0064bd3a1cd395193500eec941651e40496083f22887c",
+      "styleSha256": {
+        "themes": "3636d2163b99d4bf6db3e8b073d0480dfa08ef98bf42f7fe89cdb8702e736835",
+        "layouts": "9d898b9ef473bd8b69599c502f5f94ebdffb8e2443b5cf24df484d05f6ec4cba",
+        "templates": "0baaaefe9f12db79e70464e09c4b11d68ab7c3313eb58ee4086ba4aefe7e382a"
+      },
+      "assets": [
+        {
+          "reference": "assets/synthetic-reading-still-life.png",
+          "hash": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa",
+          "mime": "image/png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2274167
+        }
+      ],
+      "output": "outputs/T37"
+    },
+    {
+      "id": "T01",
+      "input": "examples/templates/T01.md",
+      "inputSha256": "4bc9e00e4b1fa63748f982fbfec4502c92d19ce1bbf5c8a001bbdf626cf356ab",
+      "styleSha256": {
+        "themes": "3636d2163b99d4bf6db3e8b073d0480dfa08ef98bf42f7fe89cdb8702e736835",
+        "layouts": "9d898b9ef473bd8b69599c502f5f94ebdffb8e2443b5cf24df484d05f6ec4cba",
+        "templates": "0baaaefe9f12db79e70464e09c4b11d68ab7c3313eb58ee4086ba4aefe7e382a"
+      },
+      "assets": [],
+      "output": "outputs/T01"
+    },
+    {
+      "id": "T05",
+      "input": "examples/templates/T05.md",
+      "inputSha256": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3",
+      "styleSha256": {
+        "themes": "3636d2163b99d4bf6db3e8b073d0480dfa08ef98bf42f7fe89cdb8702e736835",
+        "layouts": "9d898b9ef473bd8b69599c502f5f94ebdffb8e2443b5cf24df484d05f6ec4cba",
+        "templates": "0baaaefe9f12db79e70464e09c4b11d68ab7c3313eb58ee4086ba4aefe7e382a"
+      },
+      "assets": [],
+      "output": "outputs/T05"
+    }
+  ],
+  "verification": {
+    "checkedAt": "2026-10-25T14:21:36.973Z",
+    "command": [
+      "node",
+      "validation/visual-upgrade/m0-70383b8-20261025/freeze.mjs"
+    ],
+    "checks": {
+      "runtimeFilesUnchanged": 45,
+      "productionGitDiff": "empty",
+      "originalInputsAndCopiedBytes": "pass",
+      "manifestArtifacts": "pass",
+      "pngDimensions": "pass",
+      "screenPrintOverflow": "none",
+      "mobileBoundsAndMinimumFonts": "pass",
+      "copiedAssetIdentity": "pass",
+      "rejections": "4/4"
+    },
+    "exitCode": 0,
+    "limitations": [
+      "Official Fontconfig/Poppler strict gate BLOCKED",
+      "pypdf authored-segment comparison FAIL retained",
+      "T05 PDFium complete-list-segment order mismatch retained"
+    ]
+  },
+  "evidenceFiles": [
+    {
+      "file": "audit.mjs",
+      "bytes": 360,
+      "sha256": "d2a1d7f40d204be7784a423e4c346e90dfb721243b4f4ba35b63e4b20a16b96a"
+    },
+    {
+      "file": "audit.py",
+      "bytes": 5709,
+      "sha256": "66b7d82103cdf7b7cdd3d19de65b503b33303757b8cd2eaff8b97756652288ee"
+    },
+    {
+      "file": "capture.mjs",
+      "bytes": 6125,
+      "sha256": "181d7891ff25f8ebe64d2863a0e09f12bb242a00a224b246c4c72102bc8e44ed"
+    },
+    {
+      "file": "commands/doctor-strict.json",
+      "bytes": 502,
+      "sha256": "9f455ac6a9ecdc3727c80b6f6ed3b79c53e8929c9142b265f004d16eff049fc4"
+    },
+    {
+      "file": "commands/doctor-strict.log",
+      "bytes": 12746,
+      "sha256": "3a00ee32a885066148b87a46ce6b5dd9781b3ce011d7aafd29344ec50995fbc4"
+    },
+    {
+      "file": "commands/doctor.json",
+      "bytes": 479,
+      "sha256": "bb90c51c8aa7855004572e76770fabf170d48160c578c6fe4128d1e07b256a09"
+    },
+    {
+      "file": "commands/doctor.log",
+      "bytes": 12745,
+      "sha256": "4ce85b171ee8f8faf472fb05039a17a99f68c71aabea25f19192031694592acf"
+    },
+    {
+      "file": "commands/gallery-browser.json",
+      "bytes": 648,
+      "sha256": "51e30ea5e433e2895bca75a086a8b45906f72c2c888f094f24a98cb97ccdcc51"
+    },
+    {
+      "file": "commands/gallery-browser.log",
+      "bytes": 220,
+      "sha256": "960b33bfc325315a8a05500378c7904ffce6a37d8df63478a357aa0f698d34c0"
+    },
+    {
+      "file": "commands/gallery-check.json",
+      "bytes": 404,
+      "sha256": "a8d934242f9cd57d7b2c001cc759b5956d2da76e8f2a108acb735afa969a312f"
+    },
+    {
+      "file": "commands/gallery-check.log",
+      "bytes": 94,
+      "sha256": "a4cc7d6a749c597d0827e90382ad667df49b03c67412b5879e93f2b5ccac9c5d"
+    },
+    {
+      "file": "commands/goldens-retry.json",
+      "bytes": 495,
+      "sha256": "86b7ab78c28f5209413c29ba75fe2ef712170910cce8832c055f5e7708605649"
+    },
+    {
+      "file": "commands/goldens-retry.log",
+      "bytes": 96,
+      "sha256": "a5f1ddb649bd8b4138973a7a12e4142b51a0333768a9ee5444ec099fac3c466a"
+    },
+    {
+      "file": "commands/goldens.json",
+      "bytes": 489,
+      "sha256": "a2c392e976fb184444e4607beafb721747f2acc5dac80e93cee54e7421543030"
+    },
+    {
+      "file": "commands/goldens.log",
+      "bytes": 1097,
+      "sha256": "7ea8490144e96b41618b63ba038bf29d8a3857bfd3d39d90e483bf9cd2ebd553"
+    },
+    {
+      "file": "commands/integration.json",
+      "bytes": 547,
+      "sha256": "7bb8a0adc4e097b67ffae9dfd35e7e03d2ba4e82412aac021e01a64e96824f16"
+    },
+    {
+      "file": "commands/integration.log",
+      "bytes": 2341,
+      "sha256": "f10afac163f56904909f46e1799effc0003ec72002ff3527f5276455dccff659"
+    },
+    {
+      "file": "commands/pdf-crosscheck.json",
+      "bytes": 420,
+      "sha256": "ead83c5b58f830929c522432d69292acc1aa311b62be5ad68cc401d428d8f884"
+    },
+    {
+      "file": "commands/pdf-crosscheck.log",
+      "bytes": 17427,
+      "sha256": "334384533936da71033dbd6c79a2adc3a27b04b64a0c85c6bb9b8118e12775af"
+    },
+    {
+      "file": "commands/pdf-font-audit.json",
+      "bytes": 411,
+      "sha256": "1619f6444b335434c86e54e97e67cf2fb6faf4d6cda32680674566b051699182"
+    },
+    {
+      "file": "commands/pdf-font-audit.log",
+      "bytes": 219,
+      "sha256": "05cf8d02eb6d455e390119776b2d11fe4f53856a3d133c91e6fb525c81aaf6fd"
+    },
+    {
+      "file": "commands/rejections-retry.json",
+      "bytes": 418,
+      "sha256": "1558bb37b7586bf2b8b434f35d366471e5c90f26447aeae3b124c84964206f91"
+    },
+    {
+      "file": "commands/rejections-retry.log",
+      "bytes": 3472,
+      "sha256": "d174e58a5d8f57725c3fc8e2b050b6519cfa98dc0cf6afd4af23f5920ea45f81"
+    },
+    {
+      "file": "commands/rejections.json",
+      "bytes": 412,
+      "sha256": "921b335e84e94258b811cdad3ef91852f594e26fe1d375d2d5d1bbc4c956943b"
+    },
+    {
+      "file": "commands/rejections.log",
+      "bytes": 3484,
+      "sha256": "43b3b22b81c097bf0644d78f09e92eabc43528084b0befb3dfbca015c5242ed4"
+    },
+    {
+      "file": "commands/unit.json",
+      "bytes": 1527,
+      "sha256": "0b8d44eafa20e93fa9f12e6b75f5bcfebce99a276cc350d4f0cd95cad0a7c50b"
+    },
+    {
+      "file": "commands/unit.log",
+      "bytes": 49874,
+      "sha256": "95bee01457390c90202631b7f5722922212995d2f0d0da9d4d6fc4424ac1ca51"
+    },
+    {
+      "file": "commands.json",
+      "bytes": 7229,
+      "sha256": "cb3deab2091c8e9ba6913af5ffe9afc1fe8d3a528f5f98fe5610e1e85ea7f31c"
+    },
+    {
+      "file": "font-files.json",
+      "bytes": 9733,
+      "sha256": "f378ac04e5556c49ff0579ac4423d323ae7570695f7042970218d378091839fa"
+    },
+    {
+      "file": "freeze.mjs",
+      "bytes": 7280,
+      "sha256": "92a8ddf5947df2cd03b883a848590d17daed520833f343bc84e2c4677e4c3c7c"
+    },
+    {
+      "file": "gallery/desktop-1280-accepted.png",
+      "bytes": 334800,
+      "sha256": "24cb30d25e27c50dcaab6cc5cf8ee9b8a25af7d2ceeaf91131ad6c8527b616f9"
+    },
+    {
+      "file": "gallery/desktop-1280-aspect-evidence.png",
+      "bytes": 202622,
+      "sha256": "133eaffd5e0f6e7481d7c89cb235120458534a316320733951bc4e7a85c1177e"
+    },
+    {
+      "file": "gallery/desktop-1280-comparisons.png",
+      "bytes": 240561,
+      "sha256": "3aa6848f67964cfcdc9278b6a7c4a173ee504f85d01948ebf2c4197d10ca0e81"
+    },
+    {
+      "file": "gallery/desktop-1280-detail.png",
+      "bytes": 219493,
+      "sha256": "c40402d3035cceb4174d2d1afd8b352c04627e56a02c3d5d01d9f1b272c9b1fa"
+    },
+    {
+      "file": "gallery/desktop-1280-index.png",
+      "bytes": 101408,
+      "sha256": "7a9c5bf32981b2b2440f05a17b50870f46d7655a397a62b2ae7438a9b872c503"
+    },
+    {
+      "file": "gallery/desktop-1280-pending.png",
+      "bytes": 88051,
+      "sha256": "d6d91e8736e1f9e20840e8dabb1bc0131dd3b38a44c22e596572f84071bc9b22"
+    },
+    {
+      "file": "gallery/desktop-1280-tasks.png",
+      "bytes": 94252,
+      "sha256": "d8fcbad58fcedfd8c084305f22608ca02d1bd7bae90ae9c14c90527033f46b1e"
+    },
+    {
+      "file": "gallery/mobile-375-accepted.png",
+      "bytes": 80209,
+      "sha256": "4caf62c1f785f012579e975f443f70621b3703ead83dee58b9c12dc0c03ba392"
+    },
+    {
+      "file": "gallery/mobile-375-aspect-evidence.png",
+      "bytes": 62695,
+      "sha256": "f7ba728ccfb92ff9ab011c9fb1627472e383cbd64817dd8634cf8d7da0243135"
+    },
+    {
+      "file": "gallery/mobile-375-comparisons.png",
+      "bytes": 80236,
+      "sha256": "7da758ac86ca5b2b0c0dd203a8e2a81f0d5f70fdaca4bd8e9296ec583cb6a946"
+    },
+    {
+      "file": "gallery/mobile-375-detail.png",
+      "bytes": 51119,
+      "sha256": "caf09585f995b8bab857faf358656edc4b8c1ed6127730a28c71ccedbb632e17"
+    },
+    {
+      "file": "gallery/mobile-375-index.png",
+      "bytes": 45489,
+      "sha256": "8271f775ccb8c9162380e18c6b5a3d9fe73f8265e948669f8daa9abe7d72b0c6"
+    },
+    {
+      "file": "gallery/mobile-375-pending.png",
+      "bytes": 51492,
+      "sha256": "8b382c97ef7a79e0287f487e083743906c1ffad248bf3135f5d7fd0cef560ebd"
+    },
+    {
+      "file": "gallery/mobile-375-tasks.png",
+      "bytes": 43391,
+      "sha256": "d10ed2bbf1eeb02bd763994343186549f1e1ad6ea92c77dbbe8d521dda4d792f"
+    },
+    {
+      "file": "gallery/mobile-390-accepted.png",
+      "bytes": 83811,
+      "sha256": "cbdcb8459b2456d14c4facb50b407f36161cc492cae746a96dc883506a963d48"
+    },
+    {
+      "file": "gallery/mobile-390-aspect-evidence.png",
+      "bytes": 64782,
+      "sha256": "c2fc6dfb104ede6f554917eae5370137624c1d2d757fb335011c2f9262497183"
+    },
+    {
+      "file": "gallery/mobile-390-comparisons.png",
+      "bytes": 82463,
+      "sha256": "24c5aa5e170ce912f8b7417c51e3e0612103a1bdc17bef2652c19638e7a94da1"
+    },
+    {
+      "file": "gallery/mobile-390-detail.png",
+      "bytes": 55776,
+      "sha256": "4a115e28ba6ed4da5a76d7bca12b7753b7e4f910308edf5d718f63391225dbf8"
+    },
+    {
+      "file": "gallery/mobile-390-index.png",
+      "bytes": 48651,
+      "sha256": "61496bdbc6d60b59e804ed3707f42105dd3ad546d900007523065c10a8856aa3"
+    },
+    {
+      "file": "gallery/mobile-390-pending.png",
+      "bytes": 53844,
+      "sha256": "91a730398f374dfcb02dd50aeae13a47121c5fab0e3790decd1e60408c8e1d48"
+    },
+    {
+      "file": "gallery/mobile-390-tasks.png",
+      "bytes": 45481,
+      "sha256": "83ca63be96bfe8988d453bc0dba63bea6e7b6260663f5443f817658d848943b2"
+    },
+    {
+      "file": "gallery/no-js-390-catalogue.png",
+      "bytes": 51177,
+      "sha256": "bd51f6ddd5bc28abb303a9215bff1a2aa15ed2fe54408895b6695dcaca0b929e"
+    },
+    {
+      "file": "gallery/reflow-200-percent-accepted.png",
+      "bytes": 87615,
+      "sha256": "7ed42c4560f99811a80f5906ce401a21395368fd58deedd6702f977baf9aca37"
+    },
+    {
+      "file": "gallery/reflow-200-percent-aspect-evidence.png",
+      "bytes": 52145,
+      "sha256": "108cf071d68ef50fb850c5008d063d4369c2ba30e372a1283bf00c28cd8e84f5"
+    },
+    {
+      "file": "gallery/reflow-200-percent-comparisons.png",
+      "bytes": 58602,
+      "sha256": "14539676dd4fc66873c6e2d4a72aaef47bcf47dde84eee29e4105ac89d492d10"
+    },
+    {
+      "file": "gallery/reflow-200-percent-detail.png",
+      "bytes": 29004,
+      "sha256": "fb8e3b3618121e6938595c5a68300db2ec06024b984eb4c49e8b7504d9763431"
+    },
+    {
+      "file": "gallery/reflow-200-percent-index.png",
+      "bytes": 30870,
+      "sha256": "67c3f780ab2673b212d8c4d6764758e561bde1505e138a5003f9cb5dab35766f"
+    },
+    {
+      "file": "gallery/reflow-200-percent-pending.png",
+      "bytes": 32680,
+      "sha256": "ab94d5e8079eb049f47d0ebff477d7e0421407cd81a5d1dc421460e2766415e1"
+    },
+    {
+      "file": "gallery/reflow-200-percent-tasks.png",
+      "bytes": 24654,
+      "sha256": "382553e66c984381aeb131cbdc85b5a15ce36d2e2138524a9b903d8da916e779"
+    },
+    {
+      "file": "gallery/summary.json",
+      "bytes": 160385,
+      "sha256": "38dc170d3b13f8eab5874ee8674514d18bc0632f34bc969e00a03620e54ca604"
+    },
+    {
+      "file": "goldens.json",
+      "bytes": 27286,
+      "sha256": "d079ec62afdb2487b21b39c23c3021d98a235ec762dac80a19ae13d12acd77e7"
+    },
+    {
+      "file": "inputs/assets/original-research-interface.png",
+      "bytes": 76441,
+      "sha256": "eb73c9a92ff65b86036de6c1d486d999de71fe8225343c7d81272446f043f541"
+    },
+    {
+      "file": "inputs/assets/synthetic-reading-still-life.png",
+      "bytes": 2274167,
+      "sha256": "6efb1be0ead9937892cc8dd2b6837877521fea4527a281c9a231a8b894bde6aa"
+    },
+    {
+      "file": "inputs/T01.md",
+      "bytes": 463,
+      "sha256": "4bc9e00e4b1fa63748f982fbfec4502c92d19ce1bbf5c8a001bbdf626cf356ab"
+    },
+    {
+      "file": "inputs/T05.md",
+      "bytes": 447,
+      "sha256": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3"
+    },
+    {
+      "file": "inputs/T20.md",
+      "bytes": 559,
+      "sha256": "0b56fdfa68cf2f94e3d8249cf48beaebe1de3941dc38cd2f22eb631b80c9f483"
+    },
+    {
+      "file": "inputs/T37.md",
+      "bytes": 471,
+      "sha256": "10092106b880769b4bb0064bd3a1cd395193500eec941651e40496083f22887c"
+    },
+    {
+      "file": "installation-drift.json",
+      "bytes": 2381,
+      "sha256": "355cbcb1d4b590129db3ac583b112a7ef9378f481031b4bae05a4b1fc66aacef"
+    },
+    {
+      "file": "open-prs.json",
+      "bytes": 213,
+      "sha256": "432e254e0b7ea8d51397fdcad594932c34d60339dc8ea9fb6c759df87587929b"
+    },
+    {
+      "file": "outputs/T01/card-001.png",
+      "bytes": 145226,
+      "sha256": "52cdb7a2a220b6cd240d7b1da156e6d1dd5a409d73d1ddaf15b66d8b0481502e"
+    },
+    {
+      "file": "outputs/T01/cards.html",
+      "bytes": 143443,
+      "sha256": "9f05cfd7004cd8675a20d53789fdabb557f29834d5f3d977a08ce03d482da596"
+    },
+    {
+      "file": "outputs/T01/cards.pdf",
+      "bytes": 241819,
+      "sha256": "b5561f9ea32482ae51768fa2d566e33a44b29026feb3a72528834feb576a2257"
+    },
+    {
+      "file": "outputs/T01/manifest.json",
+      "bytes": 14670,
+      "sha256": "2214dbbe7ba4c9cda14d36db3271cfce619d23bd66c22d67761fba820c8a8868"
+    },
+    {
+      "file": "outputs/T01/mobile-375.png",
+      "bytes": 49374,
+      "sha256": "c0de1f3220b8ea8c3722c12aa1e0ebd1c5c003886efb1a8a03cd6f684354bf96"
+    },
+    {
+      "file": "outputs/T01/mobile-390.png",
+      "bytes": 51657,
+      "sha256": "f63583b5d7e90d118e7093d8e9b2fa36ce14c2a9d30ca052145ebadb6e598c9d"
+    },
+    {
+      "file": "outputs/T01/pdf-page-1.png",
+      "bytes": 109700,
+      "sha256": "81c7f4ad043c3879e517c9fc38a7b16e847b18e1ace4df0db5889120fbece8f4"
+    },
+    {
+      "file": "outputs/T01/pdf-text.txt",
+      "bytes": 430,
+      "sha256": "eba44403571ee00b30b65abc7633051514bc179fc8ac37f9d8cc485772ffa980"
+    },
+    {
+      "file": "outputs/T01/pdfplumber-text.txt",
+      "bytes": 429,
+      "sha256": "6561914a404fe019091b144dd763c2c470d62c676338f8f56525241e597fa94e"
+    },
+    {
+      "file": "outputs/T01/preview.html",
+      "bytes": 144261,
+      "sha256": "bcb23a71153d033f8966d26ceba4dff55271898e0075d8f4c070c3a275a10123"
+    },
+    {
+      "file": "outputs/T01/pypdf-text.txt",
+      "bytes": 430,
+      "sha256": "eba44403571ee00b30b65abc7633051514bc179fc8ac37f9d8cc485772ffa980"
+    },
+    {
+      "file": "outputs/T01/pypdfium2-text.txt",
+      "bytes": 447,
+      "sha256": "60423f728e3d797c596fadca3f520dbf03548aefefce742c6c5272efb0a06bc5"
+    },
+    {
+      "file": "outputs/T01/review-contact.png",
+      "bytes": 305310,
+      "sha256": "b497e086d095865aa40d920c4853975a115dfda635b103e8cfc55cf8968340c6"
+    },
+    {
+      "file": "outputs/T05/card-001.png",
+      "bytes": 140601,
+      "sha256": "4e6dad40ab9cda5367196185a9661f1281277e02b8c56a798abb5cff2ac423dc"
+    },
+    {
+      "file": "outputs/T05/cards.html",
+      "bytes": 143321,
+      "sha256": "7431e335d91cdc91cd4566086dfa20d6c879f02ac9b448a9e77d1540ce067a6b"
+    },
+    {
+      "file": "outputs/T05/cards.pdf",
+      "bytes": 212741,
+      "sha256": "d3b6c4e89996f3664f782eef5f2a169848ba5f25d04399996f790536aba7f422"
+    },
+    {
+      "file": "outputs/T05/manifest.json",
+      "bytes": 14670,
+      "sha256": "e937ec4ecb1b09b6d5c1a01a2740e175c9a9a4f6a25c619f5b888adb214106ba"
+    },
+    {
+      "file": "outputs/T05/mobile-375.png",
+      "bytes": 47614,
+      "sha256": "43cbd5b48d23c40151f3e486377337084d78716ad76ae47a25bf8b4320db8b7d"
+    },
+    {
+      "file": "outputs/T05/mobile-390.png",
+      "bytes": 49301,
+      "sha256": "b402a8d18784f9c3d90275f37229a13f37e7e93df0f301c835bc40917074e8d9"
+    },
+    {
+      "file": "outputs/T05/pdf-page-1.png",
+      "bytes": 117774,
+      "sha256": "5bb28563356f595c3b89dd4ac3540842793cd1f053d9d408d4a72d6fc6539a78"
+    },
+    {
+      "file": "outputs/T05/pdf-text.txt",
+      "bytes": 368,
+      "sha256": "b0e3bb19fb116cd5038bab84391b446f884694b1420c404524ad433f2824bf42"
+    },
+    {
+      "file": "outputs/T05/pdfplumber-text.txt",
+      "bytes": 373,
+      "sha256": "17194efb06cab0ef557c2f2e550a2cbc986a662782fd78cd5d2651c608f226f8"
+    },
+    {
+      "file": "outputs/T05/preview.html",
+      "bytes": 144139,
+      "sha256": "032f09e0cdf1fe28e2e0a11c082d424f30acdab1331236ab4205fbae87d457f6"
+    },
+    {
+      "file": "outputs/T05/pypdf-text.txt",
+      "bytes": 368,
+      "sha256": "b0e3bb19fb116cd5038bab84391b446f884694b1420c404524ad433f2824bf42"
+    },
+    {
+      "file": "outputs/T05/pypdfium2-text.txt",
+      "bytes": 374,
+      "sha256": "b76e6c1d445dc1ef94f2ca4c47dda47373d1487c2b176d9d67d61f394ba70d7a"
+    },
+    {
+      "file": "outputs/T05/review-contact.png",
+      "bytes": 295793,
+      "sha256": "4b7f97320b837668cbc23ca295a342d029a566675786128715e5633193a7f3fe"
+    },
+    {
+      "file": "outputs/T20/card-001.png",
+      "bytes": 188423,
+      "sha256": "754acfe64adb0fe6ade0c34d0705750fed4e0ca7cbb4578bbb8411f241921f24"
+    },
+    {
+      "file": "outputs/T20/cards.html",
+      "bytes": 245623,
+      "sha256": "7dab308b2e3e27ae94407cd7f26dda42bf27c9a589c43385a54e0705d5f8bc70"
+    },
+    {
+      "file": "outputs/T20/cards.pdf",
+      "bytes": 253903,
+      "sha256": "a7990ba141caa63e0400a5b63433c0db102db784cdc2c2d6b801635e9d80c088"
+    },
+    {
+      "file": "outputs/T20/manifest.json",
+      "bytes": 14939,
+      "sha256": "c4e5a7ff971069347afe17884b7c8a1e9251f7cebbd1dae0b4b1f35f93b5248b"
+    },
+    {
+      "file": "outputs/T20/mobile-375.png",
+      "bytes": 50164,
+      "sha256": "c40d4bf5ad8630d5f4b682a5be7575df11131e077555e2f66a4162d9c5af5573"
+    },
+    {
+      "file": "outputs/T20/mobile-390.png",
+      "bytes": 52151,
+      "sha256": "d680229f334581bb6cd7a1509d5a2743aa2db615c5d92a97004ec1e5d0e92480"
+    },
+    {
+      "file": "outputs/T20/pdf-page-1.png",
+      "bytes": 143888,
+      "sha256": "474319bf15a879c9ed813487a215aa286c2cd74e415f54866ff14ef620452189"
+    },
+    {
+      "file": "outputs/T20/pdf-text.txt",
+      "bytes": 331,
+      "sha256": "8d956fa42f6cbaa3bbfb9d1566d7e3c5e013a5e5ee51af8b7b1189f153dd71d9"
+    },
+    {
+      "file": "outputs/T20/pdfplumber-text.txt",
+      "bytes": 329,
+      "sha256": "fe2d2d66cfc09a380f6522f73daa7226497197bc2cfa719f09ae5a470959e291"
+    },
+    {
+      "file": "outputs/T20/preview.html",
+      "bytes": 246449,
+      "sha256": "55c4748cdea98703f3e13fdc0e7501afbe9fca6621b2b580051ebdf7407440d9"
+    },
+    {
+      "file": "outputs/T20/pypdf-text.txt",
+      "bytes": 331,
+      "sha256": "8d956fa42f6cbaa3bbfb9d1566d7e3c5e013a5e5ee51af8b7b1189f153dd71d9"
+    },
+    {
+      "file": "outputs/T20/pypdfium2-text.txt",
+      "bytes": 340,
+      "sha256": "a61e57a53f22e61d242b13987c386e1d36f8516bacbf08714a5d93d000ec655e"
+    },
+    {
+      "file": "outputs/T20/review-contact.png",
+      "bytes": 318401,
+      "sha256": "88fe3f19e4b9170abe508eb4ffc20fe41eaf05ae5c3069e428c378e0881012e7"
+    },
+    {
+      "file": "outputs/T37/card-001.png",
+      "bytes": 985387,
+      "sha256": "38ce27d83b0b7a03c7633a0253d0db55af813835563167340fac3bac0c3b6c72"
+    },
+    {
+      "file": "outputs/T37/cards.html",
+      "bytes": 3175647,
+      "sha256": "ccadedb51b7cc4dac8857acd3ad4455cacea7607d7de88aeb559d8ffeba6bce9"
+    },
+    {
+      "file": "outputs/T37/cards.pdf",
+      "bytes": 3830220,
+      "sha256": "6767dc1544038ec65e2f50a6331eb1a30c844ff61a0efc8e82c564f48c1bb5bc"
+    },
+    {
+      "file": "outputs/T37/manifest.json",
+      "bytes": 14950,
+      "sha256": "7820f0192768ac5c81e8259081b5866835d1ccf66eee2885a6bc0ac8ead212cb"
+    },
+    {
+      "file": "outputs/T37/mobile-375.png",
+      "bytes": 148030,
+      "sha256": "522f56a590c6d77225c5bc531a79bd390bfd013bf4fbca0e916cf5f8955c34ce"
+    },
+    {
+      "file": "outputs/T37/mobile-390.png",
+      "bytes": 158022,
+      "sha256": "708ea8d8a0cb9aa0d3adfcf1f62c5dd7e5c1fcb7d7f1d6c6f65dd63536eee18d"
+    },
+    {
+      "file": "outputs/T37/pdf-page-1.png",
+      "bytes": 974829,
+      "sha256": "a447dd915d96eb8a6b2341a25420976fea7d586e27bfac02ab277cd08a8597a8"
+    },
+    {
+      "file": "outputs/T37/pdf-text.txt",
+      "bytes": 279,
+      "sha256": "3ccb1d66297b3e7423ce5479944c17340140871ba1c6dd117c6871f23c682e29"
+    },
+    {
+      "file": "outputs/T37/pdfplumber-text.txt",
+      "bytes": 280,
+      "sha256": "0bee35a1d3b6349016a7d84689e6bcba5cae670aeecf1841429f712f09874f95"
+    },
+    {
+      "file": "outputs/T37/preview.html",
+      "bytes": 3176473,
+      "sha256": "53a75189c1050e6db31d24dd910abe218ad00e65c3ddb7295f09eec6e489041a"
+    },
+    {
+      "file": "outputs/T37/pypdf-text.txt",
+      "bytes": 279,
+      "sha256": "3ccb1d66297b3e7423ce5479944c17340140871ba1c6dd117c6871f23c682e29"
+    },
+    {
+      "file": "outputs/T37/pypdfium2-text.txt",
+      "bytes": 283,
+      "sha256": "9419fd4744b367b162ace4d14bc9403b47bfa002b3e972520557e8ecadc2a296"
+    },
+    {
+      "file": "outputs/T37/review-contact.png",
+      "bytes": 664883,
+      "sha256": "c716bf6af21f5677f9cbb63cb7c651d20a88f713d15a4c878b8b88df88b02275"
+    },
+    {
+      "file": "pdf-audit.json",
+      "bytes": 49110,
+      "sha256": "29bf07616cca151c362882ac666a2836027be7e1b4e5fc96a8af90b7031ad00d"
+    },
+    {
+      "file": "pdf-crosscheck.json",
+      "bytes": 24020,
+      "sha256": "b1f438783ca2a0e166a7543167246ea952f1a3ab81516784b15dd1b102ca698e"
+    },
+    {
+      "file": "pdf-crosscheck.mjs",
+      "bytes": 369,
+      "sha256": "eb171e4ff5901f3a4783f6f54aaea92fe4d399c7dce0845857bfe9554bb42970"
+    },
+    {
+      "file": "pdf-crosscheck.py",
+      "bytes": 2008,
+      "sha256": "e64f94d2ab741511397a943f3803cd98e9cacba7b0b77962108b6752e543fcc9"
+    },
+    {
+      "file": "plan-hashes.json",
+      "bytes": 1330,
+      "sha256": "a79d0bf5e7a48ab24ab214caa020d993b4b46119ecc284079deedebae5e0802f"
+    },
+    {
+      "file": "python-environment.json",
+      "bytes": 2098,
+      "sha256": "6bfeaf0ada1125d75f9cd9ae95ce814c861fcdd88a3dca7d6379ab7b0f21d2c0"
+    },
+    {
+      "file": "rejections-attempt1.json",
+      "bytes": 4088,
+      "sha256": "83491a2d363dc244085c46918f7e08ec9ee09433695f72e6c0b4b6860fc52d9f"
+    },
+    {
+      "file": "rejections.json",
+      "bytes": 4076,
+      "sha256": "ee6890b3c9572d2794c90dfa3de2950a4ea563ed69e435970bc62e5553a85027"
+    },
+    {
+      "file": "rejections.mjs",
+      "bytes": 1375,
+      "sha256": "861e3f125b8e52637113415c028fee141a756dc031fcab0a6dffe58a630c05f3"
+    },
+    {
+      "file": "review-files/docs/visual-upgrade/ADR-001.md",
+      "bytes": 4987,
+      "sha256": "1ca62d7853f8b3b406545a94a45d68b89c76386a179250b307f0903aafdb93b1"
+    },
+    {
+      "file": "review-files/docs/visual-upgrade/BASELINE-EVIDENCE.md",
+      "bytes": 5095,
+      "sha256": "df3a7bb0f483cbdffdd31f239d0769c5820b525d43d7b3b8ae12d790d6b01702"
+    },
+    {
+      "file": "review-files/docs/visual-upgrade/BASELINE.md",
+      "bytes": 5748,
+      "sha256": "bbd4f177f8890b3867f7366191a683c5461ad2e2fbf991ce3ba9f089fa00788a"
+    },
+    {
+      "file": "review-files/docs/visual-upgrade/REGRESSION.md",
+      "bytes": 5850,
+      "sha256": "2ee30b98c93756cc141101be79828b9f085fbc2f83be7be98a339e9e440462da"
+    },
+    {
+      "file": "review-files/tests/fixtures/visual-upgrade/invalid-metadata.md",
+      "bytes": 167,
+      "sha256": "2a49480e245436dad053a555844da5be4f86270490aa7f23404ddb77a57268a7"
+    },
+    {
+      "file": "review-files/tests/fixtures/visual-upgrade/m0-cases.json",
+      "bytes": 1990,
+      "sha256": "6474b8677aa2be14d0356352cfbc0d008acdb8eb1ee7207344f6c9ca1d6e6ab8"
+    },
+    {
+      "file": "review-files/tests/fixtures/visual-upgrade/remote-image.md",
+      "bytes": 255,
+      "sha256": "f5c88a366842c522e5a9bd6784aaa6ef133de7049e7bc93bd6fd6f69f77d25fe"
+    },
+    {
+      "file": "run-command.mjs",
+      "bytes": 1514,
+      "sha256": "f88ea29db1e4cbdf9db98a7e7e5911aa86c6323bf3263583b95331f87abd19d3"
+    },
+    {
+      "file": "source.json",
+      "bytes": 16783,
+      "sha256": "2ac0bf592270e589c8ebf0b48be9118a3bc1ecf7ecee8c866d6926cf9d8b2c09"
+    },
+    {
+      "file": "verification.json",
+      "bytes": 684,
+      "sha256": "07c8ed7882b27715ab39f3a3590291db35505043a3f310520de7d181cb5be86d"
+    }
+  ]
+}

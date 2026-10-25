@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "identity": {
+    "commit": "20bcb5256cee43071b1efd43448a9308966620f7",
+    "tree": "c1d255e6abd7ef1f32cc26d469a3f6343a6d935a",
+    "sourceSha256": "7fdf3dffe57964e1def4d337eddb6d51bcd8c34b475bfda4ba87f15fff3fb4db",
+    "runId": 40079867143,
+    "artifactId": 12553849934,
+    "archiveSha256": "f6393c44356ee2bab20bcdfa4aaf977bb4433ff175bf7887987f7da25b886708"
+  },
+  "bindingSha256": "11e5cef626d15065d669663ab32a06e1d99a88dbea8439adf519c55d42ab3e61",
+  "status": "native-pdf-audited-visual-review-pending",
+  "records": [
+    {
+      "series": "evidence-reading",
+      "index": 1,
+      "pdfSha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc",
+      "pageCount": 5,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "evidence-reading-001.png",
+      "rasterSha256": "1f3f7371d60edd423ecfc68a105cd8b0869f2fb78e2f577062a47559a79fe854",
+      "textSha256": "9a3c664e86e009228238d002de5d576e1960e20a0528368a98508a50f7164247",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 11,
+      "exactNfcMissing": [
+        "一份练习记录能说明谁提交了作答，却不能单凭提交率证明谁已掌握知识。先问数字回答了什么，再看它没有回答什么。",
+        "这组卡片",
+        "从阅读问题走到统计口径，最后留下需要核实的边界。",
+        "示例范围",
+        "只讨论一组虚构练习，不推断真实课程或人群。",
+        "原创教学示例 · 后文记录全部虚构",
+        "FIELDNOTES · 示例品牌",
+        "证据阅读 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "evidence-reading",
+      "index": 2,
+      "pdfSha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc",
+      "pageCount": 5,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "evidence-reading-002.png",
+      "rasterSha256": "f57d324aaa106e2d5d74e2a445bd2f3aa1e27aaf87d43570316441fefaac6f15",
+      "textSha256": "9e7de2282cf512f4c4b10c79b4e2fa2f6cb52abc0a170ece368195f08f5e043b",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 9,
+      "exactNfcMissing": [
+        "算的是哪段时间？ 写清开始和截止范围，不拿不同观察期直接比较。",
+        "想回答什么？ 提交率描述提交行为，理解程度需要另有依据。",
+        "FIELDNOTES · 示例品牌",
+        "证据阅读 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "evidence-reading",
+      "index": 3,
+      "pdfSha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc",
+      "pageCount": 5,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "evidence-reading-003.png",
+      "rasterSha256": "11554ce8edb65713bcda026376ce38d95c37cb9fcaa9a25d84d3a1cab9c1cfb5",
+      "textSha256": "a333ba3b8e173472a29b6beb56443171320f31d6b43741aa3784c1e7241e0737",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 13,
+      "exactNfcMissing": [
+        "让分子和分母对齐",
+        "这组虚构记录使用同一批人、同一观察期，避免口径错配。",
+        "分母：开始练习的人",
+        "虚构第 1 周共 7 天，20 人至少开始一次练习，每人只计一次。",
+        "分子：期内提交的人",
+        "其中 12 人在这 7 天内提交作答；重复提交仍只计一人。",
+        "不能顺手推出什么",
+        "原创统计口径示例 · 非真实调查",
+        "FIELDNOTES · 示例品牌",
+        "证据阅读 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [
+        "让分子和分母对齐"
+      ],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "evidence-reading",
+      "index": 4,
+      "pdfSha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc",
+      "pageCount": 5,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "evidence-reading-004.png",
+      "rasterSha256": "813c9267f909162bd42aedbe1f51b1e70bd874d53b55cc8c5cebd51b9d98ef5b",
+      "textSha256": "ea5eed7815ecd763c652df99f1c8528324a2166b25af93440598af6f8cf19dad",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 13,
+      "exactNfcMissing": [
+        "只解释这个比例",
+        "12 ÷ 20 = 60%，是提交人数占开始人数的比例。",
+        "口径与范围",
+        "虚构第 1 周共 7 天，20 名开始者中有 12 人提交；每人只计一次。",
+        "未评作答质量，也无对照组；不能证明学会、进步或推广效果。",
+        "FIELDNOTES · 示例品牌",
+        "证据阅读 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "evidence-reading",
+      "index": 5,
+      "pdfSha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc",
+      "pageCount": 5,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "evidence-reading-005.png",
+      "rasterSha256": "3d26aeb73e21770f8eba0e699e58be5bec6719d076d437e77e5302717b2dca36",
+      "textSha256": "305bf075cccdf98c15b648894af4e163a6463a33b84185851b166f50143c2351",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 9,
+      "exactNfcMissing": [
+        "比例说明发生了多少，判断还需要知道发生了什么，以及哪些信息仍然缺席。",
+        "作答质量、未提交原因和后续理解程度，都没有出现在这份虚构记录里。把这些空缺保留下来，比替数字补上一个漂亮结论更诚实。",
+        "FIELDNOTES · 示例品牌",
+        "证据阅读 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "mean-tutorial",
+      "index": 1,
+      "pdfSha256": "961f45fe944067567d2a5c99f1add3317fa24b236a449669adc0719fca7796ba",
+      "pageCount": 3,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "mean-tutorial-001.png",
+      "rasterSha256": "16834ac22ce521e1303680abea468385fc66b6dd89b9aae42ceb5dbe75f2002f",
+      "textSha256": "ffcce30dca9e4709144390477a000b34080fb4e1c408828b232e88ee0d23d519",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 11,
+      "exactNfcMissing": [
+        "运行：逐项累加",
+        "分母为 3 条记录。结果不是实际性能测量，也不代表更大的样本。",
+        "FIELDNOTES · 示例品牌",
+        "均值练习 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "mean-tutorial",
+      "index": 2,
+      "pdfSha256": "961f45fe944067567d2a5c99f1add3317fa24b236a449669adc0719fca7796ba",
+      "pageCount": 3,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "mean-tutorial-002.png",
+      "rasterSha256": "27fdf03567053b6e1df3d655bd9c83827e95fc465cb169109ad6b165ea20a580",
+      "textSha256": "dd009060491de4d76f8445153a40a3beecd9908ce25812a460d0b460af93b68b",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 11,
+      "exactNfcMissing": [
+        "空输入不冒充零",
+        "把计算包成函数；没有记录时返回 null，而不是声称耗时为零。",
+        "检查：调用后看返回值",
+        "mean([]) 返回 null；mean([120, 180, 150]) 返回 150。函数本身不打印结果。",
+        "原创 JavaScript · 输入限有限非负数，单位毫秒",
+        "FIELDNOTES · 示例品牌",
+        "均值练习 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "mean-tutorial",
+      "index": 3,
+      "pdfSha256": "961f45fe944067567d2a5c99f1add3317fa24b236a449669adc0719fca7796ba",
+      "pageCount": 3,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "mean-tutorial-003.png",
+      "rasterSha256": "55471bbd2f01145c945c932efd07718ee7baec40287c0bf186b271ace08600ed",
+      "textSha256": "7e712b79f8342bc6c96ed27094772e1cdf6efca51301132320357116b2db2b95",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 13,
+      "exactNfcMissing": [
+        "算对，还要用对",
+        "前两张代码只是教学计算，不是完整的数据清洗或性能分析工具。",
+        "输入边界",
+        "只传有限非负数，统一用毫秒；字符串和缺失值须先单独处理。",
+        "示例未防止累加溢出。真实输入需约束数量与大小，并核对计算结果。",
+        "均值不能揭示全部波动；不要把三条虚构记录推广为真实系统表现。",
+        "FIELDNOTES · 示例品牌",
+        "均值练习 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "note-format-decision",
+      "index": 1,
+      "pdfSha256": "e07678c40e51555a6d2c4fd41c0264c781e04c0d9e75d0901ec26dd46a2da898",
+      "pageCount": 3,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "note-format-decision-001.png",
+      "rasterSha256": "e8522b57fc0e2163669d2f1071f84fee269c2c32a4e3aeb74da72da46b04bd3d",
+      "textSha256": "f86934a17aeb2262d2e0ba442336b46ea2cd5b02d466b7ec2f6a9431727f49e9",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 11,
+      "exactNfcMissing": [
+        "先想下次怎样用笔记，再选择载体。这里比较的是记录需要，不是工具排名。",
+        "想随手画关系、翻看一页的整体，可以从纸本开始；仍要约定存放位置。",
+        "留在文件里",
+        "需要检索词语或持续修订，可以试用数字文件；先确认格式能否导出，不把保存等同于备份。",
+        "原创情境对照 · 不比较产品，也不预设优胜者",
+        "FIELDNOTES · 示例品牌",
+        "记录选择 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [
+        "想随手画关系、翻看一页的整体，可以从纸本开始；仍要约定存放位置。"
+      ],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "note-format-decision",
+      "index": 2,
+      "pdfSha256": "e07678c40e51555a6d2c4fd41c0264c781e04c0d9e75d0901ec26dd46a2da898",
+      "pageCount": 3,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "note-format-decision-002.png",
+      "rasterSha256": "a9ef21461b385b30fe6d481d008f00aa6a7ff464f0e943368c1dff10901a35e5",
+      "textSha256": "5f17bee6b214c9f0f248f713eea9c1b032e61b8fef17a0afae5f5b9d6bb7c2d2",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 22,
+      "exactNfcMissing": [
+        "把条件摆在前面",
+        "同一个人，不同任务也可以换一种方式。",
+        "看整页关系",
+        "能否自由画线",
+        "长期保留",
+        "不必一次定终身",
+        "先选最重要的一项，再接受其余取舍。没有哪种载体自动满足全部需要。",
+        "原创选择框架 · 字母是索引，不是评分",
+        "FIELDNOTES · 示例品牌",
+        "记录选择 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [
+        "看整页关系",
+        "长期保留"
+      ],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "note-format-decision",
+      "index": 3,
+      "pdfSha256": "e07678c40e51555a6d2c4fd41c0264c781e04c0d9e75d0901ec26dd46a2da898",
+      "pageCount": 3,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "note-format-decision-003.png",
+      "rasterSha256": "9845d8d2efc940ea48672fcc471efa09fae2465cb025549f79effcef05ea040d",
+      "textSha256": "0ce1aefb9046df705e8a5488f16f31100af8fc6e05e3fa200dca7550fe7823a3",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 10,
+      "exactNfcMissing": [
+        "先试一条真实笔记",
+        "不急着迁走旧记录。用一个可撤回的小试验，检查选择是否适合自己。",
+        "留一条记录：选眼前的任务，不编造理想使用场景。",
+        "隔天再找回：记录从哪里找、卡在哪里，不把一次顺手当成定论。",
+        "检查退出方式：试着复制或导出，保留原件，再决定是否继续。",
+        "原创试用清单 · 不是已完成任务或效果证明",
+        "FIELDNOTES · 示例品牌",
+        "记录选择 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "object-observation",
+      "index": 1,
+      "pdfSha256": "5f18770a47bd237177a6ded036046edabf17797aa2bb8e77b56c909313985222",
+      "pageCount": 3,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "object-observation-001.png",
+      "rasterSha256": "b05fe0b30ac4257b66b2699cb303d3abd6225d89e9bc7a70025914c69635aa32",
+      "textSha256": "47d9cefa2e3e8d6a5ad21913f14e1512dd3d8f2c751c3055325c78cb710a043b",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 8,
+      "exactNfcMissing": [
+        "先看见一个开口",
+        "边沿围出一块敞开的空间。图里没有盒盖，但也没有尺寸标尺；先记下看见的，不急着说它能装多少。",
+        "原创图像与文案 · 仅描述画中结构",
+        "原创示意插画 · 完整画幅，非实物照片。",
+        "FIELDNOTES · 示例品牌",
+        "物件观察 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [
+        "先看见一个开口",
+        "边沿围出一块敞开的空间。图里没有盒盖，但也没有尺寸标尺；先记下看见的，不急着说它能装多少。"
+      ],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "object-observation",
+      "index": 2,
+      "pdfSha256": "5f18770a47bd237177a6ded036046edabf17797aa2bb8e77b56c909313985222",
+      "pageCount": 3,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "object-observation-002.png",
+      "rasterSha256": "4c631d15b2388759e49af6e830181cc4257c31024c77fb19a72258a591698f4c",
+      "textSha256": "f5f7aef7fcc7d7350134f94d5b8df17ee3ba3161bf5351998d70ed7a2bbda238",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 10,
+      "exactNfcMissing": [
+        "开口直接可见；没有画出盖子。",
+        "盖与盒分开画出；不表示盖子会悬浮。",
+        "两图均为原创虚构物件插画 · 非同一实物前后照",
+        "FIELDNOTES · 示例品牌",
+        "物件观察 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [
+        "开口直接可见；没有画出盖子。"
+      ],
+      "visualReview": "not-performed"
+    },
+    {
+      "series": "object-observation",
+      "index": 3,
+      "pdfSha256": "5f18770a47bd237177a6ded036046edabf17797aa2bb8e77b56c909313985222",
+      "pageCount": 3,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "raster": "object-observation-003.png",
+      "rasterSha256": "33b50a838e00ff7fa2b98d058e51a88a136494999e3a49a49766c49ec06daf79",
+      "textSha256": "2aceef57d7cda6fefb5ab9f644ad8a21a3f419b88486cf23d5a453d8b542285f",
+      "textExtraction": "pypdf plain",
+      "sourceSegments": 9,
+      "exactNfcMissing": [
+        "看见的是画面给出的线索；没有画出的条件，不能靠一个顺手的故事补齐。",
+        "这次没有看见什么",
+        "两幅图没有给出尺寸、材质和承重，颜色也不能证明材料。它们可以练习描述，却不能替代实物核对，更不是购买建议。",
+        "FIELDNOTES · 示例品牌",
+        "物件观察 · 原创示例"
+      ],
+      "compatibilityNfkcMissing": [
+        "看见的是画面给出的线索；没有画出的条件，不能靠一个顺手的故事补齐。",
+        "这次没有看见什么"
+      ],
+      "visualReview": "not-performed"
+    }
+  ]
+}

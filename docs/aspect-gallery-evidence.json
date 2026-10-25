@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "batch": "aspects-run-40079964688",
+  "scope": {
+    "density": "standard",
+    "pagination": "manual",
+    "fixturesOnly": true
+  },
+  "records": [
+    {
+      "id": "01-T04-aspect-specific-square-square",
+      "template": "T04",
+      "aspect": "square",
+      "templateVersion": 2,
+      "aspectVersion": 2,
+      "input": "examples/aspects/T04-square.md",
+      "inputSha256": "7329186d304df899bd4cd6f9dc163f2f918e78429287759b0ac4e4ed7baca137"
+    },
+    {
+      "id": "02-T04-aspect-specific-slide-slide",
+      "template": "T04",
+      "aspect": "slide",
+      "templateVersion": 2,
+      "aspectVersion": 2,
+      "input": "examples/aspects/T04-slide.md",
+      "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a"
+    },
+    {
+      "id": "12-T21-aspect-specific-square-square",
+      "template": "T21",
+      "aspect": "square",
+      "templateVersion": 2,
+      "aspectVersion": 2,
+      "input": "examples/aspects/T21-square.md",
+      "inputSha256": "ce4d422a73771fd67ee521259790849a8c4b9940328a9dbe8f1440bdd63db1d5"
+    },
+    {
+      "id": "13-T21-aspect-specific-slide-slide",
+      "template": "T21",
+      "aspect": "slide",
+      "templateVersion": 2,
+      "aspectVersion": 2,
+      "input": "examples/aspects/T21-slide.md",
+      "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a"
+    },
+    {
+      "id": "23-T05-aspect-specific-square-square",
+      "template": "T05",
+      "aspect": "square",
+      "templateVersion": 2,
+      "aspectVersion": 1,
+      "input": "examples/aspects/T05-square.md",
+      "inputSha256": "9f8b216a27ad52012ed07521753931a8f4dc3efdd67b0204a980b74225331beb"
+    },
+    {
+      "id": "32-T13-aspect-specific-square-square",
+      "template": "T13",
+      "aspect": "square",
+      "templateVersion": 2,
+      "aspectVersion": 1,
+      "input": "examples/aspects/T13-square.md",
+      "inputSha256": "d078ea2799bd104a14bad5b35abbd14c9ed603018333eba692735081846893b2"
+    },
+    {
+      "id": "41-T24-aspect-specific-slide-slide",
+      "template": "T24",
+      "aspect": "slide",
+      "templateVersion": 3,
+      "aspectVersion": 1,
+      "input": "examples/aspects/T24-slide.md",
+      "inputSha256": "ad032679519fe609e9f2cb2f66021056ff0b14a1825a0381469d9d69b07be103"
+    },
+    {
+      "id": "50-T37-aspect-specific-slide-slide",
+      "template": "T37",
+      "aspect": "slide",
+      "templateVersion": 2,
+      "aspectVersion": 1,
+      "input": "examples/aspects/T37-slide.md",
+      "inputSha256": "68bc38e674486579a535520e03ac9bec6d8ee9720b5f4468197fd77bc48b9052"
+    }
+  ]
+}

@@ -1,22 +1,20 @@
 # M9 / LIB-05 / R12: purpose-led aspect layouts
 
-> 当前 M2 的 48 个 standard / portrait 注册示例已独立复核（13 套 v3 / 35 套 v2）。T04/T21 四个既有画幅短例也有当前 M2 有界复核，但最终画幅注册绑定仍 pending；全部八个额外画幅组合保持待验收注册状态。四个新 R12 组合是独立 aspect-v1，仍待本阶段真实产物。
+> 八个指定画幅短例已完成 full PNG、375/390 和 native PDF 独立复核，并由独立证据注册表绑定；T04/T21 四组合为 aspect-v2，T05/T13/T24/T37 四组合为 aspect-v1。仅限精确输入、standard/manual，不扩张为 48×3 或所有内容适配。
 
-Updated 2026-10-24. R12 adds exactly four purpose-led pairs: **T05 square,
-T13 square, T24 slide and T37 slide**. They are implemented but await visual
-review. No successful local R12 PNG, phone capture or PDF inspection is claimed.
-The inherited CLI help-path launch failure is retained below; it is not visual
-evidence. Source-only tests and expected results below are not visual evidence.
+Updated 2026-10-25. [The PR22 review](ASPECT_PR22_REVIEW.md) records eight exact
+short fixtures and their complete PNG, 375/390 and native-PDF views.
+[The evidence registry](aspect-gallery-evidence.json) binds these fixtures to
+run40079964688, exact source semantics, input bytes and independent aspect versions.
+It is validated by scripts/aspect-evidence.mjs when building the gallery; renderer
+layout declarations alone do not confer acceptance. Template counts remain 48.
 
-T04 and T21 already provide independent square (1:1) and slide (16:9)
-compositions. Their four exact short examples have current M2 full PNG, 375/390px
-phone and native-PDF review in [the M2 acceptance](REFINEMENT_M2_ACCEPTANCE.md),
-separate from immutable historical v1 evidence below. Final aspect-specific
-registry binding remains pending, so all eight additional aspect pairs retain
-`implemented-awaiting-visual-review` registry status. The four new R12 layouts
-and this stage's complete 58-case run are still pending. No fixture review transfers
-to different inputs, new layouts or unrelated controls. These eight aspect variants
-add no template IDs and do not imply that all 48 templates support three ratios.
+All 58 technical cases are authenticated: 28 exports, 8 allowed overflows, 14
+expected pressure overflows and 8 unsupported-ratio refusals. Only the eight
+aspect-specific short examples earn visual binding. T04 square retains its short
+line tail; native slide PDFs measure 1200×675.12 pt and are preserved without
+cropping. Local pypdf extraction differences remain documented. Historical
+reports below keep their original scope and do not certify these new fixtures.
 
 The [second combined run](https://github.com/Activer007/md2card-skill/actions/runs/40056857307)
 completed all 22 technical outcomes and the four new short-composition visual
@@ -44,12 +42,12 @@ inputs. Source tree and technical scope are bound in the M2 record above.
 
 | Template | 3:4 / portrait | 1:1 / square | 16:9 / slide |
 | --- | --- | --- | --- |
-| T04 | Full-width sectional essay; exact standard/portrait v2 reviewed in M2 | Left thesis rail and right section stack; exact v2 short fixture reviewed in M2; registry binding pending | Left title rail, right labeled rows and bottom source band; exact v2 short fixture reviewed in M2; registry binding pending |
-| T21 | Single-metric focus; exact standard/portrait v2 reviewed in M2 | Paired title/metric panels and lower evidence grid; exact v2 short fixture reviewed in M2; registry binding pending | Left title/metric/source rail and full-height right evidence; exact v2 short fixture reviewed in M2; registry binding pending |
-| T05 | Current v2 numbered full-width rows; exact portrait reviewed | Two-by-two numbered reading index; **awaiting visual review** | Rejected |
-| T13 | Current v2 stacked declaration poster; exact portrait reviewed | Left slogan rail facing complete argument stack; **awaiting visual review** | Rejected |
-| T24 | Current v3 report, table and decision stack; exact portrait reviewed | Rejected | Left decision rail and right complete table stage; **awaiting visual review** |
-| T37 | Current v2 full-frame image over story band; exact portrait reviewed | Rejected | Full-frame image/caption at left, story rail at right; **awaiting visual review** |
+| T04 | Full-width sectional essay; exact standard/portrait v2 reviewed in M2 | Left thesis rail and right section stack; exact v2 short fixture reviewed in M2; exact fixture bound in the PR22 evidence registry | Left title rail, right labeled rows and bottom source band; exact v2 short fixture reviewed in M2; exact fixture bound in the PR22 evidence registry |
+| T21 | Single-metric focus; exact standard/portrait v2 reviewed in M2 | Paired title/metric panels and lower evidence grid; exact v2 short fixture reviewed in M2; exact fixture bound in the PR22 evidence registry | Left title/metric/source rail and full-height right evidence; exact v2 short fixture reviewed in M2; exact fixture bound in the PR22 evidence registry |
+| T05 | Current v2 numbered full-width rows; exact portrait reviewed | Two-by-two numbered reading index; **exact short fixture reviewed and bound** | Rejected |
+| T13 | Current v2 stacked declaration poster; exact portrait reviewed | Left slogan rail facing complete argument stack; **exact short fixture reviewed and bound** | Rejected |
+| T24 | Current v3 report, table and decision stack; exact portrait reviewed | Rejected | Left decision rail and right complete table stage; **exact short fixture reviewed and bound** |
+| T37 | Current v2 full-frame image over story band; exact portrait reviewed | Rejected | Full-frame image/caption at left, story rail at right; **exact short fixture reviewed and bound** |
 | Other 42 IDs | Exact standard/portrait M2 examples reviewed; immutable versioned history retained | Rejected | Rejected |
 
 T04 can reorder the visual roles of its title, introduction, sequential H2
@@ -131,7 +129,7 @@ Long fixtures append pressure content without deleting metric, label or source.
 No external images or fonts are downloaded; original composition and font
 provenance remain unchanged.
 
-## R12 scope and pending review
+## R12 scope and exact-fixture review
 
 The four additional pairs answer different purposes, rather than stretching a
 portrait canvas or enabling every aspect on each template:
@@ -163,9 +161,9 @@ staggering inside its narrower rail. T37 keeps the intrinsic auto-height frame
 and uses a slide-specific image-height ceiling without changing the contain rule. No body/note size, transform, zoom, clipping, hidden text, line clamp,
 ellipsis or crop rule is introduced. Body/list/table text inherits 0.043 × width;
 notes inherit 0.0335 × width. At a measured 351/366px inner-card width these target
-15.09/15.74px body and 11.76/12.26px notes, above the 14px/11px floors. These are
-source arithmetic, not newly measured R12 browser results. Density still changes
-spacing only. Full PNG, phone and PDF inspection remains necessary.
+15.09/15.74px body and 11.76/12.26px notes, above the 14px/11px floors. These thresholds are also checked against the authenticated R12 mobile audits.
+Density still changes spacing only. New inputs require their own actual export
+and full PNG, phone and PDF inspection.
 
 The existing T05, T13, T24 and T37 portrait PNGs were inspected before design.
 They are historical source references, not R12 previews. Their exact SHA-256s:

@@ -142,18 +142,16 @@ Do not treat example acceptance as a guarantee for arbitrary input. Select a
 registry ID with `--template` or per-card `template` metadata; density changes
 spacing only. Templates remain manual-only and do not inherit legacy theme CSS.
 
-Consult the registry's per-aspect support and status. Exactly 6 templates add
+Consult the layout registry for support and the separate verified evidence registry for acceptance. Exactly 6 templates add
 8 extra aspect pairs: T04/T21 each add square and slide, T05/T13 add square only,
 and T24/T37 add slide only. All other non-portrait combinations are rejected.
-All 48 current standard/portrait examples are accepted (13 v3 / 35 v2).
-T04/T21 also have current M2 review of their four exact short fixtures, separate
-from immutable v1 historical evidence; their final aspect-specific registry binding
-remains pending. All eight extra aspect pairs retain pending registry status.
-The four new R12 pairs are independent aspect-v1 identities with no prior
-acceptance; portrait template versions do not validate them. Longer portrait
-inputs can overflow. Select `--size` or matching dimensions, never card `aspect`
-metadata. Keep mobile body/source floors, full image frames and unchanged source;
-new short examples are separately authored inputs, not automatic content edits.
+All 48 exact standard/portrait examples remain accepted (13 v3 / 35 v2).
+Eight exact short fixtures now have their own PNG, 375/390 and native-PDF review
+and binding in [the aspect evidence registry](docs/aspect-gallery-evidence.json),
+with immutable v1 historical evidence retained. T04/T21 are aspect-v2; the four
+new pairs are aspect-v1. Parent portrait acceptance does not validate them.
+Longer inputs can overflow; preserve body/source floors, full images and source.
+Use --size or matching dimensions, never card aspect metadata.
 See [the aspect contract](docs/TEMPLATE_ASPECTS.md).
 
 Use `node scripts/render.mjs --help` for the actual CLI contract. Install dependencies
@@ -227,6 +225,6 @@ Do not upload, publish, or install this skill elsewhere unless asked.
 
 ### R09 / R10：按任务选型与真实同文测试
 
-图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v3 / v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：17 例计划完整导出、4 例长文及 T13 的指定中篇必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [docs/CONTENT_MATRIX.md](docs/CONTENT_MATRIX.md) 和 [docs/TEMPLATE_GALLERY.md](docs/TEMPLATE_GALLERY.md)。
+图库提供六条用途路线及短 / 中 / 中英混排三组同文，仍只有 48 套构图。run40079964688 的22案例已核验：17成功导出与5预期拒绝分别记录。三组绑定11个成功预览及T13指定中篇拒绝，精确PNG/手机图和新PDF页面的身份均核对；旧复核仅在像素逐字节相同时保留，短尾与窄栏限制继续显示。计划命令仅作源码检查，新内容仍需实际导出及独立复核。见[同文重新绑定](docs/COMPARISON_PR22_REVIEW.md)和[图库说明](docs/TEMPLATE_GALLERY.md)。
 
-R11 的四组可选作者系列共 5/3/3/3 张，新增有条件选择与图像观察两种节奏，不强制封面或 CTA，不读取配方来改写用户输入。每张保留显式模板、manual 边界、图像身份、来源与限制。既有 A/B 八张已有 M2 精确产物复核；新增 C/D 六张与本 R11 阶段四组全量运行仍待实际连读与手机/PDF 验证，详见 [系列契约](docs/SERIES_RECIPES.md)。
+R11 四组作者系列共5/3/3/3张，包含有条件比较→条件表→可撤回试用及单图观察→双图对照→未知边界札记。run40079867143的14卡已逐张检查full PNG、375/390和原生PDF，新增C/D六张使用自己的实际产物；品牌、页序、原文、代码、图片和限制保留，不强制封面/CTA或自动改写。见[系列独立复核](docs/SERIES_PR21_REVIEW.md)。该结论仅属于记录的PR21来源与产物，不自动证明其他树或本地重新排版等价。

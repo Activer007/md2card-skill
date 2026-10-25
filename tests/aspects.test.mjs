@@ -4,6 +4,7 @@ import { readFile, mkdtemp, rm, writeFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { TEMPLATES, getTemplate, resolveTemplateAspect, validateTemplateMetadata, TEMPLATE_ASPECTS, TEMPLATE_ASPECT_TOLERANCE } from '../scripts/templates.mjs';
 import { renderCards } from '../scripts/markdown.mjs';
 import { parseSemanticDocument } from '../scripts/semantic.mjs';
@@ -133,7 +134,7 @@ test('aspect examples and same-source matrix are hashed, complete and honestly u
   for(const item of plan.cases) {
     const source=await readFile(new URL('../'+item.input,import.meta.url),'utf8');
     assert.equal(createHash('sha256').update(source).digest('hex'),item.inputSha256);
-    const cards=[await loadAspectCard(new URL('../',import.meta.url).pathname,item)];
+    const cards=[await loadAspectCard(fileURLToPath(new URL('../',import.meta.url)),item)];
     assert.equal(cards.length,1); assert.equal(cards[0].metadata.template,item.template);
     assert.equal(cards[0].templateTitleHtml+cards[0].templateIntroHtml+cards[0].sections.map(s=>s.html).join(''),cards[0].html);
     assert.match(cards[0].metadata.source,/原创|虚构/);
@@ -276,7 +277,7 @@ test('new purpose-led source comparisons retain every slot, image byte and requi
   const plan=JSON.parse(await readFile(new URL('../examples/aspects/validation-plan.json',import.meta.url),'utf8'));
   for(const id of ['T05','T13','T24','T37']) {
     const specific=plan.cases.find(item=>item.template===id && item.scope.startsWith('aspect-specific-'));
-    const card=await loadAspectCard(new URL('../',import.meta.url).pathname,specific);
+    const card=await loadAspectCard(fileURLToPath(new URL('../',import.meta.url)),specific);
     const variants=getTemplate(id).aspects.map(aspect=>buildDocument([card],SIZES[aspect],'','',css).split('<main')[1]
       .replaceAll(`template-aspect-${aspect}`,'ASPECT').replaceAll(`data-template-aspect="${aspect}"`,'ASPECT_DATA'));
     assert.equal(variants[0],variants[1]);
@@ -293,7 +294,7 @@ test('new purpose-led source comparisons retain every slot, image byte and requi
   function reconstructSource(card) { return `<!-- card: ${JSON.stringify(card.metadata)} -->\n${card.source}`; }
   for(const id of ['T05','T13','T24']) assert.throws(()=>validateTemplateMetadata({template:id,image:'assets/x.png'},SIZES[getTemplate(id).aspects[1]]),{code:'TEMPLATE_IMAGE_UNSUPPORTED'});
   assert.throws(()=>validateTemplateMetadata({template:'T37'},SIZES.slide),{code:'TEMPLATE_IMAGE_REQUIRED'});
-  const resolver=await createAssetResolver(new URL('../examples/templates',import.meta.url).pathname);
+  const resolver=await createAssetResolver(fileURLToPath(new URL('../examples/templates',import.meta.url)));
   for(const reference of ['https://example.com/x.png','../T37.md','data:image/png;base64,AAAA','/tmp/x.png']) assert.throws(()=>resolver.resolveImage(reference),{code:'INVALID_ASSET'});
   const list=renderCards('<!-- card: {"template":"T05"} -->\n# Index\n\n98. One\n99. Two')[0];
   assert.match(buildDocument([list],SIZES.square,'','',css), /<ol start="98">/);
@@ -305,7 +306,7 @@ test('every R12 unsupported named or custom ratio refuses before preflight or br
   const plan=JSON.parse(await readFile(new URL('../examples/aspects/validation-plan.json',import.meta.url),'utf8'));
   let calls=0; const forbidden=async()=>{calls++;throw new Error('Unexpected acquisition');};
   for(const item of plan.cases.filter(item=>item.scope.startsWith('unsupported-'))) {
-    const options=parseOptions([new URL('../'+item.input,import.meta.url).pathname,'--out',path.join(dir,`${item.template}-${item.scope}`),'--width',String(item.dimensions[0]),'--height',String(item.dimensions[1]),...(item.assetRoot?['--asset-root',new URL('../'+item.assetRoot,import.meta.url).pathname]:[])]);
+    const options=parseOptions([fileURLToPath(new URL('../'+item.input,import.meta.url)),'--out',path.join(dir,`${item.template}-${item.scope}`),'--width',String(item.dimensions[0]),'--height',String(item.dimensions[1]),...(item.assetRoot?['--asset-root',fileURLToPath(new URL('../'+item.assetRoot,import.meta.url))]:[])]);
     await assert.rejects(()=>exportCards(options,{inspectEnvironment:forbidden,openRenderer:forbidden}),{code:'TEMPLATE_ASPECT_UNSUPPORTED'});
   }
   assert.equal(calls,0);
@@ -315,9 +316,9 @@ test('new supported aspects retain screen and print overflow rejection without p
   const dir=await mkdtemp(path.join(tmpdir(),'md2card-r12-overflow-')); t.after(()=>rm(dir,{recursive:true,force:true}));
   const plan=JSON.parse(await readFile(new URL('../examples/aspects/validation-plan.json',import.meta.url),'utf8'));
   for(const item of plan.cases.filter(item=>['T05','T13','T24','T37'].includes(item.template) && item.scope==='same-source-long')) for(const medium of ['screen','print']) {
-    const file=new URL('../'+item.input,import.meta.url).pathname, out=path.join(dir,`${item.template}-${item.aspect}-${medium}`);
+    const file=fileURLToPath(new URL('../'+item.input,import.meta.url)), out=path.join(dir,`${item.template}-${item.aspect}-${medium}`);
     const fake=sourceOnlyRenderer(mode=>mode===medium?['content-height']:[]);
-    const options=parseOptions([file,'--out',out,'--size',item.aspect,'--format','html',...(item.assetRoot?['--asset-root',new URL('../'+item.assetRoot,import.meta.url).pathname]:[])]);
+    const options=parseOptions([file,'--out',out,'--size',item.aspect,'--format','html',...(item.assetRoot?['--asset-root',fileURLToPath(new URL('../'+item.assetRoot,import.meta.url))]:[])]);
     await assert.rejects(()=>exportCards(options,fake.dependencies),{code:'CONTENT_OVERFLOW'});
     assert.deepEqual(await readdir(out),['overflow.json']);
     const report=JSON.parse(await readFile(path.join(out,'overflow.json'),'utf8'));
@@ -352,6 +353,6 @@ test('entrypoint capability guidance names exactly the bounded six-template/eigh
     assert.doesNotMatch(source,/(?:Only|only|只有) T04(?:\/T21| and T21)/,file);
     assert.match(source,/historical evidence|v1 历史证据/,file);
     assert.doesNotMatch(source,/All 48 current templates .*await|当前 M2 版本与全部额外画幅都待新产物验收|当前 13 套 v3 \/ 35 套 v2 及全部八个额外画幅都待新产物验收/,file);
-    assert.match(source,/registry binding|画幅注册绑定/,file);
+    assert.match(source,/registry binding|画幅注册绑定|证据注册表|evidence registry/,file);
   }
 });

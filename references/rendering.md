@@ -1,6 +1,6 @@
 # Rendering contract (phase 3)
 
-> 当前 M2：48 个 standard / portrait 精确注册示例已独立复核并绑定当前 PNG，35 套 v2 / 13 套 v3。v1 / M1 v2 历史不变。四个既有 T04/T21 square/slide 短例已有当前产物复核，最终画幅绑定待 R12；最终 48-current 图库 UI 仍待发布后精确树验证。 见 [M2 精确验收](../docs/REFINEMENT_M2_ACCEPTANCE.md)。
+> 当前48个portrait示例、11个同文预览与8个指定画幅短例分别绑定各自证据。系列14卡的PR21复核另列，不借用portrait结论。[PR22本地图库复核](../docs/GALLERY_PR22_UI_REVIEW.md)66项通过、29张截图逐图查看；候选范围及保留限制见[本地交付](../docs/HANDOFF_DELIVERY.md)。
 
 Phase 3 adds bounded, opt-in semantic pagination to the v2 renderer. See
 [the development plan](../docs/DEVELOPMENT_PLAN.md) for commit-specific code, local,
@@ -330,14 +330,13 @@ legacy themes; changing a palette does not create another counted design.
 
 All 48 designs support 3:4 and manual pagination. Exactly 6 templates add
 8 extra aspect pairs: T04/T21 each add square and slide, T05/T13 add square only,
-and T24/T37 add slide only. All 48 exact standard/portrait M2 examples are
-accepted; all extra aspect pairs retain pending registry status. T04/T21 have
-current bounded short-fixture review, not final registry binding or acceptance
-of the four new R12 aspect-v1 layouts. Support is not acceptance. Automatic mode
-still rejects template/density metadata and supports layout-only explainer/steps.
-Text-only designs reject image metadata and inline images rather than hide them.
-Raw HTML escaping, local asset validation, all output/resource budgets, screen
-and print overflow checks and native searchable PDF verification remain in force.
+and T24/T37 add slide only. Eight registered short fixtures are independently
+reviewed and bound in [the aspect evidence registry](../docs/aspect-gallery-evidence.json).
+The registry validates exact source semantics, inputs, aspect versions and real
+PNG/mobile/PDF bytes. It does not grant universal fit. Automatic mode still rejects
+template/density metadata and supports layout-only explainer/steps. Text-only
+designs reject images rather than hide them. All resource, overflow, asset and
+searchable-PDF checks remain in force.
 
 Template title/intro/section slots are derived from the safe Markdown tokens. A
 leading group of H1 headings becomes one visual title group; no wording, section,
@@ -380,14 +379,12 @@ All other non-portrait template/ratio combinations return
 required validated local image, full-frame contain behavior, alt and caption;
 image support does not loosen path, MIME or resource restrictions.
 
-All 48 current standard/portrait examples are accepted (13 v3 / 35 v2).
-T04/T21's four exact short examples also have current M2 full PNG, 375/390px and
-native-PDF review, separate from immutable v1 historical evidence. Their final
-aspect-specific registry binding remains pending, and all eight extra aspect
-pairs retain pending registry status. The four new R12 pairs are independent
-aspect-v1 identities with no earlier acceptance. The full 58-case R12 plan
-defines expected export, overflow and pre-renderer refusal checks, not actual
-R12 rendering results.
+All 48 current standard/portrait examples remain accepted (13 v3 / 35 v2).
+Eight exact aspect fixtures have independent full PNG, 375/390 and native-PDF
+review in [the PR22 record](../docs/ASPECT_PR22_REVIEW.md), separate from v1 historical evidence.
+T04/T21 four pairs are aspect-v2; four new R12 pairs are aspect-v1. The authenticated
+58-case run contains 28 exports, 8 allowed overflows, 14 expected pressure overflows
+and 8 unsupported-ratio refusals. The other 50 controls gain no visual acceptance.
 
 Use `--size` or matching custom dimensions; public aspect metadata is not
 supported. The inclusive 0.002 ratio tolerance is unchanged. The registry exposes
@@ -403,6 +400,6 @@ overflow in square/slide. See [the aspect contract and historical evidence](../d
 
 ### R09 / R10：按任务选型与真实同文测试
 
-图库增加六条用途路线与短 / 中 / 中英混排三组同文入口，仍只有 48 套构图。当前 v3 / v2 同文截图未验收，不用旧图替代。新增 22 例有界内容矩阵：17 例计划完整导出、4 例长文及 T13 的指定中篇必须明确拒绝溢出；图片覆盖完整横图、肖像、透明、界面与两个极端比例。`npm run validate:refinement -- --plan --out /tmp/refinement-plan` 是源码检查，不能视为出图；实际 PNG / 手机 / PDF 须在授权环境执行并独立复核。详见 [内容矩阵](../docs/CONTENT_MATRIX.md) 和 [图库说明](../docs/TEMPLATE_GALLERY.md)。
+图库提供六条用途路线及短 / 中 / 中英混排三组同文，仍只有 48 套构图。run40079964688 的22案例已核验：17成功导出与5预期拒绝分别记录。三组绑定11个成功预览及T13指定中篇拒绝，精确PNG/手机图和新PDF页面的身份均核对；旧复核仅在像素逐字节相同时保留，短尾与窄栏限制继续显示。计划命令仅作源码检查，新内容仍需实际导出及独立复核。见[同文重新绑定](../docs/COMPARISON_PR22_REVIEW.md)和[图库说明](../docs/TEMPLATE_GALLERY.md)。
 
-R11 的四组可选作者系列共 5/3/3/3 张，新增有条件选择与图像观察两种节奏，不强制封面或 CTA，不读取配方来改写用户输入。每张保留显式模板、manual 边界、图像身份、来源与限制。既有 A/B 八张已有 M2 精确产物复核；新增 C/D 六张与本 R11 阶段四组全量运行仍待实际连读与手机/PDF 验证，详见 [系列契约](../docs/SERIES_RECIPES.md)。
+R11 四组作者系列共5/3/3/3张，包含有条件比较→条件表→可撤回试用及单图观察→双图对照→未知边界札记。run40079867143的14卡已逐张检查full PNG、375/390和原生PDF，新增C/D六张使用自己的实际产物；品牌、页序、原文、代码、图片和限制保留，不强制封面/CTA或自动改写。见[系列独立复核](../docs/SERIES_PR21_REVIEW.md)。该结论仅属于记录的PR21来源与产物，不自动证明其他树或本地重新排版等价。

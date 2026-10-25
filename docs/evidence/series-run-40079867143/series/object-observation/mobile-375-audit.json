@@ -1,0 +1,184 @@
+[
+  {
+    "template": "T37",
+    "cardWidth": 351,
+    "cardHeight": 467.9999694824219,
+    "canvasWidth": 1080,
+    "scale": 0.325,
+    "counter": "1 / 3",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "物件观察 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "figcaption",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      }
+    ],
+    "listStarts": [],
+    "images": [
+      {
+        "alt": "原创无品牌托盘插画，顶部敞开，四周有边沿；非实物照片。",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 430,
+        "width": 314.4984130859375,
+        "height": 150.2566375732422,
+        "objectFit": "contain"
+      }
+    ]
+  },
+  {
+    "template": "T38",
+    "cardWidth": 351,
+    "cardHeight": 468,
+    "canvasWidth": 1080,
+    "scale": 0.325,
+    "counter": "2 / 3",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "物件观察 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      }
+    ],
+    "listStarts": [],
+    "images": [
+      {
+        "alt": "原创托盘示意，顶部敞开，完整画幅。",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 430,
+        "width": 140.7605438232422,
+        "height": 114.658935546875,
+        "objectFit": "contain"
+      },
+      {
+        "alt": "原创收纳盒示意，独立盒盖画在盒体上方，完整画幅。",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 430,
+        "width": 140.76052856445312,
+        "height": 114.658935546875,
+        "objectFit": "contain"
+      }
+    ]
+  },
+  {
+    "template": "T29",
+    "cardWidth": 351,
+    "cardHeight": 468,
+    "canvasWidth": 1080,
+    "scale": 0.325,
+    "counter": "3 / 3",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "物件观察 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 60.372,
+        "effectiveSize": 19.6209
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      }
+    ],
+    "listStarts": [],
+    "images": []
+  }
+]

@@ -15,6 +15,8 @@ import { inspectPdf } from './qa.mjs';
 import { SIZES } from './document.mjs';
 import { createAssetResolver } from './assets.mjs';
 import { resolveTemplateAspect } from './templates.mjs';
+import { verifyAspectSource, resolveAspectPath } from './aspect-source.mjs';
+import { readEvidenceFile } from './evidence-source.mjs';
 
 const exec = promisify(execFile);
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
@@ -87,12 +89,19 @@ export function validateAspectPlan(plan) {
 
 /** Resolve only the fixed, hashed repository-owned raster input. No new asset route. */
 export async function loadAspectCard(repository, item) {
-  const source = await readFile(path.join(repository, item.input), 'utf8');
+  await resolveAspectPath(repository, item.input);
+  const source = (await readEvidenceFile(repository, item.input, 2 * 1024 * 1024)).toString('utf8');
   assert.equal(hash(source), item.inputSha256, 'Input hash changed; do not substitute or rewrite comparison text.');
   let resolver;
   if (item.assets?.length) {
-    for (const asset of item.assets) assert.equal(hash(await readFile(path.join(repository, asset.file))), asset.sha256, 'Aspect image bytes changed.');
-    resolver = await createAssetResolver(path.join(repository, item.assetRoot));
+    const assetRoot = await resolveAspectPath(repository, item.assetRoot, 'directory');
+    for (const asset of item.assets) {
+      const assetFile = await resolveAspectPath(repository, asset.file);
+      const referenceFile = await resolveAspectPath(repository, `${item.assetRoot}/${asset.reference}`);
+      assert.equal(assetFile, referenceFile, 'Declared aspect image and rendered reference must identify the same file.');
+      assert.equal(hash(await readEvidenceFile(repository, asset.file, 8 * 1024 * 1024)), asset.sha256, 'Aspect image bytes changed.');
+    }
+    resolver = await createAssetResolver(assetRoot);
   }
   const cards = renderCards(source, resolver ? { resolveImage: resolver.resolveImage } : {});
   assert.equal(cards.length, 1); const card = cards[0];
@@ -283,7 +292,8 @@ export async function validateAspects(options = {}, dependencies = {}) {
   const checkPdf = dependencies.inspectPdf ?? inspectPdf;
   const mobileTimeoutMs = options.mobileTimeoutMs ?? 30000;
   assert.ok(Number.isInteger(mobileTimeoutMs) && mobileTimeoutMs >= 1 && mobileTimeoutMs <= 30000);
-  const inventory = await readFile(path.join(repository, 'examples/aspects/validation-plan.json'));
+  const sourceHashes = await verifyAspectSource(repository);
+  const inventory = await readEvidenceFile(repository, 'examples/aspects/validation-plan.json');
   const plan = validateAspectPlan(JSON.parse(inventory));
   const revision = (await runCommand('git', ['rev-parse', 'HEAD'])).stdout.trim();
   assert.match(revision, /^[a-f0-9]{40}$/i, 'Need an exact committed revision.');
@@ -291,8 +301,7 @@ export async function validateAspects(options = {}, dependencies = {}) {
   if (process.env.MD2CARD_SKIP_BROWSER === '1' && !dependencies.exportCards) throw codeError('ASPECT_BROWSER_DISABLED', 'Real aspect validation is disabled by MD2CARD_SKIP_BROWSER. Do not bypass a known denial.');
   await mkdir(outputRoot, { recursive: true });
   assert.equal((await readdir(outputRoot)).length, 0, 'Use a fresh empty output directory; never mix runs or overwrite evidence.');
-  const summary = { schemaVersion: 2, revision, inventoryBaseRevision: plan.baseRevision, inventorySha256: hash(inventory), status: 'running', visualReview: 'not-performed', results: [], errors: [], sourceHashes: {} };
-  for (const file of ['scripts/validate-aspects.mjs','scripts/typography.mjs','scripts/assets.mjs','scripts/markdown.mjs','scripts/templates.mjs','scripts/document.mjs','scripts/render.mjs','scripts/qa.mjs','assets/themes.css','assets/layouts.css','assets/templates.css']) summary.sourceHashes[file] = hash(await readFile(path.join(repository, file)));
+  const summary = { schemaVersion: 2, revision, inventoryBaseRevision: plan.baseRevision, inventorySha256: hash(inventory), status: 'running', visualReview: 'not-performed', results: [], errors: [], sourceHashes };
   let browserBlocked;
   for (const [index, item] of plan.cases.entries()) {
     const id = `${String(index + 1).padStart(2, '0')}-${item.template}-${item.scope}-${item.aspect}`;
@@ -303,8 +312,9 @@ export async function validateAspects(options = {}, dependencies = {}) {
     if (browserBlocked && item.expected !== REFUSAL) { problem(codeError('ASPECT_BROWSER_BLOCKED', `Not attempted after ${browserBlocked.code} in ${browserBlocked.id}; no launch retry or alternate engine.`), 'blocked'); record.status = 'blocked'; continue; }
     let renderer, mobileTimer, phase = 'source';
     try {
-      const sourceFile = path.join(repository, item.input), card = await loadAspectCard(repository, item);
-      const argv = [sourceFile, '--out', out, '--paginate', 'manual', ...(item.aspect === 'custom' ? ['--width', '1200', '--height', '800'] : ['--size', item.aspect]), '--scale', '1', '--format', 'all', '--strict', '--preview', ...(item.assetRoot ? ['--asset-root', path.join(repository, item.assetRoot)] : [])];
+      const sourceFile = await resolveAspectPath(repository, item.input), card = await loadAspectCard(repository, item);
+      const assetRoot = item.assetRoot ? await resolveAspectPath(repository, item.assetRoot, 'directory') : null;
+      const argv = [sourceFile, '--out', out, '--paginate', 'manual', ...(item.aspect === 'custom' ? ['--width', '1200', '--height', '800'] : ['--size', item.aspect]), '--scale', '1', '--format', 'all', '--strict', '--preview', ...(assetRoot ? ['--asset-root', assetRoot] : [])];
       record.command = ['node', 'scripts/render.mjs', ...argv];
       phase = 'export';
       let manifest;
@@ -324,7 +334,7 @@ export async function validateAspects(options = {}, dependencies = {}) {
           assert.equal(error.code, 'TEMPLATE_ASPECT_UNSUPPORTED');
           const outputFiles = await readdir(out).catch(error => { if (error.code === 'ENOENT') return []; throw error; });
           assert.deepEqual(outputFiles, [], 'Unsupported ratios must not publish render artifacts.');
-          assert.equal(hash(await readFile(sourceFile)), item.inputSha256);
+          assert.equal(hash(await readEvidenceFile(repository, item.input)), item.inputSha256);
           record.status = 'expected-refusal'; record.actualOutcome = 'refused-before-renderer'; record.refusalCode = error.code;
           continue;
         }
@@ -336,7 +346,7 @@ export async function validateAspects(options = {}, dependencies = {}) {
         assert.deepEqual(report.dimensions, SIZES[item.aspect]); assert.equal(report.cards.length, 1); assert.equal(report.cards[0].index, 1); assert.deepEqual(report.cards[0].sourceLines, card.sourceLines);
         assert.ok(report.cards.some(result => result.screen.overflow.length || result.print.overflow.length));
         record.artifacts.push({ file: 'overflow.json', bytes: bytes.length, sha256: hash(bytes) });
-        assert.equal(hash(await readFile(sourceFile)), item.inputSha256);
+        assert.equal(hash(await readEvidenceFile(repository, item.input)), item.inputSha256);
         if (item.expected === EXPECTATIONS[0]) throw codeError('ASPECT_CANDIDATE_OVERFLOW', 'Short aspect candidate overflowed. Keep the original input and review layout/capacity; do not silently substitute text.');
         record.status = item.expected === EXPECTATIONS[2] ? 'expected-overflow' : 'allowed-overflow';
         continue;
@@ -403,7 +413,7 @@ export async function validateAspects(options = {}, dependencies = {}) {
           assert.ok(Math.abs(entry.pngDimensions[0] - audit[0].cardWidth) <= 1 && Math.abs(entry.pngDimensions[1] - audit[0].cardHeight) <= 1);
         } catch (error) { problem(error, `mobile-${viewportWidth}`); if (unsafeToRetry(error)) break; }
       }
-      phase = 'final'; assert.equal(hash(await readFile(sourceFile)), item.inputSha256, 'Source changed during export.');
+      phase = 'final'; assert.equal(hash(await readEvidenceFile(repository, item.input)), item.inputSha256, 'Source changed during export.');
       if (item.expected === EXPECTATIONS[2]) problem(codeError('ASPECT_UNEXPECTED_LONG_FIT', 'Long atomic pressure source unexpectedly exported. Investigate measured containment; this is not accepted fit evidence.'), phase);
     } catch (error) { problem(error, phase); }
     finally {

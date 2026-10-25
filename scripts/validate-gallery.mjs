@@ -53,7 +53,9 @@ export async function evaluateSafely(target, method, callback, argument, timeout
 async function launchBrowser(options) {
   const [{ chromium }, { findBrowser, closeBrowser }] = await Promise.all([import('playwright'), import('./browser.mjs')]);
   const executablePath = await findBrowser(options.browser);
-  const browser = await chromium.launch({ executablePath, headless: true, timeout: options.timeoutMs });
+  // Playwright defaults Chromium's sandbox off. Request it explicitly: this
+  // validator must never weaken browser security merely to make QA launch.
+  const browser = await chromium.launch({ executablePath, headless: true, chromiumSandbox: true, timeout: options.timeoutMs });
   return { browser, executablePath, close: () => closeBrowser(browser) };
 }
 
@@ -288,6 +290,13 @@ export async function withPage(browser, options, allowed, report, name, javaScri
 async function realBrowserChecks(browser, options, model, report, out) {
   const files = [GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', ...galleryImages(model).map(image => image.path)];
   const allowed = new Set(files.map(relative => pathToFileURL(path.join(options.root, relative)).href));
+  const aspectLinks = async page => {
+    const actual = await evaluateSafely(page.locator('[data-aspect-evidence]'), 'evaluateAll', nodes => nodes.map(node => ({ id: node.dataset.aspectEvidence, links: [...node.querySelectorAll('a')].map(a => a.getAttribute('href')) })));
+    const entries = model.items.flatMap(item => item.aspectEvidence ?? []);
+    assert.deepEqual(actual, entries.map(entry => ({ id: entry.id, links: [entry.input, entry.views.fullPng.file, entry.views.mobile375.file, entry.views.mobile390.file, entry.views.nativePdf.file, 'docs/ASPECT_PR22_REVIEW.md'].map(file => `../../${file}`) })));
+    assert.equal(actual.length, 8);
+    return { exactAspectFixtures: actual.length, nativeLinks: actual.reduce((sum, item) => sum + item.links.length, 0) };
+  };
   await withPage(browser, options, allowed, report, 'javascript-on', true, async page => {
     await recordCheck(report, 'file URL: real local resources, CSP, images and classic JS', () => inspectResources(page, model, { scriptEnabled: true, root: options.root }));
     const filterCases = [
@@ -323,6 +332,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
       return { taskRoutes: model.tasks.length, comparisons: model.comparisons.length, comparisonPreviews: model.comparisons.reduce((sum, group) => sum + group.previews.length, 0) };
     });
     await recordCheck(report, 'native labels, keyboard focus and details', () => keyboardAudit(page, model));
+    await recordCheck(report, 'eight independent aspect fixtures retain exact native evidence links', () => aspectLinks(page));
     for (const scenario of [
       { name: 'desktop-1280', width: 1280, height: 900, zoom: 1 },
       { name: 'mobile-375', width: 375, height: 812, zoom: 1 },
@@ -360,6 +370,16 @@ async function realBrowserChecks(browser, options, model, report, out) {
         assert.deepEqual(geometry.offenders, []);
         return geometry;
       });
+      await recordCheck(report, `${scenario.name}: aspect evidence links and readable details`, async () => {
+        const item = model.items.find(item => item.aspectEvidence?.length);
+        const section = page.locator(`[data-aspect-evidence="${item.aspectEvidence[0].id}"]`);
+        await section.scrollIntoViewIfNeeded();
+        assert.equal(await section.isVisible(), true);
+        await section.locator('a').first().focus();
+        assert.equal(await evaluateSafely(section.locator('a').first(), 'evaluate', node => node === document.activeElement), true);
+        await snapshot(page, out, report, `${scenario.name}-aspect-evidence`, 'Viewport screenshot: verified square/slide evidence links and limitations in T04 details.');
+        return aspectLinks(page);
+      });
     }
   });
   await withPage(browser, options, allowed, report, 'javascript-off', false, async page => {
@@ -376,6 +396,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
       await snapshot(page, out, report, 'no-js-390-catalogue', 'JavaScript disabled: text-only catalogue and native details remain available.');
       return state;
     });
+    await recordCheck(report, 'no JS: eight independent aspect fixtures retain native evidence links', () => aspectLinks(page));
   });
 }
 
@@ -392,7 +413,7 @@ export async function validateGallery(options, dependencies = {}) {
     const model = await (dependencies.model ?? buildGalleryModel)({ root });
     report.registry = { implemented: model.items.length, accepted: model.accepted.length, pending: model.pending.length };
     report.inputs = [];
-    for (const relative of new Set([GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', 'scripts/templates.mjs', 'scripts/build-template-gallery.mjs', 'scripts/gallery-discovery.mjs', 'docs/gallery-comparisons.json', ...model.comparisons.flatMap(group => [group.input, ...(group.evidence ? [group.evidence.review, ...group.previews.map(image => image.path)] : [])]), 'scripts/validate-gallery.mjs', 'scripts/browser.mjs', 'package-lock.json', 'docs/template-gallery-evidence.json', ...model.accepted.flatMap(item => [item.preview.path, item.example, item.evidence.path, item.evidence.review])])) {
+    for (const relative of new Set([GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', 'scripts/templates.mjs', 'scripts/build-template-gallery.mjs', 'scripts/gallery-discovery.mjs', 'scripts/comparison-evidence.mjs', 'scripts/evidence-source.mjs', 'docs/gallery-comparisons.json', 'scripts/aspect-evidence.mjs', ...(model.aspectEvidence?.evidenceFiles ?? []), ...model.comparisons.flatMap(group => [group.input, ...(group.evidenceFiles ?? []), ...(group.evidence ? [group.evidence.review, ...group.previews.map(image => image.path)] : [])]), 'scripts/validate-gallery.mjs', 'scripts/browser.mjs', 'package-lock.json', 'docs/template-gallery-evidence.json', ...model.accepted.flatMap(item => [item.preview.path, item.example, item.evidence.path, item.evidence.review])])) {
       const bytes = await readFile(path.join(root, relative));
       report.inputs.push({ file: relative, sha256: hash(bytes), bytes: bytes.length });
     }

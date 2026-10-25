@@ -252,19 +252,23 @@ test('resource model includes current comparison paths, never assumed v1 templat
 });
 
 test('browser image identity follows validated versioned previews without accepting historical or unrelated files', () => {
+  const root = path.resolve(os.tmpdir(), 'md2card-gallery-url-fixture');
+  const localUrl = relative => pathToFileURL(path.join(root, relative)).href;
   for (const relative of ['docs/images/templates/T01.png', 'docs/images/refinement-m1-v2/T20.png', 'docs/images/comparisons/short-reading/T06.png']) {
     const preview = { path: relative, width: 1080, height: 1440 };
-    const image = { source: `file:///repo/${relative}`, width: 1080, height: 1440, complete: true };
-    assert.doesNotThrow(() => assertPreviewImage(image, preview, '/repo'));
-    for (const source of ['file:///repo/docs/images/templates/T20.png', 'file:///repo/docs/images/other/T20.png', image.source + '?stale=1', `https://example.com/${relative}`, `file:///other-repo/${relative}`]) {
-      if (source !== image.source) assert.throws(() => assertPreviewImage({ ...image, source }, preview, '/repo'), /accepted preview path/);
+    const image = { source: localUrl(relative), width: 1080, height: 1440, complete: true };
+    assert.doesNotThrow(() => assertPreviewImage(image, preview, root));
+    for (const source of [localUrl('docs/images/templates/T20.png'), localUrl('docs/images/other/T20.png'), image.source + '?stale=1', `https://example.com/${relative}`, pathToFileURL(path.resolve(root, '..', 'other-repo', relative)).href]) {
+      if (source !== image.source) assert.throws(() => assertPreviewImage({ ...image, source }, preview, root), /accepted preview path/);
     }
-    for (const changes of [{ width: 1079 }, { height: 1439 }, { complete: false }]) assert.throws(() => assertPreviewImage({ ...image, ...changes }, preview, '/repo'));
+    for (const changes of [{ width: 1079 }, { height: 1439 }, { complete: false }]) assert.throws(() => assertPreviewImage({ ...image, ...changes }, preview, root));
   }
 });
 
 
 test('source-only resource audit binds nonempty comparisons and accepted previews in DOM order', async () => {
+  const root = path.resolve(os.tmpdir(), 'md2card-gallery-resource-fixture');
+  const localUrl = relative => pathToFileURL(path.join(root, relative)).href;
   const comparison = { path: 'docs/images/comparisons/short-reading/T06.png', width: 1080, height: 1440 };
   const accepted = { path: 'docs/images/unit-v2/T01.png', width: 1080, height: 1440 };
   const fixture = { comparisons: [{ previews: [comparison] }, { previews: [] }], accepted: [{ preview: accepted }], items: [{ id: 'T01' }, { id: 'T06' }] };
@@ -273,7 +277,7 @@ test('source-only resource audit binds nonempty comparisons and accepted preview
     policy: CSP, background: 'rgb(245, 244, 238)', css: ['file:///repo/docs/gallery/gallery.css'],
     scripts: [{ src: 'file:///repo/docs/gallery/gallery.js', type: '' }], panelHidden: false,
     visible: ['T06', 'T01'], pendingImages: 0,
-    images: galleryImages(fixture).map(preview => ({ source: `file:///repo/${preview.path}`, width: preview.width, height: preview.height, complete: true }))
+    images: galleryImages(fixture).map(preview => ({ source: localUrl(preview.path), width: preview.width, height: preview.height, complete: true }))
   };
   const page = {
     locator(selector) {
@@ -285,14 +289,14 @@ test('source-only resource audit binds nonempty comparisons and accepted preview
     },
     evaluate: async () => structuredClone(state)
   };
-  await inspectResources(page, fixture, { scriptEnabled: true, root: '/repo' });
+  await inspectResources(page, fixture, { scriptEnabled: true, root });
   assert.deepEqual(calls, ['scroll-0', 'decode-0', 'scroll-1', 'decode-1']);
   state.images.reverse();
-  await assert.rejects(inspectResources(page, fixture, { scriptEnabled: true, root: '/repo' }), /accepted preview path/);
+  await assert.rejects(inspectResources(page, fixture, { scriptEnabled: true, root }), /accepted preview path/);
   state.images.reverse();
   state.images[0].source += '?stale=1';
-  await assert.rejects(inspectResources(page, fixture, { scriptEnabled: true, root: '/repo' }), /accepted preview path/);
-  state.images[0].source = `file:///repo/${comparison.path}`;
+  await assert.rejects(inspectResources(page, fixture, { scriptEnabled: true, root }), /accepted preview path/);
+  state.images[0].source = localUrl(comparison.path);
   state.panelHidden = true;
-  await inspectResources(page, fixture, { scriptEnabled: false, root: '/repo' });
+  await inspectResources(page, fixture, { scriptEnabled: false, root });
 });

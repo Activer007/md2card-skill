@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, mkdir, cp, readFile, writeFile, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, cp, readFile, writeFile, rm, symlink, rename, realpath } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { runInNewContext } from 'node:vm';
 import { tmpdir } from 'node:os';
@@ -22,6 +22,7 @@ async function harness(t, config={}) {
   const dir=await mkdtemp(path.join(tmpdir(),'md2card-aspect-validator-')); t.after(()=>rm(dir,{recursive:true,force:true}));
   const repository=path.join(dir,'repo'), outputRoot=path.join(dir,'results'); await mkdir(repository);
   for(const folder of ['assets','scripts','examples/aspects']) await cp(path.join(ROOT,folder),path.join(repository,folder),{recursive:true});
+  for(const file of ['package.json','package-lock.json']) await cp(path.join(ROOT,file),path.join(repository,file));
   await mkdir(path.join(repository,'examples/templates'),{recursive:true});
   for(const id of ['T04','T21','T05','T13','T24','T37']) await cp(path.join(ROOT,`examples/templates/${id}.md`),path.join(repository,`examples/templates/${id}.md`));
   await cp(path.join(ROOT,'examples/templates/assets'),path.join(repository,'examples/templates/assets'),{recursive:true});
@@ -40,7 +41,7 @@ async function harness(t, config={}) {
     exportCards:async options=>{
       const id=path.basename(options.out), item=plan.cases[Number(id.slice(0,2))-1]; calls.exports.push({id,options});
       assert.equal(options.strict,true); assert.equal(options.preview,true); assert.equal(options.paginate,'manual'); assert.deepEqual([...options.formats].sort(),['html','pdf','png']); assert.equal(options.scale,1);
-      assert.equal(options.input,path.join(repository,item.input));
+      assert.equal(options.input,await realpath(path.join(repository,item.input)));
       if(config.exportError && id.startsWith('01-')) throw fakeError(config.exportError);
       if(config.nestedCleanup && id.startsWith('01-')) throw Object.assign(fakeError('CONTENT_OVERFLOW'),{details:{cleanupFailures:[{action:'close-browser',code:'BROWSER_CLEANUP_TIMEOUT'}]}});
       if(config.twoFailures && ['01','02'].includes(id.slice(0,2))) throw fakeError('TEST_EXPORT_FAILURE');
@@ -146,6 +147,50 @@ test('dirty checkout or stale output blocks execution, and input hash mismatch p
   const dirty=await harness(t,{dirty:true});await assert.rejects(dirty.run());assert.equal(dirty.calls.exports.length,0);
   const stale=await harness(t);await mkdir(stale.outputRoot);await writeFile(path.join(stale.outputRoot,'keep.txt'),'keep');await assert.rejects(stale.run());assert.equal(stale.calls.exports.length,0);assert.equal(await readFile(path.join(stale.outputRoot,'keep.txt'),'utf8'),'keep');
   const changed=await harness(t);await writeFile(path.join(changed.repository,'examples/aspects/T04-square.md'),'# Changed input');const summary=await changed.run();assert.equal(summary.results[0].errors[0].phase,'source');assert.equal(changed.calls.exports.length,49);assert.equal(summary.results.at(-1).status,'expected-refusal');
+});
+
+test('different source semantics are rejected before commands, output creation or browser/export acquisition',async t=>{
+  for(const file of ['assets/templates.css','scripts/markdown.mjs','scripts/browser.mjs','scripts/validate-aspects.mjs','package-lock.json','package.json']) {
+    const h=await harness(t),target=path.join(h.repository,file),original=await readFile(target,'utf8');
+    if(file==='package.json') {const pkg=JSON.parse(original);pkg.dependencies['markdown-it']='0.0.0';await writeFile(target,JSON.stringify(pkg));}
+    else await writeFile(target,original+'\n/* different source */\n'+(file.endsWith('.mjs')?'throw new Error("Untrusted source must never execute");\n':''));
+    await assert.rejects(h.run(),{code:'ASPECT_SOURCE_INVALID'});
+    assert.equal(h.calls.commands.length,0);assert.equal(h.calls.exports.length,0);assert.equal(h.calls.opens.length,0);
+    await assert.rejects(readFile(path.join(h.outputRoot,'summary.json')),{code:'ENOENT'});
+  }
+});
+
+const directoryLink=(destination,link)=>symlink(destination,link,process.platform==='win32'?'junction':'dir');
+
+test('identical input through an escaping junction or symlink is refused, including a sibling with the same prefix',async t=>{
+  const h=await harness(t),outside=h.repository+'-outside',original=path.join(h.repository,'examples/aspects');
+  await rename(original,outside);await directoryLink(outside,original);
+  await assert.rejects(loadAspectCard(h.repository,plan.cases[0]),{code:'ASPECT_SOURCE_INVALID'});
+  // The inventory itself must also stay inside the root; no exports may start.
+  await assert.rejects(h.run(),{code:'EVIDENCE_SOURCE_INVALID'});assert.equal(h.calls.exports.length,0);
+});
+
+test('asset root and nested image junctions cannot escape even when the image bytes and hash are unchanged',async t=>{
+  for(const relative of ['examples/templates','examples/templates/assets']) {
+    const h=await harness(t),original=path.join(h.repository,relative),outside=h.repository+'-outside';
+    await rename(original,outside);await directoryLink(outside,original);
+    const item=plan.cases.find(item=>item.template==='T37'&&item.scope==='aspect-specific-slide');
+    await assert.rejects(loadAspectCard(h.repository,item),{code:'ASPECT_SOURCE_INVALID'});
+    const summary=await h.run();assert.equal(summary.status,'fail');assert.ok(h.calls.exports.every(call=>!call.id.includes('T37')));
+  }
+});
+
+test('real paths and junctions fully inside the root preserve original input and image identities',async t=>{
+  const h=await harness(t);
+  for(const [relative,name] of [['examples/aspects','aspect-data'],['examples/templates/assets','examples/templates/image-data']]) {
+    const original=path.join(h.repository,relative),inside=path.join(h.repository,name);
+    await rename(original,inside);await directoryLink(inside,original);
+  }
+  for(const item of [plan.cases[0],plan.cases.find(item=>item.template==='T37'&&item.scope==='aspect-specific-slide')]) {
+    const card=await loadAspectCard(h.repository,item);assert.equal(card.metadata.template,item.template);
+    if(item.assets)assert.equal(card.image.hash,item.assets[0].sha256);
+  }
+  const summary=await h.run();assert.equal(summary.status,'pass');assert.equal(summary.results.length,58);
 });
 
 // Execute only the serialized audit function against tiny in-memory DOM doubles.
@@ -347,6 +392,7 @@ test('CLI help and rejected arguments never invoke validation or browser runtime
 });
 test('CLI explicit runtime dispatch remains separately test-injected and reports failures',async()=>{
   const {runAspectCli}=await import('../scripts/validate-aspects.mjs');let received;
-  const result=await runAspectCli(['--allow-browser','--out','/tmp/unit-only-aspects'],{validate:async options=>{received=options;return {results:[],errors:[{code:'UNIT_ONLY'}]};},log:()=>{},error:()=>{}});
-  assert.equal(result,1);assert.deepEqual(received,{allowBrowser:true,outputRoot:'/tmp/unit-only-aspects'});
+  const out=path.join(tmpdir(),'unit-only-aspects');
+  const result=await runAspectCli(['--allow-browser','--out',out],{validate:async options=>{received=options;return {results:[],errors:[{code:'UNIT_ONLY'}]};},log:()=>{},error:()=>{}});
+  assert.equal(result,1);assert.deepEqual(received,{allowBrowser:true,outputRoot:path.resolve(out)});
 });

@@ -32,6 +32,8 @@ JSON 的 `sourceSha256` 对原始文件字节计算，不归一化换行；`card
 
 所有候选均有 `inputRenderability: "not-verified"` 和 `recommendationIsRenderGuarantee: false`。`acceptedExample` 只链接请求画幅上已通过既有证据验证的精确输入和 PNG；保留哈希、版本、复核记录及范围。不存在相同画幅的证据时为 `null`，绝不借用 portrait 的 PNG。非竖版注册表的 pending 与独立精确短例的验收状态可能并存：前者是注册表声明，后者只证明该短例。所有路径相对仓库根，`gallery` 带模板锚点。
 
+中文摘要也保留示例的验收状态、画幅/密度/分页范围及全部已记录限制。例如 T04 square 的短尾换行问题必须随推荐呈现，不能只展示“已验收”链接而省略保留问题。
+
 当前原文的 `bodySize`、密度、来源和图片身份不会被改写。已验收标准示例不证明其他正文、字号、密度或环境；尤其 T20 截图内 8px 微字不能因推荐而保证手机可读。文字长度是指导，真实渲染仍可能 `CONTENT_OVERFLOW`。
 
 ## 成功、拒绝与选择

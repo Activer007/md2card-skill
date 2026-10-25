@@ -68,6 +68,12 @@ export function formatRecommendationText(report) {
         `   限制: ${item.caveats.join(', ')}`, `   图库: ${item.gallery}`,
         item.acceptedExample ? `   已验收的精确示例: ${item.acceptedExample.input} → ${item.acceptedExample.png.file}；复核: ${item.acceptedExample.review}`
           : '   请求画幅暂无已验收示例；不能借用竖版验收。');
+      if (item.acceptedExample) {
+        const example = item.acceptedExample;
+        lines.push(`   示例验收状态: ${example.status}`,
+          `   示例验收范围: ${example.aspect} / ${example.scope.density} / ${example.scope.pagination}（仅原始示例）`);
+        for (const limitation of example.limitations ?? []) lines.push(`   示例保留问题: ${limitation}`);
+      }
       if (item.caveats.includes('SCREENSHOT_TEXT_REQUIRES_VISUAL_REVIEW')) lines.push('   截图内微字（例如 8px）不保证在手机上可读；需查看原图与真实输出。');
     }
     lines.push(`未入选但兼容: ${card.omittedCompatibleTemplateIds.join(', ') || '无'}`);

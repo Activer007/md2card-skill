@@ -48,6 +48,19 @@ test('text mode explains screenshots and never promises mobile microtext readabi
   for (const text of ['推荐 ≠ 渲染保证', 'T20', '理由:', '图片:', '文字:', '支持画幅:', '不适合:', '已验收的精确示例:', '8px', '不保证在手机上可读']) assert.ok(result.stdout.includes(text), text);
 });
 
+test('text mode preserves exact-example review limitations and scope from JSON', () => {
+  const args = ['examples/aspects/T04-square.md', '--size', 'square'];
+  const report = success(run(args));
+  const example = report.cards[0].candidates.find(c => c.templateId === 'T04').acceptedExample;
+  assert.equal(example.status, 'reviewed-with-layout-limitations');
+  assert.ok(example.limitations.length > 0, 'Use a real reviewed example with retained limitations.');
+  const text = run([...args, '--format', 'text']);
+  assert.equal(text.status, 0, text.stderr);
+  for (const limitation of example.limitations) assert.ok(text.stdout.includes(limitation), limitation);
+  assert.ok(text.stdout.includes(example.status));
+  assert.ok(text.stdout.includes(`${example.aspect} / ${example.scope.density} / ${example.scope.pagination}`));
+});
+
 test('requested aspect gets its exact example, while incompatible templates are rejected', () => {
   const report = success(run(['examples/aspects/T05-square.md', '--size', 'square']));
   const candidate = report.cards[0].candidates.find(c => c.templateId === 'T05');

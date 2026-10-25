@@ -1,0 +1,12 @@
+<!-- card: {"template":"T17","density":"standard","source":"原创阅读练习 · 非外部引文，不构成研究结论"} -->
+# 原文与解释分开放
+
+A note is a trace, not a verdict. 这是一条原创练习，不是外部研究结论。
+
+## 保留 source
+
+先记录原句，再写自己的 interpretation。链接只是查找入口，不代表已经核对来源。
+
+## 核对 context
+
+回看适用对象与限定条件。遇到 uncertain evidence，先留下问题，不补造数字或结论。

@@ -1,0 +1,806 @@
+{
+  "schemaVersion": 1,
+  "status": "technical-audit-complete-visual-review-pending",
+  "identity": {
+    "commit": "20bcb5256cee43071b1efd43448a9308966620f7",
+    "tree": "c1d255e6abd7ef1f32cc26d469a3f6343a6d935a",
+    "sourceSha256": "7fdf3dffe57964e1def4d337eddb6d51bcd8c34b475bfda4ba87f15fff3fb4db",
+    "runId": 40079867143,
+    "artifactId": 12553849934,
+    "archiveSha256": "f6393c44356ee2bab20bcdfa4aaf977bb4433ff175bf7887987f7da25b886708"
+  },
+  "sourceFiles": 173,
+  "inventorySha256": "2fba467bb6ace1fee52e423dae13cd14b25f340ee85c183676e782b85d439112",
+  "counts": {
+    "series": 4,
+    "cards": 14,
+    "files": 85
+  },
+  "records": [
+    {
+      "id": "evidence-reading",
+      "input": "examples/series/evidence-reading.md",
+      "inputSha256": "d622a2932210e64a31078f9f737b97cf4c9ec96dc38589682729aaf51d99da35",
+      "brandFile": "examples/brand.json",
+      "brandFileSha256": "40d9d406a8b68254a95386b87a5ffd8c9575881459931bc7200acca0e08b8dcb",
+      "cardCount": 5,
+      "cards": [
+        {
+          "index": 1,
+          "template": "T01",
+          "version": 2,
+          "sourceSha256": "e6b3df87209c32c77b38d7c8409bee7ca5aae0e877b71c6cfbe48d2a45ac0eba",
+          "expectedSegments": [
+            "完成，不等于学会",
+            "一份练习记录能说明谁提交了作答，却不能单凭提交率证明谁已掌握知识。先问数字回答了什么，再看它没有回答什么。",
+            "这组卡片",
+            "从阅读问题走到统计口径，最后留下需要核实的边界。",
+            "示例范围",
+            "只讨论一组虚构练习，不推断真实课程或人群。",
+            "FIELDNOTES / 证据阅读",
+            "原创教学示例 · 后文记录全部虚构",
+            "FIELDNOTES · 示例品牌",
+            "证据阅读 · 原创示例",
+            "1 / 5"
+          ],
+          "pdfLayoutMissingSegments": [
+            "一份练习记录能说明谁提交了作答，却不能单凭提交率证明谁已掌握知识。先问数字回答了什么，再看它没有回答什么。",
+            "从阅读问题走到统计口径，最后留下需要核实的边界。",
+            "FIELDNOTES / 证据阅读"
+          ]
+        },
+        {
+          "index": 2,
+          "template": "T05",
+          "version": 2,
+          "sourceSha256": "299f12a5375a58fdaff9f01b61fd99d9e7b5504b100ea26f365c51fcc09d75cd",
+          "expectedSegments": [
+            "先问三个问题",
+            "数的是谁？ 分清参与者、提交次数与完成记录，不把不同对象相加。",
+            "算的是哪段时间？ 写清开始和截止范围，不拿不同观察期直接比较。",
+            "想回答什么？ 提交率描述提交行为，理解程度需要另有依据。",
+            "FIELDNOTES / 证据阅读",
+            "原创阅读清单 · 不替代对原始记录的核查",
+            "FIELDNOTES · 示例品牌",
+            "证据阅读 · 原创示例",
+            "2 / 5"
+          ],
+          "pdfLayoutMissingSegments": [
+            "FIELDNOTES / 证据阅读"
+          ]
+        },
+        {
+          "index": 3,
+          "template": "T04",
+          "version": 2,
+          "sourceSha256": "b49ef751f175aef32cc783c3cd541972af9aa48787cd6e7ff90304fb6de1f0d7",
+          "expectedSegments": [
+            "让分子和分母对齐",
+            "这组虚构记录使用同一批人、同一观察期，避免口径错配。",
+            "分母：开始练习的人",
+            "虚构第 1 周共 7 天，20 人至少开始一次练习，每人只计一次。",
+            "分子：期内提交的人",
+            "其中 12 人在这 7 天内提交作答；重复提交仍只计一人。",
+            "不能顺手推出什么",
+            "未提交不等于没学会；已提交也不等于答案正确。",
+            "FIELDNOTES / 证据阅读",
+            "原创统计口径示例 · 非真实调查",
+            "FIELDNOTES · 示例品牌",
+            "证据阅读 · 原创示例",
+            "3 / 5"
+          ],
+          "pdfLayoutMissingSegments": [
+            "FIELDNOTES / 证据阅读"
+          ]
+        },
+        {
+          "index": 4,
+          "template": "T21",
+          "version": 2,
+          "sourceSha256": "6f742ba22c112f0019d25ae36d051b8eb306aec1f3945e81f7a6af2e14ee4c36",
+          "expectedSegments": [
+            "只解释这个比例",
+            "12 ÷ 20 = 60%，是提交人数占开始人数的比例。",
+            "口径与范围",
+            "虚构第 1 周共 7 天，20 名开始者中有 12 人提交；每人只计一次。",
+            "解读限制",
+            "未评作答质量，也无对照组；不能证明学会、进步或推广效果。",
+            "FIELDNOTES / 证据阅读",
+            "原创虚构记录 · 不是学习效果的实证",
+            "60%",
+            "提交完成率 · 虚构数据",
+            "FIELDNOTES · 示例品牌",
+            "证据阅读 · 原创示例",
+            "4 / 5"
+          ],
+          "pdfLayoutMissingSegments": [
+            "FIELDNOTES / 证据阅读"
+          ]
+        },
+        {
+          "index": 5,
+          "template": "T25",
+          "version": 2,
+          "sourceSha256": "aad7da8055e860d3739397276cea383cce99a9eba1ea661676c438d0cf024326",
+          "expectedSegments": [
+            "留下尚未回答的问题",
+            "比例说明发生了多少，判断还需要知道发生了什么，以及哪些信息仍然缺席。",
+            "回到证据边界",
+            "作答质量、未提交原因和后续理解程度，都没有出现在这份虚构记录里。把这些空缺保留下来，比替数字补上一个漂亮结论更诚实。",
+            "FIELDNOTES / 证据阅读",
+            "摘句与解读均为原创 · 不署名给真实作者",
+            "FIELDNOTES · 示例品牌",
+            "证据阅读 · 原创示例",
+            "5 / 5"
+          ],
+          "pdfLayoutMissingSegments": []
+        }
+      ]
+    },
+    {
+      "id": "mean-tutorial",
+      "input": "examples/series/mean-tutorial.md",
+      "inputSha256": "faac1e4f4661669c3b9678161baf2f238e4a90c5d767c7e0af7839002e9673df",
+      "brandFile": "examples/series/brand-tech.json",
+      "brandFileSha256": "854e26959f5ad34f8e837c76c89d440e504b563610a75e42f3455f09e38cd99a",
+      "cardCount": 3,
+      "cards": [
+        {
+          "index": 1,
+          "template": "T18",
+          "version": 2,
+          "sourceSha256": "f857dc25248f42a29ae26ce9eec4549c53e933131fb16d0f8f5d9a6a0a159dfc",
+          "expectedSegments": [
+            "先算三条记录",
+            "三条耗时为 120、180、150 毫秒；本例只求它们的算术平均值。",
+            "运行：逐项累加",
+            "const ms = [120, 180, 150];\nlet sum = 0;\nfor (const n of ms) sum += n;\nconsole.log(sum / ms.length);\n",
+            "结果：输出 150",
+            "分母为 3 条记录。结果不是实际性能测量，也不代表更大的样本。",
+            "FIELDNOTES / 均值练习",
+            "原创 JavaScript · 三条耗时均为虚构数据",
+            "FIELDNOTES · 示例品牌",
+            "均值练习 · 原创示例",
+            "1 / 3"
+          ],
+          "pdfLayoutMissingSegments": [
+            "FIELDNOTES / 均值练习"
+          ]
+        },
+        {
+          "index": 2,
+          "template": "T18",
+          "version": 2,
+          "sourceSha256": "4968700db1719c26553c23cde7fe60e7d7d8d4743bb65e7c51c5b2f8e3b18be9",
+          "expectedSegments": [
+            "空输入不冒充零",
+            "把计算包成函数；没有记录时返回 null，而不是声称耗时为零。",
+            "定义：保留缺失状态",
+            "function mean(ms) {\n  if (!ms.length) return null;\n  let sum = 0;\n  for (const n of ms) sum += n;\n  return sum / ms.length;\n}\n",
+            "检查：调用后看返回值",
+            "mean([]) 返回 null；mean([120, 180, 150]) 返回 150。函数本身不打印结果。",
+            "FIELDNOTES / 均值练习",
+            "原创 JavaScript · 输入限有限非负数，单位毫秒",
+            "FIELDNOTES · 示例品牌",
+            "均值练习 · 原创示例",
+            "2 / 3"
+          ],
+          "pdfLayoutMissingSegments": [
+            "FIELDNOTES / 均值练习"
+          ]
+        },
+        {
+          "index": 3,
+          "template": "T17",
+          "version": 2,
+          "sourceSha256": "f097a5b88336ba9177e5e4e900e4cbcf2d2b28cf355486d153bbb94127a8447d",
+          "expectedSegments": [
+            "算对，还要用对",
+            "前两张代码只是教学计算，不是完整的数据清洗或性能分析工具。",
+            "输入边界",
+            "只传有限非负数，统一用毫秒；字符串和缺失值须先单独处理。",
+            "数值边界",
+            "示例未防止累加溢出。真实输入需约束数量与大小，并核对计算结果。",
+            "解释边界",
+            "均值不能揭示全部波动；不要把三条虚构记录推广为真实系统表现。",
+            "FIELDNOTES / 均值练习",
+            "原创边界说明 · 不含真实系统性能结论",
+            "FIELDNOTES · 示例品牌",
+            "均值练习 · 原创示例",
+            "3 / 3"
+          ],
+          "pdfLayoutMissingSegments": [
+            "FIELDNOTES / 均值练习"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "note-format-decision",
+      "input": "examples/series/note-format-decision.md",
+      "inputSha256": "5ef6945490e2c363971de77af09d419544c85dbe93c65649b1694fce9be7b045",
+      "brandFile": "examples/brand.json",
+      "brandFileSha256": "40d9d406a8b68254a95386b87a5ffd8c9575881459931bc7200acca0e08b8dcb",
+      "cardCount": 3,
+      "cards": [
+        {
+          "index": 1,
+          "template": "T06",
+          "version": 3,
+          "sourceSha256": "259145bc40f695d9a2326b3bed981f39e350c73ae891db42aabfa91db74f32ff",
+          "expectedSegments": [
+            "纸本，还是数字",
+            "先想下次怎样用笔记，再选择载体。这里比较的是记录需要，不是工具排名。",
+            "留在纸上",
+            "想随手画关系、翻看一页的整体，可以从纸本开始；仍要约定存放位置。",
+            "留在文件里",
+            "需要检索词语或持续修订，可以试用数字文件；先确认格式能否导出，不把保存等同于备份。",
+            "FIELDNOTES / 记录选择",
+            "原创情境对照 · 不比较产品，也不预设优胜者",
+            "FIELDNOTES · 示例品牌",
+            "记录选择 · 原创示例",
+            "1 / 3"
+          ],
+          "pdfLayoutMissingSegments": [
+            "想随手画关系、翻看一页的整体，可以从纸本开始；仍要约定存放位置。",
+            "需要检索词语或持续修订，可以试用数字文件；先确认格式能否导出，不把保存等同于备份。"
+          ]
+        },
+        {
+          "index": 2,
+          "template": "T24",
+          "version": 3,
+          "sourceSha256": "d7920ad17d727565cbbe4ba3e39a7757d51e4715ab207201c7e15cf273743d0d",
+          "expectedSegments": [
+            "把条件摆在前面",
+            "同一个人，不同任务也可以换一种方式。",
+            "三个检查点",
+            "码",
+            "当前需要",
+            "选择前核对",
+            "A",
+            "看整页关系",
+            "能否自由画线",
+            "B",
+            "找特定词句",
+            "检索范围是否够",
+            "C",
+            "长期保留",
+            "怎样留存副本",
+            "不必一次定终身",
+            "先选最重要的一项，再接受其余取舍。没有哪种载体自动满足全部需要。",
+            "FIELDNOTES / 记录选择",
+            "原创选择框架 · 字母是索引，不是评分",
+            "FIELDNOTES · 示例品牌",
+            "记录选择 · 原创示例",
+            "2 / 3"
+          ],
+          "pdfLayoutMissingSegments": [
+            "FIELDNOTES / 记录选择"
+          ]
+        },
+        {
+          "index": 3,
+          "template": "T14",
+          "version": 2,
+          "sourceSha256": "5058cf448f21c47ea858d0dc5a9431abb1c32e8110861ff7caa82d09d64f6c50",
+          "expectedSegments": [
+            "先试一条真实笔记",
+            "不急着迁走旧记录。用一个可撤回的小试验，检查选择是否适合自己。",
+            "留一条记录：选眼前的任务，不编造理想使用场景。",
+            "隔天再找回：记录从哪里找、卡在哪里，不把一次顺手当成定论。",
+            "检查退出方式：试着复制或导出，保留原件，再决定是否继续。",
+            "FIELDNOTES / 记录选择",
+            "原创试用清单 · 不是已完成任务或效果证明",
+            "FIELDNOTES · 示例品牌",
+            "记录选择 · 原创示例",
+            "3 / 3"
+          ],
+          "pdfLayoutMissingSegments": [
+            "FIELDNOTES / 记录选择"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "object-observation",
+      "input": "examples/series/object-observation.md",
+      "inputSha256": "4ba35e81ced8834bc94edeefb8b135f82d78c8ada5211405c2923497c68969c3",
+      "brandFile": "examples/series/brand-adaptive.json",
+      "brandFileSha256": "6f571990fdb2b7aa22059597e4e33c8131c1b977221dfbde29f41ef367254b0f",
+      "cardCount": 3,
+      "cards": [
+        {
+          "index": 1,
+          "template": "T37",
+          "version": 2,
+          "sourceSha256": "bb39acff313a5fdb0b74599568ceed2376eaf21ef1cf653e572d159fc21328f4",
+          "expectedSegments": [
+            "先看见一个开口",
+            "边沿围出一块敞开的空间。图里没有盒盖，但也没有尺寸标尺；先记下看见的，不急着说它能装多少。",
+            "FIELDNOTES / 物件观察",
+            "原创图像与文案 · 仅描述画中结构",
+            "原创示意插画 · 完整画幅，非实物照片。",
+            "FIELDNOTES · 示例品牌",
+            "物件观察 · 原创示例",
+            "1 / 3"
+          ],
+          "pdfLayoutMissingSegments": []
+        },
+        {
+          "index": 2,
+          "template": "T38",
+          "version": 2,
+          "sourceSha256": "23bc6dea9e7cac5b2097482ca10fc6790138e1c353b7413dadb94292c41e5e4d",
+          "expectedSegments": [
+            "并排看，不补故事",
+            "敞开的托盘",
+            "开口直接可见；没有画出盖子。",
+            "分离的盒盖",
+            "盖与盒分开画出；不表示盖子会悬浮。",
+            "FIELDNOTES / 物件观察",
+            "两图均为原创虚构物件插画 · 非同一实物前后照",
+            "FIELDNOTES · 示例品牌",
+            "物件观察 · 原创示例",
+            "2 / 3"
+          ],
+          "pdfLayoutMissingSegments": [
+            "开口直接可见；没有画出盖子。",
+            "盖与盒分开画出；不表示盖子会悬浮。"
+          ]
+        },
+        {
+          "index": 3,
+          "template": "T29",
+          "version": 2,
+          "sourceSha256": "7f93b919f207233b913e009624a6b3bb2ace7014efed60eddab4cfad8bcf1b81",
+          "expectedSegments": [
+            "让未知留在画外",
+            "看见的是画面给出的线索；没有画出的条件，不能靠一个顺手的故事补齐。",
+            "这次没有看见什么",
+            "两幅图没有给出尺寸、材质和承重，颜色也不能证明材料。它们可以练习描述，却不能替代实物核对，更不是购买建议。",
+            "FIELDNOTES / 物件观察",
+            "摘句与观察札记均为原创 · 不署名给真实作者",
+            "FIELDNOTES · 示例品牌",
+            "物件观察 · 原创示例",
+            "3 / 3"
+          ],
+          "pdfLayoutMissingSegments": []
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "series/summary.json",
+      "bytes": 63307,
+      "sha256": "95ee40a63f23accd2b40f25662342a1429eea41a007d176eb3e8fd55203a8b71"
+    },
+    {
+      "file": "series/evidence-reading/manifest.json",
+      "bytes": 22537,
+      "sha256": "a164004364797d1744a222c9e0138ca6feb690a8f8374c1683593b58cde48d5a"
+    },
+    {
+      "file": "series/evidence-reading/cards.html",
+      "bytes": 145621,
+      "sha256": "fba0d2ea4addaab0d2663a52dd22aa6340d7acbef4ea0b7616b6f55f9184e57d"
+    },
+    {
+      "file": "series/evidence-reading/preview.html",
+      "bytes": 147103,
+      "sha256": "e05bb0200eceb0cde7e10960621212a4d4305e34fd7ccfdfa8ec97dfd24e9886"
+    },
+    {
+      "file": "series/evidence-reading/cards.pdf",
+      "bytes": 573942,
+      "sha256": "baff5df7427031b0ff38fe3494ca5767e66895b9531c061f0d16139b33c6e7bc"
+    },
+    {
+      "file": "series/evidence-reading/card-001.png",
+      "bytes": 176588,
+      "sha256": "a6cb772f0c1e914c6d7c270086670bbb3efd3f2b5bdce0b00ba8c222268627af"
+    },
+    {
+      "file": "series/evidence-reading/card-002.png",
+      "bytes": 160236,
+      "sha256": "76caa17330ee994c7bccf434996d9fad7f6056def0ceec410ae40fdae35a3dee"
+    },
+    {
+      "file": "series/evidence-reading/card-003.png",
+      "bytes": 187388,
+      "sha256": "7957ebebad0a0f5c1b4458f2b9a9f9f82106670e765620f2b75d0adf6497d222"
+    },
+    {
+      "file": "series/evidence-reading/card-004.png",
+      "bytes": 174824,
+      "sha256": "1061698796f9925536d81c5bdd376474dd82ea597c3c6a8dd67007dd9f1a972b"
+    },
+    {
+      "file": "series/evidence-reading/card-005.png",
+      "bytes": 175628,
+      "sha256": "2b3b618d3a6f0ef6efbc1dbf72c224004d49347819709459b26b088aeac52314"
+    },
+    {
+      "file": "series/evidence-reading/contact-sheet.png",
+      "bytes": 199934,
+      "sha256": "d6f0f366d24b03d84eb166ed6dfccc89389e918d0ca4dfba4f3c7e4a028f03de"
+    },
+    {
+      "file": "series/evidence-reading/page-1-layout.txt",
+      "bytes": 723,
+      "sha256": "f557d84cfe711c2cf8f723754697bd8ec270bdc3a06a5fb84e0afac6b508095e"
+    },
+    {
+      "file": "series/evidence-reading/page-2-layout.txt",
+      "bytes": 505,
+      "sha256": "630dc9cb0baadfaef5fafe9d1432446e31e4f9e6b90c4c83b126fdfe6c4418fa"
+    },
+    {
+      "file": "series/evidence-reading/page-3-layout.txt",
+      "bytes": 688,
+      "sha256": "cc9ac0d2378e4a37db132890c53ab886212e96deca7b321b84dc13fcf682e62c"
+    },
+    {
+      "file": "series/evidence-reading/page-4-layout.txt",
+      "bytes": 560,
+      "sha256": "dafa4b43a3042486b55d29fb0eec3e6f6a7e8b24484f0e6ff2fc6a75d8ecac14"
+    },
+    {
+      "file": "series/evidence-reading/page-5-layout.txt",
+      "bytes": 493,
+      "sha256": "ffe46fa6643110526fb3000accec1ee196bb6a2c7639e83974b144fe16de3921"
+    },
+    {
+      "file": "series/evidence-reading/mobile-375-audit.json",
+      "bytes": 6033,
+      "sha256": "65257cbcb3e35478a242dc961902076e1540dc98c1d2b8deb5c357e5cfb50607"
+    },
+    {
+      "file": "series/evidence-reading/card-001-mobile-375.png",
+      "bytes": 52020,
+      "sha256": "e0ce12d7fb964f989e6bff4fff73454f87f29c1e3541a472be81725b8461d88c"
+    },
+    {
+      "file": "series/evidence-reading/card-002-mobile-375.png",
+      "bytes": 48629,
+      "sha256": "8a2113e51ff5a8de3c8f05f03a8777cad5d5fa2167fa0b3788d8a50bc8e943c0"
+    },
+    {
+      "file": "series/evidence-reading/card-003-mobile-375.png",
+      "bytes": 55507,
+      "sha256": "43beb69bc4bc0e07dae3a408da7436545d2e5b76c231f66a1936da685b2cdbee"
+    },
+    {
+      "file": "series/evidence-reading/card-004-mobile-375.png",
+      "bytes": 52403,
+      "sha256": "91a0d58d19967be19143bbd3bc003d7002f5994c7292a3feb72ba3a6e81aa7eb"
+    },
+    {
+      "file": "series/evidence-reading/card-005-mobile-375.png",
+      "bytes": 52319,
+      "sha256": "f6e12720be6b477dc9c1b13880648c3806e44ec00319bcabe7745c326ba834f2"
+    },
+    {
+      "file": "series/evidence-reading/mobile-390-audit.json",
+      "bytes": 6359,
+      "sha256": "49ecee495243b1354e922736bd367537e2b89f1f166d6e32adf7971def952baf"
+    },
+    {
+      "file": "series/evidence-reading/card-001-mobile-390.png",
+      "bytes": 55122,
+      "sha256": "a5af89dfc3475a3990bb04b1626f18065b192d85a66c9a821f65a454c88627e3"
+    },
+    {
+      "file": "series/evidence-reading/card-002-mobile-390.png",
+      "bytes": 53069,
+      "sha256": "53c8656e09887c38babd75a59b7426254f9e06c74c3e4bb8fb63e37e41af8fb5"
+    },
+    {
+      "file": "series/evidence-reading/card-003-mobile-390.png",
+      "bytes": 58089,
+      "sha256": "1bc71cc125a93f8cdbf772844ccee8df974fbb3a7076ab9861a3983da3c4ce1e"
+    },
+    {
+      "file": "series/evidence-reading/card-004-mobile-390.png",
+      "bytes": 56469,
+      "sha256": "d55b23e6e6186d04be07c796d9d21749749970e1ed7019f7e0c996c25d46af22"
+    },
+    {
+      "file": "series/evidence-reading/card-005-mobile-390.png",
+      "bytes": 55995,
+      "sha256": "fc971fa736e7d486b0c915197cad5beec8aff5c4d13b22cfeed2c00cd0e5156e"
+    },
+    {
+      "file": "series/mean-tutorial/manifest.json",
+      "bytes": 20413,
+      "sha256": "408098a38a44c0bf8616d6edfc92b0dccd4fb12833589291599c397416a2c61c"
+    },
+    {
+      "file": "series/mean-tutorial/cards.html",
+      "bytes": 142059,
+      "sha256": "73f4fb15da473e13ef13ddf1d851f91b41da4c321bb462e8272cf7c96a293bab"
+    },
+    {
+      "file": "series/mean-tutorial/preview.html",
+      "bytes": 143215,
+      "sha256": "a76c313fe3720f7bfaf3848f3ff07eb7a81afe0fa5b5a2f570aafab26d888796"
+    },
+    {
+      "file": "series/mean-tutorial/cards.pdf",
+      "bytes": 396813,
+      "sha256": "961f45fe944067567d2a5c99f1add3317fa24b236a449669adc0719fca7796ba"
+    },
+    {
+      "file": "series/mean-tutorial/card-001.png",
+      "bytes": 170627,
+      "sha256": "b6da40e78a4faaf9cfc70d538c74fdb667a8b40a229099542c7c9e7f37855483"
+    },
+    {
+      "file": "series/mean-tutorial/card-002.png",
+      "bytes": 183396,
+      "sha256": "d6f256d425d9b13b58c298e7ca83e685143305aaf3c2a5ea616e74a2bc1cfa70"
+    },
+    {
+      "file": "series/mean-tutorial/card-003.png",
+      "bytes": 210530,
+      "sha256": "d4207e697574663d667c3d85c28c11d454e7aa4af8b38ee4a596905e440f3e5d"
+    },
+    {
+      "file": "series/mean-tutorial/contact-sheet.png",
+      "bytes": 114162,
+      "sha256": "381f6785ee3515c4877ae0d801d1dcd7c23b4a721625e249434a201784a277c2"
+    },
+    {
+      "file": "series/mean-tutorial/page-1-layout.txt",
+      "bytes": 531,
+      "sha256": "c8f09964bfe9d6ebcc43a722020b95dabf73ac7645b0f04bf1e99940ba4965f0"
+    },
+    {
+      "file": "series/mean-tutorial/page-2-layout.txt",
+      "bytes": 586,
+      "sha256": "b6f3a02049f20103a56c78cbcf8f7addce1b089e647d6baf969f4710ca10dec7"
+    },
+    {
+      "file": "series/mean-tutorial/page-3-layout.txt",
+      "bytes": 646,
+      "sha256": "30c773aabe5c9e61617fe7071f451a2ccddf64e869c9a1d6e2c3f3b5e09d9ba4"
+    },
+    {
+      "file": "series/mean-tutorial/mobile-375-audit.json",
+      "bytes": 3669,
+      "sha256": "99201d80a7d7b4acfa8416f7c9ce4e558b6892e4bec97c21b437824cd1bdc7be"
+    },
+    {
+      "file": "series/mean-tutorial/card-001-mobile-375.png",
+      "bytes": 49246,
+      "sha256": "058baa18ed104c0f822cab31fcf27a9457910df4cd9c2d36f39da1568d271078"
+    },
+    {
+      "file": "series/mean-tutorial/card-002-mobile-375.png",
+      "bytes": 53115,
+      "sha256": "dbd1067fa701be9c690f7f163c35d228cf47d3fb1470cbcaf313ccc097b4a0c2"
+    },
+    {
+      "file": "series/mean-tutorial/card-003-mobile-375.png",
+      "bytes": 63746,
+      "sha256": "f0c7243717a317cd420fcdd9f8064f5ef242f327031aabe3b27548ed2cc75b45"
+    },
+    {
+      "file": "series/mean-tutorial/mobile-390-audit.json",
+      "bytes": 3859,
+      "sha256": "b8b724af54423060ae0e750e59ea4ab0232818bd582062fd4d7f27d052795e67"
+    },
+    {
+      "file": "series/mean-tutorial/card-001-mobile-390.png",
+      "bytes": 53056,
+      "sha256": "e3056be8246da4152e3255c59768308a3bfa622958f883ea93578d189448c476"
+    },
+    {
+      "file": "series/mean-tutorial/card-002-mobile-390.png",
+      "bytes": 57692,
+      "sha256": "781c00d11c4dfd34083f405851fd2d3a34b330ca2c9df730ae9f12e6b9480714"
+    },
+    {
+      "file": "series/mean-tutorial/card-003-mobile-390.png",
+      "bytes": 68097,
+      "sha256": "c6f7f8c3b514e8aaa0b75351d39e3189a361f3d5c408a90c30da47fe536b28d5"
+    },
+    {
+      "file": "series/note-format-decision/manifest.json",
+      "bytes": 20431,
+      "sha256": "47c717e70baa471c2277449bcebc67f3a9cdce1eb09226fdd0a274fed5e7a413"
+    },
+    {
+      "file": "series/note-format-decision/cards.html",
+      "bytes": 141966,
+      "sha256": "e92e5dfcaf59159fa5647db53e0a3404314d1d8e40fbb08dca3129be799c7d85"
+    },
+    {
+      "file": "series/note-format-decision/preview.html",
+      "bytes": 143120,
+      "sha256": "d185383882123e25fc2c3b48458ab8579788f01e06217a61a7cd708e631f76fa"
+    },
+    {
+      "file": "series/note-format-decision/cards.pdf",
+      "bytes": 448172,
+      "sha256": "e07678c40e51555a6d2c4fd41c0264c781e04c0d9e75d0901ec26dd46a2da898"
+    },
+    {
+      "file": "series/note-format-decision/card-001.png",
+      "bytes": 187133,
+      "sha256": "f1040b4f165224d8a877f693bcfa5fa1ad57ab2411de7fb40fce2ddacb377323"
+    },
+    {
+      "file": "series/note-format-decision/card-002.png",
+      "bytes": 171525,
+      "sha256": "96d529348a335bce393cc7d5e78fcc6fb0e22218a9dbb9e0ed5e5c5e5fa589a3"
+    },
+    {
+      "file": "series/note-format-decision/card-003.png",
+      "bytes": 177413,
+      "sha256": "6e569d5e75f930c7623a236044699ec16826bc718f700787b08539b6603c6dd7"
+    },
+    {
+      "file": "series/note-format-decision/contact-sheet.png",
+      "bytes": 123810,
+      "sha256": "9f750592c6a66fe68613b10cb96889537fea98df5b6e18660eb7f1edbed63be3"
+    },
+    {
+      "file": "series/note-format-decision/page-1-layout.txt",
+      "bytes": 597,
+      "sha256": "266f0d0abaa33912e441ab1befbd9a678e18630d75dd687999fb195835e0f4d1"
+    },
+    {
+      "file": "series/note-format-decision/page-2-layout.txt",
+      "bytes": 548,
+      "sha256": "f802363a0ece1715db316ddc2ce39ca62d325e1ff432f07f6b72223cac9ebe15"
+    },
+    {
+      "file": "series/note-format-decision/page-3-layout.txt",
+      "bytes": 561,
+      "sha256": "318dfe7abd7a029b38505e3157f20d13f38ba41816619d0d53127bba454b3e69"
+    },
+    {
+      "file": "series/note-format-decision/mobile-375-audit.json",
+      "bytes": 4788,
+      "sha256": "4143a2c5a81bc229a996f4e9ff79ab077e3ec8aa7bde9c3ea5f00e9bad777b72"
+    },
+    {
+      "file": "series/note-format-decision/card-001-mobile-375.png",
+      "bytes": 56898,
+      "sha256": "273d3b725b9d8e35476ab219e96e80fd49ffca80bacb41edb918555c4fdc33a8"
+    },
+    {
+      "file": "series/note-format-decision/card-002-mobile-375.png",
+      "bytes": 53819,
+      "sha256": "49ac623b74691d147db0e3d280db34b861cd5e9af0fcf7d142d90f6340db8054"
+    },
+    {
+      "file": "series/note-format-decision/card-003-mobile-375.png",
+      "bytes": 55310,
+      "sha256": "e7c318786164eb3a1758cb6fc67d3cb55e6c1ad2acd6cafedf9818f0327ae6e5"
+    },
+    {
+      "file": "series/note-format-decision/mobile-390-audit.json",
+      "bytes": 4978,
+      "sha256": "0b5c91f46d97e53d194f6819793c9cc978490948da780455384647cfb2e4845f"
+    },
+    {
+      "file": "series/note-format-decision/card-001-mobile-390.png",
+      "bytes": 60536,
+      "sha256": "0d609af20edb3e45c3256f5e4f7da5dd55d2989ef19cc5921d70cea2a05e509c"
+    },
+    {
+      "file": "series/note-format-decision/card-002-mobile-390.png",
+      "bytes": 57170,
+      "sha256": "83225cf1a5b34322e2c79f77c0f4fe8b97494a5bf4f7ba8361c0dc463d884720"
+    },
+    {
+      "file": "series/note-format-decision/card-003-mobile-390.png",
+      "bytes": 59098,
+      "sha256": "89edc9648db6c6d60e4a3434f536331b1232ebc98316d9c86575034bbfafbb62"
+    },
+    {
+      "file": "series/object-observation/manifest.json",
+      "bytes": 20894,
+      "sha256": "aa7746024c43bcf3886e21f739ddb5d0dad9719a7f1194f003e58ef89c7ec5e8"
+    },
+    {
+      "file": "series/object-observation/cards.html",
+      "bytes": 156027,
+      "sha256": "f77cea2cba1ebbe68e46537e4f000eb48997fd50ffec6fc76b9aa9ec3f5eec85"
+    },
+    {
+      "file": "series/object-observation/preview.html",
+      "bytes": 157187,
+      "sha256": "3eb7594a16545ef4f6baafff372100e304379487591c5a1dd70a0c4c90e67937"
+    },
+    {
+      "file": "series/object-observation/cards.pdf",
+      "bytes": 429941,
+      "sha256": "5f18770a47bd237177a6ded036046edabf17797aa2bb8e77b56c909313985222"
+    },
+    {
+      "file": "series/object-observation/card-001.png",
+      "bytes": 125670,
+      "sha256": "f9e811715ce051c1dfea3a9af2ae1f09d0744a4358108a9157a516dc52b14efc"
+    },
+    {
+      "file": "series/object-observation/card-002.png",
+      "bytes": 120951,
+      "sha256": "2500b48ae7901108a8679678043119be3034cc804f72f3755a6d87e34da20395"
+    },
+    {
+      "file": "series/object-observation/card-003.png",
+      "bytes": 185584,
+      "sha256": "774b207f09ad2b44617713dc62af1bb2c4af3bbaeeae3ff1e2bd8f315b0be391"
+    },
+    {
+      "file": "series/object-observation/contact-sheet.png",
+      "bytes": 94321,
+      "sha256": "e11ba32725d617f2e7828b3cf3f0a4de7306c62fbd8e8720b37da13a580a7f24"
+    },
+    {
+      "file": "series/object-observation/page-1-layout.txt",
+      "bytes": 369,
+      "sha256": "aa1b2fd8f72d6532073a3cce42aa5120ce83d040e14dead02d775f9dc31a32ee"
+    },
+    {
+      "file": "series/object-observation/page-2-layout.txt",
+      "bytes": 391,
+      "sha256": "ddff850f546473b5e0af87dfe95fd186798cae6e15cc7a8ac490756eb9127794"
+    },
+    {
+      "file": "series/object-observation/page-3-layout.txt",
+      "bytes": 504,
+      "sha256": "f0bfefff88f5e2b6c2db79ee8abbca53ea6adeb8d52f3579331a0d1404788aea"
+    },
+    {
+      "file": "series/object-observation/mobile-375-audit.json",
+      "bytes": 4143,
+      "sha256": "f3eccac2fa76257e0b38529897a65ee57c112ec882449be95075d557cd493ccd"
+    },
+    {
+      "file": "series/object-observation/card-001-mobile-375.png",
+      "bytes": 36751,
+      "sha256": "df09f3f8e7ecc1246408aaa97c14f0fda6fe43e21d2cd1729dadcbdc765adbf8"
+    },
+    {
+      "file": "series/object-observation/card-002-mobile-375.png",
+      "bytes": 34476,
+      "sha256": "9678ff6948e230d0ed9366382ec826f313d17af0e5d11a2a9994a56e9077d286"
+    },
+    {
+      "file": "series/object-observation/card-003-mobile-375.png",
+      "bytes": 51961,
+      "sha256": "ff1be0ee6352c17d4dbbdd0df81883446d1311cf7dcd81ac04714f9045a9bc36"
+    },
+    {
+      "file": "series/object-observation/mobile-390-audit.json",
+      "bytes": 4361,
+      "sha256": "14a99e4ea10e7272fe88a2196ca4e9208e47a54123efc39e648d1a8e82401326"
+    },
+    {
+      "file": "series/object-observation/card-001-mobile-390.png",
+      "bytes": 40499,
+      "sha256": "3b223c439b0c08677b2feae771404bc2b765d8c557ab8e166df5999bc2d125c5"
+    },
+    {
+      "file": "series/object-observation/card-002-mobile-390.png",
+      "bytes": 36869,
+      "sha256": "d28c722c4f3203baed6a6807e3ef0b8305caa20cf0da84be7f67ea61e208d5a4"
+    },
+    {
+      "file": "series/object-observation/card-003-mobile-390.png",
+      "bytes": 55501,
+      "sha256": "448097e198ba4522c42faa24071a1b7585e6d39a00cfcf210ad67d1f4850de22"
+    }
+  ],
+  "boundaries": [
+    "No local browser re-render",
+    "PDF bytes and CI records bound; independent native PDF page inspection pending",
+    "Layout PDF text is inspection-only; missing segments must not be called a successful raw-text check",
+    "No visual acceptance"
+  ]
+}

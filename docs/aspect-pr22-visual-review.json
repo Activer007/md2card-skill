@@ -1,0 +1,591 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-10-25",
+  "identity": {
+    "runId": 40079964688,
+    "artifactId": 12554054288,
+    "commit": "05f6bb6e484cb8887ea037e520a733db9303563d",
+    "tree": "9dee88002e629b44dbd7e141874fe5388b5e7b9d",
+    "sourceSha256": "473cd63ff3ff57cacdcf1bee29044d53bf02ce062b4b40bc027db529462859c1",
+    "archiveSha256": "794985f23429b86be89a8790070ee4f2e4b168d8160239bcb5dfc06761d52d5b"
+  },
+  "technicalAudit": {
+    "file": "docs/evidence/aspects-run-40079964688/technical-audit.json",
+    "sha256": "ca9e7a89e5874a041d4533168787c8a83b9f0b697c435f0077e544fbf3bdcc63"
+  },
+  "pdfAudit": {
+    "file": "docs/evidence/aspects-run-40079964688/pdf-audit.json",
+    "sha256": "0be40bd5c3cac47f01afef52cd4577abb6e47a3da53b5de3bdc3e66e736e58c7"
+  },
+  "status": "eight-exact-fixtures-reviewed-registry-binding-pending",
+  "scope": "Eight registered aspect-specific short fixtures only; 50 other cases remain technical controls. No fresh browser rendering of local safety fixes.",
+  "limitations": [
+    "T04 square has an unchanged short-tail line break.",
+    "Native slide PDFs measure 1200×675.12 pt, versus nominal 1200×675 pt; full 1600×901 raster pages are preserved without cropping.",
+    "Local pypdf Unicode extraction differs from the original raw pdftotext evidence; no local exact-Unicode pass is claimed.",
+    "Registry promotion, gallery integration and final local-tree UI checks remain pending."
+  ],
+  "records": [
+    {
+      "id": "01-T04-aspect-specific-square-square",
+      "template": "T04",
+      "templateVersion": 2,
+      "aspect": "square",
+      "aspectVersion": 2,
+      "input": "examples/aspects/T04-square.md",
+      "inputSha256": "7329186d304df899bd4cd6f9dc163f2f918e78429287759b0ac4e4ed7baca137",
+      "status": "reviewed-with-layout-limitations",
+      "notes": "完整标题、左栏导语、现场/猜测/回看三段、01–03编号、来源和1/1均可见；四种视图均未见裁切。",
+      "limitations": [
+        "左栏“先记录，再解释。”将“解释”拆到两行，末行只剩“释。”；手机图也保留此短尾，不声称已改善。"
+      ],
+      "checks": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdfPage": "reviewed",
+        "originalTextAndMetadata": "reviewed",
+        "sourceAndCounter": "reviewed",
+        "imageProportions": "not-applicable",
+        "noObservedClipping": "pass"
+      },
+      "views": {
+        "fullPng": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/card-001.png",
+          "sha256": "30124c3bb606737c4b7d9d0144dbec577a270022cc83bbcf42a8ae61b8f47225",
+          "bytes": 77561
+        },
+        "mobile375": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/card-001-mobile-375.png",
+          "sha256": "9a2faeaca4c780da7a59d982e76afff3d612f7a2855f53d04586f63dbeb5e5a7",
+          "bytes": 21881
+        },
+        "mobile390": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/card-001-mobile-390.png",
+          "sha256": "a76cbf248d2fbe12fc9c387a845e0db963c92b314626c14a6d677e354abd6a93",
+          "bytes": 23440
+        },
+        "nativePdf": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/cards.pdf",
+          "sha256": "6f647d602153f8cf7e1354c77312e7efc6fd088e92d7bd8b0328fe4c1b25b78c",
+          "bytes": 96514
+        },
+        "nativePdfPage": {
+          "file": "docs/evidence/aspects-run-40079964688/native-pdf-pages/01-T04-aspect-specific-square-square.png",
+          "sha256": "709129773f17c6a6e982e38e12d069e5823392d61cb0fdf739b17ddf8c68c135"
+        }
+      },
+      "pdfGeometry": {
+        "expectedPoints": [
+          810,
+          810
+        ],
+        "actualPoints": [
+          810,
+          810
+        ],
+        "delta": [
+          0,
+          0
+        ]
+      },
+      "pdfText": {
+        "ciRaw": "verified-exact-NFC-segments",
+        "localPypdfNfcMissing": [],
+        "localPypdfNfkcMissing": []
+      }
+    },
+    {
+      "id": "02-T04-aspect-specific-slide-slide",
+      "template": "T04",
+      "templateVersion": 2,
+      "aspect": "slide",
+      "aspectVersion": 2,
+      "input": "examples/aspects/T04-slide.md",
+      "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a",
+      "status": "reviewed-exact-fixture",
+      "notes": "左侧“观察笔记”与右侧导语/三行标签正文形成独立横版层级；全部原文、来源和1/1可见，375/390下无重叠或截断。",
+      "limitations": [],
+      "checks": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdfPage": "reviewed",
+        "originalTextAndMetadata": "reviewed",
+        "sourceAndCounter": "reviewed",
+        "imageProportions": "not-applicable",
+        "noObservedClipping": "pass"
+      },
+      "views": {
+        "fullPng": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/02-T04-aspect-specific-slide-slide/card-001.png",
+          "sha256": "a65d1ebd1602b1b21fc6c7aa89db250a03ec9985c14165b4b45ea3c1e3c083ac",
+          "bytes": 75086
+        },
+        "mobile375": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/02-T04-aspect-specific-slide-slide/card-001-mobile-375.png",
+          "sha256": "6231c3da3938240dfe47cd1d08850738635b4d6049080c584beba88281674bd5",
+          "bytes": 14473
+        },
+        "mobile390": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/02-T04-aspect-specific-slide-slide/card-001-mobile-390.png",
+          "sha256": "f336f3d6aebd3dc43bc188d5813e9ade15677a20a624825675a53644a38fe122",
+          "bytes": 15664
+        },
+        "nativePdf": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/02-T04-aspect-specific-slide-slide/cards.pdf",
+          "sha256": "e0edc94c9f92121f26cfbfd613045de1a854d460106341acf796ee0a9b7a84b0",
+          "bytes": 69761
+        },
+        "nativePdfPage": {
+          "file": "docs/evidence/aspects-run-40079964688/native-pdf-pages/02-T04-aspect-specific-slide-slide.png",
+          "sha256": "6917f85192ba6347d24c60c371e3083609967b0933e313743a2d34afa45886b4"
+        }
+      },
+      "pdfGeometry": {
+        "expectedPoints": [
+          1200,
+          675
+        ],
+        "actualPoints": [
+          1200,
+          675.12
+        ],
+        "delta": [
+          0,
+          0.12000000000000455
+        ]
+      },
+      "pdfText": {
+        "ciRaw": "verified-exact-NFC-segments",
+        "localPypdfNfcMissing": [],
+        "localPypdfNfkcMissing": []
+      }
+    },
+    {
+      "id": "12-T21-aspect-specific-square-square",
+      "template": "T21",
+      "templateVersion": 2,
+      "aspect": "square",
+      "aspectVersion": 2,
+      "input": "examples/aspects/T21-square.md",
+      "inputSha256": "ce4d422a73771fd67ee521259790849a8c4b9940328a9dbe8f1440bdd63db1d5",
+      "status": "reviewed-exact-fixture",
+      "notes": "38%与“练习提交率”相邻；提交率不是学习效果、分母为开始练习的人、仍需查看作答质量及虚构100/38来源均完整。两栏与底部说明在手机和PDF中未遮挡。",
+      "limitations": [],
+      "checks": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdfPage": "reviewed",
+        "originalTextAndMetadata": "reviewed",
+        "sourceAndCounter": "reviewed",
+        "imageProportions": "not-applicable",
+        "noObservedClipping": "pass"
+      },
+      "views": {
+        "fullPng": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/12-T21-aspect-specific-square-square/card-001.png",
+          "sha256": "d37eec43fdbd4fbc275ad195f9b1d9b6b461efb301e2858365b998dde367411d",
+          "bytes": 88065
+        },
+        "mobile375": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/12-T21-aspect-specific-square-square/card-001-mobile-375.png",
+          "sha256": "83b6033a0b5a0fbae1b05b3365dbd1a88f6801e64182c57073546706569bd95b",
+          "bytes": 25675
+        },
+        "mobile390": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/12-T21-aspect-specific-square-square/card-001-mobile-390.png",
+          "sha256": "570a185e710f7116336d765c0108f655b207d33da8eeaaa261deade9b3bbbe2c",
+          "bytes": 27106
+        },
+        "nativePdf": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/12-T21-aspect-specific-square-square/cards.pdf",
+          "sha256": "beceb7676b0ac70f413c7fcfc1666fd438e8025029c51df4df9a0c1d5d2972b1",
+          "bytes": 88184
+        },
+        "nativePdfPage": {
+          "file": "docs/evidence/aspects-run-40079964688/native-pdf-pages/12-T21-aspect-specific-square-square.png",
+          "sha256": "cbef4ad8c863afef4dcd7b063484edfc11e8b0ae95a4df27c6acf61e50e0f219"
+        }
+      },
+      "pdfGeometry": {
+        "expectedPoints": [
+          810,
+          810
+        ],
+        "actualPoints": [
+          810,
+          810
+        ],
+        "delta": [
+          0,
+          0
+        ]
+      },
+      "pdfText": {
+        "ciRaw": "verified-exact-NFC-segments",
+        "localPypdfNfcMissing": [
+          "口径",
+          "分母为开始练习的人。",
+          "虚构教学数据：100 人开始，38 人提交。"
+        ],
+        "localPypdfNfkcMissing": []
+      }
+    },
+    {
+      "id": "13-T21-aspect-specific-slide-slide",
+      "template": "T21",
+      "templateVersion": 2,
+      "aspect": "slide",
+      "aspectVersion": 2,
+      "input": "examples/aspects/T21-slide.md",
+      "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a",
+      "status": "reviewed-exact-fixture",
+      "notes": "左侧38%/提交率/虚构38/100与右侧分母、口径、完成不等于学会的边界完整，数字没有挤压标签；手机两宽与PDF均可读。",
+      "limitations": [],
+      "checks": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdfPage": "reviewed",
+        "originalTextAndMetadata": "reviewed",
+        "sourceAndCounter": "reviewed",
+        "imageProportions": "not-applicable",
+        "noObservedClipping": "pass"
+      },
+      "views": {
+        "fullPng": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/13-T21-aspect-specific-slide-slide/card-001.png",
+          "sha256": "f41e22aa1a507a4b22dadcb99f95c918614953c9f1328b0637e5663893621103",
+          "bytes": 93553
+        },
+        "mobile375": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/13-T21-aspect-specific-slide-slide/card-001-mobile-375.png",
+          "sha256": "b458eb543f971bd3cec1469808d85d996ac93c7f7c2d3343358036a1ab621892",
+          "bytes": 18590
+        },
+        "mobile390": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/13-T21-aspect-specific-slide-slide/card-001-mobile-390.png",
+          "sha256": "388f3b13f2030dcf29432f39ccb72a3e0c83f2909a5b7bc8af5483c24a2d16e3",
+          "bytes": 19138
+        },
+        "nativePdf": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/13-T21-aspect-specific-slide-slide/cards.pdf",
+          "sha256": "006711e2fc204ba4625abc1acd5870747c1197ccc254f2a4299d0db45bc7296a",
+          "bytes": 74998
+        },
+        "nativePdfPage": {
+          "file": "docs/evidence/aspects-run-40079964688/native-pdf-pages/13-T21-aspect-specific-slide-slide.png",
+          "sha256": "c637b30ccef59e67351a7254e781f629f61dd56ea3523656eb373efa7a25c0ae"
+        }
+      },
+      "pdfGeometry": {
+        "expectedPoints": [
+          1200,
+          675
+        ],
+        "actualPoints": [
+          1200,
+          675.12
+        ],
+        "delta": [
+          0,
+          0.12000000000000455
+        ]
+      },
+      "pdfText": {
+        "ciRaw": "verified-exact-NFC-segments",
+        "localPypdfNfcMissing": [
+          "分母为开始者。",
+          "口径",
+          "提交即计入。"
+        ],
+        "localPypdfNfkcMissing": []
+      }
+    },
+    {
+      "id": "23-T05-aspect-specific-square-square",
+      "template": "T05",
+      "templateVersion": 2,
+      "aspect": "square",
+      "aspectVersion": 1,
+      "input": "examples/aspects/T05-square.md",
+      "inputSha256": "9f8b216a27ad52012ed07521753931a8f4dc3efdd67b0204a980b74225331beb",
+      "status": "reviewed-exact-fixture",
+      "notes": "四格顺序01问题、02依据、03边界、04行动与输入编号一致；四个问句、原创清单来源和页码完整。375/390下数字与正文不重叠。",
+      "limitations": [],
+      "checks": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdfPage": "reviewed",
+        "originalTextAndMetadata": "reviewed",
+        "sourceAndCounter": "reviewed",
+        "imageProportions": "not-applicable",
+        "noObservedClipping": "pass"
+      },
+      "views": {
+        "fullPng": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/23-T05-aspect-specific-square-square/card-001.png",
+          "sha256": "7c897ced0fa873411284e2cd74e4281952a928b81fb05009ec3b78973368c9d6",
+          "bytes": 67077
+        },
+        "mobile375": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/23-T05-aspect-specific-square-square/card-001-mobile-375.png",
+          "sha256": "859a9ce9e3e337e8f969fa3ac1486cf0f75389b32b382d4ae16d04ae61db1059",
+          "bytes": 22314
+        },
+        "mobile390": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/23-T05-aspect-specific-square-square/card-001-mobile-390.png",
+          "sha256": "8e36703d7f0ea2fea3220a337485cdbdd3fdc0bb55820a006589cbc98eafa9a8",
+          "bytes": 23677
+        },
+        "nativePdf": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/23-T05-aspect-specific-square-square/cards.pdf",
+          "sha256": "cfd938bc60b0f5269bbd1285a8f7a6a4a46086b1bbbc7e1319192d0234a4e494",
+          "bytes": 94760
+        },
+        "nativePdfPage": {
+          "file": "docs/evidence/aspects-run-40079964688/native-pdf-pages/23-T05-aspect-specific-square-square.png",
+          "sha256": "085f6515ec93869868bb3dcabcdfd2ebeb5e77c106d9c0255c7d1284b6950448"
+        }
+      },
+      "pdfGeometry": {
+        "expectedPoints": [
+          810,
+          810
+        ],
+        "actualPoints": [
+          810,
+          810
+        ],
+        "delta": [
+          0,
+          0
+        ]
+      },
+      "pdfText": {
+        "ciRaw": "verified-exact-NFC-segments",
+        "localPypdfNfcMissing": [
+          "边界\n何时不再适用？",
+          "行动\n下一步查什么？",
+          "原创清单 · 保留输入编号"
+        ],
+        "localPypdfNfkcMissing": []
+      }
+    },
+    {
+      "id": "32-T13-aspect-specific-square-square",
+      "template": "T13",
+      "templateVersion": 2,
+      "aspect": "square",
+      "aspectVersion": 1,
+      "input": "examples/aspects/T13-square.md",
+      "inputSha256": "d078ea2799bd104a14bad5b35abbd14c9ed603018333eba692735081846893b2",
+      "status": "reviewed-exact-fixture",
+      "notes": "左侧“为事实/留空间”两行标题与右侧判断前看依据、已知/未知两段完整；底部“不替代证据”保留。方形海报留白属这一短例构图，不证明中篇适配。",
+      "limitations": [],
+      "checks": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdfPage": "reviewed",
+        "originalTextAndMetadata": "reviewed",
+        "sourceAndCounter": "reviewed",
+        "imageProportions": "not-applicable",
+        "noObservedClipping": "pass"
+      },
+      "views": {
+        "fullPng": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/32-T13-aspect-specific-square-square/card-001.png",
+          "sha256": "67822e0e6b2a1fc91e0bb60b83b49c0b8923533109db6c22a8a19990e259df79",
+          "bytes": 57240
+        },
+        "mobile375": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/32-T13-aspect-specific-square-square/card-001-mobile-375.png",
+          "sha256": "9eb17a7f25151fdc1140ff38bb4a84ff857f67fad470d1ec9ba4de2f6dac0417",
+          "bytes": 18457
+        },
+        "mobile390": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/32-T13-aspect-specific-square-square/card-001-mobile-390.png",
+          "sha256": "66407b14c688be0a69c0e488eb94f4c4ffd3c5592fccfe57af9afc183d1dc23e",
+          "bytes": 19679
+        },
+        "nativePdf": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/32-T13-aspect-specific-square-square/cards.pdf",
+          "sha256": "b6a4c7baca01df83ec654a90535f095e31fe6453984e1d28a6de3fdfef3a852e",
+          "bytes": 94110
+        },
+        "nativePdfPage": {
+          "file": "docs/evidence/aspects-run-40079964688/native-pdf-pages/32-T13-aspect-specific-square-square.png",
+          "sha256": "078edcb6cd2cf6b760a35b5016408ec6528a46b4ea72ee61ce903d61c12bbf8c"
+        }
+      },
+      "pdfGeometry": {
+        "expectedPoints": [
+          810,
+          810
+        ],
+        "actualPoints": [
+          810,
+          810
+        ],
+        "delta": [
+          0,
+          0
+        ]
+      },
+      "pdfText": {
+        "ciRaw": "verified-exact-NFC-segments",
+        "localPypdfNfcMissing": [],
+        "localPypdfNfkcMissing": []
+      }
+    },
+    {
+      "id": "41-T24-aspect-specific-slide-slide",
+      "template": "T24",
+      "templateVersion": 3,
+      "aspect": "slide",
+      "aspectVersion": 1,
+      "input": "examples/aspects/T24-slide.md",
+      "inputSha256": "ad032679519fe609e9f2cb2f66021056ff0b14a1825a0381469d9d69b07be103",
+      "status": "reviewed-exact-fixture",
+      "notes": "左侧按需记录/先看需求/两者可组合，右侧码、用途、限制三列表格完整；A留原话须溯源、B找盲点待查证没有跨列混读，底部不作排名与页码可见。",
+      "limitations": [],
+      "checks": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdfPage": "reviewed",
+        "originalTextAndMetadata": "reviewed",
+        "sourceAndCounter": "reviewed",
+        "imageProportions": "not-applicable",
+        "noObservedClipping": "pass"
+      },
+      "views": {
+        "fullPng": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/41-T24-aspect-specific-slide-slide/card-001.png",
+          "sha256": "02f743e3396c79b2390ca7fadc5fe4c1bb265b8c4a6d347ee41540c6b5a9c15f",
+          "bytes": 84691
+        },
+        "mobile375": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/41-T24-aspect-specific-slide-slide/card-001-mobile-375.png",
+          "sha256": "c28c517468404a6a455858e6d1d52af7a8cf6ff62ec0715e3b24b4186a01cd2d",
+          "bytes": 19593
+        },
+        "mobile390": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/41-T24-aspect-specific-slide-slide/card-001-mobile-390.png",
+          "sha256": "9dae848c7ed49a7116961f79a271e19e2a397c664c45f318ea0772ff8fb8faa1",
+          "bytes": 20764
+        },
+        "nativePdf": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/41-T24-aspect-specific-slide-slide/cards.pdf",
+          "sha256": "824fde4de0105f6fb4c77db857f947d9dd1ba388d892816d269b4b5558b0ea49",
+          "bytes": 90545
+        },
+        "nativePdfPage": {
+          "file": "docs/evidence/aspects-run-40079964688/native-pdf-pages/41-T24-aspect-specific-slide-slide.png",
+          "sha256": "59ee3f04655862e66edfad51ba13ebb909623059e4f9288880370bba5655b585"
+        }
+      },
+      "pdfGeometry": {
+        "expectedPoints": [
+          1200,
+          675
+        ],
+        "actualPoints": [
+          1200,
+          675.12
+        ],
+        "delta": [
+          0,
+          0.12000000000000455
+        ]
+      },
+      "pdfText": {
+        "ciRaw": "verified-exact-NFC-segments",
+        "localPypdfNfcMissing": [
+          "方式对照",
+          "用途",
+          "原创方法对照 · 不作排名"
+        ],
+        "localPypdfNfkcMissing": []
+      }
+    },
+    {
+      "id": "50-T37-aspect-specific-slide-slide",
+      "template": "T37",
+      "templateVersion": 2,
+      "aspect": "slide",
+      "aspectVersion": 1,
+      "input": "examples/aspects/T37-slide.md",
+      "inputSha256": "68bc38e674486579a535520e03ac9bec6d8ee9720b5f4468197fd77bc48b9052",
+      "status": "reviewed-exact-fixture",
+      "notes": "左图保留窗框、杯、蕨叶与书本完整原始比例及边缘，未见裁切；“AI 合成，非摄影。”、右侧窗边慢一拍/先看光影再写所见、来源及1/1均完整。375/390仍显示完整图像和合成说明。",
+      "limitations": [],
+      "checks": {
+        "fullPng": "reviewed",
+        "mobile375": "reviewed",
+        "mobile390": "reviewed",
+        "nativePdfPage": "reviewed",
+        "originalTextAndMetadata": "reviewed",
+        "sourceAndCounter": "reviewed",
+        "imageProportions": "reviewed",
+        "noObservedClipping": "pass"
+      },
+      "views": {
+        "fullPng": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/50-T37-aspect-specific-slide-slide/card-001.png",
+          "sha256": "6ae3733668549e9844d8e42d2a4ac85c1a760eb38f7941c16362233dd00e949f",
+          "bytes": 451065
+        },
+        "mobile375": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/50-T37-aspect-specific-slide-slide/card-001-mobile-375.png",
+          "sha256": "11da2ac68c4d0b25f814f7ab1c175104ec2ade5ebca0fe44a970a5c797911dec",
+          "bytes": 37223
+        },
+        "mobile390": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/50-T37-aspect-specific-slide-slide/card-001-mobile-390.png",
+          "sha256": "e31b0b19525836b7872549994f9bed190ece67a34b7fe2d3f4a98a65d14c1af1",
+          "bytes": 39883
+        },
+        "nativePdf": {
+          "file": "docs/evidence/aspects-run-40079964688/aspects/50-T37-aspect-specific-slide-slide/cards.pdf",
+          "sha256": "633e05df75aa859ca1088d99d45407656cfcd9b07f83310c686e90b988ade288",
+          "bytes": 3748569
+        },
+        "nativePdfPage": {
+          "file": "docs/evidence/aspects-run-40079964688/native-pdf-pages/50-T37-aspect-specific-slide-slide.png",
+          "sha256": "612647fe50050957af26101fae587812ca1367d9348ebec53090bcbe694399cb"
+        }
+      },
+      "pdfGeometry": {
+        "expectedPoints": [
+          1200,
+          675
+        ],
+        "actualPoints": [
+          1200,
+          675.12
+        ],
+        "delta": [
+          0,
+          0.12000000000000455
+        ]
+      },
+      "pdfText": {
+        "ciRaw": "verified-exact-NFC-segments",
+        "localPypdfNfcMissing": [
+          "窗边慢一拍",
+          "先看光影，再写所见。",
+          "原创合成图像与文案",
+          "AI 合成，非摄影。"
+        ],
+        "localPypdfNfkcMissing": [
+          "先看光影，再写所见。"
+        ]
+      }
+    }
+  ]
+}

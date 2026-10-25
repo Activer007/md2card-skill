@@ -1,6 +1,6 @@
 # Rendering contract (phase 3)
 
-> 当前 M2：48 个 standard / portrait 精确注册示例已独立复核并绑定当前 PNG，35 套 v2 / 13 套 v3。v1 / M1 v2 历史不变。四个既有 T04/T21 square/slide 短例已有当前产物复核，最终画幅绑定待 R12；最终 48-current 图库 UI 仍待发布后精确树验证。 见 [M2 精确验收](../docs/REFINEMENT_M2_ACCEPTANCE.md)。
+> 当前48个portrait示例、11个同文预览与8个指定画幅短例分别绑定各自证据。系列14卡的PR21复核另列，不借用portrait结论。[PR22本地图库复核](../docs/GALLERY_PR22_UI_REVIEW.md)66项通过、29张截图逐图查看；候选范围及保留限制见[本地交付](../docs/HANDOFF_DELIVERY.md)。
 
 Phase 3 adds bounded, opt-in semantic pagination to the v2 renderer. See
 [the development plan](../docs/DEVELOPMENT_PLAN.md) for commit-specific code, local,
@@ -328,12 +328,15 @@ fail instead of silently reinterpreting content. IDs are allowlisted and never
 used as a filesystem path, CSS or HTML input. Templates remain independent of
 legacy themes; changing a palette does not create another counted design.
 
-All 48 designs support 3:4 and manual pagination. Only T04/T21 additionally
-support the independently composed square/slide layouts described below. Automatic mode
-still rejects template/density metadata and supports layout-only explainer/steps.
-Text-only designs reject image metadata and inline images rather than hide them.
-Raw HTML escaping, local asset validation, all output/resource budgets, screen
-and print overflow checks and native searchable PDF verification remain in force.
+All 48 designs support 3:4 and manual pagination. Exactly 6 templates add
+8 extra aspect pairs: T04/T21 each add square and slide, T05/T13 add square only,
+and T24/T37 add slide only. Eight registered short fixtures are independently
+reviewed and bound in [the aspect evidence registry](../docs/aspect-gallery-evidence.json).
+The registry validates exact source semantics, inputs, aspect versions and real
+PNG/mobile/PDF bytes. It does not grant universal fit. Automatic mode still rejects
+template/density metadata and supports layout-only explainer/steps. Text-only
+designs reject images rather than hide them. All resource, overflow, asset and
+searchable-PDF checks remain in force.
 
 Template title/intro/section slots are derived from the safe Markdown tokens. A
 leading group of H1 headings becomes one visual title group; no wording, section,
@@ -364,21 +367,39 @@ two sibling quote blocks in each of its first two comparison sections; nested
 quotes do not count as options. T39/T40 figure ordering is repository-owned and
 cannot be set by input metadata. Every supplied source fragment remains intact.
 
-## Independent aspect layouts (M9, scoped acceptance)
+## Independent aspect layouts (M9 / R12, source support)
 
-Only T04 and T21 currently implement independent square (1:1) and slide (16:9)
-compositions in addition to portrait. The four registered standard-density short
-examples have current independently reviewed full PNG, 375/390 phone and native-PDF
-artifacts; final aspect-specific registry binding remains pending R12. The other
-successful aspect controls remain technical-only; this does not extend to arbitrary content or dimensions. Other templates still
-reject those ratios. Use --size or
-matching custom dimensions; public aspect metadata is not supported. The existing
-0.002 ratio tolerance is unchanged. The registry exposes per-aspect composition,
-example and status, while manifests record the actual derived aspect. Mobile
-body/source floors, manual defaults, auto rejection and overflow checks remain
-unchanged. A portrait source may legitimately overflow in square/slide. See
-[the aspect contract and exact validation evidence](../docs/TEMPLATE_ASPECTS.md).
+Exactly 6 templates add 8 extra aspect pairs beyond portrait:
+- T04/T21 each support independent square (1:1) and slide (16:9) compositions.
+- T05/T13 additionally support square only.
+- T24/T37 additionally support slide only.
+
+All other non-portrait template/ratio combinations return
+`TEMPLATE_ASPECT_UNSUPPORTED` before renderer acquisition. T37 preserves its
+required validated local image, full-frame contain behavior, alt and caption;
+image support does not loosen path, MIME or resource restrictions.
+
+All 48 current standard/portrait examples remain accepted (13 v3 / 35 v2).
+Eight exact aspect fixtures have independent full PNG, 375/390 and native-PDF
+review in [the PR22 record](../docs/ASPECT_PR22_REVIEW.md), separate from v1 historical evidence.
+T04/T21 four pairs are aspect-v2; four new R12 pairs are aspect-v1. The authenticated
+58-case run contains 28 exports, 8 allowed overflows, 14 expected pressure overflows
+and 8 unsupported-ratio refusals. The other 50 controls gain no visual acceptance.
+
+Use `--size` or matching custom dimensions; public aspect metadata is not
+supported. The inclusive 0.002 ratio tolerance is unchanged. The registry exposes
+per-aspect composition, example and status; manifests record the derived aspect.
+Mobile body/source floors, manual defaults, automatic-mode rejection and both
+screen/print overflow checks remain unchanged. A portrait source may legitimately
+overflow in square/slide. See [the aspect contract and historical evidence](../docs/TEMPLATE_ASPECTS.md).
 
 ### Optional footer modes
 
 `--footer-mode legacy` remains the default. Choose `poster` to omit only a final single-card counter, `series` for padded sequence numbers, or `report` for a more explicit source/footer treatment. Supplied source, brand/logo, footer and AI/fact caveats remain intact in every mode; these are not fields to delete for visual cleanliness. Card metadata and automatic-pagination support do not expand. See [footer contract](../docs/FOOTER_MODES.md). Fresh visual evidence is still pending.
+
+
+### R09 / R10：按任务选型与真实同文测试
+
+图库提供六条用途路线及短 / 中 / 中英混排三组同文，仍只有 48 套构图。run40079964688 的22案例已核验：17成功导出与5预期拒绝分别记录。三组绑定11个成功预览及T13指定中篇拒绝，精确PNG/手机图和新PDF页面的身份均核对；旧复核仅在像素逐字节相同时保留，短尾与窄栏限制继续显示。计划命令仅作源码检查，新内容仍需实际导出及独立复核。见[同文重新绑定](../docs/COMPARISON_PR22_REVIEW.md)和[图库说明](../docs/TEMPLATE_GALLERY.md)。
+
+R11 四组作者系列共5/3/3/3张，包含有条件比较→条件表→可撤回试用及单图观察→双图对照→未知边界札记。run40079867143的14卡已逐张检查full PNG、375/390和原生PDF，新增C/D六张使用自己的实际产物；品牌、页序、原文、代码、图片和限制保留，不强制封面/CTA或自动改写。见[系列独立复核](../docs/SERIES_PR21_REVIEW.md)。该结论仅属于记录的PR21来源与产物，不自动证明其他树或本地重新排版等价。

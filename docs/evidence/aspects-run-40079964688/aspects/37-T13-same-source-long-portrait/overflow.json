@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 2,
+  "status": "overflow",
+  "code": "CONTENT_OVERFLOW",
+  "input": "T13-long.md",
+  "theme": "editorial",
+  "dimensions": {
+    "width": 1080,
+    "height": 1440
+  },
+  "cards": [
+    {
+      "index": 1,
+      "sourceLines": [
+        1,
+        16
+      ],
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 956,
+          "height": 1221
+        },
+        "used": {
+          "width": 956,
+          "height": 26027
+        },
+        "occupied": {
+          "height": 26026.734375
+        },
+        "overflow": [
+          "content-height",
+          "tall-div",
+          "tall-section",
+          "tall-p"
+        ]
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 956,
+          "height": 1221
+        },
+        "used": {
+          "width": 956,
+          "height": 26027
+        },
+        "occupied": {
+          "height": 26026.734375
+        },
+        "overflow": [
+          "content-height",
+          "tall-div",
+          "tall-section",
+          "tall-p"
+        ]
+      }
+    }
+  ],
+  "guidance": "Shorten affected cards, add explicit === boundaries, or increase dimensions. No clipped exports were produced."
+}

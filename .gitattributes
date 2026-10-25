@@ -1,0 +1,10 @@
+# Evidence digests describe repository bytes, independent of checkout platform.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.pdf binary
+*.zip binary
+# Original evidence bytes are hashed verbatim, including text line endings.
+/docs/evidence/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

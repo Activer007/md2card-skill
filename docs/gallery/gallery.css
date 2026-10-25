@@ -78,3 +78,19 @@ footer { padding-block: 1.5rem 2.5rem; border-top: 1px solid var(--line); color:
 @media (max-width: 44rem) { .masthead, main, footer { width: min(100% - 1.5rem, 88rem); } .masthead { align-items: start; flex-direction: column; } .intro { grid-template-columns: 1fr; padding-top: 2.5rem; gap: 2rem; } .totals { max-width: 32rem; } .section-heading { align-items: start; flex-direction: column; gap: .5rem; } .accepted-grid, .pending-grid { grid-template-columns: 1fr; } .filter-grid { grid-template-columns: 1fr; } .card-content { padding: 1.2rem; } .preview-link { padding: 1rem; } nav { gap: 1.2rem; } }
 @media (forced-colors: active) { .status, .scope-note, .preview-link, .empty-state { border: 1px solid CanvasText; } }
 @media print { .masthead nav, .filters, .skip-link { display: none !important; } body { background: white; } .accepted-grid, .pending-grid { display: block; } .template { break-inside: avoid; margin-bottom: 1rem; } .preview-link { max-width: 20rem; } }
+/* Task routes and same-source comparisons share the one template catalogue. */
+.task-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+.task-route { min-width: 0; padding: 1.3rem; border-top: 2px solid var(--accent); background: var(--white); }
+.task-route p { color: var(--muted); font-size: .85rem; }
+.task-route ul { list-style: none; padding: 0; margin: 0; }
+.task-route li { margin-top: .55rem; font-size: .85rem; }
+.task-route li span { display: block; color: var(--muted); font-size: .7rem; }
+.comparison { padding-block: 1.5rem; border-top: 1px solid var(--line); min-width: 0; }
+.comparison > p { font-size: .85rem; }
+.comparison-pending { color: var(--muted); border-left: 2px solid var(--line); padding-left: 1rem; }
+.comparison-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.comparison-grid figure { margin: 0; min-width: 0; }
+.comparison-grid img { display: block; width: 100%; height: auto; }
+.comparison-grid figcaption { font-size: .8rem; margin-top: .4rem; }
+@media (max-width: 72rem) { .task-grid, .comparison-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 44rem) { .task-grid, .comparison-grid { grid-template-columns: 1fr; } }

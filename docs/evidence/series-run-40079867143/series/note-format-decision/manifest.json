@@ -1,0 +1,730 @@
+{
+  "schemaVersion": 2,
+  "status": "success",
+  "generator": {
+    "name": "md2card-skill",
+    "version": "3.0.0"
+  },
+  "createdAt": "2026-10-24T09:00:10.788Z",
+  "input": "note-format-decision.md",
+  "inputSha256": "5ef6945490e2c363971de77af09d419544c85dbe93c65649b1694fce9be7b045",
+  "title": "记录方式：先比较，再试用",
+  "theme": "editorial",
+  "footerMode": "legacy",
+  "styleSha256": {
+    "themes": "3636d2163b99d4bf6db3e8b073d0480dfa08ef98bf42f7fe89cdb8702e736835",
+    "layouts": "9d898b9ef473bd8b69599c502f5f94ebdffb8e2443b5cf24df484d05f6ec4cba",
+    "templates": "96bc9f1d0052d45a3ed5f1ab499de1121298922ffce6029f82a5256eed633708"
+  },
+  "brand": {
+    "name": "FIELDNOTES · 示例品牌",
+    "accent": "#9c3e24",
+    "logoHash": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791"
+  },
+  "dimensions": {
+    "width": 1080,
+    "height": 1440
+  },
+  "pngScale": 1,
+  "formats": [
+    "html",
+    "png",
+    "pdf"
+  ],
+  "cardCount": 3,
+  "artifacts": [
+    {
+      "format": "html",
+      "file": "cards.html",
+      "bytes": 141966,
+      "sha256": "e92e5dfcaf59159fa5647db53e0a3404314d1d8e40fbb08dca3129be799c7d85"
+    },
+    {
+      "format": "preview",
+      "file": "preview.html",
+      "bytes": 143120,
+      "sha256": "d185383882123e25fc2c3b48458ab8579788f01e06217a61a7cd708e631f76fa"
+    },
+    {
+      "format": "pdf",
+      "file": "cards.pdf",
+      "bytes": 448172,
+      "sha256": "e07678c40e51555a6d2c4fd41c0264c781e04c0d9e75d0901ec26dd46a2da898"
+    },
+    {
+      "format": "png",
+      "file": "card-001.png",
+      "bytes": 187133,
+      "sha256": "f1040b4f165224d8a877f693bcfa5fa1ad57ab2411de7fb40fce2ddacb377323",
+      "card": 1
+    },
+    {
+      "format": "png",
+      "file": "card-002.png",
+      "bytes": 171525,
+      "sha256": "96d529348a335bce393cc7d5e78fcc6fb0e22218a9dbb9e0ed5e5c5e5fa589a3",
+      "card": 2
+    },
+    {
+      "format": "png",
+      "file": "card-003.png",
+      "bytes": 177413,
+      "sha256": "6e569d5e75f930c7623a236044699ec16826bc718f700787b08539b6603c6dd7",
+      "card": 3
+    },
+    {
+      "format": "contact-sheet",
+      "file": "contact-sheet.png",
+      "bytes": 123810,
+      "sha256": "9f750592c6a66fe68613b10cb96889537fea98df5b6e18660eb7f1edbed63be3"
+    }
+  ],
+  "assets": [
+    {
+      "reference": "assets/demo-logo.png",
+      "hash": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791",
+      "mime": "image/png",
+      "width": 128,
+      "height": 128,
+      "bytes": 356
+    }
+  ],
+  "assetUsage": {
+    "occurrences": 3,
+    "pixels": 49152,
+    "embeddedBytes": 1494,
+    "loadedBytes": 356
+  },
+  "versions": {
+    "node": "22.23.3",
+    "md2card": "3.0.0",
+    "markdownIt": "15.0.3",
+    "playwright": "1.64.1",
+    "pdfinfo": "pdfinfo version 24.02.0",
+    "pdftotext": "pdftotext version 24.02.0",
+    "chromium": "156.0.8078.4"
+  },
+  "budget": {
+    "estimatedPixels": 5021600,
+    "cardPixels": 4665600,
+    "contactSheet": {
+      "columns": 3,
+      "rows": 1,
+      "width": 890,
+      "height": 400,
+      "pixels": 356000
+    },
+    "maxPixels": 200000000,
+    "maxOutputBytes": 268435456,
+    "timeoutMs": 120000,
+    "outputBytes": 1393139,
+    "elapsedMs": 1588
+  },
+  "qa": {
+    "overflow": {
+      "screen": "pass",
+      "print": "pass"
+    },
+    "images": {
+      "status": "pass",
+      "count": 3
+    },
+    "fonts": {
+      "scanAvailable": true,
+      "families": [
+        "Bitstream Charter",
+        "Courier 10 Pitch",
+        "DejaVu Math TeX Gyre",
+        "DejaVu Sans",
+        "DejaVu Sans Mono",
+        "DejaVu Sans,DejaVu Sans Condensed",
+        "DejaVu Sans,DejaVu Sans Light",
+        "DejaVu Serif",
+        "DejaVu Serif,DejaVu Serif Condensed",
+        "FreeMono",
+        "FreeSans",
+        "FreeSerif",
+        "IPAGothic,IPAゴシック",
+        "IPAPGothic,IPA Pゴシック,䥐䅐䝯瑨楣",
+        "Lato",
+        "Lato,Lato Black",
+        "Lato,Lato Hairline",
+        "Lato,Lato Heavy",
+        "Lato,Lato Light",
+        "Lato,Lato Medium",
+        "Lato,Lato Semibold",
+        "Lato,Lato Thin",
+        "Liberation Mono",
+        "Liberation Sans",
+        "Liberation Serif",
+        "Loma",
+        "Noto Color Emoji",
+        "Noto Sans CJK HK",
+        "Noto Sans CJK JP",
+        "Noto Sans CJK KR",
+        "Noto Sans CJK SC",
+        "Noto Sans CJK TC",
+        "Noto Sans Mono CJK HK",
+        "Noto Sans Mono CJK JP",
+        "Noto Sans Mono CJK KR",
+        "Noto Sans Mono CJK SC",
+        "Noto Sans Mono CJK TC",
+        "Noto Serif CJK HK",
+        "Noto Serif CJK JP",
+        "Noto Serif CJK KR",
+        "Noto Serif CJK SC",
+        "Noto Serif CJK TC",
+        "Unifont",
+        "Unifont CSUR",
+        "Unifont Sample",
+        "Unifont Upper",
+        "Unifont-JP",
+        "WenQuanYi Zen Hei Mono,文泉驛等寬正黑,文泉驿等宽正黑",
+        "WenQuanYi Zen Hei Sharp,文泉驛點陣正黑,文泉驿点阵正黑",
+        "WenQuanYi Zen Hei,文泉驛正黑,文泉驿正黑"
+      ],
+      "cjkFamilies": [
+        "Noto Sans CJK HK",
+        "Noto Sans CJK JP",
+        "Noto Sans CJK KR",
+        "Noto Sans CJK SC",
+        "Noto Sans CJK TC",
+        "Noto Sans Mono CJK HK",
+        "Noto Sans Mono CJK JP",
+        "Noto Sans Mono CJK KR",
+        "Noto Sans Mono CJK SC",
+        "Noto Sans Mono CJK TC",
+        "Noto Serif CJK HK",
+        "Noto Serif CJK JP",
+        "Noto Serif CJK KR",
+        "Noto Serif CJK SC",
+        "Noto Serif CJK TC",
+        "Unifont",
+        "Unifont Sample",
+        "Unifont-JP",
+        "WenQuanYi Zen Hei Mono,文泉驛等寬正黑,文泉驿等宽正黑",
+        "WenQuanYi Zen Hei Sharp,文泉驛點陣正黑,文泉驿点阵正黑",
+        "WenQuanYi Zen Hei,文泉驛正黑,文泉驿正黑"
+      ],
+      "requiredGlyphCount": 201,
+      "missingGlyphs": [],
+      "matchedFamily": "Noto Sans CJK SC",
+      "typography": {
+        "schemaVersion": 1,
+        "localOnly": true,
+        "browserSelection": "unverified",
+        "stacks": {
+          "sans": {
+            "requestedFamilies": [
+              "Inter",
+              "Helvetica Neue",
+              "Arial",
+              "Noto Sans CJK SC",
+              "Noto Sans SC",
+              "PingFang SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Sans CJK SC",
+            "fallback": "sans-serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "humanist": {
+            "requestedFamilies": [
+              "Aptos",
+              "Segoe UI",
+              "Optima",
+              "Noto Sans CJK SC",
+              "Noto Sans SC",
+              "PingFang SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Sans CJK SC",
+            "fallback": "sans-serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "geometric": {
+            "requestedFamilies": [
+              "Futura",
+              "Avenir Next",
+              "Century Gothic",
+              "Noto Sans CJK SC",
+              "Noto Sans SC",
+              "PingFang SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Sans CJK SC",
+            "fallback": "sans-serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "emphatic": {
+            "requestedFamilies": [
+              "Arial Black",
+              "Franklin Gothic Heavy",
+              "Noto Sans CJK SC",
+              "Noto Sans SC",
+              "PingFang SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Sans CJK SC",
+            "fallback": "sans-serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "serif": {
+            "requestedFamilies": [
+              "Iowan Old Style",
+              "Palatino Linotype",
+              "Georgia",
+              "Noto Serif CJK SC",
+              "Noto Serif SC",
+              "Source Han Serif SC",
+              "Songti SC",
+              "SimSun"
+            ],
+            "availableFamilies": [
+              "Noto Serif CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Serif CJK SC",
+            "fallback": "serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "literary": {
+            "requestedFamilies": [
+              "Noto Serif CJK SC",
+              "Noto Serif SC",
+              "Source Han Serif SC",
+              "Songti SC",
+              "SimSun",
+              "Georgia"
+            ],
+            "availableFamilies": [
+              "Noto Serif CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Serif CJK SC",
+            "fallback": "serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "rounded": {
+            "requestedFamilies": [
+              "Avenir Next",
+              "Trebuchet MS",
+              "Noto Sans CJK SC",
+              "Noto Sans SC",
+              "PingFang SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Noto Sans CJK SC",
+            "fallback": "sans-serif",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          },
+          "mono": {
+            "requestedFamilies": [
+              "SFMono-Regular",
+              "Cascadia Mono",
+              "Consolas",
+              "Liberation Mono",
+              "Noto Sans Mono CJK SC",
+              "Noto Sans CJK SC",
+              "Microsoft YaHei"
+            ],
+            "availableFamilies": [
+              "Liberation Mono",
+              "Noto Sans Mono CJK SC",
+              "Noto Sans CJK SC"
+            ],
+            "firstInstalledCandidate": "Liberation Mono",
+            "fallback": "monospace",
+            "selection": "local-candidate",
+            "browserSelection": "unverified"
+          }
+        },
+        "families": {
+          "editorial": {
+            "profile": "local-roles-editorial-v2",
+            "roles": {
+              "display": "serif",
+              "body": "sans",
+              "numeric": "sans",
+              "quote": "serif",
+              "source": "sans"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.52,
+            "quoteLineHeight": 1.64,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 1.04
+          },
+          "swiss": {
+            "profile": "local-roles-swiss-v2",
+            "roles": {
+              "display": "sans",
+              "body": "sans",
+              "numeric": "geometric",
+              "quote": "sans",
+              "source": "mono"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.46,
+            "quoteLineHeight": 1.55,
+            "bodyLetterSpacing": -0.005,
+            "paragraphGapScale": 0.9
+          },
+          "bauhaus": {
+            "profile": "local-roles-bauhaus-v2",
+            "roles": {
+              "display": "geometric",
+              "body": "sans",
+              "numeric": "geometric",
+              "quote": "geometric",
+              "source": "sans"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.48,
+            "quoteLineHeight": 1.56,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 0.94
+          },
+          "brutalist": {
+            "profile": "local-roles-brutalist-v2",
+            "roles": {
+              "display": "emphatic",
+              "body": "sans",
+              "numeric": "mono",
+              "quote": "sans",
+              "source": "mono"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.44,
+            "quoteLineHeight": 1.5,
+            "bodyLetterSpacing": -0.005,
+            "paragraphGapScale": 0.86
+          },
+          "technology": {
+            "profile": "local-roles-technology-v2",
+            "roles": {
+              "display": "humanist",
+              "body": "humanist",
+              "numeric": "mono",
+              "quote": "humanist",
+              "source": "mono"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.48,
+            "quoteLineHeight": 1.56,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 0.92
+          },
+          "business": {
+            "profile": "local-roles-business-v2",
+            "roles": {
+              "display": "sans",
+              "body": "humanist",
+              "numeric": "sans",
+              "quote": "serif",
+              "source": "sans"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.46,
+            "quoteLineHeight": 1.56,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 0.94
+          },
+          "journal": {
+            "profile": "local-roles-journal-v2",
+            "roles": {
+              "display": "serif",
+              "body": "humanist",
+              "numeric": "mono",
+              "quote": "literary",
+              "source": "mono"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.58,
+            "quoteLineHeight": 1.7,
+            "bodyLetterSpacing": 0.005,
+            "paragraphGapScale": 1.08
+          },
+          "eastern": {
+            "profile": "local-roles-eastern-v2",
+            "roles": {
+              "display": "literary",
+              "body": "literary",
+              "numeric": "serif",
+              "quote": "literary",
+              "source": "humanist"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.6,
+            "quoteLineHeight": 1.82,
+            "bodyLetterSpacing": 0.015,
+            "paragraphGapScale": 1.12
+          },
+          "newspaper": {
+            "profile": "local-roles-newspaper-v2",
+            "roles": {
+              "display": "serif",
+              "body": "literary",
+              "numeric": "mono",
+              "quote": "serif",
+              "source": "sans"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.48,
+            "quoteLineHeight": 1.6,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 0.94
+          },
+          "film": {
+            "profile": "local-roles-film-v2",
+            "roles": {
+              "display": "serif",
+              "body": "humanist",
+              "numeric": "mono",
+              "quote": "serif",
+              "source": "mono"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.5,
+            "quoteLineHeight": 1.64,
+            "bodyLetterSpacing": 0.005,
+            "paragraphGapScale": 1.02
+          },
+          "pop": {
+            "profile": "local-roles-pop-v2",
+            "roles": {
+              "display": "rounded",
+              "body": "sans",
+              "numeric": "mono",
+              "quote": "rounded",
+              "source": "sans"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.44,
+            "quoteLineHeight": 1.5,
+            "bodyLetterSpacing": 0,
+            "paragraphGapScale": 0.9
+          },
+          "nature": {
+            "profile": "local-roles-nature-v2",
+            "roles": {
+              "display": "literary",
+              "body": "humanist",
+              "numeric": "sans",
+              "quote": "literary",
+              "source": "serif"
+            },
+            "bodyWidthRatio": 0.043,
+            "noteWidthRatio": 0.0335,
+            "bodyLineHeight": 1.56,
+            "quoteLineHeight": 1.68,
+            "bodyLetterSpacing": 0.005,
+            "paragraphGapScale": 1.06
+          }
+        }
+      }
+    },
+    "pdf": {
+      "schemaVersion": 1,
+      "status": "pass",
+      "ok": true,
+      "pageCount": 3,
+      "textCharacters": 549,
+      "searchable": true,
+      "checks": [
+        {
+          "id": "pdf-pages",
+          "status": "pass",
+          "message": "PDF contains 3 page(s).",
+          "details": {
+            "expectedPages": 3,
+            "actualPages": 3
+          }
+        },
+        {
+          "id": "pdf-text",
+          "status": "pass",
+          "message": "PDF contains extractable, searchable text.",
+          "details": {
+            "textCharacters": 549,
+            "expectedSnippetCount": 0
+          }
+        }
+      ],
+      "tools": {
+        "pdfinfo": true,
+        "pdftotext": true
+      }
+    },
+    "visualReview": "not-performed"
+  },
+  "pagination": {
+    "mode": "manual"
+  },
+  "cards": [
+    {
+      "index": 1,
+      "layout": "comparison",
+      "template": "T06",
+      "density": "standard",
+      "aspect": "portrait",
+      "sourceLines": [
+        1,
+        13
+      ],
+      "sourceSha256": "259145bc40f695d9a2326b3bed981f39e350c73ae891db42aabfa91db74f32ff",
+      "screen": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1169
+        },
+        "used": {
+          "width": 968,
+          "height": 1169
+        },
+        "occupied": {
+          "height": 1169.109375
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 1,
+        "available": {
+          "width": 968,
+          "height": 1169
+        },
+        "used": {
+          "width": 968,
+          "height": 1169
+        },
+        "occupied": {
+          "height": 1169.109375
+        },
+        "overflow": []
+      }
+    },
+    {
+      "index": 2,
+      "layout": "comparison",
+      "template": "T24",
+      "density": "standard",
+      "aspect": "portrait",
+      "sourceLines": [
+        15,
+        32
+      ],
+      "sourceSha256": "d7920ad17d727565cbbe4ba3e39a7757d51e4715ab207201c7e15cf273743d0d",
+      "screen": {
+        "index": 2,
+        "available": {
+          "width": 968,
+          "height": 1169
+        },
+        "used": {
+          "width": 968,
+          "height": 1169
+        },
+        "occupied": {
+          "height": 1169.109375
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 2,
+        "available": {
+          "width": 968,
+          "height": 1169
+        },
+        "used": {
+          "width": 968,
+          "height": 1169
+        },
+        "occupied": {
+          "height": 1169.109375
+        },
+        "overflow": []
+      }
+    },
+    {
+      "index": 3,
+      "layout": "steps",
+      "template": "T14",
+      "density": "standard",
+      "aspect": "portrait",
+      "sourceLines": [
+        34,
+        43
+      ],
+      "sourceSha256": "5058cf448f21c47ea858d0dc5a9431abb1c32e8110861ff7caa82d09d64f6c50",
+      "screen": {
+        "index": 3,
+        "available": {
+          "width": 968,
+          "height": 1168
+        },
+        "used": {
+          "width": 968,
+          "height": 1168
+        },
+        "occupied": {
+          "height": 1168.3125
+        },
+        "overflow": []
+      },
+      "print": {
+        "index": 3,
+        "available": {
+          "width": 968,
+          "height": 1168
+        },
+        "used": {
+          "width": 968,
+          "height": 1168
+        },
+        "occupied": {
+          "height": 1168.3125
+        },
+        "overflow": []
+      }
+    }
+  ],
+  "security": {
+    "rawHtml": "escaped",
+    "images": "validated-local-raster-only",
+    "assetBoundary": "realpath-contained",
+    "networkRequests": "blocked",
+    "clientScripts": "disabled"
+  }
+}

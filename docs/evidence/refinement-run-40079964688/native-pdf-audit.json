@@ -1,0 +1,396 @@
+{
+  "schemaVersion": 1,
+  "identity": {
+    "commit": "05f6bb6e484cb8887ea037e520a733db9303563d",
+    "tree": "9dee88002e629b44dbd7e141874fe5388b5e7b9d",
+    "sourceSha256": "473cd63ff3ff57cacdcf1bee29044d53bf02ce062b4b40bc027db529462859c1",
+    "runUrl": "https://github.com/Activer007/md2card-skill/actions/runs/40079964688",
+    "artifactId": 12554054288,
+    "archiveSha256": "794985f23429b86be89a8790070ee4f2e4b168d8160239bcb5dfc06761d52d5b"
+  },
+  "bindingSha256": "647ad2a81847358e4e84ee8eac4cc7f58604b457f665003ba64efa13c876576f",
+  "status": "pdf-audited-with-extraction-differences-visual-review-pending",
+  "records": [
+    {
+      "id": "short-T04",
+      "pdfSha256": "0635d6b84093711e87b97af63f95ea32732c3fa978da5cd2d741180f9573705e",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 8,
+      "textSha256": "62c9cb53e3e7b8b543067a8d1c2c5e42347c6c4c4968bd7dec934e369a19dd50",
+      "rasterSha256": "7d8c3e5d3ac2662b55414249f842fa70ee922c44b626508c554d43e297601c5f",
+      "raster": "short-T04.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "不能确定的地方先标记，回看原文后再作判断。",
+        "记录不是把材料搬进另一处。先写下自己想回答的问题。",
+        "原创阅读练习·非外部引文，不构成研究结论",
+        "给笔记留一条线索"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "short-T06",
+      "pdfSha256": "1ebbf1bdc5ec6bcfdb1e477374ad2034dcfc6ce9b2508dfa6dc59c78b46cd8bc",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 8,
+      "textSha256": "67132349dca94060a4c675a9e98aea863815a445d29386b9113f540fa1b5664d",
+      "rasterSha256": "04d6a9c29b7e18d3b93b243f386d003b19d6c251b024c1f8827e93132fd56636",
+      "raster": "short-T06.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "不能确定的地方先标记，回看原文后再作判断。",
+        "记录不是把材料搬进另一处。先写下自己想回答的问题。",
+        "原创阅读练习·非外部引文，不构成研究结论",
+        "给笔记留一条线索"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "short-T10",
+      "pdfSha256": "53a4176586520f382765e033396fb80df22431ad4fc1b9cc2693f19e8ea3670e",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 8,
+      "textSha256": "2d8ebbbffd2d4cfda94005d3507c75e4da0a733c4d002db66cce368c7e510f6e",
+      "rasterSha256": "18d96c73f6e0c82e1db527e3c5a52eb9ad0cf266e9c15e53ff39220a16d55268",
+      "raster": "short-T10.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "不能确定的地方先标记，回看原文后再作判断。",
+        "记录不是把材料搬进另一处。先写下自己想回答的问题。",
+        "原创阅读练习·非外部引文，不构成研究结论",
+        "给笔记留一条线索"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "short-T13",
+      "pdfSha256": "da6e188bb4f3c64b7441127442daf0a7ad3d873b04e29143fa15f31aee1bf029",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 8,
+      "textSha256": "debbda98b7ce25de106afddf07613907a1ae859949e45d1e9a12bc549a1b8ff3",
+      "rasterSha256": "7970c863d5ce72381b754d0d6646cfede5ecdf46e206b2ac43e2765be75dbf86",
+      "raster": "short-T13.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "不能确定的地方先标记，回看原文后再作判断。",
+        "记录不是把材料搬进另一处。先写下自己想回答的问题。",
+        "原创阅读练习·非外部引文，不构成研究结论",
+        "给笔记留一条线索"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "medium-T04",
+      "pdfSha256": "6ac6b5b2e133ff19db26cff4ed5ae101a3696b433d965d67af3ad0d27aabdce5",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 8,
+      "textSha256": "b4f1dae8aa1d2b3a737e4b069219441daaab06d2f8e5e4b73ef2e71df688ff0a",
+      "rasterSha256": "aaa36762f4251b4d04c9d1cdc5f8caf28e1cdd9b67265263294a2a22b323259a",
+      "raster": "medium-T04.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "一条笔记不必包办整篇文章。把材料、问题和自己的理解分开，下一次回来时才知道哪句话需要重新核对。",
+        "用一句自己的话说明材料为什么有用。暂时无法判断的地方标记为疑问，不把猜测写成原文的主张。",
+        "原创阅读练习·非外部引文，不构成研究结论",
+        "写下你想解释的现象，再记录与它有关的片段。不要只摘下结论，还要留下条件、对象和原始出处。",
+        "让笔记可以再次使用"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "medium-T06",
+      "pdfSha256": "139e62b8137324329db2b29519146d45a795de9077dc0edca007881258ff0728",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 8,
+      "textSha256": "e3d02ca5036601811e507924720d51768ab72a37f732ab7dbf1cd243d58bceb2",
+      "rasterSha256": "38a9fe4fde8f412d6db580dce748e57d6cfffd9e6f955253f886d4f94bb313fd",
+      "raster": "medium-T06.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "一条笔记不必包办整篇文章。把材料、问题和自己的理解分开，下一次回来时才知道哪句话需要重新核对。",
+        "用一句自己的话说明材料为什么有用。暂时无法判断的地方标记为疑问，不把猜测写成原文的主张。",
+        "原创阅读练习·非外部引文，不构成研究结论",
+        "写下你想解释的现象，再记录与它有关的片段。不要只摘下结论，还要留下条件、对象和原始出处。",
+        "让笔记可以再次使用"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "medium-T10",
+      "pdfSha256": "08107089ef869a633dbb697bfa9fe1f08ad73e6ea096e5d9eb100b0083d36acb",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 8,
+      "textSha256": "d47d2eea2ef88b27df25221c59755fb542795b346e451e126d5c14a5fc5a3448",
+      "rasterSha256": "4ad498fb04f6574f33c97e50b6e093b79feb39d418faf609a426eb6aa4924561",
+      "raster": "medium-T10.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "一条笔记不必包办整篇文章。把材料、问题和自己的理解分开，下一次回来时才知道哪句话需要重新核对。",
+        "用一句自己的话说明材料为什么有用。暂时无法判断的地方标记为疑问，不把猜测写成原文的主张。",
+        "原创阅读练习·非外部引文，不构成研究结论",
+        "写下你想解释的现象，再记录与它有关的片段。不要只摘下结论，还要留下条件、对象和原始出处。",
+        "让笔记可以再次使用"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "mixed-T04",
+      "pdfSha256": "ade08b5a82b9614ef162ab14be4234578b3953f693e13b5b6bbe6388f0a65f96",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 8,
+      "textSha256": "4a879d79d7b0e13b7b7fd7bbec37fc1ae4137d2f548d92c32151e9a7e7455cb0",
+      "rasterSha256": "bf0852453b2d281d0bbbbdccb6f0bbc6bb2b0e5cbe0de417ad636cec7708a2e4",
+      "raster": "mixed-T04.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "原文与解释分开放",
+        "回看适用对象与限定条件。遇到uncertainevidence，先留下问题，不补造数字或结论。",
+        "原创阅读练习·非外部引文，不构成研究结论",
+        "Anoteisatrace,notaverdict.这是一条原创练习，不是外部研究结论。",
+        "先记录原句，再写自己的interpretation。链接只是查找入口，不代表已经核对来源。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "mixed-T17",
+      "pdfSha256": "4c1d24f882c3089e0e0be4186779acf94f14c1e2e593f542007708a6101a1f15",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 8,
+      "textSha256": "63c8c87a449d61c1840bca32db795cd29156a68e388f19e3f947e41d86d7d034",
+      "rasterSha256": "cd0227d06e57f213b67973965fd5943370afb49b137381b84512bb520733a9b3",
+      "raster": "mixed-T17.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "原文与解释分开放",
+        "回看适用对象与限定条件。遇到uncertainevidence，先留下问题，不补造数字或结论。",
+        "原创阅读练习·非外部引文，不构成研究结论",
+        "Anoteisatrace,notaverdict.这是一条原创练习，不是外部研究结论。",
+        "先记录原句，再写自己的interpretation。链接只是查找入口，不代表已经核对来源。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "mixed-T18",
+      "pdfSha256": "1ef2c1432716cc440f9491842ea22aadda40f102454a22908614917990e5f5d4",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 8,
+      "textSha256": "319515db31c06a1c6594fae4a89b37af55bd6ebff16fac52cf99a42133efbcb1",
+      "rasterSha256": "ded4a1ade7c8ff971ab4ecbbcfc5895c2e9020e899cf558e4f58810b0004b003",
+      "raster": "mixed-T18.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "原文与解释分开放",
+        "回看适用对象与限定条件。遇到uncertainevidence，先留下问题，不补造数字或结论。",
+        "原创阅读练习·非外部引文，不构成研究结论",
+        "Anoteisatrace,notaverdict.这是一条原创练习，不是外部研究结论。",
+        "先记录原句，再写自己的interpretation。链接只是查找入口，不代表已经核对来源。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "mixed-T33",
+      "pdfSha256": "3d7ec7d43fae174886152180e313ed3b87c23d3663db859c7d9f56f9503c60e7",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 8,
+      "textSha256": "069c32d385b763a474d0a029f68bf60737c19f2bef38d66577840d6332275288",
+      "rasterSha256": "5fa684dd9d16aceb35803fae4d2e15e788f3762a3a0de79eff0f609861730905",
+      "raster": "mixed-T33.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "原文与解释分开放",
+        "回看适用对象与限定条件。遇到uncertainevidence，先留下问题，不补造数字或结论。",
+        "原创阅读练习·非外部引文，不构成研究结论",
+        "Anoteisatrace,notaverdict.这是一条原创练习，不是外部研究结论。",
+        "先记录原句，再写自己的interpretation。链接只是查找入口，不代表已经核对来源。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "image-landscape",
+      "pdfSha256": "38e7c4b73d756460b9f71bd89c1728e24acd1776cd081b7678fea5a08bef30cb",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 5,
+      "textSha256": "b755b96d7b1187d1d9dc1e09a47fbcaedaf64447c0440436c4d3112dd7445f70",
+      "rasterSha256": "8035a2ba806d254fb85eced843ff218e3559bdd732310b5e3168ab949a52b5ff",
+      "raster": "image-landscape.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+        "先保留完整画面",
+        "原创图像比例练习·图片性质以图注为准",
+        "AI生成插画，不是纪实照片。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "image-portrait",
+      "pdfSha256": "c9e19b47edceecb66a334c77721bf55925c549327951989456d6030293c608c0",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 5,
+      "textSha256": "07493bae0dc310ca0eb2a19683e9ff1df3b82eec4b395281d420b5d807ae1bc6",
+      "rasterSha256": "6436f44712144999673ab305d5ed88091f8315bb08307b4294219cf2eb5c7f4a",
+      "raster": "image-portrait.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+        "先保留完整画面",
+        "原创图像比例练习·图片性质以图注为准",
+        "AI虚构人物，非真实访谈。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "image-transparent",
+      "pdfSha256": "25e9f09d3018b310a3005812510d1b4d495c6f884de70fe12486315e6285c983",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 5,
+      "textSha256": "e11e184e1fd53a31c2ea194cbbca3145d9468949a99addb3667d1d1f76c9a653",
+      "rasterSha256": "2e99ceddaf611d1bf4e09404574346ce8f8f1fdddfb9bf4e6ede6cdcead6761a",
+      "raster": "image-transparent.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+        "先保留完整画面",
+        "原创图像比例练习·图片性质以图注为准",
+        "AI插画，不用于植物鉴定。"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "image-interface",
+      "pdfSha256": "d1238c87685f292a791a57fb1deec01b3e85ba743231531e1098fe230bdb5f00",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 5,
+      "textSha256": "9014caf09e7cef32f5e857905ebadd03b71c0789a21cc3f56cccee3045b9e20a",
+      "rasterSha256": "79f87ec7cbc65f819f2457de6acbb0f31bdb1bdb521c85a572dabfe8d4b66c85",
+      "raster": "image-interface.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+        "先保留完整画面",
+        "非真实产品截图；图内微字不作为手机正文。",
+        "原创图像比例练习·图片性质以图注为准"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "image-wide",
+      "pdfSha256": "fdacefc3812d565ab23df132688ed84ea864f110e53b34a4cd07d890878068ba",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 5,
+      "textSha256": "ef307a9b6df6f00288d40ef126b0211d4e7ba2c3c10164a7d18624073ac391a5",
+      "rasterSha256": "5cfa79b605b402d7e3bd060d494a8d345ce6fafa6a23e8b87930369dc91f0694",
+      "raster": "image-wide.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+        "先保留完整画面",
+        "完整边缘用于核对比例，不是摄影作品。",
+        "原创图像比例练习·图片性质以图注为准"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    },
+    {
+      "id": "image-tall",
+      "pdfSha256": "e3c7c38824c23e84ec8d98e31b700835713c6bf7bbb0196203ea90d081f64c81",
+      "pageCount": 1,
+      "pagePoints": [
+        810,
+        1080
+      ],
+      "sourceSegments": 5,
+      "textSha256": "ef307a9b6df6f00288d40ef126b0211d4e7ba2c3c10164a7d18624073ac391a5",
+      "rasterSha256": "e363a88b8013ebccb3d21474f62a787e596c09ab818ea725bb5ae5e8ceec653c",
+      "raster": "image-tall.png",
+      "textExtraction": "pypdf plain",
+      "exactNfcMissing": [
+        "这张图片只用于观察完整构图。保留原始比例，不裁切，不从画面推断未提供的事实。",
+        "先保留完整画面",
+        "完整边缘用于核对比例，不是摄影作品。",
+        "原创图像比例练习·图片性质以图注为准"
+      ],
+      "compatibilityNfkcMissing": [],
+      "visualReview": "not-performed"
+    }
+  ]
+}

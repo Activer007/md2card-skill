@@ -53,6 +53,9 @@ jobs:
       - name: Validate explicit footer modes without discarding source text
         if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
         run: node scripts/validate-footers.mjs
+      - name: Validate real-content and image-proportion matrix
+        if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
+        run: node scripts/validate-refinement.mjs
       - name: Validate optional authored series
         if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
         run: node scripts/validate-series.mjs
@@ -66,7 +69,7 @@ jobs:
           npm run validate:gallery -- --allow-browser
       - name: Validate selected independent square and slide compositions
         if: ${{ !cancelled() && steps.tests.outcome == 'success' }}
-        run: node scripts/validate-aspects.mjs
+        run: node scripts/validate-aspects.mjs --allow-browser
       - name: Upload actual rendered showcase artifacts
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

@@ -142,15 +142,17 @@ Do not treat example acceptance as a guarantee for arbitrary input. Select a
 registry ID with `--template` or per-card `template` metadata; density changes
 spacing only. Templates remain manual-only and do not inherit legacy theme CSS.
 
-Consult the registry's per-aspect support and acceptance status. T04/T21 also have
-four current independently reviewed standard-density square/slide short examples;
-final aspect-specific registry binding remains pending R12. This does not approve
-all 12 exported aspect controls. Other
-templates do not gain those aspects, and longer portrait inputs can overflow. Select
-`--size` or matching dimensions, never card `aspect` metadata. Keep the same
-mobile body/source floors and fail overflowing text unchanged; new shorter
-examples are separate authored inputs, not automatic edits to user content. See
-[the aspect contract](docs/TEMPLATE_ASPECTS.md).
+Consult the layout registry for support and the separate verified evidence registry for acceptance. Exactly 6 templates add
+8 extra aspect pairs: T04/T21 each add square and slide, T05/T13 add square only,
+and T24/T37 add slide only. All other non-portrait combinations are rejected.
+All 48 exact standard/portrait examples remain accepted (13 v3 / 35 v2).
+Eight exact short fixtures now have their own PNG, 375/390 and native-PDF review
+and binding in [the aspect evidence registry](docs/aspect-gallery-evidence.json),
+with immutable v1 historical evidence retained. T04/T21 are aspect-v2; the four
+new pairs are aspect-v1. Parent portrait acceptance does not validate them.
+Longer inputs can overflow; preserve body/source floors, full images and source.
+Use --size or matching dimensions, never card aspect metadata.
+See [the aspect contract](docs/TEMPLATE_ASPECTS.md).
 
 Use `node scripts/render.mjs --help` for the actual CLI contract. Install dependencies
 only when needed and permitted by the environment. The renderer needs Node.js,
@@ -219,3 +221,10 @@ Do not upload, publish, or install this skill elsewhere unless asked.
 ### Optional footer modes
 
 `--footer-mode legacy` remains the default. Choose `poster` to omit only a final single-card counter, `series` for padded sequence numbers, or `report` for a more explicit source/footer treatment. Supplied source, brand/logo, footer and AI/fact caveats remain intact in every mode; these are not fields to delete for visual cleanliness. Card metadata and automatic-pagination support do not expand. See [footer contract](docs/FOOTER_MODES.md). Fresh visual evidence is still pending.
+
+
+### R09 / R10：按任务选型与真实同文测试
+
+图库提供六条用途路线及短 / 中 / 中英混排三组同文，仍只有 48 套构图。run40079964688 的22案例已核验：17成功导出与5预期拒绝分别记录。三组绑定11个成功预览及T13指定中篇拒绝，精确PNG/手机图和新PDF页面的身份均核对；旧复核仅在像素逐字节相同时保留，短尾与窄栏限制继续显示。计划命令仅作源码检查，新内容仍需实际导出及独立复核。见[同文重新绑定](docs/COMPARISON_PR22_REVIEW.md)和[图库说明](docs/TEMPLATE_GALLERY.md)。
+
+R11 四组作者系列共5/3/3/3张，包含有条件比较→条件表→可撤回试用及单图观察→双图对照→未知边界札记。run40079867143的14卡已逐张检查full PNG、375/390和原生PDF，新增C/D六张使用自己的实际产物；品牌、页序、原文、代码、图片和限制保留，不强制封面/CTA或自动改写。见[系列独立复核](docs/SERIES_PR21_REVIEW.md)。该结论仅属于记录的PR21来源与产物，不自动证明其他树或本地重新排版等价。

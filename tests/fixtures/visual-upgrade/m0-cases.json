@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "70383b8f05fbf56112bdf10dd9fddf7b9920756a",
+  "baselineTree": "6c58c1e61d4150248bf7ff6a79b46f3bf68e6408",
+  "description": "M0 original short examples and rejection contracts; this is not a universal template acceptance matrix.",
+  "goldens": [
+    {
+      "id": "T20",
+      "input": "examples/templates/T20.md",
+      "assetRoot": "examples/templates",
+      "inputSha256": "0b56fdfa68cf2f94e3d8249cf48beaebe1de3941dc38cd2f22eb631b80c9f483"
+    },
+    {
+      "id": "T37",
+      "input": "examples/templates/T37.md",
+      "assetRoot": "examples/templates",
+      "inputSha256": "10092106b880769b4bb0064bd3a1cd395193500eec941651e40496083f22887c"
+    },
+    {
+      "id": "T01",
+      "input": "examples/templates/T01.md",
+      "assetRoot": "examples/templates",
+      "inputSha256": "4bc9e00e4b1fa63748f982fbfec4502c92d19ce1bbf5c8a001bbdf626cf356ab"
+    },
+    {
+      "id": "T05",
+      "input": "examples/templates/T05.md",
+      "assetRoot": "examples/templates",
+      "inputSha256": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3"
+    }
+  ],
+  "rejections": [
+    {
+      "id": "unknown-metadata",
+      "input": "tests/fixtures/visual-upgrade/invalid-metadata.md",
+      "args": [],
+      "expectedCode": "INVALID_METADATA"
+    },
+    {
+      "id": "remote-image",
+      "input": "tests/fixtures/visual-upgrade/remote-image.md",
+      "args": [
+        "--asset-root",
+        "examples/templates"
+      ],
+      "expectedCode": "INVALID_ASSET"
+    },
+    {
+      "id": "unsupported-aspect",
+      "input": "examples/templates/T20.md",
+      "args": [
+        "--asset-root",
+        "examples/templates",
+        "--size",
+        "square"
+      ],
+      "expectedCode": "TEMPLATE_ASPECT_UNSUPPORTED"
+    },
+    {
+      "id": "auto-template",
+      "input": "examples/templates/T01.md",
+      "args": [
+        "--paginate",
+        "auto"
+      ],
+      "expectedCode": "PAGINATION_UNSUPPORTED_METADATA"
+    }
+  ]
+}

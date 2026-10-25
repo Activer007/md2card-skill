@@ -1,0 +1,8 @@
+# Evidence digests describe repository bytes, independent of checkout platform.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.pdf binary
+*.zip binary

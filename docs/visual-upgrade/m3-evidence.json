@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "archive": "docs/evidence/m3-visual-diagnostics.tar.xz",
+  "bytes": 18530676,
+  "sha256": "a4d7fac4920f5fadc69571d7b4d90eb17b9391d5c1eddbde2f6951f11cf735d4",
+  "files": 189,
+  "baseCommit": "07ff4808dfd8fed73422d240dac5336ad1733566",
+  "htmlEqualityCases": 108,
+  "successfulDecks": 10,
+  "cards": 20,
+  "expectedRefusals": 2,
+  "humanVisualReview": "not-performed",
+  "tests": {
+    "unit": {
+      "total": 623,
+      "passed": 621,
+      "failed": 0,
+      "skipped": 2
+    },
+    "realBrowserAudit": {
+      "passed": 13,
+      "skipped": 0
+    },
+    "requiredBrowserPdfIntegration": {
+      "passed": 21,
+      "skipped": 0
+    }
+  },
+  "limitations": "See M3_VISUAL_DIAGNOSTICS.md and M3_REVIEW.md; no automatic visual acceptance."
+}

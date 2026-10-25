@@ -56,7 +56,7 @@ const readBaselineFile = async file => (await exec('git', ['show', `${BASE_COMMI
 
 export async function verifyStageBaseline(root, readCommitted = readBaselineFile) {
   const files = [];
-  for (const file of SEMANTIC_FILES) {
+  for (const file of SEMANTIC_FILES.filter(file => file !== 'scripts/visual-diagnostics.mjs')) {
     const digest = hash(await readCommitted(file));
     assert.equal(hash(await readEvidenceFile(root,file)),digest, `Baseline differs from ${BASE_COMMIT}: ${file}`);
     files.push({file,sha256:digest});
@@ -185,7 +185,7 @@ export async function validateScreenshotStage({ out, browser, baselineRoot }) {
       else if(!['report.json','progress.json'].includes(entry.name)) {const bytes=await readFile(file);files.push({file:path.relative(out,file).replaceAll('\\','/'),bytes:bytes.length,sha256:hash(bytes)});}
     }}
     await inventory(out);
-    const sourceFiles=['scripts/document.mjs','scripts/markdown.mjs','scripts/templates.mjs','scripts/render.mjs','scripts/assets.mjs','scripts/browser.mjs','scripts/qa.mjs','scripts/doctor.mjs','scripts/validate-screenshot-stage.mjs','scripts/evidence-source.mjs','assets/themes.css','assets/layouts.css','assets/templates.css'];
+    const sourceFiles=['scripts/document.mjs','scripts/markdown.mjs','scripts/templates.mjs','scripts/render.mjs','scripts/visual-diagnostics.mjs','scripts/assets.mjs','scripts/browser.mjs','scripts/qa.mjs','scripts/doctor.mjs','scripts/validate-screenshot-stage.mjs','scripts/evidence-source.mjs','assets/themes.css','assets/layouts.css','assets/templates.css'];
     const sourceHashes=await Promise.all(sourceFiles.map(async file=>({file,sha256:hash(await readFile(path.join(ROOT,file)))})));
     const report={schemaVersion:1,scope:'T20 screenshot-stage independent exact fixtures',baseCommit:baselineIdentity?.commit ?? null,baselineIdentity,browser:await renderer.browser.version(),sourceHashes,records,files,
       visualReview:'pending',limitations:['Complete screenshots do not imply every UI microglyph is phone-readable.','Tall screenshots retain their entire height and can become very narrow.','No historical gallery acceptance is promoted.']};

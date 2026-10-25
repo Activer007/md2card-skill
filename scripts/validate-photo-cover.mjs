@@ -39,7 +39,7 @@ export function defaultPhotoInput(source) {
 }
 async function verifyBaseline(root) {
   const files=[];
-  for(const file of SEMANTIC_FILES) {
+  for(const file of SEMANTIC_FILES.filter(file => file !== 'scripts/visual-diagnostics.mjs')) {
     const old=(await exec('git',['show',`${BASE}:${file}`],{cwd:ROOT,encoding:'buffer',windowsHide:true,maxBuffer:8*1024*1024,timeout:20000})).stdout;
     assert.equal(hash(await readEvidenceFile(root,file)),hash(old),`Baseline differs: ${file}`);files.push({file,sha256:hash(old)});
   }

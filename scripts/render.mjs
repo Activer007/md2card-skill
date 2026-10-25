@@ -15,6 +15,7 @@ import { inspectEnvironment } from './doctor.mjs';
 import { inspectPdf } from './qa.mjs';
 import { Md2CardError, normalizeError } from './errors.mjs';
 import { getTemplate, TEMPLATES, resolveTemplateAspect } from './templates.mjs';
+import { collectVisualGeometry, buildVisualDiagnostics } from './visual-diagnostics.mjs';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 export const VERSION = '3.0.0';
@@ -33,6 +34,7 @@ Usage: node scripts/render.mjs input.md --out ./output
   --format LIST     all (default), html, png, pdf or comma-separated list
   --paginate MODE   manual (default) or auto; measured semantic pagination
   --balance-tail    Opt-in bounded sparse-tail balancing; requires auto
+  --visual-audit    Opt-in measured advisory visual-diagnostics.json; no human acceptance
   --size NAME       portrait 1080×1440, square 1080×1080, slide 1600×900
   --width PX        Override width, integer 200–4096
   --height PX       Override height, integer 200–4096
@@ -75,7 +77,7 @@ export function parseOptions(argv) {
     size: { type: 'string', default: 'portrait' }, width: { type: 'string' }, height: { type: 'string' }, scale: { type: 'string', default: '1' },
     'body-size': { type: 'string', default: 'medium' }, footer: { type: 'string', default: '' }, 'footer-mode': { type: 'string', default: 'legacy' }, title: { type: 'string' }, lang: { type: 'string', default: 'zh-CN' }, browser: { type: 'string' },
     'asset-root': { type: 'string' }, brand: { type: 'string' }, preview: { type: 'boolean', default: false }, 'contact-sheet': { type: 'boolean', default: false },
-    strict: { type: 'boolean', default: false }, doctor: { type: 'boolean', default: false }, json: { type: 'boolean', default: false },
+    strict: { type: 'boolean', default: false }, doctor: { type: 'boolean', default: false }, json: { type: 'boolean', default: false }, 'visual-audit': { type: 'boolean', default: false },
     'timeout-ms': { type: 'string', default: '120000' }, help: { type: 'boolean', short: 'h' }, version: { type: 'boolean' }
   } }); } catch (error) { fail('INVALID_OPTIONS', error.message); }
   const { values, positionals } = parsed;
@@ -104,7 +106,7 @@ export function parseOptions(argv) {
   const input = path.resolve(positionals[0]);
   return { ...values, bodySize, input, out: path.resolve(values.out || path.join('output', path.parse(input).name)), width, height, scale, formats,
     title: values.title ?? path.basename(input), assetRoot: path.resolve(values['asset-root'] || path.dirname(input)), brandFile: values.brand ? path.resolve(values.brand) : undefined,
-    contactSheet: values['contact-sheet'], balanceTail: values['balance-tail'], footerMode: values['footer-mode'], timeoutMs };
+    contactSheet: values['contact-sheet'], balanceTail: values['balance-tail'], visualAudit: values['visual-audit'], footerMode: values['footer-mode'], timeoutMs };
 }
 
 export function checkRenderBudget(cardCount, options) {
@@ -169,6 +171,7 @@ export function countDocumentAssets(cards, loadedAssets, brand) {
 }
 
 export async function exportCards(options, dependencies = {}) {
+  if (options.visualAudit !== undefined && typeof options.visualAudit !== 'boolean') fail('INVALID_OPTIONS', 'visualAudit must be a boolean.');
   const footerMode = options.footerMode === undefined ? 'legacy' : options.footerMode;
   if (!FOOTER_MODES.includes(footerMode)) fail('INVALID_OPTIONS', `footerMode accepts ${FOOTER_MODES.join(', ')}.`);
   if (options.balanceTail !== undefined && typeof options.balanceTail !== 'boolean') fail('INVALID_OPTIONS', 'balanceTail must be a boolean.');
@@ -274,10 +277,14 @@ export async function exportCards(options, dependencies = {}) {
     const assetUsage = countDocumentAssets(cards, assets.getAssets(), brand);
     const imageQa = await loadDocument(html);
     const screenMeasurements = await withinDeadline(measure(page));
+    const collect = dependencies.collectVisualGeometry ?? collectVisualGeometry;
+    const visualScreen = options.visualAudit && screenMeasurements.every(m => !m.overflow.length) ? await withinDeadline(collect(page)) : null;
     await withinDeadline(page.emulateMedia({ media: 'print' }));
     const printMeasurements = await withinDeadline(measure(page));
     if (screenMeasurements.length !== cards.length || printMeasurements.length !== cards.length) fail('PAGINATION_MEASUREMENT', 'Final browser measurements do not match the output card count. No exports were produced.');
     const affected = screenMeasurements.map((measurement, index) => ({ index: measurement.index, sourceLines: cards[index].sourceLines, screen: measurement, print: printMeasurements[index] })).filter(item => item.screen.overflow.length || item.print.overflow.length);
+    const visualPrint = options.visualAudit && !affected.length ? await withinDeadline(collect(page)) : null;
+    if (options.visualAudit && !affected.length && (visualScreen?.length !== cards.length || visualPrint?.length !== cards.length)) fail('PAGINATION_MEASUREMENT', 'Visual geometry does not match final card count.');
     await mkdir(path.dirname(options.out), { recursive: true });
     staging = await mkdtemp(path.join(path.dirname(options.out), '.md2card-'));
     if (affected.length) {
@@ -328,6 +335,15 @@ export async function exportCards(options, dependencies = {}) {
       await withinDeadline(sheet.close()); await record('contact-sheet', 'contact-sheet.png');
     }
     const loadedAssets = assets.getAssets().map(({ dataUrl, ...asset }) => asset);
+    if (options.visualAudit) {
+      checkTime();
+      const report = buildVisualDiagnostics({ screen: visualScreen, print: visualPrint, cards, options, inputSha256: hash(markdown) });
+      checkTime();
+      const json = JSON.stringify(report, null, 2) + '\n';
+      if (outputBytes + Buffer.byteLength(json) > LIMITS.outputBytes) fail('OUTPUT_BUDGET', 'Visual diagnostics and artifacts exceed the existing 256 MiB output budget.');
+      await write(path.join(staging, 'visual-diagnostics.json'), json);
+      await record('visual-diagnostics', 'visual-diagnostics.json');
+    }
     const manifest = {
       schemaVersion: 2, status: 'success', generator: { name: 'md2card-skill', version: VERSION }, createdAt: new Date().toISOString(),
       input: path.basename(options.input), inputSha256: hash(markdown), title: options.title, theme: options.theme, footerMode, bodySize: normalizeBodySize(options.bodySize),

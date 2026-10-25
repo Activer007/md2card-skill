@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "d73f405c4b5a1891b79fbe51fdb009bd55c4cf69",
+  "scope": "without-visualVariant-only",
+  "verification": "tests/default-body-compatibility.test.mjs; original 96 independent HTML hashes remain authoritative. New variant has separate evidence.",
+  "files": {
+    "scripts/document.mjs": {
+      "baselineSha256": "f3aa4c93b2e4bcbb5c31eb5bee637b3c1e7c1cddcf1ffcff326392cf75c47efa",
+      "currentSha256": "aeea8e08db2b8f18e6a7dd6414d7f47ffd7ba8490b456e7ee96c820641858a82"
+    },
+    "scripts/markdown.mjs": {
+      "baselineSha256": "033012815ac5f65e2ef95e459c5477ec2095d46df33fe2807d3e6b558d29de8a",
+      "currentSha256": "38135e00dc61b48aa602fed35d34709bcaf680d3b4ee9b583330128be79a3f42"
+    },
+    "scripts/render.mjs": {
+      "baselineSha256": "4f2a6172c7693495298f3d6319217cc7d826c9798ec6595c1a8f57de14c34eab",
+      "currentSha256": "4e01da2e2561994b650391aebdfff87e09ae72a1827c73a6e380ebe28861f94e"
+    },
+    "scripts/body-size.mjs": {
+      "baselineSha256": "3f20c47c15f6f2cd57dc42b1e1fdce3d2fb06d932a486fcf92340b19325404ed",
+      "currentSha256": "3f20c47c15f6f2cd57dc42b1e1fdce3d2fb06d932a486fcf92340b19325404ed"
+    },
+    "scripts/templates.mjs": {
+      "baselineSha256": "6a8c6bd137c9fa8e6f2bbdc2e0d630d2eb19c372fe04c476bcf4e5d4362e5f4d",
+      "currentSha256": "f342193fbf7b402d43dec450cca8c4c6aeeaa864beedb3e2537848e45dfece22"
+    }
+  }
+}

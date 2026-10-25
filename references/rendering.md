@@ -47,9 +47,15 @@ Optional metadata appears on the first nonblank, non-code line of a card:
 
 Metadata is a single-line JSON object. Allowed string keys: `layout`, `eyebrow`,
 `image`, `alt`, `caption`, `source`, `metric`, `label`, `template`, `density`,
-`bodySize`. Unknown keys, nonstrings,
+`bodySize`, `visualVariant`. Unknown keys, nonstrings,
 control characters, and unknown layouts fail. No user-provided CSS is accepted.
 No YAML frontmatter is interpreted. Omit metadata for a legacy explainer card.
+
+`visualVariant: "screenshot-stage"` is opt-in and requires explicit `template: "T20"`,
+one validated local metadata image, alt and caption. It moves the complete image
+before the body with a larger height allowance; body fonts stay unchanged. No
+other template/value, inline image, auto pagination, square or slide is accepted.
+See [T20 stage contract and independent evidence](../docs/visual-upgrade/M2A_SCREENSHOT_STAGE.md).
 
 Layouts: cover, explainer, comparison, steps, image-caption, statistic, case-study,
 quote. Comparison uses the first two top-level h2 sections as columns, preserving

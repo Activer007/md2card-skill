@@ -1,3 +1,4 @@
+import {verifyDefaultBodyCompatibility} from './default-body-compatibility.mjs';
 // Independent acceptance registry for eight exact aspect fixtures. No renderer,
 // browser or snapshot module is executed while validating offline evidence.
 import assert from 'node:assert/strict';
@@ -25,7 +26,21 @@ export async function buildAspectEvidence(templates,readRepoFile){
     const source=JSON.parse(await read(`${root}/source-files.json`,ASPECT_BATCH.sourceManifestSha256));
     eq(source.git,{commit:ASPECT_BATCH.commit,tree:ASPECT_BATCH.tree,dirty:false});eq(source.sha256,ASPECT_BATCH.sourceSha256);eq(sha256(JSON.stringify(source.files)),ASPECT_BATCH.sourceSha256);
     const sourceFiles=new Map(source.files.map(f=>[f.file,f]));
-    for(const file of SEMANTIC_FILES){const expected=sourceFiles.get(file);assert.ok(expected,`missing source semantics: ${file}`);const current=await read(file),executing=await readEvidenceFile(ROOT,file);if(file==='package.json')eq(runtime(current),runtime(executing));else eq(sha256(current),expected.sha256,`${file}: source root differs`);if(file==='package.json'){const original=JSON.parse(await read(`${root}/source-package.json`,expected.sha256));eq(runtime(current),runtime(JSON.stringify(original)));}else eq(sha256(executing),expected.sha256,`${file}: executing semantics differ`);}
+    const compatibility=await verifyDefaultBodyCompatibility(file=>read(file));
+    for(const file of SEMANTIC_FILES){
+      const expected=sourceFiles.get(file);
+      if(compatibility.accepts(file,expected?.sha256))continue;
+      assert.ok(expected,`missing source semantics: ${file}`);
+      const current=await read(file),executing=await readEvidenceFile(ROOT,file);
+      if(file==='package.json'){
+        eq(runtime(current),runtime(executing));
+        const original=JSON.parse(await read(`${root}/source-package.json`,expected.sha256));
+        eq(runtime(current),runtime(JSON.stringify(original)));
+      }else{
+        eq(sha256(current),expected.sha256,`${file}: source root differs`);
+        eq(sha256(executing),expected.sha256,`${file}: executing semantics differ`);
+      }
+    }
     const reviewFile='docs/aspect-pr22-visual-review.json',review=JSON.parse(await read(reviewFile,ASPECT_BATCH.reviewSha256));
     const pdf=JSON.parse(await read(`${root}/pdf-audit.json`,ASPECT_BATCH.pdfAuditSha256));eq(pdf.bindingSha256,ASPECT_BATCH.auditSha256);
     eq(review.identity,audit.identity);eq(review.identity.commit,ASPECT_BATCH.commit);eq(review.identity.tree,ASPECT_BATCH.tree);

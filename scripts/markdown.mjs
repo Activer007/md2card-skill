@@ -1,3 +1,4 @@
+import { normalizeBodySize } from './body-size.mjs';
 import MarkdownIt from 'markdown-it';
 import { Md2CardError } from './errors.mjs';
 import { validateTemplateMetadata } from './templates.mjs';
@@ -27,7 +28,7 @@ parser.renderer.rules.link_open = (tokens, index, options, env, self) => {
 };
 
 export const LAYOUTS = Object.freeze(['cover', 'explainer', 'comparison', 'steps', 'image-caption', 'statistic', 'case-study', 'quote']);
-const METADATA_KEYS = new Set(['template', 'density', 'layout', 'eyebrow', 'image', 'alt', 'caption', 'source', 'metric', 'label']);
+const METADATA_KEYS = new Set(['bodySize', 'template', 'density', 'layout', 'eyebrow', 'image', 'alt', 'caption', 'source', 'metric', 'label']);
 
 export function escapeHtml(text) {
   return String(text).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
@@ -97,6 +98,7 @@ export function validateCardMetadata(value, cardNumber = 1) {
   }
   const template = validateTemplateMetadata(value);
   const metadata = { layout: template?.layout ?? 'explainer', ...value };
+  if (metadata.bodySize !== undefined) metadata.bodySize = normalizeBodySize(metadata.bodySize, 'INVALID_METADATA');
   if (!LAYOUTS.includes(metadata.layout)) fail(`unknown layout "${metadata.layout}". Choose ${LAYOUTS.join(', ')}.`);
   if ('image' in metadata && !metadata.image.trim()) fail('"image" must be a nonempty local asset reference.');
   return Object.freeze(metadata);

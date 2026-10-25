@@ -3,6 +3,7 @@ import { readFile, writeFile, mkdir, readdir, mkdtemp, rm, rename, rmdir, stat }
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { normalizeBodySize } from './body-size.mjs';
 import { parseArgs } from 'node:util';
 import { renderCards } from './markdown.mjs';
 import { parseSemanticDocument } from './semantic.mjs';
@@ -36,6 +37,7 @@ Usage: node scripts/render.mjs input.md --out ./output
   --width PX        Override width, integer 200–4096
   --height PX       Override height, integer 200–4096
   --scale N         PNG density 0.5–3 (default 1); not PDF page size
+  --body-size SIZE  small/medium/large/xlarge (小/中/大/特大); default medium
   --footer TEXT     Optional footer text
   --footer-mode MODE legacy (default), poster, series, report; retains attribution
   --title TEXT      Document title, defaults to filename
@@ -71,12 +73,13 @@ export function parseOptions(argv) {
   try { parsed = parseArgs({ args: argv, allowPositionals: true, strict: true, options: {
     template: { type: 'string' }, 'list-templates': { type: 'boolean' }, out: { type: 'string' }, theme: { type: 'string', default: 'editorial' }, format: { type: 'string', default: 'all' }, paginate: { type: 'string', default: 'manual' }, 'balance-tail': { type: 'boolean', default: false },
     size: { type: 'string', default: 'portrait' }, width: { type: 'string' }, height: { type: 'string' }, scale: { type: 'string', default: '1' },
-    footer: { type: 'string', default: '' }, 'footer-mode': { type: 'string', default: 'legacy' }, title: { type: 'string' }, lang: { type: 'string', default: 'zh-CN' }, browser: { type: 'string' },
+    'body-size': { type: 'string', default: 'medium' }, footer: { type: 'string', default: '' }, 'footer-mode': { type: 'string', default: 'legacy' }, title: { type: 'string' }, lang: { type: 'string', default: 'zh-CN' }, browser: { type: 'string' },
     'asset-root': { type: 'string' }, brand: { type: 'string' }, preview: { type: 'boolean', default: false }, 'contact-sheet': { type: 'boolean', default: false },
     strict: { type: 'boolean', default: false }, doctor: { type: 'boolean', default: false }, json: { type: 'boolean', default: false },
     'timeout-ms': { type: 'string', default: '120000' }, help: { type: 'boolean', short: 'h' }, version: { type: 'boolean' }
   } }); } catch (error) { fail('INVALID_OPTIONS', error.message); }
   const { values, positionals } = parsed;
+  const bodySize = normalizeBodySize(values['body-size']);
   if (!FOOTER_MODES.includes(values['footer-mode'])) fail('INVALID_OPTIONS', `--footer-mode accepts ${FOOTER_MODES.join(', ')}.`);
   if (values['balance-tail'] && values.paginate !== 'auto') fail('INVALID_OPTIONS', '--balance-tail requires --paginate auto; manual boundaries are never rebalanced.');
   if (values['list-templates']) return { listTemplates: true };
@@ -99,7 +102,7 @@ export function parseOptions(argv) {
   const timeoutMs = Number(values['timeout-ms']);
   if (!Number.isInteger(timeoutMs) || timeoutMs < 1000 || timeoutMs > 600000) fail('INVALID_OPTIONS', '--timeout-ms must be an integer from 1000 to 600000.');
   const input = path.resolve(positionals[0]);
-  return { ...values, input, out: path.resolve(values.out || path.join('output', path.parse(input).name)), width, height, scale, formats,
+  return { ...values, bodySize, input, out: path.resolve(values.out || path.join('output', path.parse(input).name)), width, height, scale, formats,
     title: values.title ?? path.basename(input), assetRoot: path.resolve(values['asset-root'] || path.dirname(input)), brandFile: values.brand ? path.resolve(values.brand) : undefined,
     contactSheet: values['contact-sheet'], balanceTail: values['balance-tail'], footerMode: values['footer-mode'], timeoutMs };
 }
@@ -327,13 +330,13 @@ export async function exportCards(options, dependencies = {}) {
     const loadedAssets = assets.getAssets().map(({ dataUrl, ...asset }) => asset);
     const manifest = {
       schemaVersion: 2, status: 'success', generator: { name: 'md2card-skill', version: VERSION }, createdAt: new Date().toISOString(),
-      input: path.basename(options.input), inputSha256: hash(markdown), title: options.title, theme: options.theme, footerMode,
+      input: path.basename(options.input), inputSha256: hash(markdown), title: options.title, theme: options.theme, footerMode, bodySize: normalizeBodySize(options.bodySize),
       styleSha256: { themes: hash(themeCss), layouts: hash(layoutCss), templates: hash(templateCss) }, brand: brand ? { name: brand.name, accent: brand.accent, logoHash: brand.logo?.hash } : null,
       dimensions: { width: options.width, height: options.height }, pngScale: options.scale, formats: options.formats, cardCount: cards.length, artifacts, assets: loadedAssets, assetUsage,
       versions: { ...environment.versions, chromium: renderer.browser.version() }, budget: { ...budget, outputBytes, elapsedMs: now() - started },
       qa: { overflow: { screen: 'pass', print: 'pass' }, images: { status: 'pass', count: imageQa.length }, fonts: environment.fonts, pdf: pdfQa, visualReview: 'not-performed' },
       pagination,
-      cards: cards.map((card, index) => ({ index: card.index, layout: card.metadata.layout, ...(card.metadata.template ? { template: card.metadata.template, density: card.metadata.density ?? 'standard', aspect: resolveTemplateAspect(card.metadata.template, options).id } : {}), sourceLines: card.sourceLines, sourceSha256: hash(card.source), ...(card.provenance ? { provenance: card.provenance } : {}), screen: screenMeasurements[index], print: printMeasurements[index] })),
+      cards: cards.map((card, index) => ({ index: card.index, layout: card.metadata.layout, bodySize: normalizeBodySize(card.metadata.bodySize ?? options.bodySize), ...(card.metadata.template ? { template: card.metadata.template, density: card.metadata.density ?? 'standard', aspect: resolveTemplateAspect(card.metadata.template, options).id } : {}), sourceLines: card.sourceLines, sourceSha256: hash(card.source), ...(card.provenance ? { provenance: card.provenance } : {}), screen: screenMeasurements[index], print: printMeasurements[index] })),
       security: { rawHtml: 'escaped', images: 'validated-local-raster-only', assetBoundary: 'realpath-contained', networkRequests: 'blocked', clientScripts: 'disabled' }
     };
     const manifestJson = JSON.stringify(manifest, null, 2) + '\n';

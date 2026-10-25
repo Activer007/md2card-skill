@@ -53,7 +53,9 @@ export async function evaluateSafely(target, method, callback, argument, timeout
 async function launchBrowser(options) {
   const [{ chromium }, { findBrowser, closeBrowser }] = await Promise.all([import('playwright'), import('./browser.mjs')]);
   const executablePath = await findBrowser(options.browser);
-  const browser = await chromium.launch({ executablePath, headless: true, timeout: options.timeoutMs });
+  // Playwright defaults Chromium's sandbox off. Request it explicitly: this
+  // validator must never weaken browser security merely to make QA launch.
+  const browser = await chromium.launch({ executablePath, headless: true, chromiumSandbox: true, timeout: options.timeoutMs });
   return { browser, executablePath, close: () => closeBrowser(browser) };
 }
 
@@ -392,7 +394,7 @@ export async function validateGallery(options, dependencies = {}) {
     const model = await (dependencies.model ?? buildGalleryModel)({ root });
     report.registry = { implemented: model.items.length, accepted: model.accepted.length, pending: model.pending.length };
     report.inputs = [];
-    for (const relative of new Set([GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', 'scripts/templates.mjs', 'scripts/build-template-gallery.mjs', 'scripts/gallery-discovery.mjs', 'docs/gallery-comparisons.json', ...model.comparisons.flatMap(group => [group.input, ...(group.evidence ? [group.evidence.review, ...group.previews.map(image => image.path)] : [])]), 'scripts/validate-gallery.mjs', 'scripts/browser.mjs', 'package-lock.json', 'docs/template-gallery-evidence.json', ...model.accepted.flatMap(item => [item.preview.path, item.example, item.evidence.path, item.evidence.review])])) {
+    for (const relative of new Set([GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', 'scripts/templates.mjs', 'scripts/build-template-gallery.mjs', 'scripts/gallery-discovery.mjs', 'scripts/comparison-evidence.mjs', 'scripts/evidence-source.mjs', 'docs/gallery-comparisons.json', ...model.comparisons.flatMap(group => [group.input, ...(group.evidenceFiles ?? []), ...(group.evidence ? [group.evidence.review, ...group.previews.map(image => image.path)] : [])]), 'scripts/validate-gallery.mjs', 'scripts/browser.mjs', 'package-lock.json', 'docs/template-gallery-evidence.json', ...model.accepted.flatMap(item => [item.preview.path, item.example, item.evidence.path, item.evidence.review])])) {
       const bytes = await readFile(path.join(root, relative));
       report.inputs.push({ file: relative, sha256: hash(bytes), bytes: bytes.length });
     }

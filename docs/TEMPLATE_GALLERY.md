@@ -1,6 +1,6 @@
 # 真实静态模板图库（M9 / LIB-03）
 
-> 当前 M2：48 个 standard / portrait 精确注册示例已独立复核并绑定当前 PNG，35 套 v2 / 13 套 v3。v1 / M1 v2 历史不变。四个既有 T04/T21 square/slide 短例已有当前产物复核，最终画幅绑定待 R12；最终 48-current 图库 UI 仍待发布后精确树验证。 见 [M2 精确验收](REFINEMENT_M2_ACCEPTANCE.md)。
+> 当前 M2：48 个 standard / portrait 精确注册示例已独立复核并绑定当前 PNG，35 套 v2 / 13 套 v3。v1 / M1 v2 历史不变。四个既有 T04/T21 square/slide 短例已有当前产物复核，最终画幅绑定待 R12。本地候选的 48 个注册预览与 11 个同文预览已完成 60/60 界面检查及 25 张截图复核；这不是发布版本的验收。见 [M2 精确验收](REFINEMENT_M2_ACCEPTANCE.md) 与 [本地图库复核](GALLERY_UI_REVIEW.md)。
 
 下载完整仓库后打开 [离线图库](gallery/index.html)。它从唯一模板注册表生成，按家族、用途、图片需求和注册示例密度筛选；真实预览与待验收文字目录分开。GitHub 文件页不执行 HTML，无需部署、账号、CDN 或联网渲染。
 
@@ -60,7 +60,7 @@ npm run test:gallery
 
 历史 v1 真实检查覆盖原生 label、键盘 Tab/Shift+Tab、可见焦点、跳过导航与 details 开关，以及手机/重排读序和无脚本回退。代码还包含实时计数和强制颜色支持，但这些实现不等于屏幕阅读器、完整对比度审计或可访问性认证。
 
-**历史 v1 已测等效 200% reflow，未测原生浏览器菜单 200% 缩放；当前 M2 新绑定页面仍待复核。** 等效法将 1280×900 CSS 视口改为 640×450，不是 pinch zoom，也不通过改变字体/样式放宽检查。辅助技术读屏播报和跨浏览器兼容性仍未验证。
+**当前本地候选已测等效 200% reflow，未测原生浏览器菜单 200% 缩放。** 等效法将 1280×900 CSS 视口改为 640×450，不是 pinch zoom，也不通过改变字体/样式放宽检查。辅助技术读屏播报和跨浏览器兼容性仍未验证，精确输入与范围见 [本地图库复核](GALLERY_UI_REVIEW.md)。
 
 ## 真实 gate 的复现与输出
 
@@ -84,6 +84,20 @@ npm run validate:gallery -- --allow-browser --out validation/gallery
 
 同文对照固定三组原始输入（短篇、中篇、中英混排），各选四个有意义的模板。正文哈希必须一致，生成时只改变模板元数据。`docs/gallery-comparisons.json` 把待验收计划与 `reviewed-exact-fixtures` 明确分开：后者必须绑定当前模板版本、standard / portrait / manual 范围、代码提交/树、Actions 产物包、逐图复核文档、原始 PNG/PDF 哈希及精确图片路径。合成单元测试只测试校验分支，绝不成为生产证据。
 
-当前三组均为 pending，界面只有同文输入链接，不插入旧版或不同文案缩略图。将来通过复核后的同文图放在独立 comparison 目录；不会替代注册示例、改变已验收模板数，或扩大为所有内容验收。详见 [真实内容矩阵](CONTENT_MATRIX.md)。新导航、同文区域及当前 v3 / v2 页面仍待实际 file://、手机与键盘复验；历史图库检查不能自动继承为本轮通过。
+当前三组均已绑定精确输入的独立视觉记录，共 11 个成功预览与 1 个 T13 中篇拒绝。真实同文产物保存在独立的 `docs/evidence/refinement-run-40079675432/` 目录；不会替代注册示例、改变已验收模板数，或扩大为所有内容验收。T04 短篇、T17 混排的短尾及 T33 混排的窄栏限制保留在图注中。见 [同文视觉复核](COMPARISON_REVIEW.md) 与 [真实内容矩阵](CONTENT_MATRIX.md)。本地新导航、同文区域及当前 v3 / v2 页面已通过实际 file://、手机与键盘验证，精确输入及本地适用边界见 [图库界面复核](GALLERY_UI_REVIEW.md)。
 
 T13 的指定中篇不是短宣言海报的适用输入：对照必须显示完整原文的明确拒绝与选型建议，不伪造第四张图，也不计为成功适配。拒绝证据同时绑定受控元数据、完整正文生成的输入字节、输入文件名与哈希、同名溢出诊断及精确版本；声明正文哈希正确不能替代实际输入身份。
+
+### 同文证据的离线校验
+
+`scripts/comparison-evidence.mjs` 固定经 GitHub、Git 和原始 ZIP 独立核对的 CI 身份及 binder 输出摘要。图库条目不能自选 commit/tree 或用一个格式正确的 PDF 哈希获得验收。生成器读取真实输入、manifest、PNG、PDF、375/390px、HTML、PDF 文本和拒绝诊断，逐个核对固定绑定中的字节摘要；另检查当前源码根和执行代码的语义文件、样式与运行依赖一致。无需网络、Git 或启动浏览器即可检查已整理的证据。该固定记录是仓库审查的信任起点，不是外部数字签名。
+
+`evidence.batch` 引用该批次；`review` / `reviewSha256` 指向可读复核文档，`visualReview` / `visualReviewSha256` 指向独立结构化视觉记录。后者必须绑定相同 CI 身份、源码范围、binder 摘要和逐例实际文件，明确 full PNG、375/390px、native PDF、原文保留的检查结果。限制说明会转义后显示在对应图片说明中。技术绑定本身保持 `artifact-bound-visual-review-pending`；单元测试中的内存视觉记录不是生产验收。
+
+可在具备匹配 Git 提交和源码快照的环境，从原始 ZIP 重建证据目录：
+
+```bash
+npm run evidence:comparisons -- --archive validation/handoff/pr20-run40079675432.zip --source-root validation/handoff/pr20-source --out validation/comparison-evidence-copy
+```
+
+输出目录必须不存在。此命令重新执行技术绑定并复制原始字节，不生成视觉结论、不修改图库状态、不覆盖已有证据。目录只包含三组对照的 11 个成功案例和 1 个拒绝案例；完整 binder 报告保留全部 22 例的技术清单，其余图片比例和长文案例不因此获得图库验收。

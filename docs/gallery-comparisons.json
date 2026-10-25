@@ -12,7 +12,14 @@
         "T10",
         "T13"
       ],
-      "state": "pending"
+      "state": "reviewed-exact-fixtures",
+      "evidence": {
+        "batch": "refinement-run-40079675432",
+        "review": "docs/COMPARISON_REVIEW.md",
+        "reviewSha256": "fd23ba41a7ed3f1df90ac9a4183439969fe1a6a0517f2ac869f7951b8c71c341",
+        "visualReview": "docs/comparison-visual-review.json",
+        "visualReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2"
+      }
     },
     {
       "id": "medium-reading",
@@ -25,9 +32,16 @@
         "T10",
         "T13"
       ],
-      "state": "pending",
+      "state": "reviewed-exact-fixtures",
       "requiredRefusals": {
         "T13": "这段中篇含两个较长的小标题和完整论述，超出短宣言海报的合适容量。保留全部原文，选择 T04/T06/T10 的对照或较短的宣言输入，不缩字硬塞。"
+      },
+      "evidence": {
+        "batch": "refinement-run-40079675432",
+        "review": "docs/COMPARISON_REVIEW.md",
+        "reviewSha256": "fd23ba41a7ed3f1df90ac9a4183439969fe1a6a0517f2ac869f7951b8c71c341",
+        "visualReview": "docs/comparison-visual-review.json",
+        "visualReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2"
       }
     },
     {
@@ -41,7 +55,14 @@
         "T18",
         "T33"
       ],
-      "state": "pending"
+      "state": "reviewed-exact-fixtures",
+      "evidence": {
+        "batch": "refinement-run-40079675432",
+        "review": "docs/COMPARISON_REVIEW.md",
+        "reviewSha256": "fd23ba41a7ed3f1df90ac9a4183439969fe1a6a0517f2ac869f7951b8c71c341",
+        "visualReview": "docs/comparison-visual-review.json",
+        "visualReviewSha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2"
+      }
     }
   ]
 }

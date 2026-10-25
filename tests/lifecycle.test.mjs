@@ -264,8 +264,12 @@ test('a pending browser close cannot block primary-error reporting or staging re
   const pending = deferred();
   t.after(() => pending.resolve());
   const primaryError = Object.assign(new Error('primary render failure'), { code: 'PRIMARY_RENDER_FAILED' });
-  const fixture = rendererFixture({ close: () => pending.promise, version: () => { throw primaryError; } });
-  await assert.rejects(() => exportCards({ ...options, timeoutMs: 100 }, dependencies(fixture.renderer)), error => error === primaryError);
+  // Advance only the cleanup timer, after the primary failure was raised.
+  // Real filesystem latency under parallel tests must not select a different
+  // render-deadline branch before browser.version() can throw that failure.
+  t.mock.timers.enable({ apis: ['setTimeout'] });
+  const fixture = rendererFixture({ close: () => { t.mock.timers.tick(100); return pending.promise; }, version: () => { throw primaryError; } });
+  await assert.rejects(() => exportCards({ ...options, timeoutMs: 100 }, dependencies(fixture.renderer, { now: () => 0 })), error => error === primaryError);
   assert.equal(fixture.closeCalls(), 1);
   assert.equal(primaryError.details.cleanupFailures[0].code, 'BROWSER_CLEANUP_TIMEOUT');
   await assertNoOutputOrStaging(dir);
@@ -275,10 +279,12 @@ test('render deadline interrupts a pending browser evaluation even when close ha
   const { dir, options } = await workspace(t);
   const evaluation = deferred(), closing = deferred();
   t.after(() => { evaluation.resolve(); closing.resolve(); });
-  const fixture = rendererFixture({ close: () => closing.promise });
-  fixture.renderer.page.evaluate = () => evaluation.promise;
+  t.mock.timers.enable({ apis: ['setTimeout'] });
+  const fixture = rendererFixture({ close: () => { t.mock.timers.tick(100); return closing.promise; } });
+  fixture.renderer.page.evaluate = () => { t.mock.timers.tick(100); return evaluation.promise; };
   let measurements = 0;
   await assert.rejects(() => exportCards({ ...options, timeoutMs: 100 }, dependencies(fixture.renderer, {
+    now: () => 0,
     measureCards: async () => { measurements += 1; return [{ index: 1, overflow: [] }]; }
   })), error => {
     assert.equal(error.code, 'RENDER_TIMEOUT');
@@ -297,11 +303,13 @@ for (const settlement of ['resolve', 'reject']) {
     const { dir, options } = await workspace(t);
     const pdf = deferred(), closing = deferred();
     t.after(() => { pdf.resolve(Buffer.from('%PDF-late')); closing.resolve(); });
-    const fixture = rendererFixture({ close: () => closing.promise });
+    t.mock.timers.enable({ apis: ['setTimeout'] });
+    const fixture = rendererFixture({ close: () => { t.mock.timers.tick(100); return closing.promise; } });
     let pdfOptions, textReads = 0;
     const writes = [];
     fixture.renderer.page.pdf = async configuration => {
       pdfOptions = configuration;
+      t.mock.timers.tick(100);
       const bytes = await pdf.promise;
       // Match Playwright's path behavior: it writes after generation completes.
       if (configuration.path) {
@@ -313,6 +321,7 @@ for (const settlement of ['resolve', 'reject']) {
       ? { allTextContents: async () => { textReads++; return ['test']; } }
       : { evaluateAll: async () => [] };
     await assert.rejects(() => exportCards({ ...options, formats: ['pdf'], timeoutMs: 100 }, dependencies(fixture.renderer, {
+      now: () => 0,
       writeFile: async (filename, ...args) => { writes.push(path.basename(filename)); return writeFile(filename, ...args); }
     })), error => {
       assert.equal(error.code, 'RENDER_TIMEOUT');
@@ -396,8 +405,9 @@ test('a close timeout cannot publish an otherwise successful export', { timeout:
   const { dir, options } = await workspace(t);
   const closing = deferred();
   t.after(() => closing.resolve());
-  const fixture = rendererFixture({ close: () => closing.promise });
-  await assert.rejects(() => exportCards({ ...options, timeoutMs: 100 }, dependencies(fixture.renderer)), error => {
+  t.mock.timers.enable({ apis: ['setTimeout'] });
+  const fixture = rendererFixture({ close: () => { t.mock.timers.tick(100); return closing.promise; } });
+  await assert.rejects(() => exportCards({ ...options, timeoutMs: 100 }, dependencies(fixture.renderer, { now: () => 0 })), error => {
     assert.equal(error.code, 'RENDER_TIMEOUT');
     assert.equal(error.details.cleanupFailures[0].code, 'BROWSER_CLEANUP_TIMEOUT');
     return true;

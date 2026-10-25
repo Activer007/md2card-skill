@@ -20,6 +20,7 @@ async function fixture(t, { root: sourceRoot = ROOT, templates = TEMPLATES } = {
   const sourceModel = await buildGalleryModel({ root: sourceRoot, templates });
   const bindings = JSON.parse(await readFile(path.join(sourceRoot, 'docs/template-gallery-evidence.json'), 'utf8'));
   const files = new Set(['docs/template-gallery-evidence.json', 'docs/TEMPLATE_ASPECTS.md', 'docs/TEMPLATE_GALLERY.md', 'docs/gallery-comparisons.json', 'examples/refinement', 'docs/gallery', 'examples/templates']);
+  for (const group of sourceModel.comparisons) for (const file of group.evidenceFiles ?? []) files.add(file);
   for (const batch of bindings.batches) {
     files.add(batch.review);
     files.add(batch.evidence);
@@ -467,7 +468,7 @@ test('synthetic current-v2 acceptance exercises a nonempty accepted path beside 
   assert.equal(current.accepted.length,1);assert.equal(current.pending.length,47);
   const item=current.accepted[0];assert.equal(item.version,2);assert.equal(item.preview.version,2);assert.equal(item.preview.path,'docs/images/unit-v2/T01.png');
   assert.equal(item.history.version,1);
-  const output=renderGallery(current);assert.match(output,/src="\.\.\/\.\.\/docs\/images\/unit-v2\/T01.png"/);assert.equal((output.match(/<img /g)||[]).length,1);
+  const output=renderGallery(current);assert.match(output,/src="\.\.\/\.\.\/docs\/images\/unit-v2\/T01.png"/);assert.equal((output.match(/<img /g)||[]).length,previewCount(current));
   const wrong=templates.map(t=>t.id==='T01'?{...t,version:3}:t);
   await assert.rejects(buildGalleryModel({root,templates:wrong}),/accepted scope differs/);
   await writeFile(path.join(root,'docs/images/unit-v2/T01.png'),'altered');
@@ -749,7 +750,7 @@ test('actual M2 bindings expose exactly 48 current portraits with 35 v2 and 13 v
   assert.equal(model.pending.length, 0);
   assert.equal(model.accepted.filter(item => item.version === 2).length, 35);
   assert.deepEqual(model.accepted.filter(item => item.version === 3).map(item => item.id), v3);
-  assert.equal((html.match(/<img /g) ?? []).length, 48);
+  assert.equal((html.match(/<img /g) ?? []).length, previewCount(model));
   for (const item of model.accepted) {
     const version = v3.includes(item.id) ? 3 : 2;
     assert.equal(item.acceptance, `refinement-m2-v${version}`);

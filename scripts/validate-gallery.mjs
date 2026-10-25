@@ -7,6 +7,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { ROOT, GALLERY_PATH, CSP, buildGalleryModel, generateGallery } from './build-template-gallery.mjs';
+import { buildRoleGuide } from './recommendation-guide.mjs';
 
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const errorRecord = error => ({ code: error?.code ?? 'GALLERY_CHECK_FAILED', message: error?.message ?? String(error) });
@@ -125,9 +126,17 @@ export async function readyVisibleImages(page, timeoutMs = 15000) {
   }, undefined, timeoutMs);
 }
 
-async function snapshot(page, out, report, name, scope) {
+async function snapshot(page, out, report, name, scope, { javaScriptEnabled = true } = {}) {
   const file = `${name}.png`;
   await readyVisibleImages(page);
+  // Scrolling/resizing may complete before compositor text painting, even when
+  // there are no visible lazy images. Capture after fonts and two paint frames.
+  // requestAnimationFrame callbacks do not run with page scripts disabled.
+  // Keep that scenario genuinely script-free and use native screenshot readiness.
+  if (javaScriptEnabled) await evaluateSafely(page, 'evaluate', async () => {
+    await document.fonts.ready;
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  });
   await page.screenshot({ path: path.join(out, file), fullPage: false, animations: 'disabled' });
   const bytes = await readFile(path.join(out, file));
   report.artifacts.push({ file, bytes: bytes.length, sha256: hash(bytes), scope, viewport: page.viewportSize() });
@@ -290,6 +299,24 @@ export async function withPage(browser, options, allowed, report, name, javaScri
 async function realBrowserChecks(browser, options, model, report, out) {
   const files = [GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', ...galleryImages(model).map(image => image.path)];
   const allowed = new Set(files.map(relative => pathToFileURL(path.join(options.root, relative)).href));
+  const roleNavigation = async page => {
+    const routes = buildRoleGuide(model.items);
+    const actual = await evaluateSafely(page.locator('[data-content-role]'), 'evaluateAll', nodes => nodes.map(node => ({
+      id: node.dataset.contentRole, links: [...node.querySelectorAll('[data-template-target]')].map(a => a.getAttribute('href'))
+    })));
+    assert.deepEqual(actual, routes.map(route => ({ id: route.id, links: route.templates.map(item => `#${item.id}`) })));
+    const route = routes.find(route => route.templates.length), section = page.locator(`[data-content-role="${route.id}"]`);
+    const summary = section.locator('summary');
+    await summary.focus(); await page.keyboard.press('Enter');
+    assert.equal(await evaluateSafely(summary, 'evaluate', element => element.parentElement.open), true);
+    await page.keyboard.press('Tab');
+    const focus = await evaluateSafely(page, 'evaluate', () => ({ href: document.activeElement.getAttribute('href'), outline: getComputedStyle(document.activeElement).outlineStyle }));
+    assert.equal(focus.href, `#${route.templates[0].id}`); assert.notEqual(focus.outline, 'none');
+    await page.keyboard.press('Enter');
+    await page.waitForURL(url => url.hash === `#${route.templates[0].id}`);
+    assert.equal(await page.locator(`#${route.templates[0].id}`).isVisible(), true);
+    return { roles: actual.length, keyboardNavigation: 'pass', staticLinks: 'pass' };
+  };
   const aspectLinks = async page => {
     const actual = await evaluateSafely(page.locator('[data-aspect-evidence]'), 'evaluateAll', nodes => nodes.map(node => ({ id: node.dataset.aspectEvidence, links: [...node.querySelectorAll('a')].map(a => a.getAttribute('href')) })));
     const entries = model.items.flatMap(item => item.aspectEvidence ?? []);
@@ -317,11 +344,11 @@ async function realBrowserChecks(browser, options, model, report, out) {
       return { visible };
     });
     await recordCheck(report, 'task routes and same-content static navigation', async () => {
-      const links = await evaluateSafely(page.locator('.task-route li a'), 'evaluateAll', nodes => nodes.map(node => node.getAttribute('href')));
+      const links = await evaluateSafely(page.locator('#tasks .task-route li a'), 'evaluateAll', nodes => nodes.map(node => node.getAttribute('href')));
       assert.deepEqual(links, model.tasks.flatMap(task => task.templates.map(item => `#${item.id}`)));
       assert.equal(await page.locator('.comparison').count(), model.comparisons.length);
       await assertFilters(page, model, { purpose: 'T01' });
-      await page.locator('[data-template-target="T04"]').first().click();
+      await page.locator('#tasks [data-template-target="T04"]').first().click();
       assert.equal(await page.locator('#T04').isVisible(), true);
       assert.equal(await page.locator('[data-template-card]:visible').count(), model.items.length);
       await assertFilters(page, model, { purpose: 'T01' });
@@ -332,6 +359,10 @@ async function realBrowserChecks(browser, options, model, report, out) {
       return { taskRoutes: model.tasks.length, comparisons: model.comparisons.length, comparisonPreviews: model.comparisons.reduce((sum, group) => sum + group.previews.length, 0) };
     });
     await recordCheck(report, 'native labels, keyboard focus and details', () => keyboardAudit(page, model));
+    await recordCheck(report, 'role routes: keyboard navigation reveals filtered targets', async () => {
+      await assertFilters(page, model, { purpose: 'T48' });
+      return roleNavigation(page);
+    });
     await recordCheck(report, 'eight independent aspect fixtures retain exact native evidence links', () => aspectLinks(page));
     for (const scenario of [
       { name: 'desktop-1280', width: 1280, height: 900, zoom: 1 },
@@ -353,7 +384,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
         assert.deepEqual(geometry.offenders, []);
         return geometry;
       });
-      for (const section of ['tasks', 'comparisons', 'accepted', 'pending']) await recordCheck(report, `${scenario.name}: capture ${section}`, async () => {
+      for (const section of ['roles', 'tasks', 'comparisons', 'accepted', 'pending']) await recordCheck(report, `${scenario.name}: capture ${section}`, async () => {
         await evaluateSafely(page, 'evaluate', section => {
           const target = document.querySelector(section === 'accepted' ? '.accepted-card' : `#${section}-title`) ?? document.querySelector('#accepted-title');
           target.scrollIntoView({ block: 'start', behavior: 'instant' });
@@ -393,10 +424,16 @@ async function realBrowserChecks(browser, options, model, report, out) {
       assert.equal(await evaluateSafely(summary, 'evaluate', element => element.parentElement.open), true);
       await page.setViewportSize({ width: 390, height: 844 });
       await page.locator('#pending-title').scrollIntoViewIfNeeded();
-      await snapshot(page, out, report, 'no-js-390-catalogue', 'JavaScript disabled: text-only catalogue and native details remain available.');
+      await snapshot(page, out, report, 'no-js-390-catalogue', 'JavaScript disabled: text-only catalogue and native details remain available.', { javaScriptEnabled: false });
       return state;
     });
     await recordCheck(report, 'no JS: eight independent aspect fixtures retain native evidence links', () => aspectLinks(page));
+    await recordCheck(report, 'no JS: role routes and native keyboard navigation', async () => {
+      const result = await roleNavigation(page);
+      await page.locator('#roles').scrollIntoViewIfNeeded();
+      await snapshot(page, out, report, 'no-js-390-roles', 'Role navigation with scripts disabled; native details and anchors.', { javaScriptEnabled: false });
+      return result;
+    });
   });
 }
 
@@ -413,7 +450,7 @@ export async function validateGallery(options, dependencies = {}) {
     const model = await (dependencies.model ?? buildGalleryModel)({ root });
     report.registry = { implemented: model.items.length, accepted: model.accepted.length, pending: model.pending.length };
     report.inputs = [];
-    for (const relative of new Set([GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', 'scripts/templates.mjs', 'scripts/build-template-gallery.mjs', 'scripts/gallery-discovery.mjs', 'scripts/comparison-evidence.mjs', 'scripts/evidence-source.mjs', 'docs/gallery-comparisons.json', 'scripts/aspect-evidence.mjs', ...(model.aspectEvidence?.evidenceFiles ?? []), ...model.comparisons.flatMap(group => [group.input, ...(group.evidenceFiles ?? []), ...(group.evidence ? [group.evidence.review, ...group.previews.map(image => image.path)] : [])]), 'scripts/validate-gallery.mjs', 'scripts/browser.mjs', 'package-lock.json', 'docs/template-gallery-evidence.json', ...model.accepted.flatMap(item => [item.preview.path, item.example, item.evidence.path, item.evidence.review])])) {
+    for (const relative of new Set([GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', 'scripts/templates.mjs', 'scripts/build-template-gallery.mjs', 'scripts/gallery-discovery.mjs', 'scripts/recommendation-guide.mjs', 'scripts/template-recommender.mjs', 'scripts/content-role.mjs', 'scripts/recommend-templates.mjs', 'references/recommendations.md', 'examples/recommendations/cli-report.json', 'scripts/comparison-evidence.mjs', 'scripts/evidence-source.mjs', 'docs/gallery-comparisons.json', 'scripts/aspect-evidence.mjs', ...(model.aspectEvidence?.evidenceFiles ?? []), ...model.comparisons.flatMap(group => [group.input, ...(group.evidenceFiles ?? []), ...(group.evidence ? [group.evidence.review, ...group.previews.map(image => image.path)] : [])]), 'scripts/validate-gallery.mjs', 'scripts/browser.mjs', 'package-lock.json', 'docs/template-gallery-evidence.json', ...model.accepted.flatMap(item => [item.preview.path, item.example, item.evidence.path, item.evidence.review])])) {
       const bytes = await readFile(path.join(root, relative));
       report.inputs.push({ file: relative, sha256: hash(bytes), bytes: bytes.length });
     }

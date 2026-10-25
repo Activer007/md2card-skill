@@ -16,6 +16,11 @@ const roles = Object.freeze({
   'source-note': { layout: 'explainer', purpose: /资料|来源|出处|记录/ }
 });
 const numbers = { 一: 1, 二: 2, 两: 2, 三: 3, 四: 4, 五: 5, 六: 6 };
+// Shared by static role navigation; this is a route, not input compatibility.
+export function templateRoleMatch(template, roleId) {
+  const role = roles[roleId];
+  return { layout: role?.layout === template.layout, purpose: Boolean(role?.purpose.test(template.purpose)) };
+}
 const unique = values => [...new Set(values)];
 const sectionGuidance = structure => structure.match(/([一二两三四五六])(?:至([一二两三四五六]))?个[^；。H]{0,12}H2/);
 const listGuidance = structure => structure.match(/([一二两三四五六])(?:至([一二两三四五六]))?(?:个|项)[^；。]{0,8}(?:有序列表|有序注释)/);
@@ -34,11 +39,11 @@ function structuralReasons(template, summary) {
   return reasons;
 }
 function rankCandidate(template, card, summary, requestedAspect) {
-  const role = roles[summary.role], f = summary.features;
+  const f = summary.features;
   const aspect = template.aspectLayouts[requestedAspect];
   const structure = aspect.structure ?? template.structure;
   const explicit = card.metadata.template === template.id;
-  const layout = role?.layout === template.layout, purpose = Boolean(role?.purpose.test(template.purpose));
+  const { layout, purpose } = templateRoleMatch(template, summary.role);
   const structureReasons = structuralReasons({ ...template, structure }, summary);
   const lengthFit = f.characters >= template.length[0] && f.characters <= template.length[1];
   const risks = [];

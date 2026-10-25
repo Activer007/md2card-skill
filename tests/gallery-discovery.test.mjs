@@ -184,7 +184,9 @@ test('task-first and comparison sections are static, escaped and do not promote 
   const { buildGalleryModel, renderGallery } = await import('../scripts/build-template-gallery.mjs');
   const model = await buildGalleryModel(), html = renderGallery(model);
   assert.ok(html.indexOf('id="tasks"') < html.indexOf('class="filters"'));
-  assert.equal((html.match(/class="task-route"/g) ?? []).length, 6);
+  const taskSection = html.slice(html.indexOf('<section id="tasks"'), html.indexOf('<section id="comparisons"'));
+  assert.equal((taskSection.match(/class="task-route"/g) ?? []).length, 6);
+  assert.equal((html.match(/data-content-role=/g) ?? []).length, 10);
   assert.equal((html.match(/class="comparison"/g) ?? []).length, 3);
   assert.equal((html.match(/data-template-card/g) ?? []).length, 48);
   const hostile = structuredClone(model); hostile.tasks[0].title = '<img src=x>'; hostile.comparisons[0].title = '<script>alert(1)</script>';

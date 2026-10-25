@@ -1,0 +1,2467 @@
+{
+  "schemaVersion": 1,
+  "requestedAspect": "portrait",
+  "paginate": "manual",
+  "automatedRenderingPerformed": false,
+  "ranking": [
+    "author-template",
+    "role-layout",
+    "registry-purpose",
+    "fewer-caveats",
+    "structure-matches",
+    "length-guidance",
+    "template-id"
+  ],
+  "cards": [
+    {
+      "index": 1,
+      "sourceLines": [
+        1,
+        6
+      ],
+      "role": "steps",
+      "reasonIds": [
+        "LIST_BLOCKS"
+      ],
+      "authorMetadataKeys": [],
+      "headings": [
+        {
+          "level": 1,
+          "text": "先保留原文",
+          "bodyLines": [
+            1,
+            1
+          ]
+        }
+      ],
+      "features": {
+        "characters": 43,
+        "h1Count": 1,
+        "h2Count": 0,
+        "paragraphCount": 3,
+        "orderedItems": 3,
+        "bulletLists": 0,
+        "quoteBlocks": 0,
+        "inlineImages": 0,
+        "metadataImage": false,
+        "codeBlocks": 0,
+        "codeLines": 0,
+        "maxCodeLineCharacters": 0,
+        "tableCount": 0,
+        "tableColumns": 0,
+        "maxTableRowCharacters": 0,
+        "hasMetric": false,
+        "hasLabel": false,
+        "hasSource": false
+      },
+      "caveats": [
+        "SOURCE_NOT_PROVIDED"
+      ],
+      "selectionStatus": "candidates-available",
+      "candidates": [
+        {
+          "templateId": "T05",
+          "name": "大数字索引清单",
+          "reasonIds": [
+            "HARD_CONTRACTS_MET",
+            "ASPECT_SUPPORTED",
+            "ROLE_LAYOUT_MATCH",
+            "REGISTRY_PURPOSE_MATCH",
+            "TITLE_STRUCTURE_MATCH",
+            "ORDERED_LIST_STRUCTURE_MATCH",
+            "ORDERED_LIST_COUNT_MATCH"
+          ],
+          "caveats": [
+            "RENDER_NOT_PERFORMED",
+            "SOURCE_NOT_PROVIDED",
+            "BELOW_REGISTRY_LENGTH_GUIDANCE"
+          ],
+          "evidence": {
+            "layout": "steps",
+            "aspect": "portrait",
+            "aspectRegistryStatus": "visually-reviewed",
+            "purpose": "方法清单、阅读导航",
+            "structure": "一个 H1；三至四个完整有序列表项。保留原始起始编号；本模板编号范围为 0–99，超出请用普通 steps。",
+            "unsuitable": "长嵌套列表或大段说明；可用普通 steps 自动分页。",
+            "lengthGuidance": [
+              70,
+              160
+            ],
+            "actualCharacters": 43
+          },
+          "priority": [
+            0,
+            1,
+            1,
+            -1,
+            3,
+            0
+          ],
+          "requiresUserSelection": true,
+          "rank": 1,
+          "conditions": {
+            "image": "none",
+            "requiredMetadata": [],
+            "inlineImageCount": null,
+            "imageSections": null,
+            "textStructure": "一个 H1；三至四个完整有序列表项。保留原始起始编号；本模板编号范围为 0–99，超出请用普通 steps。",
+            "lengthGuidance": [
+              70,
+              160
+            ],
+            "supportedAspects": [
+              "portrait",
+              "square"
+            ],
+            "unsuitable": "长嵌套列表或大段说明；可用普通 steps 自动分页。"
+          },
+          "gallery": "docs/gallery/index.html#T05",
+          "acceptedExample": {
+            "status": "reviewed-exact-fixture",
+            "aspect": "portrait",
+            "input": "examples/templates/T05.md",
+            "inputSha256": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3",
+            "png": {
+              "file": "docs/images/refinement-m2-run-40074554707/T05.png",
+              "sha256": "8d39171b49e945f4f6b8016c29930b80a55dd2dd9360936b324c64622296b1df"
+            },
+            "scope": {
+              "density": "standard",
+              "pagination": "manual",
+              "width": 1080,
+              "height": 1440
+            },
+            "review": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+            "evidence": "docs/refinement-m2-v2-provenance.json",
+            "templateVersion": 2
+          },
+          "exampleStatus": "reviewed-exact-input-only",
+          "inputRenderability": "not-verified",
+          "recommendationIsRenderGuarantee": false
+        },
+        {
+          "templateId": "T14",
+          "name": "票据式行动清单",
+          "reasonIds": [
+            "HARD_CONTRACTS_MET",
+            "ASPECT_SUPPORTED",
+            "ROLE_LAYOUT_MATCH",
+            "REGISTRY_PURPOSE_MATCH",
+            "TITLE_STRUCTURE_MATCH",
+            "ORDERED_LIST_STRUCTURE_MATCH",
+            "ORDERED_LIST_COUNT_MATCH"
+          ],
+          "caveats": [
+            "RENDER_NOT_PERFORMED",
+            "SOURCE_NOT_PROVIDED",
+            "BELOW_REGISTRY_LENGTH_GUIDANCE"
+          ],
+          "evidence": {
+            "layout": "steps",
+            "aspect": "portrait",
+            "aspectRegistryStatus": "visually-reviewed",
+            "purpose": "执行前检查、个人行动清单与打印任务票",
+            "structure": "一个 H1；一句短导语；三至四项完整有序列表。编号保留输入起点，空框仅供打印后手动勾选。 本模板支持原始编号 0–99；超出请使用普通 steps。",
+            "unsuitable": "长嵌套任务、需要交互状态的待办应用；可用普通 steps 分页，不自动标记完成。",
+            "lengthGuidance": [
+              80,
+              150
+            ],
+            "actualCharacters": 43
+          },
+          "priority": [
+            0,
+            1,
+            1,
+            -1,
+            3,
+            0
+          ],
+          "requiresUserSelection": true,
+          "rank": 2,
+          "conditions": {
+            "image": "none",
+            "requiredMetadata": [],
+            "inlineImageCount": null,
+            "imageSections": null,
+            "textStructure": "一个 H1；一句短导语；三至四项完整有序列表。编号保留输入起点，空框仅供打印后手动勾选。 本模板支持原始编号 0–99；超出请使用普通 steps。",
+            "lengthGuidance": [
+              80,
+              150
+            ],
+            "supportedAspects": [
+              "portrait"
+            ],
+            "unsuitable": "长嵌套任务、需要交互状态的待办应用；可用普通 steps 分页，不自动标记完成。"
+          },
+          "gallery": "docs/gallery/index.html#T14",
+          "acceptedExample": {
+            "status": "reviewed-exact-fixture",
+            "aspect": "portrait",
+            "input": "examples/templates/T14.md",
+            "inputSha256": "e142fce016b13c96cc8403435721f601251e566fc0115053a27a0e0ed16e3cde",
+            "png": {
+              "file": "docs/images/refinement-m2-run-40074554707/T14.png",
+              "sha256": "46d0113c6b6f42e8a8ef1bfa575bdcc8e68fd2f9d09144498340a001e817906d"
+            },
+            "scope": {
+              "density": "standard",
+              "pagination": "manual",
+              "width": 1080,
+              "height": 1440
+            },
+            "review": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+            "evidence": "docs/refinement-m2-v2-provenance.json",
+            "templateVersion": 2
+          },
+          "exampleStatus": "reviewed-exact-input-only",
+          "inputRenderability": "not-verified",
+          "recommendationIsRenderGuarantee": false
+        },
+        {
+          "templateId": "T42",
+          "name": "贴纸式步骤卡",
+          "reasonIds": [
+            "HARD_CONTRACTS_MET",
+            "ASPECT_SUPPORTED",
+            "ROLE_LAYOUT_MATCH",
+            "REGISTRY_PURPOSE_MATCH",
+            "TITLE_STRUCTURE_MATCH",
+            "ORDERED_LIST_STRUCTURE_MATCH",
+            "ORDERED_LIST_COUNT_MATCH"
+          ],
+          "caveats": [
+            "RENDER_NOT_PERFORMED",
+            "SOURCE_NOT_PROVIDED",
+            "BELOW_REGISTRY_LENGTH_GUIDANCE"
+          ],
+          "evidence": {
+            "layout": "steps",
+            "aspect": "portrait",
+            "aspectRegistryStatus": "visually-reviewed",
+            "purpose": "轻量教程、三步行动",
+            "structure": "一个 H1；三个有序列表项；保留真实列表编号。 本模板支持原始编号 0–99，超出使用普通 steps。",
+            "unsuitable": "密集嵌套步骤或代码；用技术教程或普通 steps 分页。",
+            "lengthGuidance": [
+              70,
+              150
+            ],
+            "actualCharacters": 43
+          },
+          "priority": [
+            0,
+            1,
+            1,
+            -1,
+            3,
+            0
+          ],
+          "requiresUserSelection": true,
+          "rank": 3,
+          "conditions": {
+            "image": "none",
+            "requiredMetadata": [],
+            "inlineImageCount": null,
+            "imageSections": null,
+            "textStructure": "一个 H1；三个有序列表项；保留真实列表编号。 本模板支持原始编号 0–99，超出使用普通 steps。",
+            "lengthGuidance": [
+              70,
+              150
+            ],
+            "supportedAspects": [
+              "portrait"
+            ],
+            "unsuitable": "密集嵌套步骤或代码；用技术教程或普通 steps 分页。"
+          },
+          "gallery": "docs/gallery/index.html#T42",
+          "acceptedExample": {
+            "status": "reviewed-exact-fixture",
+            "aspect": "portrait",
+            "input": "examples/templates/T42.md",
+            "inputSha256": "f4ac48aa990e7ac9b2e949a2ff872ef41c314f8c92ca6965411dff1621f66d66",
+            "png": {
+              "file": "docs/images/refinement-m2-run-40074554707/T42.png",
+              "sha256": "e8311b7004e7ba8e43802308c499569d29562bf131ca247717897d17022adc6b"
+            },
+            "scope": {
+              "density": "standard",
+              "pagination": "manual",
+              "width": 1080,
+              "height": 1440
+            },
+            "review": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+            "evidence": "docs/refinement-m2-v2-provenance.json",
+            "templateVersion": 2
+          },
+          "exampleStatus": "reviewed-exact-input-only",
+          "inputRenderability": "not-verified",
+          "recommendationIsRenderGuarantee": false
+        }
+      ],
+      "compatibleCount": 35,
+      "omittedCompatibleTemplateIds": [
+        "T08",
+        "T11",
+        "T27",
+        "T28",
+        "T26",
+        "T13",
+        "T23",
+        "T17",
+        "T01",
+        "T04",
+        "T06",
+        "T07",
+        "T09",
+        "T10",
+        "T12",
+        "T15",
+        "T16",
+        "T19",
+        "T22",
+        "T33",
+        "T34",
+        "T36",
+        "T41",
+        "T02",
+        "T18",
+        "T24",
+        "T25",
+        "T29",
+        "T30",
+        "T31",
+        "T32",
+        "T35"
+      ],
+      "rejected": [
+        {
+          "templateId": "T03",
+          "reasonIds": [
+            "TEMPLATE_METADATA_REQUIRED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_REQUIRED",
+              "message": "T03 requires nonempty alt, caption. Supply the actual value and its label; no data is invented."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T03 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T20",
+          "reasonIds": [
+            "TEMPLATE_METADATA_REQUIRED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_REQUIRED",
+              "message": "T20 requires nonempty alt, caption. Supply the actual value and its label; no data is invented."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T20 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T21",
+          "reasonIds": [
+            "TEMPLATE_METADATA_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_REQUIRED",
+              "message": "T21 requires nonempty metric, label. Supply the actual value and its label; no data is invented."
+            }
+          ]
+        },
+        {
+          "templateId": "T37",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T37 requires a local metadata image; provide image, alt and optional caption. Nothing is fetched automatically."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T37 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T38",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T38 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T39",
+          "reasonIds": [
+            "TEMPLATE_METADATA_REQUIRED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_REQUIRED",
+              "message": "T39 requires nonempty alt, caption. Supply the actual value and its label; no data is invented."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T39 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T40",
+          "reasonIds": [
+            "TEMPLATE_METADATA_REQUIRED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_REQUIRED",
+              "message": "T40 requires nonempty alt, caption. Supply the actual value and its label; no data is invented."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T40 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T43",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T43 needs 3–3 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T44",
+          "reasonIds": [
+            "TEMPLATE_OPTION_STRUCTURE"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_OPTION_STRUCTURE",
+              "message": "T44 requires two nonempty sibling quotation blocks in each of its first 2 comparison dimensions. Nested or empty quotes are not separate supplied options."
+            }
+          ]
+        },
+        {
+          "templateId": "T45",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T45 requires a local metadata image; provide image, alt and optional caption. Nothing is fetched automatically."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T45 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T46",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T46 requires a local metadata image; provide image, alt and optional caption. Nothing is fetched automatically."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T46 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T47",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T47 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T48",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T48 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "sourceLines": [
+        8,
+        19
+      ],
+      "role": "comparison",
+      "reasonIds": [
+        "AUTHOR_LAYOUT"
+      ],
+      "authorMetadataKeys": [
+        "layout",
+        "source"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "text": "两种记录方式",
+          "bodyLines": [
+            1,
+            1
+          ]
+        },
+        {
+          "level": 2,
+          "text": "随读随记",
+          "bodyLines": [
+            3,
+            3
+          ]
+        },
+        {
+          "level": 2,
+          "text": "读后回看",
+          "bodyLines": [
+            7,
+            7
+          ]
+        }
+      ],
+      "features": {
+        "characters": 47,
+        "h1Count": 1,
+        "h2Count": 2,
+        "paragraphCount": 2,
+        "orderedItems": 0,
+        "bulletLists": 0,
+        "quoteBlocks": 0,
+        "inlineImages": 0,
+        "metadataImage": false,
+        "codeBlocks": 0,
+        "codeLines": 0,
+        "maxCodeLineCharacters": 0,
+        "tableCount": 0,
+        "tableColumns": 0,
+        "maxTableRowCharacters": 0,
+        "hasMetric": false,
+        "hasLabel": false,
+        "hasSource": true
+      },
+      "caveats": [
+        "SOURCE_NOT_FACT_CHECKED"
+      ],
+      "selectionStatus": "candidates-available",
+      "candidates": [
+        {
+          "templateId": "T06",
+          "name": "非对称双栏对比",
+          "reasonIds": [
+            "HARD_CONTRACTS_MET",
+            "ASPECT_SUPPORTED",
+            "ROLE_LAYOUT_MATCH",
+            "REGISTRY_PURPOSE_MATCH",
+            "TITLE_STRUCTURE_MATCH",
+            "SECTION_COUNT_MATCH"
+          ],
+          "caveats": [
+            "RENDER_NOT_PERFORMED",
+            "SOURCE_NOT_FACT_CHECKED",
+            "BELOW_REGISTRY_LENGTH_GUIDANCE"
+          ],
+          "evidence": {
+            "layout": "comparison",
+            "aspect": "portrait",
+            "aspectRegistryStatus": "visually-reviewed",
+            "purpose": "两种方案、路径或判断方式的比较",
+            "structure": "一个 H1；一段简短比较前提；两个接近等宽的 H2 对比栏，右栏保留较强视觉权重；后续 H2 为全宽补充。",
+            "unsuitable": "三个以上并列方案、长嵌套列表和宽表格；改用普通 comparison 多卡对比。",
+            "lengthGuidance": [
+              80,
+              140
+            ],
+            "actualCharacters": 47
+          },
+          "priority": [
+            0,
+            1,
+            1,
+            -1,
+            2,
+            0
+          ],
+          "requiresUserSelection": true,
+          "rank": 1,
+          "conditions": {
+            "image": "none",
+            "requiredMetadata": [],
+            "inlineImageCount": null,
+            "imageSections": null,
+            "textStructure": "一个 H1；一段简短比较前提；两个接近等宽的 H2 对比栏，右栏保留较强视觉权重；后续 H2 为全宽补充。",
+            "lengthGuidance": [
+              80,
+              140
+            ],
+            "supportedAspects": [
+              "portrait"
+            ],
+            "unsuitable": "三个以上并列方案、长嵌套列表和宽表格；改用普通 comparison 多卡对比。"
+          },
+          "gallery": "docs/gallery/index.html#T06",
+          "acceptedExample": {
+            "status": "reviewed-exact-fixture",
+            "aspect": "portrait",
+            "input": "examples/templates/T06.md",
+            "inputSha256": "a1d24b90a1dfeb3fa66d45b4dd0fdc56f71fdb7a2ab44e1c5564cd8a4c66620d",
+            "png": {
+              "file": "docs/images/refinement-m2-run-40074554707/T06.png",
+              "sha256": "d663889a7b3effa46fa4b0a64f32299112cde993ec5707f16ea8206a30d3ff06"
+            },
+            "scope": {
+              "density": "standard",
+              "pagination": "manual",
+              "width": 1080,
+              "height": 1440
+            },
+            "review": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+            "evidence": "docs/refinement-m2-v3-provenance.json",
+            "templateVersion": 3
+          },
+          "exampleStatus": "reviewed-exact-input-only",
+          "inputRenderability": "not-verified",
+          "recommendationIsRenderGuarantee": false
+        },
+        {
+          "templateId": "T15",
+          "name": "粗线双阵营对照",
+          "reasonIds": [
+            "HARD_CONTRACTS_MET",
+            "ASPECT_SUPPORTED",
+            "ROLE_LAYOUT_MATCH",
+            "REGISTRY_PURPOSE_MATCH",
+            "TITLE_STRUCTURE_MATCH",
+            "SECTION_COUNT_MATCH"
+          ],
+          "caveats": [
+            "RENDER_NOT_PERFORMED",
+            "SOURCE_NOT_FACT_CHECKED",
+            "BELOW_REGISTRY_LENGTH_GUIDANCE"
+          ],
+          "evidence": {
+            "layout": "comparison",
+            "aspect": "portrait",
+            "aspectRegistryStatus": "visually-reviewed",
+            "purpose": "两种取向的公平对照及共同适用边界",
+            "structure": "一个 H1；一句比较前提；两个 H2 等宽阵营；第三个 H2 为全宽共同条件。不同底色不代表胜负。",
+            "unsuitable": "三个以上方案、长条款及把复杂争议强行二分；完整限制须保留在补充区或下一张卡。",
+            "lengthGuidance": [
+              110,
+              180
+            ],
+            "actualCharacters": 47
+          },
+          "priority": [
+            0,
+            1,
+            1,
+            -1,
+            2,
+            0
+          ],
+          "requiresUserSelection": true,
+          "rank": 2,
+          "conditions": {
+            "image": "none",
+            "requiredMetadata": [],
+            "inlineImageCount": null,
+            "imageSections": null,
+            "textStructure": "一个 H1；一句比较前提；两个 H2 等宽阵营；第三个 H2 为全宽共同条件。不同底色不代表胜负。",
+            "lengthGuidance": [
+              110,
+              180
+            ],
+            "supportedAspects": [
+              "portrait"
+            ],
+            "unsuitable": "三个以上方案、长条款及把复杂争议强行二分；完整限制须保留在补充区或下一张卡。"
+          },
+          "gallery": "docs/gallery/index.html#T15",
+          "acceptedExample": {
+            "status": "reviewed-exact-fixture",
+            "aspect": "portrait",
+            "input": "examples/templates/T15.md",
+            "inputSha256": "5150d0f69956b983202407f4152ee6efdda873466ddfe1c97da0cc67b7f3c82e",
+            "png": {
+              "file": "docs/images/refinement-m2-run-40074554707/T15.png",
+              "sha256": "2d95939b1756f6ff38c55f503f86d0e40d5719bc3e6dc3ab34c455a6d97ca13d"
+            },
+            "scope": {
+              "density": "standard",
+              "pagination": "manual",
+              "width": 1080,
+              "height": 1440
+            },
+            "review": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+            "evidence": "docs/refinement-m2-v2-provenance.json",
+            "templateVersion": 2
+          },
+          "exampleStatus": "reviewed-exact-input-only",
+          "inputRenderability": "not-verified",
+          "recommendationIsRenderGuarantee": false
+        },
+        {
+          "templateId": "T12",
+          "name": "几何分区四象限",
+          "reasonIds": [
+            "HARD_CONTRACTS_MET",
+            "ASPECT_SUPPORTED",
+            "ROLE_LAYOUT_MATCH",
+            "REGISTRY_PURPOSE_MATCH",
+            "TITLE_STRUCTURE_MATCH"
+          ],
+          "caveats": [
+            "RENDER_NOT_PERFORMED",
+            "SOURCE_NOT_FACT_CHECKED",
+            "BELOW_REGISTRY_LENGTH_GUIDANCE",
+            "SECTION_COUNT_OUTSIDE_GUIDANCE"
+          ],
+          "evidence": {
+            "layout": "comparison",
+            "aspect": "portrait",
+            "aspectRegistryStatus": "visually-reviewed",
+            "purpose": "四种平行情况、原则分类或四方向观察",
+            "structure": "一个 H1；一句分类前提；四个 H2 组成等宽四分区，按原文行序阅读。没有隐含坐标、得分或排名。",
+            "unsuitable": "数值散点、需要明确坐标轴的矩阵或五个以上等价分类；附加 H2 保留为全宽补充，不冒充第五象限。",
+            "lengthGuidance": [
+              110,
+              180
+            ],
+            "actualCharacters": 47
+          },
+          "priority": [
+            0,
+            1,
+            1,
+            -2,
+            1,
+            0
+          ],
+          "requiresUserSelection": true,
+          "rank": 3,
+          "conditions": {
+            "image": "none",
+            "requiredMetadata": [],
+            "inlineImageCount": null,
+            "imageSections": null,
+            "textStructure": "一个 H1；一句分类前提；四个 H2 组成等宽四分区，按原文行序阅读。没有隐含坐标、得分或排名。",
+            "lengthGuidance": [
+              110,
+              180
+            ],
+            "supportedAspects": [
+              "portrait"
+            ],
+            "unsuitable": "数值散点、需要明确坐标轴的矩阵或五个以上等价分类；附加 H2 保留为全宽补充，不冒充第五象限。"
+          },
+          "gallery": "docs/gallery/index.html#T12",
+          "acceptedExample": {
+            "status": "reviewed-exact-fixture",
+            "aspect": "portrait",
+            "input": "examples/templates/T12.md",
+            "inputSha256": "9e8261c88de67a4cf69b7604a866ac4efbfd49f50a8be400c6464ec6f8fd87c6",
+            "png": {
+              "file": "docs/images/refinement-m2-run-40074554707/T12.png",
+              "sha256": "703a6c7316c68c24a6bc0a7a55353448f15454c4a7f7ccff1d336aff5b54181d"
+            },
+            "scope": {
+              "density": "standard",
+              "pagination": "manual",
+              "width": 1080,
+              "height": 1440
+            },
+            "review": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+            "evidence": "docs/refinement-m2-v2-provenance.json",
+            "templateVersion": 2
+          },
+          "exampleStatus": "reviewed-exact-input-only",
+          "inputRenderability": "not-verified",
+          "recommendationIsRenderGuarantee": false
+        }
+      ],
+      "compatibleCount": 4,
+      "omittedCompatibleTemplateIds": [
+        "T24"
+      ],
+      "rejected": [
+        {
+          "templateId": "T01",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T01 requires layout \"cover\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T02",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T02 requires layout \"quote\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T03",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T03 requires layout \"image-caption\"; remove the conflicting layout or choose another template."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T03 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T04",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T04 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T05",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T05 requires layout \"steps\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T07",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T07 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T08",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T08 requires layout \"steps\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T09",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T09 requires layout \"cover\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T10",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T10 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T11",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T11 requires layout \"steps\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T13",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T13 requires layout \"cover\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T14",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T14 requires layout \"steps\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T16",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T16 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T17",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T17 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T18",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T18 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T19",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T19 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T20",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T20 requires layout \"image-caption\"; remove the conflicting layout or choose another template."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T20 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T21",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T21 requires layout \"statistic\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T22",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T22 requires layout \"statistic\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T23",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T23 requires layout \"case-study\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T25",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T25 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T26",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T26 requires layout \"steps\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T27",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T27 requires layout \"steps\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T28",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T28 requires layout \"steps\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T29",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T29 requires layout \"quote\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T30",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T30 requires layout \"quote\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T31",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T31 requires layout \"quote\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T32",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T32 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T33",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T33 requires layout \"cover\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T34",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T34 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T35",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T35 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T36",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T36 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T37",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T37 requires layout \"image-caption\"; remove the conflicting layout or choose another template."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T37 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T38",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH",
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T38 requires layout \"image-caption\"; remove the conflicting layout or choose another template."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T38 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T39",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T39 requires layout \"image-caption\"; remove the conflicting layout or choose another template."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T39 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T40",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T40 requires layout \"image-caption\"; remove the conflicting layout or choose another template."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T40 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T41",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T41 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T42",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T42 requires layout \"steps\"; remove the conflicting layout or choose another template."
+            }
+          ]
+        },
+        {
+          "templateId": "T43",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH",
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T43 requires layout \"image-caption\"; remove the conflicting layout or choose another template."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T43 needs 3–3 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T44",
+          "reasonIds": [
+            "TEMPLATE_OPTION_STRUCTURE"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_OPTION_STRUCTURE",
+              "message": "T44 requires two nonempty sibling quotation blocks in each of its first 2 comparison dimensions. Nested or empty quotes are not separate supplied options."
+            }
+          ]
+        },
+        {
+          "templateId": "T45",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T45 requires layout \"explainer\"; remove the conflicting layout or choose another template."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T45 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T46",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T46 requires layout \"image-caption\"; remove the conflicting layout or choose another template."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T46 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T47",
+          "reasonIds": [
+            "TEMPLATE_LAYOUT_MISMATCH",
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_LAYOUT_MISMATCH",
+              "message": "T47 requires layout \"steps\"; remove the conflicting layout or choose another template."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T47 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T48",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T48 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "sourceLines": [
+        21,
+        34
+      ],
+      "role": "metric",
+      "reasonIds": [
+        "AUTHOR_METRIC_AND_LABEL"
+      ],
+      "authorMetadataKeys": [
+        "metric",
+        "label",
+        "source"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "text": "让指标带上口径",
+          "bodyLines": [
+            1,
+            1
+          ]
+        },
+        {
+          "level": 2,
+          "text": "口径",
+          "bodyLines": [
+            5,
+            5
+          ]
+        },
+        {
+          "level": 2,
+          "text": "限制",
+          "bodyLines": [
+            9,
+            9
+          ]
+        }
+      ],
+      "features": {
+        "characters": 66,
+        "h1Count": 1,
+        "h2Count": 2,
+        "paragraphCount": 3,
+        "orderedItems": 0,
+        "bulletLists": 0,
+        "quoteBlocks": 0,
+        "inlineImages": 0,
+        "metadataImage": false,
+        "codeBlocks": 0,
+        "codeLines": 0,
+        "maxCodeLineCharacters": 0,
+        "tableCount": 0,
+        "tableColumns": 0,
+        "maxTableRowCharacters": 0,
+        "hasMetric": true,
+        "hasLabel": true,
+        "hasSource": true
+      },
+      "caveats": [
+        "SOURCE_NOT_FACT_CHECKED"
+      ],
+      "selectionStatus": "candidates-available",
+      "candidates": [
+        {
+          "templateId": "T21",
+          "name": "单指标聚焦",
+          "reasonIds": [
+            "HARD_CONTRACTS_MET",
+            "ASPECT_SUPPORTED",
+            "ROLE_LAYOUT_MATCH",
+            "REGISTRY_PURPOSE_MATCH",
+            "REQUIRED_METADATA_MET",
+            "TITLE_STRUCTURE_MATCH",
+            "SECTION_COUNT_MATCH"
+          ],
+          "caveats": [
+            "RENDER_NOT_PERFORMED",
+            "SOURCE_NOT_FACT_CHECKED",
+            "BELOW_REGISTRY_LENGTH_GUIDANCE"
+          ],
+          "evidence": {
+            "layout": "statistic",
+            "aspect": "portrait",
+            "aspectRegistryStatus": "visually-reviewed",
+            "purpose": "突出一个指标，同时交代定义、范围与限制",
+            "structure": "必须提供非空 metric 和 label；一个 H1；metric 和 label 提供指标与完整名称；导语后用两个 H2 分别说明口径与限制。",
+            "unsuitable": "多个竞争指标、超长数值、缺少分母或依据的数据；可改用 T22 或普通 explainer。",
+            "lengthGuidance": [
+              70,
+              150
+            ],
+            "actualCharacters": 66
+          },
+          "priority": [
+            0,
+            1,
+            1,
+            -1,
+            2,
+            0
+          ],
+          "requiresUserSelection": true,
+          "rank": 1,
+          "conditions": {
+            "image": "none",
+            "requiredMetadata": [
+              "metric",
+              "label"
+            ],
+            "inlineImageCount": null,
+            "imageSections": null,
+            "textStructure": "必须提供非空 metric 和 label；一个 H1；metric 和 label 提供指标与完整名称；导语后用两个 H2 分别说明口径与限制。",
+            "lengthGuidance": [
+              70,
+              150
+            ],
+            "supportedAspects": [
+              "portrait",
+              "square",
+              "slide"
+            ],
+            "unsuitable": "多个竞争指标、超长数值、缺少分母或依据的数据；可改用 T22 或普通 explainer。"
+          },
+          "gallery": "docs/gallery/index.html#T21",
+          "acceptedExample": {
+            "status": "reviewed-exact-fixture",
+            "aspect": "portrait",
+            "input": "examples/templates/T21.md",
+            "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+            "png": {
+              "file": "docs/images/refinement-m2-run-40074554707/T21.png",
+              "sha256": "d4aebb10c8f15591ba926ae849e3c8badb0666d317c2c4eb01fa49b13265d328"
+            },
+            "scope": {
+              "density": "standard",
+              "pagination": "manual",
+              "width": 1080,
+              "height": 1440
+            },
+            "review": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+            "evidence": "docs/refinement-m2-v2-provenance.json",
+            "templateVersion": 2
+          },
+          "exampleStatus": "reviewed-exact-input-only",
+          "inputRenderability": "not-verified",
+          "recommendationIsRenderGuarantee": false
+        }
+      ],
+      "compatibleCount": 1,
+      "omittedCompatibleTemplateIds": [],
+      "rejected": [
+        {
+          "templateId": "T01",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T01 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T02",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T02 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T03",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T03 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T03 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T04",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T04 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T05",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T05 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T06",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T06 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T07",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T07 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T08",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T08 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T09",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T09 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T10",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T10 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T11",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T11 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T12",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T12 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T13",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T13 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T14",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T14 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T15",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T15 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T16",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T16 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T17",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T17 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T18",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T18 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T19",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T19 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T20",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T20 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T20 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T22",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T22 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T23",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T23 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T24",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T24 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T25",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T25 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T26",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T26 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T27",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T27 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T28",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T28 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T29",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T29 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T30",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T30 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T31",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T31 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T32",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T32 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T33",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T33 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T34",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T34 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T35",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T35 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T36",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T36 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T37",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T37 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T37 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T38",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T38 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T38 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T39",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T39 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T39 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T40",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T40 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T40 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T41",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T41 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T42",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T42 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            }
+          ]
+        },
+        {
+          "templateId": "T43",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T43 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T43 needs 3–3 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T44",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_OPTION_STRUCTURE"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T44 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_OPTION_STRUCTURE",
+              "message": "T44 requires two nonempty sibling quotation blocks in each of its first 2 comparison dimensions. Nested or empty quotes are not separate supplied options."
+            }
+          ]
+        },
+        {
+          "templateId": "T45",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T45 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T45 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T46",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T46 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T46 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T47",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T47 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T47 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T48",
+          "reasonIds": [
+            "TEMPLATE_METADATA_UNSUPPORTED",
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_UNSUPPORTED",
+              "message": "T48 does not display metric, label. Choose a matching layout; metadata is never silently discarded."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T48 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "sourceLines": [
+        36,
+        38
+      ],
+      "role": "unknown",
+      "reasonIds": [
+        "INSUFFICIENT_ROLE_EVIDENCE"
+      ],
+      "authorMetadataKeys": [],
+      "headings": [],
+      "features": {
+        "characters": 16,
+        "h1Count": 0,
+        "h2Count": 0,
+        "paragraphCount": 1,
+        "orderedItems": 0,
+        "bulletLists": 0,
+        "quoteBlocks": 0,
+        "inlineImages": 0,
+        "metadataImage": false,
+        "codeBlocks": 0,
+        "codeLines": 0,
+        "maxCodeLineCharacters": 0,
+        "tableCount": 0,
+        "tableColumns": 0,
+        "maxTableRowCharacters": 0,
+        "hasMetric": false,
+        "hasLabel": false,
+        "hasSource": false
+      },
+      "caveats": [
+        "UNKNOWN_ROLE",
+        "SOURCE_NOT_PROVIDED"
+      ],
+      "selectionStatus": "insufficient-role-evidence",
+      "candidates": [],
+      "compatibleCount": 35,
+      "omittedCompatibleTemplateIds": [
+        "T17",
+        "T01",
+        "T04",
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T09",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14",
+        "T15",
+        "T16",
+        "T19",
+        "T22",
+        "T23",
+        "T27",
+        "T33",
+        "T34",
+        "T36",
+        "T41",
+        "T42",
+        "T02",
+        "T18",
+        "T24",
+        "T25",
+        "T26",
+        "T28",
+        "T29",
+        "T30",
+        "T31",
+        "T32",
+        "T35"
+      ],
+      "rejected": [
+        {
+          "templateId": "T03",
+          "reasonIds": [
+            "TEMPLATE_METADATA_REQUIRED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_REQUIRED",
+              "message": "T03 requires nonempty alt, caption. Supply the actual value and its label; no data is invented."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T03 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T20",
+          "reasonIds": [
+            "TEMPLATE_METADATA_REQUIRED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_REQUIRED",
+              "message": "T20 requires nonempty alt, caption. Supply the actual value and its label; no data is invented."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T20 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T21",
+          "reasonIds": [
+            "TEMPLATE_METADATA_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_REQUIRED",
+              "message": "T21 requires nonempty metric, label. Supply the actual value and its label; no data is invented."
+            }
+          ]
+        },
+        {
+          "templateId": "T37",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T37 requires a local metadata image; provide image, alt and optional caption. Nothing is fetched automatically."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T37 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T38",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T38 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T39",
+          "reasonIds": [
+            "TEMPLATE_METADATA_REQUIRED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_REQUIRED",
+              "message": "T39 requires nonempty alt, caption. Supply the actual value and its label; no data is invented."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T39 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T40",
+          "reasonIds": [
+            "TEMPLATE_METADATA_REQUIRED",
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_METADATA_REQUIRED",
+              "message": "T40 requires nonempty alt, caption. Supply the actual value and its label; no data is invented."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T40 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T43",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T43 needs 3–3 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T44",
+          "reasonIds": [
+            "TEMPLATE_OPTION_STRUCTURE"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_OPTION_STRUCTURE",
+              "message": "T44 requires two nonempty sibling quotation blocks in each of its first 2 comparison dimensions. Nested or empty quotes are not separate supplied options."
+            }
+          ]
+        },
+        {
+          "templateId": "T45",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T45 requires a local metadata image; provide image, alt and optional caption. Nothing is fetched automatically."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T45 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T46",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_REQUIRED"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T46 requires a local metadata image; provide image, alt and optional caption. Nothing is fetched automatically."
+            },
+            {
+              "code": "TEMPLATE_IMAGE_REQUIRED",
+              "message": "T46 requires a resolver-validated local image."
+            }
+          ]
+        },
+        {
+          "templateId": "T47",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T47 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        },
+        {
+          "templateId": "T48",
+          "reasonIds": [
+            "TEMPLATE_IMAGE_COUNT"
+          ],
+          "details": [
+            {
+              "code": "TEMPLATE_IMAGE_COUNT",
+              "message": "T48 needs 2–2 inline images. Supply complete image/description pairs or split the card."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "reportType": "template-recommendation",
+  "status": "success",
+  "sourceSha256": "814a4a4a718ca7bb54f330c798978cfad7e35a2e062cdbeb7e0ef7c05702bb18",
+  "sourceBytes": 792,
+  "templateCount": 48,
+  "recommendationIsRenderGuarantee": false,
+  "linksRelativeTo": "repository-root"
+}

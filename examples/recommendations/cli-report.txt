@@ -1,0 +1,104 @@
+模板推荐 ≠ 渲染保证；未启动浏览器、未导出或改写原文。
+输入 SHA-256: 814a4a4a718ca7bb54f330c798978cfad7e35a2e062cdbeb7e0ef7c05702bb18
+画幅: portrait；分页: manual
+
+卡片 1 · 步骤与清单 (steps) · candidates-available
+1. T05 大数字索引清单
+   理由: 通过现有元数据和内容结构硬校验；支持请求画幅；版式与内容角色匹配；注册用途与内容角色匹配；标题结构匹配；有序列表结构匹配；列表项数符合指导
+   用途: 方法清单、阅读导航
+   图片: none；必需字段: 无
+   文字: 一个 H1；三至四个完整有序列表项。保留原始起始编号；本模板编号范围为 0–99，超出请用普通 steps。；70–160 字仅为指导
+   支持画幅: portrait, square
+   不适合: 长嵌套列表或大段说明；可用普通 steps 自动分页。
+   限制: RENDER_NOT_PERFORMED, SOURCE_NOT_PROVIDED, BELOW_REGISTRY_LENGTH_GUIDANCE
+   图库: docs/gallery/index.html#T05
+   已验收的精确示例: examples/templates/T05.md → docs/images/refinement-m2-run-40074554707/T05.png；复核: docs/REFINEMENT_M2_ACCEPTANCE.md
+   示例验收状态: reviewed-exact-fixture
+   示例验收范围: portrait / standard / manual（仅原始示例）
+2. T14 票据式行动清单
+   理由: 通过现有元数据和内容结构硬校验；支持请求画幅；版式与内容角色匹配；注册用途与内容角色匹配；标题结构匹配；有序列表结构匹配；列表项数符合指导
+   用途: 执行前检查、个人行动清单与打印任务票
+   图片: none；必需字段: 无
+   文字: 一个 H1；一句短导语；三至四项完整有序列表。编号保留输入起点，空框仅供打印后手动勾选。 本模板支持原始编号 0–99；超出请使用普通 steps。；80–150 字仅为指导
+   支持画幅: portrait
+   不适合: 长嵌套任务、需要交互状态的待办应用；可用普通 steps 分页，不自动标记完成。
+   限制: RENDER_NOT_PERFORMED, SOURCE_NOT_PROVIDED, BELOW_REGISTRY_LENGTH_GUIDANCE
+   图库: docs/gallery/index.html#T14
+   已验收的精确示例: examples/templates/T14.md → docs/images/refinement-m2-run-40074554707/T14.png；复核: docs/REFINEMENT_M2_ACCEPTANCE.md
+   示例验收状态: reviewed-exact-fixture
+   示例验收范围: portrait / standard / manual（仅原始示例）
+3. T42 贴纸式步骤卡
+   理由: 通过现有元数据和内容结构硬校验；支持请求画幅；版式与内容角色匹配；注册用途与内容角色匹配；标题结构匹配；有序列表结构匹配；列表项数符合指导
+   用途: 轻量教程、三步行动
+   图片: none；必需字段: 无
+   文字: 一个 H1；三个有序列表项；保留真实列表编号。 本模板支持原始编号 0–99，超出使用普通 steps。；70–150 字仅为指导
+   支持画幅: portrait
+   不适合: 密集嵌套步骤或代码；用技术教程或普通 steps 分页。
+   限制: RENDER_NOT_PERFORMED, SOURCE_NOT_PROVIDED, BELOW_REGISTRY_LENGTH_GUIDANCE
+   图库: docs/gallery/index.html#T42
+   已验收的精确示例: examples/templates/T42.md → docs/images/refinement-m2-run-40074554707/T42.png；复核: docs/REFINEMENT_M2_ACCEPTANCE.md
+   示例验收状态: reviewed-exact-fixture
+   示例验收范围: portrait / standard / manual（仅原始示例）
+未入选但兼容: T08, T11, T27, T28, T26, T13, T23, T17, T01, T04, T06, T07, T09, T10, T12, T15, T16, T19, T22, T33, T34, T36, T41, T02, T18, T24, T25, T29, T30, T31, T32, T35
+拒绝: T03 [TEMPLATE_METADATA_REQUIRED, TEMPLATE_IMAGE_REQUIRED]; T20 [TEMPLATE_METADATA_REQUIRED, TEMPLATE_IMAGE_REQUIRED]; T21 [TEMPLATE_METADATA_REQUIRED]; T37 [TEMPLATE_IMAGE_REQUIRED]; T38 [TEMPLATE_IMAGE_COUNT]; T39 [TEMPLATE_METADATA_REQUIRED, TEMPLATE_IMAGE_REQUIRED]; T40 [TEMPLATE_METADATA_REQUIRED, TEMPLATE_IMAGE_REQUIRED]; T43 [TEMPLATE_IMAGE_COUNT]; T44 [TEMPLATE_OPTION_STRUCTURE]; T45 [TEMPLATE_IMAGE_REQUIRED]; T46 [TEMPLATE_IMAGE_REQUIRED]; T47 [TEMPLATE_IMAGE_COUNT]; T48 [TEMPLATE_IMAGE_COUNT]
+
+卡片 2 · 有条件的比较 (comparison) · candidates-available
+1. T06 非对称双栏对比
+   理由: 通过现有元数据和内容结构硬校验；支持请求画幅；版式与内容角色匹配；注册用途与内容角色匹配；标题结构匹配；分节数量匹配
+   用途: 两种方案、路径或判断方式的比较
+   图片: none；必需字段: 无
+   文字: 一个 H1；一段简短比较前提；两个接近等宽的 H2 对比栏，右栏保留较强视觉权重；后续 H2 为全宽补充。；80–140 字仅为指导
+   支持画幅: portrait
+   不适合: 三个以上并列方案、长嵌套列表和宽表格；改用普通 comparison 多卡对比。
+   限制: RENDER_NOT_PERFORMED, SOURCE_NOT_FACT_CHECKED, BELOW_REGISTRY_LENGTH_GUIDANCE
+   图库: docs/gallery/index.html#T06
+   已验收的精确示例: examples/templates/T06.md → docs/images/refinement-m2-run-40074554707/T06.png；复核: docs/REFINEMENT_M2_ACCEPTANCE.md
+   示例验收状态: reviewed-exact-fixture
+   示例验收范围: portrait / standard / manual（仅原始示例）
+2. T15 粗线双阵营对照
+   理由: 通过现有元数据和内容结构硬校验；支持请求画幅；版式与内容角色匹配；注册用途与内容角色匹配；标题结构匹配；分节数量匹配
+   用途: 两种取向的公平对照及共同适用边界
+   图片: none；必需字段: 无
+   文字: 一个 H1；一句比较前提；两个 H2 等宽阵营；第三个 H2 为全宽共同条件。不同底色不代表胜负。；110–180 字仅为指导
+   支持画幅: portrait
+   不适合: 三个以上方案、长条款及把复杂争议强行二分；完整限制须保留在补充区或下一张卡。
+   限制: RENDER_NOT_PERFORMED, SOURCE_NOT_FACT_CHECKED, BELOW_REGISTRY_LENGTH_GUIDANCE
+   图库: docs/gallery/index.html#T15
+   已验收的精确示例: examples/templates/T15.md → docs/images/refinement-m2-run-40074554707/T15.png；复核: docs/REFINEMENT_M2_ACCEPTANCE.md
+   示例验收状态: reviewed-exact-fixture
+   示例验收范围: portrait / standard / manual（仅原始示例）
+3. T12 几何分区四象限
+   理由: 通过现有元数据和内容结构硬校验；支持请求画幅；版式与内容角色匹配；注册用途与内容角色匹配；标题结构匹配
+   用途: 四种平行情况、原则分类或四方向观察
+   图片: none；必需字段: 无
+   文字: 一个 H1；一句分类前提；四个 H2 组成等宽四分区，按原文行序阅读。没有隐含坐标、得分或排名。；110–180 字仅为指导
+   支持画幅: portrait
+   不适合: 数值散点、需要明确坐标轴的矩阵或五个以上等价分类；附加 H2 保留为全宽补充，不冒充第五象限。
+   限制: RENDER_NOT_PERFORMED, SOURCE_NOT_FACT_CHECKED, BELOW_REGISTRY_LENGTH_GUIDANCE, SECTION_COUNT_OUTSIDE_GUIDANCE
+   图库: docs/gallery/index.html#T12
+   已验收的精确示例: examples/templates/T12.md → docs/images/refinement-m2-run-40074554707/T12.png；复核: docs/REFINEMENT_M2_ACCEPTANCE.md
+   示例验收状态: reviewed-exact-fixture
+   示例验收范围: portrait / standard / manual（仅原始示例）
+未入选但兼容: T24
+拒绝: T01 [TEMPLATE_LAYOUT_MISMATCH]; T02 [TEMPLATE_LAYOUT_MISMATCH]; T03 [TEMPLATE_LAYOUT_MISMATCH, TEMPLATE_IMAGE_REQUIRED]; T04 [TEMPLATE_LAYOUT_MISMATCH]; T05 [TEMPLATE_LAYOUT_MISMATCH]; T07 [TEMPLATE_LAYOUT_MISMATCH]; T08 [TEMPLATE_LAYOUT_MISMATCH]; T09 [TEMPLATE_LAYOUT_MISMATCH]; T10 [TEMPLATE_LAYOUT_MISMATCH]; T11 [TEMPLATE_LAYOUT_MISMATCH]; T13 [TEMPLATE_LAYOUT_MISMATCH]; T14 [TEMPLATE_LAYOUT_MISMATCH]; T16 [TEMPLATE_LAYOUT_MISMATCH]; T17 [TEMPLATE_LAYOUT_MISMATCH]; T18 [TEMPLATE_LAYOUT_MISMATCH]; T19 [TEMPLATE_LAYOUT_MISMATCH]; T20 [TEMPLATE_LAYOUT_MISMATCH, TEMPLATE_IMAGE_REQUIRED]; T21 [TEMPLATE_LAYOUT_MISMATCH]; T22 [TEMPLATE_LAYOUT_MISMATCH]; T23 [TEMPLATE_LAYOUT_MISMATCH]; T25 [TEMPLATE_LAYOUT_MISMATCH]; T26 [TEMPLATE_LAYOUT_MISMATCH]; T27 [TEMPLATE_LAYOUT_MISMATCH]; T28 [TEMPLATE_LAYOUT_MISMATCH]; T29 [TEMPLATE_LAYOUT_MISMATCH]; T30 [TEMPLATE_LAYOUT_MISMATCH]; T31 [TEMPLATE_LAYOUT_MISMATCH]; T32 [TEMPLATE_LAYOUT_MISMATCH]; T33 [TEMPLATE_LAYOUT_MISMATCH]; T34 [TEMPLATE_LAYOUT_MISMATCH]; T35 [TEMPLATE_LAYOUT_MISMATCH]; T36 [TEMPLATE_LAYOUT_MISMATCH]; T37 [TEMPLATE_LAYOUT_MISMATCH, TEMPLATE_IMAGE_REQUIRED]; T38 [TEMPLATE_LAYOUT_MISMATCH, TEMPLATE_IMAGE_COUNT]; T39 [TEMPLATE_LAYOUT_MISMATCH, TEMPLATE_IMAGE_REQUIRED]; T40 [TEMPLATE_LAYOUT_MISMATCH, TEMPLATE_IMAGE_REQUIRED]; T41 [TEMPLATE_LAYOUT_MISMATCH]; T42 [TEMPLATE_LAYOUT_MISMATCH]; T43 [TEMPLATE_LAYOUT_MISMATCH, TEMPLATE_IMAGE_COUNT]; T44 [TEMPLATE_OPTION_STRUCTURE]; T45 [TEMPLATE_LAYOUT_MISMATCH, TEMPLATE_IMAGE_REQUIRED]; T46 [TEMPLATE_LAYOUT_MISMATCH, TEMPLATE_IMAGE_REQUIRED]; T47 [TEMPLATE_LAYOUT_MISMATCH, TEMPLATE_IMAGE_COUNT]; T48 [TEMPLATE_IMAGE_COUNT]
+
+卡片 3 · 明确的指标 (metric) · candidates-available
+1. T21 单指标聚焦
+   理由: 通过现有元数据和内容结构硬校验；支持请求画幅；版式与内容角色匹配；注册用途与内容角色匹配；必需字段齐全；标题结构匹配；分节数量匹配
+   用途: 突出一个指标，同时交代定义、范围与限制
+   图片: none；必需字段: metric, label
+   文字: 必须提供非空 metric 和 label；一个 H1；metric 和 label 提供指标与完整名称；导语后用两个 H2 分别说明口径与限制。；70–150 字仅为指导
+   支持画幅: portrait, square, slide
+   不适合: 多个竞争指标、超长数值、缺少分母或依据的数据；可改用 T22 或普通 explainer。
+   限制: RENDER_NOT_PERFORMED, SOURCE_NOT_FACT_CHECKED, BELOW_REGISTRY_LENGTH_GUIDANCE
+   图库: docs/gallery/index.html#T21
+   已验收的精确示例: examples/templates/T21.md → docs/images/refinement-m2-run-40074554707/T21.png；复核: docs/REFINEMENT_M2_ACCEPTANCE.md
+   示例验收状态: reviewed-exact-fixture
+   示例验收范围: portrait / standard / manual（仅原始示例）
+未入选但兼容: 无
+拒绝: T01 [TEMPLATE_METADATA_UNSUPPORTED]; T02 [TEMPLATE_METADATA_UNSUPPORTED]; T03 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_IMAGE_REQUIRED]; T04 [TEMPLATE_METADATA_UNSUPPORTED]; T05 [TEMPLATE_METADATA_UNSUPPORTED]; T06 [TEMPLATE_METADATA_UNSUPPORTED]; T07 [TEMPLATE_METADATA_UNSUPPORTED]; T08 [TEMPLATE_METADATA_UNSUPPORTED]; T09 [TEMPLATE_METADATA_UNSUPPORTED]; T10 [TEMPLATE_METADATA_UNSUPPORTED]; T11 [TEMPLATE_METADATA_UNSUPPORTED]; T12 [TEMPLATE_METADATA_UNSUPPORTED]; T13 [TEMPLATE_METADATA_UNSUPPORTED]; T14 [TEMPLATE_METADATA_UNSUPPORTED]; T15 [TEMPLATE_METADATA_UNSUPPORTED]; T16 [TEMPLATE_METADATA_UNSUPPORTED]; T17 [TEMPLATE_METADATA_UNSUPPORTED]; T18 [TEMPLATE_METADATA_UNSUPPORTED]; T19 [TEMPLATE_METADATA_UNSUPPORTED]; T20 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_IMAGE_REQUIRED]; T22 [TEMPLATE_METADATA_UNSUPPORTED]; T23 [TEMPLATE_METADATA_UNSUPPORTED]; T24 [TEMPLATE_METADATA_UNSUPPORTED]; T25 [TEMPLATE_METADATA_UNSUPPORTED]; T26 [TEMPLATE_METADATA_UNSUPPORTED]; T27 [TEMPLATE_METADATA_UNSUPPORTED]; T28 [TEMPLATE_METADATA_UNSUPPORTED]; T29 [TEMPLATE_METADATA_UNSUPPORTED]; T30 [TEMPLATE_METADATA_UNSUPPORTED]; T31 [TEMPLATE_METADATA_UNSUPPORTED]; T32 [TEMPLATE_METADATA_UNSUPPORTED]; T33 [TEMPLATE_METADATA_UNSUPPORTED]; T34 [TEMPLATE_METADATA_UNSUPPORTED]; T35 [TEMPLATE_METADATA_UNSUPPORTED]; T36 [TEMPLATE_METADATA_UNSUPPORTED]; T37 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_IMAGE_REQUIRED]; T38 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_IMAGE_COUNT]; T39 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_IMAGE_REQUIRED]; T40 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_IMAGE_REQUIRED]; T41 [TEMPLATE_METADATA_UNSUPPORTED]; T42 [TEMPLATE_METADATA_UNSUPPORTED]; T43 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_IMAGE_COUNT]; T44 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_OPTION_STRUCTURE]; T45 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_IMAGE_REQUIRED]; T46 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_IMAGE_REQUIRED]; T47 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_IMAGE_COUNT]; T48 [TEMPLATE_METADATA_UNSUPPORTED, TEMPLATE_IMAGE_COUNT]
+
+卡片 4 · 角色证据不足 (unknown) · insufficient-role-evidence
+没有推荐候选；不猜选或补造必要字段。
+未入选但兼容: T17, T01, T04, T05, T06, T07, T08, T09, T10, T11, T12, T13, T14, T15, T16, T19, T22, T23, T27, T33, T34, T36, T41, T42, T02, T18, T24, T25, T26, T28, T29, T30, T31, T32, T35
+拒绝: T03 [TEMPLATE_METADATA_REQUIRED, TEMPLATE_IMAGE_REQUIRED]; T20 [TEMPLATE_METADATA_REQUIRED, TEMPLATE_IMAGE_REQUIRED]; T21 [TEMPLATE_METADATA_REQUIRED]; T37 [TEMPLATE_IMAGE_REQUIRED]; T38 [TEMPLATE_IMAGE_COUNT]; T39 [TEMPLATE_METADATA_REQUIRED, TEMPLATE_IMAGE_REQUIRED]; T40 [TEMPLATE_METADATA_REQUIRED, TEMPLATE_IMAGE_REQUIRED]; T43 [TEMPLATE_IMAGE_COUNT]; T44 [TEMPLATE_OPTION_STRUCTURE]; T45 [TEMPLATE_IMAGE_REQUIRED]; T46 [TEMPLATE_IMAGE_REQUIRED]; T47 [TEMPLATE_IMAGE_COUNT]; T48 [TEMPLATE_IMAGE_COUNT]

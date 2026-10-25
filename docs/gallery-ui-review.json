@@ -1,0 +1,3268 @@
+{
+  "schemaVersion": 1,
+  "scope": "local-uncommitted-candidate-only",
+  "baseline": "7a66826e9abd60bf461fa10d358093948455721b",
+  "reviewedAt": "2026-10-24T16:26:05.911Z",
+  "reviewer": "Codex independent screenshot inspection",
+  "status": "reviewed-with-stated-boundaries",
+  "originalReportSha256": "de9dca58bdd514ac463180ffe66623f4b90b57b3863e7d3b3945901afb2a640c",
+  "evidenceDirectory": "C:\\Users\\10747\\.codex\\visualizations\\2026\\10\\24\\01a16c24-a690-7411-a252-83bc71b3d49b\\gallery-comparisons-final-20261025",
+  "observations": [
+    "25 screenshots individually reviewed; eight byte-identical images reused from preceding inspected run.",
+    "No observed blank main content, blocking overlay, broken images, overlapping text or horizontal overflow.",
+    "T04 short-case limitation is visible; T13 medium refusal remains explicit."
+  ],
+  "boundaries": [
+    "Viewport screenshots, not complete page pixel coverage",
+    "Equivalent reflow, not browser menu zoom",
+    "No screen-reader or cross-browser certification",
+    "Card visual acceptance is separately scoped"
+  ],
+  "originalReport": {
+    "schemaVersion": 1,
+    "status": "pass",
+    "mode": "actual-chromium-file-url",
+    "startedAt": "2026-10-24T16:23:15.735Z",
+    "checks": [
+      {
+        "name": "file URL: real local resources, CSP, images and classic JS",
+        "status": "pass",
+        "details": {
+          "policy": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'",
+          "background": "rgb(245, 244, 238)",
+          "css": [
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/gallery.css"
+          ],
+          "scripts": [
+            {
+              "src": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/gallery.js",
+              "type": ""
+            }
+          ],
+          "panelHidden": false,
+          "visible": [
+            "T01",
+            "T02",
+            "T03",
+            "T04",
+            "T05",
+            "T06",
+            "T07",
+            "T08",
+            "T09",
+            "T10",
+            "T11",
+            "T12",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19",
+            "T20",
+            "T21",
+            "T22",
+            "T23",
+            "T24",
+            "T25",
+            "T26",
+            "T27",
+            "T28",
+            "T29",
+            "T30",
+            "T31",
+            "T32",
+            "T33",
+            "T34",
+            "T35",
+            "T36",
+            "T37",
+            "T38",
+            "T39",
+            "T40",
+            "T41",
+            "T42",
+            "T43",
+            "T44",
+            "T45",
+            "T46",
+            "T47",
+            "T48"
+          ],
+          "pendingImages": 0,
+          "images": [
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T04/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T06/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T10/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T13/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T04/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T06/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T10/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T04/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T17/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T18/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T33/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T01.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T02.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T03.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T04.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T05.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T06.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T07.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T08.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T09.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T10.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T11.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T12.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T13.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T14.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T15.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T16.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T17.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T18.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T19.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T20.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T21.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T22.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T23.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T24.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T25.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T26.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T27.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T28.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T29.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T30.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T31.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T32.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T33.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T34.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T35.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T36.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T37.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T38.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T39.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T40.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T41.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T42.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T43.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T44.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T45.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T46.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T47.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T48.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "filters 1",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "bauhaus"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 2",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "brutalist"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 3",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "business"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 4",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "eastern"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 5",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "editorial"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 6",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "film"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 7",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "journal"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 8",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "nature"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 9",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "newspaper"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 10",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "pop"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 11",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "swiss"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 12",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "technology"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 13",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "image": "none"
+          },
+          "accepted": 37,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 14",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "image": "required"
+          },
+          "accepted": 7,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 15",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "image": "inline"
+          },
+          "accepted": 4,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 16",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "density": "compact"
+          },
+          "accepted": 0,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 17",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "density": "standard"
+          },
+          "accepted": 48,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 18",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "density": "editorial"
+          },
+          "accepted": 0,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 19",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "purpose": "阅读"
+          },
+          "accepted": 3,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 20",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "purpose": "　ｔ０１　"
+          },
+          "accepted": 1,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 21",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "purpose": "<script>not code</script>"
+          },
+          "accepted": 0,
+          "pending": 0
+        }
+      },
+      {
+        "name": "filters 22",
+        "status": "pass",
+        "details": {
+          "filters": {
+            "family": "film",
+            "image": "inline",
+            "density": "standard",
+            "purpose": "T38"
+          },
+          "accepted": 1,
+          "pending": 0
+        }
+      },
+      {
+        "name": "repeat filter, reset twice and restore full catalogue",
+        "status": "pass",
+        "details": {
+          "visible": 48
+        }
+      },
+      {
+        "name": "task routes and same-content static navigation",
+        "status": "pass",
+        "details": {
+          "taskRoutes": 6,
+          "comparisons": 3,
+          "comparisonPreviews": 11
+        }
+      },
+      {
+        "name": "native labels, keyboard focus and details",
+        "status": "pass",
+        "details": {
+          "labels": [
+            {
+              "id": "family-filter",
+              "labels": [
+                "家族 / 风格全部家族包豪斯几何新粗野海报数据与商业东方书卷科学 / 编辑杂志胶片摄影温暖手账自然生活复古报刊糖果波普瑞士极简深色科技"
+              ]
+            },
+            {
+              "id": "purpose-filter",
+              "labels": [
+                "用途 / 名称关键词"
+              ]
+            },
+            {
+              "id": "image-filter",
+              "labels": [
+                "图片需求全部图片需求无需图片必需本地图片必需正文图片"
+              ]
+            },
+            {
+              "id": "density-filter",
+              "labels": [
+                "注册示例密度全部示例密度compact · 紧凑间距standard · 标准间距editorial · 宽松间距"
+              ]
+            }
+          ],
+          "tabSequence": [
+            "purpose-filter",
+            "image-filter",
+            "density-filter",
+            "reset-filters"
+          ],
+          "skipLink": "pass",
+          "reverseTab": "pass",
+          "nativeDetails": "pass",
+          "scope": "Automated keyboard checks, not screen-reader or accessibility certification."
+        }
+      },
+      {
+        "name": "desktop-1280: initialize and capture index",
+        "status": "pass",
+        "details": {
+          "name": "desktop-1280",
+          "width": 1280,
+          "height": 900,
+          "zoom": 1,
+          "zoomMethod": "Default CSS viewport"
+        }
+      },
+      {
+        "name": "desktop-1280: collapsed reflow",
+        "status": "pass",
+        "details": {
+          "viewport": 1280,
+          "innerWidth": 1280,
+          "documentWidth": 1280,
+          "bodyWidth": 1280,
+          "offenders": []
+        }
+      },
+      {
+        "name": "desktop-1280: capture tasks",
+        "status": "pass"
+      },
+      {
+        "name": "desktop-1280: capture comparisons",
+        "status": "pass"
+      },
+      {
+        "name": "desktop-1280: capture accepted",
+        "status": "pass"
+      },
+      {
+        "name": "desktop-1280: capture pending",
+        "status": "pass"
+      },
+      {
+        "name": "desktop-1280: expanded details and reflow",
+        "status": "pass",
+        "details": {
+          "viewport": 1280,
+          "innerWidth": 1280,
+          "documentWidth": 1280,
+          "bodyWidth": 1280,
+          "offenders": []
+        }
+      },
+      {
+        "name": "mobile-375: initialize and capture index",
+        "status": "pass",
+        "details": {
+          "name": "mobile-375",
+          "width": 375,
+          "height": 812,
+          "zoom": 1,
+          "zoomMethod": "Default CSS viewport"
+        }
+      },
+      {
+        "name": "mobile-375: collapsed reflow",
+        "status": "pass",
+        "details": {
+          "viewport": 375,
+          "innerWidth": 375,
+          "documentWidth": 375,
+          "bodyWidth": 375,
+          "offenders": []
+        }
+      },
+      {
+        "name": "mobile-375: capture tasks",
+        "status": "pass"
+      },
+      {
+        "name": "mobile-375: capture comparisons",
+        "status": "pass"
+      },
+      {
+        "name": "mobile-375: capture accepted",
+        "status": "pass"
+      },
+      {
+        "name": "mobile-375: capture pending",
+        "status": "pass"
+      },
+      {
+        "name": "mobile-375: expanded details and reflow",
+        "status": "pass",
+        "details": {
+          "viewport": 375,
+          "innerWidth": 375,
+          "documentWidth": 375,
+          "bodyWidth": 375,
+          "offenders": []
+        }
+      },
+      {
+        "name": "mobile-390: initialize and capture index",
+        "status": "pass",
+        "details": {
+          "name": "mobile-390",
+          "width": 390,
+          "height": 844,
+          "zoom": 1,
+          "zoomMethod": "Default CSS viewport"
+        }
+      },
+      {
+        "name": "mobile-390: collapsed reflow",
+        "status": "pass",
+        "details": {
+          "viewport": 390,
+          "innerWidth": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390,
+          "offenders": []
+        }
+      },
+      {
+        "name": "mobile-390: capture tasks",
+        "status": "pass"
+      },
+      {
+        "name": "mobile-390: capture comparisons",
+        "status": "pass"
+      },
+      {
+        "name": "mobile-390: capture accepted",
+        "status": "pass"
+      },
+      {
+        "name": "mobile-390: capture pending",
+        "status": "pass"
+      },
+      {
+        "name": "mobile-390: expanded details and reflow",
+        "status": "pass",
+        "details": {
+          "viewport": 390,
+          "innerWidth": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390,
+          "offenders": []
+        }
+      },
+      {
+        "name": "reflow-200-percent: initialize and capture index",
+        "status": "pass",
+        "details": {
+          "name": "reflow-200-percent",
+          "width": 640,
+          "height": 450,
+          "zoom": 2,
+          "zoomMethod": "Equivalent reflow viewport: 1280×900 CSS viewport / 2. Not browser-UI zoom or pinch zoom."
+        }
+      },
+      {
+        "name": "reflow-200-percent: collapsed reflow",
+        "status": "pass",
+        "details": {
+          "viewport": 640,
+          "innerWidth": 640,
+          "documentWidth": 640,
+          "bodyWidth": 640,
+          "offenders": []
+        }
+      },
+      {
+        "name": "reflow-200-percent: capture tasks",
+        "status": "pass"
+      },
+      {
+        "name": "reflow-200-percent: capture comparisons",
+        "status": "pass"
+      },
+      {
+        "name": "reflow-200-percent: capture accepted",
+        "status": "pass"
+      },
+      {
+        "name": "reflow-200-percent: capture pending",
+        "status": "pass"
+      },
+      {
+        "name": "reflow-200-percent: expanded details and reflow",
+        "status": "pass",
+        "details": {
+          "viewport": 640,
+          "innerWidth": 640,
+          "documentWidth": 640,
+          "bodyWidth": 640,
+          "offenders": []
+        }
+      },
+      {
+        "name": "javascript-on: security and resource errors",
+        "status": "pass",
+        "details": {
+          "pageRequestCount": 100,
+          "uniqueRequests": [
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/index.html",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/gallery.css",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/gallery.js",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T04/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T06/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T10/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T13/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T04/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T06/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T10/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T04/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T17/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T18/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T33/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T01.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T02.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T03.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T04.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T05.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T06.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T07.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T08.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T09.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T10.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T11.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T12.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T13.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T14.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T15.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T16.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T17.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T18.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T19.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T20.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T21.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T22.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T23.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T24.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T25.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T26.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T27.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T28.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T29.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T30.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T31.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T32.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T33.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T34.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T35.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T36.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T37.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T38.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T39.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T40.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T41.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T42.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T43.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T44.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T45.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T46.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T47.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T48.png"
+          ],
+          "externalRequests": 0,
+          "cspViolations": 0
+        }
+      },
+      {
+        "name": "javascript-on: context cleanup",
+        "status": "pass"
+      },
+      {
+        "name": "no JS: complete catalogue, real images and static input links",
+        "status": "pass",
+        "details": {
+          "policy": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'",
+          "background": "rgb(245, 244, 238)",
+          "css": [
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/gallery.css"
+          ],
+          "scripts": [
+            {
+              "src": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/gallery.js",
+              "type": ""
+            }
+          ],
+          "panelHidden": true,
+          "visible": [
+            "T01",
+            "T02",
+            "T03",
+            "T04",
+            "T05",
+            "T06",
+            "T07",
+            "T08",
+            "T09",
+            "T10",
+            "T11",
+            "T12",
+            "T13",
+            "T14",
+            "T15",
+            "T16",
+            "T17",
+            "T18",
+            "T19",
+            "T20",
+            "T21",
+            "T22",
+            "T23",
+            "T24",
+            "T25",
+            "T26",
+            "T27",
+            "T28",
+            "T29",
+            "T30",
+            "T31",
+            "T32",
+            "T33",
+            "T34",
+            "T35",
+            "T36",
+            "T37",
+            "T38",
+            "T39",
+            "T40",
+            "T41",
+            "T42",
+            "T43",
+            "T44",
+            "T45",
+            "T46",
+            "T47",
+            "T48"
+          ],
+          "pendingImages": 0,
+          "images": [
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T04/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T06/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T10/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T13/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T04/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T06/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T10/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T04/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T17/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T18/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T33/card-001.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T01.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T02.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T03.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T04.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T05.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T06.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T07.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T08.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T09.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T10.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T11.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T12.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T13.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T14.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T15.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T16.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T17.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T18.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T19.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T20.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T21.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T22.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T23.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T24.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T25.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T26.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T27.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T28.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T29.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T30.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T31.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T32.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T33.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T34.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T35.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T36.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T37.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T38.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T39.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T40.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T41.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T42.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T43.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T44.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T45.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T46.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T47.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            },
+            {
+              "source": "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T48.png",
+              "width": 1080,
+              "height": 1440,
+              "complete": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "javascript-off: security and resource errors",
+        "status": "pass",
+        "details": {
+          "pageRequestCount": 61,
+          "uniqueRequests": [
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/index.html",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/gallery.css",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T04/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T06/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T10/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T13/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T04/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T06/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T10/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T04/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T17/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T18/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T33/card-001.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T01.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T02.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T03.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T04.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T05.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T06.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T07.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T08.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T09.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T10.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T11.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T12.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T13.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T14.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T15.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T16.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T17.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T18.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T19.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T20.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T21.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T22.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T23.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T24.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T25.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T26.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T27.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T28.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T29.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T30.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T31.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T32.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T33.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T34.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T35.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T36.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T37.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T38.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T39.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T40.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T41.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T42.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T43.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T44.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T45.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T46.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T47.png",
+            "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T48.png"
+          ],
+          "externalRequests": 0,
+          "cspViolations": 0
+        }
+      },
+      {
+        "name": "javascript-off: context cleanup",
+        "status": "pass"
+      },
+      {
+        "name": "browser cleanup",
+        "status": "pass"
+      }
+    ],
+    "artifacts": [
+      {
+        "file": "desktop-1280-index.png",
+        "bytes": 101408,
+        "sha256": "7a9c5bf32981b2b2440f05a17b50870f46d7655a397a62b2ae7438a9b872c503",
+        "scope": "Viewport screenshot: header, counters and filters.",
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        }
+      },
+      {
+        "file": "desktop-1280-tasks.png",
+        "bytes": 94252,
+        "sha256": "d8fcbad58fcedfd8c084305f22608ca02d1bd7bae90ae9c14c90527033f46b1e",
+        "scope": "Viewport screenshot: start of tasks gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        }
+      },
+      {
+        "file": "desktop-1280-comparisons.png",
+        "bytes": 240561,
+        "sha256": "3aa6848f67964cfcdc9278b6a7c4a173ee504f85d01948ebf2c4197d10ca0e81",
+        "scope": "Viewport screenshot: start of comparisons gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        }
+      },
+      {
+        "file": "desktop-1280-accepted.png",
+        "bytes": 333788,
+        "sha256": "b8c8513f52913c64bae967d74041ef2fe06807d2097db2851677ca856187adf5",
+        "scope": "Viewport screenshot: start of accepted gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        }
+      },
+      {
+        "file": "desktop-1280-pending.png",
+        "bytes": 88051,
+        "sha256": "d6d91e8736e1f9e20840e8dabb1bc0131dd3b38a44c22e596572f84071bc9b22",
+        "scope": "Viewport screenshot: start of pending gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        }
+      },
+      {
+        "file": "desktop-1280-detail.png",
+        "bytes": 219497,
+        "sha256": "89657954eb05c8f7dcfe03409405a50cb38da1777ab99b56cdcf7137ead7cee9",
+        "scope": "Viewport screenshot: first expanded acceptance/detail block.",
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        }
+      },
+      {
+        "file": "mobile-375-index.png",
+        "bytes": 45489,
+        "sha256": "8271f775ccb8c9162380e18c6b5a3d9fe73f8265e948669f8daa9abe7d72b0c6",
+        "scope": "Viewport screenshot: header, counters and filters.",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "mobile-375-tasks.png",
+        "bytes": 43391,
+        "sha256": "d10ed2bbf1eeb02bd763994343186549f1e1ad6ea92c77dbbe8d521dda4d792f",
+        "scope": "Viewport screenshot: start of tasks gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "mobile-375-comparisons.png",
+        "bytes": 80236,
+        "sha256": "7da758ac86ca5b2b0c0dd203a8e2a81f0d5f70fdaca4bd8e9296ec583cb6a946",
+        "scope": "Viewport screenshot: start of comparisons gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "mobile-375-accepted.png",
+        "bytes": 80209,
+        "sha256": "4caf62c1f785f012579e975f443f70621b3703ead83dee58b9c12dc0c03ba392",
+        "scope": "Viewport screenshot: start of accepted gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "mobile-375-pending.png",
+        "bytes": 51492,
+        "sha256": "8b382c97ef7a79e0287f487e083743906c1ffad248bf3135f5d7fd0cef560ebd",
+        "scope": "Viewport screenshot: start of pending gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "mobile-375-detail.png",
+        "bytes": 51119,
+        "sha256": "caf09585f995b8bab857faf358656edc4b8c1ed6127730a28c71ccedbb632e17",
+        "scope": "Viewport screenshot: first expanded acceptance/detail block.",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        }
+      },
+      {
+        "file": "mobile-390-index.png",
+        "bytes": 48651,
+        "sha256": "61496bdbc6d60b59e804ed3707f42105dd3ad546d900007523065c10a8856aa3",
+        "scope": "Viewport screenshot: header, counters and filters.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-390-tasks.png",
+        "bytes": 45481,
+        "sha256": "83ca63be96bfe8988d453bc0dba63bea6e7b6260663f5443f817658d848943b2",
+        "scope": "Viewport screenshot: start of tasks gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-390-comparisons.png",
+        "bytes": 82463,
+        "sha256": "24c5aa5e170ce912f8b7417c51e3e0612103a1bdc17bef2652c19638e7a94da1",
+        "scope": "Viewport screenshot: start of comparisons gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-390-accepted.png",
+        "bytes": 83811,
+        "sha256": "cbdcb8459b2456d14c4facb50b407f36161cc492cae746a96dc883506a963d48",
+        "scope": "Viewport screenshot: start of accepted gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-390-pending.png",
+        "bytes": 53844,
+        "sha256": "91a730398f374dfcb02dd50aeae13a47121c5fab0e3790decd1e60408c8e1d48",
+        "scope": "Viewport screenshot: start of pending gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "mobile-390-detail.png",
+        "bytes": 56083,
+        "sha256": "43f22b9be6f15bfba3d76f6700d3d6072ba61267fccd6cdc8fd4950ad3bcdb45",
+        "scope": "Viewport screenshot: first expanded acceptance/detail block.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      {
+        "file": "reflow-200-percent-index.png",
+        "bytes": 30870,
+        "sha256": "67c3f780ab2673b212d8c4d6764758e561bde1505e138a5003f9cb5dab35766f",
+        "scope": "Viewport screenshot: header, counters and filters.",
+        "viewport": {
+          "width": 640,
+          "height": 450
+        }
+      },
+      {
+        "file": "reflow-200-percent-tasks.png",
+        "bytes": 24654,
+        "sha256": "382553e66c984381aeb131cbdc85b5a15ce36d2e2138524a9b903d8da916e779",
+        "scope": "Viewport screenshot: start of tasks gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 640,
+          "height": 450
+        }
+      },
+      {
+        "file": "reflow-200-percent-comparisons.png",
+        "bytes": 58602,
+        "sha256": "14539676dd4fc66873c6e2d4a72aaef47bcf47dde84eee29e4105ac89d492d10",
+        "scope": "Viewport screenshot: start of comparisons gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 640,
+          "height": 450
+        }
+      },
+      {
+        "file": "reflow-200-percent-accepted.png",
+        "bytes": 87615,
+        "sha256": "7ed42c4560f99811a80f5906ce401a21395368fd58deedd6702f977baf9aca37",
+        "scope": "Viewport screenshot: start of accepted gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 640,
+          "height": 450
+        }
+      },
+      {
+        "file": "reflow-200-percent-pending.png",
+        "bytes": 32680,
+        "sha256": "ab94d5e8079eb049f47d0ebff477d7e0421407cd81a5d1dc421460e2766415e1",
+        "scope": "Viewport screenshot: start of pending gallery section; not a full-page capture.",
+        "viewport": {
+          "width": 640,
+          "height": 450
+        }
+      },
+      {
+        "file": "reflow-200-percent-detail.png",
+        "bytes": 29004,
+        "sha256": "fb8e3b3618121e6938595c5a68300db2ec06024b984eb4c49e8b7504d9763431",
+        "scope": "Viewport screenshot: first expanded acceptance/detail block.",
+        "viewport": {
+          "width": 640,
+          "height": 450
+        }
+      },
+      {
+        "file": "no-js-390-catalogue.png",
+        "bytes": 51189,
+        "sha256": "2c987adfabd5b3704575ac3499ac2e49320369e661eb6628c011e1e615c9c6fe",
+        "scope": "JavaScript disabled: text-only catalogue and native details remain available.",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    ],
+    "observations": [
+      {
+        "context": "javascript-on",
+        "javaScriptEnabled": true,
+        "requests": [
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/index.html",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/gallery.css",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/gallery.js",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T04/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T06/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T10/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T13/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T04/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T06/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T10/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T04/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T17/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T18/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T33/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T01.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T02.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T03.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T04.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T05.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T06.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T07.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T08.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T09.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T10.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T11.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T12.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T13.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T14.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T15.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T16.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T17.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T18.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T19.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T20.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T21.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T22.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T23.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T24.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T25.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T26.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T27.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T28.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T29.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T30.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T31.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T32.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T33.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T34.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T35.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T36.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T37.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T38.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T39.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T40.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T41.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T42.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T43.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T44.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T45.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T46.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T47.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T48.png"
+        ],
+        "unexpected": [],
+        "requestFailures": [],
+        "consoleErrors": [],
+        "pageErrors": []
+      },
+      {
+        "context": "javascript-off",
+        "javaScriptEnabled": false,
+        "requests": [
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/index.html",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/gallery/gallery.css",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T04/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T06/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T10/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/short-T13/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T04/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T06/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/medium-T10/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T04/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T17/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T18/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/evidence/refinement-run-40079675432/refinement/mixed-T33/card-001.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T01.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T02.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T03.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T04.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T05.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T06.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T07.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T08.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T09.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T10.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T11.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T12.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T13.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T14.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T15.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T16.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T17.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T18.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T19.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T20.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T21.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T22.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T23.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T24.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T25.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T26.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T27.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T28.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T29.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T30.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T31.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T32.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T33.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T34.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T35.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T36.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T37.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T38.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T39.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T40.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T41.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T42.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T43.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T44.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T45.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T46.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T47.png",
+          "file:///E:/LHA/codex-worktree/handoff-r4-evidence/md2card-skill/docs/images/refinement-m2-run-40074554707/T48.png"
+        ],
+        "unexpected": [],
+        "requestFailures": [],
+        "consoleErrors": [],
+        "pageErrors": []
+      }
+    ],
+    "independentVisualReview": "pending",
+    "assistiveTechnologyReview": "pending-not-screen-reader-certification",
+    "zoomBoundary": "200% equivalent reflow is automated at half the desktop CSS viewport; actual browser-UI zoom remains pending.",
+    "registry": {
+      "implemented": 48,
+      "accepted": 48,
+      "pending": 0
+    },
+    "inputs": [
+      {
+        "file": "docs/gallery/index.html",
+        "sha256": "0c7dc48c0b215a319b2d55e66cfa42b273994c1cdc7363a5dbf17fa00fce45d4",
+        "bytes": 228526
+      },
+      {
+        "file": "docs/gallery/gallery.css",
+        "sha256": "a78f0becec9d2bc7d9881de72435eea1da9c4b2014f96f5a1c81b4538bf4e8f7",
+        "bytes": 8667
+      },
+      {
+        "file": "docs/gallery/gallery.js",
+        "sha256": "01da2d32f56c7c1eee0a2849d0ed3e6f3ad3611e7a4bd4a39ff831f77902e950",
+        "bytes": 2579
+      },
+      {
+        "file": "scripts/templates.mjs",
+        "sha256": "d2ec0e61524b5fd682faf511ebd755450d8ed24d3af73607c82bbb7dfb129bd9",
+        "bytes": 44107
+      },
+      {
+        "file": "scripts/build-template-gallery.mjs",
+        "sha256": "dad0d4d5bda02a0ac621a9b7d950b625be80b58668a8ff6f3ca33a59f9f960b6",
+        "bytes": 28171
+      },
+      {
+        "file": "scripts/gallery-discovery.mjs",
+        "sha256": "f2ebb88eb74d862b89306a231f9082f3db16cb35fd9a20a977337d2f54e155fe",
+        "bytes": 3459
+      },
+      {
+        "file": "scripts/comparison-evidence.mjs",
+        "sha256": "953dede4d7f136d7200b9b4df8895e651ac4e63bf30791505b422b5d54acae2b",
+        "bytes": 9915
+      },
+      {
+        "file": "scripts/evidence-source.mjs",
+        "sha256": "51578dddfef241d948dadcd0e8bba153394a068ab4653532519f7d80fb5dc331",
+        "bytes": 6767
+      },
+      {
+        "file": "docs/gallery-comparisons.json",
+        "sha256": "2cc32e864f208ce9562760aad6cff9b73fda95560cd40b3fb32ebd11ef637702",
+        "bytes": 2528
+      },
+      {
+        "file": "examples/refinement/short-reading.md",
+        "sha256": "d1588f3f5868c569a91434228b3beb71417a6a8935ef93eda59eb31fb1c05b8e",
+        "bytes": 271
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/binding.json",
+        "sha256": "aa7b421b28031cdeece6650a73ff8376f19a3369d27c06b4a5e8db87d013745f",
+        "bytes": 53621
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/comparison-plan.json",
+        "sha256": "ad226397770725461e4cdfa9cbd5287643376aaa5dd525778734e13817125c76",
+        "bytes": 1358
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/source-package.json",
+        "sha256": "b1a1fd5412350a3a37f4201394c966cadaa4989d8b62d9ba5d2549efc53fe04c",
+        "bytes": 2319
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/source-files.json",
+        "sha256": "5c3384ccf6cebd3635fc624ce49ce9172c2fb9aae4466573d6e9f1ca9a85dc0a",
+        "bytes": 28173
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/summary.json",
+        "sha256": "0e250c2d7c8b02387f7e4cba74b34a5f0836e2ae7e6b87e6103ea228d9820dd9",
+        "bytes": 111247
+      },
+      {
+        "file": "package.json",
+        "sha256": "c75e5f615eaf2273b5c3b736f9b122e4ec3d77b0d54bbb46761936f3e470cd1b",
+        "bytes": 2565
+      },
+      {
+        "file": "package-lock.json",
+        "sha256": "5231f646689a02d162273000fa067fa8c2c7c6e91db13a62f1c5af6506edeff8",
+        "bytes": 4581
+      },
+      {
+        "file": "scripts/assets.mjs",
+        "sha256": "796990fa22f898dae08771d1f9122288454a483bdd3a27c5ed7b76c5c8b5a538",
+        "bytes": 16697
+      },
+      {
+        "file": "scripts/browser.mjs",
+        "sha256": "4234faa5663d3dada5ffeb9c8e6aa8840d7d43e0021796f4fe68b1a4ede3314e",
+        "bytes": 6903
+      },
+      {
+        "file": "scripts/doctor.mjs",
+        "sha256": "fc31c63c8f3131fa91babc6c128aacba1f29468c24bdf015057ad8effc4f5275",
+        "bytes": 9675
+      },
+      {
+        "file": "scripts/document.mjs",
+        "sha256": "09cd4c20d0d2b01afac41a6358802e8bc693c7f1dad133129ebcaab73d9d8b86",
+        "bytes": 11702
+      },
+      {
+        "file": "scripts/errors.mjs",
+        "sha256": "64205ce10310494090ddfa760d653d1f4b2650e747277ea092f60c21cdda956b",
+        "bytes": 1334
+      },
+      {
+        "file": "scripts/markdown.mjs",
+        "sha256": "633a1e1ec18622aa7d4c397e45bd80666f5288c8b54e4ab09cf848248cf93dc6",
+        "bytes": 12870
+      },
+      {
+        "file": "scripts/pagination.mjs",
+        "sha256": "737c9d3549d875a028d383a8e6b84032e636948ddbb1a56b41c3cb1d0af9deaf",
+        "bytes": 5823
+      },
+      {
+        "file": "scripts/qa.mjs",
+        "sha256": "481e50d71b39eae75739f4007d5eb668654bf38de73cee9e4124eab6bae8a146",
+        "bytes": 5718
+      },
+      {
+        "file": "scripts/refinement-input.mjs",
+        "sha256": "f0ad3a003e19e82a610ecab2a8c60446ded8ef99bdf98361f3a0304f74f6810c",
+        "bytes": 415
+      },
+      {
+        "file": "scripts/render.mjs",
+        "sha256": "689bc386cc51c39622a14bf0a02f2fcc3c423deedfd08d5fd38a68b4d41595d1",
+        "bytes": 30823
+      },
+      {
+        "file": "scripts/semantic.mjs",
+        "sha256": "e3c6d27090fd446764b233e94d32c71dc93e41a7e9a7170614c2bf503d6754cc",
+        "bytes": 27230
+      },
+      {
+        "file": "scripts/tail-balance.mjs",
+        "sha256": "0510c67afa8c02aa3d5c28b82fa66ba52fa7eda202009b99fb8bb6cc4de79f7b",
+        "bytes": 7441
+      },
+      {
+        "file": "scripts/typography.mjs",
+        "sha256": "460833db17588bd00c3d1baf7150d6dac3bcb71e28518abf6d31e5bff0b4a180",
+        "bytes": 6055
+      },
+      {
+        "file": "scripts/validate-refinement.mjs",
+        "sha256": "498ecfb527a96d8e09007365e74ac4f8fe561b08d40c9e6dbce82de7e1c4755c",
+        "bytes": 3839
+      },
+      {
+        "file": "scripts/validate-visual-stress.mjs",
+        "sha256": "d06d076827a71c18f1dc62bded483b3e60b985335b3096a2555b37f9fe595b05",
+        "bytes": 27127
+      },
+      {
+        "file": "assets/themes.css",
+        "sha256": "3636d2163b99d4bf6db3e8b073d0480dfa08ef98bf42f7fe89cdb8702e736835",
+        "bytes": 7201
+      },
+      {
+        "file": "assets/layouts.css",
+        "sha256": "9d898b9ef473bd8b69599c502f5f94ebdffb8e2443b5cf24df484d05f6ec4cba",
+        "bytes": 11655
+      },
+      {
+        "file": "assets/templates.css",
+        "sha256": "96bc9f1d0052d45a3ed5f1ab499de1121298922ffce6029f82a5256eed633708",
+        "bytes": 115416
+      },
+      {
+        "file": "docs/COMPARISON_REVIEW.md",
+        "sha256": "fd23ba41a7ed3f1df90ac9a4183439969fe1a6a0517f2ac869f7951b8c71c341",
+        "bytes": 10182
+      },
+      {
+        "file": "docs/comparison-visual-review.json",
+        "sha256": "aa376ff4c32bddbfc891ec3eb2f0d05114831fe32ec8d245e60645f67c0130a2",
+        "bytes": 30941
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/short-T04.md",
+        "sha256": "7f69262a8927f9c3dfdb4ffee6f5449226268e30124225d2b761f5250a20bf22",
+        "bytes": 399
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T04/manifest.json",
+        "sha256": "d1c5455002ad7ebe988dc4980fdeae7367f7bd4e7de68d45d59b9c15768e7467",
+        "bytes": 17880
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T04/cards.html",
+        "sha256": "ec2ee129b79e4678e7ac7c376b2a1c23712aaeda71e7679b2ef9290bd494225e",
+        "bytes": 137041
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T04/preview.html",
+        "sha256": "10a416ec070d4c7387a305afc0e966d969cdd181f3a43eeea864cdcb3416ada2",
+        "bytes": 137863
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T04/cards.pdf",
+        "sha256": "34a8bcf914836757594409a8a24ff8aa7f82dcce29ed602bdcf7bd0ae8c52211",
+        "bytes": 139465
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T04/card-001.png",
+        "sha256": "8fc5852aa509f6e16f8b199432a0c0c21f548a6de81ac856e3eed744b6b2d7a9",
+        "bytes": 131153
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T04/contact-sheet.png",
+        "sha256": "745a388eb6313ea330f3ddfe9aebea94b558183450d31c595cfea6960e085e0e",
+        "bytes": 27875
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T04/mobile-375.png",
+        "sha256": "71063c6693ae03f5d443c1d703d3f11df5ac51da7a04076ac9a644b0aae1e943",
+        "bytes": 42593
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T04/mobile-390.png",
+        "sha256": "597928012702a0b6c7aa62dd1be9f48f406035d888af354d40a0aad226c5f59e",
+        "bytes": 45044
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T04/page-1-raw.txt",
+        "sha256": "ba38bf1b7a4356d7d3c39ac2e72775f48092cb0c2a611b01082c417a77487db1",
+        "bytes": 335
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T04/page-1-layout.txt",
+        "sha256": "799b995c0aed297f3595d2fae13862a27228d2a2ff33efeae79793643077843d",
+        "bytes": 411
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/short-T06.md",
+        "sha256": "f8348a84050c9e9a256a9e872a399a4d33146b95ecd4f8f1f1512a5c457632b2",
+        "bytes": 399
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T06/manifest.json",
+        "sha256": "6b6b589c9ca1246aa50ca4036e8e9a75f844f3ac408c68e20f9663b5a1e5d41a",
+        "bytes": 17881
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T06/cards.html",
+        "sha256": "5b8c221cf5e80cfe4834ac28b23c9916ffc22994f48fe942755552373ad2b91e",
+        "bytes": 137039
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T06/preview.html",
+        "sha256": "1db21bf16d28a45efb87f35f9c2b32d34c30cd904d5e05e0349f3fbb6cf05767",
+        "bytes": 137862
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T06/cards.pdf",
+        "sha256": "13ad8411f4e4d82627043fb9f82526a26e1297568aa7d88345edbee596d9fc10",
+        "bytes": 159589
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T06/card-001.png",
+        "sha256": "021d752692658dd9608fda15feeb443577312466cbea46e4c5ef32a717eb4ca2",
+        "bytes": 132229
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T06/contact-sheet.png",
+        "sha256": "efd8a88facc52e914e6cb375217a6b5273629ce47e1dd21fc7d1db41b37add49",
+        "bytes": 29217
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T06/mobile-375.png",
+        "sha256": "1b467875f8e6819d8732410fe16698d448e51044efa28d3210651a83751ea26e",
+        "bytes": 44387
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T06/mobile-390.png",
+        "sha256": "5f4d0c279884afeb6e5eaa10c1663277788abb5e964b8d78fdfa53fccb55685a",
+        "bytes": 47317
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T06/page-1-raw.txt",
+        "sha256": "d01bfed87773c98734cd86e94b52dbeaf2e91e7ad6885ccc856b386e9d6e9532",
+        "bytes": 336
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T06/page-1-layout.txt",
+        "sha256": "85b3d28615912e285bb02eb86d186d14a3040b80b6c5573d83cb98ff9d7fa39f",
+        "bytes": 394
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/short-T10.md",
+        "sha256": "ca309f2d6abb1b7cfa4b5dd57c6f747844660dc1b2f6b6bbe376427d7cc9dd7c",
+        "bytes": 399
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T10/manifest.json",
+        "sha256": "ae1dd35b0c51caca6af1200b5b159cac581711c25828933c852c8bed287b396d",
+        "bytes": 17880
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T10/cards.html",
+        "sha256": "d755909ff8e165a17b4b3e6e2cb577bd8b7e95e83f38f1e2e68f1be34a778ccb",
+        "bytes": 137039
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T10/preview.html",
+        "sha256": "de191e9788b75793791159ff18c73d9dac3bd682c153db351b01c8f420f720db",
+        "bytes": 137861
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T10/cards.pdf",
+        "sha256": "284e48fdebc6f40d6d4507c59ff520b45ed3866033629123f3175376a77b71fd",
+        "bytes": 139179
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T10/card-001.png",
+        "sha256": "3247ce392db5f73f4eb062c583bce10d79a3f8c16c010409f4f7b4f0cb610b65",
+        "bytes": 136175
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T10/contact-sheet.png",
+        "sha256": "02910d8585d72a3abbe65371255d535c7d675178b0d6a7af3a8c1df98d403262",
+        "bytes": 30680
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T10/mobile-375.png",
+        "sha256": "c6f2675689b1de516240955f695090d89e224e4f1f463a526400b2a5fc267f9e",
+        "bytes": 45674
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T10/mobile-390.png",
+        "sha256": "c3d3633e8cffffa86a5b4650c80e121b994aff65e1868b416de2e3124e143b7f",
+        "bytes": 48288
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T10/page-1-raw.txt",
+        "sha256": "fff6b77dec624bf4c73ac84e222459855441075cac5cf2f2ced6848831dd43f2",
+        "bytes": 329
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T10/page-1-layout.txt",
+        "sha256": "9e4827129c1415d169a9a44cee757e183f20545bc03d73f49812a3cbe57c283e",
+        "bytes": 412
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/short-T13.md",
+        "sha256": "8c3d6a133111e80093efbe43467761671b43165dffb983be57a75797937deaf3",
+        "bytes": 399
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T13/manifest.json",
+        "sha256": "163d5797e2bfd1efd473d79d97cc1ea65f01a2d5aa9ffe89ae4c2468c724f2ce",
+        "bytes": 17876
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T13/cards.html",
+        "sha256": "02920fd3a68a0a3a0dea4e473e441bd0b696280c4cc49572c35bf2b2290b9cc3",
+        "bytes": 137033
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T13/preview.html",
+        "sha256": "05a4a97a3047aff8728ec51cec5fd304e1a3330ebe57569c79f6cda383deea8f",
+        "bytes": 137851
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T13/cards.pdf",
+        "sha256": "5da26566eb2ad9ae0c68da75cc0656733d5819bae41a6aca9cdc4cf0920b5ccb",
+        "bytes": 190976
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T13/card-001.png",
+        "sha256": "943741e95b1046b83b9b17e48ee6f0b58cc621d9f691f75f59c549b41759d1c3",
+        "bytes": 145024
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T13/contact-sheet.png",
+        "sha256": "f02498674252a12e62aa33d6791e3ab341eace00d40143bd345095cf81fe01c3",
+        "bytes": 33286
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T13/mobile-375.png",
+        "sha256": "014d4ec7227a19573213e01831772ea0328a5a371a5c2d9fed341c3fa95b3b00",
+        "bytes": 47934
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T13/mobile-390.png",
+        "sha256": "0ec48a732a9d25b38e553f1e6f6ce590be8c46d4130af6fe409fbe8de8901eaf",
+        "bytes": 50721
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T13/page-1-raw.txt",
+        "sha256": "a60fa8712a1fc73ad28ab25000d71098fd648f170aa48447635e086ac3a40e3d",
+        "bytes": 331
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/short-T13/page-1-layout.txt",
+        "sha256": "b4792be5c5f9fe72f68f4ceab32df85d1f0b5687710dbbba72fe2a2d76ede9ca",
+        "bytes": 367
+      },
+      {
+        "file": "examples/refinement/medium-reading.md",
+        "sha256": "eea3a2d0bcfa419a25a6e60b6d84cf48b39d711ac9311906ab042e31c13a5fac",
+        "bytes": 493
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/medium-T04.md",
+        "sha256": "fc98383d14b7655028070298d02d22a8638e3c66e725bfedc105f07634bca20d",
+        "bytes": 621
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T04/manifest.json",
+        "sha256": "45719870d936807e25abbc03e22a77967595d6adb2aa1a276417bd15140fd6a2",
+        "bytes": 17883
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T04/cards.html",
+        "sha256": "0d2f3d485a248fadc0769bcef92a59fa75a9cedf24521b335c2b079a064651fd",
+        "bytes": 137264
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T04/preview.html",
+        "sha256": "75a151fb7d42d0bf5d9f422fde3ba332442857bf28f6f991ad65b666236c679d",
+        "bytes": 138086
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T04/cards.pdf",
+        "sha256": "f350e4c7fb6d7f3e450ceef244cee021ef448a435744d70cdfa45db1dd1d56c3",
+        "bytes": 191134
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T04/card-001.png",
+        "sha256": "9ed47d29fd0bb12ea57c3c29dc8092799ba277bae15d7eb93c528304d362c5e7",
+        "bytes": 197280
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T04/contact-sheet.png",
+        "sha256": "66fe007cdb2626e5d2e45d87afc39090a9bfd4031af3a7f57ac0c6e862d7b841",
+        "bytes": 41656
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T04/mobile-375.png",
+        "sha256": "fbc312956b73ff5a0fff3510901b0a4095e614940a3e4b61c6715dc8d92ee16b",
+        "bytes": 60777
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T04/mobile-390.png",
+        "sha256": "b86c4902e938ab97581c3d45b12d997e301b22b39872c4559f529a0fc06e3b54",
+        "bytes": 64537
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T04/page-1-raw.txt",
+        "sha256": "e9d924f10d352a8a023a4a6005b68facaa4e6111eb96c76907aa5cef0ea13d5e",
+        "bytes": 560
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T04/page-1-layout.txt",
+        "sha256": "23e63c384a7d32b8dac86fbad0b3ae3525bcaf5a741503d259bbd9a0a197c2f9",
+        "bytes": 626
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/medium-T06.md",
+        "sha256": "6d3ad7d44e7f38ecaa9a30d56eea5f1fbd6dcbdf9b7e6fe75b3ca98f75b9ac1c",
+        "bytes": 621
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T06/manifest.json",
+        "sha256": "34ebd6311ed6bb252a233129e709a7220192747604013b562edcea54c182ee54",
+        "bytes": 17884
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T06/cards.html",
+        "sha256": "c3522c93b7b05426aa4feb74faa1ceb0cc3a157a1bf1f2fd05bc0cee5ff18c4d",
+        "bytes": 137262
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T06/preview.html",
+        "sha256": "1609f158cdea9bec8527a6b7114d4d1f779f0f4ad17ca2fb0c6ac462e230a0a1",
+        "bytes": 138085
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T06/cards.pdf",
+        "sha256": "278cafb9948d7616dc8cbe57e35b6f1aa620f41abce167ea3aaffd4a47d80f39",
+        "bytes": 219541
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T06/card-001.png",
+        "sha256": "b605868f5cee50806372903a6598cf899c51eedd57ab56831b658b5a3e5866a9",
+        "bytes": 199658
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T06/contact-sheet.png",
+        "sha256": "dfedc0fbb204ac85fc442cb399e88becfd606e975b63fa35c42bf9efe55ab3df",
+        "bytes": 43964
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T06/mobile-375.png",
+        "sha256": "72dec5feea2b3faaf7be54b926194da7893c2b9bcf0b982d045cc9954a3e2271",
+        "bytes": 64180
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T06/mobile-390.png",
+        "sha256": "131f6b9111f3e3fd80ca760124d8eb2211da5b8fb630b3ca5c9c8f7959d41ab8",
+        "bytes": 68126
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T06/page-1-raw.txt",
+        "sha256": "d5ae126b0c57d23a421f722dd6952aeca062d8ee86bfb43fc1d3b01752677c29",
+        "bytes": 564
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T06/page-1-layout.txt",
+        "sha256": "4859526042158cc1d4b4dd051da62fbf39a894011b6b9bce6e54d96d1f9a8564",
+        "bytes": 616
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/medium-T10.md",
+        "sha256": "59585ef31eb841b172a0c4aec129406e527de15c2145c93fdd5e33588373a977",
+        "bytes": 621
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T10/manifest.json",
+        "sha256": "82bf550aad58be3230348223fa7d32f8288b01ae439d9d8c0e75063468a972bd",
+        "bytes": 17883
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T10/cards.html",
+        "sha256": "d0c55b8933c9223191ade48c3bba73c0a11e1b86827918708a1a3f280058100c",
+        "bytes": 137262
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T10/preview.html",
+        "sha256": "1368ae2a74ff69d631db69ecd78d664a93060ee7bb6e7f09a47116d26919b0a6",
+        "bytes": 138084
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T10/cards.pdf",
+        "sha256": "b052e8530af37ea268f19bfd490dd629dd0f37d1f28fe6326db292ac1135ee85",
+        "bytes": 195186
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T10/card-001.png",
+        "sha256": "4805c80ec381113a890bbb960c403f4f3eda34cfc1d41de0e3b09450eed4ec68",
+        "bytes": 204685
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T10/contact-sheet.png",
+        "sha256": "8bb35d589519d818e16655ca75c964e92c2a9c48617bd858f6dfd1c11b2de9b7",
+        "bytes": 45073
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T10/mobile-375.png",
+        "sha256": "aba2ca8e877d1a9123f3b56cbb5646db196b988c097e9a6be3c94cdaa580c67c",
+        "bytes": 65590
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T10/mobile-390.png",
+        "sha256": "2553cd8d770abfbded8c9e00673b74379555ef140e1dc7049306ef56a9b1f54f",
+        "bytes": 69648
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T10/page-1-raw.txt",
+        "sha256": "eb8913bcfdf4c3769f83f08ccd95178c79c259c1a29b787bcea441e3cb6f983d",
+        "bytes": 560
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T10/page-1-layout.txt",
+        "sha256": "b16dbaef490f002dbba92645e19ab51afb9bc15af82bbaaefa9200a28da1f256",
+        "bytes": 680
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/medium-T13.md",
+        "sha256": "9ea410f814ba248ed54919a12b4cf2bd1ec15c6cddd3cd424f37741e7dba2913",
+        "bytes": 621
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/medium-T13/overflow.json",
+        "sha256": "09d594ca008ae8eab68448db5d78190cb1e5536ec874b43967494612227c69d1",
+        "bytes": 1262
+      },
+      {
+        "file": "examples/refinement/mixed-reading.md",
+        "sha256": "9ad5321fd1b8a8f701da38442c6ecf31d286317b1fa59d8885e647d2a121a737",
+        "bytes": 375
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/mixed-T04.md",
+        "sha256": "fb6d3da0b8188951d942545d68ae1355429c67326b76832d5eda0ef1989ef797",
+        "bytes": 503
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T04/manifest.json",
+        "sha256": "3e7299b6ba51ae3151ac6853063944f1749c38f9e8605c6dbc94b3667a4d0399",
+        "bytes": 17880
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T04/cards.html",
+        "sha256": "ba115104f3d36c7803d5ca40b5ecde0a9ef3ebbb51589789d4924d63be5cbcab",
+        "bytes": 137145
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T04/preview.html",
+        "sha256": "04d8c3aeca9a476c373cdc781f7857414915fa0b539e25681172a845e6b6b163",
+        "bytes": 137967
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T04/cards.pdf",
+        "sha256": "dbf41fd0495979cb9179566ffc37575bdbd222d83e98414bb3b0028bcf138f70",
+        "bytes": 141914
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T04/card-001.png",
+        "sha256": "8a0e65ee99d030904214be686157de371979a675823214b98a60141b822c5edb",
+        "bytes": 167075
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T04/contact-sheet.png",
+        "sha256": "da9af53e39197050a40364f41f3c969672b891dcc44f9e2feed3c89bda244268",
+        "bytes": 33759
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T04/mobile-375.png",
+        "sha256": "9708139286527d327d4f79140137228b09ebf659c5bd61531ae967280036c17f",
+        "bytes": 51507
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T04/mobile-390.png",
+        "sha256": "9ffc5ded7da41a9788d96ca02a99c88d3d919af469ad53e3c6c85a59e5f2da7d",
+        "bytes": 54451
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T04/page-1-raw.txt",
+        "sha256": "c1458bd266bb8373d81f57fda546ce88f0f3e54226c59aa52e835bde1a717245",
+        "bytes": 434
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T04/page-1-layout.txt",
+        "sha256": "dd5c657fbc075338d7aeb186e31e0c505de005171d2998e7f1f0921c463dde95",
+        "bytes": 566
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/mixed-T17.md",
+        "sha256": "4cd950fff2e9ad85eded34249d2728bb5cb992806625daa3ba452c7323ccf3d6",
+        "bytes": 503
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T17/manifest.json",
+        "sha256": "45714250d2a1e2b98ba96037c2e619156900f560bf3936a22959d0f45072f6a8",
+        "bytes": 17880
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T17/cards.html",
+        "sha256": "3181878466cda6120fa147656871d935fb66cea9b179eefc7fb5ddfcdaf9b3b2",
+        "bytes": 137146
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T17/preview.html",
+        "sha256": "29400f65438184b55cee1ca5259acef2ad471b94dc2feb68bbd48d28d4d8f90c",
+        "bytes": 137968
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T17/cards.pdf",
+        "sha256": "d4177cb5580dd2b6d9edab858c7319f915b36209499775385f515f0f56a3892e",
+        "bytes": 176494
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T17/card-001.png",
+        "sha256": "6c635d3a1c3499285cc194590abb9d157f7631c4b08a11ec5ae3c638afc03ddb",
+        "bytes": 166886
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T17/contact-sheet.png",
+        "sha256": "c83f9225baf22d3b3191d5a43eb57e49acb7e9f45bf8143f61d657c4f7d43e21",
+        "bytes": 35826
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T17/mobile-375.png",
+        "sha256": "f223f86ced0495f45886dc1aaf4bd9630bb4a953470113f947c27e791f93927b",
+        "bytes": 53998
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T17/mobile-390.png",
+        "sha256": "05ff4fda78911000237bb915764c772e95a8b05e132fb63eb73d66b96144f4d4",
+        "bytes": 56274
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T17/page-1-raw.txt",
+        "sha256": "827ca5800263626c4b235067912b9175fe63d362035ccde228eba1389ee74fbe",
+        "bytes": 429
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T17/page-1-layout.txt",
+        "sha256": "50fb3a432d079d15a1b80d364138da39367dd2123a6d55387b90b0c6853b9719",
+        "bytes": 514
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/mixed-T18.md",
+        "sha256": "f536aec3fe1fe479dc7af34b4e01e2190d63ad42b404a8f80ee6693ef0c5d891",
+        "bytes": 503
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T18/manifest.json",
+        "sha256": "5f7c955be67bba01ab3f7caf3bd35092f9667c94f90d42886a3330c4d4e48bca",
+        "bytes": 17880
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T18/cards.html",
+        "sha256": "449200d21e5baa761b434cd619a54a75d7e765ad6f17fe8965f89e8957d09b42",
+        "bytes": 137146
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T18/preview.html",
+        "sha256": "51be5a77c27e06690c374e9f377452e8554884d61d5e407c16ea45038b4d703b",
+        "bytes": 137968
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T18/cards.pdf",
+        "sha256": "8396583873eafabdb403eb58e0e267774f3927e38717d19aab5300442adf3163",
+        "bytes": 168774
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T18/card-001.png",
+        "sha256": "618dd867a69f947ae6d61ecfc9796805d5f4e26602825846305e1842a4997c5b",
+        "bytes": 160093
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T18/contact-sheet.png",
+        "sha256": "ffc79340cddf718d396b3e8566f8018bd8e2dd788bb9e13baad77e23bd2c9d47",
+        "bytes": 34091
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T18/mobile-375.png",
+        "sha256": "e42c70f41ffb8ca8007ca44a62a885adfbdf215df43934d7a1aea8a58c4450ef",
+        "bytes": 52415
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T18/mobile-390.png",
+        "sha256": "49edb0c1928622bfaceb5fe0baa79a75c14beec547c464871caeb17156afc264",
+        "bytes": 54596
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T18/page-1-raw.txt",
+        "sha256": "9cf54cd4967c8b0456ead3281f81977d54d576143ba9dd1e532a962b3e6e50fe",
+        "bytes": 421
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T18/page-1-layout.txt",
+        "sha256": "664ab1165c8c938ecb292893366a06c52385c1726c837f023126498c32fbdc3a",
+        "bytes": 472
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/inputs/mixed-T33.md",
+        "sha256": "6d28f67e09f63e94f9f1d9fd4640a6317eed74b362d0b60dce0af35ac413d221",
+        "bytes": 503
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T33/manifest.json",
+        "sha256": "9bf6e5341f028559e870cb78000ee655d95bffa3f22fd952a15774fcabccaf88",
+        "bytes": 17876
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T33/cards.html",
+        "sha256": "fb014dcc01d9b782f6405868fc1462054829ca84614c5739e936ed470346d629",
+        "bytes": 137137
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T33/preview.html",
+        "sha256": "dbcab5e905aeafbe5810f49d0b4e704e5dfb2123b36fc4a1d173d0f564b47d2c",
+        "bytes": 137955
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T33/cards.pdf",
+        "sha256": "62a77ec947a18429a6e997c7fcb28dc614f5674d7db3f1603b25cf172df995a4",
+        "bytes": 186023
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T33/card-001.png",
+        "sha256": "6fd96b6607832114cc398411d0ef8d66f5d8419e3c7bc63440d8619dbfae8483",
+        "bytes": 195340
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T33/contact-sheet.png",
+        "sha256": "ddabd4852c525a2dbd07b7148eaa39e165c1a56d2c0af249f0402c7dcf202174",
+        "bytes": 37412
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T33/mobile-375.png",
+        "sha256": "7d8fc590e7d96c601709e8b94f2f446eefbbba71cf1e5fa6c77a159f84f79220",
+        "bytes": 55769
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T33/mobile-390.png",
+        "sha256": "4f17e391db25abb0a5b4562b339f9498af5aa5257529c466030c9a6c918aa3b2",
+        "bytes": 58468
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T33/page-1-raw.txt",
+        "sha256": "d126e97e4fa121036a5f0bc87d17f5c3ea5b37398726efd7a7a168dc7ff01295",
+        "bytes": 426
+      },
+      {
+        "file": "docs/evidence/refinement-run-40079675432/refinement/mixed-T33/page-1-layout.txt",
+        "sha256": "7c28846083d6591f0e4c0f645ba9a183139e45493292ad4e2940e6426efb208d",
+        "bytes": 564
+      },
+      {
+        "file": "scripts/validate-gallery.mjs",
+        "sha256": "cb872d8f99016c9050726e3e302e20990f9c2b8378e6e24f4d169fb531556377",
+        "bytes": 29546
+      },
+      {
+        "file": "docs/template-gallery-evidence.json",
+        "sha256": "d9ceb977e3f0e70d4a5b3b94ba97b89936accc56c02bc61fcfdca9bb8d5f4cc1",
+        "bytes": 2845
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T01.png",
+        "sha256": "a2383f9baf4ade0203e178ca537791b813969cbfef17dafd41315628a8198d57",
+        "bytes": 149617
+      },
+      {
+        "file": "examples/templates/T01.md",
+        "sha256": "4bc9e00e4b1fa63748f982fbfec4502c92d19ce1bbf5c8a001bbdf626cf356ab",
+        "bytes": 463
+      },
+      {
+        "file": "docs/refinement-m2-v2-provenance.json",
+        "sha256": "48e838a2e5799b1f75fb99f6286fb0dde4aa03343ca554a069d5f1b9534379a3",
+        "bytes": 127083
+      },
+      {
+        "file": "docs/REFINEMENT_M2_ACCEPTANCE.md",
+        "sha256": "78f78b9aeaa5655df31406bcbc0cad09509772b7058d95fb4877dd61a3b93797",
+        "bytes": 23796
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T02.png",
+        "sha256": "3468ea9d952357a4a37596c85210790a235d456c5a10a9fc9d43cefb9d9141f3",
+        "bytes": 169927
+      },
+      {
+        "file": "examples/templates/T02.md",
+        "sha256": "c2cd7c46f452e9bc21bdebd4c2c0a4af072cba56623a04a124b804186a3db74f",
+        "bytes": 474
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T03.png",
+        "sha256": "87165fbe85fb9f0c3e2bd4af49d16f9cdf979e0efd855f98133cf118be3ba3d1",
+        "bytes": 442657
+      },
+      {
+        "file": "examples/templates/T03.md",
+        "sha256": "32713699ea30fa210323a72f980845c056f851197cedbd7907a774009b732ce7",
+        "bytes": 621
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T04.png",
+        "sha256": "5508d146a226ff729c56e871d4d476d8cee03810993bf21395d9063a42d57d0d",
+        "bytes": 190554
+      },
+      {
+        "file": "examples/templates/T04.md",
+        "sha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01",
+        "bytes": 577
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T05.png",
+        "sha256": "8d39171b49e945f4f6b8016c29930b80a55dd2dd9360936b324c64622296b1df",
+        "bytes": 147658
+      },
+      {
+        "file": "examples/templates/T05.md",
+        "sha256": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3",
+        "bytes": 447
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T06.png",
+        "sha256": "d663889a7b3effa46fa4b0a64f32299112cde993ec5707f16ea8206a30d3ff06",
+        "bytes": 152045
+      },
+      {
+        "file": "examples/templates/T06.md",
+        "sha256": "a1d24b90a1dfeb3fa66d45b4dd0fdc56f71fdb7a2ab44e1c5564cd8a4c66620d",
+        "bytes": 453
+      },
+      {
+        "file": "docs/refinement-m2-v3-provenance.json",
+        "sha256": "c5c510c524fed2aa3471caf0fc5e15f097b741cccf254ac05e8cb85ce8cae392",
+        "bytes": 49043
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T07.png",
+        "sha256": "d32688b8ece2900b31fdc3249f013af28b73e884adffe6b113d3ed5333cd6d4d",
+        "bytes": 148764
+      },
+      {
+        "file": "examples/templates/T07.md",
+        "sha256": "a5c2b1e352e9fbf0046adbae2db9e9ffbf20b04127cc00a685228abb24f1859b",
+        "bytes": 487
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T08.png",
+        "sha256": "9fb96fcc37b18eed4ce585ff3b83d5a72d05e7b24c9cc3b7fc188cdc6d5c5ee4",
+        "bytes": 164172
+      },
+      {
+        "file": "examples/templates/T08.md",
+        "sha256": "830992687d024eb17381b32142842d5741341bc6df1dd69a3566080f813672a9",
+        "bytes": 521
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T09.png",
+        "sha256": "05c0b45fca7a0f41096414eb3c7e581d0410094abb8538d8c27a9a1472d06f3e",
+        "bytes": 142708
+      },
+      {
+        "file": "examples/templates/T09.md",
+        "sha256": "ad9e2eb19c811d879ec0f0df75332c83e4c67fbadaba7928df9c829aa17b6bca",
+        "bytes": 426
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T10.png",
+        "sha256": "df5fd8ade301bb483b13a6bcf6b97f6ffabfd278b708e81b9214f2f64f0e36ad",
+        "bytes": 142734
+      },
+      {
+        "file": "examples/templates/T10.md",
+        "sha256": "b1bed4b68c1dd452afbcc4b177513e7e11a90011d72f665c0975df556cd937aa",
+        "bytes": 461
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T11.png",
+        "sha256": "6f70f2fb3209d264a6b5fd5c13a7c824f044dda6f763aff7347a43d5659b8403",
+        "bytes": 201613
+      },
+      {
+        "file": "examples/templates/T11.md",
+        "sha256": "4502d3b898bb1ccfe627927d971a9f3ae507c8848c651bce5a15a4bf44bf99bd",
+        "bytes": 552
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T12.png",
+        "sha256": "703a6c7316c68c24a6bc0a7a55353448f15454c4a7f7ccff1d336aff5b54181d",
+        "bytes": 170131
+      },
+      {
+        "file": "examples/templates/T12.md",
+        "sha256": "9e8261c88de67a4cf69b7604a866ac4efbfd49f50a8be400c6464ec6f8fd87c6",
+        "bytes": 512
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T13.png",
+        "sha256": "4edc66fb34246e25dd6dd3932fa5bc8d1f4be8b9e88c92d99656f47430eec5f8",
+        "bytes": 123211
+      },
+      {
+        "file": "examples/templates/T13.md",
+        "sha256": "c8b2d96b0deb77d699978ad0546d05d4cd68482bf3dcb68ffd6b95a1d3ecffd1",
+        "bytes": 388
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T14.png",
+        "sha256": "46d0113c6b6f42e8a8ef1bfa575bdcc8e68fd2f9d09144498340a001e817906d",
+        "bytes": 171670
+      },
+      {
+        "file": "examples/templates/T14.md",
+        "sha256": "e142fce016b13c96cc8403435721f601251e566fc0115053a27a0e0ed16e3cde",
+        "bytes": 546
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T15.png",
+        "sha256": "2d95939b1756f6ff38c55f503f86d0e40d5719bc3e6dc3ab34c455a6d97ca13d",
+        "bytes": 159607
+      },
+      {
+        "file": "examples/templates/T15.md",
+        "sha256": "5150d0f69956b983202407f4152ee6efdda873466ddfe1c97da0cc67b7f3c82e",
+        "bytes": 513
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T16.png",
+        "sha256": "b728dda4404ef26b220184984685e41f9fb26368d73d54b203fe99925037bc3e",
+        "bytes": 156880
+      },
+      {
+        "file": "examples/templates/T16.md",
+        "sha256": "b7a1ba6c4e7ce91c35fe868c2b7bad0bf558187cfa3d77177d5ebfe6f1cc361f",
+        "bytes": 508
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T17.png",
+        "sha256": "8a13d1220719c0a1409a0dd0c4c5d126f2294454ea5232f92a76773afaa51072",
+        "bytes": 170244
+      },
+      {
+        "file": "examples/templates/T17.md",
+        "sha256": "25bcaa60f48dc266d25806912de19a2b5010b12170508edc81a79099a4994246",
+        "bytes": 536
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T18.png",
+        "sha256": "5319dd4b1ef08ce3ee871d565bb7d8fd1239327b0b87c9de05fe002227191f06",
+        "bytes": 154064
+      },
+      {
+        "file": "examples/templates/T18.md",
+        "sha256": "e80a9e0e61f48cf3483dab3e85972858a8811f8faceece5390b1eb8595fb12fb",
+        "bytes": 481
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T19.png",
+        "sha256": "da7d9582fb316c136661fb4f9783971d434ce92274a231d0f9842ea4a41c794f",
+        "bytes": 161696
+      },
+      {
+        "file": "examples/templates/T19.md",
+        "sha256": "32f5ae623299ddc4b74435ade77f31e2fe93f0686db3983692b0a035e248c17a",
+        "bytes": 502
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T20.png",
+        "sha256": "eabf60c0f2fb1334df8f14c197401c5a24c65e9ccc3494e92af13ed3beda34cc",
+        "bytes": 178246
+      },
+      {
+        "file": "examples/templates/T20.md",
+        "sha256": "0b56fdfa68cf2f94e3d8249cf48beaebe1de3941dc38cd2f22eb631b80c9f483",
+        "bytes": 559
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T21.png",
+        "sha256": "d4aebb10c8f15591ba926ae849e3c8badb0666d317c2c4eb01fa49b13265d328",
+        "bytes": 164623
+      },
+      {
+        "file": "examples/templates/T21.md",
+        "sha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a",
+        "bytes": 486
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T22.png",
+        "sha256": "fcc68dc89c89caa701000d71c9c981387ad2aee3071bdd0ed09aa3fe8b7e20ab",
+        "bytes": 154792
+      },
+      {
+        "file": "examples/templates/T22.md",
+        "sha256": "cbef06e848d7a07fd6bd43f01d9a663a176290957b3a76558e6783c98b74801f",
+        "bytes": 446
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T23.png",
+        "sha256": "842228c7c9143dcbd520ca58acc4eb912851a5ddcefe6094e5afbf662a24bb0b",
+        "bytes": 167325
+      },
+      {
+        "file": "examples/templates/T23.md",
+        "sha256": "9e21c45cc409b469aacb23f905a632560fbf5a4c69de01e8a8edbda96cfb6ed6",
+        "bytes": 512
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T24.png",
+        "sha256": "60a59364551282ebbe6c57c1d7e8e705db46541a105099be4d05d697a59c1765",
+        "bytes": 163462
+      },
+      {
+        "file": "examples/templates/T24.md",
+        "sha256": "874a4dd2c38f8416fa8a79d6e830becf82e7e4099c6ecae8e6f0c834586a4dfa",
+        "bytes": 562
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T25.png",
+        "sha256": "09e497c19e8e2a37700b8c9b92ca7c8fabb378887d8cc391d4f79c2f65077b77",
+        "bytes": 146005
+      },
+      {
+        "file": "examples/templates/T25.md",
+        "sha256": "70e7122d3a4089f2233b790548cf26bc244624d01cef7e44544fc26aaf924ae1",
+        "bytes": 453
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T26.png",
+        "sha256": "4422437bfdcb21d87ed85554f78433fdf7fa8ddd0ff54a1d98d275d63ef81904",
+        "bytes": 142019
+      },
+      {
+        "file": "examples/templates/T26.md",
+        "sha256": "ba68d129d10d4391da1eecd3841e23f8ef64374c5eb846d76426900ef62e5dba",
+        "bytes": 471
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T27.png",
+        "sha256": "6c1f77df3168cb17ecaf7644d274cf95ee66d781ef3bda265480f68b1c6c0661",
+        "bytes": 170100
+      },
+      {
+        "file": "examples/templates/T27.md",
+        "sha256": "558e0eccd9f7e38475d254a9a622a178b6afda1097f25a8dfbcb3622f1164a4f",
+        "bytes": 534
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T28.png",
+        "sha256": "27a97cc1f218262fdc25557eb28a0dd98bcdf2baf71bad0ca5b6e6c43c0c96a6",
+        "bytes": 159222
+      },
+      {
+        "file": "examples/templates/T28.md",
+        "sha256": "f21aad7532018e933214db6ea1e17740d899551e0023b6b6242ebd200344534d",
+        "bytes": 490
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T29.png",
+        "sha256": "b0a44bd09245b94844f091ae3761ae58792f90aff6130ecc5acce310f1a67508",
+        "bytes": 128707
+      },
+      {
+        "file": "examples/templates/T29.md",
+        "sha256": "7970b1a873fca64027899b99fb9fb13206339e0f64620962c2ec915d1a0385b8",
+        "bytes": 402
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T30.png",
+        "sha256": "37454dcd902601329676863b12a1f2a5e7a3ba4abab93c56454c6577dc8f378e",
+        "bytes": 139241
+      },
+      {
+        "file": "examples/templates/T30.md",
+        "sha256": "2017c9fc2ea9f612c6ac4fcd43c4dcb67ac75a107d45f6643777589218acf3e6",
+        "bytes": 407
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T31.png",
+        "sha256": "7f0977f0bd23ab13f1f8639cb58e60cbef82bb5c0fb93b573644a2b00a0dc9a8",
+        "bytes": 127245
+      },
+      {
+        "file": "examples/templates/T31.md",
+        "sha256": "10c958c6615a0c052f45830e8b577bfc723e39e360e448179ba54103587733d5",
+        "bytes": 397
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T32.png",
+        "sha256": "29c9775f41db9efcaeb7a8155da26319110c5eacf43d75e7f3c3faa12fd472bb",
+        "bytes": 183645
+      },
+      {
+        "file": "examples/templates/T32.md",
+        "sha256": "afcb8f7815c2ad2e3335287631af536de010abcd08bbeac327003f9f8f3586a6",
+        "bytes": 555
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T33.png",
+        "sha256": "6311f6f041ab1fa8fbbc933b6467dba3ab20b94d53864f5cbad877699fb4ed03",
+        "bytes": 159026
+      },
+      {
+        "file": "examples/templates/T33.md",
+        "sha256": "f806181a5d8264fced4ea19f275bc52eaeecb39b87f4705a5c5cea79cfe8d53a",
+        "bytes": 445
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T34.png",
+        "sha256": "4b6ebfec04af21de5a1ae2a09a3e5ad24cbcfc725a901548e80baf98faaca18e",
+        "bytes": 187204
+      },
+      {
+        "file": "examples/templates/T34.md",
+        "sha256": "e4fa1c47103570e639417c330c420af3ac8734b7a736b1fd42d123c2a3936ece",
+        "bytes": 530
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T35.png",
+        "sha256": "a584ab78790a8ee70d23bc099c135f8bbad6537c8a6c1d82627f7b5eee8a08a8",
+        "bytes": 214944
+      },
+      {
+        "file": "examples/templates/T35.md",
+        "sha256": "22162a975a4d53a330a7aae60651c600de2a30ad70ed8d15de99c54bd149c877",
+        "bytes": 606
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T36.png",
+        "sha256": "e2a0474961a4c0ef8ecfa9015abdff2a1286690a38755d8124f82aec44fae077",
+        "bytes": 198798
+      },
+      {
+        "file": "examples/templates/T36.md",
+        "sha256": "bb1133ffeb3d94641520db65d9574888539ddfe7c8d1ecef81b1310e7fc45d93",
+        "bytes": 751
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T37.png",
+        "sha256": "52d3ad898c38d1c91040cafefd4dff3d398e572636f4b86c8f14424ef2f91767",
+        "bytes": 1009686
+      },
+      {
+        "file": "examples/templates/T37.md",
+        "sha256": "10092106b880769b4bb0064bd3a1cd395193500eec941651e40496083f22887c",
+        "bytes": 471
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T38.png",
+        "sha256": "754fc36d95f1b605f955e50202e2e55207946fffd9d0424bdff7677f45bf7340",
+        "bytes": 469612
+      },
+      {
+        "file": "examples/templates/T38.md",
+        "sha256": "450b2d8cb523abb8e5811d8f04ce0c6aa89235f97b00caadf420e9035624bda0",
+        "bytes": 520
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T39.png",
+        "sha256": "0f227465e4efd7fc0d9281663ee361a65252da78b365374deb15a33a1de51ca3",
+        "bytes": 513992
+      },
+      {
+        "file": "examples/templates/T39.md",
+        "sha256": "fa0dbafb2f37bff04dce529519cc38b34d3bf81555127d609d7d2484ab9af940",
+        "bytes": 585
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T40.png",
+        "sha256": "9b1e790f691f033062e8d07dbee2ee3fca39e36cf9016f0d1d16c5749b596f6f",
+        "bytes": 212036
+      },
+      {
+        "file": "examples/templates/T40.md",
+        "sha256": "255a1463e49c46e5120be7feda683f45f30fb34fabd2efacbac2ba9eefce40e3",
+        "bytes": 748
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T41.png",
+        "sha256": "d00199b561c8a070f99d48873b987bb96cb0897e0d4291b0b312a0062a060051",
+        "bytes": 141065
+      },
+      {
+        "file": "examples/templates/T41.md",
+        "sha256": "26177685689025638d3bd1f7bbb102444140ede2d95abafbc6a787b86dd53743",
+        "bytes": 464
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T42.png",
+        "sha256": "e8311b7004e7ba8e43802308c499569d29562bf131ca247717897d17022adc6b",
+        "bytes": 144399
+      },
+      {
+        "file": "examples/templates/T42.md",
+        "sha256": "f4ac48aa990e7ac9b2e949a2ff872ef41c314f8c92ca6965411dff1621f66d66",
+        "bytes": 449
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T43.png",
+        "sha256": "14ff7e2f05eb8eadbefe6b98ea0c669a3ca597d527d67491f13e4d751ae742cf",
+        "bytes": 140667
+      },
+      {
+        "file": "examples/templates/T43.md",
+        "sha256": "0257f634cfb5ca7fc979a5b448a7c83e7fb30428c39b3330b67a3e0e6d7d14c3",
+        "bytes": 745
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T44.png",
+        "sha256": "9fbdaaef2c7035a8789e185e500e0c68ea57cfc94b0db1fbff8ad2da7285190b",
+        "bytes": 178386
+      },
+      {
+        "file": "examples/templates/T44.md",
+        "sha256": "f33a98d9c459f5f19ee9c284d1faea4a048a7340bcae9ff1b8b2a47259cfe509",
+        "bytes": 588
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T45.png",
+        "sha256": "7c44d7c3e3cf74bf8736d05b35ed9e1b244291b04ce0a0ad9de60c235794cca3",
+        "bytes": 323341
+      },
+      {
+        "file": "examples/templates/T45.md",
+        "sha256": "6b035a832a32f08e81b0e104828cfe8bde972aa562bd77e28f8f0e8c2c79a714",
+        "bytes": 483
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T46.png",
+        "sha256": "ac0a3ac74afdd447aec3b1cd6d060e6d55c010f5118d2f3017feddcae23288ec",
+        "bytes": 404440
+      },
+      {
+        "file": "examples/templates/T46.md",
+        "sha256": "b0314d1d97db0c571ba1c2e4da4727672ef3068863f659d2a72655ccea573c3f",
+        "bytes": 526
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T47.png",
+        "sha256": "392cc98f0de40579627593a8972fe632f8f9e446af75877544fd2e1679ac0920",
+        "bytes": 179403
+      },
+      {
+        "file": "examples/templates/T47.md",
+        "sha256": "77f100c5eaeb6f8e57bfc7cef7894b70c925a302b34670984e1ea2b4e8ed4b3c",
+        "bytes": 746
+      },
+      {
+        "file": "docs/images/refinement-m2-run-40074554707/T48.png",
+        "sha256": "844276bca78ef4c2677f5bed508a0813daed469fc34e2c8d94b60de0bf518e30",
+        "bytes": 190135
+      },
+      {
+        "file": "examples/templates/T48.md",
+        "sha256": "1fe9b862f431079f0b7846c385e61734ecd5a72e44d1bac13c29f46d5ff71140",
+        "bytes": 843
+      }
+    ],
+    "browser": {
+      "version": "155.0.8059.85",
+      "executablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    },
+    "completedAt": "2026-10-24T16:23:33.010Z",
+    "summary": {
+      "checks": 60,
+      "passed": 60,
+      "failed": 0,
+      "screenshots": 25
+    }
+  }
+}

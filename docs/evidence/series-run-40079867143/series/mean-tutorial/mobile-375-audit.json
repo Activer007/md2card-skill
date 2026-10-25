@@ -1,0 +1,175 @@
+[
+  {
+    "template": "T18",
+    "cardWidth": 351,
+    "cardHeight": 467.9999694824219,
+    "canvasWidth": 1080,
+    "scale": 0.325,
+    "counter": "1 / 3",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "均值练习 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      },
+      {
+        "selector": "language-js",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      }
+    ],
+    "listStarts": [],
+    "images": []
+  },
+  {
+    "template": "T18",
+    "cardWidth": 351,
+    "cardHeight": 468,
+    "canvasWidth": 1080,
+    "scale": 0.325,
+    "counter": "2 / 3",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "均值练习 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      },
+      {
+        "selector": "language-js",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      }
+    ],
+    "listStarts": [],
+    "images": []
+  },
+  {
+    "template": "T17",
+    "cardWidth": 351,
+    "cardHeight": 468,
+    "canvasWidth": 1080,
+    "scale": 0.325,
+    "counter": "3 / 3",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "均值练习 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.093
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 11.7585
+      }
+    ],
+    "listStarts": [],
+    "images": []
+  }
+]

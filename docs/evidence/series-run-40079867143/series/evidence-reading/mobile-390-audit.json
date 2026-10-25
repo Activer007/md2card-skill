@@ -1,0 +1,289 @@
+[
+  {
+    "template": "T01",
+    "cardWidth": 366,
+    "cardHeight": 488,
+    "canvasWidth": 1080,
+    "scale": 0.3388888888888889,
+    "counter": "1 / 5",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "证据阅读 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      }
+    ],
+    "listStarts": [],
+    "images": []
+  },
+  {
+    "template": "T05",
+    "cardWidth": 366,
+    "cardHeight": 488,
+    "canvasWidth": 1080,
+    "scale": 0.3388888888888889,
+    "counter": "2 / 5",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "证据阅读 · 原创示例",
+    "body": [
+      {
+        "selector": "li",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "li",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "li",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      }
+    ],
+    "listStarts": [
+      1
+    ],
+    "images": []
+  },
+  {
+    "template": "T04",
+    "cardWidth": 366,
+    "cardHeight": 488,
+    "canvasWidth": 1080,
+    "scale": 0.3388888888888889,
+    "counter": "3 / 5",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "证据阅读 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      }
+    ],
+    "listStarts": [],
+    "images": []
+  },
+  {
+    "template": "T21",
+    "cardWidth": 366,
+    "cardHeight": 488,
+    "canvasWidth": 1080,
+    "scale": 0.3388888888888889,
+    "counter": "4 / 5",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "证据阅读 · 原创示例",
+    "body": [
+      {
+        "selector": "statistic-label",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      }
+    ],
+    "listStarts": [],
+    "images": []
+  },
+  {
+    "template": "T25",
+    "cardWidth": 366,
+    "cardHeight": 488,
+    "canvasWidth": 1080,
+    "scale": 0.3388888888888889,
+    "counter": "5 / 5",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "证据阅读 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      }
+    ],
+    "listStarts": [],
+    "images": []
+  }
+]

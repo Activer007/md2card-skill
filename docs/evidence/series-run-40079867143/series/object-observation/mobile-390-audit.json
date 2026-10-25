@@ -1,0 +1,184 @@
+[
+  {
+    "template": "T37",
+    "cardWidth": 366,
+    "cardHeight": 488,
+    "canvasWidth": 1080,
+    "scale": 0.3388888888888889,
+    "counter": "1 / 3",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "物件观察 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "figcaption",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      }
+    ],
+    "listStarts": [],
+    "images": [
+      {
+        "alt": "原创无品牌托盘插画，顶部敞开，四周有边沿；非实物照片。",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 430,
+        "width": 327.93853759765625,
+        "height": 156.67791748046875,
+        "objectFit": "contain"
+      }
+    ]
+  },
+  {
+    "template": "T38",
+    "cardWidth": 366,
+    "cardHeight": 488,
+    "canvasWidth": 1080,
+    "scale": 0.3388888888888889,
+    "counter": "2 / 3",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "物件观察 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      }
+    ],
+    "listStarts": [],
+    "images": [
+      {
+        "alt": "原创托盘示意，顶部敞开，完整画幅。",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 430,
+        "width": 146.77593994140625,
+        "height": 119.55892944335938,
+        "objectFit": "contain"
+      },
+      {
+        "alt": "原创收纳盒示意，独立盒盖画在盒体上方，完整画幅。",
+        "complete": true,
+        "naturalWidth": 900,
+        "naturalHeight": 430,
+        "width": 146.7759552001953,
+        "height": 119.55892944335938,
+        "objectFit": "contain"
+      }
+    ]
+  },
+  {
+    "template": "T29",
+    "cardWidth": 366,
+    "cardHeight": 488,
+    "canvasWidth": 1080,
+    "scale": 0.3388888888888889,
+    "counter": "3 / 3",
+    "brand": "FIELDNOTES · 示例品牌",
+    "footer": "物件观察 · 原创示例",
+    "body": [
+      {
+        "selector": "p",
+        "fontSize": 60.372,
+        "effectiveSize": 20.459400000000002
+      },
+      {
+        "selector": "p",
+        "fontSize": 46.44,
+        "effectiveSize": 15.738
+      }
+    ],
+    "notes": [
+      {
+        "selector": "card-eyebrow",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-source",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "brand-name",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "footer-text",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      },
+      {
+        "selector": "card-index",
+        "fontSize": 36.18,
+        "effectiveSize": 12.261000000000001
+      }
+    ],
+    "listStarts": [],
+    "images": []
+  }
+]

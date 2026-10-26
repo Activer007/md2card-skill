@@ -256,6 +256,8 @@ node scripts/render.mjs --help
 
 ## 质量与边界
 
+本地开发可运行 `npm run quality:fast` 检查受影响测试；合并前运行 `npm run quality:release`。专项验证、Windows 环境配置、固定历史基线和 JSON/Markdown 报告说明见[本地质量门禁](docs/LOCAL_QUALITY_GATE.md)。所有新证据写入独立 `validation/` 目录；测试跳过不算发布通过，机器检查不代表人工视觉签收。
+
 见 [分期开发计划](docs/DEVELOPMENT_PLAN.md) 与 [源码审查及定向回归记录](docs/CODE_REVIEW.md)。后者记录具体缺陷、最小复现、修复和剩余限制，不以 CI 通过代替代码审查。
 
 第二期历史验收：代码提交 [`7df842d`](https://github.com/Activer007/md2card-skill/commit/7df842dca5ff5bba237a9e5118e7e30b7af954c1) 已完成独立源码复核；[CI](https://github.com/Activer007/md2card-skill/actions/runs/39964850729) 通过 93 项测试（0 跳过），实际验证 10 套、56 张卡片。README 的四张展示图来自该提交的真实导出并已单独复核；检查范围与图片哈希见上述记录。

@@ -18,7 +18,9 @@ node scripts/render.mjs examples/series/evidence-reading.md --asset-root example
 
 CSS 背景、阴影、伪元素、空网格/flex 容器不计入内容。aria-hidden、隐藏内容、presentation 图片及页脚品牌图不计入前景；无明确内容身份的绝对定位满铺图片视为背景。显式 .card-image 和 figure 里的照片保留，照片不能因为画幅大就被误删。复杂 transform/object-position 未支持时标明未评估。
 
-## 规则版本 1.0.0 / JSON schemaVersion 1
+## 规则版本 1.0.1 / JSON schemaVersion 1
+
+PR #30 审查修复：先完成 screen/print 两项硬溢出检查，再在原文档中采集视觉几何；可选采集异常不能掩盖 CONTENT_OVERFLOW。文字/图片自身及卡片内祖先容器的 transform、独立 rotate/scale/translate、zoom 未支持时明确标记未评估。初版 1.0.0 证据归档保持不变，最新复核见 [PR30_REVIEW.md](PR30_REVIEW.md)。
 
 | ID | 测量和参考阈值 | 严重性与例外 |
 |---|---|---|

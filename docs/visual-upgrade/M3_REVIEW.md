@@ -1,6 +1,6 @@
 # M3 implementation review and evidence
 
-Base: merged PR #29, main `07ff4808dfd8fed73422d240dac5336ad1733566`. M3 is a separate Draft PR and must not be merged automatically.
+Base: merged PR #29, main `07ff4808dfd8fed73422d240dac5336ad1733566`. M3 was initially delivered as a separate Draft PR. The subsequent user-authorized review, fixes and merge are recorded in [PR30_REVIEW.md](PR30_REVIEW.md); the original evidence archive remains immutable.
 
 Reviewed the final diff against the existing safety and artifact lifecycle. Only the opt-in branch collects geometry and writes diagnostics; render CSS, content parsing, template layouts, tail-balance occupied geometry, overflow checks, image trust boundary and original budgets remain unchanged. The new semantic dependency is pinned in evidence-source; a separate immutable compatibility proof covers only audit-disabled behavior. Historical proofs and gallery artifacts were not rewritten.
 

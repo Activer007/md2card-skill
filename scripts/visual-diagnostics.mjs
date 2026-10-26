@@ -35,7 +35,10 @@ export async function collectVisualGeometry(page) {
         if (/(hidden|clip|auto|scroll)/.test(style.overflowX)) clip = intersect(clip,{...cardBox,x:rect.x,width:rect.width});
         if (/(hidden|clip|auto|scroll)/.test(style.overflowY)) clip = intersect(clip,{...cardBox,y:rect.y,height:rect.height});
         const selector = el === card ? `.card:nth-of-type(${index+1})` : `${parent.selector}>${el.tagName.toLowerCase()}:nth-child(${childIndex(el)})`;
-        const result = { visible: parent.visible && !el.hidden && el.getAttribute('aria-hidden') !== 'true' && style.display !== 'none' && style.visibility === 'visible' && Number(style.opacity) !== 0, clip, depth, selector, style };
+        const transformed = parent.transformed || style.transform !== 'none' ||
+          ['rotate','scale','translate'].some(name => style[name] && style[name] !== 'none') ||
+          (style.zoom && style.zoom !== 'normal' && Number(style.zoom) !== 1);
+        const result = { visible: parent.visible && !el.hidden && el.getAttribute('aria-hidden') !== 'true' && style.display !== 'none' && style.visibility === 'visible' && Number(style.opacity) !== 0, clip, depth, selector, style, transformed };
         stateCache.set(el,result); return result;
       };
       let complete = true, reason = null;
@@ -57,14 +60,14 @@ export async function collectVisualGeometry(page) {
           if (bbox.width > 0 && bbox.height > 0) { rectangles++; elements.push({ id:`c${index+1}-e${elements.length+1}`, selector:s.selector, role, tag:el.tagName.toLowerCase(), bbox, ...extra }); }
         };
         if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() && !el.closest('script,style')) {
+          if (s.transformed) { stop('transformed-geometry-not-supported'); break; }
           const range = document.createRange();
           range.setStart(node,node.textContent.search(/\S/u)); range.setEnd(node,node.textContent.trimEnd().length);
           for (const r of range.getClientRects()) { add(box(r),{ kind:'text', fontSize:parseFloat(s.style.fontSize), lineHeight:parseFloat(s.style.lineHeight)||parseFloat(s.style.fontSize)*1.2 }); if (!complete) break; }
         } else if (el.tagName === 'IMG' && node.nodeType === Node.ELEMENT_NODE) {
           if (el.getAttribute('role') === 'presentation' || role === 'footer') { exclusions.decorativeImages++; continue; }
+          if (s.transformed) { stop('transformed-geometry-not-supported'); break; }
           const raw = box(el.getBoundingClientRect()), st = s.style;
-          // Current renderer uses untransformed raster images. Unknown transforms are explicitly incomplete.
-          if (st.transform !== 'none') { stop('transformed-image-not-supported'); break; }
           const left = parseFloat(st.borderLeftWidth)+parseFloat(st.paddingLeft), top = parseFloat(st.borderTopWidth)+parseFloat(st.paddingTop);
           const frame = { x:raw.x+left,y:raw.y+top,width:raw.width-left-parseFloat(st.borderRightWidth)-parseFloat(st.paddingRight),height:raw.height-top-parseFloat(st.borderBottomWidth)-parseFloat(st.paddingBottom) };
           const nw=el.naturalWidth, nh=el.naturalHeight;
@@ -161,5 +164,5 @@ export function buildVisualDiagnostics({screen,print,cards,options,inputSha256})
     }
     results.push({index:i+1,media,...context,sourceLines:card.sourceLines,geometry:g,checks});
   }
-  return {schemaVersion:1,ruleSetVersion:'1.0.0',kind:'advisory-visual-diagnostics',inputSha256,coordinateSystem:'card-local CSS pixels; actual Chromium Range rectangles and painted raster boxes',automatedOnly:true,humanVisualReview:'not-performed',safetyGates:'Existing screen/print overflow must pass before this report is published; this report cannot waive safety gates.',collectionLimits:VISUAL_LIMITS,limitations:['Text rectangles approximate line area, not glyph ink or perceived balance.','CSS backgrounds, shadows, pseudo-elements and empty containers are excluded; decoration and their occlusion can be missed.','Raster text, subjects, contrast and reading order need human inspection.','Whitespace thresholds are advisory references, not universal visual acceptance criteria.','Complex transforms/object-position or exhausted collection budgets are not evaluated.'],cards:results};
+  return {schemaVersion:1,ruleSetVersion:'1.0.1',kind:'advisory-visual-diagnostics',inputSha256,coordinateSystem:'card-local CSS pixels; actual Chromium Range rectangles and painted raster boxes',automatedOnly:true,humanVisualReview:'not-performed',safetyGates:'Existing screen/print overflow must pass before this report is published; this report cannot waive safety gates.',collectionLimits:VISUAL_LIMITS,limitations:['Text rectangles approximate line area, not glyph ink or perceived balance.','CSS backgrounds, shadows, pseudo-elements and empty containers are excluded; decoration and their occlusion can be missed.','Raster text, subjects, contrast and reading order need human inspection.','Whitespace thresholds are advisory references, not universal visual acceptance criteria.','Complex transforms/object-position or exhausted collection budgets are not evaluated.'],cards:results};
 }

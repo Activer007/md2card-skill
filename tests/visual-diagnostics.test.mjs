@@ -98,6 +98,30 @@ test('print overflow remains CONTENT_OVERFLOW with only overflow.json, even when
   await assert.rejects(exportCards({...options,visualAudit:'true'}),{code:'INVALID_OPTIONS'});
 });
 
+test('mandatory screen/print overflow takes precedence over an audit collector failure',async t=>{
+  const {options}=await sandbox(t);let calls=0,collections=0;
+  await assert.rejects(exportCards(options,fake({
+    measureCards:async()=>[{index:1,overflow:++calls===2?['content-footer-overlap']:[]}],
+    collectVisualGeometry:async()=>{collections++;throw Error('advisory collector failed');}
+  })),{code:'CONTENT_OVERFLOW'});
+  assert.equal(calls,2);assert.equal(collections,0);
+  assert.deepEqual(await readdir(options.out),['overflow.json']);
+});
+
+test('audit runs after both safety checks and preserves screen/print report identity',async t=>{
+  const {options}=await sandbox(t), events=[];let media='screen';
+  const deps=fake({
+    measureCards:async()=>{events.push(`measure-${media}`);return [{index:1,overflow:[]}];},
+    collectVisualGeometry:async()=>{events.push(`collect-${media}`);return [{...geometry(),observedMedia:media}];}
+  });
+  const open=deps.openRenderer;
+  deps.openRenderer=async()=>{const r=await open();r.page.emulateMedia=async value=>{media=value.media;};return r;};
+  await exportCards(options,deps);
+  assert.deepEqual(events,['measure-screen','measure-print','collect-print','collect-screen']);
+  const result=JSON.parse(await readFile(path.join(options.out,'visual-diagnostics.json')));
+  for(const c of result.cards)assert.equal(c.media,c.geometry.observedMedia);
+});
+
 const browser=process.env.CHROMIUM_PATH;
 test('real Chromium screen/print: bbox truth, background exclusion, contain area, footer hard failure and bounded collection', {skip:!browser&&!process.env.MD2CARD_REQUIRE_BROWSER}, async()=>{
   const renderer=await openRenderer({width:600,height:800,scale:1,browser,timeoutMs:30000});
@@ -117,6 +141,14 @@ test('real Chromium screen/print: bbox truth, background exclusion, contain area
       assert.ok(!g.elements.some(e=>e.tag==='div'&&e.role==='content'));
       assert.deepEqual((await measureCards(p))[0].overflow,[]);
     }
+    for(const css of ['transform:scale(.8)','transform:rotate(2deg)','zoom:.8','scale:.8','rotate:2deg']) {
+      await p.locator('.card-content').evaluate((el,css)=>el.style.cssText=css,css);
+      const [g]=await collectVisualGeometry(p);
+      assert.equal(g.complete,false,`Unsupported ancestor geometry must not be certified: ${css}`);
+      assert.equal(g.incompleteReason,'transformed-geometry-not-supported');
+      assert.ok(report(g).cards.every(c=>c.checks.every(x=>x.status==='not-evaluated')));
+    }
+    await p.locator('.card-content').evaluate(el=>el.removeAttribute('style'));
     await p.locator('.card-content').evaluate(el=>el.style.height='710px');
     assert.ok((await measureCards(p))[0].overflow.includes('content-footer-overlap'));
     await p.locator('.card-content').evaluate((el,n)=>el.innerHTML='<p style="position:absolute;top:0">x</p>'.repeat(n),VISUAL_LIMITS.cardRectangles+1);

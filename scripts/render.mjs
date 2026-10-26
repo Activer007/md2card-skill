@@ -277,14 +277,10 @@ export async function exportCards(options, dependencies = {}) {
     const assetUsage = countDocumentAssets(cards, assets.getAssets(), brand);
     const imageQa = await loadDocument(html);
     const screenMeasurements = await withinDeadline(measure(page));
-    const collect = dependencies.collectVisualGeometry ?? collectVisualGeometry;
-    const visualScreen = options.visualAudit && screenMeasurements.every(m => !m.overflow.length) ? await withinDeadline(collect(page)) : null;
     await withinDeadline(page.emulateMedia({ media: 'print' }));
     const printMeasurements = await withinDeadline(measure(page));
     if (screenMeasurements.length !== cards.length || printMeasurements.length !== cards.length) fail('PAGINATION_MEASUREMENT', 'Final browser measurements do not match the output card count. No exports were produced.');
     const affected = screenMeasurements.map((measurement, index) => ({ index: measurement.index, sourceLines: cards[index].sourceLines, screen: measurement, print: printMeasurements[index] })).filter(item => item.screen.overflow.length || item.print.overflow.length);
-    const visualPrint = options.visualAudit && !affected.length ? await withinDeadline(collect(page)) : null;
-    if (options.visualAudit && !affected.length && (visualScreen?.length !== cards.length || visualPrint?.length !== cards.length)) fail('PAGINATION_MEASUREMENT', 'Visual geometry does not match final card count.');
     await mkdir(path.dirname(options.out), { recursive: true });
     staging = await mkdtemp(path.join(path.dirname(options.out), '.md2card-'));
     if (affected.length) {
@@ -294,6 +290,17 @@ export async function exportCards(options, dependencies = {}) {
       await write(path.join(staging, 'overflow.json'), JSON.stringify(report, null, 2) + '\n');
       await publish(staging, options.out); staging = undefined;
       throw new Md2CardError('CONTENT_OVERFLOW', `Content overflow on card(s) ${affected.map(item => item.index).join(', ')}. No exports produced. See ${path.join(options.out, 'overflow.json')}.`, { cards: affected.map(item => item.index) }, 2);
+    }
+    // Advisory collection must never mask a mandatory overflow failure. Reuse
+    // this decoded document only after both media have passed the safety gates.
+    let visualScreen, visualPrint;
+    if (options.visualAudit) {
+      const collect = dependencies.collectVisualGeometry ?? collectVisualGeometry;
+      visualPrint = await withinDeadline(collect(page));
+      await withinDeadline(page.emulateMedia({ media: 'screen' }));
+      visualScreen = await withinDeadline(collect(page));
+      await withinDeadline(page.emulateMedia({ media: 'print' }));
+      if (visualScreen?.length !== cards.length || visualPrint?.length !== cards.length) fail('PAGINATION_MEASUREMENT', 'Visual geometry does not match final card count.');
     }
     const artifacts = [];
     let outputBytes = 0;

@@ -1,4 +1,13 @@
-# Five original themes
+# Five basic themes for generic layouts
+
+This reference covers the **five basic themes for generic semantic layouts**.
+The skill also provides **48 composed templates across 12 design families**;
+start with the [template catalogue](../docs/TEMPLATE_CATALOG.md) for new card designs.
+Those templates have independent styles and do not inherit this theme CSS.
+Template family names are not additional `--theme` values. Preserve an explicit
+theme request or a request to render untemplated Markdown verbatim instead of
+switching it to a template.
+Automatic pagination uses only the supported generic layouts, not composed templates.
 
 All five designs are original CSS in `assets/themes.css`. They use local system
 fonts and CSS geometry, not images, proprietary templates, or downloaded fonts.
@@ -13,6 +22,7 @@ fonts and CSS geometry, not images, proprietary templates, or downloaded fonts.
 
 ## Choosing without overfitting
 
+Once the generic theme/layout route is appropriate, choose among these five themes.
 Use content and audience, not arbitrary industry associations. A technical topic
 can be `minimal`; a humanities reading note can be `midnight`. Ask only when the
 visual direction is central and the user supplied no preference. Otherwise choose

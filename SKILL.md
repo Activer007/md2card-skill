@@ -1,15 +1,27 @@
 ---
 name: md2card-skill
-description: Turn Markdown or supplied prose into polished, paginated knowledge cards with 48 original composed templates, five themes and eight semantic layouts, then render HTML, PNG, or searchable-text PDF. Use for knowledge cards, social carousels, reading notes, and compact explainers, not slide-deck or SVG authoring.
+description: Create knowledge cards, social carousels, reading notes, and compact explainers from Markdown or supplied prose. Choose from 48 composed templates across 12 design families, or use basic themes with semantic layouts, and export local PNG, HTML, or searchable-text PDF. Preserve explicit design choices and verbatim input; not for slide-deck or SVG authoring.
 ---
 
 # Markdown to knowledge cards
 
-当前 M2 的 48 个精确 standard / portrait 注册示例已独立复核：35 套 v2、13 套 v3。见 [有限范围验收](docs/REFINEMENT_M2_ACCEPTANCE.md)。历史阶段失败记录保留，不再代表当前验收状态。
-
 Transform useful content into a coherent, legible card sequence. Preserve the
 user's meaning, language, requested length, and explicit visual choices.
 This skill is an independent implementation; do not fetch or copy website themes.
+
+## 先区分模板、主题与版式
+
+本 Skill 提供 **48 套成品模板、12 个设计家族**，另有 **5 种基础主题、8 种通用语义版式**。不要将“五种主题”描述为全部设计选择。
+
+| 选项 | 含义与入口 | 适用场景 |
+| --- | --- | --- |
+| 成品模板 `template` | T01–T48；[全部真实效果与输入](docs/TEMPLATE_CATALOG.md)；`--template T25` 或逐卡 `template` 元数据 | 新建卡片、选风格、追求完整构图时优先考虑；仅支持手动分页 |
+| 基础主题 `theme` | `editorial` / `minimal` / `midnight` / `notebook` / `bold`；[主题说明](references/themes.md) | 用户明确选主题、通用版式，或需要受支持的自动分页 |
+| 通用版式 `layout` | `cover` / `explainer` / `comparison` / `steps` / `image-caption` / `statistic` / `case-study` / `quote` | 组织封面、解释、对比、步骤等内容结构；[完整契约](references/rendering.md) |
+
+模板有独立构图与样式，不继承基础主题 CSS；12 个设计家族不是 `--theme` 的合法值，也不是 48×5 套组合。渲染器默认行为不变：未指定模板的普通 Markdown 仍走通用版式。
+
+先沿用用户指定的模板、主题、版式与分页。只有在需要新选型时，按内容角色、图片条件、画幅和实际示例优先考察模板；不把原样渲染请求自动改成模板设计。用户只问主题名称时列出五种主题，同时说明模板是另一类选项。
 
 ## Choose the work needed
 
@@ -18,10 +30,14 @@ This skill is an independent implementation; do not fetch or copy website themes
 - **Verbatim long Markdown:** consider opt-in `--paginate auto` only when more
   cards are allowed and the supported semantic boundaries fit the task. Keep
   explicit boundaries locked; use `manual` when the card count must stay fixed.
-- **Long prose or a topic:** plan the sequence before applying a theme. Read
+- **Long prose or a topic:** plan the sequence and match suitable template structures. Read
   [references/content-style.md](references/content-style.md) for writing guidance.
-- **Visual direction or export:** read
-  [references/themes.md](references/themes.md), then select one theme for a series.
+- **Visual direction / template discovery:** start with the
+  [48-template catalogue](docs/TEMPLATE_CATALOG.md). Use its actual previews,
+  content/image requirements and Markdown examples; do not offer only five themes.
+  The [offline gallery](docs/gallery/index.html) adds filtering after downloading the repository.
+- **Explicit basic theme / generic layout / auto pagination:** read
+  [references/themes.md](references/themes.md) and the relevant rendering contract.
 - **Renderer options, syntax, or failures:** read
   [references/rendering.md](references/rendering.md).
 - **Choose a template from supplied content:** run the read-only recommendation
@@ -39,7 +55,8 @@ Ask only for missing details that materially change the result. Otherwise use a
 reasonable default and state it briefly:
 
 - Chinese content stays Chinese; English content stays English.
-- Start with `editorial` for a general explainer.
+- Preserve supplied template/theme/layout choices. For a new design, match a
+  composed template to the content; `editorial` is the default only on the generic path.
 - Use portrait 1080 × 1440 for a typical card sequence.
 - Use one card for a concise idea; use as many as the content actually needs.
 - If exports were not specified, offer PNG plus the editable Markdown and HTML.
@@ -89,6 +106,9 @@ multiple cards without crossing those boundaries.
   may split tables between rows and intentionally repeat traced header rows.
 - Raw HTML is escaped. Only verified local PNG/JPEG/WebP images inside the trusted asset root are embedded; never fetch remote images.
 - An optional first nonblank line `<!-- card: {"layout":"cover"} -->` selects a validated semantic layout. See references/rendering.md for the strict metadata schema.
+- For a composed template, use `<!-- card: {"template":"T25","density":"standard"} -->`
+  instead, following that template's example and required fields. Keep explicit
+  per-card choices; template selection does not authorize rewriting or repagination.
 - Reference link/image definitions can be shared across card boundaries. Preserve indented-code spaces.
 - Basic headings, paragraphs, lists, links, quotes, code, rules, and tables work.
 - Math, Mermaid, animation, SVG, and PPTX export are not supported. No accounts,
@@ -104,6 +124,16 @@ that literal separators inside code fences are preserved.
 
 ## 4. Select and render
 
+### Composed templates: primary route for new designs
+
+Start with the [template catalogue](docs/TEMPLATE_CATALOG.md) and inspect only
+relevant examples. `node scripts/render.mjs --list-templates` exposes the current
+registry. Match content structure, image requirements and supported aspect before
+rendering. If the user asks to choose, show a short list with real previews and
+reasons; if they already chose or delegated selection, proceed without asking again.
+If no template fits, explain the mismatch and offer an appropriate alternative
+within the user's scope. Never invent data, remove sources or edit verbatim text to fit.
+
 Before selecting a template, Codex can call this independent local entry point
 from the skill root (use absolute script/input paths from another directory):
 
@@ -114,7 +144,7 @@ node scripts/recommend-templates.mjs input.md --format text
 
 Default output is strict JSON on stdout; failures are JSON on stderr with nonzero
 exit. For images, supply a trusted `--asset-root` when it differs from the input
-directory. `--size portrait|square|slide` filters the existing registry. `auto`
+directory. `--size portrait|square|slide|wechat-wide` filters the existing registry. `auto`
 returns no template candidates. The command reads only: no browser, network,
 export, source edits, or automatic choice. A successful report does not mean the
 input fits. Check `acceptedExample` for the exact requested aspect; never borrow
@@ -122,29 +152,49 @@ portrait acceptance for another aspect or change the author's words to fit.
 Use the [static role guide](docs/gallery/index.html#roles) and existing same-text
 comparisons; all 48 template identities and original PNG bindings remain intact.
 
-Choose layout independently of theme. Manual mode supports `cover`, `explainer`,
+Resolve this skill folder's absolute path before calling bundled scripts. Commands
+below assume the skill root. Store outputs in the user's requested location,
+not inside the installed skill by default. For example, after checking the T25
+structure, render an authored reading note with:
+
+```sh
+node scripts/render.mjs /absolute/path/reading-note.md --template T25 --out /absolute/path/cards-output --format all --preview
+```
+
+For a mixed-template series, retain each card's `template` metadata and omit the
+global `--template`. Do not add a basic `--theme` expecting to recolor a template.
+Density changes spacing only; use the body-size option for body text size.
+
+All 48 templates support portrait; additional aspects are available only for
+registered combinations. Consult [the aspect contract](docs/TEMPLATE_ASPECTS.md)
+and the [WeChat cover examples](examples/wechat-covers/README.md) for current support.
+Use `--size` or matching dimensions, never card aspect metadata. The recommendation
+CLI accepts `wechat-wide` for registered wide-cover candidates; it does not compare
+two inputs or export a pair. Use the independent pair tool for authored WeChat covers.
+For T20 screenshot-stage or T37 photo-cover, read
+[variant requirements](docs/GALLERY_VISUAL_VARIANTS.md), including explicit crop
+permission for photo-cover. Variants and extra aspects do not add template identities.
+
+Reviewed examples prove only their recorded inputs, fonts, size and options.
+See [M2 evidence](docs/REFINEMENT_M2_ACCEPTANCE.md) and
+[aspect evidence](docs/aspect-gallery-evidence.json); never use a historical PNG
+or portrait review as acceptance of a new input, variant or different aspect.
+
+### Basic themes and generic layouts
+
+Use this route for explicit theme/layout requests, verbatim rendering of existing
+untemplated Markdown, or supported automatic pagination. Choose layout independently
+of theme. Manual mode supports `cover`, `explainer`,
 `comparison`, `steps`, `image-caption`, `statistic`, `case-study`, and `quote`.
 Auto mode supports only `explainer` and `steps`. Unannotated Markdown stays
 an explainer. Comparison uses the first two top-level h2 sections; case study uses
 h2 sections as stages. Never invent statistics or quotations to populate a layout.
 Use `source` metadata as plain attribution text.
 
-A supplied brand JSON may contain only `name`, a hex `accent`, and a local `logo`.
-All image references are relative to `--asset-root` (default input directory).
-Do not broaden that asset boundary just to make an out-of-scope file accessible.
-Remote URLs, data/file URLs, SVG, animated files and escaped symlinks are rejected.
-Run `--doctor` before rendering; use `--strict` when PDF verification is required.
-`--preview` and `--contact-sheet` add mobile reading HTML and a contact sheet.
-
-
 Theme names: `editorial`, `minimal`, `midnight`, `notebook`, and `bold`.
 Their typographic hierarchy, structural accents, and spacing differ as well as
 colors. Use the user's choice when specified. Keep the same theme within a set
 unless a deliberate contrast serves the content.
-
-Resolve this skill folder's absolute path before calling bundled scripts. Commands
-below assume the current directory is this skill's root. Store outputs in the
-user's requested location, not inside the installed skill by default.
 
 ```bash
 node scripts/render.mjs /absolute/path/cards.md \
@@ -152,29 +202,14 @@ node scripts/render.mjs /absolute/path/cards.md \
   --theme editorial --size portrait --format all
 ```
 
-For an optional composed design, inspect `node scripts/render.mjs --list-templates`
-and the [offline gallery](docs/gallery/index.html), then match its content/image
-contract to the supplied source. There are 48 independent designs across 12
-families. Current M2 acceptance binds 13 v3 and 35 v2 exact standard/portrait
-examples to independently reviewed full PNG, 375/390 phone and native-PDF evidence
-in [the M2 record](docs/REFINEMENT_M2_ACCEPTANCE.md). Immutable v1 and the 13 M1 v2
-examples remain validated history, never substituted for current previews.
-The post-binding 48-current gallery still needs exact published-tree browser review.
-Do not treat example acceptance as a guarantee for arbitrary input. Select a
-registry ID with `--template` or per-card `template` metadata; density changes
-spacing only. Templates remain manual-only and do not inherit legacy theme CSS.
+### Shared rendering and pagination constraints
 
-Consult the layout registry for support and the separate verified evidence registry for acceptance. The original 6 templates add
-8 extra aspect pairs: T04/T21 each add square and slide, T05/T13 add square only,
-and T24/T37 add slide only. All other non-portrait combinations are rejected.
-All 48 exact standard/portrait examples remain accepted (13 v3 / 35 v2).
-Eight exact short fixtures now have their own PNG, 375/390 and native-PDF review
-and binding in [the aspect evidence registry](docs/aspect-gallery-evidence.json),
-with immutable v1 historical evidence retained. T04/T21 are aspect-v2; the four
-new pairs are aspect-v1. Parent portrait acceptance does not validate them.
-Longer inputs can overflow; preserve body/source floors, full images and source.
-Use --size or matching dimensions, never card aspect metadata.
-See [the aspect contract](docs/TEMPLATE_ASPECTS.md).
+A supplied brand JSON may contain only `name`, a hex `accent`, and a local `logo`.
+All image references are relative to `--asset-root` (default input directory).
+Do not broaden that asset boundary just to make an out-of-scope file accessible.
+Remote URLs, data/file URLs, SVG, animated files and escaped symlinks are rejected.
+Run `--doctor` before rendering; use `--strict` when PDF verification is required.
+`--preview` and `--contact-sheet` add mobile reading HTML and a contact sheet.
 
 Use `node scripts/render.mjs --help` for the actual CLI contract. Install dependencies
 only when needed and permitted by the environment. The renderer needs Node.js,
@@ -235,21 +270,22 @@ CJK font or explain the requirement; do not silently fetch web fonts.
 ## Deliver
 
 Provide the requested artifacts through the host's supported file-delivery mechanism,
-with editable Markdown when useful. Briefly state the theme, dimensions, card count,
+with editable Markdown when useful. Briefly state the template IDs or basic theme/layout, dimensions, card count,
 and anything not verified. Keep previews clearly distinct from final exports.
 Never claim a file was generated or visually checked unless that actually happened.
 Do not upload, publish, or install this skill elsewhere unless asked.
 
 ### Optional footer modes
 
-`--footer-mode legacy` remains the default. Choose `poster` to omit only a final single-card counter, `series` for padded sequence numbers, or `report` for a more explicit source/footer treatment. Supplied source, brand/logo, footer and AI/fact caveats remain intact in every mode; these are not fields to delete for visual cleanliness. Card metadata and automatic-pagination support do not expand. See [footer contract](docs/FOOTER_MODES.md). Fresh visual evidence is still pending.
+`--footer-mode legacy` remains the default. Choose `poster` to omit only a final single-card counter, `series` for padded sequence numbers, or `report` for a more explicit source/footer treatment. Supplied source, brand/logo, footer and AI/fact caveats remain intact in every mode; these are not fields to delete for visual cleanliness. Card metadata and automatic-pagination support do not expand. See [footer contract](docs/FOOTER_MODES.md) for behavior and recorded validation scope.
 
 
-### R09 / R10：按任务选型与真实同文测试
+### Series and review references
 
-图库提供六条用途路线及短 / 中 / 中英混排三组同文，仍只有 48 套构图。run40079964688 的22案例已核验：17成功导出与5预期拒绝分别记录。三组绑定11个成功预览及T13指定中篇拒绝，精确PNG/手机图和新PDF页面的身份均核对；旧复核仅在像素逐字节相同时保留，短尾与窄栏限制继续显示。计划命令仅作源码检查，新内容仍需实际导出及独立复核。见[同文重新绑定](docs/COMPARISON_PR22_REVIEW.md)和[图库说明](docs/TEMPLATE_GALLERY.md)。
-
-R11 四组作者系列共5/3/3/3张，包含有条件比较→条件表→可撤回试用及单图观察→双图对照→未知边界札记。run40079867143的14卡已逐张检查full PNG、375/390和原生PDF，新增C/D六张使用自己的实际产物；品牌、页序、原文、代码、图片和限制保留，不强制封面/CTA或自动改写。见[系列独立复核](docs/SERIES_PR21_REVIEW.md)。该结论仅属于记录的PR21来源与产物，不自动证明其他树或本地重新排版等价。
+For authored multi-card designs, consult [four series recipes](docs/SERIES_RECIPES.md)
+and [same-text comparisons](docs/COMPARISON_PR22_REVIEW.md). Preserve the author's
+order and explicit boundaries; do not force a cover, summary or CTA. Historical
+validation and known limitations are linked from [the documentation index](docs/DOCUMENTATION.md).
 
 ### 正文字号档位
 

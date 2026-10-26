@@ -1,6 +1,6 @@
 # md2card-skill
 
-把文章、笔记或 Markdown 制作为适合阅读和分享的知识卡片。提供 **48 套原创成品模板**，可作为 Codex / Claude Code Skill 使用，也能在本地通过命令行导出 **PNG、HTML 和保留文字层的 PDF**。
+把文章、笔记或 Markdown 制作为适合阅读和分享的知识卡片。提供 **12 个设计家族、48 套原创成品模板**，可作为 Codex / Claude Code Skill 使用，也能在本地通过命令行导出 **PNG、HTML 和保留文字层的 PDF**。
 
 [看全部模板](docs/TEMPLATE_CATALOG.md) · [使用 Skill](#使用-skill) · [命令行开始](#命令行快速开始) · [详细文档](docs/DOCUMENTATION.md)
 
@@ -26,6 +26,8 @@
 ## 使用 Skill
 
 把完整仓库放入对应的技能目录，并安装依赖。安装一次后，直接向助手提供内容和要求。
+
+新建卡片或请求推荐风格时，Skill 优先从 48 套成品模板中选型；已经指定模板、基础主题或要求原样渲染时，会沿用你的选择。只需要通用版式或受支持的自动分页时，再使用基础主题。详见[模板、主题与版式的区别](#模板主题与版式有什么区别)。
 
 <details>
 <summary>Codex：项目级安装</summary>
@@ -63,7 +65,7 @@ node scripts/render.mjs --doctor
 
 ```text
 使用 md2card-skill，把下面这篇文章整理成适合手机阅读的知识卡片。
-先推荐三种模板风格，说明适合的内容结构，再让我选择。
+从 48 套模板中推荐三款适合内容的构图，给出真实样例和理由，再让我选择。
 保留数字、来源和限定条件；正文使用“大”，导出 PNG 和 PDF。
 ```
 
@@ -85,6 +87,8 @@ node scripts/render.mjs --doctor
 
 通常交付可编辑 Markdown、PNG、HTML、原生 PDF，以及记录来源和检查结果的 manifest。具体输出以你的要求为准。[更多提示词、安装与排错](docs/SKILL_USAGE.md)。
 
+如果希望沿用基础主题，也可以直接说：“使用 md2card-skill，按 minimal 主题和 explainer 版式原样渲染 cards.md，保留分页，不改用成品模板。”
+
 ## 按用途选择
 
 | 想做什么 | 从哪里开始 |
@@ -96,7 +100,15 @@ node scripts/render.mjs --doctor
 | 微信公众号主封面与分享封面 | [独立双封面](examples/wechat-covers/README.md)，两份作者确认的输入 |
 | 多张连续卡片 | [系列示例](docs/SERIES_RECIPES.md)，保留作者分页与内容顺序 |
 
-**48 套成品模板、5 种主题、8 种通用语义版式是不同层次的选项。** 想快速获得完整构图，优先选模板；需要自行组合通用版式时，再查看[主题说明](references/themes.md)和[渲染手册](references/rendering.md)。不是所有模板都支持所有画幅。
+### 模板、主题与版式有什么区别？
+
+| 类别 | 数量与作用 | 如何选择 |
+| --- | --- | --- |
+| 成品模板 `template` | 48 套、12 个设计家族；每套有完整构图、图文结构和独立样式 | [看效果和示例](docs/TEMPLATE_CATALOG.md)，通过 T01–T48 选择，仅支持手动分页 |
+| 基础主题 `theme` | 5 种：`editorial` / `minimal` / `midnight` / `notebook` / `bold`；用于通用版式的视觉样式 | 明确指定主题，或需要受支持的自动分页时使用；[主题说明](references/themes.md) |
+| 通用版式 `layout` | 8 种；组织封面、解释、对比、步骤、引用等内容结构 | 配合基础主题使用；[版式和参数](references/rendering.md) |
+
+“五种基础主题”不代表只有五套模板。成品模板不继承基础主题 CSS，不能用 `--theme` 给模板换皮；12 个家族名也不是 `--theme` 参数值。不是所有模板都支持所有画幅，新增构图变体或画幅不会增加模板数量。
 
 ## 两种可选构图
 

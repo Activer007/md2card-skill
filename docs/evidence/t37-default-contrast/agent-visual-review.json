@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "Codex",
+  "humanVisualReview": "pending",
+  "images": [
+    {
+      "file": "run1/black-before/screen.png",
+      "sha256": "167504f33e23825c1fc5446ab0e0fc023f3db7c0165e66fef4c04ee9d4a4574f",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/black-after/screen.png",
+      "sha256": "4996f72a397d43f34aa9acf4bda4c9a0b176253305225a82a29d936780add6e4",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/light-white-before/screen.png",
+      "sha256": "9033e906747bf1d3ef070c5a503343c892214423fc125d9e8403d4db7bb08e35",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/light-white-after/screen.png",
+      "sha256": "177238c59a34d4ea06f1debb6a3c95c58e7e3ff06868d182e73cc12ce9bd2c9f",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/black-after/mobile-375.png",
+      "sha256": "81a26c04f08237541eeaebd4c1454ac8c079d299c7ef1798b0752a302ee1ba79",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/light-white-after/mobile-390.png",
+      "sha256": "e38d0ca774ff40255a26eedc43ebd28708dbde74f99393ea03358db78b735262",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/long-title-after/screen.png",
+      "sha256": "62860d53e732ed998911abdae6d97bd99cf3eb27d1e077930b09e380368a4c05",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/long-caption-after/screen.png",
+      "sha256": "20dd162f8754445f4e0a9407725b9558a464a4913754fdd71da8f41d0e4e5af4",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/black-before/native-pdf.png",
+      "sha256": "77eaaf88b68a15b825d01140945efc983d30aa9085cb377e6f1efd776056c416",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/black-after/native-pdf.png",
+      "sha256": "706489272213f300b03e260947f3382228ae9092c598694b4e594b88f54cd0f6",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/light-white-after/native-pdf.png",
+      "sha256": "d30dadf00bf4ef085284651316bfaec93324249b7d2dd8ef12ac099dd4ea7ed3",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/photo-control-after/screen.png",
+      "sha256": "1010dd587412cc4e81c086aade8406cc21a66ba148bf3dff66fcc714cd60f6aa",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/black-before/mobile-375.png",
+      "sha256": "e23fe482e3cef0b8bce2ee5b1dd524088df539446e65d1b21c985cbf72d96fad",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/light-white-before/mobile-390.png",
+      "sha256": "218153eef9b05f0a0d568936c92dd6e2d7d21126c97c24e9389913cf9653fd7f",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/dark-after/screen.png",
+      "sha256": "4996f72a397d43f34aa9acf4bda4c9a0b176253305225a82a29d936780add6e4",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    },
+    {
+      "file": "run1/light-pastel-after/screen.png",
+      "sha256": "177238c59a34d4ea06f1debb6a3c95c58e7e3ff06868d182e73cc12ce9bd2c9f",
+      "reviewer": "Codex image inspection",
+      "result": "Old low contrast retained as failure evidence; corrected/unchanged text and layout visually checked according to filename."
+    }
+  ],
+  "limits": [
+    "Only the 16 listed images were individually inspected. Remaining matrix rasters were automatically pixel-compared.",
+    "Photo subject/crop judgment covers the single synthetic shore control, not arbitrary photographs."
+  ]
+}

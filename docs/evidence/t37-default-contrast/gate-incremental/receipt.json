@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "file": "artifacts.json",
+      "bytes": 3652,
+      "sha256": "5ddaeb6b1da2c3d5294a1a9969322424338dc2ee78bd62684acb7ca7eacb0891"
+    },
+    {
+      "file": "report.json",
+      "bytes": 278084,
+      "sha256": "1d72a0b980f61d5902b9fbec24cfc03ead774be61f1f9db85b5edc2c77f67f4c"
+    },
+    {
+      "file": "report.md",
+      "bytes": 1897,
+      "sha256": "c0fd40da1dc4afd51f104a601ce81983ad6f8c7b7b97b43ac5e85e4da8267c85"
+    }
+  ]
+}

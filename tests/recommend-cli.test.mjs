@@ -142,7 +142,10 @@ test('static role routes derive from registry fields, survive no JS and add no p
   const changed = model.items.map(item => ({ ...item, id: `new-${item.id}` }));
   assert.ok(buildRoleGuide(changed).flatMap(r => r.templates).every(t => t.id.startsWith('new-')), 'no hard-coded IDs');
   for (const route of routes) assert.ok(html.includes(`data-content-role="${route.id}"`));
-  assert.equal(model.items.length, 48); assert.equal((html.match(/<img /g) ?? []).length, 59);
+  assert.equal(model.items.length, 48);
+  const evidenceImages = model.accepted.length + model.comparisons.reduce((sum, group) => sum + group.previews.length, 0)
+    + model.variantEvidence.entries.reduce((sum, entry) => sum + entry.views.length, 0);
+  assert.equal((html.match(/<img /g) ?? []).length, evidenceImages, 'role routes add no images beyond the existing evidence');
   assert.ok(html.includes('references/recommendations.md')); assert.ok(html.includes('推荐 ≠ 渲染保证'));
 });
 

@@ -8,11 +8,60 @@ export { LAYOUTS };
 export const SIZES = {
   portrait: { width: 1080, height: 1440 },
   square: { width: 1080, height: 1080 },
-  slide: { width: 1600, height: 900 }
+  slide: { width: 1600, height: 900 },
+  'wechat-wide': { width: 2100, height: 900 }
 };
 
 const TEXT_FIELDS = ['eyebrow', 'alt', 'caption', 'source', 'metric', 'label'];
 const IMAGE_MIMES = new Set(['image/png', 'image/jpeg', 'image/webp']);
+
+// M4: three exact combinations only. Emitted conditionally so old documents
+// retain their stylesheet bytes. These are fixed design scales, never fit-to-text.
+const WECHAT_COVER_CSS = `
+/* M4 independently composed cover canvases; fixed typography, no automatic fitting. */
+.card.template-T01.template-aspect-square { --section-gap: .55em; border-top-width: calc(var(--card-height) * .014); }
+.card.template-T01.template-aspect-square .card-content { display: flex; flex-direction: column; gap: .5em; }
+.card.template-T01.template-aspect-square .template-heading { padding: .15em 0 .45em; border-bottom: .075em solid var(--ink); }
+.card.template-T01.template-aspect-square h1 { font-size: 2.35em; line-height: 1.14; letter-spacing: -.035em; }
+.card.template-T01.template-aspect-square .template-main { display: flex; flex-direction: column; gap: .6em; padding-top: 0; }
+.card.template-T01.template-aspect-square .template-intro { padding: 0; font-family: var(--font-display); }
+.card.template-T01.template-aspect-square .template-intro > p:first-child::first-letter { float: none; margin: 0; font: inherit; color: inherit; }
+.card.template-T01.template-aspect-square .template-sections { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: .65em; border-left: 0; padding-left: 0; margin: 0; }
+.card.template-T01.template-aspect-square .template-section { padding: .4em 0 0; border-top: 1px solid var(--line); }
+.card.template-T01.template-aspect-square .template-section h2 { font-size: 1em; }
+.card.template-T01.template-aspect-square .card-source { margin-top: auto; }
+.card.template-T01.template-aspect-wechat-wide,
+.card.template-T21.template-aspect-wechat-wide { --pad: calc(var(--card-height) * .07); --text-size: calc(var(--card-height) * .06); --note-size: calc(var(--card-height) * .0445); --section-gap: .45em; --paragraph-gap: .35em; }
+.card.template-T01.template-aspect-wechat-wide { border-top-width: calc(var(--card-height) * .014); }
+.card.template-T01.template-aspect-wechat-wide .card-content { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,.85fr); grid-template-rows: auto 1fr auto; gap: .45em 1em; }
+.card.template-T01.template-aspect-wechat-wide .template-heading { grid-column: 1; grid-row: 1; padding: 0 0 .35em; border-bottom: .08em solid var(--ink); }
+.card.template-T01.template-aspect-wechat-wide h1 { font-size: 2.6em; line-height: 1.14; letter-spacing: -.035em; }
+.card.template-T01.template-aspect-wechat-wide .card-eyebrow { margin-bottom: .4em; }
+.card.template-T01.template-aspect-wechat-wide .template-main { display: contents; }
+.card.template-T01.template-aspect-wechat-wide .template-intro { grid-column: 1; grid-row: 2; padding-top: .1em; font-family: var(--font-display); }
+.card.template-T01.template-aspect-wechat-wide .template-intro > p:first-child::first-letter { float: none; margin: 0; font: inherit; color: inherit; }
+.card.template-T01.template-aspect-wechat-wide .template-sections { grid-column: 2; grid-row: 1 / 3; display: flex; flex-direction: column; gap: .6em; margin: 0; padding: .1em 0 0 .8em; border-left: .04em solid var(--accent); }
+.card.template-T01.template-aspect-wechat-wide .template-section { padding-top: .15em; }
+.card.template-T01.template-aspect-wechat-wide .template-section h2 { font-size: 1.1em; }
+.card.template-T01.template-aspect-wechat-wide .card-source { grid-column: 1 / -1; grid-row: 3; }
+.card.template-T21.template-aspect-wechat-wide { --pad: calc(var(--card-height) * .05); }
+.card.template-T21.template-aspect-wechat-wide .card-content { display: grid; grid-template-columns: minmax(0,.72fr) minmax(0,1.28fr); grid-template-rows: auto 1fr auto; gap: .25em .8em; }
+.card.template-T21.template-aspect-wechat-wide .template-heading { grid-column: 1 / -1; grid-row: 1; padding-top: .25em; border-top-width: .1em; }
+.card.template-T21.template-aspect-wechat-wide h1 { font-size: 1.95em; line-height: 1.15; max-width: none; }
+.card.template-T21.template-aspect-wechat-wide .card-eyebrow { margin-bottom: 0; }
+.card.template-T21.template-aspect-wechat-wide .template-metric { grid-column: 1; grid-row: 2; padding: .25em .65em .3em 0; border: 0; }
+.card.template-T21.template-aspect-wechat-wide .template-metric .statistic-value { font-size: 4.7em; line-height: 1; letter-spacing: -.045em; }
+.card.template-T21.template-aspect-wechat-wide .template-metric .statistic-label { font-size: .9em; line-height: 1.4; margin-top: .3em; }
+.card.template-T21.template-aspect-wechat-wide .template-main { grid-column: 2; grid-row: 2; display: flex; flex-direction: column; gap: .35em; padding: .25em 0 0 .65em; border-left: 1px solid var(--line); }
+.card.template-T21.template-aspect-wechat-wide .template-sections { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: .65em; }
+.card.template-T21.template-aspect-wechat-wide .template-section { padding-top: .3em; }
+.card.template-T21.template-aspect-wechat-wide .template-section h2 { font-size: 1em; margin-bottom: .2em; }
+.card.template-T21.template-aspect-wechat-wide .card-source { grid-column: 1 / -1; grid-row: 3; padding: .3em 0 0; border-top: 1px solid var(--line); background: transparent; }
+.card.template-T01.template-aspect-wechat-wide .card-footer,
+.card.template-T21.template-aspect-wechat-wide .card-footer { margin-top: .35em; padding-top: .3em; }
+.card.template-T01.template-aspect-wechat-wide .footer-meta,
+.card.template-T21.template-aspect-wechat-wide .footer-meta { flex-direction: row; flex-wrap: wrap; gap: .3em 1em; align-items: baseline; }
+`;
 
 // Opt-in CSS is emitted only for the validated variant. Legacy documents keep
 // their exact bytes, including the stylesheet; no registry version is promoted.
@@ -150,6 +199,7 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
   let customBodySize = false;
   let screenshotStage = false;
   let photoCover = false;
+  let wechatCover = false;
   const preview = options.preview === true;
   const body = cards.map((card, position) => {
     const index = position + 1;
@@ -163,6 +213,7 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
     if (variant === 'screenshot-stage') screenshotStage = true;
     if (variant === 'photo-cover') photoCover = true;
     const aspect = template ? resolveTemplateAspect(template.id, { width, height }) : null;
+    if (aspect?.id === 'wechat-wide' || (template?.id === 'T01' && aspect?.id === 'square')) wechatCover = true;
     const templateClass = template ? ` template-card template-${template.id} family-${template.family} density-${card.metadata.density ?? template.density} ${aspect.className}` : '';
     const article = `<article class="card${template ? '' : ` theme-${theme}`} layout-${layout}${templateClass}"${template ? ` data-template="${template.id}" data-template-aspect="${aspect.id}"` : ''}${variant ? ` data-visual-variant="${variant}"` : ''}${footerMode === 'legacy' ? '' : ` data-footer-mode="${footerMode}"`}${bodySize === 'medium' ? '' : ` data-body-size="${bodySize}"`} data-layout="${layout}" aria-label="Card ${index} of ${cards.length}">
     <div class="card-content">${sizeBodyText(cardContent(card, layout, template), bodySize)}</div>
@@ -187,7 +238,7 @@ body { background: #e5e7eb; }
 .card { flex: none; }
 ${layoutCss}
 ${themeCss}
-${templateCss}${customBodySize ? `\n${bodySizeCss()}` : ''}${screenshotStage ? SCREENSHOT_STAGE_CSS : ''}${photoCover ? PHOTO_COVER_CSS : ''}
+${templateCss}${customBodySize ? `\n${bodySizeCss()}` : ''}${screenshotStage ? SCREENSHOT_STAGE_CSS : ''}${photoCover ? PHOTO_COVER_CSS : ''}${wechatCover ? WECHAT_COVER_CSS : ''}
 ${preview ? `
 /* Preview transforms only the display; every .card retains its export canvas. */
 .deck-preview { width: 100%; min-width: 0; padding: 24px; gap: 24px; }

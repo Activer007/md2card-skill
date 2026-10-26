@@ -323,7 +323,7 @@ node scripts/render.mjs my-note.md --template T25 --out output/my-note
 
 也可在卡片第一行选择 `<!-- card: {"template":"T05","density":"standard"} -->`。模板使用 `manual`，保留原文与 `===`；现有 `auto` 仍仅支持 layout-only `explainer` / `steps`。`compact` / `standard` / `editorial` 只调间距，不缩小正文。mobile 阅读字阶在实际 351/366px 内卡上检查，旧主题不会被暗中改成新字号。
 
-全部48套模板支持3:4；仅在 **6 个模板上增加 8 个额外画幅组合**：T04/T21各支持独立1:1与16:9，T05/T13仅增1:1，T24/T37仅增16:9，其余组合明确拒绝。当前13套v3/35套v2的精确standard/portrait示例已验收；八个指定画幅短例已完成 full PNG、375/390 和 native PDF 独立复核，并由独立证据注册表绑定；T04/T21 四组合为 aspect-v2，T05/T13/T24/T37 四组合为 aspect-v1。仅限精确输入、standard/manual，不扩张为 48×3 或所有内容适配。 T04/T21的v1 历史证据保持不变。原portrait输入在短画布仍可能溢出，不缩字、不删内容、不裁图。见[画幅与验证边界](docs/TEMPLATE_ASPECTS.md)。
+全部48套模板支持3:4；原有 **6 个模板上增加 8 个额外画幅组合**：T04/T21各支持独立1:1与16:9，T05/T13仅增1:1，T24/T37仅增16:9，M4 另增下述三组合，其余组合明确拒绝。当前13套v3/35套v2的精确standard/portrait示例已验收；八个指定画幅短例已完成 full PNG、375/390 和 native PDF 独立复核，并由独立证据注册表绑定；T04/T21 四组合为 aspect-v2，T05/T13/T24/T37 四组合为 aspect-v1。仅限精确输入、standard/manual，不扩张为 48×3 或所有内容适配。 T04/T21的v1 历史证据保持不变。原portrait输入在短画布仍可能溢出，不缩字、不删内容、不裁图。见[画幅与验证边界](docs/TEMPLATE_ASPECTS.md)。
 
 `--list-templates` 列出用途、推荐长度、结构、图片需求、来源与完整输入。推荐字数只是选型参考；放不下时保留原文与诊断，换模板或由你明确选择编辑/增加分段，不自动删字、改写、缩字或裁切。
 
@@ -350,3 +350,18 @@ R11 四组作者系列共5/3/3/3张，包含有条件比较→条件表→可撤
 # 可选视觉诊断
 
 渲染时增加 `--visual-audit` 可输出版本化 `visual-diagnostics.json`。报告使用实际 Chromium screen/print 文字行框与图片绘制区域，提示间距、分布、留白、截图面积、连续构图及图上文字人工检查。默认关闭，不修改内容、不改变安全溢出阻断，也不代表自动视觉验收。规则、模板例外、完整样例和已知误报见 [M3 视觉诊断说明](docs/visual-upgrade/M3_VISUAL_DIAGNOSTICS.md)。
+
+
+### M4: independent WeChat cover pair / 独立双封面
+
+M4 adds only T01 square, T01 wechat-wide and T21 wechat-wide. `wechat-wide` is 2100×900 (21:9), independent of 16:9 `slide`. In total, 7 templates / 11 extra aspect pairs; still 48 designs. Existing T21 square/slide remain unchanged. This does not make all 48 templates compatible with WeChat covers.
+
+Author two separate files and review both before invoking:
+
+```sh
+node scripts/render-cover-pair.mjs --wide wide.md --square square.md --author-confirmed --out output/pair --strict
+```
+
+Both files need explicit T01 or T21 metadata and exactly one card. The wrapper does not derive a second cover, change titles, remove sources, or infer semantic equivalence. It writes independent HTML/PNG/native PDF/preview/manifest sets, a local pair preview (HTML and PNG), and input/output SHA-256 records. An absent or empty destination is mandatory; either-side failure publishes no completed pair. The 120-second default deadline and 256 MiB output cap apply to the combined operation.
+
+`--author-confirmed` records the author’s declaration only. Numbers, definitions, units, sources and qualifications still require author review. Machine geometry checks do not certify platform display or human visual approval. Long input returns `CONTENT_OVERFLOW`; unsupported combinations return `TEMPLATE_ASPECT_UNSUPPORTED`. See [M4 changes, exact evidence and limits](docs/visual-upgrade/M4_WECHAT_COVERS.md) and [authored examples](examples/wechat-covers/README.md).

@@ -164,7 +164,7 @@ Do not treat example acceptance as a guarantee for arbitrary input. Select a
 registry ID with `--template` or per-card `template` metadata; density changes
 spacing only. Templates remain manual-only and do not inherit legacy theme CSS.
 
-Consult the layout registry for support and the separate verified evidence registry for acceptance. Exactly 6 templates add
+Consult the layout registry for support and the separate verified evidence registry for acceptance. The original 6 templates add
 8 extra aspect pairs: T04/T21 each add square and slide, T05/T13 add square only,
 and T24/T37 add slide only. All other non-portrait combinations are rejected.
 All 48 exact standard/portrait examples remain accepted (13 v3 / 35 v2).
@@ -258,3 +258,18 @@ R11 四组作者系列共5/3/3/3张，包含有条件比较→条件表→可撤
 自动分页只用命令行统一设置；保留 layout-only 元数据约束。
 字号只影响正文文字，标题、页脚和图片不随之缩放。不要通过 PNG `--scale` 或
 `density` 模拟字号。放大后必须通过既有溢出检查；不自动缩小，不声称继承默认档的视觉验收。
+
+
+### M4: independent WeChat cover pair / 独立双封面
+
+M4 adds only T01 square, T01 wechat-wide and T21 wechat-wide. `wechat-wide` is 2100×900 (21:9), independent of 16:9 `slide`. In total, 7 templates / 11 extra aspect pairs; still 48 designs. Existing T21 square/slide remain unchanged. This does not make all 48 templates compatible with WeChat covers.
+
+Author two separate files and review both before invoking:
+
+```sh
+node scripts/render-cover-pair.mjs --wide wide.md --square square.md --author-confirmed --out output/pair --strict
+```
+
+Both files need explicit T01 or T21 metadata and exactly one card. The wrapper does not derive a second cover, change titles, remove sources, or infer semantic equivalence. It writes independent HTML/PNG/native PDF/preview/manifest sets, a local pair preview (HTML and PNG), and input/output SHA-256 records. An absent or empty destination is mandatory; either-side failure publishes no completed pair. The 120-second default deadline and 256 MiB output cap apply to the combined operation.
+
+`--author-confirmed` records the author’s declaration only. Numbers, definitions, units, sources and qualifications still require author review. Machine geometry checks do not certify platform display or human visual approval. Long input returns `CONTENT_OVERFLOW`; unsupported combinations return `TEMPLATE_ASPECT_UNSUPPORTED`. See [M4 changes, exact evidence and limits](docs/visual-upgrade/M4_WECHAT_COVERS.md) and [authored examples](examples/wechat-covers/README.md).

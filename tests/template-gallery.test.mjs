@@ -375,7 +375,7 @@ test('aspect support is shown without promoting extra layouts or reusing portrai
   const model = await buildGalleryModel({ root, templates });
   for(const id of ['T04','T21']) {
     const item=model.items.find(item=>item.id===id);
-    assert.deepEqual(item.aspects,['portrait','square','slide']);
+    assert.deepEqual(item.aspects,id==='T21'?['portrait','square','slide','wechat-wide']:['portrait','square','slide']);
     assert.equal(item.preview,null);
     assert.equal(item.history.version,1);
     for(const aspect of ['square','slide']) assert.equal(item.aspectLayouts[aspect].status,'implemented-awaiting-visual-review');

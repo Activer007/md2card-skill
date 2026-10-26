@@ -14,7 +14,7 @@
     "test:recommendations": "node --test tests/content-role.test.mjs tests/template-recommender.test.mjs tests/recommend-cli.test.mjs",
     "test:integration": "node --test tests/export.test.mjs tests/pagination-export.test.mjs",
     "doctor": "node scripts/render.mjs --doctor",
-    "test:unit": "node --test tests/content-role.test.mjs tests/template-recommender.test.mjs tests/recommend-cli.test.mjs tests/markdown.test.mjs tests/assets.test.mjs tests/document.test.mjs tests/doctor.test.mjs tests/options.test.mjs tests/lifecycle.test.mjs tests/semantic.test.mjs tests/pagination.test.mjs tests/tail-balance.test.mjs tests/tail-export.test.mjs tests/templates.test.mjs tests/series.test.mjs tests/visual-stress.test.mjs tests/template-gallery.test.mjs tests/gallery-validation.test.mjs tests/aspects.test.mjs tests/validate-aspects.test.mjs tests/refinement-typography.test.mjs tests/refinement-image-calibration.test.mjs tests/refinement-t20-pressure.test.mjs tests/footer-matrix.test.mjs tests/refinement-matrix.test.mjs tests/gallery-discovery.test.mjs tests/evidence-source.test.mjs tests/evidence-archive.test.mjs tests/refinement-evidence.test.mjs tests/aspect-evidence.test.mjs tests/body-size.test.mjs tests/default-body-compatibility.test.mjs tests/screenshot-stage.test.mjs tests/photo-cover.test.mjs tests/visual-diagnostics.test.mjs",
+    "test:unit": "node --test tests/content-role.test.mjs tests/template-recommender.test.mjs tests/recommend-cli.test.mjs tests/markdown.test.mjs tests/assets.test.mjs tests/document.test.mjs tests/doctor.test.mjs tests/options.test.mjs tests/lifecycle.test.mjs tests/semantic.test.mjs tests/pagination.test.mjs tests/tail-balance.test.mjs tests/tail-export.test.mjs tests/templates.test.mjs tests/series.test.mjs tests/visual-stress.test.mjs tests/template-gallery.test.mjs tests/gallery-validation.test.mjs tests/aspects.test.mjs tests/validate-aspects.test.mjs tests/refinement-typography.test.mjs tests/refinement-image-calibration.test.mjs tests/refinement-t20-pressure.test.mjs tests/footer-matrix.test.mjs tests/refinement-matrix.test.mjs tests/gallery-discovery.test.mjs tests/evidence-source.test.mjs tests/evidence-archive.test.mjs tests/refinement-evidence.test.mjs tests/aspect-evidence.test.mjs tests/body-size.test.mjs tests/default-body-compatibility.test.mjs tests/screenshot-stage.test.mjs tests/photo-cover.test.mjs tests/visual-diagnostics.test.mjs tests/wechat-covers.test.mjs",
     "validate:tail": "node scripts/validate-tail.mjs",
     "validate:templates": "node scripts/validate-templates.mjs",
     "test:series": "node --test tests/series.test.mjs",
@@ -36,7 +36,10 @@
     "validate:screenshot-stage": "node scripts/validate-screenshot-stage.mjs",
     "validate:photo-cover": "node scripts/validate-photo-cover.mjs",
     "test:visual-audit": "node --test tests/visual-diagnostics.test.mjs",
-    "validate:visual-audit": "node scripts/validate-visual-diagnostics.mjs"
+    "validate:visual-audit": "node scripts/validate-visual-diagnostics.mjs",
+    "test:wechat-covers": "node --test tests/wechat-covers.test.mjs",
+    "validate:wechat-covers": "node scripts/validate-wechat-covers.mjs",
+    "render:cover-pair": "node scripts/render-cover-pair.mjs"
   },
   "engines": {
     "node": ">=20"

@@ -1,0 +1,21 @@
+✔ visual verifier refuses lost crop focus or contrast backing even when boxes fit (2.8909ms)
+✔ crop authorization and author safety are explicit, typed and template scoped (9.5762ms)
+✔ trusted resolver is reused; title and one photo are required without hiding content (358.1679ms)
+✔ recommendation does not borrow default approval or recommend unsupported slide crop (51.2793ms)
+✔ fallback removes only crop fields and inventory cannot silently skip/add cases (4.3981ms)
+✔ only explicit T20 with the exact enum and a local metadata image is accepted (25.7888ms)
+✔ the existing local-image security boundary also protects the explicit stage (25.9036ms)
+✔ stage keeps the exact image and text; default DOM and CSS stay untouched (20.2699ms)
+✔ recommendations cannot borrow default T20 visual acceptance for the variant (11.8744ms)
+✔ real fixture inventory excludes documentation and refuses incomplete/new cases (5.0723ms)
+✔ default counterpart removes the opt-in despite key order/spacing, without rewriting text (0.9582ms)
+✔ validation refuses nonempty output before overwriting any evidence or launching Chromium (18.391ms)
+✔ mismatched baseline bytes cannot be presented as the pinned historical commit (2.5221ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 935.084

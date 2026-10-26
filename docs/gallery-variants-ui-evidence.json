@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "fa447859cdeb38a1c7225ffba75adafa93cd4696",
+  "scope": "Gallery UI, frozen historical comparison extraction, focused tests. Original M2 archives are not repackaged.",
+  "automated": {
+    "checks": 86,
+    "passed": 86,
+    "failed": 0,
+    "screenshots": 44
+  },
+  "maintainerApproval": "pending",
+  "files": [
+    {
+      "file": "docs/evidence/gallery-variants/ui/agent-visual-review.json",
+      "sha256": "c2aa99356db2895c05097b5a2ac8519b635009f9270373f962eeb68ee2522a95",
+      "bytes": 3753
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/archive-verification.json",
+      "sha256": "208486e12f15e7350dcdac13f8904eb3a4f4c0f0bc207fd98ab74d72ad2f06cd",
+      "bytes": 4309
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/canonical-fix.log",
+      "sha256": "90a7e5c2b794d6c2fccc53151ec157e170386d7fe5570689b7e8d15f1fb5aef5",
+      "bytes": 680
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-accepted.png",
+      "sha256": "3a095ce25d1c61c1a227915cdcdb1d5932fa60e049fd18c6ed5ed84fee882262",
+      "bytes": 333178
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-aspect-evidence.png",
+      "sha256": "59b5beac12e0cf24f3eb2767c14bbc6480adfb57b436cc4488b5340ee29f7695",
+      "bytes": 206042
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-comparisons.png",
+      "sha256": "924d00c484ce0bc898e6a1bc8a54d8a809b6894876b9913cd940a3f533bb8e61",
+      "bytes": 240561
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-detail.png",
+      "sha256": "4f4f62105f10d03a784f5e62a8e565ad95a631fc1d980bbf842bfd025cdb0fb9",
+      "bytes": 219039
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-index.png",
+      "sha256": "22a1b48691f6ccc792013778c1f7686186293cae4ae7e794587184c9a5616c0c",
+      "bytes": 101506
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-pending.png",
+      "sha256": "d6d91e8736e1f9e20840e8dabb1bc0131dd3b38a44c22e596572f84071bc9b22",
+      "bytes": 88051
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-roles.png",
+      "sha256": "73c370d3abd4d839f577e3444ff9371effe6b29ca10171e1403e6d3494a129d6",
+      "bytes": 87239
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-T20-screenshot-stage.png",
+      "sha256": "c10a33d5f574454eba2849eff036b63c3cf44a019bf2d7fe7642198b5b3efe1b",
+      "bytes": 164875
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-T37-photo-cover.png",
+      "sha256": "db35e36a52fa61f5da5b2ec061e35a840bcc0ad086d452a2191cfa1a9c4cf54a",
+      "bytes": 258187
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-tasks.png",
+      "sha256": "561b379a9a8c8912a4e37e49de3500dc75601f0dc14ca0162af228ca3e2ced9c",
+      "bytes": 94249
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/gallery-check.log",
+      "sha256": "3a91ef8f14a560ff00144be4cd748e0fcd05230dd89b62e1e54a912aa9698887",
+      "bytes": 187
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-accepted.png",
+      "sha256": "8ab7db6e2ceeeb9252ea3513a20ccb1b7717b0149a7d34363be91302075b67a5",
+      "bytes": 80210
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-aspect-evidence.png",
+      "sha256": "558c07aac8753da7742dd71bcfb722ca69a6b86116c832105b5ae9224b15667a",
+      "bytes": 62699
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-comparisons.png",
+      "sha256": "7da758ac86ca5b2b0c0dd203a8e2a81f0d5f70fdaca4bd8e9296ec583cb6a946",
+      "bytes": 80236
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-detail.png",
+      "sha256": "9321e22434bf3ec88ce40d5fecfc7c08076172cf0b7553319317754446f0fd0c",
+      "bytes": 51231
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-index.png",
+      "sha256": "a5fc959e5536c8cd37480cd002591c55dfbc23dcba1805e492468628ab6acbdc",
+      "bytes": 46165
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-pending.png",
+      "sha256": "8b382c97ef7a79e0287f487e083743906c1ffad248bf3135f5d7fd0cef560ebd",
+      "bytes": 51492
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-roles.png",
+      "sha256": "e75e7f4ff403022db22996df59fde5a3f81dadd59a679bf448d3b11379fa7e8a",
+      "bytes": 43776
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-T20-screenshot-stage.png",
+      "sha256": "8f3a79a64190d9ed156dadbb4018506831fc9bef7b98ab643dbaa65ffc587043",
+      "bytes": 185180
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-T37-photo-cover.png",
+      "sha256": "b62a22185c207b733f93274dbbf7461a13a19b7d24f2bb1ed58e1fedf5921899",
+      "bytes": 301351
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-tasks.png",
+      "sha256": "b6cbb17c3e5eee47b613d10c058608b5907fb3535333337d215dc963dfa69878",
+      "bytes": 43392
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-accepted.png",
+      "sha256": "b03e03a74cdbc057628642832644e468b58a3b029c89e9cf7fffa0a407640203",
+      "bytes": 83811
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-aspect-evidence.png",
+      "sha256": "6ece4f86d541333cfd86134cbef01fb1c96e32881dcdadc39f81fb1fa7639fc3",
+      "bytes": 64771
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-comparisons.png",
+      "sha256": "573bdfcd4f2a85db338b1b71d084349f0d4333758ac58775770ec5c05ccddf0e",
+      "bytes": 82593
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-detail.png",
+      "sha256": "fd299bd0fd9070926c82fd63d19ce04afbe67d3fb35a2122492c1ef897604155",
+      "bytes": 55577
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-index.png",
+      "sha256": "bb5ea6ea29206208d7e5fd3a7347aca9f22b43bef62567286080186318ab5509",
+      "bytes": 49844
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-pending.png",
+      "sha256": "7114de315907ea27ec184ff0d205103589fbd914bac63c2f290455c24aaf7822",
+      "bytes": 53723
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-roles.png",
+      "sha256": "dae35cea32e543603543679d49205d999e72c0d4423e6ed0e5299f29bb4d47cc",
+      "bytes": 44057
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-T20-screenshot-stage.png",
+      "sha256": "b9b4219c441ad7d6f6d980e36e1d95527c48404c909b57a85936d429c4439d70",
+      "bytes": 192476
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-T37-photo-cover.png",
+      "sha256": "4c095f0d0b40069d415815ab8b800c7d5dbb8218d1bc9859d4921f9cf1271672",
+      "bytes": 320192
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-tasks.png",
+      "sha256": "48787cebf8d78056c5cd7030f7f8c7cc29015013b29025427dbe8a9561486989",
+      "bytes": 45590
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/no-js-390-catalogue.png",
+      "sha256": "ab8b59489ebeac19a209bcb373e0656ae032ac9c9d3b9f6766ab8aaf66125cd6",
+      "bytes": 51181
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/no-js-390-roles.png",
+      "sha256": "6d2c4e4e9664154b8f3a46bd000258ef60fab9b8993053264414b26ae468e341",
+      "bytes": 32889
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/no-js-390-T20-screenshot-stage.png",
+      "sha256": "261bd1c94df69ecac2f89d5965c841c88f1dee2681f3539236f630cf49f742ad",
+      "bytes": 192451
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/no-js-390-T37-photo-cover.png",
+      "sha256": "37fcd0942905497c79c0b419c161758b7554ae609fcd692ad0e3887019b90de9",
+      "bytes": 320324
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-accepted.png",
+      "sha256": "f7f31b588d6e02e589ed1cb56c4e4b01e701a59ba4d6661cc48af4f854b595bc",
+      "bytes": 87811
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-aspect-evidence.png",
+      "sha256": "cbb97895898a04116297c68656aff5a95268c0b5d860720aa4735af1857a733d",
+      "bytes": 52186
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-comparisons.png",
+      "sha256": "14539676dd4fc66873c6e2d4a72aaef47bcf47dde84eee29e4105ac89d492d10",
+      "bytes": 58602
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-detail.png",
+      "sha256": "ea5f0e7136dfd0c4847a9eda2f73cafc45ab3d95165c8a1000ee380e5a0b0f7f",
+      "bytes": 29002
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-index.png",
+      "sha256": "d6cc74e5eb6d59b571786651ae5231d070545a44bc10221091fd4eb225760c82",
+      "bytes": 31284
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-pending.png",
+      "sha256": "2b81ea3035e7dbce6fa8c9e940d541b95b3bdd4ec8dc1fe33a3ae37b57c96772",
+      "bytes": 32688
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-roles.png",
+      "sha256": "ffeaf929190d9be43593b9131e80bfab03721add951dd7b70d437b3bd747a05b",
+      "bytes": 35211
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-T20-screenshot-stage.png",
+      "sha256": "f0c94f25e3a4425ac832412aa422a49fc5009e46bd13486c95ab04d6f01e3f47",
+      "bytes": 343318
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-T37-photo-cover.png",
+      "sha256": "6a92011c915a033ef89799e2a552cd3c97fd79338d4ac4a103562b0f76a142a2",
+      "bytes": 731821
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-tasks.png",
+      "sha256": "6587659ed225078050a5cdfb92784a0b0f0c24b923f3e9dbc1d84c29ca026a49",
+      "bytes": 24659
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/safety.log",
+      "sha256": "e293b371f4f96c59fc11accd87642ab13ebff16c020131fce450265b966e354c",
+      "bytes": 1378
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/summary.json",
+      "sha256": "e4f9c13ad6b4a6cc7a53c353f906f2ae67471fa37f48de988589f9b34030757a",
+      "bytes": 186350
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/unit.log",
+      "sha256": "4dc300ce63fc3ee5ab64e38be1bd5f569704b3045241af8bb59d611b675bb469",
+      "bytes": 11592
+    }
+  ]
+}

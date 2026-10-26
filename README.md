@@ -1,5 +1,7 @@
 # md2card-skill
 
+图库新增 T20 `screenshot-stage` 与 T37 `photo-cover` 的真实同文对照，可从“产品截图”“摄影封面”用途入口进入。仍为 48 套模板；四张历史成品使用独立证据，并显示裁切许可、必要字段及已知限制，不继承默认模板验收。见 [变体使用与证据说明](docs/GALLERY_VISUAL_VARIANTS.md)。
+
 M2 的 48 个精确 standard / portrait 注册示例已完成独立助手源码、全 PNG、375/390px 手机图和原生 PDF 复核：35 套 v2、13 套 v3。见 [有限范围验收](docs/REFINEMENT_M2_ACCEPTANCE.md)。v1 / M1 v2 历史证据保持原样，不作为当前预览。
 
 把 Markdown 与长文整理成清晰、有设计感的知识卡片。

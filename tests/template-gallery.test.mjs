@@ -11,7 +11,7 @@ import { ROOT, CSP, GALLERY_PATH, buildGalleryModel, renderGallery, generateGall
 const model = await buildGalleryModel();
 const html = renderGallery(model);
 const script = await readFile(new URL('../docs/gallery/gallery.js', import.meta.url), 'utf8');
-const previewCount = value => value.accepted.length + value.comparisons.reduce((sum, group) => sum + group.previews.length, 0);
+const previewCount = value => value.accepted.length + (value.variantEvidence?.entries ?? []).reduce((sum, entry) => sum + entry.views.length, 0) + value.comparisons.reduce((sum, group) => sum + group.previews.length, 0);
 const css = await readFile(new URL('../docs/gallery/gallery.css', import.meta.url), 'utf8');
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 async function fixture(t, { root: sourceRoot = ROOT, templates = TEMPLATES } = {}) {
@@ -21,6 +21,7 @@ async function fixture(t, { root: sourceRoot = ROOT, templates = TEMPLATES } = {
   const bindings = JSON.parse(await readFile(path.join(sourceRoot, 'docs/template-gallery-evidence.json'), 'utf8'));
   const files = new Set(['docs/template-gallery-evidence.json', 'docs/TEMPLATE_ASPECTS.md', 'docs/TEMPLATE_GALLERY.md', 'docs/gallery-comparisons.json', 'examples/refinement', 'docs/gallery', 'examples/templates']);
   for (const group of sourceModel.comparisons) for (const file of group.evidenceFiles ?? []) files.add(file);
+  for (const file of sourceModel.variantEvidence.evidenceFiles) files.add(file);
   for (const file of sourceModel.aspectEvidence.evidenceFiles) files.add(file);
   for (const batch of bindings.batches) {
     files.add(batch.review);

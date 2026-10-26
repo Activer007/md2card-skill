@@ -1,0 +1,26 @@
+{
+  "reviewer": "Codex agent visual inspection",
+  "maintainerApproval": "pending",
+  "cases": [
+    "dense-ui",
+    "desktop-16x9",
+    "desktop-4x3",
+    "long-body",
+    "long-source",
+    "long-title",
+    "original",
+    "tall-phone"
+  ],
+  "views": [
+    "full PNG",
+    "mobile 375",
+    "mobile 390",
+    "native PDF raster",
+    "print PNG or identical screen pixels"
+  ],
+  "findings": [
+    "Sources, disclaimers, headings and paragraphs complete; no overlap or missing glyph observed.",
+    "Dense UI and tall screenshot microtext is not phone-readable.",
+    "Exact hashes verified when transferring seven reviews between identical reruns."
+  ]
+}

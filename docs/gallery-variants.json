@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "scope": "Two independent opt-in comparisons within the existing registry; not new template IDs.",
+  "maintainerApproval": "pending",
+  "entries": [
+    {
+      "template": "T20",
+      "templateVersion": 3,
+      "variant": "screenshot-stage",
+      "case": "desktop-4x3",
+      "archive": {
+        "file": "docs/evidence/t20-screenshot-stage-m2a.zip",
+        "sha256": "1ede08d7b2f1b7aaa75f306929110cc277c79bdcfdb94e2a9e244d1e2f13869b",
+        "bytes": 25605698
+      },
+      "origin": {
+        "file": "docs/visual-upgrade/m2a-evidence.json",
+        "sha256": "fb7ea9a828db309816cd7fb42cb46f1604d364d4c6ec411a11b88d10de35bb1a"
+      },
+      "reviewDocument": {
+        "file": "docs/visual-upgrade/M2A_SCREENSHOT_STAGE.md",
+        "sha256": "da154df403769285303fbb0309f5888ed73d7a022cc568e11d1eda40c743dfd0"
+      },
+      "report": {
+        "file": "docs/evidence/gallery-variants/T20-report.json",
+        "sha256": "4765cfdb73b3b19cc2843da59e505d1e1893fc9accc8072560629e9a0a5ab1dd",
+        "bytes": 593590,
+        "archiveEntry": "run/report.json"
+      },
+      "visualReview": {
+        "file": "docs/evidence/gallery-variants/T20-visual-review.json",
+        "sha256": "6ec78adf6958e371de2dcccaf602d53837702cd0e8f08c5023222f7b37b777ae",
+        "bytes": 660,
+        "archiveEntry": "audit/visual-review.json"
+      },
+      "views": [
+        {
+          "mode": "default",
+          "input": {
+            "file": "examples/gallery-variants/desktop-4x3-default.md",
+            "sha256": "b75241aeef725142eaa80ec3f6560a8a2194b509958d5f076ae3b994d807a6ca",
+            "bytes": 530,
+            "archiveEntry": "run/desktop-4x3-default.md"
+          },
+          "png": {
+            "file": "docs/images/gallery-variants/T20-default.png",
+            "sha256": "622484e8f37acb2af11663fa7821b8f577684de31d4d45984d54de186ac4d978",
+            "bytes": 204788,
+            "archiveEntry": "run/desktop-4x3-default/card-001.png"
+          },
+          "width": 1080,
+          "height": 1440
+        },
+        {
+          "mode": "stage",
+          "input": {
+            "file": "examples/gallery-variants/desktop-4x3-stage.md",
+            "sha256": "21d2b38ddbef2f66c0771887f8a489cc8446e9a35c926dbfd2a06be453c2d5f4",
+            "bytes": 565,
+            "archiveEntry": "run/desktop-4x3-stage.md"
+          },
+          "png": {
+            "file": "docs/images/gallery-variants/T20-stage.png",
+            "sha256": "01ea7101b095c6910ed019b906061375e0011827b8174f8d4b6bf114983cf8f4",
+            "bytes": 221794,
+            "archiveEntry": "run/desktop-4x3-stage/card-001.png"
+          },
+          "width": 1080,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "template": "T37",
+      "templateVersion": 2,
+      "variant": "photo-cover",
+      "case": "bright",
+      "archive": {
+        "file": "docs/evidence/t37-photo-cover-m2b.tar.xz",
+        "bytes": 60182640,
+        "sha256": "c966f65664fcac0d3fb6a32ebf90842fbe89f5debe035074a5cf2818dc8e568b",
+        "entryPoint": "index.html",
+        "fileCount": 248
+      },
+      "origin": {
+        "file": "docs/visual-upgrade/m2b-evidence.json",
+        "sha256": "6efb68acd37de80f63fae21c4aa553dcd0d8b23169a2202ac32562f2b873dd05"
+      },
+      "reviewDocument": {
+        "file": "docs/visual-upgrade/M2B_ACCEPTANCE.md",
+        "sha256": "bbb98c1de9da6b8c027808ffde4a71f0a56cee5dddba31b9fa3876512a54e21a"
+      },
+      "report": {
+        "file": "docs/evidence/gallery-variants/T37-report.json",
+        "sha256": "51b141e74fbd8333a20f7462394519ca20463993ef6b6d5fc57549a5e764b1d3",
+        "bytes": 502743,
+        "archiveEntry": "report.json"
+      },
+      "visualReview": {
+        "file": "docs/evidence/gallery-variants/T37-visual-review.json",
+        "sha256": "71402f40af196edcfb7eb92cabbc0416b192e631c1dec99ce598d7f905506059",
+        "bytes": 22061,
+        "archiveEntry": "visual-review.json"
+      },
+      "views": [
+        {
+          "mode": "default",
+          "input": {
+            "file": "examples/gallery-variants/bright-default.md",
+            "sha256": "bf2765ebeab408d9954314b17c145b67437a4aff4e6f933d7a0fafbce3c9469d",
+            "bytes": 388,
+            "archiveEntry": "bright-default.md"
+          },
+          "png": {
+            "file": "docs/images/gallery-variants/T37-default.png",
+            "sha256": "844b506f97458138fab2af56550832d0f662e66633cedc77daab033a3b5fd3d4",
+            "bytes": 874261,
+            "archiveEntry": "bright-default/card-001.png"
+          },
+          "width": 1080,
+          "height": 1440
+        },
+        {
+          "mode": "photo",
+          "input": {
+            "file": "examples/gallery-variants/bright-photo.md",
+            "sha256": "1a1539a5766cfec17303486800a82fb36146c8818e39ba2a10ce3a0f5e9c9b64",
+            "bytes": 547,
+            "archiveEntry": "bright-photo.md"
+          },
+          "png": {
+            "file": "docs/images/gallery-variants/T37-photo.png",
+            "sha256": "1010dd587412cc4e81c086aade8406cc21a66ba148bf3dff66fcc714cd60f6aa",
+            "bytes": 1078531,
+            "archiveEntry": "bright-photo/card-001.png"
+          },
+          "width": 1080,
+          "height": 1440
+        }
+      ],
+      "brand": {
+        "file": "examples/gallery-variants/photo-brand.json",
+        "sha256": "e1b5c4e1234cd2c55127d3a8e343c9eeb818375580a15d4d8f1d480a04b3194c",
+        "bytes": 110,
+        "archiveEntry": "brand.json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+✔ two exact historical comparisons retain registry scope, provenance and explicit permissions (1.5726ms)
+✔ pinned manifest, PNG, original image, input, report, review and brand tampering fail closed (136.1032ms)
+✔ future registry version cannot reuse historical pixels; pending previews gain no accepted images (30.7647ms)
+✔ gallery keeps 48 IDs, distinct default previews, searchable routes and safe local markup (696.5041ms)
+✔ presentation leaves author crop permission, subject safety and aspect refusals enforced by the registry (0.458ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1032.5162

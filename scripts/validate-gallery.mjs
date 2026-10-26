@@ -86,7 +86,7 @@ export function expectedIds(model, filters = {}) {
   return model.items.filter(item => (!filters.family || item.family === filters.family)
     && (!filters.image || item.image === filters.image)
     && (!filters.density || item.density === filters.density)
-    && (!query || `${item.id} ${item.name} ${item.purpose}`.normalize('NFKC').toLocaleLowerCase('zh-CN').includes(query))).map(item => item.id);
+    && (!query || (item.searchText ?? `${item.id} ${item.name} ${item.purpose}`).normalize('NFKC').toLocaleLowerCase('zh-CN').includes(query))).map(item => item.id);
 }
 
 export async function recordCheck(report, name, run) {
@@ -126,7 +126,7 @@ export async function readyVisibleImages(page, timeoutMs = 15000) {
   }, undefined, timeoutMs);
 }
 
-async function snapshot(page, out, report, name, scope, { javaScriptEnabled = true } = {}) {
+async function snapshot(page, out, report, name, scope, { javaScriptEnabled = true, selector } = {}) {
   const file = `${name}.png`;
   await readyVisibleImages(page);
   // Scrolling/resizing may complete before compositor text painting, even when
@@ -137,13 +137,17 @@ async function snapshot(page, out, report, name, scope, { javaScriptEnabled = tr
     await document.fonts.ready;
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
   });
-  await page.screenshot({ path: path.join(out, file), fullPage: false, animations: 'disabled' });
+  if (selector) {
+    const section=page.locator(selector);
+    for (const image of await section.locator('img').all()) await evaluateSafely(image,'evaluate',node=>node.decode());
+    await section.screenshot({path:path.join(out,file),animations:'disabled'});
+  } else await page.screenshot({ path: path.join(out, file), fullPage: false, animations: 'disabled' });
   const bytes = await readFile(path.join(out, file));
   report.artifacts.push({ file, bytes: bytes.length, sha256: hash(bytes), scope, viewport: page.viewportSize() });
 }
 
 export function galleryImages(model) {
-  return [...(model.comparisons ?? []).flatMap(group => group.previews), ...model.accepted.map(item => item.preview)];
+  return [...(model.comparisons ?? []).flatMap(group => group.previews), ...model.accepted.flatMap(item => [item.preview, ...(item.visualVariants ?? []).flatMap(entry => entry.views)])];
 }
 
 export function assertPreviewImage(image, preview, root = ROOT) {
@@ -161,6 +165,11 @@ export async function inspectResources(page, model, { scriptEnabled, root }) {
   const images = page.locator('.accepted-card img, .comparison-grid img');
   assert.equal(await images.count(), expectedImages.length);
   for (let index = 0; index < expectedImages.length; index += 1) {
+    await evaluateSafely(images.nth(index), 'evaluate', image => {
+      for (let parent = image.parentElement; parent; parent = parent.parentElement) {
+        if (parent.tagName === 'DETAILS' && !parent.open) { parent.dataset.resourceAuditOpened = 'true'; parent.open = true; }
+      }
+    });
     await images.nth(index).scrollIntoViewIfNeeded();
     await evaluateSafely(images.nth(index), 'evaluate', image => image.decode());
   }
@@ -174,6 +183,9 @@ export async function inspectResources(page, model, { scriptEnabled, root }) {
     pendingImages: document.querySelectorAll('.pending-card img').length,
     images: [...document.querySelectorAll('.accepted-card img, .comparison-grid img')].map(image => ({ source: image.currentSrc, width: image.naturalWidth, height: image.naturalHeight, complete: image.complete }))
   }));
+  await evaluateSafely(page, 'evaluate', () => {
+    for (const detail of document.querySelectorAll('[data-resource-audit-opened]')) { detail.open = false; delete detail.dataset.resourceAuditOpened; }
+  });
   assert.equal(state.policy, CSP);
   assert.equal(state.background, 'rgb(245, 244, 238)', 'Local stylesheet must affect computed styles.');
   assert.ok(state.css.some(url => url?.endsWith('/docs/gallery/gallery.css')));
@@ -299,12 +311,43 @@ export async function withPage(browser, options, allowed, report, name, javaScri
 async function realBrowserChecks(browser, options, model, report, out) {
   const files = [GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', ...galleryImages(model).map(image => image.path)];
   const allowed = new Set(files.map(relative => pathToFileURL(path.join(options.root, relative)).href));
+  const variantNavigation = async (page, scenario, scriptEnabled) => {
+    for (const entry of model.variantEvidence?.entries ?? []) await recordCheck(report, `${scenario}: ${entry.id} native route, images and reflow`, async () => {
+      // Start closed, with the target filtered out when scripts are enabled.
+      await evaluateSafely(page,'evaluate',()=>{for(const detail of document.querySelectorAll('details')) detail.open=false;});
+      if(scriptEnabled) await assertFilters(page,model,{purpose:'T01'});
+      const route=page.locator(`[data-variant-target="${entry.id}"]`);
+      await route.focus(); await page.keyboard.press('Enter');
+      await page.waitForURL(url=>url.hash===`#${entry.id}`);
+      const section=page.locator(`#${entry.id}`);
+      assert.equal(await section.isVisible(),true);
+      assert.equal(await page.locator('[data-template-card]:visible').count(),48);
+      assert.equal(await evaluateSafely(section,'evaluate',node=>node.closest('details').open),true);
+      const actual=await evaluateSafely(section.locator('img'),'evaluateAll',async nodes=>{
+        await Promise.all(nodes.map(node=>node.decode()));
+        return nodes.map(node=>({source:node.currentSrc,width:node.naturalWidth,height:node.naturalHeight,complete:node.complete}));
+      });
+      assert.equal(actual.length,2);
+      actual.forEach((image,index)=>assertPreviewImage(image,entry.views[index],options.root));
+      const geometry=await evaluateSafely(page,'evaluate',inspectReflow);
+      assert.ok(geometry.documentWidth<=geometry.viewport+1 && geometry.bodyWidth<=geometry.viewport+1,JSON.stringify(geometry));
+      assert.deepEqual(geometry.offenders,[]);
+      await snapshot(page,out,report,`${scenario}-${entry.id}`,'Full variant section: exact historical comparison, permissions and limitations.',{javaScriptEnabled:scriptEnabled,selector:`#${entry.id}`});
+      const evidence=section.locator('.variant-evidence summary');
+      await evidence.focus(); await page.keyboard.press('Enter');
+      assert.equal(await evaluateSafely(evidence,'evaluate',node=>node.parentElement.open),true);
+      const text=await section.textContent();
+      for(const view of entry.views) {assert.ok(text.includes(view.sha256));assert.ok(text.includes(view.input.sha256));}
+      assert.ok(text.includes('维护者')); assert.ok(text.includes(entry.archive.sha256));
+      return {template:entry.template,images:actual,keyboard:'pass',nativeDetails:'pass',filtersReset:scriptEnabled,reflow:geometry};
+    });
+  };
   const roleNavigation = async page => {
     const routes = buildRoleGuide(model.items);
     const actual = await evaluateSafely(page.locator('[data-content-role]'), 'evaluateAll', nodes => nodes.map(node => ({
       id: node.dataset.contentRole, links: [...node.querySelectorAll('[data-template-target]')].map(a => a.getAttribute('href'))
     })));
-    assert.deepEqual(actual, routes.map(route => ({ id: route.id, links: route.templates.map(item => `#${item.id}`) })));
+    assert.deepEqual(actual, routes.map(route => ({ id: route.id, links: [...(model.variantEvidence?.entries ?? []).filter(entry=>entry.role===route.id).map(entry=>`#${entry.id}`), ...route.templates.map(item => `#${item.id}`)] })));
     const route = routes.find(route => route.templates.length), section = page.locator(`[data-content-role="${route.id}"]`);
     const summary = section.locator('summary');
     await summary.focus(); await page.keyboard.press('Enter');
@@ -330,7 +373,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
       ...model.families.map(family => ({ family: family.value })),
       ...[...new Set(model.items.map(item => item.image))].map(image => ({ image })),
       ...model.densities.map(density => ({ density })),
-      { purpose: '阅读' }, { purpose: '　ｔ０１　' }, { purpose: '<script>not code</script>' },
+      { purpose: '产品截图' }, { purpose: '摄影封面' }, { purpose: 'screenshot-stage' }, { purpose: 'photo-cover' }, { purpose: '阅读' }, { purpose: '　ｔ０１　' }, { purpose: '<script>not code</script>' },
       { family: 'film', image: 'inline', density: 'standard', purpose: 'T38' }
     ];
     for (const [index, filters] of filterCases.entries()) await recordCheck(report, `filters ${index + 1}`, () => assertFilters(page, model, filters));
@@ -411,6 +454,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
         await snapshot(page, out, report, `${scenario.name}-aspect-evidence`, 'Viewport screenshot: verified square/slide evidence links and limitations in T04 details.');
         return aspectLinks(page);
       });
+      await variantNavigation(page,scenario.name,true);
     }
   });
   await withPage(browser, options, allowed, report, 'javascript-off', false, async page => {
@@ -434,6 +478,7 @@ async function realBrowserChecks(browser, options, model, report, out) {
       await snapshot(page, out, report, 'no-js-390-roles', 'Role navigation with scripts disabled; native details and anchors.', { javaScriptEnabled: false });
       return result;
     });
+    await variantNavigation(page,'no-js-390',false);
   });
 }
 
@@ -450,7 +495,7 @@ export async function validateGallery(options, dependencies = {}) {
     const model = await (dependencies.model ?? buildGalleryModel)({ root });
     report.registry = { implemented: model.items.length, accepted: model.accepted.length, pending: model.pending.length };
     report.inputs = [];
-    for (const relative of new Set([GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', 'scripts/templates.mjs', 'scripts/build-template-gallery.mjs', 'scripts/gallery-discovery.mjs', 'scripts/recommendation-guide.mjs', 'scripts/template-recommender.mjs', 'scripts/content-role.mjs', 'scripts/recommend-templates.mjs', 'references/recommendations.md', 'examples/recommendations/cli-report.json', 'scripts/comparison-evidence.mjs', 'scripts/evidence-source.mjs', 'docs/gallery-comparisons.json', 'scripts/aspect-evidence.mjs', ...(model.aspectEvidence?.evidenceFiles ?? []), ...model.comparisons.flatMap(group => [group.input, ...(group.evidenceFiles ?? []), ...(group.evidence ? [group.evidence.review, ...group.previews.map(image => image.path)] : [])]), 'scripts/validate-gallery.mjs', 'scripts/browser.mjs', 'package-lock.json', 'docs/template-gallery-evidence.json', ...model.accepted.flatMap(item => [item.preview.path, item.example, item.evidence.path, item.evidence.review])])) {
+    for (const relative of new Set([GALLERY_PATH, 'docs/gallery/gallery.css', 'docs/gallery/gallery.js', 'scripts/templates.mjs', 'scripts/build-template-gallery.mjs', 'scripts/gallery-discovery.mjs', 'scripts/recommendation-guide.mjs', 'scripts/template-recommender.mjs', 'scripts/content-role.mjs', 'scripts/recommend-templates.mjs', 'references/recommendations.md', 'examples/recommendations/cli-report.json', 'scripts/comparison-evidence.mjs', 'scripts/evidence-source.mjs', 'docs/gallery-comparisons.json', 'scripts/gallery-variants.mjs', ...(model.variantEvidence?.evidenceFiles ?? []), 'scripts/aspect-evidence.mjs', ...(model.aspectEvidence?.evidenceFiles ?? []), ...model.comparisons.flatMap(group => [group.input, ...(group.evidenceFiles ?? []), ...(group.evidence ? [group.evidence.review, ...group.previews.map(image => image.path)] : [])]), 'scripts/validate-gallery.mjs', 'scripts/browser.mjs', 'package-lock.json', 'docs/template-gallery-evidence.json', ...model.accepted.flatMap(item => [item.preview.path, item.example, item.evidence.path, item.evidence.review])])) {
       const bytes = await readFile(path.join(root, relative));
       report.inputs.push({ file: relative, sha256: hash(bytes), bytes: bytes.length });
     }

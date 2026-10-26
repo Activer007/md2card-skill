@@ -81,7 +81,7 @@ test('offline gallery reads real input, manifest, PDF, PNG, mobile and diagnosti
   const { buildGalleryModel, renderGallery } = await import('../scripts/build-template-gallery.mjs');
   const model = await buildGalleryModel(); model.comparisons = groups;
   const html = renderGallery(model);
-  assert.equal((html.match(/<img /g) ?? []).length, 52);
+  assert.equal((html.match(/<img /g) ?? []).length, 56);
   assert.ok(html.includes(`src="../../${root}/refinement/short-T04/card-001.png"`));
   assert.ok(html.includes('同一正文、standard、3:4、manual'));
 });
@@ -165,7 +165,7 @@ test('exact T13 refusal cannot be relabelled, swapped or counted as a successful
   const { buildGalleryModel, renderGallery } = await import('../scripts/build-template-gallery.mjs');
   const model = await buildGalleryModel(); model.comparisons = groups; const html = renderGallery(model);
   assert.ok(html.includes('T13 · 本例明确不适配')); assert.ok(html.includes('保留的溢出诊断'));
-  assert.equal((html.match(/<img /g) ?? []).length, 51);
+  assert.equal((html.match(/<img /g) ?? []).length, 55);
   const mutations = [
     ['removed refusal boundary', f => delete f.group.requiredRefusals],
     ['relabeled refusal', f => f.review.records.find(r => r.id === 'medium-T13').status = 'reviewed-exact-fixture'],

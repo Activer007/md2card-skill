@@ -1,0 +1,964 @@
+{
+  "schemaVersion": 1,
+  "archive": "docs/evidence/local-quality-gate-20261026.tar.xz",
+  "bytes": 86664552,
+  "sha256": "7580adcb38b8f810589867a41cde75d8dfa03fe614f9b1fdef59be5a87cf79e2",
+  "indexSha256": "1c3982ae269e6ebcadc0365d2eb6941bdfc1c7e1198ae14c2dae93de3a90b46c",
+  "fileCount": 1478,
+  "runs": [
+    {
+      "run": "2026-10-26T09-30-10-526Z-release-GsE0ew",
+      "packagingScope": "reports-and-logs",
+      "sourceDirectory": "validation/local-quality/2026-10-26T09-30-10-526Z-release-GsE0ew",
+      "status": "FAIL",
+      "mode": "release",
+      "commit": "8fd6e7b75c5ef445850eb691d0eff2621ad535c3",
+      "steps": [
+        {
+          "id": "static",
+          "status": "PASS",
+          "elapsedMs": 111,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "unit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "doctor",
+          "status": "PASS",
+          "elapsedMs": 942,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "browser",
+          "status": "PASS",
+          "elapsedMs": 1529,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "pdf-rasterizer",
+          "status": "PASS",
+          "elapsedMs": 67,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "test",
+          "status": "FAIL",
+          "tests": {
+            "tests": 668,
+            "pass": 666,
+            "fail": 2,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "elapsedMs": 239525,
+          "reason": "Exit 1"
+        },
+        {
+          "id": "integration",
+          "status": "PASS",
+          "tests": {
+            "tests": 21,
+            "pass": 21,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "elapsedMs": 57251,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "gallery-check",
+          "status": "PASS",
+          "elapsedMs": 1900,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "evidence",
+          "status": "PASS",
+          "elapsedMs": 145
+        },
+        {
+          "id": "baseline-screenshot-stage",
+          "status": "PASS",
+          "elapsedMs": 376
+        },
+        {
+          "id": "screenshot-stage",
+          "status": "PASS",
+          "elapsedMs": 70338,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "baseline-photo-cover",
+          "status": "PASS",
+          "elapsedMs": 381
+        },
+        {
+          "id": "photo-cover",
+          "status": "PASS",
+          "elapsedMs": 85943,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "baseline-visual-audit",
+          "status": "PASS",
+          "elapsedMs": 353
+        },
+        {
+          "id": "visual-audit",
+          "status": "PASS",
+          "elapsedMs": 107141,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "baseline-wechat-covers",
+          "status": "PASS",
+          "elapsedMs": 443
+        },
+        {
+          "id": "wechat-covers",
+          "status": "PASS",
+          "elapsedMs": 47154,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "gallery",
+          "status": "PASS",
+          "elapsedMs": 16002,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "source-unchanged",
+          "status": "PASS",
+          "elapsedMs": 2719
+        }
+      ],
+      "reportSha256": "3c8b35c46b199e0ece91b2b519d4f325f4a6ca80d49e345035ad02b93bcfe31b"
+    },
+    {
+      "run": "2026-10-26T09-25-10-602Z-fast-jdD7AD",
+      "packagingScope": "reports-and-logs",
+      "sourceDirectory": "validation/local-quality/2026-10-26T09-25-10-602Z-fast-jdD7AD",
+      "status": "PASS",
+      "mode": "fast",
+      "commit": "569a7194e26277c050495b0afedd00ea94b065fd",
+      "steps": [
+        {
+          "id": "static",
+          "status": "PASS",
+          "elapsedMs": 98,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "unit",
+          "status": "PASS",
+          "tests": {
+            "tests": 645,
+            "pass": 645,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "elapsedMs": 196555,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "doctor",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "browser",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "pdf-rasterizer",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "test",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "integration",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery-check",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "evidence",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-screenshot-stage",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "screenshot-stage",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "source-unchanged",
+          "status": "PASS",
+          "elapsedMs": 2721
+        }
+      ],
+      "reportSha256": "d6a4648ae651d3824adfa4d1cf2235a73502721b436e2ed7b103ae75f84cf49b"
+    },
+    {
+      "run": "2026-10-26T09-43-29-104Z-fast-WhikQg",
+      "packagingScope": "complete",
+      "sourceDirectory": "validation/local-quality/2026-10-26T09-43-29-104Z-fast-WhikQg",
+      "status": "PASS",
+      "mode": "fast",
+      "commit": "fd625dd3d997026026929c826e631b66b395a053",
+      "steps": [
+        {
+          "id": "static",
+          "status": "PASS",
+          "elapsedMs": 102,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "unit",
+          "status": "PASS",
+          "tests": {
+            "tests": 13,
+            "pass": 13,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "elapsedMs": 4892,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "doctor",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "browser",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "pdf-rasterizer",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "test",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "integration",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery-check",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "evidence",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-screenshot-stage",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "screenshot-stage",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "source-unchanged",
+          "status": "PASS",
+          "elapsedMs": 3149
+        }
+      ],
+      "reportSha256": "b4d1b4b4bcaf2539ca4a29ea3d6c97eb15a3c4c38fa401db5137be7a703a1a05"
+    },
+    {
+      "run": "2026-10-26T09-42-40-352Z-release-HVzVnS",
+      "packagingScope": "complete",
+      "sourceDirectory": "validation/local-quality/2026-10-26T09-42-40-352Z-release-HVzVnS",
+      "status": "PASS",
+      "mode": "release",
+      "commit": "fd625dd3d997026026929c826e631b66b395a053",
+      "steps": [
+        {
+          "id": "static",
+          "status": "PASS",
+          "elapsedMs": 103,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "unit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "doctor",
+          "status": "PASS",
+          "elapsedMs": 957,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "browser",
+          "status": "PASS",
+          "elapsedMs": 1597,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "pdf-rasterizer",
+          "status": "PASS",
+          "elapsedMs": 68,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "test",
+          "status": "PASS",
+          "tests": {
+            "tests": 669,
+            "pass": 669,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "elapsedMs": 504441,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "integration",
+          "status": "PASS",
+          "tests": {
+            "tests": 21,
+            "pass": 21,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "elapsedMs": 98256,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "gallery-check",
+          "status": "PASS",
+          "elapsedMs": 2802,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "evidence",
+          "status": "PASS",
+          "elapsedMs": 273
+        },
+        {
+          "id": "baseline-screenshot-stage",
+          "status": "PASS",
+          "elapsedMs": 472
+        },
+        {
+          "id": "screenshot-stage",
+          "status": "PASS",
+          "elapsedMs": 77416,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "baseline-photo-cover",
+          "status": "PASS",
+          "elapsedMs": 403
+        },
+        {
+          "id": "photo-cover",
+          "status": "PASS",
+          "elapsedMs": 84718,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "baseline-visual-audit",
+          "status": "PASS",
+          "elapsedMs": 368
+        },
+        {
+          "id": "visual-audit",
+          "status": "PASS",
+          "elapsedMs": 107629,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "baseline-wechat-covers",
+          "status": "PASS",
+          "elapsedMs": 367
+        },
+        {
+          "id": "wechat-covers",
+          "status": "PASS",
+          "elapsedMs": 49759,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "gallery",
+          "status": "PASS",
+          "elapsedMs": 16775,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "source-unchanged",
+          "status": "PASS",
+          "elapsedMs": 2708
+        }
+      ],
+      "reportSha256": "79d55bbe2da5f4438d2693b2ea7e2cf391b01ec16f8e9c1956befdd7b3bf256c"
+    },
+    {
+      "run": "2026-10-26T09-58-42-394Z-targeted-uhWpJL",
+      "packagingScope": "complete",
+      "sourceDirectory": "validation/local-quality/2026-10-26T09-58-42-394Z-targeted-uhWpJL",
+      "status": "PASS",
+      "mode": "targeted",
+      "commit": "fd625dd3d997026026929c826e631b66b395a053",
+      "steps": [
+        {
+          "id": "static",
+          "status": "PASS",
+          "elapsedMs": 103,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "unit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "doctor",
+          "status": "PASS",
+          "elapsedMs": 922,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "browser",
+          "status": "PASS",
+          "elapsedMs": 1554,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "pdf-rasterizer",
+          "status": "PASS",
+          "elapsedMs": 60,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "test",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "integration",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery-check",
+          "status": "PASS",
+          "elapsedMs": 1522,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "evidence",
+          "status": "PASS",
+          "elapsedMs": 174
+        },
+        {
+          "id": "baseline-screenshot-stage",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "screenshot-stage",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery",
+          "status": "PASS",
+          "elapsedMs": 15924,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "source-unchanged",
+          "status": "PASS",
+          "elapsedMs": 2949
+        }
+      ],
+      "reportSha256": "aad903cc834cdee24846f7c95abae6d776245fbf06ce2093bc30110bc9af2230"
+    },
+    {
+      "run": "2026-10-26T09-59-08-140Z-injections-P9CEeF",
+      "packagingScope": "complete",
+      "sourceDirectory": "validation/local-quality-faults/2026-10-26T09-59-08-140Z-injections-P9CEeF",
+      "status": "PASS",
+      "mode": "fault-injections",
+      "commit": null,
+      "steps": [],
+      "reportSha256": "e83dd682bb8961dc27c2534d97499cdd809a609f80c792f558761601182a17a6"
+    },
+    {
+      "run": "2026-10-26T09-59-10-604Z-targeted-rV44kg",
+      "packagingScope": "complete",
+      "sourceDirectory": "validation/local-quality/2026-10-26T09-59-10-604Z-targeted-rV44kg",
+      "status": "BLOCKED",
+      "mode": "targeted",
+      "commit": "fd625dd3d997026026929c826e631b66b395a053",
+      "steps": [
+        {
+          "id": "static",
+          "status": "PASS",
+          "elapsedMs": 107,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "unit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "doctor",
+          "status": "BLOCKED",
+          "elapsedMs": 899,
+          "reason": "Strict environment preflight did not pass; see doctor checks and logs"
+        },
+        {
+          "id": "browser",
+          "status": "NOT-RUN",
+          "reason": "Prerequisite did not pass: doctor"
+        },
+        {
+          "id": "pdf-rasterizer",
+          "status": "NOT-RUN",
+          "reason": "Prerequisite did not pass: doctor"
+        },
+        {
+          "id": "test",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "integration",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery-check",
+          "status": "PASS",
+          "elapsedMs": 1671,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "evidence",
+          "status": "PASS",
+          "elapsedMs": 171
+        },
+        {
+          "id": "baseline-screenshot-stage",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "screenshot-stage",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery",
+          "status": "NOT-RUN",
+          "reason": "Prerequisite did not pass: doctor, browser, pdf-rasterizer"
+        },
+        {
+          "id": "source-unchanged",
+          "status": "PASS",
+          "elapsedMs": 1833
+        }
+      ],
+      "reportSha256": "c11c290c50903bc30bbfa0fda50628e3ffab1d52638d1a52466cef18bfe691bc"
+    },
+    {
+      "run": "2026-10-26T09-59-17-805Z-targeted-5PoLOP",
+      "packagingScope": "complete",
+      "sourceDirectory": "validation/local-quality/2026-10-26T09-59-17-805Z-targeted-5PoLOP",
+      "status": "BLOCKED",
+      "mode": "targeted",
+      "commit": "fd625dd3d997026026929c826e631b66b395a053",
+      "steps": [
+        {
+          "id": "static",
+          "status": "PASS",
+          "elapsedMs": 95,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "unit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "doctor",
+          "status": "BLOCKED",
+          "elapsedMs": 804,
+          "reason": "Strict environment preflight did not pass; see doctor checks and logs"
+        },
+        {
+          "id": "browser",
+          "status": "NOT-RUN",
+          "reason": "Prerequisite did not pass: doctor"
+        },
+        {
+          "id": "pdf-rasterizer",
+          "status": "NOT-RUN",
+          "reason": "Prerequisite did not pass: doctor"
+        },
+        {
+          "id": "test",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "integration",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery-check",
+          "status": "PASS",
+          "elapsedMs": 1647,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "evidence",
+          "status": "PASS",
+          "elapsedMs": 173
+        },
+        {
+          "id": "baseline-screenshot-stage",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "screenshot-stage",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery",
+          "status": "NOT-RUN",
+          "reason": "Prerequisite did not pass: doctor, browser, pdf-rasterizer"
+        },
+        {
+          "id": "source-unchanged",
+          "status": "PASS",
+          "elapsedMs": 1955
+        }
+      ],
+      "reportSha256": "3eae0927516a797f531d566dd845de5f226b048b95d0eb9c4badb739d899ef3f"
+    },
+    {
+      "run": "2026-10-26T09-59-25-220Z-targeted-QSAUag",
+      "packagingScope": "complete",
+      "sourceDirectory": "validation/local-quality/2026-10-26T09-59-25-220Z-targeted-QSAUag",
+      "status": "FAIL",
+      "mode": "targeted",
+      "commit": "fd625dd3d997026026929c826e631b66b395a053",
+      "steps": [
+        {
+          "id": "static",
+          "status": "PASS",
+          "elapsedMs": 101,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "unit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "doctor",
+          "status": "PASS",
+          "elapsedMs": 989,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "browser",
+          "status": "PASS",
+          "elapsedMs": 1454,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "pdf-rasterizer",
+          "status": "PASS",
+          "elapsedMs": 67,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "test",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "integration",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery-check",
+          "status": "PASS",
+          "elapsedMs": 1607,
+          "reason": "Exit 0"
+        },
+        {
+          "id": "evidence",
+          "status": "PASS",
+          "elapsedMs": 169
+        },
+        {
+          "id": "baseline-screenshot-stage",
+          "status": "FAIL",
+          "elapsedMs": 281,
+          "reason": "Baseline mismatch: assets/layouts.css\n+ actual - expected\n\n+ '8ceb9aa514e604b76966e1731592ca9ec5229b0d8273ce2c4862983f4571eeae'\n- '9d898b9ef473bd8b69599c502f5f94ebdffb8e2443b5cf24df484d05f6ec4cba'\n"
+        },
+        {
+          "id": "screenshot-stage",
+          "status": "NOT-RUN",
+          "reason": "Prerequisite did not pass: baseline-screenshot-stage"
+        },
+        {
+          "id": "baseline-photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "photo-cover",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "visual-audit",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "baseline-wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "wechat-covers",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "gallery",
+          "status": "NOT-RUN",
+          "reason": "Outside selected mode/target"
+        },
+        {
+          "id": "source-unchanged",
+          "status": "PASS",
+          "elapsedMs": 2194
+        }
+      ],
+      "reportSha256": "6927e262985ebbbb762eadba383e416bc75cf6d6421bf50697adc26716a8495e"
+    }
+  ],
+  "humanVisualReview": "not-performed",
+  "verification": "All source receipts and artifact hashes checked before packaging; every archive member read back and checked. Metadata path recovery did not rewrite archive bytes."
+}

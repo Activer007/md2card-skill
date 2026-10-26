@@ -346,7 +346,7 @@ fail instead of silently reinterpreting content. IDs are allowlisted and never
 used as a filesystem path, CSS or HTML input. Templates remain independent of
 legacy themes; changing a palette does not create another counted design.
 
-All 48 designs support 3:4 and manual pagination. Exactly 6 templates add
+All 48 designs support 3:4 and manual pagination. The original 6 templates add
 8 extra aspect pairs: T04/T21 each add square and slide, T05/T13 add square only,
 and T24/T37 add slide only. Eight registered short fixtures are independently
 reviewed and bound in [the aspect evidence registry](../docs/aspect-gallery-evidence.json).
@@ -387,7 +387,7 @@ cannot be set by input metadata. Every supplied source fragment remains intact.
 
 ## Independent aspect layouts (M9 / R12, source support)
 
-Exactly 6 templates add 8 extra aspect pairs beyond portrait:
+The original 6 templates add 8 extra aspect pairs beyond portrait:
 - T04/T21 each support independent square (1:1) and slide (16:9) compositions.
 - T05/T13 additionally support square only.
 - T24/T37 additionally support slide only.
@@ -464,3 +464,18 @@ conditions without exporting or editing the source. Use `--format text` for a
 readable summary. See [recommendations.md](recommendations.md) for the independent
 CLI, safe image root, exact-aspect reviewed links and refusal examples.
 Recommendation is not a render guarantee; the renderer options above are unchanged.
+
+
+### M4: independent WeChat cover pair / 独立双封面
+
+M4 adds only T01 square, T01 wechat-wide and T21 wechat-wide. `wechat-wide` is 2100×900 (21:9), independent of 16:9 `slide`. In total, 7 templates / 11 extra aspect pairs; still 48 designs. Existing T21 square/slide remain unchanged. This does not make all 48 templates compatible with WeChat covers.
+
+Author two separate files and review both before invoking:
+
+```sh
+node scripts/render-cover-pair.mjs --wide wide.md --square square.md --author-confirmed --out output/pair --strict
+```
+
+Both files need explicit T01 or T21 metadata and exactly one card. The wrapper does not derive a second cover, change titles, remove sources, or infer semantic equivalence. It writes independent HTML/PNG/native PDF/preview/manifest sets, a local pair preview (HTML and PNG), and input/output SHA-256 records. An absent or empty destination is mandatory; either-side failure publishes no completed pair. The 120-second default deadline and 256 MiB output cap apply to the combined operation.
+
+`--author-confirmed` records the author’s declaration only. Numbers, definitions, units, sources and qualifications still require author review. Machine geometry checks do not certify platform display or human visual approval. Long input returns `CONTENT_OVERFLOW`; unsupported combinations return `TEMPLATE_ASPECT_UNSUPPORTED`. See [M4 changes, exact evidence and limits](../docs/visual-upgrade/M4_WECHAT_COVERS.md) and [authored examples](../examples/wechat-covers/README.md).

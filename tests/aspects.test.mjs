@@ -15,8 +15,8 @@ import { createAssetResolver } from '../scripts/assets.mjs';
 const css = await readFile(new URL('../assets/templates.css', import.meta.url), 'utf8');
 const input = id => `<!-- card: ${JSON.stringify({ template:id, ...(id==='T21'?{metric:'38%',label:'提交率'}:{}), source:'原始来源' })} -->\n# 标题\n\n导语。\n\n## 甲\n\n完整原文甲。\n\n## 乙\n\n完整原文乙。`;
 
-test('six selected templates add eight independently registered aspects; aspect variants never create extra design IDs', () => {
-  assert.deepEqual(TEMPLATES.filter(t=>t.aspects.length>1).map(t=>t.id).sort(), ['T04','T05','T13','T21','T24','T37']);
+test('seven selected templates register eleven independent aspects; aspect variants never create extra design IDs', () => {
+  assert.deepEqual(TEMPLATES.filter(t=>t.aspects.length>1).map(t=>t.id).sort(), ['T01','T04','T05','T13','T21','T24','T37']);
   assert.equal(new Set(TEMPLATES.map(t=>t.id)).size,TEMPLATES.length);
   assert.equal(TEMPLATES.length, 48);
   assert.equal(TEMPLATES.filter(t=>t.status==='visually-reviewed').length, 48);
@@ -31,8 +31,8 @@ test('six selected templates add eight independently registered aspects; aspect 
   }
   for(const id of ['T04','T21']) {
     const t=getTemplate(id);
-    assert.deepEqual(t.aspects,['portrait','square','slide']);
-    assert.equal(new Set(Object.values(t.aspectLayouts).map(x=>x.composition)).size,3);
+    assert.deepEqual(t.aspects,id==='T21'?['portrait','square','slide','wechat-wide']:['portrait','square','slide']);
+    assert.equal(new Set(Object.values(t.aspectLayouts).map(x=>x.composition)).size,t.aspects.length);
     for(const aspect of ['square','slide']) {
       assert.equal(t.aspectLayouts[aspect].status,'implemented-awaiting-visual-review');
       assert.equal(t.aspectLayouts[aspect].version,2);
@@ -62,7 +62,7 @@ test('frozen internal enum supplies exact classes, not public aspect strings', (
 
 test('standard and custom sizes use the existing inclusive ratio tolerance', () => {
   for(const id of ['T04','T21']) {
-    for(const [aspect,size] of Object.entries(SIZES)) assert.equal(resolveTemplateAspect(id,size).id,aspect);
+    for(const [aspect,size] of Object.entries(SIZES).filter(([aspect])=>aspect!=='wechat-wide')) assert.equal(resolveTemplateAspect(id,size).id,aspect);
     for(const [width,height,aspect] of [[750,1000,'portrait'],[751,1000,'portrait'],[749,1000,'portrait'],[752,1000,'portrait'],[748,1000,'portrait'],[1000,1000,'square'],[1001,1000,'square'],[999,1000,'square'],[1002,1000,'square'],[998,1000,'square'],[1778,1000,'slide'],[1776,1000,'slide'],[1280,720,'slide'],[1920,1080,'slide'],[200,200,'square'],[4096,4096,'square']]) assert.equal(resolveTemplateAspect(id,{width,height}).id,aspect);
     for(const size of [{width:753,height:1000},{width:747,height:1000},{width:1003,height:1000},{width:997,height:1000},{width:1780,height:1000},{width:1775,height:1000},{width:900,height:1600},{width:1200,height:800},{width:1080},{height:1440},{width:NaN,height:1000},{width:Infinity,height:1000},{width:0,height:0},{width:199,height:199},{width:4097,height:4097},{width:1000.5,height:1000},{width:'1080',height:1080}]) assert.throws(()=>resolveTemplateAspect(id,size),{code:'TEMPLATE_ASPECT_UNSUPPORTED'});
   }
@@ -76,7 +76,7 @@ test('all three layouts preserve identical source slots, DOM text order, metadat
   for(const id of ['T04','T21']) {
     const cards=renderCards(input(id)+'\n\n===\n\n'+input(id));
     const seen=[];
-    for(const [aspect,size] of Object.entries(SIZES)) {
+    for(const [aspect,size] of Object.entries(SIZES).filter(([aspect])=>aspect!=='wechat-wide')) {
       const html=buildDocument(cards,size,'','',css).split('<main')[1];
       assert.equal((html.match(/<article /g)||[]).length,2);
       assert.equal((html.match(new RegExp(`data-template-aspect="${aspect}"`,'g'))||[]).length,2);
@@ -91,7 +91,7 @@ test('all three layouts preserve identical source slots, DOM text order, metadat
 });
 
 test('aspect selection cannot relax metric, image, metadata, layout or automatic-mode contracts', () => {
-  for(const size of Object.values(SIZES)) {
+  for(const size of ['portrait','square','slide'].map(aspect=>SIZES[aspect])) {
     for(const fields of [{},{metric:'38%'},{label:'提交率'}]) assert.throws(()=>validateTemplateMetadata({template:'T21',...fields},size),{code:'TEMPLATE_METADATA_REQUIRED'});
     assert.throws(()=>validateTemplateMetadata({template:'T04',image:'x.png'},size),{code:'TEMPLATE_IMAGE_UNSUPPORTED'});
     assert.throws(()=>validateTemplateMetadata({template:'T04',metric:'38%'},size),{code:'TEMPLATE_METADATA_UNSUPPORTED'});
@@ -345,11 +345,11 @@ test('R12 integrated aspects retain M2 typography, validated history, intrinsic 
 });
 
 
-test('entrypoint capability guidance names exactly the bounded six-template/eight-pair support and separates historical evidence',async()=>{
+test('entrypoint capability guidance separates historical eight-pair support and bounded M4 additions and separates historical evidence',async()=>{
   for(const file of ['README.md','SKILL.md','references/rendering.md','scripts/build-template-gallery.mjs']) {
     const source=await readFile(new URL('../'+file,import.meta.url),'utf8');
     for(const pair of ['T04/T21','T05/T13','T24/T37']) assert.ok(source.includes(pair),`${file} ${pair}`);
-    assert.match(source,/6 (?:templates|个模板)/,file); assert.match(source,/8 (?:extra aspect pairs|个额外画幅组合)/,file);
+    assert.match(source,/7 (?:templates|个模板)/,file); assert.match(source,/wechat-wide/,file); assert.match(source,/8 (?:extra aspect pairs|个额外画幅组合)/,file);
     assert.doesNotMatch(source,/(?:Only|only|只有) T04(?:\/T21| and T21)/,file);
     assert.match(source,/historical evidence|v1 历史证据/,file);
     assert.doesNotMatch(source,/All 48 current templates .*await|当前 M2 版本与全部额外画幅都待新产物验收|当前 13 套 v3 \/ 35 套 v2 及全部八个额外画幅都待新产物验收/,file);

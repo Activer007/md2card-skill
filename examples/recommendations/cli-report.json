@@ -1531,7 +1531,8 @@
             "supportedAspects": [
               "portrait",
               "square",
-              "slide"
+              "slide",
+              "wechat-wide"
             ],
             "unsuitable": "多个竞争指标、超长数值、缺少分母或依据的数据；可改用 T22 或普通 explainer。"
           },

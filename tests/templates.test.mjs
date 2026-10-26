@@ -31,7 +31,7 @@ test('template IDs, densities, layouts and aspect ratios are strict allowlists',
   assert.throws(() => validateTemplateMetadata({template:'T01',density:'tiny'}), { code:'INVALID_TEMPLATE' });
   assert.throws(() => validateTemplateMetadata({density:'compact'}), { code:'INVALID_TEMPLATE' });
   assert.throws(() => validateTemplateMetadata({template:'T01',image:'photo.png'}), { code:'TEMPLATE_IMAGE_UNSUPPORTED' });
-  assert.throws(() => validateTemplateMetadata({template:'T01'}, SIZES.square), { code:'TEMPLATE_ASPECT_UNSUPPORTED' });
+  assert.throws(() => validateTemplateMetadata({template:'T01'}, SIZES.slide), { code:'TEMPLATE_ASPECT_UNSUPPORTED' });
   assert.throws(() => renderCards('<!-- card: {"template":"T01","style":"color:red"} -->\n# Text'), { code:'INVALID_METADATA' });
 });
 

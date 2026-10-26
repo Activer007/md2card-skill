@@ -35,7 +35,8 @@ Usage: node scripts/render.mjs input.md --out ./output
   --paginate MODE   manual (default) or auto; measured semantic pagination
   --balance-tail    Opt-in bounded sparse-tail balancing; requires auto
   --visual-audit    Opt-in measured advisory visual-diagnostics.json; no human acceptance
-  --size NAME       portrait 1080×1440, square 1080×1080, slide 1600×900
+  --size NAME       portrait 1080×1440, square 1080×1080, slide 1600×900,
+                    wechat-wide 2100×900 (registered T01/T21 cover layouts)
   --width PX        Override width, integer 200–4096
   --height PX       Override height, integer 200–4096
   --scale N         PNG density 0.5–3 (default 1); not PDF page size
@@ -92,7 +93,7 @@ export function parseOptions(argv) {
   if (positionals.length !== 1) fail('INVALID_OPTIONS', 'Provide one Markdown input file. Run --help for usage.');
   if (!THEMES.includes(values.theme)) fail('INVALID_OPTIONS', `Unknown theme "${values.theme}". Choose ${THEMES.join(', ')}.`);
   if (!['manual', 'auto'].includes(values.paginate)) fail('INVALID_OPTIONS', '--paginate accepts manual (default) or auto.');
-  if (!(values.size in SIZES)) fail('INVALID_OPTIONS', `Unknown size "${values.size}". Choose portrait, square, or slide.`);
+  if (!(values.size in SIZES)) fail('INVALID_OPTIONS', `Unknown size "${values.size}". Choose ${Object.keys(SIZES).join(', ')}.`);
   const width = Number(values.width ?? SIZES[values.size].width), height = Number(values.height ?? SIZES[values.size].height);
   for (const [name, value] of Object.entries({ width, height })) if (!Number.isInteger(value) || value < 200 || value > 4096) fail('INVALID_OPTIONS', `--${name} must be an integer from 200 to 4096 pixels.`);
   const scale = Number(values.scale);

@@ -98,7 +98,7 @@ test('CLI works outside repository cwd and accepts explicit bounded asset roots'
 });
 
 test('bad options and unsafe/unsupported inputs fail with clean JSON stderr and empty stdout', () => {
-  for (const args of [[], [sample, '--out', 'should-not-exist'], [sample, '--size', 'wechat-wide'],
+  for (const args of [[], [sample, '--out', 'should-not-exist'], [sample, '--size', 'wechat-unknown'],
     [sample, '--format', 'text', '--json'], [sample, '--size', 'square', '--size', 'portrait'],
     ['https://example.invalid/input.md'], ['//example.invalid/share/input.md'], [sample, '--asset-root', '//example.invalid/share'], ['missing-file.md'], ['examples'],
     ['tests/fixtures/visual-upgrade/remote-image.md'], ['tests/fixtures/visual-upgrade/invalid-metadata.md']]) {

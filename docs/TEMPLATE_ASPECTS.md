@@ -2,7 +2,7 @@
 
 > 八个指定画幅短例已完成 full PNG、375/390 和 native PDF 独立复核，并由独立证据注册表绑定；T04/T21 四组合为 aspect-v2，T05/T13/T24/T37 四组合为 aspect-v1。仅限精确输入、standard/manual，不扩张为 48×3 或所有内容适配。
 
-Updated 2026-10-25. [The PR22 review](ASPECT_PR22_REVIEW.md) records eight exact
+Updated 2026-10-26. M4 additionally registers T01 square, T01 wechat-wide and T21 wechat-wide. These three independent layouts are documented with their own short fixtures and evidence in [M4_WECHAT_COVERS.md](visual-upgrade/M4_WECHAT_COVERS.md); they do not inherit the eight historical bindings below. `wechat-wide` uses 21:9 (2100×900), not 16:9 slide. [The PR22 review](ASPECT_PR22_REVIEW.md) records eight exact
 short fixtures and their complete PNG, 375/390 and native-PDF views.
 [The evidence registry](aspect-gallery-evidence.json) binds these fixtures to
 run40079964688, exact source semantics, input bytes and independent aspect versions.
@@ -274,3 +274,6 @@ known local sandbox restriction; all 49 later browser cases were blocked, with n
 PNG/PDF produced. No alternate route or retry followed. This is failure evidence,
 not a rendered or visually accepted case. The strict parser and source-only CLI
 regressions prevent that help-path recurrence.
+
+
+M4 fixed wide typography is height-derived (body 0.06 × height, notes 0.0445 × height) and is independent of the historical width-derived layouts described above. This is a fixed design choice, never automatic shrinking. The existing 0.002 ratio tolerance and 200–4096 dimensions apply; only T01/T21 register this fourth aspect. T01 additionally registers square.

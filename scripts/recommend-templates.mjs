@@ -18,7 +18,7 @@ export const RECOMMEND_LIMITS = Object.freeze({ inputBytes: 2 * 1024 * 1024, car
 const fail = (code, message) => { throw new Md2CardError(code, message); };
 export const HELP = `Read-only template recommendations — 推荐 ≠ 渲染保证
 Usage: node scripts/recommend-templates.mjs input.md [options]
-  --size portrait|square|slide   Registered aspect; default portrait
+  --size portrait|square|slide|wechat-wide   Registered aspect; default portrait
   --paginate manual|auto        Default manual; auto returns no template candidates
   --asset-root DIRECTORY        Trusted local images; default input directory
   --format json|text            Default json; --json is an explicit alias

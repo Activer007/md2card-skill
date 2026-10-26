@@ -55,10 +55,12 @@ test('lists, quotations, explicit two-column comparisons and supplied metric hav
 
 test('unsupported aspect, explicit layout, paired structures and actual list bounds are hard exclusions', () => {
   const [square]=recommend('# 方法\n\n1. 保留原编号',{requestedAspect:'square'}).cards;
-  assert.ok(rejected(square,'T01').includes('TEMPLATE_ASPECT_UNSUPPORTED'));
+  assert.ok(rejected(square,'T02').includes('TEMPLATE_ASPECT_UNSUPPORTED'));
   assert.ok(square.candidates.every(c=>TEMPLATES.find(t=>t.id===c.templateId).aspects.includes('square')));
-  const [wide]=recommend('# 未支持宽封面',{requestedAspect:'wechat-wide'}).cards;
-  assert.equal(wide.candidates.length,0);assert.equal(wide.rejected.length,48);
+  const [wide]=recommend('<!-- card: {"template":"T01"} -->\n# 独立宽封面\n\n保持正文与完整来源。',{requestedAspect:'wechat-wide'}).cards;
+  assert.deepEqual(wide.candidates.map(c=>c.templateId),['T01']);assert.equal(wide.rejected.length,47);
+  for(const row of wide.rejected.filter(r=>!['T01','T21'].includes(r.templateId))) assert.ok(row.reasonIds.includes('TEMPLATE_ASPECT_UNSUPPORTED'));
+  assert.equal(wide.candidates[0].evidence.aspect,'wechat-wide');
   const [layout]=recommend('<!-- card: {"layout":"cover"} -->\n# 标题\n\n1. 项目').cards;
   assert.ok(rejected(layout,'T05').includes('TEMPLATE_LAYOUT_MISMATCH'));
   const [range]=recommend('# 编号\n\n100. 原始编号').cards;

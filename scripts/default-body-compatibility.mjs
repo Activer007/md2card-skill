@@ -17,6 +17,8 @@ export const AUDIT_DEFAULT_PROOF = 'docs/visual-upgrade/m3-default-compatibility
 export const AUDIT_DEFAULT_PROOF_SHA256 = '32c09b88664742fe8909dd8aa486ccd816fb0a056aab22e04613f0827afa88d3';
 export const AUDIT_REVIEW_PROOF = 'docs/visual-upgrade/pr30-default-compatibility.json';
 export const AUDIT_REVIEW_PROOF_SHA256 = 'c00f50d3ee44f323af4272bbc747a133303bf089f2a09ecc3b06114bb9951bc0';
+export const COVER_DEFAULT_PROOF = 'docs/visual-upgrade/m4-default-compatibility.json';
+export const COVER_DEFAULT_PROOF_SHA256 = '06e237f896158e9cd253deaa693cd19b747548449641a01c236748808401b639';
 
 export async function verifyDefaultBodyCompatibility(readRepoFile) {
   const proofBytes = await readRepoFile(DEFAULT_BODY_PROOF);
@@ -52,12 +54,22 @@ export async function verifyDefaultBodyCompatibility(readRepoFile) {
   assert.deepEqual(Object.keys(review.files), Object.keys(audit.files));
   for (const file of Object.keys(audit.files)) {
     assert.equal(review.files[file].baselineSha256, audit.files[file].baselineSha256, `${file}: review baseline differs`);
-    const expected = review.files[file].currentSha256;
+  }
+  const coverBytes = await readRepoFile(COVER_DEFAULT_PROOF);
+  assert.equal(sha256(coverBytes), COVER_DEFAULT_PROOF_SHA256, 'cover default proof changed');
+  const cover = JSON.parse(coverBytes);
+  assert.equal(cover.scope, 'existing-combinations-before-M4-only');
+  assert.equal(cover.baselineCommit, '0fff0fd8b625c4b35fac572e5474afa6f7a49118');
+  assert.deepEqual(Object.keys(cover.files), Object.keys(review.files));
+  assert.equal(cover.htmlRecords.length, 108);
+  for (const file of Object.keys(review.files)) {
+    assert.equal(cover.files[file].baselineSha256, review.files[file].currentSha256, `${file}: cover compatibility chain differs`);
+    const expected = cover.files[file].currentSha256;
     assert.equal(sha256(await readRepoFile(file)), expected, `${file}: source root differs from default body proof`);
     assert.equal(sha256(await readEvidenceFile(ROOT, file)), expected, `${file}: executing semantics differ from default body proof`);
   }
   return Object.freeze({
-    files: [DEFAULT_BODY_PROOF, STAGE_DEFAULT_PROOF, PHOTO_DEFAULT_PROOF, AUDIT_DEFAULT_PROOF, AUDIT_REVIEW_PROOF, ...Object.keys(audit.files)],
+    files: [DEFAULT_BODY_PROOF, STAGE_DEFAULT_PROOF, PHOTO_DEFAULT_PROOF, AUDIT_DEFAULT_PROOF, AUDIT_REVIEW_PROOF, COVER_DEFAULT_PROOF, ...Object.keys(audit.files)],
     accepts(file, historicalHash) {
       return (Object.hasOwn(proof.files, file) && proof.files[file].baselineSha256 === (historicalHash ?? null)) ||
         (file === 'scripts/templates.mjs' && stage.files[file].baselineSha256 === historicalHash) ||

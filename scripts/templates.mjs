@@ -64,9 +64,14 @@ export const TEMPLATE_ASPECT_TOLERANCE = 0.002;
 export const TEMPLATE_ASPECTS = freeze([
   { id: 'portrait', ratio: 3 / 4, numerator: 3, denominator: 4, className: 'template-aspect-portrait' },
   { id: 'square', ratio: 1, numerator: 1, denominator: 1, className: 'template-aspect-square' },
-  { id: 'slide', ratio: 16 / 9, numerator: 16, denominator: 9, className: 'template-aspect-slide' }
+  { id: 'slide', ratio: 16 / 9, numerator: 16, denominator: 9, className: 'template-aspect-slide' },
+  { id: 'wechat-wide', ratio: 7 / 3, numerator: 7, denominator: 3, className: 'template-aspect-wechat-wide' }
 ]);
 const independentAspects = {
+  T01: {
+    square: { composition: 'cover-masthead-paired-notes', structure: 'Joined headline above a lead and two-column reading notes; complete source and footer.', example: 'examples/wechat-covers/T01-square.md', pendingReview: true },
+    'wechat-wide': { composition: 'cover-headline-facing-reading-rail', structure: 'Large headline and lead at left; full-height reading rail at right; full-width source and footer.', example: 'examples/wechat-covers/T01-wide.md', pendingReview: true }
+  },
   T04: {
     square: { composition: 'essay-thesis-rail', structure: 'Full-width title; thesis at left, sequential section stack at right; full-width source.', example: 'examples/aspects/T04-square.md' },
     slide: { composition: 'essay-title-rail-section-rows', structure: 'Left title rail; right introduction and labeled section rows; full-width source band.', example: 'examples/aspects/T04-slide.md' }
@@ -85,7 +90,8 @@ const independentAspects = {
   },
   T21: {
     square: { composition: 'metric-paired-headline', structure: 'Title and metric form paired top panels; introduction and evidence below; full-width source.', example: 'examples/aspects/T21-square.md' },
-    slide: { composition: 'metric-source-rail-evidence', structure: 'Title, metric and source form a left rail; full-height evidence column at right.', example: 'examples/aspects/T21-slide.md' }
+    slide: { composition: 'metric-source-rail-evidence', structure: 'Title, metric and source form a left rail; full-height evidence column at right.', example: 'examples/aspects/T21-slide.md' },
+    'wechat-wide': { composition: 'metric-banner-definition-columns', structure: 'Full-width title; metric and unit at left, definition and limits at right; complete source and footer.', example: 'examples/wechat-covers/T21-wide.md', pendingReview: true }
   }
 };
 // A changed design must earn new evidence. Old batches remain immutable history.
@@ -107,7 +113,11 @@ function aspectLayouts(entry) {
     ...Object.entries(independentAspects[entry.id] ?? {}).map(([aspect, { pendingReview, ...layout }]) => [aspect, {
       ...layout, version: pendingReview ? 1 : 2, status: 'implemented-awaiting-visual-review',
       ...(pendingReview ? {} : { historicalAcceptance: { batch: 'visual-upgrade-aspects', version: 1 }, historicalEvidence: 'docs/aspect-upgrade-provenance.json' }),
-      boundaries: pendingReview
+      boundaries: aspect === 'wechat-wide'
+        ? 'Independent M4 21:9 cover with height-derived fixed typography. Inspect its own full PNG, 840/1200px previews and native PDF; no portrait/slide evidence or human acceptance is inherited.'
+        : entry.id === 'T01' && aspect === 'square'
+        ? 'Independent M4 square cover. Inspect its own full PNG, 375/390px previews and native PDF; no portrait evidence or human acceptance is inherited.'
+        : pendingReview
         ? 'First implementation of this aspect using current M2 family typography. Registered short example requires new full PNG, 375/390px and native PDF inspection. No fit or visual acceptance is claimed.'
         : 'Historical v1 evidence reviewed only the registered standard-density short example at its declared canvas size. Current v2 exact short-fixture PNG/mobile/native-PDF artifacts are independently reviewed in REFINEMENT_M2_ACCEPTANCE.md; final aspect-specific binding remains pending R12. No universal fit guarantee.'
     }])

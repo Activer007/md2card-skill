@@ -88,7 +88,7 @@
    用途: 突出一个指标，同时交代定义、范围与限制
    图片: none；必需字段: metric, label
    文字: 必须提供非空 metric 和 label；一个 H1；metric 和 label 提供指标与完整名称；导语后用两个 H2 分别说明口径与限制。；70–150 字仅为指导
-   支持画幅: portrait, square, slide
+   支持画幅: portrait, square, slide, wechat-wide
    不适合: 多个竞争指标、超长数值、缺少分母或依据的数据；可改用 T22 或普通 explainer。
    限制: RENDER_NOT_PERFORMED, SOURCE_NOT_FACT_CHECKED, BELOW_REGISTRY_LENGTH_GUIDANCE
    图库: docs/gallery/index.html#T21

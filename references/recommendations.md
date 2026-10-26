@@ -11,6 +11,8 @@ node scripts/recommend-templates.mjs examples/recommendations/input.md --format 
 node scripts/recommend-templates.mjs examples/templates/T20.md --asset-root examples/templates --format text
 # 独立画幅：使用对应示例，不能把竖版例子直接拉伸
 node scripts/recommend-templates.mjs examples/aspects/T37-slide.md --asset-root examples/templates --size slide --json
+# 公众号宽图候选；这不是双封面导出或两份内容核对
+node scripts/recommend-templates.mjs examples/wechat-covers/T01-wide.md --size wechat-wide --format text
 ```
 
 **推荐 ≠ 渲染保证。** 命令不联网、不启动浏览器、不生成卡片、不写文件，也不把推荐模板写回输入。它读取 UTF-8 Markdown、已有安全解析结果和唯一模板注册表，验证本地图像，再通过既有图库的路径/哈希/版本校验读取验收证据。完整输入/输出见 [四卡原文](../examples/recommendations/input.md)、[JSON 报告](../examples/recommendations/cli-report.json) 和[可读报告](../examples/recommendations/cli-report.txt)。M1-A 库输出仍保持原协议，新 CLI 添加来源哈希和选型指南。
@@ -20,7 +22,7 @@ node scripts/recommend-templates.mjs examples/aspects/T37-slide.md --asset-root 
 | 参数 | 合法值 / 默认 |
 | --- | --- |
 | 输入 | 一个本地普通文件；不支持 stdin、URL；有效 UTF-8，最多 2 MiB / 200 个手动分区 |
-| `--size` | 本推荐 CLI 接受 `portrait`（默认）、`square`、`slide`；不接受自定义尺寸或 `wechat-wide`。后者已由[独立公众号封面对工具](../examples/wechat-covers/README.md)支持，不在本推荐入口范围内 |
+| `--size` | `portrait`（默认）、`square`、`slide`、`wechat-wide`；只给出注册画幅的候选，不接受自定义尺寸。两份作者确认的输入需通过[独立公众号封面对工具](../examples/wechat-covers/README.md)导出 |
 | `--paginate` | `manual`（默认）、`auto`；auto 仅摘要原始手动分区，候选为空，不预测分页或认证输入可用于 auto 导出 |
 | `--asset-root` | 可信本地图片目录；默认输入文件所在目录，不自动扩大边界 |
 | `--format` | `json`（默认）或 `text`；`--json` 是显式 JSON 别名，不能与 text 冲突 |

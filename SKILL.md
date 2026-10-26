@@ -144,7 +144,7 @@ node scripts/recommend-templates.mjs input.md --format text
 
 Default output is strict JSON on stdout; failures are JSON on stderr with nonzero
 exit. For images, supply a trusted `--asset-root` when it differs from the input
-directory. `--size portrait|square|slide` filters the existing registry. `auto`
+directory. `--size portrait|square|slide|wechat-wide` filters the existing registry. `auto`
 returns no template candidates. The command reads only: no browser, network,
 export, source edits, or automatic choice. A successful report does not mean the
 input fits. Check `acceptedExample` for the exact requested aspect; never borrow
@@ -169,7 +169,8 @@ All 48 templates support portrait; additional aspects are available only for
 registered combinations. Consult [the aspect contract](docs/TEMPLATE_ASPECTS.md)
 and the [WeChat cover examples](examples/wechat-covers/README.md) for current support.
 Use `--size` or matching dimensions, never card aspect metadata. The recommendation
-CLI accepts only portrait/square/slide; use the independent pair tool for WeChat covers.
+CLI accepts `wechat-wide` for registered wide-cover candidates; it does not compare
+two inputs or export a pair. Use the independent pair tool for authored WeChat covers.
 For T20 screenshot-stage or T37 photo-cover, read
 [variant requirements](docs/GALLERY_VISUAL_VARIANTS.md), including explicit crop
 permission for photo-cover. Variants and extra aspects do not add template identities.

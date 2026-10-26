@@ -18,7 +18,7 @@ const MAX_TOTAL_BYTES = 256 * 1024 * 1024;
 export const SEMANTIC_FILES = Object.freeze([
   'package.json', 'package-lock.json',
   ...['assets', 'body-size', 'browser', 'doctor', 'document', 'errors', 'markdown', 'pagination',
-    'qa', 'refinement-input', 'render', 'semantic', 'tail-balance', 'templates', 'typography',
+    'qa', 'refinement-input', 'render', 'semantic', 'tail-balance', 'templates', 'typography', 'visual-diagnostics',
     'validate-refinement', 'validate-visual-stress']
     .map(name => `scripts/${name}.mjs`),
   'assets/themes.css', 'assets/layouts.css', 'assets/templates.css'

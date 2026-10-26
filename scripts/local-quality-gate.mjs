@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { readFile, writeFile, readdir, realpath } from 'node:fs/promises';
 import { isDeepStrictEqual } from 'node:util';
 import { VARIANTS, aggregate, createRunDirectory, digestFile, environment, inventory, json, parseTestSummary,
-  prepareBaseline, resolveNpm, runCommand, sha256, slash, testStatus, verifyEvidence } from './local-quality-support.mjs';
+  prepareBaseline, resolveNpm, runCommand, sha256, slash, testStatus, verifyEvidence, verifyLegacyEvidence } from './local-quality-support.mjs';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 export const USAGE = `Local quality gate (Node.js >=20, Git; no network installs)
@@ -157,7 +157,7 @@ export async function runGate(options, { root = ROOT } = {}) {
     ].filter(Boolean))] : [];
     const selection = options.mode === 'fast' ? await selectTests(root, changes) : null;
     report.selection = selection;
-    await step('unit', options.mode === 'fast', row => execute(row, process.execPath, ['--test', ...selection.files], true));
+    await step('unit', options.mode === 'fast', row => execute(row, process.execPath, ['--test', '--test-concurrency=1', ...selection.files], true));
     const strict = options.mode !== 'fast';
     const doctor = await step('doctor', strict, async row => {
       await execute(row, process.execPath, ['scripts/render.mjs', '--doctor', '--strict', '--json', ...(env.CHROMIUM_PATH ? ['--browser', env.CHROMIUM_PATH] : [])]);
@@ -175,7 +175,7 @@ export async function runGate(options, { root = ROOT } = {}) {
     await step('test', options.mode === 'release', row => npm(row, ['test'], true), [doctor, browser, pdf]);
     await step('integration', options.mode === 'release', row => npm(row, ['run', 'test:integration'], true), [doctor, browser, pdf]);
     await step('gallery-check', strict, row => npm(row, ['run', 'gallery:check']));
-    await step('evidence', strict, async () => ({ status: 'PASS', artifacts: await verifyEvidence(root) }));
+    await step('evidence', strict, async () => ({ status: 'PASS', artifacts: [...await verifyEvidence(root), ...await verifyLegacyEvidence(root)] }));
     for (const [name, definition] of Object.entries(VARIANTS)) {
       let identity;
       const baseline = definition.commit ? await step(`baseline-${name}`, targets.includes(name), async () => {

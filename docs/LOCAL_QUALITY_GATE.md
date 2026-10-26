@@ -29,6 +29,8 @@ node scripts/local-quality-gate.mjs --mode release
 
 fast 的 `--changed` 是补充变更，不会隐藏自动检测的变更。未知输入或公共配置保守选择全部单元测试；文档与证据变更选择图库、证据与兼容性测试。没有变更时跑基础冒烟测试。动态导入或数据依赖无法仅凭静态 import 完整推断，涉及共享渲染、字体、图片、示例或依赖升级时必须再执行 release。全量测试已经包含导出集成测试，release 按契约另外执行独立集成命令，报告保留这种重复及成本。
 
+门禁的受影响测试以及 `npm test`、`npm run test:integration` 使用 `--test-concurrency=1` 串行运行测试文件，避免大量 Chromium 进程同时关闭引起资源争用。它只改变测试调度，不增加渲染、截图或浏览器清理时限；原断言和测试清单保留。并发版本的失败报告也保留，串行重跑不能抹去之前的失败。
+
 ## 历史基线
 
 | 专项 | 现有验证器 | 固定提交 | 参数 |
@@ -68,7 +70,9 @@ fast 的 `--changed` 是补充变更，不会隐藏自动检测的变更。未�
 | gallery:check | 本地源码、既有 ZIP/证据；通常秒级 | 静态绑定不是本次人工图像复核 |
 | 四个变体验证器 | 固定 Git 基线、Chromium screen/print/mobile、Poppler；多轮真实导出，分钟级且占磁盘 | 原始 PNG 可能出现进程间栅格差异；照实 FAIL，不能自动覆盖黄金样例 |
 | validate-gallery | 真浏览器、file:// 页面、键盘/无脚本/手机布局；分钟级 | 真浏览器菜单缩放、读屏未认证 |
-| 归档完整性 | M2a/M2b/M3/PR30/M4 固定报告中的 SHA-256；读取数十 MiB | 验证字节身份；语义/源码链继续由 gallery:check 的现有绑定器验证 |
+| 归档完整性 | M0/M2a/PR28/M2b/M3/PR30/M4 报告与 M1-B/PR27/PR29 固定 SHA-256，共十份既有归档 | 验证字节身份；语义/源码链继续由 gallery:check 的现有绑定器验证 |
+
+三份缺少统一外部 JSON 元数据的早期归档，使用从已合并提交 `bf87b66607fd433ebdbabb2a88ccfedb26f59565` Git blob 计算的固定 SHA-256，列在 `local-quality-support.mjs`。不从可变工作区生成预期值。
 
 另外已有 validate-templates、validate-series、validate-visual-stress、validate-tail、validate-pagination、validate-footers、validate-refinement、validate-aspects、validate-showcases。它们覆盖历史模板矩阵、系列、尾页、分页、页脚、精修与画幅；成本较高且有各自历史验收范围，本入口不把它们伪装成本次已运行。相应领域改动仍应按各自帮助/文档补充专项证据。release 这一命名只指本页明确列出的门禁范围。实际本机用时以每次报告 elapsedMs 为准。
 

@@ -174,7 +174,7 @@ export async function prepareBaseline({ root, directory, variant, supplied, comm
 
 export async function verifyEvidence(root) {
   const records = [];
-  for (const name of ['m2a-evidence.json', 'm2b-evidence.json', 'm3-evidence.json', 'pr30-review-evidence.json', 'm4-evidence.json']) {
+  for (const name of ['m0-provenance.json', 'm2a-evidence.json', 'pr28-review-evidence.json', 'm2b-evidence.json', 'm3-evidence.json', 'pr30-review-evidence.json', 'm4-evidence.json']) {
     const metadata = `docs/visual-upgrade/${name}`, bytes = await readEvidenceFile(root, metadata), doc = JSON.parse(bytes);
     const reference = typeof doc.archive === 'string' ? { path: doc.archive, bytes: doc.bytes, sha256: doc.sha256 } : doc.archive;
     assert.ok(reference && Number.isSafeInteger(reference.bytes) && /^[a-f0-9]{64}$/.test(reference.sha256), `Invalid archive metadata: ${metadata}`);
@@ -184,6 +184,26 @@ export async function verifyEvidence(root) {
     assert.equal(artifact.length, reference.bytes, `Evidence size mismatch: ${file}`);
     assert.equal(sha256(artifact), reference.sha256, `Evidence SHA-256 mismatch: ${file}`);
     records.push({ metadata, metadataSha256: sha256(bytes), file, bytes: artifact.length, sha256: reference.sha256 });
+  }
+  return records;
+}
+
+// Older review bundles do not all have machine-readable external manifests.
+// Pins were computed from these blobs at the merged M4 commit, not the worktree.
+export const LEGACY_ARCHIVE_COMMIT = 'bf87b66607fd433ebdbabb2a88ccfedb26f59565';
+export const LEGACY_ARCHIVES = Object.freeze([
+  { file: 'docs/evidence/m1b-recommendation-review.zip', bytes: 2760638, sha256: '4908cedbf86aede93c089009326b4550de11e19ebd1b723fc29d7774ece72784' },
+  { file: 'docs/evidence/m1b-pr27-review.zip', bytes: 9270, sha256: '7b273e54d953f7d5ec01dce54697f73cebff3c1aff25e86afebb2e8a666f2279' },
+  { file: 'docs/evidence/pr29-review.tar.xz', bytes: 679020, sha256: 'c73ea8925e1029513dc7b7331e550e071e96a0cd6452880a195012561752f795' }
+]);
+
+export async function verifyLegacyEvidence(root) {
+  const records = [];
+  for (const expected of LEGACY_ARCHIVES) {
+    const bytes = await readEvidenceFile(root, expected.file);
+    assert.equal(bytes.length, expected.bytes, `Legacy evidence size mismatch: ${expected.file}`);
+    assert.equal(sha256(bytes), expected.sha256, `Legacy evidence SHA-256 mismatch: ${expected.file}`);
+    records.push({ ...expected, commit: LEGACY_ARCHIVE_COMMIT });
   }
   return records;
 }

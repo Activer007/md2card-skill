@@ -8,7 +8,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { parseGateOptions, selectTests, runGate, markdownReport } from '../scripts/local-quality-gate.mjs';
 import { aggregate, createRunDirectory, digestFile, inventory, parseTestSummary, prepareBaseline,
-  runCommand, sha256, testStatus, VARIANTS, verifyEvidence } from '../scripts/local-quality-support.mjs';
+  runCommand, sha256, testStatus, VARIANTS, verifyEvidence, verifyLegacyEvidence, LEGACY_ARCHIVES } from '../scripts/local-quality-support.mjs';
 
 const exec = promisify(execFile);
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
@@ -133,10 +133,10 @@ test('fixed baseline archive validates every Git blob; corrupt supplied source c
 test('archive integrity accepts authenticated bytes and rejects tampering', async t => {
   const root = await temporary(t); await mkdir(path.join(root,'docs/visual-upgrade'),{recursive:true});
   const bytes = Buffer.from('archive fixture'); await writeFile(path.join(root,'data.zip'),bytes);
-  for (const name of ['m2a-evidence.json','m2b-evidence.json','m3-evidence.json','pr30-review-evidence.json','m4-evidence.json']) {
+  for (const name of ['m0-provenance.json','m2a-evidence.json','pr28-review-evidence.json','m2b-evidence.json','m3-evidence.json','pr30-review-evidence.json','m4-evidence.json']) {
     await writeFile(path.join(root,'docs/visual-upgrade',name),JSON.stringify({archive:'data.zip',bytes:bytes.length,sha256:sha256(bytes)}));
   }
-  assert.equal((await verifyEvidence(root)).length,5);
+  assert.equal((await verifyEvidence(root)).length,7);
   await writeFile(path.join(root,'data.zip'),'archive fixturE');
   await assert.rejects(verifyEvidence(root),/Evidence SHA-256 mismatch/);
 });
@@ -144,4 +144,12 @@ test('archive integrity accepts authenticated bytes and rejects tampering', asyn
 test('Markdown distinguishes unselected checks and does not claim human signoff', () => {
   const report = markdownReport({status:'PASS',mode:'fast',steps:[{id:'release',status:'NOT-RUN',reason:'Outside scope'}]});
   assert.match(report,/NOT-RUN/); assert.match(report,/not-performed/); assert.match(report,/selected scope/);
+});
+
+test('legacy archive SHA-256 pins match committed blobs and reject altered bytes', async t => {
+  assert.equal((await verifyLegacyEvidence(ROOT)).length,3);
+  const root = await temporary(t); await mkdir(path.join(root,'docs/evidence'),{recursive:true});
+  const first = LEGACY_ARCHIVES[0];
+  await writeFile(path.join(root,first.file),Buffer.alloc(first.bytes));
+  await assert.rejects(verifyLegacyEvidence(root),/Legacy evidence SHA-256 mismatch/);
 });

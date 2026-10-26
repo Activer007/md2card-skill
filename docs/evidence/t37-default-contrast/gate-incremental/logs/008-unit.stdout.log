@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: CLI emits one stable JSON report with original input hash, conditions and real reviewed links
+ok 1 - CLI emits one stable JSON report with original input hash, conditions and real reviewed links
+  ---
+  duration_ms: 1967.9564
+  type: 'test'
+  ...
+# Subtest: text mode explains screenshots and never promises mobile microtext readability
+ok 2 - text mode explains screenshots and never promises mobile microtext readability
+  ---
+  duration_ms: 731.1621
+  type: 'test'
+  ...
+# Subtest: text mode preserves exact-example review limitations and scope from JSON
+ok 3 - text mode preserves exact-example review limitations and scope from JSON
+  ---
+  duration_ms: 1426.2877
+  type: 'test'
+  ...
+# Subtest: requested aspect gets its exact example, while incompatible templates are rejected
+ok 4 - requested aspect gets its exact example, while incompatible templates are rejected
+  ---
+  duration_ms: 1358.7984
+  type: 'test'
+  ...
+# Subtest: pending requested-aspect evidence never borrows a reviewed portrait PNG
+ok 5 - pending requested-aspect evidence never borrows a reviewed portrait PNG
+  ---
+  duration_ms: 599.6553
+  type: 'test'
+  ...
+# Subtest: auto mode describes manual partitions but assigns no templates or output files
+ok 6 - auto mode describes manual partitions but assigns no templates or output files
+  ---
+  duration_ms: 712.6454
+  type: 'test'
+  ...
+# Subtest: CLI works outside repository cwd and accepts explicit bounded asset roots
+ok 7 - CLI works outside repository cwd and accepts explicit bounded asset roots
+  ---
+  duration_ms: 780.6507
+  type: 'test'
+  ...
+# Subtest: bad options and unsafe/unsupported inputs fail with clean JSON stderr and empty stdout
+ok 8 - bad options and unsafe/unsupported inputs fail with clean JSON stderr and empty stdout
+  ---
+  duration_ms: 1644.4814
+  type: 'test'
+  ...
+# Subtest: bounded UTF-8 and card-count validation rejects malformed or oversized sources
+ok 9 - bounded UTF-8 and card-count validation rejects malformed or oversized sources
+  ---
+  duration_ms: 694.7436
+  type: 'test'
+  ...
+# Subtest: CLI report path runs with writes/process spawning denied and all networking trapped
+ok 10 - CLI report path runs with writes/process spawning denied and all networking trapped
+  ---
+  duration_ms: 814.4427
+  type: 'test'
+  ...
+# Subtest: static role routes derive from registry fields, survive no JS and add no preview identities
+ok 11 - static role routes derive from registry fields, survive no JS and add no preview identities
+  ---
+  duration_ms: 578.8214
+  type: 'test'
+  ...
+# Subtest: checked-in CLI JSON and text reports are reproducible
+ok 12 - checked-in CLI JSON and text reports are reproducible
+  ---
+  duration_ms: 1387.7355
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12903.8475

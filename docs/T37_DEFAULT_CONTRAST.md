@@ -78,3 +78,5 @@ npm run gallery:check
 ## 提交前门禁记录
 
 核心相关测试 30/30 通过，gallery:check 48/48 通过。首次完整受影响范围的本地 fast 门禁执行 656 项：655 通过、1 失败、0 跳过。唯一失败是既有推荐入口测试仍写死图库 59 张图，未计入 PR #33 已添加的 4 张变体证据；本次 renderGallery 生成的 HTML 和 main 一致。该运行保留为 [gate-initial](evidence/t37-default-contrast/gate-initial/report.md)，不改成绿色。测试断言的修正与增量门禁另行记录。
+
+断言已改为从已验收模板、历史对照和变体证据计算图片总数，仍禁止推荐入口额外制造图片。以修复检查点 `81414c8` 为基线，唯一源码差异是 `tests/recommend-cli.test.mjs`；[增量本地门禁](evidence/t37-default-contrast/gate-incremental/report.md) 只选择该文件，12 项全部通过、0 跳过，源码前后快照一致。其他 655 项沿用前次成功结果，没有重复全量或重跑真实截图。保留两份门禁命令、退出码、选择范围和原始日志，未把首次失败报告改成通过。原始失败 TAP 日志中的空白行按字节保留。

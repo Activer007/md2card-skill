@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "status": "pass-for-delivered-scope",
+  "unchangedCodeInputs": 109,
+  "changedCodeInputs": [
+    "tests/recommend-cli.test.mjs"
+  ],
+  "initialGate": {
+    "tests": 656,
+    "pass": 655,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "incrementalGate": {
+    "tests": 12,
+    "pass": 12,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "scope": "Initial 655 successes retained with unchanged code inputs; sole failed legacy assertion corrected and its entire 12-test file passed incremental local gate. No full release gate claimed.",
+  "matrixCases": 11,
+  "unchangedHtmlComparisons": 322,
+  "humanVisualReview": "pending"
+}

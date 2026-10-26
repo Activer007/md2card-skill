@@ -41,6 +41,11 @@
     anchor.addEventListener('click', () => {
       const target = cards.find(card => card.id === anchor.dataset.templateTarget);
       if (target?.hidden) resetFilters();
+      if (anchor.dataset.variantTarget) {
+        const section = document.getElementById(anchor.dataset.variantTarget);
+        const detail = section?.closest('details');
+        if (detail) detail.open = true;
+      }
       // Keep native anchors, history, and keyboard activation; reveal before the
       // browser follows the fragment. Without JS all cards are visible already.
     });

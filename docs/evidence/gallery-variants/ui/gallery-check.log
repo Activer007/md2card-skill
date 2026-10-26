@@ -1,0 +1,5 @@
+
+> md2card-skill@3.0.0 gallery:check
+> node scripts/build-template-gallery.mjs --check
+
+{"implemented":48,"accepted":48,"pending":0,"families":12,"output":"docs/gallery/index.html"}

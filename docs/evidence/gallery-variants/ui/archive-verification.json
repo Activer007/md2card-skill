@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-26T10:41:16.455292+00:00",
+  "records": [
+    {
+      "file": "docs/evidence/gallery-variants/T20-report.json",
+      "archive": "docs/evidence/t20-screenshot-stage-m2a.zip",
+      "archiveEntry": "run/report.json",
+      "sha256": "4765cfdb73b3b19cc2843da59e505d1e1893fc9accc8072560629e9a0a5ab1dd",
+      "bytes": 593590,
+      "identical": true
+    },
+    {
+      "file": "docs/evidence/gallery-variants/T20-visual-review.json",
+      "archive": "docs/evidence/t20-screenshot-stage-m2a.zip",
+      "archiveEntry": "audit/visual-review.json",
+      "sha256": "6ec78adf6958e371de2dcccaf602d53837702cd0e8f08c5023222f7b37b777ae",
+      "bytes": 660,
+      "identical": true
+    },
+    {
+      "file": "examples/gallery-variants/desktop-4x3-default.md",
+      "archive": "docs/evidence/t20-screenshot-stage-m2a.zip",
+      "archiveEntry": "run/desktop-4x3-default.md",
+      "sha256": "b75241aeef725142eaa80ec3f6560a8a2194b509958d5f076ae3b994d807a6ca",
+      "bytes": 530,
+      "identical": true
+    },
+    {
+      "file": "docs/images/gallery-variants/T20-default.png",
+      "archive": "docs/evidence/t20-screenshot-stage-m2a.zip",
+      "archiveEntry": "run/desktop-4x3-default/card-001.png",
+      "sha256": "622484e8f37acb2af11663fa7821b8f577684de31d4d45984d54de186ac4d978",
+      "bytes": 204788,
+      "identical": true
+    },
+    {
+      "file": "examples/gallery-variants/desktop-4x3-stage.md",
+      "archive": "docs/evidence/t20-screenshot-stage-m2a.zip",
+      "archiveEntry": "run/desktop-4x3-stage.md",
+      "sha256": "21d2b38ddbef2f66c0771887f8a489cc8446e9a35c926dbfd2a06be453c2d5f4",
+      "bytes": 565,
+      "identical": true
+    },
+    {
+      "file": "docs/images/gallery-variants/T20-stage.png",
+      "archive": "docs/evidence/t20-screenshot-stage-m2a.zip",
+      "archiveEntry": "run/desktop-4x3-stage/card-001.png",
+      "sha256": "01ea7101b095c6910ed019b906061375e0011827b8174f8d4b6bf114983cf8f4",
+      "bytes": 221794,
+      "identical": true
+    },
+    {
+      "file": "docs/evidence/gallery-variants/T37-report.json",
+      "archive": "docs/evidence/t37-photo-cover-m2b.tar.xz",
+      "archiveEntry": "report.json",
+      "sha256": "51b141e74fbd8333a20f7462394519ca20463993ef6b6d5fc57549a5e764b1d3",
+      "bytes": 502743,
+      "identical": true
+    },
+    {
+      "file": "docs/evidence/gallery-variants/T37-visual-review.json",
+      "archive": "docs/evidence/t37-photo-cover-m2b.tar.xz",
+      "archiveEntry": "visual-review.json",
+      "sha256": "71402f40af196edcfb7eb92cabbc0416b192e631c1dec99ce598d7f905506059",
+      "bytes": 22061,
+      "identical": true
+    },
+    {
+      "file": "examples/gallery-variants/bright-default.md",
+      "archive": "docs/evidence/t37-photo-cover-m2b.tar.xz",
+      "archiveEntry": "bright-default.md",
+      "sha256": "bf2765ebeab408d9954314b17c145b67437a4aff4e6f933d7a0fafbce3c9469d",
+      "bytes": 388,
+      "identical": true
+    },
+    {
+      "file": "docs/images/gallery-variants/T37-default.png",
+      "archive": "docs/evidence/t37-photo-cover-m2b.tar.xz",
+      "archiveEntry": "bright-default/card-001.png",
+      "sha256": "844b506f97458138fab2af56550832d0f662e66633cedc77daab033a3b5fd3d4",
+      "bytes": 874261,
+      "identical": true
+    },
+    {
+      "file": "examples/gallery-variants/bright-photo.md",
+      "archive": "docs/evidence/t37-photo-cover-m2b.tar.xz",
+      "archiveEntry": "bright-photo.md",
+      "sha256": "1a1539a5766cfec17303486800a82fb36146c8818e39ba2a10ce3a0f5e9c9b64",
+      "bytes": 547,
+      "identical": true
+    },
+    {
+      "file": "docs/images/gallery-variants/T37-photo.png",
+      "archive": "docs/evidence/t37-photo-cover-m2b.tar.xz",
+      "archiveEntry": "bright-photo/card-001.png",
+      "sha256": "1010dd587412cc4e81c086aade8406cc21a66ba148bf3dff66fcc714cd60f6aa",
+      "bytes": 1078531,
+      "identical": true
+    },
+    {
+      "file": "examples/gallery-variants/photo-brand.json",
+      "archive": "docs/evidence/t37-photo-cover-m2b.tar.xz",
+      "archiveEntry": "brand.json",
+      "sha256": "e1b5c4e1234cd2c55127d3a8e343c9eeb818375580a15d4d8f1d480a04b3194c",
+      "bytes": 110,
+      "identical": true
+    }
+  ]
+}

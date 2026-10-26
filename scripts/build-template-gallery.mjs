@@ -9,6 +9,7 @@ import { TEMPLATES, DENSITIES } from './templates.mjs';
 import { buildTaskGuide, buildComparisonModel } from './gallery-discovery.mjs';
 import { buildAspectEvidence } from './aspect-evidence.mjs';
 import { buildRoleGuide } from './recommendation-guide.mjs';
+import { buildVariantEvidence } from './gallery-variants.mjs';
 
 export const ROOT = fileURLToPath(new URL('../', import.meta.url));
 export const GALLERY_PATH = 'docs/gallery/index.html';
@@ -151,13 +152,28 @@ export async function buildGalleryModel({ root = ROOT, templates = TEMPLATES } =
   items.sort((a, b) => compare(a.id, b.id));
   const aspectEvidence = await buildAspectEvidence(items, relative => readRepoFile(root, relative));
   for (const item of items) item.aspectEvidence = aspectEvidence.entries.filter(entry => entry.template === item.id);
-  return { schemaVersion: 1, aspectEvidence, tasks: buildTaskGuide(items), comparisons: await buildComparisonModel(items, relative => readRepoFile(root, relative)), items, accepted: items.filter(item => item.preview), pending: items.filter(item => !item.preview), families: [...new Set(items.map(item => item.family))].sort(compare).map(value => ({ value, label: FAMILY_NAMES[value] ?? value })), densities: [...DENSITIES] };
+  const variantEvidence = await buildVariantEvidence(items, relative => readRepoFile(root, relative));
+  for (const item of items) {
+    item.visualVariants = variantEvidence.entries.filter(entry => entry.template === item.id);
+    item.searchText = `${item.id} ${item.name} ${item.purpose} ${item.visualVariants.map(entry => `${entry.title} ${entry.variant}`).join(' ')}`.trim();
+  }
+  return { schemaVersion: 1, aspectEvidence, variantEvidence, tasks: buildTaskGuide(items), comparisons: await buildComparisonModel(items, relative => readRepoFile(root, relative)), items, accepted: items.filter(item => item.preview), pending: items.filter(item => !item.preview), families: [...new Set(items.map(item => item.family))].sort(compare).map(value => ({ value, label: FAMILY_NAMES[value] ?? value })), densities: [...DENSITIES] };
 }
 
 const e = escapeHtml;
 const href = relative => `../../${validateRepoPath(relative)}`;
 const link = (relative, text) => `<a href="${e(href(relative))}">${e(text)}</a>`;
 const field = (label, value) => `<div><dt>${e(label)}</dt><dd>${e(value)}</dd></div>`;
+
+function renderVariants(item) {
+  return (item.visualVariants ?? []).map(entry => `<section class="variant-panel" id="${e(entry.id)}" data-visual-variant="${e(entry.variant)}" aria-labelledby="${e(entry.id)}-title">
+<p class="kicker">${e(entry.title)} · 可选构图</p><h4 id="${e(entry.id)}-title">${e(entry.variant)}</h4><p>${e(entry.description)}</p>
+<p class="variant-notice">独立历史样例：下方两图保持同一正文与原图，仅改变显式变体字段。它们与上方默认注册示例的验收分开；代理审阅不等于维护者签收。</p>
+<div class="variant-pair">${entry.views.map(view => `<figure><a href="${e(href(view.path))}"><img src="${e(href(view.path))}" width="${view.width}" height="${view.height}" loading="lazy" decoding="async" alt="${e(`${item.id} ${view.label}，同文真实 Chromium 成品，完整卡片未裁切`)}"></a><figcaption><strong>${e(view.label)}</strong><p>${e(view.status)}</p>${link(view.input.file, '完整输入')} · ${link(view.path, '原始 PNG')}</figcaption></figure>`).join('')}</div>
+<p class="variant-notice">${e(entry.disclosure)}</p><dl>${field('允许画幅', entry.allowedAspects.join(' / ') + '；由当前模板元数据校验确认。')}${field('图片与正文要求',entry.requirements)}${field('完整性 / 裁切权限',entry.safety)}${field('典型拒绝与限制',entry.refusals)}</dl>
+<p class="command-label">显式启用字段（完整输入还包含 image / alt / caption 等）：</p><pre><code>${e(JSON.stringify(entry.fields,null,2))}</code></pre>
+<details class="variant-evidence"><summary>复现命令、来源与 SHA-256</summary><p>在仓库根目录运行，输出目录须为空。当前代码复现需匹配原字体与环境；不承诺跨环境 PNG 字节相同。</p>${entry.views.map(view=>`<h5>${e(view.label)}</h5><pre><code>${e(view.command)}</code></pre><p>输入 SHA-256：<code>${e(view.input.sha256)}</code><br>PNG SHA-256：<code>${e(view.sha256)}</code></p>`).join('')}<p>${link(entry.origin.file,'原始证据索引')} · ${link(entry.report.file,'独立自动报告')} · ${link(entry.visualReview.file,'独立逐图审阅')} · ${link(entry.reviewDocument.file,'历史验收说明')} · ${link(entry.archive.file,'原始归档')}</p><p>归档 SHA-256：<code>${e(entry.archive.sha256)}</code></p></details></section>`).join('');
+}
 
 function renderDetails(item) {
   const accepted = item.preview !== null;
@@ -166,6 +182,7 @@ function renderDetails(item) {
 ${field('已验收 PNG SHA-256', item.preview.sha256)}${field('证据文件 SHA-256', item.evidence.sha256)}` : field('验收证据', '尚无当前版本的真实 PNG / 手机 / PDF 视觉验收包；源码实现不等于成品。');
   const history = item.histories.map(entry => `<div><dt>历史版本 v${entry.version}</dt><dd>${e(`v${entry.version} 的 ${entry.batch} 仅为旧设计证据，不证明当前 v${item.version}。`)}<br>${link(entry.previewPath, `v${entry.version} 历史 PNG`)} · ${link(entry.review, `${entry.batch} 逐图复核记录`)} · ${link(entry.path, '历史产物哈希记录')}<br>历史源码提交 <code>${e(entry.codeCommit)}</code></dd></div>`).join('');
   return `<details class="detail"><summary>结构、边界与复现 · ${e(item.id)}</summary>
+${renderVariants(item)}
 <dl>${field('输入结构', item.structure)}${field('不适用 / 限制', item.unsuitable)}${field('推荐内容量', `${item.length[0]}–${item.length[1]} 字，仅为选型参考，不保证放得下。`)}${field('版本 / 构图', `v${item.version} · ${item.composition} · ${item.layout}`)}${field('注册示例', `${item.density} 密度 · ${item.reading} 阅读预设 · 3:4 · manual`)}${field('源码支持画幅', `${item.aspects.join(' / ')}；支持不等于已验收。历史已绑定的 8 个额外画幅组合：T04/T21 各增 square 与 slide，T05/T13 仅增 square，T24/T37 仅增 slide。当前预览仅绑定上面的精确 standard / 3:4 示例。八个指定短例已通过独立证据注册表绑定，相关输入、完整图、手机图和PDF见本条详情；T04/T21四组合为aspect-v2并保留v1 历史证据，T05/T13/T24/T37四组合为aspect-v1。M4 仅另增 T01 square、T01 wechat-wide、T21 wechat-wide（21:9，不等于 slide）；这三个独立构图不继承当前 portrait 缩略图或旧画幅验收，见 M4 专项报告。总计 7 个模板、11 个额外画幅组合，仍为 48 个模板。其他内容仍须实测，见画幅说明。`)}${field('其他密度', `${DENSITIES.join(' / ')} 仅改变间距，不缩小字体。当前真实预览只证明 standard 注册示例；历史图只证明对应旧版，均不代替其他密度验收。`)}${field('设计来源', item.provenance.design)}${field('文字来源', item.provenance.text)}${field('素材来源', item.provenance.assets)}${field('当前示例 SHA-256', item.inputSha256)}${evidence}${aspectEvidence}${['T01','T21'].includes(item.id)?`<div><dt>M4 独立双封面试点</dt><dd>${link('docs/visual-upgrade/M4_WECHAT_COVERS.md', '变更表、真实样例与限制')} · ${link('examples/wechat-covers/README.md', '作者确认与配对命令')}；仅新增三组合，人工验收待完成。</dd></div>`:''}${history}</dl>
 <p class="command-label">在仓库根目录复现${accepted ? '同一输入' : '候选示例'}（需允许的 Chromium、中文字体与 Poppler 环境）：</p><pre><code>${e(item.command)}</code></pre>
 <p class="fine-print">输出目录必须为空或不存在。命令使用当前代码；要复现历史截图，还需匹配记录中的代码、字体与环境。这里不执行渲染。</p>
@@ -175,7 +192,7 @@ ${field('已验收 PNG SHA-256', item.preview.sha256)}${field('证据文件 SHA-
 function renderItem(item) {
   const accepted = item.preview !== null;
   const image = accepted ? `<a class="preview-link" href="${e(href(item.preview.path))}" aria-label="${e(`${item.id} ${item.name}：打开原始 PNG`)}"><img src="${e(href(item.preview.path))}" width="${item.preview.width}" height="${item.preview.height}" loading="lazy" decoding="async" alt="${e(`${item.id} ${item.name}的真实导出示例；1080 × 1440，standard 密度。`)}"></a>` : '';
-  return `<article id="${e(item.id)}" class="template ${accepted ? 'accepted-card' : 'pending-card'}" data-template-card data-status="${accepted ? 'accepted' : 'pending'}" data-family="${e(item.family)}" data-purpose="${e(`${item.id} ${item.name} ${item.purpose}`)}" data-image="${e(item.image)}" data-density="${e(item.density)}" aria-labelledby="heading-${e(item.id)}">
+  return `<article id="${e(item.id)}" class="template ${accepted ? 'accepted-card' : 'pending-card'}${item.visualVariants?.length ? ' has-variants' : ''}" data-template-card data-status="${accepted ? 'accepted' : 'pending'}" data-family="${e(item.family)}" data-purpose="${e(item.searchText ?? `${item.id} ${item.name} ${item.purpose}`)}" data-image="${e(item.image)}" data-density="${e(item.density)}" aria-labelledby="heading-${e(item.id)}">
 ${image}<div class="card-content"><p class="eyebrow"><span>${e(item.id)} · ${e(item.familyLabel)}</span><span class="status ${accepted ? 'accepted' : 'pending'}">${accepted ? '已验收示例' : '待视觉验收'}</span></p>
 <h3 id="heading-${e(item.id)}">${e(item.name)}</h3><p class="purpose">${e(item.purpose)}</p><p class="tags">${e(item.imageLabel)} · ${e(item.density)} · v${item.version}</p>
 ${accepted ? '<p class="preview-note">原始 PNG，未裁切；缩略图不是手机阅读验收。</p>' : '<p class="preview-note">仅列源码契约；没有缩略图，不代表成品。</p>'}
@@ -184,8 +201,8 @@ ${renderDetails(item)}</div></article>`;
 }
 
 function renderRoleGuide(model) {
-  const routes = buildRoleGuide(model.items).map(role => `<article class="task-route" data-content-role="${e(role.id)}"><h3>${e(role.title)}</h3><p><code>${e(role.id)}</code></p>${role.templates.length ? `<details><summary>查看 ${role.templates.length} 个用途相关模板</summary><ul>${role.templates.map(item => `<li><a href="#${e(item.id)}" data-template-target="${e(item.id)}">${e(item.id)} ${e(item.name)}</a><span>${e(IMAGE_NAMES[item.image])} · ${item.currentPreview ? '有精确竖版验收示例' : '当前版本待验收'}</span></li>`).join('')}</ul></details>` : '<p>不猜选新模板；先核对内容结构和作者选择，再运行只读推荐。</p>'}</article>`).join('');
-  return `<section id="roles" aria-labelledby="roles-title"><div class="section-heading"><div><p class="kicker">先确定内容角色</p><h2 id="roles-title">这张卡要说明什么？</h2></div><p>推荐 ≠ 渲染保证，仍是同一套 48 个模板。</p></div><p>以下是注册表用途 / 版式路线，不是对当前原文的兼容结论。展开查看图片条件，再运行 CLI 检查必要字段、结构和请求画幅。所有链接通往既有条目，未增加或替换验收图片。</p><pre><code>node scripts/recommend-templates.mjs examples/recommendations/input.md --json
+  const routes = buildRoleGuide(model.items).map(role => `<article class="task-route" data-content-role="${e(role.id)}"><h3>${e(role.title)}</h3><p><code>${e(role.id)}</code></p>${(model.variantEvidence?.entries ?? []).filter(entry=>entry.role===role.id).map(entry=>`<p class="variant-route"><a href="#${e(entry.id)}" data-template-target="${e(entry.template)}" data-variant-target="${e(entry.id)}">${e(entry.title)} · ${e(entry.variant)} 对照 →</a></p>`).join('')}${role.templates.length ? `<details><summary>查看 ${role.templates.length} 个用途相关模板</summary><ul>${role.templates.map(item => `<li><a href="#${e(item.id)}" data-template-target="${e(item.id)}">${e(item.id)} ${e(item.name)}</a><span>${e(IMAGE_NAMES[item.image])} · ${item.currentPreview ? '有精确竖版验收示例' : '当前版本待验收'}</span></li>`).join('')}</ul></details>` : '<p>不猜选新模板；先核对内容结构和作者选择，再运行只读推荐。</p>'}</article>`).join('');
+  return `<section id="roles" aria-labelledby="roles-title"><div class="section-heading"><div><p class="kicker">先确定内容角色</p><h2 id="roles-title">这张卡要说明什么？</h2></div><p>推荐 ≠ 渲染保证，仍是同一套 48 个模板。</p></div><p>以下是注册表用途 / 版式路线，不是对当前原文的兼容结论。展开查看图片条件，再运行 CLI 检查必要字段、结构和请求画幅。所有链接通往既有条目；产品截图与摄影封面的可选构图使用各自独立历史证据，不继承默认注册示例的验收。</p><pre><code>node scripts/recommend-templates.mjs examples/recommendations/input.md --json
 node scripts/recommend-templates.mjs examples/recommendations/input.md --format text</code></pre><p>${link('references/recommendations.md', '只读推荐指南与拒绝示例')} · ${link('examples/recommendations/cli-report.json', '完整 JSON 示例')} · <a href="#comparisons">有真实来源的同文成功 / 拒绝对照</a></p><div class="task-grid">${routes}</div></section>`;
 }
 

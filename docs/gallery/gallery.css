@@ -94,3 +94,19 @@ footer { padding-block: 1.5rem 2.5rem; border-top: 1px solid var(--line); color:
 .comparison-grid figcaption { font-size: .8rem; margin-top: .4rem; }
 @media (max-width: 72rem) { .task-grid, .comparison-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 44rem) { .task-grid, .comparison-grid { grid-template-columns: 1fr; } }
+/* Opt-in variants stay inside their existing template details. */
+.has-variants:has(> .card-content > .detail[open]) { grid-column: span 2; }
+.has-variants:has(> .card-content > .detail[open]) > .preview-link { max-width: 22rem; margin-inline: auto; }
+.variant-panel { padding-block: 1.2rem; margin-top: 1rem; border-block: 2px solid var(--accent); scroll-margin-top: 1rem; }
+.variant-panel h4 { margin: .3rem 0 .8rem; font-size: 1.2rem; overflow-wrap: anywhere; }
+.variant-panel h5 { font-size: .9rem; margin-bottom: .5rem; }
+.variant-panel p { font-size: .85rem; overflow-wrap: anywhere; }
+.variant-notice { padding: .8rem; background: #f6efdf; border-left: 2px solid #ccb98b; }
+.variant-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-block: 1rem; }
+.variant-pair figure { margin: 0; min-width: 0; }
+.variant-pair img { display: block; width: 100%; height: auto; }
+.variant-pair figcaption { margin-top: .6rem; font-size: .8rem; }
+.variant-pair figcaption p { margin: .3rem 0; font-size: .75rem; }
+.variant-evidence { border-top: 1px solid var(--line); }
+.variant-route a { font-weight: 650; }
+@media (max-width: 44rem) { .has-variants:has(> .card-content > .detail[open]) { grid-column: auto; } .variant-pair { grid-template-columns: 1fr; } }

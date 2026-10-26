@@ -1,0 +1,568 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-26",
+  "automatedReportSha256": "51b141e74fbd8333a20f7462394519ca20463993ef6b6d5fc57549a5e764b1d3",
+  "scope": "48 individually inspected full PNG/mobile/native-PDF page views; 12 native PDFs separately source-text checked by Poppler. Screen/print duplicates compared pixel-by-pixel.",
+  "records": [
+    {
+      "id": "blocked-portrait-default",
+      "verdict": "complete-image fallback inspected",
+      "notes": "竖图完整 contain，头部、手与器物全部保留；适合回退。",
+      "views": [
+        {
+          "file": "blocked-portrait-default/card-001.png",
+          "sha256": "8756c650f5237022e0bcdcfc1aba7caf99adb41817ffa3ab5938bcfdae373c57",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "blocked-portrait-default/mobile-375.png",
+          "sha256": "7213a18f6377c228fceb758d158c99a8f12406f72cb3bc0672c536c9173de040",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "blocked-portrait-default/mobile-390.png",
+          "sha256": "30f2ac992cedaebfbe51305beee76bfa3d481bf114c083922223479369dfc7e6",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "blocked-portrait-default/native-pdf.png",
+          "sha256": "9710e09414865ca29834c10ec888ec9f73ddf042644c7828f53c1ad0daed4ed8",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": false,
+          "changedBounds": [
+            290,
+            56,
+            790,
+            805
+          ],
+          "changedPixels": 234419,
+          "maxChannelDelta": 28,
+          "inspection": "Two nonidentical blocked-portrait views individually inspected; differences confined to embedded image."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": false,
+          "changedBounds": [
+            290,
+            56,
+            790,
+            805
+          ],
+          "changedPixels": 234419,
+          "maxChannelDelta": 28,
+          "inspection": "Two nonidentical blocked-portrait views individually inspected; differences confined to embedded image."
+        }
+      ]
+    },
+    {
+      "id": "bright-default",
+      "verdict": "default compatibility only; existing contrast caveat",
+      "notes": "完整图像、标题和正文保留；纯黑品牌色使眉题对比不足，是 main 已有表现。",
+      "views": [
+        {
+          "file": "bright-default/card-001.png",
+          "sha256": "844b506f97458138fab2af56550832d0f662e66633cedc77daab033a3b5fd3d4",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "bright-default/mobile-375.png",
+          "sha256": "388d67de131216232903a64ee9cbf151134f81fb67ccb4b80a67aaeebaed9463",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "bright-default/mobile-390.png",
+          "sha256": "6c7e2aae69ca49f12711d79e6f1ee0b329e779fe985e7a96325ba8456adddd30",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "bright-default/native-pdf.png",
+          "sha256": "3106935b1b145a58bd0697e21a2be7cc1c70d5213f8c962f518e0f2efdefd860",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        }
+      ]
+    },
+    {
+      "id": "bright-photo",
+      "verdict": "photo composition accepted for this exact fixture",
+      "notes": "右上亮底黑字；小船完整，标题不覆盖船或岸线。",
+      "views": [
+        {
+          "file": "bright-photo/card-001.png",
+          "sha256": "1010dd587412cc4e81c086aade8406cc21a66ba148bf3dff66fcc714cd60f6aa",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "bright-photo/mobile-375.png",
+          "sha256": "56245e5a2dcbc20b41f226174298cc1bcfcd28f15ace2504f3fdbb7e174af96b",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "bright-photo/mobile-390.png",
+          "sha256": "d40bfb551e4a0592852f16efb10edeca9d4bfe570e4275acf389b682618db888",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "bright-photo/native-pdf.png",
+          "sha256": "6e7db18540ad254d5e15ecd5ab4caff1ea3c5171a055318b980a66909bb50efa",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        }
+      ]
+    },
+    {
+      "id": "dark-default",
+      "verdict": "default compatibility only; existing contrast caveat",
+      "notes": "完整图像保留；纯黑品牌色使眉题和加粗标题片段对比不足，是 main 已有表现。",
+      "views": [
+        {
+          "file": "dark-default/card-001.png",
+          "sha256": "218f7ca94934b265f99707003903a54fdfdca57de0879737e1beb67b6f18d704",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "dark-default/mobile-375.png",
+          "sha256": "5dbdcc78099f360d8ee6771f42771e4ae81a4673813a699c4d654ad142d43cf2",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "dark-default/mobile-390.png",
+          "sha256": "42dae6f2f1e3d9068ad171b2eeeddfcca2743bb88e4aa2f454686e9dd1dbf26b",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "dark-default/native-pdf.png",
+          "sha256": "957c7ef3628f71766e05478651c87094732a0b83535a8e0880877d6b52e1c92c",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        }
+      ]
+    },
+    {
+      "id": "dark-photo",
+      "verdict": "photo composition accepted for this exact fixture",
+      "notes": "左下深底白字；花枝与陶瓶完整，标题与主体分开。",
+      "views": [
+        {
+          "file": "dark-photo/card-001.png",
+          "sha256": "19fdf4ec00097fdec64640f2b9476056bc42b1c4f09c4f660554689f9fbf5ea4",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "dark-photo/mobile-375.png",
+          "sha256": "61157f8405a07901b7f9f4a98a48465553f8556e6ee3d9fce076ab965c80db54",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "dark-photo/mobile-390.png",
+          "sha256": "8023503c36ae63597c97406a1b266d662ec4c6dde92827c74077dc4f83a309ae",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "dark-photo/native-pdf.png",
+          "sha256": "ec531834aa101d176d33ef470b825d906bbf727eb4c6261e0f69964ce488e0fb",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        }
+      ]
+    },
+    {
+      "id": "no-crop-permission-default",
+      "verdict": "complete-image fallback inspected",
+      "notes": "未授权裁切时全幅保留；标题、来源、页脚完整。",
+      "views": [
+        {
+          "file": "no-crop-permission-default/card-001.png",
+          "sha256": "c28d056711093575e302058337203cd46186a23421f134bf29a790b7b03b535f",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "no-crop-permission-default/mobile-375.png",
+          "sha256": "5f297ce5664ba2766f185115559683758b851736699a909f31c21cb7eeb1b6d9",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "no-crop-permission-default/mobile-390.png",
+          "sha256": "4a65a1b6c49531d4a0f2e8193e5086a670b4dabbc746462c0f141a0dfe762be7",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "no-crop-permission-default/native-pdf.png",
+          "sha256": "f4d75d39cafbc1b2cf23e93e25b4cee56839ce344d4d3b3420d276d8aeaf190c",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        }
+      ]
+    },
+    {
+      "id": "no-safe-zone-default",
+      "verdict": "complete-image fallback inspected",
+      "notes": "静物全幅保留，标题置于图外，无图文遮挡。",
+      "views": [
+        {
+          "file": "no-safe-zone-default/card-001.png",
+          "sha256": "906913918e7b7e467d756ce2373d230d8e88f0b6232b7bd58394a14410fa4e69",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "no-safe-zone-default/mobile-375.png",
+          "sha256": "33b355e640851cd938e1868246cf5ea76cfc14209d1d4910b5f8b9ca44aa91ca",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "no-safe-zone-default/mobile-390.png",
+          "sha256": "8cae253a2a246787427e0aa7a87351599f0569ff3da24facc6f768016f197f6f",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "no-safe-zone-default/native-pdf.png",
+          "sha256": "5539f9f7576ff8aaf92c216cfaef9568232c57e0edde824c4e0f3be7fb4adffc",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        }
+      ]
+    },
+    {
+      "id": "original-default",
+      "verdict": "default compatibility only; existing contrast caveat",
+      "notes": "HTML/PNG/PDF 页图与 main 完全相同；纯黑品牌色导致眉题对比不足，不能标为新视觉通过。",
+      "views": [
+        {
+          "file": "original-default/card-001.png",
+          "sha256": "01d75fe49d6359bbfaf412e3749038bf2bb7f9c7ea82e3f767448c7d6bed512a",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "original-default/mobile-375.png",
+          "sha256": "0822a4798fbb359a7654b57023ec2b4346ade60221817b38416c6e8ef6194538",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "original-default/mobile-390.png",
+          "sha256": "fc518ed56d337e641f7853da639fdce208f0f85dd39e357d5f4a20cc3554b30c",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "original-default/native-pdf.png",
+          "sha256": "d2d0deaf4f03111b0220c6a6e4eee29c6ccf021ec2f018c26fcc905569ba28b1",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        }
+      ]
+    },
+    {
+      "id": "portrait-default",
+      "verdict": "default compatibility only; existing contrast caveat",
+      "notes": "完整图像保留；纯黑品牌色使眉题和标题链接对比不足，是 main 已有表现。",
+      "views": [
+        {
+          "file": "portrait-default/card-001.png",
+          "sha256": "12ffbbf1a8da3fd860f599893fefdbbe164c4ac47eb226ce3dcad68c7160ce59",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "portrait-default/mobile-375.png",
+          "sha256": "2d438dd0bcce830be18e36b4f8b4366acb4beeed16369ed53242e7aa7df78b27",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "portrait-default/mobile-390.png",
+          "sha256": "9465ca2bb1eaed0ddf6e346572e7b5d9586f302b8d3e03829a89820f9e35eeec",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "portrait-default/native-pdf.png",
+          "sha256": "9f446993c21e2ec6d0a790d0f486e51beaf74a4ab0c87bf1b5fd951082071840",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        }
+      ]
+    },
+    {
+      "id": "portrait-photo",
+      "verdict": "photo composition accepted for this exact fixture",
+      "notes": "左上白字；虚构人物面部和头部未被文字覆盖，原始照片的肩部边界仍是画面边界。",
+      "views": [
+        {
+          "file": "portrait-photo/card-001.png",
+          "sha256": "8fa0780191581d680cceec8e45b0b1e16a3b64d5f63fa30fa5634f22a73196f3",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "portrait-photo/mobile-375.png",
+          "sha256": "873c640232569a708a18a8a330e94ba15ea9b1a7e54530124732e0717f179552",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "portrait-photo/mobile-390.png",
+          "sha256": "97e8e6b6ffab792228f30461c2ae7b2c6402c5493f4e91e6bea800c10022049d",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "portrait-photo/native-pdf.png",
+          "sha256": "4a2087c8aad79cf9f08e008df4ca2c2184245ecea7f83de411e271c806a3ba66",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        }
+      ]
+    },
+    {
+      "id": "three-line-default",
+      "verdict": "complete-image fallback inspected",
+      "notes": "原文保持一行标题；完整图像，正文与来源完整。",
+      "views": [
+        {
+          "file": "three-line-default/card-001.png",
+          "sha256": "aae49d0d93b28164701e86f4a6ddeb4eaa31baa8b662c24e39301ceba97715ff",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "three-line-default/mobile-375.png",
+          "sha256": "a2d411627aab82b8825c711dd32e3bca1c9da277e7963fc09fd8b90ee8b0f61a",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "three-line-default/mobile-390.png",
+          "sha256": "f3538a2fbc31beda4f771b5ba4dc1c3111b8b3b5d6dcf47e6611a47d9aaec3d4",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "three-line-default/native-pdf.png",
+          "sha256": "48916781730f4c8954d1b929827fe35ac8595d9674edd20c0cedba90cb29af7f",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        }
+      ]
+    },
+    {
+      "id": "three-line-photo",
+      "verdict": "photo composition accepted for this exact fixture",
+      "notes": "三行原文完整；局部底板仍在左下安全区，未覆盖花枝/陶瓶。",
+      "views": [
+        {
+          "file": "three-line-photo/card-001.png",
+          "sha256": "e078be5c6abcbb0f302b6675c3828463fb853f61780ca5a67e6c861291294865",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "three-line-photo/mobile-375.png",
+          "sha256": "cf20b7bb4e0f651523869fa4b7100710e547edc0b1d506bc7dd85c15d133d51a",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "three-line-photo/mobile-390.png",
+          "sha256": "670abf5c06c057e44c3981db82bb28312b31c3d47d835c59de4c4ef7407b337d",
+          "inspection": "individually visually inspected by Codex"
+        },
+        {
+          "file": "three-line-photo/native-pdf.png",
+          "sha256": "544131b4932cc0dc263b424b5d83dfb45afa6ba823badf4028de940d9af65d21",
+          "inspection": "individually visually inspected by Codex"
+        }
+      ],
+      "screenPrintComparison": [
+        {
+          "file": "screen.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        },
+        {
+          "file": "print.png",
+          "equalPixels": true,
+          "changedBounds": null,
+          "changedPixels": 0,
+          "maxChannelDelta": 0,
+          "inspection": "Exact pixel match to inspected full PNG."
+        }
+      ]
+    }
+  ],
+  "contrast": {
+    "method": "Conservative sRGB worst-case backing compositing; actual foreground/backing also captured from computed styles. Does not assess subject semantics.",
+    "darkWhiteOnWhitestBackground": 10.828738777174134,
+    "lightBlackOnBlackestBackground": 13.017794130933982
+  },
+  "limits": [
+    "Only these exact synthetic fixtures and installed fonts are accepted.",
+    "Safety declarations are author judgments, not automatic face detection.",
+    "Intentional black-brand stress exposes existing default accent contrast problems; unchanged defaults are not newly visually approved."
+  ]
+}

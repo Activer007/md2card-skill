@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "Codex agent visual inspection",
+  "maintainerApproval": "pending",
+  "scope": "Four original PNGs, ten full variant sections and desktop role navigation; not a blanket human visual acceptance.",
+  "reviewed": [
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-T20-screenshot-stage.png",
+      "sha256": "c10a33d5f574454eba2849eff036b63c3cf44a019bf2d7fe7642198b5b3efe1b"
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-T37-photo-cover.png",
+      "sha256": "db35e36a52fa61f5da5b2ec061e35a840bcc0ad086d452a2191cfa1a9c4cf54a"
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-T20-screenshot-stage.png",
+      "sha256": "8f3a79a64190d9ed156dadbb4018506831fc9bef7b98ab643dbaa65ffc587043"
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-375-T37-photo-cover.png",
+      "sha256": "b62a22185c207b733f93274dbbf7461a13a19b7d24f2bb1ed58e1fedf5921899"
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-T20-screenshot-stage.png",
+      "sha256": "b9b4219c441ad7d6f6d980e36e1d95527c48404c909b57a85936d429c4439d70"
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/mobile-390-T37-photo-cover.png",
+      "sha256": "4c095f0d0b40069d415815ab8b800c7d5dbb8218d1bc9859d4921f9cf1271672"
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-T20-screenshot-stage.png",
+      "sha256": "f0c94f25e3a4425ac832412aa422a49fc5009e46bd13486c95ab04d6f01e3f47"
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/reflow-200-percent-T37-photo-cover.png",
+      "sha256": "6a92011c915a033ef89799e2a552cd3c97fd79338d4ac4a103562b0f76a142a2"
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/no-js-390-T20-screenshot-stage.png",
+      "sha256": "261bd1c94df69ecac2f89d5965c841c88f1dee2681f3539236f630cf49f742ad"
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/no-js-390-T37-photo-cover.png",
+      "sha256": "37fcd0942905497c79c0b419c161758b7554ae609fcd692ad0e3887019b90de9"
+    },
+    {
+      "file": "docs/evidence/gallery-variants/ui/desktop-1280-roles.png",
+      "sha256": "73c370d3abd4d839f577e3444ff9371effe6b29ca10171e1403e6d3494a129d6"
+    },
+    {
+      "file": "docs/images/gallery-variants/T20-default.png",
+      "sha256": "622484e8f37acb2af11663fa7821b8f577684de31d4d45984d54de186ac4d978"
+    },
+    {
+      "file": "docs/images/gallery-variants/T20-stage.png",
+      "sha256": "01ea7101b095c6910ed019b906061375e0011827b8174f8d4b6bf114983cf8f4"
+    },
+    {
+      "file": "docs/images/gallery-variants/T37-default.png",
+      "sha256": "844b506f97458138fab2af56550832d0f662e66633cedc77daab033a3b5fd3d4"
+    },
+    {
+      "file": "docs/images/gallery-variants/T37-photo.png",
+      "sha256": "1010dd587412cc4e81c086aade8406cc21a66ba148bf3dff66fcc714cd60f6aa"
+    }
+  ],
+  "findings": [
+    "T20 contains the complete fictional UI including the bottom END marker; microtext remains contextual at gallery thumbnail widths.",
+    "T37 photo keeps the boat visible in this exact author-declared safe fixture; this is not automated subject detection.",
+    "T37 default retains the historical low-contrast black eyebrow and is labelled compatibility-only.",
+    "Desktop comparison is side by side; 375/390/640 reflows vertically without horizontal clipping.",
+    "No-JS native anchors/details work in the tested Chromium."
+  ],
+  "notPerformed": [
+    "Human maintainer sign-off",
+    "Screen reader certification",
+    "Native browser-menu zoom",
+    "Other browser engines / operating systems",
+    "New renderer or cross-environment raster equivalence matrix"
+  ]
+}

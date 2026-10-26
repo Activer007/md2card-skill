@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
-import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, writeFile, rm, symlink } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { parseGateOptions, selectTests, runGate, markdownReport } from '../scripts/local-quality-gate.mjs';
@@ -66,6 +66,25 @@ test('affected test selection follows transitive imports and falls back for shar
   assert.deepEqual((await selectTests(root,['scripts/leaf.mjs'])).files,['tests/a.test.mjs']);
   assert.deepEqual((await selectTests(root,['tests/b.test.mjs'])).files,['tests/b.test.mjs']);
   assert.deepEqual((await selectTests(root,['package.json'])).files,['tests/a.test.mjs','tests/b.test.mjs']);
+});
+
+test('cyclic imports cannot cache an incomplete affected-test closure', async t => {
+  const root = await temporary(t); await mkdir(path.join(root,'scripts')); await mkdir(path.join(root,'tests'));
+  await writeFile(path.join(root,'scripts/a.mjs'),"import './b.mjs';import './leaf.mjs';");
+  await writeFile(path.join(root,'scripts/b.mjs'),"import './a.mjs';");
+  await writeFile(path.join(root,'scripts/leaf.mjs'),'');
+  await writeFile(path.join(root,'tests/a.test.mjs'),"import '../scripts/a.mjs';");
+  await writeFile(path.join(root,'tests/b.test.mjs'),"import '../scripts/b.mjs';");
+  await writeFile(path.join(root,'tests/unrelated.test.mjs'),'');
+  assert.deepEqual((await selectTests(root,['scripts/leaf.mjs'])).files,['tests/a.test.mjs','tests/b.test.mjs']);
+});
+
+test('output directory junctions/symlinks are rejected before writing outside validation', async t => {
+  const root = await temporary(t), outside = await temporary(t);
+  await mkdir(path.join(root,'validation'));
+  await symlink(outside,path.join(root,'validation/link'),process.platform==='win32'?'junction':'dir');
+  await assert.rejects(createRunDirectory(root,'validation/link/new','fast'),/Unsafe directory/);
+  assert.deepEqual(await inventory(outside),[]);
 });
 
 test('real failed command records exit, stdout, stderr and timeout', async t => {

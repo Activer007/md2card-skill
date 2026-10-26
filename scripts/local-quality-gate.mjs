@@ -45,19 +45,20 @@ export function parseGateOptions(args) {
 export async function selectTests(root, changed) {
   const all = (await readdir(path.join(root, 'tests'))).filter(n => n.endsWith('.test.mjs')).map(n => `tests/${n}`).sort();
   const unit = all.filter(n => !['tests/export.test.mjs', 'tests/pagination-export.test.mjs'].includes(n));
-  const graph = new Map();
-  async function dependencies(file, visiting = new Set()) {
-    if (graph.has(file)) return graph.get(file);
-    if (visiting.has(file)) return new Set([file]);
-    const result = new Set([file]), next = new Set([...visiting, file]);
-    let source; try { source = await readFile(path.join(root, file), 'utf8'); } catch { return result; }
-    for (const match of source.matchAll(/(?:from\s*|import\s*\(\s*|import\s*)['"](\.[^'"]+\.mjs)['"]/g)) {
-      const dep = slash(path.normalize(path.join(path.dirname(file), match[1])));
-      for (const entry of await dependencies(dep, next)) result.add(entry);
+  const graph = new Map(), directImports = new Map();
+  async function dependencies(file, visited = new Set()) {
+    if (visited.has(file)) return visited;
+    visited.add(file);
+    if (!directImports.has(file)) {
+      let source; try { source = await readFile(path.join(root, file), 'utf8'); } catch { return visited; }
+      directImports.set(file, [...source.matchAll(/(?:from\s*|import\s*\(\s*|import\s*)['"](\.[^'"]+\.mjs)['"]/g)]
+        .map(match => slash(path.normalize(path.join(path.dirname(file), match[1])))));
     }
-    graph.set(file, result); return result;
+    // Cache direct edges, never a partial transitive closure from a cycle.
+    for (const dep of directImports.get(file)) await dependencies(dep, visited);
+    return visited;
   }
-  for (const file of unit) await dependencies(file);
+  for (const file of unit) graph.set(file, await dependencies(file));
   const selected = new Set(), reasons = [];
   for (const file of changed.map(slash)) {
     let matches = unit.filter(test => graph.get(test).has(file));

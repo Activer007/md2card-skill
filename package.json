@@ -44,7 +44,10 @@
     "quality:fast": "node scripts/local-quality-gate.mjs --mode fast",
     "quality:release": "node scripts/local-quality-gate.mjs --mode release",
     "test:t37-contrast": "node --test tests/t37-contrast.test.mjs tests/document.test.mjs tests/photo-cover.test.mjs tests/default-body-compatibility.test.mjs",
-    "validate:t37-contrast": "node scripts/validate-t37-contrast.mjs"
+    "validate:t37-contrast": "node scripts/validate-t37-contrast.mjs",
+    "docs:build": "node scripts/build-template-catalog.mjs",
+    "docs:check": "node scripts/build-template-catalog.mjs --check",
+    "test:docs": "node --test tests/template-catalog.test.mjs"
   },
   "engines": {
     "node": ">=20"

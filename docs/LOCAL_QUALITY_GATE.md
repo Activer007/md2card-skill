@@ -78,6 +78,8 @@ fast 的 `--changed` 是补充变更，不会隐藏自动检测的变更。未�
 
 ## 建议的 PR 合并前流程
 
+日常开发优先最小相关检查：先跑受影响测试，变体改动才补对应 targeted。完整 release 集中在准备提交或合并时执行；已经通过且没有受后续改动影响的检查不重复运行。只追加审查文档或打包证据时检查内容、链接和哈希，不重复全部浏览器导出。[本次实际审查与验收](LOCAL_QUALITY_GATE_REVIEW.md)保留了必要失败、修复和最终记录。
+
 门禁自身的单元测试：`node --test tests/local-quality-gate.test.mjs`。真实故障验收：`node scripts/validate-local-quality-gate.mjs --allow-faults`。后者在新 validation 目录中创建临时 Git 测试夹具，实际运行失败单元测试、缺失浏览器、缺失 PDF 工具及损坏基线，并检查重复运行不覆盖；不替换或伪造系统工具。PDF 故障隔离要求 Fontconfig 与 Poppler 安装在不同目录，无法隔离时明确失败，不能声称此项已验证。
 
 1. 更新可信远端引用，确认 PR 精确 HEAD 和当前 worktree 状态；安装真实依赖。

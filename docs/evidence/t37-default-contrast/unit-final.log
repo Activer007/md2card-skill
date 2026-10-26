@@ -1,0 +1,38 @@
+✔ existing T20 stage HTML remains equal to independently generated pre-photo fixtures (133.629ms)
+✔ 96 medium/default outputs match independently generated pre-feature HTML hashes (980.4757ms)
+✔ default compatibility refuses modified proof, renderer or newly imported body-size code (175.0724ms)
+✔ all eight layout names and original five themes remain available (4.7737ms)
+✔ unannotated Markdown remains an explainer and preserves the whole HTML (0.432ms)
+✔ comparison uses token-derived sections and preserves supplementary sections (0.6445ms)
+✔ case study assigns phases without inventing or replacing section headings (0.2128ms)
+✔ eight short Markdown layouts compose through the actual parser (11.2257ms)
+✔ local images and brand logo are embedded without exposing source file paths (0.4052ms)
+✔ metadata escapes markup and never becomes CSS or an active URL (0.2578ms)
+✔ document rejects arbitrary CSS, invalid layouts, and unverified image sources (0.7473ms)
+✔ statistic and quote retain plain source text without inventing values (0.2347ms)
+✔ preview is CSS-only, responsive, and retains original export canvas dimensions (0.4339ms)
+✔ theme tokens and layout geometry are separate with CJK-safe line handling (0.2783ms)
+✔ steps layout preserves the Markdown ordered-list starting value (0.8735ms)
+✔ Bold consecutive H1 rules join titles without changing source markup (0.7435ms)
+✔ legacy footer is the byte-identical default and keeps the pre-mode HTML structure (11.2614ms)
+✔ poster omits only a final single-card counter, not footer content or probe reservation (0.5386ms)
+✔ series numbers are generated from output order with at least two digits and a widest probe (1.4581ms)
+✔ every mode retains escaped source, brand, logo, footer and body caveats across legacy and template cards (2.7014ms)
+✔ footer mode allowlist rejects invalid API values and every mode preserves escaping and CSP (0.5844ms)
+✔ opt-in footer CSS emphasizes numbering and existing source without hiding or shrinking content (1.6031ms)
+✔ visual verifier refuses lost crop focus or contrast backing even when boxes fit (3.8447ms)
+✔ crop authorization and author safety are explicit, typed and template scoped (9.3989ms)
+✔ trusted resolver is reused; title and one photo are required without hiding content (354.6551ms)
+✔ recommendation does not borrow default approval or recommend unsupported slide crop (49.7937ms)
+✔ fallback removes only crop fields and inventory cannot silently skip/add cases (6.6338ms)
+✔ opaque sRGB ratios use exact thresholds and reject unsupported colors (1.7023ms)
+✔ default and readable brands keep existing output; unsafe dark/light pairs use existing ink (1.6941ms)
+✔ only necessary default T37 documents receive foreground CSS; photo and other templates stay scoped out (329.2516ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1453.8335

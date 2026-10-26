@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "file": "logs/001-before-commit.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/001-before-commit.stdout.log",
+      "bytes": 41,
+      "sha256": "624f55ab38b86bc85644c457394aff85a2c84e3cc6928645a8b5167ace67ac52"
+    },
+    {
+      "file": "logs/002-before-status.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/002-before-status.stdout.log",
+      "bytes": 1898,
+      "sha256": "4a8098af42053afc096692fa356474aafbc6407195dfa4cb3079aa687bbcc148"
+    },
+    {
+      "file": "logs/003-before-files.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/003-before-files.stdout.log",
+      "bytes": 77204,
+      "sha256": "d5b357f43b1f5458720fb49d632be6663251062a6985e7d0448ba26dcc9a334c"
+    },
+    {
+      "file": "logs/004-static.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/004-static.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/005-changed-committed.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/005-changed-committed.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/006-changed-local.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/006-changed-local.stdout.log",
+      "bytes": 116,
+      "sha256": "a8e4438a35d775ce16da34ece672f8553c8519432cf4ab24423e5ee0f9910c51"
+    },
+    {
+      "file": "logs/007-changed-new.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/007-changed-new.stdout.log",
+      "bytes": 1067,
+      "sha256": "59d40d3d8c57968dcb146cbbdfbf4578f28a1d8c01de53cd9cd88f5537a6d5ac"
+    },
+    {
+      "file": "logs/008-unit.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/008-unit.stdout.log",
+      "bytes": 142760,
+      "sha256": "b3e4a1d16edade183e085982f6280365bc0f6680cc4bb28314a0c9971234e07c"
+    },
+    {
+      "file": "logs/009-after-commit.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/009-after-commit.stdout.log",
+      "bytes": 41,
+      "sha256": "624f55ab38b86bc85644c457394aff85a2c84e3cc6928645a8b5167ace67ac52"
+    },
+    {
+      "file": "logs/010-after-status.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/010-after-status.stdout.log",
+      "bytes": 1898,
+      "sha256": "4a8098af42053afc096692fa356474aafbc6407195dfa4cb3079aa687bbcc148"
+    },
+    {
+      "file": "logs/011-after-files.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/011-after-files.stdout.log",
+      "bytes": 77204,
+      "sha256": "d5b357f43b1f5458720fb49d632be6663251062a6985e7d0448ba26dcc9a334c"
+    }
+  ]
+}

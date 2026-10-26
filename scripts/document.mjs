@@ -15,6 +15,49 @@ export const SIZES = {
 const TEXT_FIELDS = ['eyebrow', 'alt', 'caption', 'source', 'metric', 'label'];
 const IMAGE_MIMES = new Set(['image/png', 'image/jpeg', 'image/webp']);
 
+// Opaque sRGB only, matching the public brand contract. Do not round a ratio
+// before comparing it with 4.5. This is a solid-background rule, not photo QA.
+export function textContrastRatio(first, second) {
+  const luminance = color => {
+    if (typeof color !== 'string' || !/^#(?:[\da-f]{3}|[\da-f]{6})$/i.test(color)) throw new Error('Contrast colors must be opaque #RGB or #RRGGBB.');
+    const hex = color.length === 4 ? [...color.slice(1)].map(c => c + c).join('') : color.slice(1);
+    const linear = [0, 2, 4].map(offset => {
+      const value = parseInt(hex.slice(offset, offset + 2), 16) / 255;
+      return value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4;
+    });
+    return linear[0] * .2126 + linear[1] * .7152 + linear[2] * .0722;
+  };
+  const a = luminance(first), b = luminance(second);
+  return (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
+}
+
+export function t37DefaultTextPolicy(accent, templateCss) {
+  if (accent === undefined || !templateCss) return null;
+  // Read the existing trusted template tokens, not a second color registry or
+  // arbitrary user CSS. T37's plain text surfaces are paper and quote/code panel.
+  const rule = /\.card\.template-T37\s*\{([^}]+)\}/.exec(templateCss)?.[1];
+  if (!rule) throw new Error('T37 contrast policy requires its template token rule.');
+  const token = name => {
+    const value = new RegExp(`--${name}\\s*:\\s*(#[a-f\\d]{3}(?:[a-f\\d]{3})?)\\s*;`, 'i').exec(rule)?.[1];
+    if (!value) throw new Error(`T37 contrast policy requires an opaque ${name} token.`);
+    return value;
+  };
+  const backgrounds = [token('paper'), token('panel')], ink = token('ink');
+  const minimum = color => Math.min(...backgrounds.map(background => textContrastRatio(color, background)));
+  const before = minimum(accent);
+  if (before >= 4.5) return null;
+  // Preserve the existing foreground language first. Black/white is only a
+  // deterministic fallback if a future trusted palette's ink itself is unsafe.
+  const foreground = [ink, '#000000', '#ffffff'].find(color => minimum(color) >= 4.5);
+  if (!foreground) throw new Error('T37 text surfaces need a jointly readable foreground.');
+  return { accent, foreground, backgrounds, minimumBefore: before, minimumAfter: minimum(foreground), target: 4.5 };
+}
+
+function t37DefaultTextCss(policy) {
+  const selector = '.card.template-T37:not([data-visual-variant="photo-cover"])';
+  return `\n/* T37 default: readable text only; authored brand decoration is unchanged. */\n${selector} :is(.card-eyebrow,strong,a) { color: ${policy.foreground}; }\n${selector} li::marker { color: ${policy.foreground}; }\n`;
+}
+
 // M4: three exact combinations only. Emitted conditionally so old documents
 // retain their stylesheet bytes. These are fixed design scales, never fit-to-text.
 const WECHAT_COVER_CSS = `
@@ -200,6 +243,7 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
   let screenshotStage = false;
   let photoCover = false;
   let wechatCover = false;
+  let defaultT37 = false;
   const preview = options.preview === true;
   const body = cards.map((card, position) => {
     const index = position + 1;
@@ -210,6 +254,7 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
     const template = validateTemplateMetadata(card.metadata ?? {}, { width, height });
     validateTemplateCard(card, template);
     const variant = card.metadata?.visualVariant;
+    if (template?.id === 'T37' && variant !== 'photo-cover') defaultT37 = true;
     if (variant === 'screenshot-stage') screenshotStage = true;
     if (variant === 'photo-cover') photoCover = true;
     const aspect = template ? resolveTemplateAspect(template.id, { width, height }) : null;
@@ -221,6 +266,7 @@ export function buildDocument(cards, options, themeCss, layoutCss = '', template
   </article>`;
     return preview ? `<section class="preview-item" aria-label="Preview card ${index}"><div class="preview-canvas">${article}</div><p class="preview-caption">${index} / ${cards.length} · ${layout} · ${width} × ${height}</p></section>` : article;
   }).join('\n');
+  const t37Policy = defaultT37 ? t37DefaultTextPolicy(accent, templateCss) : null;
   return `<!doctype html>
 <html lang="${plainText(options.lang ?? 'zh-CN', 'Language')}">
 <head>
@@ -238,7 +284,7 @@ body { background: #e5e7eb; }
 .card { flex: none; }
 ${layoutCss}
 ${themeCss}
-${templateCss}${customBodySize ? `\n${bodySizeCss()}` : ''}${screenshotStage ? SCREENSHOT_STAGE_CSS : ''}${photoCover ? PHOTO_COVER_CSS : ''}${wechatCover ? WECHAT_COVER_CSS : ''}
+${templateCss}${customBodySize ? `\n${bodySizeCss()}` : ''}${screenshotStage ? SCREENSHOT_STAGE_CSS : ''}${photoCover ? PHOTO_COVER_CSS : ''}${wechatCover ? WECHAT_COVER_CSS : ''}${t37Policy ? t37DefaultTextCss(t37Policy) : ''}
 ${preview ? `
 /* Preview transforms only the display; every .card retains its export canvas. */
 .deck-preview { width: 100%; min-width: 0; padding: 24px; gap: 24px; }

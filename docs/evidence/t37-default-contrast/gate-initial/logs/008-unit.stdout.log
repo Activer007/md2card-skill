@@ -1,0 +1,3970 @@
+TAP version 13
+# Subtest: only eight registered aspect fixtures bind their own input, version, PNG/mobile/PDF and limitations
+ok 1 - only eight registered aspect fixtures bind their own input, version, PNG/mobile/PDF and limitations
+  ---
+  duration_ms: 227.2563
+  type: 'test'
+  ...
+# Subtest: aspect registry rejects substituted source, old portraits, missing PDFs, stale review and rehashed declarations
+    # Subtest: extra control case
+    ok 1 - extra control case
+      ---
+      duration_ms: 64.6635
+      type: 'test'
+      ...
+    # Subtest: missing registered case
+    ok 2 - missing registered case
+      ---
+      duration_ms: 62.6921
+      type: 'test'
+      ...
+    # Subtest: duplicate case
+    ok 3 - duplicate case
+      ---
+      duration_ms: 67.2554
+      type: 'test'
+      ...
+    # Subtest: wrong input with fresh hash
+    ok 4 - wrong input with fresh hash
+      ---
+      duration_ms: 62.7237
+      type: 'test'
+      ...
+    # Subtest: traversal input
+    ok 5 - traversal input
+      ---
+      duration_ms: 64.471
+      type: 'test'
+      ...
+    # Subtest: parent version as aspect version
+    ok 6 - parent version as aspect version
+      ---
+      duration_ms: 121.0374
+      type: 'test'
+      ...
+    # Subtest: changed scope
+    ok 7 - changed scope
+      ---
+      duration_ms: 0.6439
+      type: 'test'
+      ...
+    # Subtest: other artifact batch
+    ok 8 - other artifact batch
+      ---
+      duration_ms: 0.5921
+      type: 'test'
+      ...
+    # Subtest: altered examples/aspects/T04-square.md
+    ok 9 - altered examples/aspects/T04-square.md
+      ---
+      duration_ms: 60.3057
+      type: 'test'
+      ...
+    # Subtest: altered docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/card-001.png
+    ok 10 - altered docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/card-001.png
+      ---
+      duration_ms: 62.9201
+      type: 'test'
+      ...
+    # Subtest: altered docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/card-001-mobile-375.png
+    ok 11 - altered docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/card-001-mobile-375.png
+      ---
+      duration_ms: 62.2521
+      type: 'test'
+      ...
+    # Subtest: altered docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/card-001-mobile-390.png
+    ok 12 - altered docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/card-001-mobile-390.png
+      ---
+      duration_ms: 87.8583
+      type: 'test'
+      ...
+    # Subtest: altered docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/cards.pdf
+    ok 13 - altered docs/evidence/aspects-run-40079964688/aspects/01-T04-aspect-specific-square-square/cards.pdf
+      ---
+      duration_ms: 77.607
+      type: 'test'
+      ...
+    # Subtest: altered docs/evidence/aspects-run-40079964688/native-pdf-pages/01-T04-aspect-specific-square-square.png
+    ok 14 - altered docs/evidence/aspects-run-40079964688/native-pdf-pages/01-T04-aspect-specific-square-square.png
+      ---
+      duration_ms: 70.6764
+      type: 'test'
+      ...
+    # Subtest: altered docs/evidence/aspects-run-40079964688/technical-audit.json
+    ok 15 - altered docs/evidence/aspects-run-40079964688/technical-audit.json
+      ---
+      duration_ms: 1.6652
+      type: 'test'
+      ...
+    # Subtest: altered docs/evidence/aspects-run-40079964688/source-files.json
+    ok 16 - altered docs/evidence/aspects-run-40079964688/source-files.json
+      ---
+      duration_ms: 3.5665
+      type: 'test'
+      ...
+    # Subtest: altered docs/evidence/aspects-run-40079964688/pdf-audit.json
+    ok 17 - altered docs/evidence/aspects-run-40079964688/pdf-audit.json
+      ---
+      duration_ms: 59.0701
+      type: 'test'
+      ...
+    # Subtest: altered docs/aspect-pr22-visual-review.json
+    ok 18 - altered docs/aspect-pr22-visual-review.json
+      ---
+      duration_ms: 51.2008
+      type: 'test'
+      ...
+    # Subtest: altered scripts/markdown.mjs
+    ok 19 - altered scripts/markdown.mjs
+      ---
+      duration_ms: 15.6882
+      type: 'test'
+      ...
+    # Subtest: altered assets/templates.css
+    ok 20 - altered assets/templates.css
+      ---
+      duration_ms: 48.9065
+      type: 'test'
+      ...
+    # Subtest: missing native PDF
+    ok 21 - missing native PDF
+      ---
+      duration_ms: 44.5355
+      type: 'test'
+      ...
+    # Subtest: actual old portrait pixels
+    ok 22 - actual old portrait pixels
+      ---
+      duration_ms: 55.4498
+      type: 'test'
+      ...
+    # Subtest: registry aspect-version
+    ok 23 - registry aspect-version
+      ---
+      duration_ms: 42.4984
+      type: 'test'
+      ...
+    # Subtest: registry parent-version
+    ok 24 - registry parent-version
+      ---
+      duration_ms: 47.8306
+      type: 'test'
+      ...
+    # Subtest: registry example
+    ok 25 - registry example
+      ---
+      duration_ms: 45.3815
+      type: 'test'
+      ...
+    1..25
+ok 2 - aspect registry rejects substituted source, old portraits, missing PDFs, stale review and rehashed declarations
+  ---
+  duration_ms: 1487.1082
+  type: 'test'
+  ...
+# Subtest: seven selected templates register eleven independent aspects; aspect variants never create extra design IDs
+ok 3 - seven selected templates register eleven independent aspects; aspect variants never create extra design IDs
+  ---
+  duration_ms: 2.058
+  type: 'test'
+  ...
+# Subtest: frozen internal enum supplies exact classes, not public aspect strings
+ok 4 - frozen internal enum supplies exact classes, not public aspect strings
+  ---
+  duration_ms: 6.2612
+  type: 'test'
+  ...
+# Subtest: standard and custom sizes use the existing inclusive ratio tolerance
+ok 5 - standard and custom sizes use the existing inclusive ratio tolerance
+  ---
+  duration_ms: 1.8145
+  type: 'test'
+  ...
+# Subtest: all three layouts preserve identical source slots, DOM text order, metadata and locked card count
+ok 6 - all three layouts preserve identical source slots, DOM text order, metadata and locked card count
+  ---
+  duration_ms: 5.6256
+  type: 'test'
+  ...
+# Subtest: aspect selection cannot relax metric, image, metadata, layout or automatic-mode contracts
+ok 7 - aspect selection cannot relax metric, image, metadata, layout or automatic-mode contracts
+  ---
+  duration_ms: 3.3565
+  type: 'test'
+  ...
+# Subtest: independent CSS changes hierarchy, not body floors, transforms, crop or hidden content
+ok 8 - independent CSS changes hierarchy, not body floors, transforms, crop or hidden content
+  ---
+  duration_ms: 0.8631
+  type: 'test'
+  ...
+# Subtest: aspect examples and same-source matrix are hashed, complete and honestly unmeasured
+ok 9 - aspect examples and same-source matrix are hashed, complete and honestly unmeasured
+  ---
+  duration_ms: 821.699
+  type: 'test'
+  ...
+# Subtest: unsupported aspect fails before preflight or renderer acquisition
+ok 10 - unsupported aspect fails before preflight or renderer acquisition
+  ---
+  duration_ms: 18.9381
+  type: 'test'
+  ...
+# Subtest: source-only export double records derived aspect without changing source hash or final dual-media validation
+ok 11 - source-only export double records derived aspect without changing source hash or final dual-media validation
+  ---
+  duration_ms: 84.7208
+  type: 'test'
+  ...
+# Subtest: source-only overflow double still rejects in either medium and publishes only overflow report
+ok 12 - source-only overflow double still rejects in either medium and publishes only overflow report
+  ---
+  duration_ms: 164.9118
+  type: 'test'
+  ...
+# Subtest: four short aspect previews are bound to exact inputs and actual output hashes
+ok 13 - four short aspect previews are bound to exact inputs and actual output hashes
+  ---
+  duration_ms: 11.54
+  type: 'test'
+  ...
+# Subtest: R12 has exactly four pending purpose-led pairs and no inherited visual evidence
+ok 14 - R12 has exactly four pending purpose-led pairs and no inherited visual evidence
+  ---
+  duration_ms: 0.8355
+  type: 'test'
+  ...
+# Subtest: new purpose-led source comparisons retain every slot, image byte and required boundary
+ok 15 - new purpose-led source comparisons retain every slot, image byte and required boundary
+  ---
+  duration_ms: 128.203
+  type: 'test'
+  ...
+# Subtest: every R12 unsupported named or custom ratio refuses before preflight or browser acquisition
+ok 16 - every R12 unsupported named or custom ratio refuses before preflight or browser acquisition
+  ---
+  duration_ms: 145.449
+  type: 'test'
+  ...
+# Subtest: new supported aspects retain screen and print overflow rejection without partial artifacts
+ok 17 - new supported aspects retain screen and print overflow rejection without partial artifacts
+  ---
+  duration_ms: 553.1632
+  type: 'test'
+  ...
+# Subtest: R12 integrated aspects retain M2 typography, validated history, intrinsic image guards and separate title/numeral spacing
+ok 18 - R12 integrated aspects retain M2 typography, validated history, intrinsic image guards and separate title/numeral spacing
+  ---
+  duration_ms: 1.0203
+  type: 'test'
+  ...
+# Subtest: entrypoint capability guidance separates historical eight-pair support and bounded M4 additions and separates historical evidence
+ok 19 - entrypoint capability guidance separates historical eight-pair support and bounded M4 additions and separates historical evidence
+  ---
+  duration_ms: 6.5509
+  type: 'test'
+  ...
+# Subtest: PNG, JPEG and WebP have deterministic dimensions, SHA-256 and data URLs
+ok 20 - PNG, JPEG and WebP have deterministic dimensions, SHA-256 and data URLs
+  ---
+  duration_ms: 24.0902
+  type: 'test'
+  ...
+# Subtest: Markdown images and metadata embed only trusted assets, including cross-card references
+ok 21 - Markdown images and metadata embed only trusted assets, including cross-card references
+  ---
+  duration_ms: 21.5694
+  type: 'test'
+  ...
+# Subtest: asset roots must exist and be directories
+ok 22 - asset roots must exist and be directories
+  ---
+  duration_ms: 6.4458
+  type: 'test'
+  ...
+# Subtest: remote, absolute, traversal, schemes and ambiguous references are rejected
+ok 23 - remote, absolute, traversal, schemes and ambiguous references are rejected
+  ---
+  duration_ms: 4.8
+  type: 'test'
+  ...
+# Subtest: symlink escapes fail for files and directories, safe aliases remain cached
+ok 24 - symlink escapes fail for files and directories, safe aliases remain cached
+  ---
+  duration_ms: 20.4589
+  type: 'test'
+  ...
+# Subtest: valid encoded spaces and Unicode filenames remain local
+ok 25 - valid encoded spaces and Unicode filenames remain local
+  ---
+  duration_ms: 11.6267
+  type: 'test'
+  ...
+# Subtest: extension, MIME and missing/nonregular assets fail without caching
+ok 26 - extension, MIME and missing/nonregular assets fail without caching
+  ---
+  duration_ms: 19.4395
+  type: 'test'
+  ...
+# Subtest: oversized compressed bytes, dimensions, pixels and total bytes fail
+ok 27 - oversized compressed bytes, dimensions, pixels and total bytes fail
+  ---
+  duration_ms: 893.6276
+  type: 'test'
+  ...
+# Subtest: truncated, corrupt and polyglot PNG/JPEG/WebP data is rejected
+ok 28 - truncated, corrupt and polyglot PNG/JPEG/WebP data is rejected
+  ---
+  duration_ms: 6.0418
+  type: 'test'
+  ...
+# Subtest: animated PNG and WebP are rejected
+ok 29 - animated PNG and WebP are rejected
+  ---
+  duration_ms: 0.6432
+  type: 'test'
+  ...
+# Subtest: cached images still count toward the cumulative 64 MiB embedding budget
+ok 30 - cached images still count toward the cumulative 64 MiB embedding budget
+  ---
+  duration_ms: 373.9509
+  type: 'test'
+  ...
+# Subtest: asset validation exposes a stable INVALID_ASSET code
+ok 31 - asset validation exposes a stable INVALID_ASSET code
+  ---
+  duration_ms: 5.9759
+  type: 'test'
+  ...
+# Subtest: repeated references count decoded pixels and expose immutable usage snapshots
+ok 32 - repeated references count decoded pixels and expose immutable usage snapshots
+  ---
+  duration_ms: 21.5953
+  type: 'test'
+  ...
+# Subtest: PNG validates genuine scanlines for every supported bit depth, color and filter
+ok 33 - PNG validates genuine scanlines for every supported bit depth, color and filter
+  ---
+  duration_ms: 5.1836
+  type: 'test'
+  ...
+# Subtest: valid Adam7 PNGs handle all passes, packed rows, 16-bit pixels and empty passes
+ok 34 - valid Adam7 PNGs handle all passes, packed rows, 16-bit pixels and empty passes
+  ---
+  duration_ms: 5.98
+  type: 'test'
+  ...
+# Subtest: CRC-valid PNGs with invalid zlib streams fail with IMAGE_DECODE_FAILED
+ok 35 - CRC-valid PNGs with invalid zlib streams fail with IMAGE_DECODE_FAILED
+  ---
+  duration_ms: 2.0377
+  type: 'test'
+  ...
+# Subtest: PNG exact row sizing and legal filter bytes apply to noninterlaced and Adam7 data
+ok 36 - PNG exact row sizing and legal filter bytes apply to noninterlaced and Adam7 data
+  ---
+  duration_ms: 3.2492
+  type: 'test'
+  ...
+# Subtest: PNG inflated-byte limit is checked before attempting to decode a bomb
+ok 37 - PNG inflated-byte limit is checked before attempting to decode a bomb
+  ---
+  duration_ms: 0.2237
+  type: 'test'
+  ...
+# Subtest: bad PNG pixels fail in the resolver before caching or embedding
+ok 38 - bad PNG pixels fail in the resolver before caching or embedding
+  ---
+  duration_ms: 11.8443
+  type: 'test'
+  ...
+# Subtest: an independently encoded 16-bit RGB Adam7 PNG validates
+ok 39 - an independently encoded 16-bit RGB Adam7 PNG validates
+  ---
+  duration_ms: 0.2808
+  type: 'test'
+  ...
+# Subtest: four body sizes accept Chinese labels, default to medium, and reject untrusted values
+ok 40 - four body sizes accept Chinese labels, default to medium, and reject untrusted values
+  ---
+  duration_ms: 14.5486
+  type: 'test'
+  ...
+# Subtest: medium leaves HTML unchanged and card metadata overrides the deck preset
+ok 41 - medium leaves HTML unchanged and card metadata overrides the deck preset
+  ---
+  duration_ms: 5.5667
+  type: 'test'
+  ...
+# Subtest: only body text runs are wrapped, preserving nested markup, escaped HTML and code bytes
+ok 42 - only body text runs are wrapped, preserving nested markup, escaped HTML and code bytes
+  ---
+  duration_ms: 0.3865
+  type: 'test'
+  ...
+# Subtest: real browser: all 48 templates and five themes preserve non-body type and scale text once in screen/print
+ok 43 - real browser: all 48 templates and five themes preserve non-body type and scale text once in screen/print
+  ---
+  duration_ms: 29446.7657
+  type: 'test'
+  ...
+# Subtest: real exports record presets, emit PNG/PDF, paginate at the selected size and reject manual overflow
+ok 44 - real exports record presets, emit PNG/PDF, paginate at the selected size and reject manual overflow
+  ---
+  duration_ms: 8658.3757
+  type: 'test'
+  ...
+# Subtest: roles use authored metadata and actual blocks, with an explicit unknown fallback
+ok 45 - roles use authored metadata and actual blocks, with an explicit unknown fallback
+  ---
+  duration_ms: 10.6268
+  type: 'test'
+  ...
+# Subtest: real local screenshot and synthetic photo identity comes from validated assets plus author description
+ok 46 - real local screenshot and synthetic photo identity comes from validated assets plus author description
+  ---
+  duration_ms: 86.4521
+  type: 'test'
+  ...
+# Subtest: long code and wide tables are pressure caveats, not invented fit measurements
+ok 47 - long code and wide tables are pressure caveats, not invented fit measurements
+  ---
+  duration_ms: 1.5547
+  type: 'test'
+  ...
+# Subtest: card provenance and shared references survive without mutating deeply frozen parse results
+ok 48 - card provenance and shared references survive without mutating deeply frozen parse results
+  ---
+  duration_ms: 2.9807
+  type: 'test'
+  ...
+# Subtest: unvalidated images and unknown metadata cannot become role evidence
+ok 49 - unvalidated images and unknown metadata cannot become role evidence
+  ---
+  duration_ms: 0.833
+  type: 'test'
+  ...
+# Subtest: validated inline image alt, including shared references, supplies author image descriptions
+ok 50 - validated inline image alt, including shared references, supplies author image descriptions
+  ---
+  duration_ms: 8.2481
+  type: 'test'
+  ...
+# Subtest: existing T20 stage HTML remains equal to independently generated pre-photo fixtures
+ok 51 - existing T20 stage HTML remains equal to independently generated pre-photo fixtures
+  ---
+  duration_ms: 95.0149
+  type: 'test'
+  ...
+# Subtest: 96 medium/default outputs match independently generated pre-feature HTML hashes
+ok 52 - 96 medium/default outputs match independently generated pre-feature HTML hashes
+  ---
+  duration_ms: 925.1777
+  type: 'test'
+  ...
+# Subtest: default compatibility refuses modified proof, renderer or newly imported body-size code
+ok 53 - default compatibility refuses modified proof, renderer or newly imported body-size code
+  ---
+  duration_ms: 147.0196
+  type: 'test'
+  ...
+# Subtest: doctor reports package versions, font coverage, PDF tools and unprobed browser
+ok 54 - doctor reports package versions, font coverage, PDF tools and unprobed browser
+  ---
+  duration_ms: 3.606
+  type: 'test'
+  ...
+# Subtest: doctor fails unsupported Node, missing dependencies and unavailable browser
+ok 55 - doctor fails unsupported Node, missing dependencies and unavailable browser
+  ---
+  duration_ms: 0.693
+  type: 'test'
+  ...
+# Subtest: installed dependency version drift warns normally and fails in strict mode
+ok 56 - installed dependency version drift warns normally and fails in strict mode
+  ---
+  duration_ms: 0.4754
+  type: 'test'
+  ...
+# Subtest: CJK font absence warns normally and blocks strict Chinese rendering
+ok 57 - CJK font absence warns normally and blocks strict Chinese rendering
+  ---
+  duration_ms: 0.596
+  type: 'test'
+  ...
+# Subtest: source-specific CJK glyphs are checked even for an English language tag
+ok 58 - source-specific CJK glyphs are checked even for an English language tag
+  ---
+  duration_ms: 0.2276
+  type: 'test'
+  ...
+# Subtest: font coverage can combine fallback fonts and deduplicates required glyphs
+ok 59 - font coverage can combine fallback fonts and deduplicates required glyphs
+  ---
+  duration_ms: 0.3228
+  type: 'test'
+  ...
+# Subtest: missing Fontconfig remains unverified and does not mistake a fallback name for coverage
+ok 60 - missing Fontconfig remains unverified and does not mistake a fallback name for coverage
+  ---
+  duration_ms: 0.3553
+  type: 'test'
+  ...
+# Subtest: doctor marks missing Poppler optional or required without stopping other checks
+ok 61 - doctor marks missing Poppler optional or required without stopping other checks
+  ---
+  duration_ms: 0.6697
+  type: 'test'
+  ...
+# Subtest: PDF QA validates exact page count and searchable text without returning source text
+ok 62 - PDF QA validates exact page count and searchable text without returning source text
+  ---
+  duration_ms: 0.7858
+  type: 'test'
+  ...
+# Subtest: PDF QA handles tool absence explicitly and strict checks cannot silently pass
+ok 63 - PDF QA handles tool absence explicitly and strict checks cannot silently pass
+  ---
+  duration_ms: 0.6442
+  type: 'test'
+  ...
+# Subtest: PDF QA throws for page mismatch and missing searchable text
+ok 64 - PDF QA throws for page mismatch and missing searchable text
+  ---
+  duration_ms: 0.3802
+  type: 'test'
+  ...
+# Subtest: PDF QA optionally validates visible snippets without leaking missing snippets
+ok 65 - PDF QA optionally validates visible snippets without leaking missing snippets
+  ---
+  duration_ms: 0.3902
+  type: 'test'
+  ...
+# Subtest: PDF QA validates arguments and file errors before invoking external tools
+ok 66 - PDF QA validates arguments and file errors before invoking external tools
+  ---
+  duration_ms: 0.3485
+  type: 'test'
+  ...
+# Subtest: PDF QA passes paths as one absolute argument, never shell expressions
+ok 67 - PDF QA passes paths as one absolute argument, never shell expressions
+  ---
+  duration_ms: 0.1997
+  type: 'test'
+  ...
+# Subtest: PDF QA normalizes command failure and malformed tool output
+ok 68 - PDF QA normalizes command failure and malformed tool output
+  ---
+  duration_ms: 0.3169
+  type: 'test'
+  ...
+# Subtest: structured errors serialize stable metadata, not stack, cause or arbitrary properties
+ok 69 - structured errors serialize stable metadata, not stack, cause or arbitrary properties
+  ---
+  duration_ms: 0.1674
+  type: 'test'
+  ...
+# Subtest: PDF QA verifies a real tiny searchable PDF with Poppler when available, without Chromium
+ok 70 - PDF QA verifies a real tiny searchable PDF with Poppler when available, without Chromium
+  ---
+  duration_ms: 212.6232
+  type: 'test'
+  ...
+# Subtest: doctor reports local role-font candidates without claiming browser selection
+ok 71 - doctor reports local role-font candidates without claiming browser selection
+  ---
+  duration_ms: 0.4653
+  type: 'test'
+  ...
+# Subtest: doctor does not mistake unknown role inventory or similar font names for installation
+ok 72 - doctor does not mistake unknown role inventory or similar font names for installation
+  ---
+  duration_ms: 0.3571
+  type: 'test'
+  ...
+# Subtest: all eight layout names and original five themes remain available
+ok 73 - all eight layout names and original five themes remain available
+  ---
+  duration_ms: 4.5993
+  type: 'test'
+  ...
+# Subtest: unannotated Markdown remains an explainer and preserves the whole HTML
+ok 74 - unannotated Markdown remains an explainer and preserves the whole HTML
+  ---
+  duration_ms: 0.2732
+  type: 'test'
+  ...
+# Subtest: comparison uses token-derived sections and preserves supplementary sections
+ok 75 - comparison uses token-derived sections and preserves supplementary sections
+  ---
+  duration_ms: 0.2416
+  type: 'test'
+  ...
+# Subtest: case study assigns phases without inventing or replacing section headings
+ok 76 - case study assigns phases without inventing or replacing section headings
+  ---
+  duration_ms: 0.2174
+  type: 'test'
+  ...
+# Subtest: eight short Markdown layouts compose through the actual parser
+ok 77 - eight short Markdown layouts compose through the actual parser
+  ---
+  duration_ms: 8.4619
+  type: 'test'
+  ...
+# Subtest: local images and brand logo are embedded without exposing source file paths
+ok 78 - local images and brand logo are embedded without exposing source file paths
+  ---
+  duration_ms: 0.3641
+  type: 'test'
+  ...
+# Subtest: metadata escapes markup and never becomes CSS or an active URL
+ok 79 - metadata escapes markup and never becomes CSS or an active URL
+  ---
+  duration_ms: 0.2598
+  type: 'test'
+  ...
+# Subtest: document rejects arbitrary CSS, invalid layouts, and unverified image sources
+ok 80 - document rejects arbitrary CSS, invalid layouts, and unverified image sources
+  ---
+  duration_ms: 0.7626
+  type: 'test'
+  ...
+# Subtest: statistic and quote retain plain source text without inventing values
+ok 81 - statistic and quote retain plain source text without inventing values
+  ---
+  duration_ms: 0.3525
+  type: 'test'
+  ...
+# Subtest: preview is CSS-only, responsive, and retains original export canvas dimensions
+ok 82 - preview is CSS-only, responsive, and retains original export canvas dimensions
+  ---
+  duration_ms: 0.4993
+  type: 'test'
+  ...
+# Subtest: theme tokens and layout geometry are separate with CJK-safe line handling
+ok 83 - theme tokens and layout geometry are separate with CJK-safe line handling
+  ---
+  duration_ms: 0.2452
+  type: 'test'
+  ...
+# Subtest: steps layout preserves the Markdown ordered-list starting value
+ok 84 - steps layout preserves the Markdown ordered-list starting value
+  ---
+  duration_ms: 0.9526
+  type: 'test'
+  ...
+# Subtest: Bold consecutive H1 rules join titles without changing source markup
+ok 85 - Bold consecutive H1 rules join titles without changing source markup
+  ---
+  duration_ms: 0.5333
+  type: 'test'
+  ...
+# Subtest: legacy footer is the byte-identical default and keeps the pre-mode HTML structure
+ok 86 - legacy footer is the byte-identical default and keeps the pre-mode HTML structure
+  ---
+  duration_ms: 6.9188
+  type: 'test'
+  ...
+# Subtest: poster omits only a final single-card counter, not footer content or probe reservation
+ok 87 - poster omits only a final single-card counter, not footer content or probe reservation
+  ---
+  duration_ms: 0.419
+  type: 'test'
+  ...
+# Subtest: series numbers are generated from output order with at least two digits and a widest probe
+ok 88 - series numbers are generated from output order with at least two digits and a widest probe
+  ---
+  duration_ms: 1.0082
+  type: 'test'
+  ...
+# Subtest: every mode retains escaped source, brand, logo, footer and body caveats across legacy and template cards
+ok 89 - every mode retains escaped source, brand, logo, footer and body caveats across legacy and template cards
+  ---
+  duration_ms: 2.1064
+  type: 'test'
+  ...
+# Subtest: footer mode allowlist rejects invalid API values and every mode preserves escaping and CSP
+ok 90 - footer mode allowlist rejects invalid API values and every mode preserves escaping and CSP
+  ---
+  duration_ms: 0.4183
+  type: 'test'
+  ...
+# Subtest: opt-in footer CSS emphasizes numbering and existing source without hiding or shrinking content
+ok 91 - opt-in footer CSS emphasizes numbering and existing source without hiding or shrinking content
+  ---
+  duration_ms: 1.1821
+  type: 'test'
+  ...
+# Subtest: classic ZIP stored, deflated and both data descriptors decode checked bytes
+ok 92 - classic ZIP stored, deflated and both data descriptors decode checked bytes
+  ---
+  duration_ms: 28.2297
+  type: 'test'
+  ...
+# Subtest: external digest gates parsing and later filesystem changes cannot substitute entries
+ok 93 - external digest gates parsing and later filesystem changes cannot substitute entries
+  ---
+  duration_ms: 13.8965
+  type: 'test'
+  ...
+# Subtest: traversal, absolute, malformed, duplicate and case-alias names reject
+ok 94 - traversal, absolute, malformed, duplicate and case-alias names reject
+  ---
+  duration_ms: 43.5295
+  type: 'test'
+  ...
+# Subtest: corrupt central/local headers, descriptors and unsupported entry kinds reject
+ok 95 - corrupt central/local headers, descriptors and unsupported entry kinds reject
+  ---
+  duration_ms: 51.8806
+  type: 'test'
+  ...
+# Subtest: payload corruption and deflate expansion beyond declared size fail on read
+ok 96 - payload corruption and deflate expansion beyond declared size fail on read
+  ---
+  duration_ms: 13.7797
+  type: 'test'
+  ...
+# Subtest: overlapping local entries and extra deflate payload cannot hide in an authenticated archive
+ok 97 - overlapping local entries and extra deflate payload cannot hide in an authenticated archive
+  ---
+  duration_ms: 10.9802
+  type: 'test'
+  ...
+# Subtest: snapshot identity verifies real Git objects and all local semantic dependencies
+ok 98 - snapshot identity verifies real Git objects and all local semantic dependencies
+  ---
+  duration_ms: 778.947
+  type: 'test'
+  ...
+# Subtest: wrong commit tree, dirty identity, digest, duplicate and missing semantic files reject
+ok 99 - wrong commit tree, dirty identity, digest, duplicate and missing semantic files reject
+  ---
+  duration_ms: 894.7756
+  type: 'test'
+  ...
+# Subtest: freshly rehashed altered source cannot masquerade as the pinned Git snapshot
+ok 100 - freshly rehashed altered source cannot masquerade as the pinned Git snapshot
+  ---
+  duration_ms: 642.1132
+  type: 'test'
+  ...
+# Subtest: another valid committed root with different semantics is refused without importing it
+ok 101 - another valid committed root with different semantics is refused without importing it
+  ---
+  duration_ms: 694.3789
+  type: 'test'
+  ...
+# Subtest: test command additions do not change runtime identity; dependency changes do
+ok 102 - test command additions do not change runtime identity; dependency changes do
+  ---
+  duration_ms: 1375.8158
+  type: 'test'
+  ...
+# Subtest: unsafe paths, prefix-similar roots and Windows junction escapes reject
+ok 103 - unsafe paths, prefix-similar roots and Windows junction escapes reject
+  ---
+  duration_ms: 11.8431
+  type: 'test'
+  ...
+# Subtest: all footer modes cover both a single card and an explicitly bounded sequence
+ok 104 - all footer modes cover both a single card and an explicitly bounded sequence
+  ---
+  duration_ms: 21.0898
+  type: 'test'
+  ...
+# Subtest: poster and series include both single-final and genuine flow auto candidates
+ok 105 - poster and series include both single-final and genuine flow auto candidates
+  ---
+  duration_ms: 17.5223
+  type: 'test'
+  ...
+# Subtest: auto footer evidence reconstructs complete original semantic pages and rejects missing atoms
+ok 106 - auto footer evidence reconstructs complete original semantic pages and rejects missing atoms
+  ---
+  duration_ms: 11.2352
+  type: 'test'
+  ...
+# Subtest: task-first navigation selects purposes without creating new design identities
+ok 107 - task-first navigation selects purposes without creating new design identities
+  ---
+  duration_ms: 1.3048
+  type: 'test'
+  ...
+# Subtest: published same-content groups bind eleven exact previews and one refusal
+ok 108 - published same-content groups bind eleven exact previews and one refusal
+  ---
+  duration_ms: 103.1303
+  type: 'test'
+  ...
+# Subtest: pending groups cannot expose previews or borrow another group acceptance
+ok 109 - pending groups cannot expose previews or borrow another group acceptance
+  ---
+  duration_ms: 1.7046
+  type: 'test'
+  ...
+# Subtest: comparison plans reject stale inputs, unknown IDs and forged acceptance
+ok 110 - comparison plans reject stale inputs, unknown IDs and forged acceptance
+  ---
+  duration_ms: 3.4044
+  type: 'test'
+  ...
+# Subtest: offline gallery reads real input, manifest, PDF, PNG, mobile and diagnostic bytes
+ok 111 - offline gallery reads real input, manifest, PDF, PNG, mobile and diagnostic bytes
+  ---
+  duration_ms: 650.7004
+  type: 'test'
+  ...
+# Subtest: comparison acceptance rejects rehashed declarations and incomplete visual review
+    # Subtest: unknown batch
+    ok 1 - unknown batch
+      ---
+      duration_ms: 4.2602
+      type: 'test'
+      ...
+    # Subtest: legacy self-declared SHA
+    ok 2 - legacy self-declared SHA
+      ---
+      duration_ms: 3.3915
+      type: 'test'
+      ...
+    # Subtest: review path traversal
+    ok 3 - review path traversal
+      ---
+      duration_ms: 38.4593
+      type: 'test'
+      ...
+    # Subtest: absolute review path
+    ok 4 - absolute review path
+      ---
+      duration_ms: 36.3126
+      type: 'test'
+      ...
+    # Subtest: changed template version
+    ok 5 - changed template version
+      ---
+      duration_ms: 38.09
+      type: 'test'
+      ...
+    # Subtest: changed template membership
+    ok 6 - changed template membership
+      ---
+      duration_ms: 34.6516
+      type: 'test'
+      ...
+    # Subtest: changed source with fresh body hash
+    ok 7 - changed source with fresh body hash
+      ---
+      duration_ms: 37.4506
+      type: 'test'
+      ...
+    # Subtest: wrong source commit
+    ok 8 - wrong source commit
+      ---
+      duration_ms: 35.1866
+      type: 'test'
+      ...
+    # Subtest: wrong source tree
+    ok 9 - wrong source tree
+      ---
+      duration_ms: 38.1962
+      type: 'test'
+      ...
+    # Subtest: wrong archive
+    ok 10 - wrong archive
+      ---
+      duration_ms: 35.5861
+      type: 'test'
+      ...
+    # Subtest: wrong artifact ID
+    ok 11 - wrong artifact ID
+      ---
+      duration_ms: 38.5852
+      type: 'test'
+      ...
+    # Subtest: wrong binding
+    ok 12 - wrong binding
+      ---
+      duration_ms: 33.4902
+      type: 'test'
+      ...
+    # Subtest: wrong scope
+    ok 13 - wrong scope
+      ---
+      duration_ms: 35.7192
+      type: 'test'
+      ...
+    # Subtest: missing reviewer
+    ok 14 - missing reviewer
+      ---
+      duration_ms: 32.6667
+      type: 'test'
+      ...
+    # Subtest: missing record
+    ok 15 - missing record
+      ---
+      duration_ms: 49.299
+      type: 'test'
+      ...
+    # Subtest: duplicate record
+    ok 16 - duplicate record
+      ---
+      duration_ms: 32.6134
+      type: 'test'
+      ...
+    # Subtest: unknown record
+    ok 17 - unknown record
+      ---
+      duration_ms: 38.4368
+      type: 'test'
+      ...
+    # Subtest: pending record
+    ok 18 - pending record
+      ---
+      duration_ms: 36.7653
+      type: 'test'
+      ...
+    # Subtest: missing PDF review
+    ok 19 - missing PDF review
+      ---
+      duration_ms: 40.523
+      type: 'test'
+      ...
+    # Subtest: missing mobile review
+    ok 20 - missing mobile review
+      ---
+      duration_ms: 36.9424
+      type: 'test'
+      ...
+    # Subtest: review of other bytes
+    ok 21 - review of other bytes
+      ---
+      duration_ms: 43.6521
+      type: 'test'
+      ...
+    # Subtest: undisclosed limitation
+    ok 22 - undisclosed limitation
+      ---
+      duration_ms: 45.5442
+      type: 'test'
+      ...
+    # Subtest: stale review image link
+    ok 23 - stale review image link
+      ---
+      duration_ms: 48.6131
+      type: 'test'
+      ...
+    # Subtest: missing native PDF link
+    ok 24 - missing native PDF link
+      ---
+      duration_ms: 52.1081
+      type: 'test'
+      ...
+    # Subtest: wrong runtime dependency
+    ok 25 - wrong runtime dependency
+      ---
+      duration_ms: 25.613
+      type: 'test'
+      ...
+    # Subtest: changed parser semantics
+    ok 26 - changed parser semantics
+      ---
+      duration_ms: 14.5763
+      type: 'test'
+      ...
+    # Subtest: changed styles
+    ok 27 - changed styles
+      ---
+      duration_ms: 42.7509
+      type: 'test'
+      ...
+    # Subtest: forged binding with fresh self-hash
+    ok 28 - forged binding with fresh self-hash
+      ---
+      duration_ms: 3.3269
+      type: 'test'
+      ...
+    # Subtest: forged source manifest
+    ok 29 - forged source manifest
+      ---
+      duration_ms: 6.8921
+      type: 'test'
+      ...
+    # Subtest: forged visual equivalence
+    ok 30 - forged visual equivalence
+      ---
+      duration_ms: 40.3805
+      type: 'test'
+      ...
+    # Subtest: missing re-rasterized PDF page
+    ok 31 - missing re-rasterized PDF page
+      ---
+      duration_ms: 38.8276
+      type: 'test'
+      ...
+    # Subtest: altered previous visual review
+    ok 32 - altered previous visual review
+      ---
+      duration_ms: 39.051
+      type: 'test'
+      ...
+    1..32
+ok 112 - comparison acceptance rejects rehashed declarations and incomplete visual review
+  ---
+  duration_ms: 1082.474
+  type: 'test'
+  ...
+# Subtest: every published comparison artifact is required, including missing or swapped real PDFs
+    # Subtest: missing refinement/inputs/short-T04.md
+    ok 1 - missing refinement/inputs/short-T04.md
+      ---
+      duration_ms: 40.6768
+      type: 'test'
+      ...
+    # Subtest: changed refinement/inputs/short-T04.md
+    ok 2 - changed refinement/inputs/short-T04.md
+      ---
+      duration_ms: 38.8044
+      type: 'test'
+      ...
+    # Subtest: missing refinement/short-T04/manifest.json
+    ok 3 - missing refinement/short-T04/manifest.json
+      ---
+      duration_ms: 42.1184
+      type: 'test'
+      ...
+    # Subtest: changed refinement/short-T04/manifest.json
+    ok 4 - changed refinement/short-T04/manifest.json
+      ---
+      duration_ms: 41.4077
+      type: 'test'
+      ...
+    # Subtest: missing refinement/short-T04/cards.html
+    ok 5 - missing refinement/short-T04/cards.html
+      ---
+      duration_ms: 46.9351
+      type: 'test'
+      ...
+    # Subtest: changed refinement/short-T04/cards.html
+    ok 6 - changed refinement/short-T04/cards.html
+      ---
+      duration_ms: 39.9628
+      type: 'test'
+      ...
+    # Subtest: missing refinement/short-T04/preview.html
+    ok 7 - missing refinement/short-T04/preview.html
+      ---
+      duration_ms: 47.6589
+      type: 'test'
+      ...
+    # Subtest: changed refinement/short-T04/preview.html
+    ok 8 - changed refinement/short-T04/preview.html
+      ---
+      duration_ms: 42.031
+      type: 'test'
+      ...
+    # Subtest: missing refinement/short-T04/cards.pdf
+    ok 9 - missing refinement/short-T04/cards.pdf
+      ---
+      duration_ms: 49.1772
+      type: 'test'
+      ...
+    # Subtest: changed refinement/short-T04/cards.pdf
+    ok 10 - changed refinement/short-T04/cards.pdf
+      ---
+      duration_ms: 43.5664
+      type: 'test'
+      ...
+    # Subtest: missing refinement/short-T04/card-001.png
+    ok 11 - missing refinement/short-T04/card-001.png
+      ---
+      duration_ms: 41.4198
+      type: 'test'
+      ...
+    # Subtest: changed refinement/short-T04/card-001.png
+    ok 12 - changed refinement/short-T04/card-001.png
+      ---
+      duration_ms: 37.0712
+      type: 'test'
+      ...
+    # Subtest: missing refinement/short-T04/contact-sheet.png
+    ok 13 - missing refinement/short-T04/contact-sheet.png
+      ---
+      duration_ms: 44.4327
+      type: 'test'
+      ...
+    # Subtest: changed refinement/short-T04/contact-sheet.png
+    ok 14 - changed refinement/short-T04/contact-sheet.png
+      ---
+      duration_ms: 39.236
+      type: 'test'
+      ...
+    # Subtest: missing refinement/short-T04/mobile-375.png
+    ok 15 - missing refinement/short-T04/mobile-375.png
+      ---
+      duration_ms: 36.6144
+      type: 'test'
+      ...
+    # Subtest: changed refinement/short-T04/mobile-375.png
+    ok 16 - changed refinement/short-T04/mobile-375.png
+      ---
+      duration_ms: 51.8884
+      type: 'test'
+      ...
+    # Subtest: missing refinement/short-T04/mobile-390.png
+    ok 17 - missing refinement/short-T04/mobile-390.png
+      ---
+      duration_ms: 41.6799
+      type: 'test'
+      ...
+    # Subtest: changed refinement/short-T04/mobile-390.png
+    ok 18 - changed refinement/short-T04/mobile-390.png
+      ---
+      duration_ms: 47.2372
+      type: 'test'
+      ...
+    # Subtest: missing refinement/short-T04/page-1-raw.txt
+    ok 19 - missing refinement/short-T04/page-1-raw.txt
+      ---
+      duration_ms: 38.8839
+      type: 'test'
+      ...
+    # Subtest: changed refinement/short-T04/page-1-raw.txt
+    ok 20 - changed refinement/short-T04/page-1-raw.txt
+      ---
+      duration_ms: 43.391
+      type: 'test'
+      ...
+    # Subtest: missing refinement/short-T04/page-1-layout.txt
+    ok 21 - missing refinement/short-T04/page-1-layout.txt
+      ---
+      duration_ms: 39.3017
+      type: 'test'
+      ...
+    # Subtest: changed refinement/short-T04/page-1-layout.txt
+    ok 22 - changed refinement/short-T04/page-1-layout.txt
+      ---
+      duration_ms: 38.7501
+      type: 'test'
+      ...
+    # Subtest: other actual PDF and old actual thumbnail
+    ok 23 - other actual PDF and old actual thumbnail
+      ---
+      duration_ms: 78.3577
+      type: 'test'
+      ...
+    1..23
+ok 113 - every published comparison artifact is required, including missing or swapped real PDFs
+  ---
+  duration_ms: 1016.0041
+  type: 'test'
+  ...
+# Subtest: reviewed limitations remain visible and escaped in the comparison caption
+ok 114 - reviewed limitations remain visible and escaped in the comparison caption
+  ---
+  duration_ms: 611.7906
+  type: 'test'
+  ...
+# Subtest: exact T13 refusal cannot be relabelled, swapped or counted as a successful preview
+    # Subtest: removed refusal boundary
+    ok 1 - removed refusal boundary
+      ---
+      duration_ms: 40.4793
+      type: 'test'
+      ...
+    # Subtest: relabeled refusal
+    ok 2 - relabeled refusal
+      ---
+      duration_ms: 52.6305
+      type: 'test'
+      ...
+    # Subtest: success claim
+    ok 3 - success claim
+      ---
+      duration_ms: 54.4076
+      type: 'test'
+      ...
+    # Subtest: different generated input
+    ok 4 - different generated input
+      ---
+      duration_ms: 44.1655
+      type: 'test'
+      ...
+    # Subtest: swapped overflow diagnostic
+    ok 5 - swapped overflow diagnostic
+      ---
+      duration_ms: 52.8683
+      type: 'test'
+      ...
+    # Subtest: missing diagnostic link
+    ok 6 - missing diagnostic link
+      ---
+      duration_ms: 46.3158
+      type: 'test'
+      ...
+    1..6
+ok 115 - exact T13 refusal cannot be relabelled, swapped or counted as a successful preview
+  ---
+  duration_ms: 922.1708
+  type: 'test'
+  ...
+# Subtest: task-first and comparison sections are static, escaped and do not promote templates
+ok 116 - task-first and comparison sections are static, escaped and do not promote templates
+  ---
+  duration_ms: 557.7943
+  type: 'test'
+  ...
+# Subtest: CLI is opt-in and rejects invalid, missing and duplicate arguments before browser work
+ok 117 - CLI is opt-in and rejects invalid, missing and duplicate arguments before browser work
+  ---
+  duration_ms: 1.2659
+  type: 'test'
+  ...
+# Subtest: runtime authorization guard executes before writes or injected launch
+ok 118 - runtime authorization guard executes before writes or injected launch
+  ---
+  duration_ms: 0.5902
+  type: 'test'
+  ...
+# Subtest: allowlist permits exact local resources only, with optional fragment but no query
+ok 119 - allowlist permits exact local resources only, with optional fragment but no query
+  ---
+  duration_ms: 1.1964
+  type: 'test'
+  ...
+# Subtest: expected filter counts derive from current registry and intersection semantics
+ok 120 - expected filter counts derive from current registry and intersection semantics
+  ---
+  duration_ms: 2.2447
+  type: 'test'
+  ...
+# Subtest: aggregate recorder continues after independent failed checks
+ok 121 - aggregate recorder continues after independent failed checks
+  ---
+  duration_ms: 0.3159
+  type: 'test'
+  ...
+# Subtest: bounded lifecycle helper resolves fast operations and rejects stalled ones
+ok 122 - bounded lifecycle helper resolves fast operations and rejects stalled ones
+  ---
+  duration_ms: 15.5333
+  type: 'test'
+  ...
+# Subtest: output must be empty and cannot overwrite source or use symlinks
+ok 123 - output must be empty and cannot overwrite source or use symlinks
+  ---
+  duration_ms: 12.5388
+  type: 'test'
+  ...
+# Subtest: source-only injected runtime writes aggregated failures and closes browser once
+ok 124 - source-only injected runtime writes aggregated failures and closes browser once
+  ---
+  duration_ms: 176.8518
+  type: 'test'
+  ...
+# Subtest: cleanup failure remains distinct from an earlier runner failure
+ok 125 - cleanup failure remains distinct from an earlier runner failure
+  ---
+  duration_ms: 159.4862
+  type: 'test'
+  ...
+# Subtest: launch failure is recorded without retry and without claiming browser validation
+ok 126 - launch failure is recorded without retry and without claiming browser validation
+  ---
+  duration_ms: 157.564
+  type: 'test'
+  ...
+# Subtest: stale preflight stops before launch and persists its failure report
+ok 127 - stale preflight stops before launch and persists its failure report
+  ---
+  duration_ms: 3.609
+  type: 'test'
+  ...
+# Subtest: browser-path source contains no bypass flags, CSP changes, fake rendering or eager launch
+ok 128 - browser-path source contains no bypass flags, CSP changes, fake rendering or eager launch
+  ---
+  duration_ms: 0.5187
+  type: 'test'
+  ...
+# Subtest: reflow probe detects visible overflow without mistaking hidden or unfocused skip links
+ok 129 - reflow probe detects visible overflow without mistaking hidden or unfocused skip links
+  ---
+  duration_ms: 1.7669
+  type: 'test'
+  ...
+# Subtest: stalled page/image evaluation records failure and closes context and browser
+ok 130 - stalled page/image evaluation records failure and closes context and browser
+  ---
+  duration_ms: 188.0627
+  type: 'test'
+  ...
+# Subtest: skip-link audit waits for delayed same-document navigation to the exact local destination
+ok 131 - skip-link audit waits for delayed same-document navigation to the exact local destination
+  ---
+  duration_ms: 13.4223
+  type: 'test'
+  ...
+# Subtest: skip-link audit still rejects a stalled navigation or a wrong destination
+ok 132 - skip-link audit still rejects a stalled navigation or a wrong destination
+  ---
+  duration_ms: 19.6996
+  type: 'test'
+  ...
+# Subtest: snapshot readiness decodes every intersecting image, not hidden or offscreen entries
+ok 133 - snapshot readiness decodes every intersecting image, not hidden or offscreen entries
+  ---
+  duration_ms: 28.3772
+  type: 'test'
+  ...
+# Subtest: snapshot readiness keeps a finite deadline for stalled lazy-image decoding
+ok 134 - snapshot readiness keeps a finite deadline for stalled lazy-image decoding
+  ---
+  duration_ms: 15.6348
+  type: 'test'
+  ...
+# Subtest: resource model includes current comparison paths, never assumed v1 template directories
+ok 135 - resource model includes current comparison paths, never assumed v1 template directories
+  ---
+  duration_ms: 0.4503
+  type: 'test'
+  ...
+# Subtest: browser image identity follows validated versioned previews without accepting historical or unrelated files
+ok 136 - browser image identity follows validated versioned previews without accepting historical or unrelated files
+  ---
+  duration_ms: 2.618
+  type: 'test'
+  ...
+# Subtest: source-only resource audit binds nonempty comparisons and accepted previews in DOM order
+ok 137 - source-only resource audit binds nonempty comparisons and accepted previews in DOM order
+  ---
+  duration_ms: 1.6593
+  type: 'test'
+  ...
+# Subtest: two exact historical comparisons retain registry scope, provenance and explicit permissions
+ok 138 - two exact historical comparisons retain registry scope, provenance and explicit permissions
+  ---
+  duration_ms: 0.7983
+  type: 'test'
+  ...
+# Subtest: pinned manifest, PNG, original image, input, report, review and brand tampering fail closed
+ok 139 - pinned manifest, PNG, original image, input, report, review and brand tampering fail closed
+  ---
+  duration_ms: 113.0761
+  type: 'test'
+  ...
+# Subtest: future registry version cannot reuse historical pixels; pending previews gain no accepted images
+ok 140 - future registry version cannot reuse historical pixels; pending previews gain no accepted images
+  ---
+  duration_ms: 31.1621
+  type: 'test'
+  ...
+# Subtest: gallery keeps 48 IDs, distinct default previews, searchable routes and safe local markup
+ok 141 - gallery keeps 48 IDs, distinct default previews, searchable routes and safe local markup
+  ---
+  duration_ms: 584.6666
+  type: 'test'
+  ...
+# Subtest: presentation leaves author crop permission, subject safety and aspect refusals enforced by the registry
+ok 142 - presentation leaves author crop permission, subject safety and aspect refusals enforced by the registry
+  ---
+  duration_ms: 0.4626
+  type: 'test'
+  ...
+# Subtest: renderer acquired after the deadline is closed exactly once
+ok 143 - renderer acquired after the deadline is closed exactly once
+  ---
+  duration_ms: 29.096
+  type: 'test'
+  ...
+# Subtest: primary render failure survives cleanup failure and staging is removed
+ok 144 - primary render failure survives cleanup failure and staging is removed
+  ---
+  duration_ms: 15.705
+  type: 'test'
+  ...
+# Subtest: read-only error details cannot mask the primary failure during cleanup
+ok 145 - read-only error details cannot mask the primary failure during cleanup
+  ---
+  duration_ms: 15.4854
+  type: 'test'
+  ...
+# Subtest: staging removal failure preserves the primary error and reports cleanup diagnostics
+ok 146 - staging removal failure preserves the primary error and reports cleanup diagnostics
+  ---
+  duration_ms: 13.7383
+  type: 'test'
+  ...
+# Subtest: artifact write failure survives cleanup failure and staging is removed
+ok 147 - artifact write failure survives cleanup failure and staging is removed
+  ---
+  duration_ms: 8.6453
+  type: 'test'
+  ...
+# Subtest: cleanup-only failure rejects before publishing and removes staging
+ok 148 - cleanup-only failure rejects before publishing and removes staging
+  ---
+  duration_ms: 16.2788
+  type: 'test'
+  ...
+# Subtest: context initialization failure is not masked by browser cleanup failure
+ok 149 - context initialization failure is not masked by browser cleanup failure
+  ---
+  duration_ms: 1.0256
+  type: 'test'
+  ...
+# Subtest: context, route and page initialization share the startup deadline
+ok 150 - context, route and page initialization share the startup deadline
+  ---
+  duration_ms: 94.391
+  type: 'test'
+  ...
+# Subtest: initialization failure survives a close timeout and late close rejection
+ok 151 - initialization failure survives a close timeout and late close rejection
+  ---
+  duration_ms: 30.1879
+  type: 'test'
+  ...
+# Subtest: startup timeout also settles when Chromium shutdown cannot be confirmed
+ok 152 - startup timeout also settles when Chromium shutdown cannot be confirmed
+  ---
+  duration_ms: 61.8533
+  type: 'test'
+  ...
+# Subtest: a pending browser close cannot block primary-error reporting or staging removal
+ok 153 - a pending browser close cannot block primary-error reporting or staging removal
+  ---
+  duration_ms: 15.7449
+  type: 'test'
+  ...
+# Subtest: render deadline interrupts a pending browser evaluation even when close hangs
+ok 154 - render deadline interrupts a pending browser evaluation even when close hangs
+  ---
+  duration_ms: 8.0406
+  type: 'test'
+  ...
+# Subtest: a stalled PDF respects the deadline and its late resolve cannot write output
+ok 155 - a stalled PDF respects the deadline and its late resolve cannot write output
+  ---
+  duration_ms: 10.6568
+  type: 'test'
+  ...
+# Subtest: a stalled PDF respects the deadline and its late reject cannot write output
+ok 156 - a stalled PDF respects the deadline and its late reject cannot write output
+  ---
+  duration_ms: 9.6635
+  type: 'test'
+  ...
+# Subtest: PDF bytes use the owned writer and preserve primary write failures
+ok 157 - PDF bytes use the owned writer and preserve primary write failures
+  ---
+  duration_ms: 8.7848
+  type: 'test'
+  ...
+# Subtest: invalid PDF buffers fail before the owned writer or PDF tools run
+ok 158 - invalid PDF buffers fail before the owned writer or PDF tools run
+  ---
+  duration_ms: 29.9579
+  type: 'test'
+  ...
+# Subtest: PDF bytes are checked against remaining output budget before writing
+ok 159 - PDF bytes are checked against remaining output budget before writing
+  ---
+  duration_ms: 13.9942
+  type: 'test'
+  ...
+# Subtest: a close timeout cannot publish an otherwise successful export
+ok 160 - a close timeout cannot publish an otherwise successful export
+  ---
+  duration_ms: 11.7996
+  type: 'test'
+  ...
+# Subtest: successful browser cleanup and publication remain unchanged
+ok 161 - successful browser cleanup and publication remain unchanged
+  ---
+  duration_ms: 14.432
+  type: 'test'
+  ...
+# Subtest: template export and preview embed identical template CSS without a real browser
+ok 162 - template export and preview embed identical template CSS without a real browser
+  ---
+  duration_ms: 28.6861
+  type: 'test'
+  ...
+# Subtest: CLI template conflicts reject before acquiring a renderer and never remove images
+ok 163 - CLI template conflicts reject before acquiring a renderer and never remove images
+  ---
+  duration_ms: 16.3175
+  type: 'test'
+  ...
+# Subtest: direct export rejects invalid footer modes before file access or renderer acquisition
+ok 164 - direct export rejects invalid footer modes before file access or renderer acquisition
+  ---
+  duration_ms: 0.9145
+  type: 'test'
+  ...
+# Subtest: default export records legacy and emits the same HTML as explicit legacy
+ok 165 - default export records legacy and emits the same HTML as explicit legacy
+  ---
+  duration_ms: 31.3217
+  type: 'test'
+  ...
+# Subtest: all footer modes export retained attribution and caveats in manual and measured auto paths
+    # Subtest: legacy / manual
+    ok 1 - legacy / manual
+      ---
+      duration_ms: 38.25
+      type: 'test'
+      ...
+    # Subtest: legacy / auto
+    ok 2 - legacy / auto
+      ---
+      duration_ms: 46.7096
+      type: 'test'
+      ...
+    # Subtest: poster / manual
+    ok 3 - poster / manual
+      ---
+      duration_ms: 30.963
+      type: 'test'
+      ...
+    # Subtest: poster / auto
+    ok 4 - poster / auto
+      ---
+      duration_ms: 34.8297
+      type: 'test'
+      ...
+    # Subtest: series / manual
+    ok 5 - series / manual
+      ---
+      duration_ms: 33.3186
+      type: 'test'
+      ...
+    # Subtest: series / auto
+    ok 6 - series / auto
+      ---
+      duration_ms: 32.6818
+      type: 'test'
+      ...
+    # Subtest: report / manual
+    ok 7 - report / manual
+      ---
+      duration_ms: 34.1682
+      type: 'test'
+      ...
+    # Subtest: report / auto
+    ok 8 - report / auto
+      ---
+      duration_ms: 33.7946
+      type: 'test'
+      ...
+    1..8
+ok 166 - all footer modes export retained attribution and caveats in manual and measured auto paths
+  ---
+  duration_ms: 286.3288
+  type: 'test'
+  ...
+# Subtest: poster auto keeps widest probes even when the final deck is one card
+ok 167 - poster auto keeps widest probes even when the final deck is one card
+  ---
+  duration_ms: 18.1261
+  type: 'test'
+  ...
+# Subtest: footer modes never strip unsupported auto metadata to make input render
+ok 168 - footer modes never strip unsupported auto metadata to make input render
+  ---
+  duration_ms: 22.5755
+  type: 'test'
+  ...
+# Subtest: opt-in footer modes still reject final print overflow rather than publish clipped output
+    # Subtest: poster
+    ok 1 - poster
+      ---
+      duration_ms: 13.8003
+      type: 'test'
+      ...
+    # Subtest: series
+    ok 2 - series
+      ---
+      duration_ms: 12.1563
+      type: 'test'
+      ...
+    # Subtest: report
+    ok 3 - report
+      ---
+      duration_ms: 13.251
+      type: 'test'
+      ...
+    1..3
+ok 169 - opt-in footer modes still reject final print overflow rather than publish clipped output
+  ---
+  duration_ms: 40.2584
+  type: 'test'
+  ...
+# Subtest: CLI validates modes, target membership, duplicates and baseline scope
+ok 170 - CLI validates modes, target membership, duplicates and baseline scope
+  ---
+  duration_ms: 2.816
+  type: 'test'
+  ...
+# Subtest: every selected non-pass status prevents PASS; unselected NOT-RUN is explicit
+ok 171 - every selected non-pass status prevents PASS; unselected NOT-RUN is explicit
+  ---
+  duration_ms: 0.2068
+  type: 'test'
+  ...
+# Subtest: TAP requires complete nonempty summary and rejects hidden skip/todo/cancellation
+ok 172 - TAP requires complete nonempty summary and rejects hidden skip/todo/cancellation
+  ---
+  duration_ms: 0.8906
+  type: 'test'
+  ...
+# Subtest: run directories are unique, contained, and preserve existing evidence
+ok 173 - run directories are unique, contained, and preserve existing evidence
+  ---
+  duration_ms: 20.608
+  type: 'test'
+  ...
+# Subtest: affected test selection follows transitive imports and falls back for shared/unknown input
+ok 174 - affected test selection follows transitive imports and falls back for shared/unknown input
+  ---
+  duration_ms: 21.5141
+  type: 'test'
+  ...
+# Subtest: cyclic imports cannot cache an incomplete affected-test closure
+ok 175 - cyclic imports cannot cache an incomplete affected-test closure
+  ---
+  duration_ms: 12.8266
+  type: 'test'
+  ...
+# Subtest: output directory junctions/symlinks are rejected before writing outside validation
+ok 176 - output directory junctions/symlinks are rejected before writing outside validation
+  ---
+  duration_ms: 7.8013
+  type: 'test'
+  ...
+# Subtest: real failed command records exit, stdout, stderr and timeout
+ok 177 - real failed command records exit, stdout, stderr and timeout
+  ---
+  duration_ms: 271.7173
+  type: 'test'
+  ...
+# Subtest: full fast runner catches an injected unit failure, preserves sources and repeat history
+ok 178 - full fast runner catches an injected unit failure, preserves sources and repeat history
+  ---
+  duration_ms: 2363.0127
+  type: 'test'
+  ...
+# Subtest: fixed baseline archive validates every Git blob; corrupt supplied source cannot execute
+ok 179 - fixed baseline archive validates every Git blob; corrupt supplied source cannot execute
+  ---
+  duration_ms: 699.6582
+  type: 'test'
+  ...
+# Subtest: archive integrity accepts authenticated bytes and rejects tampering
+ok 180 - archive integrity accepts authenticated bytes and rejects tampering
+  ---
+  duration_ms: 41.2614
+  type: 'test'
+  ...
+# Subtest: Markdown distinguishes unselected checks and does not claim human signoff
+ok 181 - Markdown distinguishes unselected checks and does not claim human signoff
+  ---
+  duration_ms: 0.2702
+  type: 'test'
+  ...
+# Subtest: legacy archive SHA-256 pins match committed blobs and reject altered bytes
+ok 182 - legacy archive SHA-256 pins match committed blobs and reject altered bytes
+  ---
+  duration_ms: 23.761
+  type: 'test'
+  ...
+# Subtest: === splits cards, --- remains a horizontal rule
+ok 183 - === splits cards, --- remains a horizontal rule
+  ---
+  duration_ms: 6.0094
+  type: 'test'
+  ...
+# Subtest: fences protect separators, including long and tilde fences
+ok 184 - fences protect separators, including long and tilde fences
+  ---
+  duration_ms: 0.9967
+  type: 'test'
+  ...
+# Subtest: shorter closing fences do not expose a separator
+ok 185 - shorter closing fences do not expose a separator
+  ---
+  duration_ms: 0.1886
+  type: 'test'
+  ...
+# Subtest: BOM and Windows line endings are normalized
+ok 186 - BOM and Windows line endings are normalized
+  ---
+  duration_ms: 0.2794
+  type: 'test'
+  ...
+# Subtest: empty cards fail with actionable errors
+ok 187 - empty cards fail with actionable errors
+  ---
+  duration_ms: 0.6935
+  type: 'test'
+  ...
+# Subtest: HTML and scripts are escaped, unsafe link schemes are not links
+ok 188 - HTML and scripts are escaped, unsafe link schemes are not links
+  ---
+  duration_ms: 1.766
+  type: 'test'
+  ...
+# Subtest: Markdown images, including reference and linked images, are rejected
+ok 189 - Markdown images, including reference and linked images, are rejected
+  ---
+  duration_ms: 1.6738
+  type: 'test'
+  ...
+# Subtest: supported Markdown preserves CJK, tables, code and safe links
+ok 190 - supported Markdown preserves CJK, tables, code and safe links
+  ---
+  duration_ms: 1.1635
+  type: 'test'
+  ...
+# Subtest: CLI validates dimensions, themes and formats
+ok 191 - CLI validates dimensions, themes and formats
+  ---
+  duration_ms: 1.9103
+  type: 'test'
+  ...
+# Subtest: HTML is standalone with restrictive CSP and escaped user metadata
+ok 192 - HTML is standalone with restrictive CSP and escaped user metadata
+  ---
+  duration_ms: 1.2304
+  type: 'test'
+  ...
+# Subtest: blank-line trimming never strips indentation or trailing code spaces
+ok 193 - blank-line trimming never strips indentation or trailing code spaces
+  ---
+  duration_ms: 0.3609
+  type: 'test'
+  ...
+# Subtest: boundary trimming preserves fenced-code newlines, including unclosed nested fences
+ok 194 - boundary trimming preserves fenced-code newlines, including unclosed nested fences
+  ---
+  duration_ms: 7.2025
+  type: 'test'
+  ...
+# Subtest: nested fences and indented code protect literal separators
+ok 195 - nested fences and indented code protect literal separators
+  ---
+  duration_ms: 3.5687
+  type: 'test'
+  ...
+# Subtest: reference links resolve across cards, with first definition winning
+ok 196 - reference links resolve across cards, with first definition winning
+  ---
+  duration_ms: 1.8312
+  type: 'test'
+  ...
+# Subtest: code definitions never become document references and dangerous links stay escaped
+ok 197 - code definitions never become document references and dangerous links stay escaped
+  ---
+  duration_ms: 0.7404
+  type: 'test'
+  ...
+# Subtest: all named layouts and safe string metadata are supported
+ok 198 - all named layouts and safe string metadata are supported
+  ---
+  duration_ms: 1.0674
+  type: 'test'
+  ...
+# Subtest: metadata validation fails closed and never applies inside code or later content
+ok 199 - metadata validation fails closed and never applies inside code or later content
+  ---
+  duration_ms: 2.7307
+  type: 'test'
+  ...
+# Subtest: local inline, linked, reference and metadata images use the resolver only
+ok 200 - local inline, linked, reference and metadata images use the resolver only
+  ---
+  duration_ms: 1.7796
+  type: 'test'
+  ...
+# Subtest: reference images on a different card cannot bypass image safety
+ok 201 - reference images on a different card cannot bypass image safety
+  ---
+  duration_ms: 1.5817
+  type: 'test'
+  ...
+# Subtest: sections use only top-level h2 blocks and retain code, lists and escaped HTML
+ok 202 - sections use only top-level h2 blocks and retain code, lists and escaped HTML
+  ---
+  duration_ms: 2.1352
+  type: 'test'
+  ...
+# Subtest: parser failures expose stable codes and preserve asset error diagnostics
+ok 203 - parser failures expose stable codes and preserve asset error diagnostics
+  ---
+  duration_ms: 0.9035
+  type: 'test'
+  ...
+# Subtest: extended options remain backwards compatible and validate limits
+ok 204 - extended options remain backwards compatible and validate limits
+  ---
+  duration_ms: 2.3988
+  type: 'test'
+  ...
+# Subtest: brand JSON allowlist prevents CSS or unsupported properties
+ok 205 - brand JSON allowlist prevents CSS or unsupported properties
+  ---
+  duration_ms: 39.544
+  type: 'test'
+  ...
+# Subtest: contact-sheet pixel and side budgets reject extreme aspect ratios before rendering
+ok 206 - contact-sheet pixel and side budgets reject extreme aspect ratios before rendering
+  ---
+  duration_ms: 1.0667
+  type: 'test'
+  ...
+# Subtest: footer mode is explicit, defaults to legacy, and rejects unknown or malformed values
+ok 207 - footer mode is explicit, defaults to legacy, and rejects unknown or malformed values
+  ---
+  duration_ms: 1.6704
+  type: 'test'
+  ...
+# Subtest: pagination is opt-in and invalid modes fail
+ok 208 - pagination is opt-in and invalid modes fail
+  ---
+  duration_ms: 2.4966
+  type: 'test'
+  ...
+# Subtest: greedy packing makes one fresh-page fallback and never merges explicit partitions
+ok 209 - greedy packing makes one fresh-page fallback and never merges explicit partitions
+  ---
+  duration_ms: 9.241
+  type: 'test'
+  ...
+# Subtest: heading chains travel with their following atom without duplication
+ok 210 - heading chains travel with their following atom without duplication
+  ---
+  duration_ms: 1.3764
+  type: 'test'
+  ...
+# Subtest: reference-only explicit partitions keep exactly one intentional empty card
+ok 211 - reference-only explicit partitions keep exactly one intentional empty card
+  ---
+  duration_ms: 2.3009
+  type: 'test'
+  ...
+# Subtest: print overflow alone moves a group and oversized atoms fail without rewriting
+ok 212 - print overflow alone moves a group and oversized atoms fail without rewriting
+  ---
+  duration_ms: 1.0516
+  type: 'test'
+  ...
+# Subtest: probe, card, atom and external render budgets are finite
+ok 213 - probe, card, atom and external render budgets are finite
+  ---
+  duration_ms: 0.9507
+  type: 'test'
+  ...
+# Subtest: invalid measurements and deadline checkpoints fail closed
+ok 214 - invalid measurements and deadline checkpoints fail closed
+  ---
+  duration_ms: 0.6879
+  type: 'test'
+  ...
+# Subtest: measurement footer reserves the maximum counter but final output uses true count
+ok 215 - measurement footer reserves the maximum counter but final output uses true count
+  ---
+  duration_ms: 1.1342
+  type: 'test'
+  ...
+# Subtest: final asset accounting includes repeated headers and per-page logos
+ok 216 - final asset accounting includes repeated headers and per-page logos
+  ---
+  duration_ms: 0.6143
+  type: 'test'
+  ...
+# Subtest: export integration publishes only after pagination and final-deck validation
+ok 217 - export integration publishes only after pagination and final-deck validation
+  ---
+  duration_ms: 33.2395
+  type: 'test'
+  ...
+# Subtest: final exact-count layout is revalidated, not trusted from packing probes
+ok 218 - final exact-count layout is revalidated, not trusted from packing probes
+  ---
+  duration_ms: 19.3666
+  type: 'test'
+  ...
+# Subtest: atomic planning errors and unsupported metadata publish no output
+ok 219 - atomic planning errors and unsupported metadata publish no output
+  ---
+  duration_ms: 20.4405
+  type: 'test'
+  ...
+# Subtest: growing output card counts are charged to aggregate pixels before publication
+ok 220 - growing output card counts are charged to aggregate pixels before publication
+  ---
+  duration_ms: 23.9466
+  type: 'test'
+  ...
+# Subtest: a stalled automatic probe obeys the shared deadline and cannot publish after a late result
+ok 221 - a stalled automatic probe obeys the shared deadline and cannot publish after a late result
+  ---
+  duration_ms: 1023.5627
+  type: 'test'
+  ...
+# Subtest: visual verifier refuses lost crop focus or contrast backing even when boxes fit
+ok 222 - visual verifier refuses lost crop focus or contrast backing even when boxes fit
+  ---
+  duration_ms: 2.3923
+  type: 'test'
+  ...
+# Subtest: crop authorization and author safety are explicit, typed and template scoped
+ok 223 - crop authorization and author safety are explicit, typed and template scoped
+  ---
+  duration_ms: 8.256
+  type: 'test'
+  ...
+# Subtest: trusted resolver is reused; title and one photo are required without hiding content
+ok 224 - trusted resolver is reused; title and one photo are required without hiding content
+  ---
+  duration_ms: 325.3545
+  type: 'test'
+  ...
+# Subtest: recommendation does not borrow default approval or recommend unsupported slide crop
+ok 225 - recommendation does not borrow default approval or recommend unsupported slide crop
+  ---
+  duration_ms: 48.8435
+  type: 'test'
+  ...
+# Subtest: fallback removes only crop fields and inventory cannot silently skip/add cases
+ok 226 - fallback removes only crop fields and inventory cannot silently skip/add cases
+  ---
+  duration_ms: 5.8182
+  type: 'test'
+  ...
+# Subtest: CLI emits one stable JSON report with original input hash, conditions and real reviewed links
+ok 227 - CLI emits one stable JSON report with original input hash, conditions and real reviewed links
+  ---
+  duration_ms: 1655.5591
+  type: 'test'
+  ...
+# Subtest: text mode explains screenshots and never promises mobile microtext readability
+ok 228 - text mode explains screenshots and never promises mobile microtext readability
+  ---
+  duration_ms: 722.3527
+  type: 'test'
+  ...
+# Subtest: text mode preserves exact-example review limitations and scope from JSON
+ok 229 - text mode preserves exact-example review limitations and scope from JSON
+  ---
+  duration_ms: 1606.1322
+  type: 'test'
+  ...
+# Subtest: requested aspect gets its exact example, while incompatible templates are rejected
+ok 230 - requested aspect gets its exact example, while incompatible templates are rejected
+  ---
+  duration_ms: 1572.5528
+  type: 'test'
+  ...
+# Subtest: pending requested-aspect evidence never borrows a reviewed portrait PNG
+ok 231 - pending requested-aspect evidence never borrows a reviewed portrait PNG
+  ---
+  duration_ms: 775.5885
+  type: 'test'
+  ...
+# Subtest: auto mode describes manual partitions but assigns no templates or output files
+ok 232 - auto mode describes manual partitions but assigns no templates or output files
+  ---
+  duration_ms: 934.067
+  type: 'test'
+  ...
+# Subtest: CLI works outside repository cwd and accepts explicit bounded asset roots
+ok 233 - CLI works outside repository cwd and accepts explicit bounded asset roots
+  ---
+  duration_ms: 891.1844
+  type: 'test'
+  ...
+# Subtest: bad options and unsafe/unsupported inputs fail with clean JSON stderr and empty stdout
+ok 234 - bad options and unsafe/unsupported inputs fail with clean JSON stderr and empty stdout
+  ---
+  duration_ms: 1655.3804
+  type: 'test'
+  ...
+# Subtest: bounded UTF-8 and card-count validation rejects malformed or oversized sources
+ok 235 - bounded UTF-8 and card-count validation rejects malformed or oversized sources
+  ---
+  duration_ms: 715.0631
+  type: 'test'
+  ...
+# Subtest: CLI report path runs with writes/process spawning denied and all networking trapped
+ok 236 - CLI report path runs with writes/process spawning denied and all networking trapped
+  ---
+  duration_ms: 714.7065
+  type: 'test'
+  ...
+# Subtest: static role routes derive from registry fields, survive no JS and add no preview identities
+not ok 237 - static role routes derive from registry fields, survive no JS and add no preview identities
+  ---
+  duration_ms: 588.1917
+  type: 'test'
+  location: 'E:\\LHA\\codex-worktree\\r6-aspect-evidence\\md2card-skill\\tests\\recommend-cli.test.mjs:138:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    63 !== 59
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 59
+  actual: 63
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/LHA/codex-worktree/r6-aspect-evidence/md2card-skill/tests/recommend-cli.test.mjs:145:48)
+    async Test.run (node:internal/test_runner/test:1313:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:897:7)
+  ...
+# Subtest: checked-in CLI JSON and text reports are reproducible
+ok 238 - checked-in CLI JSON and text reports are reproducible
+  ---
+  duration_ms: 1680.3658
+  type: 'test'
+  ...
+# Subtest: refinement binding checks the full artifact contract without promoting synthetic output
+    # Subtest: missing input digest
+    ok 1 - missing input digest
+      ---
+      duration_ms: 877.0215
+      type: 'test'
+      ...
+    # Subtest: changed input with a fresh digest
+    ok 2 - changed input with a fresh digest
+      ---
+      duration_ms: 912.7972
+      type: 'test'
+      ...
+    # Subtest: substituted PDF bytes
+    ok 3 - substituted PDF bytes
+      ---
+      duration_ms: 947.5834
+      type: 'test'
+      ...
+    # Subtest: missing PDF file
+    ok 4 - missing PDF file
+      ---
+      duration_ms: 947.6403
+      type: 'test'
+      ...
+    # Subtest: missing PDF digest
+    ok 5 - missing PDF digest
+      ---
+      duration_ms: 917.7721
+      type: 'test'
+      ...
+    # Subtest: wrong manifest input with fresh hashes
+    ok 6 - wrong manifest input with fresh hashes
+      ---
+      duration_ms: 874.3188
+      type: 'test'
+      ...
+    # Subtest: wrong card source with fresh hashes
+    ok 7 - wrong card source with fresh hashes
+      ---
+      duration_ms: 873.2648
+      type: 'test'
+      ...
+    # Subtest: wrong stylesheet with fresh hashes
+    ok 8 - wrong stylesheet with fresh hashes
+      ---
+      duration_ms: 884.1913
+      type: 'test'
+      ...
+    # Subtest: wrong template with fresh hashes
+    ok 9 - wrong template with fresh hashes
+      ---
+      duration_ms: 866.1875
+      type: 'test'
+      ...
+    # Subtest: hidden text in freshly hashed HTML
+    ok 10 - hidden text in freshly hashed HTML
+      ---
+      duration_ms: 872.0855
+      type: 'test'
+      ...
+    # Subtest: wrong full PNG dimensions with fresh hashes
+    ok 11 - wrong full PNG dimensions with fresh hashes
+      ---
+      duration_ms: 873.1104
+      type: 'test'
+      ...
+    # Subtest: source text missing from freshly hashed raw PDF text
+    ok 12 - source text missing from freshly hashed raw PDF text
+      ---
+      duration_ms: 877.4444
+      type: 'test'
+      ...
+    # Subtest: missing mobile record
+    ok 13 - missing mobile record
+      ---
+      duration_ms: 891.3197
+      type: 'test'
+      ...
+    # Subtest: phone text below existing floor
+    ok 14 - phone text below existing floor
+      ---
+      duration_ms: 901.3501
+      type: 'test'
+      ...
+    # Subtest: cropped original image
+    ok 15 - cropped original image
+      ---
+      duration_ms: 1168.5179
+      type: 'test'
+      ...
+    # Subtest: source semantics replaced
+    ok 16 - source semantics replaced
+      ---
+      duration_ms: 891.0094
+      type: 'test'
+      ...
+    # Subtest: another refusal diagnostic renamed as medium T13
+    ok 17 - another refusal diagnostic renamed as medium T13
+      ---
+      duration_ms: 913.6565
+      type: 'test'
+      ...
+    # Subtest: refusal carries stale successful output
+    ok 18 - refusal carries stale successful output
+      ---
+      duration_ms: 1644.9664
+      type: 'test'
+      ...
+    # Subtest: duplicate case replaces another
+    ok 19 - duplicate case replaces another
+      ---
+      duration_ms: 893.4484
+      type: 'test'
+      ...
+    # Subtest: plan-only run
+    ok 20 - plan-only run
+      ---
+      duration_ms: 836.2669
+      type: 'test'
+      ...
+    # Subtest: summary self-promotes visual review
+    ok 21 - summary self-promotes visual review
+      ---
+      duration_ms: 851.0596
+      type: 'test'
+      ...
+    1..21
+ok 239 - refinement binding checks the full artifact contract without promoting synthetic output
+  ---
+  duration_ms: 23082.169
+  type: 'test'
+  ...
+# Subtest: CI image calibration keeps actual phone picture/key floors without cropping
+ok 240 - CI image calibration keeps actual phone picture/key floors without cropping
+  ---
+  duration_ms: 6.2112
+  type: 'test'
+  ...
+# Subtest: T40 spends geometry rather than font size and retains full-width later content
+ok 241 - T40 spends geometry rather than font size and retains full-width later content
+  ---
+  duration_ms: 1.5595
+  type: 'test'
+  ...
+# Subtest: T43 dialogue and T48 explicit field labels recover readable column measure
+ok 242 - T43 dialogue and T48 explicit field labels recover readable column measure
+  ---
+  duration_ms: 0.5753
+  type: 'test'
+  ...
+# Subtest: all five calibrated examples retain complete words, source and embedded image data
+ok 243 - all five calibrated examples retain complete words, source and embedded image data
+  ---
+  duration_ms: 64.9754
+  type: 'test'
+  ...
+# Subtest: calibration never introduces clipping, fixed text heights or smaller density type
+ok 244 - calibration never introduces clipping, fixed text heights or smaller density type
+  ---
+  duration_ms: 1.1614
+  type: 'test'
+  ...
+# Subtest: T43 reserves the comic page vertically without reducing its horizontal image measure or type
+ok 245 - T43 reserves the comic page vertically without reducing its horizontal image measure or type
+  ---
+  duration_ms: 0.7053
+  type: 'test'
+  ...
+# Subtest: text-input builder preserves exact body bytes with only controlled metadata
+ok 246 - text-input builder preserves exact body bytes with only controlled metadata
+  ---
+  duration_ms: 0.6253
+  type: 'test'
+  ...
+# Subtest: real-content matrix bounds four text lengths and six whole-image aspect cases
+ok 247 - real-content matrix bounds four text lengths and six whole-image aspect cases
+  ---
+  duration_ms: 271.2874
+  type: 'test'
+  ...
+# Subtest: source-only plan never attempts a browser or counts overflow expectations as successful exports
+ok 248 - source-only plan never attempts a browser or counts overflow expectations as successful exports
+  ---
+  duration_ms: 749.5244
+  type: 'test'
+  ...
+# Subtest: T20 pressure calibration keeps the dark instrument, open columns and original type rhythm
+ok 249 - T20 pressure calibration keeps the dark instrument, open columns and original type rhythm
+  ---
+  duration_ms: 1.2572
+  type: 'test'
+  ...
+# Subtest: T20 keeps the complete .40h image and unchanged meaningful landscape scale at 351px
+ok 250 - T20 keeps the complete .40h image and unchanged meaningful landscape scale at 351px
+  ---
+  duration_ms: 3.8936
+  type: 'test'
+  ...
+# Subtest: spacing-only follow-on covers the no-eyebrow pressure residual with a conservative budget
+ok 251 - spacing-only follow-on covers the no-eyebrow pressure residual with a conservative budget
+  ---
+  duration_ms: 0.4533
+  type: 'test'
+  ...
+# Subtest: registered and portrait-pressure cases retain every source fragment, caption and exact image
+ok 252 - registered and portrait-pressure cases retain every source fragment, caption and exact image
+  ---
+  duration_ms: 46.6453
+  type: 'test'
+  ...
+# Subtest: twelve fixed local typography profiles match the static CSS and all 48 registry entries
+ok 253 - twelve fixed local typography profiles match the static CSS and all 48 registry entries
+  ---
+  duration_ms: 2.6498
+  type: 'test'
+  ...
+# Subtest: role font stacks remain local, CJK-capable fallbacks with no download or licensing payload
+ok 254 - role font stacks remain local, CJK-capable fallbacks with no download or licensing payload
+  ---
+  duration_ms: 0.6357
+  type: 'test'
+  ...
+# Subtest: font inventory distinguishes named candidates, generic fallback and unknown inspection
+ok 255 - font inventory distinguishes named candidates, generic fallback and unknown inspection
+  ---
+  duration_ms: 0.4163
+  type: 'test'
+  ...
+# Subtest: density remains spacing-only and family rhythm never overrides the mobile text floor
+ok 256 - density remains spacing-only and family rhythm never overrides the mobile text floor
+  ---
+  duration_ms: 1.7213
+  type: 'test'
+  ...
+# Subtest: flagship image treatments use intrinsic frames rather than icon-height caps or cover crops
+ok 257 - flagship image treatments use intrinsic frames rather than icon-height caps or cover crops
+  ---
+  duration_ms: 1.6438
+  type: 'test'
+  ...
+# Subtest: all original template words, metadata and image payloads survive the role/style round unchanged
+ok 258 - all original template words, metadata and image payloads survive the role/style round unchanged
+  ---
+  duration_ms: 532.201
+  type: 'test'
+  ...
+# Subtest: the M1 wide text structures and independent aspect section remain intact
+ok 259 - the M1 wide text structures and independent aspect section remain intact
+  ---
+  duration_ms: 1.4337
+  type: 'test'
+  ...
+# Subtest: open-grid headings and film plate stay inside the measured content box
+ok 260 - open-grid headings and film plate stay inside the measured content box
+  ---
+  duration_ms: 0.6607
+  type: 'test'
+  ...
+# Subtest: capacity calibration preserves type roles and keeps absent labels and short links honest
+ok 261 - capacity calibration preserves type roles and keeps absent labels and short links honest
+  ---
+  duration_ms: 2.7332
+  type: 'test'
+  ...
+# Subtest: unlabelled T10 balances only its title inset without changing the accepted labelled fixture
+ok 262 - unlabelled T10 balances only its title inset without changing the accepted labelled fixture
+  ---
+  duration_ms: 3.0984
+  type: 'test'
+  ...
+# Subtest: compact portrait T21 gives evidence bodies a wider measure without changing type or other aspects
+ok 263 - compact portrait T21 gives evidence bodies a wider measure without changing type or other aspects
+  ---
+  duration_ms: 1.673
+  type: 'test'
+  ...
+# Subtest: only explicit T20 with the exact enum and a local metadata image is accepted
+ok 264 - only explicit T20 with the exact enum and a local metadata image is accepted
+  ---
+  duration_ms: 24.7373
+  type: 'test'
+  ...
+# Subtest: the existing local-image security boundary also protects the explicit stage
+ok 265 - the existing local-image security boundary also protects the explicit stage
+  ---
+  duration_ms: 30.0089
+  type: 'test'
+  ...
+# Subtest: stage keeps the exact image and text; default DOM and CSS stay untouched
+ok 266 - stage keeps the exact image and text; default DOM and CSS stay untouched
+  ---
+  duration_ms: 20.6241
+  type: 'test'
+  ...
+# Subtest: recommendations cannot borrow default T20 visual acceptance for the variant
+ok 267 - recommendations cannot borrow default T20 visual acceptance for the variant
+  ---
+  duration_ms: 12.3505
+  type: 'test'
+  ...
+# Subtest: real fixture inventory excludes documentation and refuses incomplete/new cases
+ok 268 - real fixture inventory excludes documentation and refuses incomplete/new cases
+  ---
+  duration_ms: 7.6182
+  type: 'test'
+  ...
+# Subtest: default counterpart removes the opt-in despite key order/spacing, without rewriting text
+ok 269 - default counterpart removes the opt-in despite key order/spacing, without rewriting text
+  ---
+  duration_ms: 0.8092
+  type: 'test'
+  ...
+# Subtest: validation refuses nonempty output before overwriting any evidence or launching Chromium
+ok 270 - validation refuses nonempty output before overwriting any evidence or launching Chromium
+  ---
+  duration_ms: 23.4289
+  type: 'test'
+  ...
+# Subtest: mismatched baseline bytes cannot be presented as the pinned historical commit
+ok 271 - mismatched baseline bytes cannot be presented as the pinned historical commit
+  ---
+  duration_ms: 3.2625
+  type: 'test'
+  ...
+# Subtest: normalization preserves exact UTF-16 offsets, original mappings, hashes and all source
+ok 272 - normalization preserves exact UTF-16 offsets, original mappings, hashes and all source
+  ---
+  duration_ms: 12.9939
+  type: 'test'
+  ...
+# Subtest: lone CR normalization and final boundary without newline are exact
+ok 273 - lone CR normalization and final boundary without newline are exact
+  ---
+  duration_ms: 0.9505
+  type: 'test'
+  ...
+# Subtest: explicit partitions stay locked and metadata is never rendered or silently lost
+ok 274 - explicit partitions stay locked and metadata is never rendered or silently lost
+  ---
+  duration_ms: 2.8129
+  type: 'test'
+  ...
+# Subtest: automatic layout and metadata restrictions fail explicitly; malformed metadata stays invalid
+ok 275 - automatic layout and metadata restrictions fail explicitly; malformed metadata stays invalid
+  ---
+  duration_ms: 4.0499
+  type: 'test'
+  ...
+# Subtest: consecutive headings bind to the following indivisible atom
+ok 276 - consecutive headings bind to the following indivisible atom
+  ---
+  duration_ms: 3.6994
+  type: 'test'
+  ...
+# Subtest: terminal heading chains fail with actionable original source lines
+ok 277 - terminal heading chains fail with actionable original source lines
+  ---
+  duration_ms: 1.0241
+  type: 'test'
+  ...
+# Subtest: fenced, nested fenced and indented code protect literal === and remain atomic
+ok 278 - fenced, nested fenced and indented code protect literal === and remain atomic
+  ---
+  duration_ms: 3.6204
+  type: 'test'
+  ...
+# Subtest: manual and automatic modes conserve terminal code whitespace against an independent parser
+ok 279 - manual and automatic modes conserve terminal code whitespace against an independent parser
+  ---
+  duration_ms: 3.4683
+  type: 'test'
+  ...
+# Subtest: tight and loose lists retain complete nested items and original paragraph visibility
+ok 280 - tight and loose lists retain complete nested items and original paragraph visibility
+  ---
+  duration_ms: 7.1984
+  type: 'test'
+  ...
+# Subtest: ordered list continuation carries ordinal rather than original marker spelling
+ok 281 - ordered list continuation carries ordinal rather than original marker spelling
+  ---
+  duration_ms: 0.9338
+  type: 'test'
+  ...
+# Subtest: adjacent independent lists stay separate while fragments of one list coalesce
+ok 282 - adjacent independent lists stay separate while fragments of one list coalesce
+  ---
+  duration_ms: 0.722
+  type: 'test'
+  ...
+# Subtest: tables split only at complete body rows and repeat their original aligned headers
+ok 283 - tables split only at complete body rows and repeat their original aligned headers
+  ---
+  duration_ms: 4.1796
+  type: 'test'
+  ...
+# Subtest: header-only tables stay as one exact-once atomic table
+ok 284 - header-only tables stay as one exact-once atomic table
+  ---
+  duration_ms: 0.6499
+  type: 'test'
+  ...
+# Subtest: HTML escaping and link safety match manual mode before and after splitting
+ok 285 - HTML escaping and link safety match manual mode before and after splitting
+  ---
+  duration_ms: 1.3256
+  type: 'test'
+  ...
+# Subtest: images use the same trusted resolver and remain atomic with reference/linked forms
+ok 286 - images use the same trusted resolver and remain atomic with reference/linked forms
+  ---
+  duration_ms: 2.9749
+  type: 'test'
+  ...
+# Subtest: global references preserve first definition, prototype labels, unused and duplicate definitions
+ok 287 - global references preserve first definition, prototype labels, unused and duplicate definitions
+  ---
+  duration_ms: 2.824
+  type: 'test'
+  ...
+# Subtest: multiline and nested reference definitions are explicitly accounted, not guessed by regex
+ok 288 - multiline and nested reference definitions are explicitly accounted, not guessed by regex
+  ---
+  duration_ms: 2.1881
+  type: 'test'
+  ...
+# Subtest: source-only explicit partitions are retained exactly once as empty cards
+ok 289 - source-only explicit partitions are retained exactly once as empty cards
+  ---
+  duration_ms: 2.0257
+  type: 'test'
+  ...
+# Subtest: coverage rejects missing, duplicated, reordered and invented atoms or partition changes
+ok 290 - coverage rejects missing, duplicated, reordered and invented atoms or partition changes
+  ---
+  duration_ms: 4.3412
+  type: 'test'
+  ...
+# Subtest: coverage rejects omitted or fabricated repeated-header provenance
+ok 291 - coverage rejects omitted or fabricated repeated-header provenance
+  ---
+  duration_ms: 2.4039
+  type: 'test'
+  ...
+# Subtest: parse-time independent witnesses reject tampered IR rather than validating its own changed tokens
+ok 292 - parse-time independent witnesses reject tampered IR rather than validating its own changed tokens
+  ---
+  duration_ms: 1.6792
+  type: 'test'
+  ...
+# Subtest: rendering, validation and manifest generation never mutate source tokens or input
+ok 293 - rendering, validation and manifest generation never mutate source tokens or input
+  ---
+  duration_ms: 4.1352
+  type: 'test'
+  ...
+# Subtest: semantic cards fit buildDocument without extra adapters
+ok 294 - semantic cards fit buildDocument without extra adapters
+  ---
+  duration_ms: 2.1775
+  type: 'test'
+  ...
+# Subtest: at most 2000 semantic atoms are accepted and budget errors are explicit
+ok 295 - at most 2000 semantic atoms are accepted and budget errors are explicit
+  ---
+  duration_ms: 127.5873
+  type: 'test'
+  ...
+# Subtest: empty inputs retain manual validation and selection rejects copied or reordered atom objects
+ok 296 - empty inputs retain manual validation and selection rejects copied or reordered atom objects
+  ---
+  duration_ms: 1.9785
+  type: 'test'
+  ...
+# Subtest: large CRLF and blank-line inputs produce compact manifests with exact span mappings
+ok 297 - large CRLF and blank-line inputs produce compact manifests with exact span mappings
+  ---
+  duration_ms: 97.3096
+  type: 'test'
+  ...
+# Subtest: large shared table headers are fingerprinted without duplicating embedded data in manifest
+ok 298 - large shared table headers are fingerprinted without duplicating embedded data in manifest
+  ---
+  duration_ms: 48.7808
+  type: 'test'
+  ...
+# Subtest: explicit partition and non-rendered source budgets reject manifest amplification
+ok 299 - explicit partition and non-rendered source budgets reject manifest amplification
+  ---
+  duration_ms: 330.2569
+  type: 'test'
+  ...
+# Subtest: evidence-reading: explicit boundaries and registered per-card templates stay fixed
+ok 300 - evidence-reading: explicit boundaries and registered per-card templates stay fixed
+  ---
+  duration_ms: 5.9527
+  type: 'test'
+  ...
+# Subtest: evidence-reading: production HTML/preview structures preserve source, brand and consecutive counters
+ok 301 - evidence-reading: production HTML/preview structures preserve source, brand and consecutive counters
+  ---
+  duration_ms: 7.8438
+  type: 'test'
+  ...
+# Subtest: evidence-reading: automatic pagination is rejected before preflight or browser acquisition
+ok 302 - evidence-reading: automatic pagination is rejected before preflight or browser acquisition
+  ---
+  duration_ms: 9.4202
+  type: 'test'
+  ...
+# Subtest: mean-tutorial: explicit boundaries and registered per-card templates stay fixed
+ok 303 - mean-tutorial: explicit boundaries and registered per-card templates stay fixed
+  ---
+  duration_ms: 1.6958
+  type: 'test'
+  ...
+# Subtest: mean-tutorial: production HTML/preview structures preserve source, brand and consecutive counters
+ok 304 - mean-tutorial: production HTML/preview structures preserve source, brand and consecutive counters
+  ---
+  duration_ms: 3.9069
+  type: 'test'
+  ...
+# Subtest: mean-tutorial: automatic pagination is rejected before preflight or browser acquisition
+ok 305 - mean-tutorial: automatic pagination is rejected before preflight or browser acquisition
+  ---
+  duration_ms: 4.9885
+  type: 'test'
+  ...
+# Subtest: note-format-decision: explicit boundaries and registered per-card templates stay fixed
+ok 306 - note-format-decision: explicit boundaries and registered per-card templates stay fixed
+  ---
+  duration_ms: 2.5558
+  type: 'test'
+  ...
+# Subtest: note-format-decision: production HTML/preview structures preserve source, brand and consecutive counters
+ok 307 - note-format-decision: production HTML/preview structures preserve source, brand and consecutive counters
+  ---
+  duration_ms: 4.1173
+  type: 'test'
+  ...
+# Subtest: note-format-decision: automatic pagination is rejected before preflight or browser acquisition
+ok 308 - note-format-decision: automatic pagination is rejected before preflight or browser acquisition
+  ---
+  duration_ms: 4.5949
+  type: 'test'
+  ...
+# Subtest: object-observation: explicit boundaries and registered per-card templates stay fixed
+ok 309 - object-observation: explicit boundaries and registered per-card templates stay fixed
+  ---
+  duration_ms: 1.6316
+  type: 'test'
+  ...
+# Subtest: object-observation: production HTML/preview structures preserve source, brand and consecutive counters
+ok 310 - object-observation: production HTML/preview structures preserve source, brand and consecutive counters
+  ---
+  duration_ms: 6.2153
+  type: 'test'
+  ...
+# Subtest: object-observation: automatic pagination is rejected before preflight or browser acquisition
+ok 311 - object-observation: automatic pagination is rejected before preflight or browser acquisition
+  ---
+  duration_ms: 4.7948
+  type: 'test'
+  ...
+# Subtest: recipe selection is documentation-only and never expands the renderer CLI
+ok 312 - recipe selection is documentation-only and never expands the renderer CLI
+  ---
+  duration_ms: 3.2991
+  type: 'test'
+  ...
+# Subtest: brand assets resolve from examples, not from the nested input or JSON directory
+ok 313 - brand assets resolve from examples, not from the nested input or JSON directory
+  ---
+  duration_ms: 10.2462
+  type: 'test'
+  ...
+# Subtest: manual rendering never inserts a cover, closing, CTA, filler, or another partition
+ok 314 - manual rendering never inserts a cover, closing, CTA, filler, or another partition
+  ---
+  duration_ms: 9.7862
+  type: 'test'
+  ...
+# Subtest: native list starts are source-owned, including when an authored list starts at 7
+ok 315 - native list starts are source-owned, including when an authored list starts at 7
+  ---
+  duration_ms: 1.3638
+  type: 'test'
+  ...
+# Subtest: fictional metric retains value, label, denominator, time range and causal limits
+ok 316 - fictional metric retains value, label, denominator, time range and causal limits
+  ---
+  duration_ms: 1.1245
+  type: 'test'
+  ...
+# Subtest: actual tutorial code executes correctly, with independently checked nonempty and empty results
+ok 317 - actual tutorial code executes correctly, with independently checked nonempty and empty results
+  ---
+  duration_ms: 7.9428
+  type: 'test'
+  ...
+# Subtest: series keep explicit author-chosen density rather than borrowing portrait template acceptance
+ok 318 - series keep explicit author-chosen density rather than borrowing portrait template acceptance
+  ---
+  duration_ms: 0.2188
+  type: 'test'
+  ...
+# Subtest: new decision rhythm moves from contrast to criteria to a reversible trial, without mandatory cover or CTA
+ok 319 - new decision rhythm moves from contrast to criteria to a reversible trial, without mandatory cover or CTA
+  ---
+  duration_ms: 0.2443
+  type: 'test'
+  ...
+# Subtest: image observation rhythm uses complete licensed originals, then preserves what the pictures cannot prove
+ok 320 - image observation rhythm uses complete licensed originals, then preserves what the pictures cannot prove
+  ---
+  duration_ms: 0.2393
+  type: 'test'
+  ...
+# Subtest: image validation fails closed on changed source order, missing provenance or mismatched original bytes
+ok 321 - image validation fails closed on changed source order, missing provenance or mismatched original bytes
+  ---
+  duration_ms: 5.5004
+  type: 'test'
+  ...
+# Subtest: image-led source rejects a nested or missing asset root before preflight and browser acquisition
+ok 322 - image-led source rejects a nested or missing asset root before preflight and browser acquisition
+  ---
+  duration_ms: 11.2424
+  type: 'test'
+  ...
+# Subtest: future PDF checks derive complete source-owned segments, not potentially incomplete output
+ok 323 - future PDF checks derive complete source-owned segments, not potentially incomplete output
+  ---
+  duration_ms: 2.8956
+  type: 'test'
+  ...
+# Subtest: PDF source coverage keeps complete paragraphs without assuming visual column order
+ok 324 - PDF source coverage keeps complete paragraphs without assuming visual column order
+  ---
+  duration_ms: 0.4938
+  type: 'test'
+  ...
+# Subtest: opaque sRGB ratios use exact thresholds and reject unsupported colors
+ok 325 - opaque sRGB ratios use exact thresholds and reject unsupported colors
+  ---
+  duration_ms: 1.621
+  type: 'test'
+  ...
+# Subtest: default and readable brands keep existing output; unsafe dark/light pairs use existing ink
+ok 326 - default and readable brands keep existing output; unsafe dark/light pairs use existing ink
+  ---
+  duration_ms: 1.6853
+  type: 'test'
+  ...
+# Subtest: only necessary default T37 documents receive foreground CSS; photo and other templates stay scoped out
+ok 327 - only necessary default T37 documents receive foreground CSS; photo and other templates stay scoped out
+  ---
+  duration_ms: 314.7602
+  type: 'test'
+  ...
+# Subtest: tail balancing is an explicit auto-only CLI option
+ok 328 - tail balancing is an explicit auto-only CLI option
+  ---
+  duration_ms: 9.3388
+  type: 'test'
+  ...
+# Subtest: default and explicit-false pagination preserve the original greedy contract
+ok 329 - default and explicit-false pagination preserve the original greedy contract
+  ---
+  duration_ms: 9.3783
+  type: 'test'
+  ...
+# Subtest: six equal groups balance a five-line/one-line tail into three/three
+ok 330 - six equal groups balance a five-line/one-line tail into three/three
+  ---
+  duration_ms: 3.0166
+  type: 'test'
+  ...
+# Subtest: occupied geometry, not full-box scrollHeight, determines tail utilization
+ok 331 - occupied geometry, not full-box scrollHeight, determines tail utilization
+  ---
+  duration_ms: 2.0955
+  type: 'test'
+  ...
+# Subtest: only the last pair in each partition changes, with global order and page count intact
+ok 332 - only the last pair in each partition changes, with global order and page count intact
+  ---
+  duration_ms: 5.1811
+  type: 'test'
+  ...
+# Subtest: single-page and source-only explicit partitions never lend groups to neighbors
+ok 333 - single-page and source-only explicit partitions never lend groups to neighbors
+  ---
+  duration_ms: 4.3826
+  type: 'test'
+  ...
+# Subtest: heading chains move only with their following indivisible atom
+ok 334 - heading chains move only with their following indivisible atom
+  ---
+  duration_ms: 1.6224
+  type: 'test'
+  ...
+# Subtest: a one-group penultimate page cannot be emptied to improve an underfilled tail
+ok 335 - a one-group penultimate page cannot be emptied to improve an underfilled tail
+  ---
+  duration_ms: 1.5363
+  type: 'test'
+  ...
+# Subtest: code, quotes, multiline paragraphs and nested list items remain indivisible
+ok 336 - code, quotes, multiline paragraphs and nested list items remain indivisible
+  ---
+  duration_ms: 2.629
+  type: 'test'
+  ...
+# Subtest: balanced ordered-list fragments retain original starts and exact-once list items
+ok 337 - balanced ordered-list fragments retain original starts and exact-once list items
+  ---
+  duration_ms: 2.2515
+  type: 'test'
+  ...
+# Subtest: balanced table fragments repeat attributed headers without duplicating body rows
+ok 338 - balanced table fragments repeat attributed headers without duplicating body rows
+  ---
+  duration_ms: 2.6413
+  type: 'test'
+  ...
+# Subtest: print-only overflow vetoes candidates that would otherwise balance the tail
+ok 339 - print-only overflow vetoes candidates that would otherwise balance the tail
+  ---
+  duration_ms: 2.0691
+  type: 'test'
+  ...
+# Subtest: improvement must occur independently in print as well as screen
+ok 340 - improvement must occur independently in print as well as screen
+  ---
+  duration_ms: 1.6588
+  type: 'test'
+  ...
+# Subtest: a smaller absolute gap cannot be accepted if tail utilization decreases
+ok 341 - a smaller absolute gap cannot be accepted if tail utilization decreases
+  ---
+  duration_ms: 1.3902
+  type: 'test'
+  ...
+# Subtest: five percentage points is the per-medium minimum improvement, not just any improvement
+ok 342 - five percentage points is the per-medium minimum improvement, not just any improvement
+  ---
+  duration_ms: 1.9246
+  type: 'test'
+  ...
+# Subtest: tail eligibility checks the utilization and gap thresholds in both media
+ok 343 - tail eligibility checks the utilization and gap thresholds in both media
+  ---
+  duration_ms: 4.3303
+  type: 'test'
+  ...
+# Subtest: missing or malformed occupied geometry preserves greedy output and records a fallback
+ok 344 - missing or malformed occupied geometry preserves greedy output and records a fallback
+  ---
+  duration_ms: 14.3382
+  type: 'test'
+  ...
+# Subtest: optional balancing never raises the existing hard budgets
+ok 345 - optional balancing never raises the existing hard budgets
+  ---
+  duration_ms: 0.1316
+  type: 'test'
+  ...
+# Subtest: zero or one remaining probe cannot starve greedy or start an incomplete candidate pair
+ok 346 - zero or one remaining probe cannot starve greedy or start an incomplete candidate pair
+  ---
+  duration_ms: 2.1239
+  type: 'test'
+  ...
+# Subtest: all partitions complete greedy packing before optional probes spend shared budget
+ok 347 - all partitions complete greedy packing before optional probes spend shared budget
+  ---
+  duration_ms: 1.9538
+  type: 'test'
+  ...
+# Subtest: candidate probes use existing page indexes and respect a final-card-count budget
+ok 348 - candidate probes use existing page indexes and respect a final-card-count budget
+  ---
+  duration_ms: 0.9506
+  type: 'test'
+  ...
+# Subtest: balancing is bounded to eight candidate pairs per partition and sixty-four probes per run
+ok 349 - balancing is bounded to eight candidate pairs per partition and sixty-four probes per run
+  ---
+  duration_ms: 15.5493
+  type: 'test'
+  ...
+# Subtest: deadline, resource, and adapter failures during optional work propagate unchanged
+ok 350 - deadline, resource, and adapter failures during optional work propagate unchanged
+  ---
+  duration_ms: 1.7428
+  type: 'test'
+  ...
+# Subtest: invalid screen/print overflow envelopes still fail closed rather than silently skipping balancing
+ok 351 - invalid screen/print overflow envelopes still fail closed rather than silently skipping balancing
+  ---
+  duration_ms: 0.6169
+  type: 'test'
+  ...
+# Subtest: browser measurement reports occupied descendants separately from scroll dimensions
+ok 352 - browser measurement reports occupied descendants separately from scroll dimensions
+  ---
+  duration_ms: 0.5517
+  type: 'test'
+  ...
+# Subtest: missing fitting-candidate geometry rolls back an earlier viable move for the whole partition
+ok 353 - missing fitting-candidate geometry rolls back an earlier viable move for the whole partition
+  ---
+  duration_ms: 3.6647
+  type: 'test'
+  ...
+# Subtest: an overflowing later candidate is unusable but does not discard an earlier verified improvement
+ok 354 - an overflowing later candidate is unusable but does not discard an earlier verified improvement
+  ---
+  duration_ms: 1.0895
+  type: 'test'
+  ...
+# Subtest: a verified candidate can be applied when the shared budget ends before further search
+ok 355 - a verified candidate can be applied when the shared budget ends before further search
+  ---
+  duration_ms: 1.061
+  type: 'test'
+  ...
+# Subtest: all optional probes move complete original suffix groups and measure both page indexes
+ok 356 - all optional probes move complete original suffix groups and measure both page indexes
+  ---
+  duration_ms: 1.768
+  type: 'test'
+  ...
+# Subtest: image atoms and link destinations transfer unchanged without re-resolving assets
+ok 357 - image atoms and link destinations transfer unchanged without re-resolving assets
+  ---
+  duration_ms: 2.5609
+  type: 'test'
+  ...
+# Subtest: a deterministic measurement adapter produces identical repeated balanced results
+ok 358 - a deterministic measurement adapter produces identical repeated balanced results
+  ---
+  duration_ms: 1.3795
+  type: 'test'
+  ...
+# Subtest: direct paginator calls reject nonboolean balanceTail before attempting measurement
+ok 359 - direct paginator calls reject nonboolean balanceTail before attempting measurement
+  ---
+  duration_ms: 0.6976
+  type: 'test'
+  ...
+# Subtest: opting in never splits, shrinks, or retries an oversized original atom
+ok 360 - opting in never splits, shrinks, or retries an oversized original atom
+  ---
+  duration_ms: 0.5649
+  type: 'test'
+  ...
+# Subtest: tail balancing retains the auto-layout allowlist and every partition layout
+ok 361 - tail balancing retains the auto-layout allowlist and every partition layout
+  ---
+  duration_ms: 2.8438
+  type: 'test'
+  ...
+# Subtest: export wires opt-in, records exact attempts, and validates the final two-page deck in both media
+ok 362 - export wires opt-in, records exact attempts, and validates the final two-page deck in both media
+  ---
+  duration_ms: 54.9175
+  type: 'test'
+  ...
+# Subtest: missing geometry explicitly preserves greedy but does not skip final validation
+ok 363 - missing geometry explicitly preserves greedy but does not skip final validation
+  ---
+  duration_ms: 24.3288
+  type: 'test'
+  ...
+# Subtest: final print-only overflow still prevents successful publication after measured balancing
+ok 364 - final print-only overflow still prevents successful publication after measured balancing
+  ---
+  duration_ms: 21.2676
+  type: 'test'
+  ...
+# Subtest: a browser fault in balancing fails closed and leaves no output or staging
+ok 365 - a browser fault in balancing fails closed and leaves no output or staging
+  ---
+  duration_ms: 14.1497
+  type: 'test'
+  ...
+# Subtest: a stalled balancing probe obeys the existing deadline and cannot publish after a late result
+ok 366 - a stalled balancing probe obeys the existing deadline and cannot publish after a late result
+  ---
+  duration_ms: 1028.5625
+  type: 'test'
+  ...
+# Subtest: direct export API rejects manual balancing before opening any renderer
+ok 367 - direct export API rejects manual balancing before opening any renderer
+  ---
+  duration_ms: 0.3478
+  type: 'test'
+  ...
+# Subtest: direct export API rejects nonboolean opt-in before opening any renderer
+ok 368 - direct export API rejects nonboolean opt-in before opening any renderer
+  ---
+  duration_ms: 0.2003
+  type: 'test'
+  ...
+# Subtest: real tail gate requires actual list and table movement, not a successful no-op
+ok 369 - real tail gate requires actual list and table movement, not a successful no-op
+  ---
+  duration_ms: 0.8918
+  type: 'test'
+  ...
+# Subtest: registry-derived counts distinguish implemented from visually accepted
+ok 370 - registry-derived counts distinguish implemented from visually accepted
+  ---
+  duration_ms: 1.0857
+  type: 'test'
+  ...
+# Subtest: build order and HTML are deterministic across registry iteration order
+ok 371 - build order and HTML are deterministic across registry iteration order
+  ---
+  duration_ms: 563.5749
+  type: 'test'
+  ...
+# Subtest: any currently bound previews preserve their exact provenance, input hashes and dimensions
+ok 372 - any currently bound previews preserve their exact provenance, input hashes and dimensions
+  ---
+  duration_ms: 72.1055
+  type: 'test'
+  ...
+# Subtest: script-disabled page has every article, input link, detail and real preview
+ok 373 - script-disabled page has every article, input link, detail and real preview
+  ---
+  duration_ms: 4.2528
+  type: 'test'
+  ...
+# Subtest: all resource and document URLs are local with restrictive gallery-only CSP
+ok 374 - all resource and document URLs are local with restrictive gallery-only CSP
+  ---
+  duration_ms: 406.6158
+  type: 'test'
+  ...
+# Subtest: all registry display fields are escaped in text and attribute contexts
+ok 375 - all registry display fields are escaped in text and attribute contexts
+  ---
+  duration_ms: 551.8567
+  type: 'test'
+  ...
+# Subtest: path allowlist rejects URLs, traversal, escapes and injection
+ok 376 - path allowlist rejects URLs, traversal, escapes and injection
+  ---
+  duration_ms: 1.0857
+  type: 'test'
+  ...
+# Subtest: accepted files missing or modified fail before producing a result
+ok 377 - accepted files missing or modified fail before producing a result
+  ---
+  duration_ms: 2629.4453
+  type: 'test'
+  ...
+# Subtest: accepted input modification fails even if metadata still matches
+ok 378 - accepted input modification fails even if metadata still matches
+  ---
+  duration_ms: 2600.6054
+  type: 'test'
+  ...
+# Subtest: missing and modified evidence or review files fail closed
+ok 379 - missing and modified evidence or review files fail closed
+  ---
+  duration_ms: 2817.5528
+  type: 'test'
+  ...
+# Subtest: bad evidence hash, duplicate and missing records are explicit failures
+ok 380 - bad evidence hash, duplicate and missing records are explicit failures
+  ---
+  duration_ms: 2850.6285
+  type: 'test'
+  ...
+# Subtest: version, state and density changes cannot reuse historical acceptance
+ok 381 - version, state and density changes cannot reuse historical acceptance
+  ---
+  duration_ms: 3892.9195
+  type: 'test'
+  ...
+# Subtest: invalid and duplicate template IDs and mismatched input paths are rejected
+ok 382 - invalid and duplicate template IDs and mismatched input paths are rejected
+  ---
+  duration_ms: 265.7778
+  type: 'test'
+  ...
+# Subtest: symlink escapes and broken output symlinks cannot read or write outside root
+ok 383 - symlink escapes and broken output symlinks cannot read or write outside root
+  ---
+  duration_ms: 3518.4291
+  type: 'test'
+  ...
+# Subtest: generated check rejects stale output and build repairs only the generated file
+ok 384 - generated check rejects stale output and build repairs only the generated file
+  ---
+  duration_ms: 7776.2085
+  type: 'test'
+  ...
+# Subtest: mock DOM progressively enables controls without hiding default results
+ok 385 - mock DOM progressively enables controls without hiding default results
+  ---
+  duration_ms: 2.5385
+  type: 'test'
+  ...
+# Subtest: all family and image filters produce exact registry counts
+ok 386 - all family and image filters produce exact registry counts
+  ---
+  duration_ms: 1.1765
+  type: 'test'
+  ...
+# Subtest: purpose filter uses literal normalized strings, not regex or HTML
+ok 387 - purpose filter uses literal normalized strings, not regex or HTML
+  ---
+  duration_ms: 1.73
+  type: 'test'
+  ...
+# Subtest: density filtering cannot claim unreviewed variants have accepted previews
+ok 388 - density filtering cannot claim unreviewed variants have accepted previews
+  ---
+  duration_ms: 0.8892
+  type: 'test'
+  ...
+# Subtest: combined filters, repeated events and reset preserve correct counts
+ok 389 - combined filters, repeated events and reset preserve correct counts
+  ---
+  duration_ms: 1.0082
+  type: 'test'
+  ...
+# Subtest: wrong PNG dimensions still fail if its recorded digest was updated
+ok 390 - wrong PNG dimensions still fail if its recorded digest was updated
+  ---
+  duration_ms: 3032.3575
+  type: 'test'
+  ...
+# Subtest: evidence bindings cannot omit pinned hashes or smuggle a remote path
+ok 391 - evidence bindings cannot omit pinned hashes or smuggle a remote path
+  ---
+  duration_ms: 2496.5643
+  type: 'test'
+  ...
+# Subtest: aspect support is shown without promoting extra layouts or reusing portrait pixels
+ok 392 - aspect support is shown without promoting extra layouts or reusing portrait pixels
+  ---
+  duration_ms: 5006.934
+  type: 'test'
+  ...
+# Subtest: a genuinely pending fixture keeps all source details but never inherits a preview
+ok 393 - a genuinely pending fixture keeps all source details but never inherits a preview
+  ---
+  duration_ms: 4499.8405
+  type: 'test'
+  ...
+# Subtest: refined versions keep immutable history without displaying old pixels as current
+ok 394 - refined versions keep immutable history without displaying old pixels as current
+  ---
+  duration_ms: 4331.2633
+  type: 'test'
+  ...
+# Subtest: versioned preview directories require their actual review links, not obsolete pixels
+ok 395 - versioned preview directories require their actual review links, not obsolete pixels
+  ---
+  duration_ms: 4122.8849
+  type: 'test'
+  ...
+# Subtest: synthetic current-v2 acceptance exercises a nonempty accepted path beside 47 pending designs
+ok 396 - synthetic current-v2 acceptance exercises a nonempty accepted path beside 47 pending designs
+  ---
+  duration_ms: 4308.7026
+  type: 'test'
+  ...
+# Subtest: synthetic current-v2 acceptance rejects stale input and review links independently
+ok 397 - synthetic current-v2 acceptance rejects stale input and review links independently
+  ---
+  duration_ms: 3362.6784
+  type: 'test'
+  ...
+# Subtest: exact task navigation reveals a filtered target without replacing native links
+ok 398 - exact task navigation reveals a filtered target without replacing native links
+  ---
+  duration_ms: 2.4862
+  type: 'test'
+  ...
+# Subtest: synthetic pending v3 retains both v1 and v2 with exact historical links but no thumbnail
+ok 399 - synthetic pending v3 retains both v1 and v2 with exact historical links but no thumbnail
+  ---
+  duration_ms: 4330.905
+  type: 'test'
+  ...
+# Subtest: synthetic accepted v3 keeps all three epochs distinct and only displays current pixels
+ok 400 - synthetic accepted v3 keeps all three epochs distinct and only displays current pixels
+  ---
+  duration_ms: 4196.2007
+  type: 'test'
+  ...
+# Subtest: historical array alone is compatible and order-independent while singular history remains supported
+ok 401 - historical array alone is compatible and order-independent while singular history remains supported
+  ---
+  duration_ms: 5369.0783
+  type: 'test'
+  ...
+# Subtest: multi-history rejects malformed entries, wrong epochs and duplicate batches across both forms
+ok 402 - multi-history rejects malformed entries, wrong epochs and duplicate batches across both forms
+  ---
+  duration_ms: 3713.6922
+  type: 'test'
+  ...
+# Subtest: multi-history checks every retained PNG hash and never ignores an older broken epoch
+ok 403 - multi-history checks every retained PNG hash and never ignores an older broken epoch
+  ---
+  duration_ms: 4559.8969
+  type: 'test'
+  ...
+# Subtest: historical versions must precede current even when each history matches its batch scope
+ok 404 - historical versions must precede current even when each history matches its batch scope
+  ---
+  duration_ms: 3463.2488
+  type: 'test'
+  ...
+# Subtest: multi-history checks older input/provenance hashes, PNG dimensions and review links
+ok 405 - multi-history checks older input/provenance hashes, PNG dimensions and review links
+  ---
+  duration_ms: 3448.5966
+  type: 'test'
+  ...
+# Subtest: multi-history rejects missing records and orphaned epochs unless individually retained
+ok 406 - multi-history rejects missing records and orphaned epochs unless individually retained
+  ---
+  duration_ms: 3853.9905
+  type: 'test'
+  ...
+# Subtest: multi-history rejects unsafe historical paths and unreferenced extra provenance records
+ok 407 - multi-history rejects unsafe historical paths and unreferenced extra provenance records
+  ---
+  duration_ms: 3739.7828
+  type: 'test'
+  ...
+# Subtest: M1 v2 acceptance is retained as history for exactly 13 current v3 designs
+ok 408 - M1 v2 acceptance is retained as history for exactly 13 current v3 designs
+  ---
+  duration_ms: 4629.9534
+  type: 'test'
+  ...
+# Subtest: production-shaped current v2/v3 batches normalize independently while every historical epoch survives
+    # Subtest: all pending
+    ok 1 - all pending
+      ---
+      duration_ms: 6149.5957
+      type: 'test'
+      ...
+    # Subtest: accepted v2 and pending
+    ok 2 - accepted v2 and pending
+      ---
+      duration_ms: 6663.2363
+      type: 'test'
+      ...
+    # Subtest: pending v3 with two histories
+    ok 3 - pending v3 with two histories
+      ---
+      duration_ms: 6043.9362
+      type: 'test'
+      ...
+    # Subtest: accepted v3 and pending
+    ok 4 - accepted v3 and pending
+      ---
+      duration_ms: 7040.7647
+      type: 'test'
+      ...
+    1..4
+ok 409 - production-shaped current v2/v3 batches normalize independently while every historical epoch survives
+  ---
+  duration_ms: 36215.2949
+  type: 'test'
+  ...
+# Subtest: actual M2 bindings expose exactly 48 current portraits with 35 v2 and 13 v3 and intact history
+ok 410 - actual M2 bindings expose exactly 48 current portraits with 35 v2 and 13 v3 and intact history
+  ---
+  duration_ms: 3.6662
+  type: 'test'
+  ...
+# Subtest: both actual M2 current PNG epochs fail closed on tampering or missing files
+ok 411 - both actual M2 current PNG epochs fail closed on tampering or missing files
+  ---
+  duration_ms: 5687.3555
+  type: 'test'
+  ...
+# Subtest: actual current acceptance cannot swap v2 and v3 batches or use historical preview bytes
+ok 412 - actual current acceptance cannot swap v2 and v3 batches or use historical preview bytes
+  ---
+  duration_ms: 2660.7195
+  type: 'test'
+  ...
+# Subtest: no image or metric is invented and compatible omissions are distinct from rejections
+ok 413 - no image or metric is invented and compatible omissions are distinct from rejections
+  ---
+  duration_ms: 8.3409
+  type: 'test'
+  ...
+# Subtest: local screenshot with no template preselection ranks T20 from registry purpose
+ok 414 - local screenshot with no template preselection ranks T20 from registry purpose
+  ---
+  duration_ms: 14.7858
+  type: 'test'
+  ...
+# Subtest: lists, quotations, explicit two-column comparisons and supplied metric have explained candidates
+ok 415 - lists, quotations, explicit two-column comparisons and supplied metric have explained candidates
+  ---
+  duration_ms: 11.2356
+  type: 'test'
+  ...
+# Subtest: unsupported aspect, explicit layout, paired structures and actual list bounds are hard exclusions
+ok 416 - unsupported aspect, explicit layout, paired structures and actual list bounds are hard exclusions
+  ---
+  duration_ms: 4.5426
+  type: 'test'
+  ...
+# Subtest: pressure and unknown inputs retain caveats; auto never receives templates
+ok 417 - pressure and unknown inputs retain caveats; auto never receives templates
+  ---
+  duration_ms: 4.0835
+  type: 'test'
+  ...
+# Subtest: unknown image semantics retain only a valid explicit author template, without guessing alternatives
+ok 418 - unknown image semantics retain only a valid explicit author template, without guessing alternatives
+  ---
+  duration_ms: 11.4604
+  type: 'test'
+  ...
+# Subtest: nonportrait candidates explain their registered aspect structure instead of portrait guidance
+ok 419 - nonportrait candidates explain their registered aspect structure instead of portrait guidance
+  ---
+  duration_ms: 1.0547
+  type: 'test'
+  ...
+# Subtest: checked-in input/output example is reproducible and does not assign candidates to unknown roles
+ok 420 - checked-in input/output example is reproducible and does not assign candidates to unknown roles
+  ---
+  duration_ms: 12.4228
+  type: 'test'
+  ...
+# Subtest: all 48 real registry fixtures obey the same renderer hard validators and stable ranking
+ok 421 - all 48 real registry fixtures obey the same renderer hard validators and stable ranking
+  ---
+  duration_ms: 729.6333
+  type: 'test'
+  ...
+# Subtest: recommendation modules have a narrow pure import boundary; execution cannot write, spawn or network
+ok 422 - recommendation modules have a narrow pure import boundary; execution cannot write, spawn or network
+  ---
+  duration_ms: 162.1785
+  type: 'test'
+  ...
+# Subtest: registry counts composed designs with complete immutable contracts
+ok 423 - registry counts composed designs with complete immutable contracts
+  ---
+  duration_ms: 4.0207
+  type: 'test'
+  ...
+# Subtest: template IDs, densities, layouts and aspect ratios are strict allowlists
+ok 424 - template IDs, densities, layouts and aspect ratios are strict allowlists
+  ---
+  duration_ms: 5.013
+  type: 'test'
+  ...
+# Subtest: template metadata selects only its contracted layout and never changes legacy defaults
+ok 425 - template metadata selects only its contracted layout and never changes legacy defaults
+  ---
+  duration_ms: 3.2609
+  type: 'test'
+  ...
+# Subtest: token slots preserve all source content once, including repeated H1 and later H1
+ok 426 - token slots preserve all source content once, including repeated H1 and later H1
+  ---
+  duration_ms: 2.3199
+  type: 'test'
+  ...
+# Subtest: templates preserve explicit partitions and reject unsupported automatic mode
+ok 427 - templates preserve explicit partitions and reject unsupported automatic mode
+  ---
+  duration_ms: 2.6308
+  type: 'test'
+  ...
+# Subtest: unsafe strings cannot become template classes or executable markup
+ok 428 - unsafe strings cannot become template classes or executable markup
+  ---
+  duration_ms: 0.8585
+  type: 'test'
+  ...
+# Subtest: all delivered examples select their registered template and preserve full parser HTML
+ok 429 - all delivered examples select their registered template and preserve full parser HTML
+  ---
+  duration_ms: 573.9932
+  type: 'test'
+  ...
+# Subtest: density affects space only and nested typography has explicit mobile floors
+ok 430 - density affects space only and nested typography has explicit mobile floors
+  ---
+  duration_ms: 0.4572
+  type: 'test'
+  ...
+# Subtest: CLI template options are discoverable and reject unknown choices before rendering
+ok 431 - CLI template options are discoverable and reject unknown choices before rendering
+  ---
+  duration_ms: 1.071
+  type: 'test'
+  ...
+# Subtest: public metadata and CLI reject empty tokens and unsupported meaningful fields
+ok 432 - public metadata and CLI reject empty tokens and unsupported meaningful fields
+  ---
+  duration_ms: 0.7314
+  type: 'test'
+  ...
+# Subtest: composed templates never inherit legacy theme treatments
+ok 433 - composed templates never inherit legacy theme treatments
+  ---
+  duration_ms: 1.2201
+  type: 'test'
+  ...
+# Subtest: large list counters are rejected before they can overlap a fixed number rail
+ok 434 - large list counters are rejected before they can overlap a fixed number rail
+  ---
+  duration_ms: 2.5243
+  type: 'test'
+  ...
+# Subtest: M2 designs retain distinct compositions and explicit acceptance bindings
+ok 435 - M2 designs retain distinct compositions and explicit acceptance bindings
+  ---
+  duration_ms: 0.1567
+  type: 'test'
+  ...
+# Subtest: M2 templates preserve additional sections, repeated titles and explicit boundaries
+ok 436 - M2 templates preserve additional sections, repeated titles and explicit boundaries
+  ---
+  duration_ms: 2.7635
+  type: 'test'
+  ...
+# Subtest: M2 unsupported assets and scalar metadata fail instead of disappearing
+ok 437 - M2 unsupported assets and scalar metadata fail instead of disappearing
+  ---
+  duration_ms: 1.2701
+  type: 'test'
+  ...
+# Subtest: M2 density keeps every source token and selects spacing-only classes
+ok 438 - M2 density keeps every source token and selects spacing-only classes
+  ---
+  duration_ms: 5.9681
+  type: 'test'
+  ...
+# Subtest: T21 shows escaped author-provided metric and label once in source order
+ok 439 - T21 shows escaped author-provided metric and label once in source order
+  ---
+  duration_ms: 0.5719
+  type: 'test'
+  ...
+# Subtest: T21 requires an explicit nonempty value and label, never invented defaults
+ok 440 - T21 requires an explicit nonempty value and label, never invented defaults
+  ---
+  duration_ms: 1.0449
+  type: 'test'
+  ...
+# Subtest: M3 poetry keeps original hard breaks and code is executable demonstration text
+ok 441 - M3 poetry keeps original hard breaks and code is executable demonstration text
+  ---
+  duration_ms: 4.1922
+  type: 'test'
+  ...
+# Subtest: enterprise demonstration header and configured footer use one fictional brand
+ok 442 - enterprise demonstration header and configured footer use one fictional brand
+  ---
+  duration_ms: 2.8763
+  type: 'test'
+  ...
+# Subtest: required template images fail explicitly and retain validated full-frame assets
+ok 443 - required template images fail explicitly and retain validated full-frame assets
+  ---
+  duration_ms: 150.7776
+  type: 'test'
+  ...
+# Subtest: contact-print images are counted without silently accepting missing or excess images
+ok 444 - contact-print images are counted without silently accepting missing or excess images
+  ---
+  duration_ms: 184.0331
+  type: 'test'
+  ...
+# Subtest: text-only templates reject an injected resolved image as well as inline image markup
+ok 445 - text-only templates reject an injected resolved image as well as inline image markup
+  ---
+  duration_ms: 52.9651
+  type: 'test'
+  ...
+# Subtest: image examples have truthful hashed asset provenance rather than generic no-assets claims
+ok 446 - image examples have truthful hashed asset provenance rather than generic no-assets claims
+  ---
+  duration_ms: 38.3338
+  type: 'test'
+  ...
+# Subtest: first selected 24 are distinct compositions spanning all twelve families, not accepted by counting
+ok 447 - first selected 24 are distinct compositions spanning all twelve families, not accepted by counting
+  ---
+  duration_ms: 0.4168
+  type: 'test'
+  ...
+# Subtest: M5 text grids preserve supplementary source sections without truncating to visual slots
+ok 448 - M5 text grids preserve supplementary source sections without truncating to visual slots
+  ---
+  duration_ms: 2.7494
+  type: 'test'
+  ...
+# Subtest: T03 requires image descriptions and preserves text then full portrait DOM order
+ok 449 - T03 requires image descriptions and preserves text then full portrait DOM order
+  ---
+  duration_ms: 64.6428
+  type: 'test'
+  ...
+# Subtest: M5 retains explicit reviewed-example bindings and decorative grids never override body size or crop images
+ok 450 - M5 retains explicit reviewed-example bindings and decorative grids never override body size or crop images
+  ---
+  duration_ms: 2.9372
+  type: 'test'
+  ...
+# Subtest: T24 preserves all three real table columns and independent full-size table type
+ok 451 - T24 preserves all three real table columns and independent full-size table type
+  ---
+  duration_ms: 1.6387
+  type: 'test'
+  ...
+# Subtest: T20 requires honest image descriptions and uses a real original interface illustration
+ok 452 - T20 requires honest image descriptions and uses a real original interface illustration
+  ---
+  duration_ms: 9.2875
+  type: 'test'
+  ...
+# Subtest: M6 supplied timelines, index starts and quotation breaks are never generated as facts
+ok 453 - M6 supplied timelines, index starts and quotation breaks are never generated as facts
+  ---
+  duration_ms: 3.6443
+  type: 'test'
+  ...
+# Subtest: timeline supplementary blocks and quotation preludes stay in body columns
+ok 454 - timeline supplementary blocks and quotation preludes stay in body columns
+  ---
+  duration_ms: 0.4896
+  type: 'test'
+  ...
+# Subtest: T39 and T40 emit one safe figure before narrative using internal registry order
+ok 455 - T39 and T40 emit one safe figure before narrative using internal registry order
+  ---
+  duration_ms: 72.36
+  type: 'test'
+  ...
+# Subtest: T40 preserves nondefault native starts and rejects counters too wide for its key
+ok 456 - T40 preserves nondefault native starts and rejects counters too wide for its key
+  ---
+  duration_ms: 7.389
+  type: 'test'
+  ...
+# Subtest: image-record templates reject mixed image paragraphs and preserve additional explanations
+ok 457 - image-record templates reject mixed image paragraphs and preserve additional explanations
+  ---
+  duration_ms: 8.74
+  type: 'test'
+  ...
+# Subtest: T44 counts sibling option quotes from tokens, never nested-quote markup
+ok 458 - T44 counts sibling option quotes from tokens, never nested-quote markup
+  ---
+  duration_ms: 0.8653
+  type: 'test'
+  ...
+# Subtest: 48 reviewed compositions span twelve families without counting aspect variants
+ok 459 - 48 reviewed compositions span twelve families without counting aspect variants
+  ---
+  duration_ms: 0.2257
+  type: 'test'
+  ...
+# Subtest: empty quotes or lists cannot satisfy required authored descriptions and options
+ok 460 - empty quotes or lists cannot satisfy required authored descriptions and options
+  ---
+  duration_ms: 6.2608
+  type: 'test'
+  ...
+# Subtest: same-source quote/list comparison exercises original semantics without per-template edits
+ok 461 - same-source quote/list comparison exercises original semantics without per-template edits
+  ---
+  duration_ms: 3.572
+  type: 'test'
+  ...
+# Subtest: authored action examples parse intended emphasis without literal delimiters
+ok 462 - authored action examples parse intended emphasis without literal delimiters
+  ---
+  duration_ms: 1.4901
+  type: 'test'
+  ...
+# Subtest: calibrated templates keep compact spacing below standard below editorial
+ok 463 - calibrated templates keep compact spacing below standard below editorial
+  ---
+  duration_ms: 1.541
+  type: 'test'
+  ...
+# Subtest: R01–R06 refine measures, original image visibility and primary focus without altering content
+ok 464 - R01–R06 refine measures, original image visibility and primary focus without altering content
+  ---
+  duration_ms: 0.3152
+  type: 'test'
+  ...
+# Subtest: T19 open-grid headings do not escape the measured content box
+ok 465 - T19 open-grid headings do not escape the measured content box
+  ---
+  duration_ms: 0.0993
+  type: 'test'
+  ...
+# Subtest: M1 capacity corrections remain full-size under the explicit M2 typography roles
+ok 466 - M1 capacity corrections remain full-size under the explicit M2 typography roles
+  ---
+  duration_ms: 1.3858
+  type: 'test'
+  ...
+# Subtest: T40 full detail plate keeps readable numeric keys and a bounded authored heading rail
+ok 467 - T40 full detail plate keeps readable numeric keys and a bounded authored heading rail
+  ---
+  duration_ms: 0.2524
+  type: 'test'
+  ...
+# Subtest: fixed 58-case schema rejects expansions, substitutions, malformed ratios and expectation weakening
+ok 468 - fixed 58-case schema rejects expansions, substitutions, malformed ratios and expectation weakening
+  ---
+  duration_ms: 16.253
+  type: 'test'
+  ...
+# Subtest: source segment extraction includes all prose, headings, code and consequential metadata
+ok 469 - source segment extraction includes all prose, headings, code and consequential metadata
+  ---
+  duration_ms: 6.8008
+  type: 'test'
+  ...
+# Subtest: mobile audit enforces measured inner width plus unchanged canvas and actual-display floors
+ok 470 - mobile audit enforces measured inner width plus unchanged canvas and actual-display floors
+  ---
+  duration_ms: 2.1698
+  type: 'test'
+  ...
+# Subtest: source-only doubles exercise all 58 cases, source/PDF hashes, both mobile widths and expected long overflow
+ok 471 - source-only doubles exercise all 58 cases, source/PDF hashes, both mobile widths and expected long overflow
+  ---
+  duration_ms: 3375.0132
+  type: 'test'
+  ...
+# Subtest: original-source overflow is allowed honestly without swapping in short input
+ok 472 - original-source overflow is allowed honestly without swapping in short input
+  ---
+  duration_ms: 2995.4724
+  type: 'test'
+  ...
+# Subtest: each independent export failure is collected and later cases still run
+ok 473 - each independent export failure is collected and later cases still run
+  ---
+  duration_ms: 3982.9542
+  type: 'test'
+  ...
+# Subtest: short candidate overflow fails; long overflow with partial publication fails; unexpected long fit fails
+ok 474 - short candidate overflow fails; long overflow with partial publication fails; unexpected long fit fails
+  ---
+  duration_ms: 10692.0605
+  type: 'test'
+  ...
+# Subtest: artifact hash damage and missing native PDF source segments fail independently
+ok 475 - artifact hash damage and missing native PDF source segments fail independently
+  ---
+  duration_ms: 7332.357
+  type: 'test'
+  ...
+# Subtest: both mobile-width failures are retained, screenshots hashed, and renderer closed
+ok 476 - both mobile-width failures are retained, screenshots hashed, and renderer closed
+  ---
+  duration_ms: 3801.2319
+  type: 'test'
+  ...
+# Subtest: a browser launch denial or uncertain cleanup stops repeated browser work but records all remaining cases
+ok 477 - a browser launch denial or uncertain cleanup stops repeated browser work but records all remaining cases
+  ---
+  duration_ms: 4853.6003
+  type: 'test'
+  ...
+# Subtest: dirty checkout or stale output blocks execution, and input hash mismatch prevents that export only
+ok 478 - dirty checkout or stale output blocks execution, and input hash mismatch prevents that export only
+  ---
+  duration_ms: 4020.0187
+  type: 'test'
+  ...
+# Subtest: different source semantics are rejected before commands, output creation or browser/export acquisition
+ok 479 - different source semantics are rejected before commands, output creation or browser/export acquisition
+  ---
+  duration_ms: 1507.8825
+  type: 'test'
+  ...
+# Subtest: identical input through an escaping junction or symlink is refused, including a sibling with the same prefix
+ok 480 - identical input through an escaping junction or symlink is refused, including a sibling with the same prefix
+  ---
+  duration_ms: 287.7959
+  type: 'test'
+  ...
+# Subtest: asset root and nested image junctions cannot escape even when the image bytes and hash are unchanged
+ok 481 - asset root and nested image junctions cannot escape even when the image bytes and hash are unchanged
+  ---
+  duration_ms: 3046.783
+  type: 'test'
+  ...
+# Subtest: real paths and junctions fully inside the root preserve original input and image identities
+ok 482 - real paths and junctions fully inside the root preserve original input and image identities
+  ---
+  duration_ms: 3382.575
+  type: 'test'
+  ...
+# Subtest: mobile collector retains hidden source nodes and flags nested scaling instead of filtering them out
+ok 483 - mobile collector retains hidden source nodes and flags nested scaling instead of filtering them out
+  ---
+  duration_ms: 2.0387
+  type: 'test'
+  ...
+# Subtest: R12 plan rejects extra assets, wrong image hashes, support expansion and refusal weakening
+ok 484 - R12 plan rejects extra assets, wrong image hashes, support expansion and refusal weakening
+  ---
+  duration_ms: 7.0759
+  type: 'test'
+  ...
+# Subtest: image collector contract refuses crop, changed proportions, missing or hidden full-frame image
+ok 485 - image collector contract refuses crop, changed proportions, missing or hidden full-frame image
+  ---
+  duration_ms: 1.4034
+  type: 'test'
+  ...
+# Subtest: image caption remains in native PDF source segments and altered image bytes block its export
+ok 486 - image caption remains in native PDF source segments and altered image bytes block its export
+  ---
+  duration_ms: 1836.2044
+  type: 'test'
+  ...
+# Subtest: Chromium img overflow:clip is harmless when the exact contain-painted rectangle fits
+ok 487 - Chromium img overflow:clip is harmless when the exact contain-painted rectangle fits
+  ---
+  duration_ms: 7.9844
+  type: 'test'
+  ...
+# Subtest: ancestor overflow declarations pass only while the painted source remains inside their exact bounds
+ok 488 - ancestor overflow declarations pass only while the painted source remains inside their exact bounds
+  ---
+  duration_ms: 5.6383
+  type: 'test'
+  ...
+# Subtest: image content boxes subtract scaled border/padding and preserve valid object positioning
+ok 489 - image content boxes subtract scaled border/padding and preserve valid object positioning
+  ---
+  duration_ms: 5.6125
+  type: 'test'
+  ...
+# Subtest: clip-margin is geometric and does not disable hidden, scrollport or card-edge clipping
+ok 490 - clip-margin is geometric and does not disable hidden, scrollport or card-edge clipping
+  ---
+  duration_ms: 6.4711
+  type: 'test'
+  ...
+# Subtest: shaped clips, masks, hidden images and nested scaling remain rejected rather than guessed safe
+ok 491 - shaped clips, masks, hidden images and nested scaling remain rejected rather than guessed safe
+  ---
+  duration_ms: 7.4102
+  type: 'test'
+  ...
+# Subtest: paint containment and content visibility fail closed even with visible overflow
+ok 492 - paint containment and content visibility fail closed even with visible overflow
+  ---
+  duration_ms: 51.5622
+  type: 'test'
+  ...
+# Subtest: independent rotate rejects the exact rotated-box false negative instead of understating source paint
+ok 493 - independent rotate rejects the exact rotated-box false negative instead of understating source paint
+  ---
+  duration_ms: 3.1438
+  type: 'test'
+  ...
+# Subtest: rotate and translate longhands fail closed on image, ancestor and card without expanding the solver
+ok 494 - rotate and translate longhands fail closed on image, ancestor and card without expanding the solver
+  ---
+  duration_ms: 21.3947
+  type: 'test'
+  ...
+# Subtest: body and note type floors cannot be established through rotate or translate longhands
+ok 495 - body and note type floors cannot be established through rotate or translate longhands
+  ---
+  duration_ms: 7.7938
+  type: 'test'
+  ...
+# Subtest: CLI help and rejected arguments never invoke validation or browser runtime
+ok 496 - CLI help and rejected arguments never invoke validation or browser runtime
+  ---
+  duration_ms: 0.6782
+  type: 'test'
+  ...
+# Subtest: CLI explicit runtime dispatch remains separately test-injected and reports failures
+ok 497 - CLI explicit runtime dispatch remains separately test-injected and reports failures
+  ---
+  duration_ms: 0.2355
+  type: 'test'
+  ...
+# Subtest: rectangle union removes nested overlap and clips are represented by actual boxes
+ok 498 - rectangle union removes nested overlap and clips are represented by actual boxes
+  ---
+  duration_ms: 1.1453
+  type: 'test'
+  ...
+# Subtest: VD-01 distinguishes tight and normal gap; long title uses measured final line
+ok 499 - VD-01 distinguishes tight and normal gap; long title uses measured final line
+  ---
+  duration_ms: 2.2814
+  type: 'test'
+  ...
+# Subtest: VD-02 measures four bands, not a stretched parent; dense control does not trigger
+ok 500 - VD-02 measures four bands, not a stretched parent; dense control does not trigger
+  ---
+  duration_ms: 2.2816
+  type: 'test'
+  ...
+# Subtest: VD-03 sparse reports warn, short excerpts are explicit exceptions, sources cannot hide blank space
+ok 501 - VD-03 sparse reports warn, short excerpts are explicit exceptions, sources cannot hide blank space
+  ---
+  duration_ms: 0.5381
+  type: 'test'
+  ...
+# Subtest: VD-04 screenshot threshold uses painted image, not contain frame
+ok 502 - VD-04 screenshot threshold uses painted image, not contain frame
+  ---
+  duration_ms: 0.7619
+  type: 'test'
+  ...
+# Subtest: VD-05 adjacent structure repetition stays INFO; different composition is negative
+ok 503 - VD-05 adjacent structure repetition stays INFO; different composition is negative
+  ---
+  duration_ms: 0.877
+  type: 'test'
+  ...
+# Subtest: VD-06 actual overlay requires a person; non-overlap never claims raster text inspected
+ok 504 - VD-06 actual overlay requires a person; non-overlap never claims raster text inspected
+  ---
+  duration_ms: 0.5498
+  type: 'test'
+  ...
+# Subtest: every rule carries a version, threshold, exceptions, evidence and advice without an acceptance flag
+ok 505 - every rule carries a version, threshold, exceptions, evidence and advice without an acceptance flag
+  ---
+  duration_ms: 0.6895
+  type: 'test'
+  ...
+# Subtest: CLI is opt-in and existing render budgets remain unchanged
+ok 506 - CLI is opt-in and existing render budgets remain unchanged
+  ---
+  duration_ms: 2.0003
+  type: 'test'
+  ...
+# Subtest: disabled audit does not collect or change artifact/qa contract; enabled report is budgeted and hashed
+ok 507 - disabled audit does not collect or change artifact/qa contract; enabled report is budgeted and hashed
+  ---
+  duration_ms: 61.9649
+  type: 'test'
+  ...
+# Subtest: audit obeys total deadline and leaves no partial published report
+ok 508 - audit obeys total deadline and leaves no partial published report
+  ---
+  duration_ms: 1014.758
+  type: 'test'
+  ...
+# Subtest: print overflow remains CONTENT_OVERFLOW with only overflow.json, even when opted in
+ok 509 - print overflow remains CONTENT_OVERFLOW with only overflow.json, even when opted in
+  ---
+  duration_ms: 13.7969
+  type: 'test'
+  ...
+# Subtest: mandatory screen/print overflow takes precedence over an audit collector failure
+ok 510 - mandatory screen/print overflow takes precedence over an audit collector failure
+  ---
+  duration_ms: 12.9406
+  type: 'test'
+  ...
+# Subtest: audit runs after both safety checks and preserves screen/print report identity
+ok 511 - audit runs after both safety checks and preserves screen/print report identity
+  ---
+  duration_ms: 20.7136
+  type: 'test'
+  ...
+# Subtest: real Chromium screen/print: bbox truth, background exclusion, contain area, footer hard failure and bounded collection
+ok 512 - real Chromium screen/print: bbox truth, background exclusion, contain area, footer hard failure and bounded collection
+  ---
+  duration_ms: 3777.0816
+  type: 'test'
+  ...
+# Subtest: bounded matrix preserves source and fits declared registry modes, not every input
+ok 513 - bounded matrix preserves source and fits declared registry modes, not every input
+  ---
+  duration_ms: 264.9141
+  type: 'test'
+  ...
+# Subtest: medium fixtures retain nested list, long URL, Chinese comment and three-column table
+ok 514 - medium fixtures retain nested list, long URL, Chinese comment and three-column table
+  ---
+  duration_ms: 13.7495
+  type: 'test'
+  ...
+# Subtest: Notebook masks heading backgrounds only, preserving ruling, type and explicit partitions
+ok 515 - Notebook masks heading backgrounds only, preserving ruling, type and explicit partitions
+  ---
+  duration_ms: 13.631
+  type: 'test'
+  ...
+# Subtest: asset patterns and historical screenshots are pinned, not synthetic visual proof
+ok 516 - asset patterns and historical screenshots are pinned, not synthetic visual proof
+  ---
+  duration_ms: 25.9186
+  type: 'test'
+  ...
+# Subtest: --plan records every command and source hash without calling export or browser
+ok 517 - --plan records every command and source hash without calling export or browser
+  ---
+  duration_ms: 688.9313
+  type: 'test'
+  ...
+# Subtest: source asset faults reject before environment inspection and publish nothing
+ok 518 - source asset faults reject before environment inspection and publish nothing
+  ---
+  duration_ms: 19.9802
+  type: 'test'
+  ...
+# Subtest: a failed case cannot hide later failures, including expected-overflow cases
+ok 519 - a failed case cannot hide later failures, including expected-overflow cases
+  ---
+  duration_ms: 700.3168
+  type: 'test'
+  ...
+# Subtest: expected boundaries require exact error, exit code and diagnostics-only publication
+ok 520 - expected boundaries require exact error, exit code and diagnostics-only publication
+  ---
+  duration_ms: 12.1114
+  type: 'test'
+  ...
+# Subtest: one unreadable fixture is reported without losing any other planned case
+ok 521 - one unreadable fixture is reported without losing any other planned case
+  ---
+  duration_ms: 898.9048
+  type: 'test'
+  ...
+# Subtest: mobile audit timeout closes the fake renderer and preserves the primary failure
+ok 522 - mobile audit timeout closes the fake renderer and preserves the primary failure
+  ---
+  duration_ms: 29.7596
+  type: 'test'
+  ...
+# Subtest: source-owned text covers metadata, full code, table cells and repeated source text
+ok 523 - source-owned text covers metadata, full code, table cells and repeated source text
+  ---
+  duration_ms: 2.4967
+  type: 'test'
+  ...
+# Subtest: PDF coverage uses each raw page; layout text is inspection-only, not weakened coverage
+ok 524 - PDF coverage uses each raw page; layout text is inspection-only, not weakened coverage
+  ---
+  duration_ms: 17.2712
+  type: 'test'
+  ...
+# Subtest: only three M4 combinations added; 21:9 is independent of 16:9 with strict ratio tolerance
+ok 525 - only three M4 combinations added; 21:9 is independent of 16:9 with strict ratio tolerance
+  ---
+  duration_ms: 2.8463
+  type: 'test'
+  ...
+# Subtest: M4 conditional CSS and all original content slots retained; no crop/fit/hide engine
+ok 526 - M4 conditional CSS and all original content slots retained; no crop/fit/hide engine
+  ---
+  duration_ms: 34.7411
+  type: 'test'
+  ...
+# Subtest: CLI requires two explicit confirmed inputs and rejects ambiguous options
+ok 527 - CLI requires two explicit confirmed inputs and rejects ambiguous options
+  ---
+  duration_ms: 17.9342
+  type: 'test'
+  ...
+# Subtest: pair preserves differing facts and hashes all independent outputs without claiming equivalence
+ok 528 - pair preserves differing facts and hashes all independent outputs without claiming equivalence
+  ---
+  duration_ms: 120.5416
+  type: 'test'
+  ...
+# Subtest: either side or preview failure removes staging and cannot publish a successful pair
+ok 529 - either side or preview failure removes staging and cannot publish a successful pair
+  ---
+  duration_ms: 115.3975
+  type: 'test'
+  ...
+# Subtest: late destination writes survive and input mutation invalidates confirmation
+ok 530 - late destination writes survive and input mutation invalidates confirmation
+  ---
+  duration_ms: 97.3539
+  type: 'test'
+  ...
+# Subtest: shared deadline is passed to children; time exhaustion prevents publication
+ok 531 - shared deadline is passed to children; time exhaustion prevents publication
+  ---
+  duration_ms: 26.9576
+  type: 'test'
+  ...
+# Subtest: failed side retains actionable overflow after staging cleanup
+ok 532 - failed side retains actionable overflow after staging cleanup
+  ---
+  duration_ms: 20.0076
+  type: 'test'
+  ...
+# Subtest: shared logo mutation and aggregate output budget cannot publish a pair
+ok 533 - shared logo mutation and aggregate output budget cannot publish a pair
+  ---
+  duration_ms: 96.7396
+  type: 'test'
+  ...
+# Subtest: empty/unsupported/multiple cards refused before renderer and preview escapes filenames
+ok 534 - empty/unsupported/multiple cards refused before renderer and preview escapes filenames
+  ---
+  duration_ms: 30.7901
+  type: 'test'
+  ...
+1..534
+# tests 656
+# suites 0
+# pass 655
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 321758.0429

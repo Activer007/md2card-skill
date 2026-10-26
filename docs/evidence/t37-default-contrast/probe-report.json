@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "legacyDefaultCases": [
+    {
+      "id": "original",
+      "classification": "controlled-T37-text-color-fix",
+      "baselineHtmlSha256": "d713b58782cc9694f78db7fc6f22bd2cc5baa99929613eec276bea9686d93eec",
+      "currentHtmlSha256": "41116523230bc154725fc15b6558d6682fef7469ceb8e1d5e864058f2961ecba",
+      "foreground": "#f7f2e3"
+    },
+    {
+      "id": "bright",
+      "classification": "controlled-T37-text-color-fix",
+      "baselineHtmlSha256": "0e579282438921f7ebd39eb126740df6f502dbfb276aa401387b0d8c9fe9ff45",
+      "currentHtmlSha256": "eb680da727a71b156d3d0c166fd63d9562d45bdfaf10d513c1e9c6ff900d858d",
+      "foreground": "#f7f2e3"
+    },
+    {
+      "id": "dark",
+      "classification": "controlled-T37-text-color-fix",
+      "baselineHtmlSha256": "16df01219a3d43861f03cb3cbeaa90f8036b8b14d505c55fd5db59e956ba9181",
+      "currentHtmlSha256": "0241026be846fb4012d9809829d60059641fd6162703f897022e99b7164fd85c",
+      "foreground": "#f7f2e3"
+    },
+    {
+      "id": "portrait",
+      "classification": "controlled-T37-text-color-fix",
+      "baselineHtmlSha256": "7c225998e90a159ad6cf61ba96c696db9ca4decca055ad441b8c39f4b696087c",
+      "currentHtmlSha256": "10e64db35c3b8881d5b974fcb385ffc3b8aaa80c2ed35fded39fdbbfd975b780",
+      "foreground": "#f7f2e3"
+    },
+    {
+      "id": "three-line",
+      "classification": "controlled-T37-text-color-fix",
+      "baselineHtmlSha256": "8d0219b50a9959051d379ce06cc2e94be9a343635b0905e77e61b666ca4c2867",
+      "currentHtmlSha256": "7d9f8c1c699ea92de4c872fdbd45e6bf5633800b97ab9746938732819ce5a995",
+      "foreground": "#f7f2e3"
+    },
+    {
+      "id": "blocked-portrait",
+      "classification": "controlled-T37-text-color-fix",
+      "baselineHtmlSha256": "2a7e2fefd79ea91157f8b7f1ee6bf94541986497f2b87b0c616ad6668edcb980",
+      "currentHtmlSha256": "8d8e1264b5c3d44ef2ab5e1ef9967599be548baf35c06f2025b21dec1f3deb43",
+      "foreground": "#f7f2e3"
+    },
+    {
+      "id": "no-crop-permission",
+      "classification": "controlled-T37-text-color-fix",
+      "baselineHtmlSha256": "1f526e73753ddba80b5d7a0081006a6c14da9277884a90ac449b2f7193615805",
+      "currentHtmlSha256": "1b04ab4cbb4095990deeaaf7dd2ebfd19c7ca125ab1ef45bed176759b1d45fa7",
+      "foreground": "#f7f2e3"
+    },
+    {
+      "id": "no-safe-zone",
+      "classification": "controlled-T37-text-color-fix",
+      "baselineHtmlSha256": "06dfb13a92c0b77ab33e1df58b42943d9bf176b77612dd77ba5a504c84012388",
+      "currentHtmlSha256": "2ccc5551fa3a54fc862d7cae0eb2ef35de47c94a7ffec94dc06903c526eab231",
+      "foreground": "#f7f2e3"
+    }
+  ],
+  "views": {
+    "screen": {
+      "panel": "rgb(13, 23, 20)",
+      "strong": "rgb(247, 242, 227)",
+      "link": "rgb(247, 242, 227)",
+      "marker": "rgb(247, 242, 227)",
+      "photo": "rgb(17, 17, 17)",
+      "other": "#000000",
+      "overflow": [],
+      "panelRatio": 16.320521457625578
+    },
+    "print": {
+      "panel": "rgb(13, 23, 20)",
+      "strong": "rgb(247, 242, 227)",
+      "link": "rgb(247, 242, 227)",
+      "marker": "rgb(247, 242, 227)",
+      "photo": "rgb(17, 17, 17)",
+      "other": "#000000",
+      "overflow": [],
+      "panelRatio": 16.320521457625578
+    }
+  },
+  "humanVisualReview": "not-performed"
+}

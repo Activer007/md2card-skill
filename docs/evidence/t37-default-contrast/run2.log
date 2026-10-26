@@ -1,0 +1,17 @@
+T20-control: measured, PDF searchable, pixel-identical
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+Error: ENOENT: no such file or directory, stat 'E:\LHA\codex-worktree\r6-aspect-evidence\md2card-skill\validation\t37-contrast\run2\black.md'
+    at async stat (node:internal/fs/promises:1038:18)
+    at async exportCards (file:///E:/LHA/codex-worktree/r6-aspect-evidence/md2card-skill/scripts/render.mjs:188:21)
+    at async validateT37Contrast (file:///E:/LHA/codex-worktree/r6-aspect-evidence/md2card-skill/scripts/validate-t37-contrast.mjs:117:20)
+    at async file:///E:/LHA/codex-worktree/r6-aspect-evidence/md2card-skill/scripts/validate-t37-contrast.mjs:129:2 {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: 'E:\\LHA\\codex-worktree\\r6-aspect-evidence\\md2card-skill\\validation\\t37-contrast\\run2\\black.md'
+}
+
+Node.js v24.16.0

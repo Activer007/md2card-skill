@@ -1,0 +1,3556 @@
+{
+  "schemaVersion": 1,
+  "status": "fail",
+  "baselineCommit": "0ce7e161b20d2bad1dd789150dd16acd98b00c2f",
+  "records": [
+    {
+      "id": "T20-control",
+      "inputSha256": "b75241aeef725142eaa80ec3f6560a8a2194b509958d5f076ae3b994d807a6ca",
+      "lightTokenFixture": false,
+      "expectedChange": false,
+      "policy": null,
+      "versions": {
+        "before": {
+          "htmlSha256": "7e73cfa3025005d766c226d17ca14d36d80ea5316a636624aeca8e9fa968bc55",
+          "views": {
+            "screen": {
+              "texts": [
+                {
+                  "tag": "P",
+                  "className": "card-eyebrow",
+                  "text": "PRODUCT CONCEPT / 研究工作台",
+                  "color": "rgb(0, 0, 0)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 22.453125,
+                    "width": 967.6875,
+                    "height": 70.71875
+                  },
+                  "ratio": 1.200922180947122,
+                  "target": 4.5
+                },
+                {
+                  "tag": "H1",
+                  "className": "",
+                  "text": "把资料放回问题里",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "88.236px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "800",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 102.203125,
+                    "width": 967.6875,
+                    "height": 100.578125
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "一个虚构研究工作台的功能设想。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 211.6875,
+                    "width": 967.6875,
+                    "height": 68.71875
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "按主题收集片段，保留原始出处。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 364.5,
+                    "width": 467.59375,
+                    "height": 137.4375
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "并排查看笔记，记录待验证项。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 556.25,
+                    "y": 364.5,
+                    "width": 467.59375,
+                    "height": 137.4375
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "FIGCAPTION",
+                  "className": "",
+                  "text": "原创虚构 UI · 演示记录，不代表真实数据",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1099.21875,
+                    "width": 967.6875,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "card-source",
+                  "text": "原创概念演示 · 不代表已上线功能",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1160.59375,
+                    "width": 967.6875,
+                    "height": 56.078125
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "brand-name",
+                  "text": "PHOTO STUDY · 合成示例",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 159.265625,
+                    "y": 1312.609375,
+                    "width": 461.578125,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "footer-text",
+                  "text": "版式练习 · 不构成事实记录",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 159.265625,
+                    "y": 1365.078125,
+                    "width": 461.578125,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                }
+              ],
+              "bodyText": "PRODUCT CONCEPT / 研究工作台\n\n把资料放回问题里\n\n一个虚构研究工作台的功能设想。\n\n整理材料\n\n按主题收集片段，保留原始出处。\n\n回到问题\n\n并排查看笔记，记录待验证项。\n\n原创虚构 UI · 演示记录，不代表真实数据\n\n原创概念演示 · 不代表已上线功能\n\nPHOTO STUDY · 合成示例\n版式练习 · 不构成事实记录",
+              "images": [
+                {
+                  "alt": "原创虚构 UI 构图测试，不是现有产品截图",
+                  "fit": "contain",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 517.796875,
+                    "width": 967.6875,
+                    "height": 576
+                  },
+                  "natural": [
+                    1200,
+                    900
+                  ],
+                  "complete": true,
+                  "sha256": "5639ea622203b489cb7b9a38dc2304cbaa92c509dd2d09fde26c10307405616d"
+                },
+                {
+                  "alt": "",
+                  "fit": "contain",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1325.28125,
+                    "width": 79.59375,
+                    "height": 79.59375
+                  },
+                  "natural": [
+                    128,
+                    128
+                  ],
+                  "complete": true,
+                  "sha256": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791"
+                }
+              ],
+              "card": {
+                "background": "rgb(19, 26, 36)",
+                "accent": "#000"
+              }
+            },
+            "print": {
+              "texts": [
+                {
+                  "tag": "P",
+                  "className": "card-eyebrow",
+                  "text": "PRODUCT CONCEPT / 研究工作台",
+                  "color": "rgb(0, 0, 0)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 22.453125,
+                    "width": 967.6875,
+                    "height": 70.71875
+                  },
+                  "ratio": 1.200922180947122,
+                  "target": 4.5
+                },
+                {
+                  "tag": "H1",
+                  "className": "",
+                  "text": "把资料放回问题里",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "88.236px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "800",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 102.203125,
+                    "width": 967.6875,
+                    "height": 100.578125
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "一个虚构研究工作台的功能设想。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 211.6875,
+                    "width": 967.6875,
+                    "height": 68.71875
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "按主题收集片段，保留原始出处。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 364.5,
+                    "width": 467.59375,
+                    "height": 137.4375
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "并排查看笔记，记录待验证项。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 556.25,
+                    "y": 364.5,
+                    "width": 467.59375,
+                    "height": 137.4375
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "FIGCAPTION",
+                  "className": "",
+                  "text": "原创虚构 UI · 演示记录，不代表真实数据",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1099.21875,
+                    "width": 967.6875,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "card-source",
+                  "text": "原创概念演示 · 不代表已上线功能",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1160.59375,
+                    "width": 967.6875,
+                    "height": 56.078125
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "brand-name",
+                  "text": "PHOTO STUDY · 合成示例",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 159.265625,
+                    "y": 1312.609375,
+                    "width": 461.578125,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "footer-text",
+                  "text": "版式练习 · 不构成事实记录",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 159.265625,
+                    "y": 1365.078125,
+                    "width": 461.578125,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                }
+              ],
+              "bodyText": "PRODUCT CONCEPT / 研究工作台\n\n把资料放回问题里\n\n一个虚构研究工作台的功能设想。\n\n整理材料\n\n按主题收集片段，保留原始出处。\n\n回到问题\n\n并排查看笔记，记录待验证项。\n\n原创虚构 UI · 演示记录，不代表真实数据\n\n原创概念演示 · 不代表已上线功能\n\nPHOTO STUDY · 合成示例\n版式练习 · 不构成事实记录",
+              "images": [
+                {
+                  "alt": "原创虚构 UI 构图测试，不是现有产品截图",
+                  "fit": "contain",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 517.796875,
+                    "width": 967.6875,
+                    "height": 576
+                  },
+                  "natural": [
+                    1200,
+                    900
+                  ],
+                  "complete": true,
+                  "sha256": "5639ea622203b489cb7b9a38dc2304cbaa92c509dd2d09fde26c10307405616d"
+                },
+                {
+                  "alt": "",
+                  "fit": "contain",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1325.28125,
+                    "width": 79.59375,
+                    "height": 79.59375
+                  },
+                  "natural": [
+                    128,
+                    128
+                  ],
+                  "complete": true,
+                  "sha256": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791"
+                }
+              ],
+              "card": {
+                "background": "rgb(19, 26, 36)",
+                "accent": "#000"
+              }
+            },
+            "mobile375": {
+              "texts": [
+                {
+                  "tag": "P",
+                  "className": "card-eyebrow",
+                  "text": "PRODUCT CONCEPT / 研究工作台",
+                  "color": "rgb(0, 0, 0)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 7.297266006469727,
+                    "width": 314.4984130859375,
+                    "height": 22.98359489440918
+                  },
+                  "ratio": 1.200922180947122,
+                  "target": 4.5
+                },
+                {
+                  "tag": "H1",
+                  "className": "",
+                  "text": "把资料放回问题里",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "88.236px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "800",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 33.21601486206055,
+                    "width": 314.4984130859375,
+                    "height": 32.68788528442383
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "一个虚构研究工作台的功能设想。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 68.79843139648438,
+                    "width": 314.4984130859375,
+                    "height": 22.333595275878906
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "按主题收集片段，保留原始出处。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 118.46249389648438,
+                    "width": 151.9679718017578,
+                    "height": 44.66719055175781
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "并排查看笔记，记录待验证项。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 180.78125,
+                    "y": 118.46249389648438,
+                    "width": 151.96795654296875,
+                    "height": 44.66719055175781
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "FIGCAPTION",
+                  "className": "",
+                  "text": "原创虚构 UI · 演示记录，不代表真实数据",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 357.24609375,
+                    "width": 314.4984130859375,
+                    "height": 17.052337646484375
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "card-source",
+                  "text": "原创概念演示 · 不代表已上线功能",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 377.1929626464844,
+                    "width": 314.4984130859375,
+                    "height": 18.225372314453125
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "brand-name",
+                  "text": "PHOTO STUDY · 合成示例",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 51.76132583618164,
+                    "y": 426.5980224609375,
+                    "width": 150.0128936767578,
+                    "height": 17.052337646484375
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "footer-text",
+                  "text": "版式练习 · 不构成事实记录",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 51.76132583618164,
+                    "y": 443.6503601074219,
+                    "width": 150.0128936767578,
+                    "height": 17.0523681640625
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                }
+              ],
+              "bodyText": "PRODUCT CONCEPT / 研究工作台\n\n把资料放回问题里\n\n一个虚构研究工作台的功能设想。\n\n整理材料\n\n按主题收集片段，保留原始出处。\n\n回到问题\n\n并排查看笔记，记录待验证项。\n\n原创虚构 UI · 演示记录，不代表真实数据\n\n原创概念演示 · 不代表已上线功能\n\nPHOTO STUDY · 合成示例\n版式练习 · 不构成事实记录",
+              "images": [
+                {
+                  "alt": "原创虚构 UI 构图测试，不是现有产品截图",
+                  "fit": "contain",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 168.2839813232422,
+                    "width": 314.4984130859375,
+                    "height": 187.1999969482422
+                  },
+                  "natural": [
+                    1200,
+                    900
+                  ],
+                  "complete": true,
+                  "sha256": "5639ea622203b489cb7b9a38dc2304cbaa92c509dd2d09fde26c10307405616d"
+                },
+                {
+                  "alt": "",
+                  "fit": "contain",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 430.7164001464844,
+                    "width": 25.86796760559082,
+                    "height": 25.867950439453125
+                  },
+                  "natural": [
+                    128,
+                    128
+                  ],
+                  "complete": true,
+                  "sha256": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791"
+                }
+              ],
+              "card": {
+                "background": "rgb(19, 26, 36)",
+                "accent": "#000"
+              }
+            },
+            "mobile390": {
+              "texts": [
+                {
+                  "tag": "P",
+                  "className": "card-eyebrow",
+                  "text": "PRODUCT CONCEPT / 研究工作台",
+                  "color": "rgb(0, 0, 0)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 7.6091156005859375,
+                    "width": 327.93853759765625,
+                    "height": 23.965797424316406
+                  },
+                  "ratio": 1.200922180947122,
+                  "target": 4.5
+                },
+                {
+                  "tag": "H1",
+                  "className": "",
+                  "text": "把资料放回问题里",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "88.236px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "800",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 34.635501861572266,
+                    "width": 327.93853759765625,
+                    "height": 34.08481216430664
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "一个虚构研究工作台的功能设想。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 71.73854064941406,
+                    "width": 327.93853759765625,
+                    "height": 23.28801727294922
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "按主题收集片段，保留原始出处。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 123.52499389648438,
+                    "width": 158.4623260498047,
+                    "height": 46.5760498046875
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "并排查看笔记，记录待验证项。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 188.50694274902344,
+                    "y": 123.52499389648438,
+                    "width": 158.4623260498047,
+                    "height": 46.5760498046875
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "FIGCAPTION",
+                  "className": "",
+                  "text": "原创虚构 UI · 演示记录，不代表真实数据",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 372.51300048828125,
+                    "width": 327.93853759765625,
+                    "height": 17.781097412109375
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "card-source",
+                  "text": "原创概念演示 · 不代表已上线功能",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 393.31231689453125,
+                    "width": 327.93853759765625,
+                    "height": 19.004241943359375
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "brand-name",
+                  "text": "PHOTO STUDY · 合成示例",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 53.973350524902344,
+                    "y": 444.8287353515625,
+                    "width": 156.4237060546875,
+                    "height": 17.78106689453125
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "footer-text",
+                  "text": "版式练习 · 不构成事实记录",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 53.973350524902344,
+                    "y": 462.60980224609375,
+                    "width": 156.4237060546875,
+                    "height": 17.78106689453125
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                }
+              ],
+              "bodyText": "PRODUCT CONCEPT / 研究工作台\n\n把资料放回问题里\n\n一个虚构研究工作台的功能设想。\n\n整理材料\n\n按主题收集片段，保留原始出处。\n\n回到问题\n\n并排查看笔记，记录待验证项。\n\n原创虚构 UI · 演示记录，不代表真实数据\n\n原创概念演示 · 不代表已上线功能\n\nPHOTO STUDY · 合成示例\n版式练习 · 不构成事实记录",
+              "images": [
+                {
+                  "alt": "原创虚构 UI 构图测试，不是现有产品截图",
+                  "fit": "contain",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 175.47560119628906,
+                    "width": 327.93853759765625,
+                    "height": 195.1999969482422
+                  },
+                  "natural": [
+                    1200,
+                    900
+                  ],
+                  "complete": true,
+                  "sha256": "5639ea622203b489cb7b9a38dc2304cbaa92c509dd2d09fde26c10307405616d"
+                },
+                {
+                  "alt": "",
+                  "fit": "contain",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 449.1230773925781,
+                    "width": 26.97343635559082,
+                    "height": 26.97344970703125
+                  },
+                  "natural": [
+                    128,
+                    128
+                  ],
+                  "complete": true,
+                  "sha256": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791"
+                }
+              ],
+              "card": {
+                "background": "rgb(19, 26, 36)",
+                "accent": "#000"
+              }
+            }
+          },
+          "pdf": {
+            "schemaVersion": 1,
+            "status": "pass",
+            "ok": true,
+            "pageCount": 1,
+            "textCharacters": 141,
+            "searchable": true,
+            "checks": [
+              {
+                "id": "pdf-pages",
+                "status": "pass",
+                "message": "PDF contains 1 page(s).",
+                "details": {
+                  "expectedPages": 1,
+                  "actualPages": 1
+                }
+              },
+              {
+                "id": "pdf-text",
+                "status": "pass",
+                "message": "PDF contains extractable, searchable text.",
+                "details": {
+                  "textCharacters": 141,
+                  "expectedSnippetCount": 0
+                }
+              }
+            ],
+            "tools": {
+              "pdfinfo": true,
+              "pdftotext": true
+            },
+            "sourceCoverage": {
+              "extractor": "Poppler -raw",
+              "normalization": "NFC and whitespace only",
+              "expected": [
+                "把资料放回问题里",
+                "一个虚构研究工作台的功能设想。",
+                "整理材料",
+                "按主题收集片段，保留原始出处。",
+                "回到问题",
+                "并排查看笔记，记录待验证项。",
+                "PRODUCT CONCEPT / 研究工作台",
+                "原创概念演示 · 不代表已上线功能",
+                "原创虚构 UI · 演示记录，不代表真实数据",
+                "PHOTO STUDY · 合成示例",
+                "版式练习 · 不构成事实记录"
+              ],
+              "missing": []
+            }
+          }
+        },
+        "after": {
+          "htmlSha256": "7e73cfa3025005d766c226d17ca14d36d80ea5316a636624aeca8e9fa968bc55",
+          "views": {
+            "screen": {
+              "texts": [
+                {
+                  "tag": "P",
+                  "className": "card-eyebrow",
+                  "text": "PRODUCT CONCEPT / 研究工作台",
+                  "color": "rgb(0, 0, 0)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 22.453125,
+                    "width": 967.6875,
+                    "height": 70.71875
+                  },
+                  "ratio": 1.200922180947122,
+                  "target": 4.5
+                },
+                {
+                  "tag": "H1",
+                  "className": "",
+                  "text": "把资料放回问题里",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "88.236px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "800",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 102.203125,
+                    "width": 967.6875,
+                    "height": 100.578125
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "一个虚构研究工作台的功能设想。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 211.6875,
+                    "width": 967.6875,
+                    "height": 68.71875
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "按主题收集片段，保留原始出处。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 364.5,
+                    "width": 467.59375,
+                    "height": 137.4375
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "并排查看笔记，记录待验证项。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 556.25,
+                    "y": 364.5,
+                    "width": 467.59375,
+                    "height": 137.4375
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "FIGCAPTION",
+                  "className": "",
+                  "text": "原创虚构 UI · 演示记录，不代表真实数据",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1099.21875,
+                    "width": 967.6875,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "card-source",
+                  "text": "原创概念演示 · 不代表已上线功能",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1160.59375,
+                    "width": 967.6875,
+                    "height": 56.078125
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "brand-name",
+                  "text": "PHOTO STUDY · 合成示例",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 159.265625,
+                    "y": 1312.609375,
+                    "width": 461.578125,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "footer-text",
+                  "text": "版式练习 · 不构成事实记录",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 159.265625,
+                    "y": 1365.078125,
+                    "width": 461.578125,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                }
+              ],
+              "bodyText": "PRODUCT CONCEPT / 研究工作台\n\n把资料放回问题里\n\n一个虚构研究工作台的功能设想。\n\n整理材料\n\n按主题收集片段，保留原始出处。\n\n回到问题\n\n并排查看笔记，记录待验证项。\n\n原创虚构 UI · 演示记录，不代表真实数据\n\n原创概念演示 · 不代表已上线功能\n\nPHOTO STUDY · 合成示例\n版式练习 · 不构成事实记录",
+              "images": [
+                {
+                  "alt": "原创虚构 UI 构图测试，不是现有产品截图",
+                  "fit": "contain",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 517.796875,
+                    "width": 967.6875,
+                    "height": 576
+                  },
+                  "natural": [
+                    1200,
+                    900
+                  ],
+                  "complete": true,
+                  "sha256": "5639ea622203b489cb7b9a38dc2304cbaa92c509dd2d09fde26c10307405616d"
+                },
+                {
+                  "alt": "",
+                  "fit": "contain",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1325.28125,
+                    "width": 79.59375,
+                    "height": 79.59375
+                  },
+                  "natural": [
+                    128,
+                    128
+                  ],
+                  "complete": true,
+                  "sha256": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791"
+                }
+              ],
+              "card": {
+                "background": "rgb(19, 26, 36)",
+                "accent": "#000"
+              }
+            },
+            "print": {
+              "texts": [
+                {
+                  "tag": "P",
+                  "className": "card-eyebrow",
+                  "text": "PRODUCT CONCEPT / 研究工作台",
+                  "color": "rgb(0, 0, 0)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 22.453125,
+                    "width": 967.6875,
+                    "height": 70.71875
+                  },
+                  "ratio": 1.200922180947122,
+                  "target": 4.5
+                },
+                {
+                  "tag": "H1",
+                  "className": "",
+                  "text": "把资料放回问题里",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "88.236px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "800",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 102.203125,
+                    "width": 967.6875,
+                    "height": 100.578125
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "一个虚构研究工作台的功能设想。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 211.6875,
+                    "width": 967.6875,
+                    "height": 68.71875
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "按主题收集片段，保留原始出处。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 364.5,
+                    "width": 467.59375,
+                    "height": 137.4375
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "并排查看笔记，记录待验证项。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 556.25,
+                    "y": 364.5,
+                    "width": 467.59375,
+                    "height": 137.4375
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "FIGCAPTION",
+                  "className": "",
+                  "text": "原创虚构 UI · 演示记录，不代表真实数据",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1099.21875,
+                    "width": 967.6875,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "card-source",
+                  "text": "原创概念演示 · 不代表已上线功能",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1160.59375,
+                    "width": 967.6875,
+                    "height": 56.078125
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "brand-name",
+                  "text": "PHOTO STUDY · 合成示例",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 159.265625,
+                    "y": 1312.609375,
+                    "width": 461.578125,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "footer-text",
+                  "text": "版式练习 · 不构成事实记录",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 159.265625,
+                    "y": 1365.078125,
+                    "width": 461.578125,
+                    "height": 52.46875
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                }
+              ],
+              "bodyText": "PRODUCT CONCEPT / 研究工作台\n\n把资料放回问题里\n\n一个虚构研究工作台的功能设想。\n\n整理材料\n\n按主题收集片段，保留原始出处。\n\n回到问题\n\n并排查看笔记，记录待验证项。\n\n原创虚构 UI · 演示记录，不代表真实数据\n\n原创概念演示 · 不代表已上线功能\n\nPHOTO STUDY · 合成示例\n版式练习 · 不构成事实记录",
+              "images": [
+                {
+                  "alt": "原创虚构 UI 构图测试，不是现有产品截图",
+                  "fit": "contain",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 517.796875,
+                    "width": 967.6875,
+                    "height": 576
+                  },
+                  "natural": [
+                    1200,
+                    900
+                  ],
+                  "complete": true,
+                  "sha256": "5639ea622203b489cb7b9a38dc2304cbaa92c509dd2d09fde26c10307405616d"
+                },
+                {
+                  "alt": "",
+                  "fit": "contain",
+                  "box": {
+                    "x": 56.15625,
+                    "y": 1325.28125,
+                    "width": 79.59375,
+                    "height": 79.59375
+                  },
+                  "natural": [
+                    128,
+                    128
+                  ],
+                  "complete": true,
+                  "sha256": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791"
+                }
+              ],
+              "card": {
+                "background": "rgb(19, 26, 36)",
+                "accent": "#000"
+              }
+            },
+            "mobile375": {
+              "texts": [
+                {
+                  "tag": "P",
+                  "className": "card-eyebrow",
+                  "text": "PRODUCT CONCEPT / 研究工作台",
+                  "color": "rgb(0, 0, 0)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 7.297266006469727,
+                    "width": 314.4984130859375,
+                    "height": 22.98359489440918
+                  },
+                  "ratio": 1.200922180947122,
+                  "target": 4.5
+                },
+                {
+                  "tag": "H1",
+                  "className": "",
+                  "text": "把资料放回问题里",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "88.236px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "800",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 33.21601486206055,
+                    "width": 314.4984130859375,
+                    "height": 32.68788528442383
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "一个虚构研究工作台的功能设想。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 68.79843139648438,
+                    "width": 314.4984130859375,
+                    "height": 22.333595275878906
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "按主题收集片段，保留原始出处。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 118.46249389648438,
+                    "width": 151.9679718017578,
+                    "height": 44.66719055175781
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "并排查看笔记，记录待验证项。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 180.78125,
+                    "y": 118.46249389648438,
+                    "width": 151.96795654296875,
+                    "height": 44.66719055175781
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "FIGCAPTION",
+                  "className": "",
+                  "text": "原创虚构 UI · 演示记录，不代表真实数据",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 357.24609375,
+                    "width": 314.4984130859375,
+                    "height": 17.052337646484375
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "card-source",
+                  "text": "原创概念演示 · 不代表已上线功能",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 377.1929626464844,
+                    "width": 314.4984130859375,
+                    "height": 18.225372314453125
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "brand-name",
+                  "text": "PHOTO STUDY · 合成示例",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 51.76132583618164,
+                    "y": 426.5980224609375,
+                    "width": 150.0128936767578,
+                    "height": 17.052337646484375
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "footer-text",
+                  "text": "版式练习 · 不构成事实记录",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 51.76132583618164,
+                    "y": 443.6503601074219,
+                    "width": 150.0128936767578,
+                    "height": 17.0523681640625
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                }
+              ],
+              "bodyText": "PRODUCT CONCEPT / 研究工作台\n\n把资料放回问题里\n\n一个虚构研究工作台的功能设想。\n\n整理材料\n\n按主题收集片段，保留原始出处。\n\n回到问题\n\n并排查看笔记，记录待验证项。\n\n原创虚构 UI · 演示记录，不代表真实数据\n\n原创概念演示 · 不代表已上线功能\n\nPHOTO STUDY · 合成示例\n版式练习 · 不构成事实记录",
+              "images": [
+                {
+                  "alt": "原创虚构 UI 构图测试，不是现有产品截图",
+                  "fit": "contain",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 168.2839813232422,
+                    "width": 314.4984130859375,
+                    "height": 187.1999969482422
+                  },
+                  "natural": [
+                    1200,
+                    900
+                  ],
+                  "complete": true,
+                  "sha256": "5639ea622203b489cb7b9a38dc2304cbaa92c509dd2d09fde26c10307405616d"
+                },
+                {
+                  "alt": "",
+                  "fit": "contain",
+                  "box": {
+                    "x": 18.25078010559082,
+                    "y": 430.7164001464844,
+                    "width": 25.86796760559082,
+                    "height": 25.867950439453125
+                  },
+                  "natural": [
+                    128,
+                    128
+                  ],
+                  "complete": true,
+                  "sha256": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791"
+                }
+              ],
+              "card": {
+                "background": "rgb(19, 26, 36)",
+                "accent": "#000"
+              }
+            },
+            "mobile390": {
+              "texts": [
+                {
+                  "tag": "P",
+                  "className": "card-eyebrow",
+                  "text": "PRODUCT CONCEPT / 研究工作台",
+                  "color": "rgb(0, 0, 0)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 7.6091156005859375,
+                    "width": 327.93853759765625,
+                    "height": 23.965797424316406
+                  },
+                  "ratio": 1.200922180947122,
+                  "target": 4.5
+                },
+                {
+                  "tag": "H1",
+                  "className": "",
+                  "text": "把资料放回问题里",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "88.236px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "800",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 34.635501861572266,
+                    "width": 327.93853759765625,
+                    "height": 34.08481216430664
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "一个虚构研究工作台的功能设想。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 71.73854064941406,
+                    "width": 327.93853759765625,
+                    "height": 23.28801727294922
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "按主题收集片段，保留原始出处。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 123.52499389648438,
+                    "width": 158.4623260498047,
+                    "height": 46.5760498046875
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "",
+                  "text": "并排查看笔记，记录待验证项。",
+                  "color": "rgb(240, 245, 247)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "46.44px",
+                  "fontFamily": "Aptos, \"Segoe UI\", Optima, \"Noto Sans CJK SC\", \"Noto Sans SC\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 188.50694274902344,
+                    "y": 123.52499389648438,
+                    "width": 158.4623260498047,
+                    "height": 46.5760498046875
+                  },
+                  "ratio": 15.912018687597095,
+                  "target": 4.5
+                },
+                {
+                  "tag": "FIGCAPTION",
+                  "className": "",
+                  "text": "原创虚构 UI · 演示记录，不代表真实数据",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 372.51300048828125,
+                    "width": 327.93853759765625,
+                    "height": 17.781097412109375
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "P",
+                  "className": "card-source",
+                  "text": "原创概念演示 · 不代表已上线功能",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 393.31231689453125,
+                    "width": 327.93853759765625,
+                    "height": 19.004241943359375
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "brand-name",
+                  "text": "PHOTO STUDY · 合成示例",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "750",
+                  "box": {
+                    "x": 53.973350524902344,
+                    "y": 444.8287353515625,
+                    "width": 156.4237060546875,
+                    "height": 17.78106689453125
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                },
+                {
+                  "tag": "SPAN",
+                  "className": "footer-text",
+                  "text": "版式练习 · 不构成事实记录",
+                  "color": "rgb(184, 201, 207)",
+                  "background": "rgb(19, 26, 36)",
+                  "fontSize": "36.18px",
+                  "fontFamily": "SFMono-Regular, \"Cascadia Mono\", Consolas, \"Liberation Mono\", \"Noto Sans Mono CJK SC\", \"Noto Sans CJK SC\", \"Microsoft YaHei\", monospace",
+                  "fontWeight": "400",
+                  "box": {
+                    "x": 53.973350524902344,
+                    "y": 462.60980224609375,
+                    "width": 156.4237060546875,
+                    "height": 17.78106689453125
+                  },
+                  "ratio": 10.236904695975504,
+                  "target": 4.5
+                }
+              ],
+              "bodyText": "PRODUCT CONCEPT / 研究工作台\n\n把资料放回问题里\n\n一个虚构研究工作台的功能设想。\n\n整理材料\n\n按主题收集片段，保留原始出处。\n\n回到问题\n\n并排查看笔记，记录待验证项。\n\n原创虚构 UI · 演示记录，不代表真实数据\n\n原创概念演示 · 不代表已上线功能\n\nPHOTO STUDY · 合成示例\n版式练习 · 不构成事实记录",
+              "images": [
+                {
+                  "alt": "原创虚构 UI 构图测试，不是现有产品截图",
+                  "fit": "contain",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 175.47560119628906,
+                    "width": 327.93853759765625,
+                    "height": 195.1999969482422
+                  },
+                  "natural": [
+                    1200,
+                    900
+                  ],
+                  "complete": true,
+                  "sha256": "5639ea622203b489cb7b9a38dc2304cbaa92c509dd2d09fde26c10307405616d"
+                },
+                {
+                  "alt": "",
+                  "fit": "contain",
+                  "box": {
+                    "x": 19.030729293823242,
+                    "y": 449.1230773925781,
+                    "width": 26.97343635559082,
+                    "height": 26.97344970703125
+                  },
+                  "natural": [
+                    128,
+                    128
+                  ],
+                  "complete": true,
+                  "sha256": "e3a74d1133d3cc80e3f479799d7099c22324020fe20bb3917013bc68ece1a791"
+                }
+              ],
+              "card": {
+                "background": "rgb(19, 26, 36)",
+                "accent": "#000"
+              }
+            }
+          },
+          "pdf": {
+            "schemaVersion": 1,
+            "status": "pass",
+            "ok": true,
+            "pageCount": 1,
+            "textCharacters": 141,
+            "searchable": true,
+            "checks": [
+              {
+                "id": "pdf-pages",
+                "status": "pass",
+                "message": "PDF contains 1 page(s).",
+                "details": {
+                  "expectedPages": 1,
+                  "actualPages": 1
+                }
+              },
+              {
+                "id": "pdf-text",
+                "status": "pass",
+                "message": "PDF contains extractable, searchable text.",
+                "details": {
+                  "textCharacters": 141,
+                  "expectedSnippetCount": 0
+                }
+              }
+            ],
+            "tools": {
+              "pdfinfo": true,
+              "pdftotext": true
+            },
+            "sourceCoverage": {
+              "extractor": "Poppler -raw",
+              "normalization": "NFC and whitespace only",
+              "expected": [
+                "把资料放回问题里",
+                "一个虚构研究工作台的功能设想。",
+                "整理材料",
+                "按主题收集片段，保留原始出处。",
+                "回到问题",
+                "并排查看笔记，记录待验证项。",
+                "PRODUCT CONCEPT / 研究工作台",
+                "原创概念演示 · 不代表已上线功能",
+                "原创虚构 UI · 演示记录，不代表真实数据",
+                "PHOTO STUDY · 合成示例",
+                "版式练习 · 不构成事实记录"
+              ],
+              "missing": []
+            }
+          }
+        }
+      },
+      "pixels": {
+        "screen": {
+          "width": 1080,
+          "height": 1440,
+          "changedPixels": 0,
+          "maxChannelDifference": 0,
+          "bounds": null
+        },
+        "print": {
+          "width": 1080,
+          "height": 1440,
+          "changedPixels": 0,
+          "maxChannelDifference": 0,
+          "bounds": null
+        },
+        "mobile-375": {
+          "width": 375,
+          "height": 900,
+          "changedPixels": 0,
+          "maxChannelDifference": 0,
+          "bounds": null
+        },
+        "mobile-390": {
+          "width": 390,
+          "height": 900,
+          "changedPixels": 0,
+          "maxChannelDifference": 0,
+          "bounds": null
+        },
+        "native-pdf": {
+          "width": 1080,
+          "height": 1440,
+          "changedPixels": 0,
+          "maxChannelDifference": 0,
+          "bounds": null
+        }
+      }
+    }
+  ],
+  "compatibility": [
+    {
+      "id": "T01",
+      "accent": null,
+      "htmlSha256": "cf85142af5ae0534859f897a6c0c47673556130e6ce6efb52dee610eeba3a317",
+      "inputSha256": "4bc9e00e4b1fa63748f982fbfec4502c92d19ce1bbf5c8a001bbdf626cf356ab"
+    },
+    {
+      "id": "T01",
+      "accent": "#000000",
+      "htmlSha256": "e66c5dceaa0cb612f9f5cce803defd26498d66980b2a967034a2347764dd85b5",
+      "inputSha256": "4bc9e00e4b1fa63748f982fbfec4502c92d19ce1bbf5c8a001bbdf626cf356ab"
+    },
+    {
+      "id": "T01",
+      "accent": "#e4c37d",
+      "htmlSha256": "07cf05b086d97610cdbe8eafde2ab622d19bd766674f1366c7f19acece931f88",
+      "inputSha256": "4bc9e00e4b1fa63748f982fbfec4502c92d19ce1bbf5c8a001bbdf626cf356ab"
+    },
+    {
+      "id": "T05",
+      "accent": null,
+      "htmlSha256": "7a09c61b8e0fdc4842671c6da464bc77439547fb323f75e4666877de440d30b0",
+      "inputSha256": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3"
+    },
+    {
+      "id": "T05",
+      "accent": "#000000",
+      "htmlSha256": "e6d039970542a2c2881792a6705aeaf80f6637e4cba3b0cae3fa0f9f9c17cf59",
+      "inputSha256": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3"
+    },
+    {
+      "id": "T05",
+      "accent": "#e4c37d",
+      "htmlSha256": "f7077ea153295dc32256ada49710b74f964ccf4e1a1c5497acd4fe45007eb4fb",
+      "inputSha256": "a11c8cf4eda1f847d9035fa167b929e0c22d07a1d49fad2ca42baf825bfb6ed3"
+    },
+    {
+      "id": "T17",
+      "accent": null,
+      "htmlSha256": "56f8812ccc2e4b93b16679550e6b6f7b8e48eb75e5de4dd103cbc8a739edaff3",
+      "inputSha256": "25bcaa60f48dc266d25806912de19a2b5010b12170508edc81a79099a4994246"
+    },
+    {
+      "id": "T17",
+      "accent": "#000000",
+      "htmlSha256": "3689e7a3b68968da31b131e4b25cdfe1a1d548e0be8b379bf83751bbb4f6399f",
+      "inputSha256": "25bcaa60f48dc266d25806912de19a2b5010b12170508edc81a79099a4994246"
+    },
+    {
+      "id": "T17",
+      "accent": "#e4c37d",
+      "htmlSha256": "fd98618e9fc501c9ba23cd784f6e463040d6d61e95417fefa7d4ce4f0c400e40",
+      "inputSha256": "25bcaa60f48dc266d25806912de19a2b5010b12170508edc81a79099a4994246"
+    },
+    {
+      "id": "T25",
+      "accent": null,
+      "htmlSha256": "91ab568535eab08a1daf30169893a097d53a7b4d2841465ee68a0518c22c121b",
+      "inputSha256": "70e7122d3a4089f2233b790548cf26bc244624d01cef7e44544fc26aaf924ae1"
+    },
+    {
+      "id": "T25",
+      "accent": "#000000",
+      "htmlSha256": "0e2b217fd47f38f8667457ee3c7dd410d64d0a9185eecf0be9f3e9ad2620d9ee",
+      "inputSha256": "70e7122d3a4089f2233b790548cf26bc244624d01cef7e44544fc26aaf924ae1"
+    },
+    {
+      "id": "T25",
+      "accent": "#e4c37d",
+      "htmlSha256": "7de1be2dda0fe5659cc47c6241e40fb61ddf0d086c22e0d677489b35f03c4c1f",
+      "inputSha256": "70e7122d3a4089f2233b790548cf26bc244624d01cef7e44544fc26aaf924ae1"
+    },
+    {
+      "id": "T02",
+      "accent": null,
+      "htmlSha256": "10147f8dc3ec811d53aae548d058e726c7c6c11889520c3207c5470ee0d7e0ec",
+      "inputSha256": "c2cd7c46f452e9bc21bdebd4c2c0a4af072cba56623a04a124b804186a3db74f"
+    },
+    {
+      "id": "T02",
+      "accent": "#000000",
+      "htmlSha256": "9765f43f5c4f5cdcec268486a696ce1d0b3890706f303dadc9605c2265236e6d",
+      "inputSha256": "c2cd7c46f452e9bc21bdebd4c2c0a4af072cba56623a04a124b804186a3db74f"
+    },
+    {
+      "id": "T02",
+      "accent": "#e4c37d",
+      "htmlSha256": "afc0deb081c026a015addb897624f69283e5fb74ea8889bf7a4a57d3771d86fb",
+      "inputSha256": "c2cd7c46f452e9bc21bdebd4c2c0a4af072cba56623a04a124b804186a3db74f"
+    },
+    {
+      "id": "T06",
+      "accent": null,
+      "htmlSha256": "30d554e2b00c454fa7d16d73452f4e5d993fd03ab564236b9cba9fcdc2ec92a8",
+      "inputSha256": "a1d24b90a1dfeb3fa66d45b4dd0fdc56f71fdb7a2ab44e1c5564cd8a4c66620d"
+    },
+    {
+      "id": "T06",
+      "accent": "#000000",
+      "htmlSha256": "7408e14106bf5f3b699dd2a912cd27fcc9cb9f374b5571d2f7d9d8d1168509fc",
+      "inputSha256": "a1d24b90a1dfeb3fa66d45b4dd0fdc56f71fdb7a2ab44e1c5564cd8a4c66620d"
+    },
+    {
+      "id": "T06",
+      "accent": "#e4c37d",
+      "htmlSha256": "72e01ccda5fe93de465399a8da71a56e1a433b6b966d0233624147d458f36993",
+      "inputSha256": "a1d24b90a1dfeb3fa66d45b4dd0fdc56f71fdb7a2ab44e1c5564cd8a4c66620d"
+    },
+    {
+      "id": "T09",
+      "accent": null,
+      "htmlSha256": "ce126bfafe74a5044d3b5ab722c445fc6a331c43fc4efdeb60eac15a85cdb496",
+      "inputSha256": "ad9e2eb19c811d879ec0f0df75332c83e4c67fbadaba7928df9c829aa17b6bca"
+    },
+    {
+      "id": "T09",
+      "accent": "#000000",
+      "htmlSha256": "c7968473008562fd8b2624603d7389c4e7d5473675e5a51e043b927e9e477b77",
+      "inputSha256": "ad9e2eb19c811d879ec0f0df75332c83e4c67fbadaba7928df9c829aa17b6bca"
+    },
+    {
+      "id": "T09",
+      "accent": "#e4c37d",
+      "htmlSha256": "8b2e46a409a1580402bec27faeed0b01be31b24b275bf10faccd17d6dac57a07",
+      "inputSha256": "ad9e2eb19c811d879ec0f0df75332c83e4c67fbadaba7928df9c829aa17b6bca"
+    },
+    {
+      "id": "T10",
+      "accent": null,
+      "htmlSha256": "b0da18fd78ab4df108c48dcd0520e0e1a0cfd1a3a042b8117426f8b23835f3e8",
+      "inputSha256": "b1bed4b68c1dd452afbcc4b177513e7e11a90011d72f665c0975df556cd937aa"
+    },
+    {
+      "id": "T10",
+      "accent": "#000000",
+      "htmlSha256": "faefa12fe14b7360dc20466482245b11a41457c5baefbad6d9b28ffbc1b6734e",
+      "inputSha256": "b1bed4b68c1dd452afbcc4b177513e7e11a90011d72f665c0975df556cd937aa"
+    },
+    {
+      "id": "T10",
+      "accent": "#e4c37d",
+      "htmlSha256": "cef257f7fe1c30c7ace940964116ce6cdc6ca1f73e1d9875613fad05df3886c0",
+      "inputSha256": "b1bed4b68c1dd452afbcc4b177513e7e11a90011d72f665c0975df556cd937aa"
+    },
+    {
+      "id": "T13",
+      "accent": null,
+      "htmlSha256": "d1685058aaa3a5e8c2deb11504452518a706a32c7da6faf1ab4b5df796feb98c",
+      "inputSha256": "c8b2d96b0deb77d699978ad0546d05d4cd68482bf3dcb68ffd6b95a1d3ecffd1"
+    },
+    {
+      "id": "T13",
+      "accent": "#000000",
+      "htmlSha256": "52d6e4c96e85db9838905305651fffb4315e5d12285875e1915964b05d01822d",
+      "inputSha256": "c8b2d96b0deb77d699978ad0546d05d4cd68482bf3dcb68ffd6b95a1d3ecffd1"
+    },
+    {
+      "id": "T13",
+      "accent": "#e4c37d",
+      "htmlSha256": "762dacf1b9455bcf581ad8b40ea8aa6aac16e0109f22d19457656947a513a87b",
+      "inputSha256": "c8b2d96b0deb77d699978ad0546d05d4cd68482bf3dcb68ffd6b95a1d3ecffd1"
+    },
+    {
+      "id": "T14",
+      "accent": null,
+      "htmlSha256": "c8b1cfc9ed6db3683f2b89976608acd624fb3ff058a4707213ad27a7558f2404",
+      "inputSha256": "e142fce016b13c96cc8403435721f601251e566fc0115053a27a0e0ed16e3cde"
+    },
+    {
+      "id": "T14",
+      "accent": "#000000",
+      "htmlSha256": "2d24c7e547b6778bd966c122481bcebb69f0aaa88f24dcc637f0e574a480e8fa",
+      "inputSha256": "e142fce016b13c96cc8403435721f601251e566fc0115053a27a0e0ed16e3cde"
+    },
+    {
+      "id": "T14",
+      "accent": "#e4c37d",
+      "htmlSha256": "8686d1bd9b7d4f6bdbe453e806272c3804a2e95cac6942f761b38d46a6581bb7",
+      "inputSha256": "e142fce016b13c96cc8403435721f601251e566fc0115053a27a0e0ed16e3cde"
+    },
+    {
+      "id": "T18",
+      "accent": null,
+      "htmlSha256": "65c0b63c3ec7833ea7fe59949ba4330ca240d45181679d195a1a689c48cb6259",
+      "inputSha256": "e80a9e0e61f48cf3483dab3e85972858a8811f8faceece5390b1eb8595fb12fb"
+    },
+    {
+      "id": "T18",
+      "accent": "#000000",
+      "htmlSha256": "cef48faeea9f09133bb783e737ad57c51330b89d42e554c52849e622626c2776",
+      "inputSha256": "e80a9e0e61f48cf3483dab3e85972858a8811f8faceece5390b1eb8595fb12fb"
+    },
+    {
+      "id": "T18",
+      "accent": "#e4c37d",
+      "htmlSha256": "e577c49bf35e46d7a22d85165b86914fa96d586bdcd41ee4c5d469a30df5db1c",
+      "inputSha256": "e80a9e0e61f48cf3483dab3e85972858a8811f8faceece5390b1eb8595fb12fb"
+    },
+    {
+      "id": "T21",
+      "accent": null,
+      "htmlSha256": "87ee5f3b5f832b7ba5dd575fea32d438cac18c4e303fae332dfec59710c14d49",
+      "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a"
+    },
+    {
+      "id": "T21",
+      "accent": "#000000",
+      "htmlSha256": "3e25e76f70b857884180bdc5cd7dae5c7964fd1125e6906c8787087b1eea8716",
+      "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a"
+    },
+    {
+      "id": "T21",
+      "accent": "#e4c37d",
+      "htmlSha256": "4437dc4b0523debf042f6a3e35376ddc972f47ca63a126514a9656a31c1c4f74",
+      "inputSha256": "942ff0c189d5fb1c331d833b2626f0bd71bc777e9725e3be377636e76e5ddf8a"
+    },
+    {
+      "id": "T22",
+      "accent": null,
+      "htmlSha256": "cabf128fcf9a943cdc817e1c1f2163d7d7fe22ab23f6a61abaccd7501fa0df1b",
+      "inputSha256": "cbef06e848d7a07fd6bd43f01d9a663a176290957b3a76558e6783c98b74801f"
+    },
+    {
+      "id": "T22",
+      "accent": "#000000",
+      "htmlSha256": "71d74615cab310b21132e37eb533ca044a45ae2baf4bf0845e39eb159befa36e",
+      "inputSha256": "cbef06e848d7a07fd6bd43f01d9a663a176290957b3a76558e6783c98b74801f"
+    },
+    {
+      "id": "T22",
+      "accent": "#e4c37d",
+      "htmlSha256": "62498880607c05b85d947800c42c857f672e4a61e4df271b69048e3eee5e9c26",
+      "inputSha256": "cbef06e848d7a07fd6bd43f01d9a663a176290957b3a76558e6783c98b74801f"
+    },
+    {
+      "id": "T26",
+      "accent": null,
+      "htmlSha256": "0677b9038461dace51b24e3fb3dc9ad3dc9ad965cc8ce1a68872c6740a11225e",
+      "inputSha256": "ba68d129d10d4391da1eecd3841e23f8ef64374c5eb846d76426900ef62e5dba"
+    },
+    {
+      "id": "T26",
+      "accent": "#000000",
+      "htmlSha256": "147d1e80426767dc030bf75aa87a9637a7076e04f3d2704aa644d37d5149f85c",
+      "inputSha256": "ba68d129d10d4391da1eecd3841e23f8ef64374c5eb846d76426900ef62e5dba"
+    },
+    {
+      "id": "T26",
+      "accent": "#e4c37d",
+      "htmlSha256": "ae5a8d49bc1bf1c0e9601fbb0427f17776121bd94f0cb4d2414956dec988b3cc",
+      "inputSha256": "ba68d129d10d4391da1eecd3841e23f8ef64374c5eb846d76426900ef62e5dba"
+    },
+    {
+      "id": "T29",
+      "accent": null,
+      "htmlSha256": "374a92c8b7c2092ba4345bf48725f0e5e1ed4f7dffe58c3473a9525e1f2b45b0",
+      "inputSha256": "7970b1a873fca64027899b99fb9fb13206339e0f64620962c2ec915d1a0385b8"
+    },
+    {
+      "id": "T29",
+      "accent": "#000000",
+      "htmlSha256": "a2c9e9e0dd8e3d9dd93d7dea3956eb5d9b1f86cfb8ffd52d399148fbaa2974ca",
+      "inputSha256": "7970b1a873fca64027899b99fb9fb13206339e0f64620962c2ec915d1a0385b8"
+    },
+    {
+      "id": "T29",
+      "accent": "#e4c37d",
+      "htmlSha256": "cd5404787203c55cbf20e621cb7e0b819eba191607efa1c99ce65ef14235b061",
+      "inputSha256": "7970b1a873fca64027899b99fb9fb13206339e0f64620962c2ec915d1a0385b8"
+    },
+    {
+      "id": "T30",
+      "accent": null,
+      "htmlSha256": "3f69eaffcdf7b36d9a098d2ce64b8f17c0be270dacd51d83378bbde3c1995e8d",
+      "inputSha256": "2017c9fc2ea9f612c6ac4fcd43c4dcb67ac75a107d45f6643777589218acf3e6"
+    },
+    {
+      "id": "T30",
+      "accent": "#000000",
+      "htmlSha256": "63988e5b175c144b24617b5453a5d41335bf9e4df527602c77e82bc6f899cb2a",
+      "inputSha256": "2017c9fc2ea9f612c6ac4fcd43c4dcb67ac75a107d45f6643777589218acf3e6"
+    },
+    {
+      "id": "T30",
+      "accent": "#e4c37d",
+      "htmlSha256": "6bc7db1269d1cdb635d30b516b643bdf684bb7642bdad7b6ea6fa2afd4d51384",
+      "inputSha256": "2017c9fc2ea9f612c6ac4fcd43c4dcb67ac75a107d45f6643777589218acf3e6"
+    },
+    {
+      "id": "T33",
+      "accent": null,
+      "htmlSha256": "f1450196d81e06bcfac0dfcf655ca22c791ce327a85939ff81866201ad7076f7",
+      "inputSha256": "f806181a5d8264fced4ea19f275bc52eaeecb39b87f4705a5c5cea79cfe8d53a"
+    },
+    {
+      "id": "T33",
+      "accent": "#000000",
+      "htmlSha256": "05677a1549cc5e55bd9ee2c874a611f6497f7c2f4d8a19ab97d071e5acc6bb48",
+      "inputSha256": "f806181a5d8264fced4ea19f275bc52eaeecb39b87f4705a5c5cea79cfe8d53a"
+    },
+    {
+      "id": "T33",
+      "accent": "#e4c37d",
+      "htmlSha256": "3c52ff88522b027cc5c3174ca2af804fd0309a4de7d010c316e781cb87f15458",
+      "inputSha256": "f806181a5d8264fced4ea19f275bc52eaeecb39b87f4705a5c5cea79cfe8d53a"
+    },
+    {
+      "id": "T34",
+      "accent": null,
+      "htmlSha256": "71d992722569aacc184e698c39911006b30675cdfbe3213427462a92cce2058d",
+      "inputSha256": "e4fa1c47103570e639417c330c420af3ac8734b7a736b1fd42d123c2a3936ece"
+    },
+    {
+      "id": "T34",
+      "accent": "#000000",
+      "htmlSha256": "410511577e23e2615b3ed189065429549f143dac565581666f6a3c911241fc39",
+      "inputSha256": "e4fa1c47103570e639417c330c420af3ac8734b7a736b1fd42d123c2a3936ece"
+    },
+    {
+      "id": "T34",
+      "accent": "#e4c37d",
+      "htmlSha256": "623eb2e29cd716a2d932e76247a11650b81d754eb7739a9b8c58383d473cc98d",
+      "inputSha256": "e4fa1c47103570e639417c330c420af3ac8734b7a736b1fd42d123c2a3936ece"
+    },
+    {
+      "id": "T37",
+      "accent": null,
+      "htmlSha256": "7bb9c53857f36550a36829970127fe7c3bad3320ac02a6aef632db4db75e276b",
+      "inputSha256": "10092106b880769b4bb0064bd3a1cd395193500eec941651e40496083f22887c"
+    },
+    {
+      "id": "T37",
+      "accent": "#e4c37d",
+      "htmlSha256": "ab499b338a75cb0ca5f915cc178d1df364c95911b293c3cc9347e641d5a72a85",
+      "inputSha256": "10092106b880769b4bb0064bd3a1cd395193500eec941651e40496083f22887c"
+    },
+    {
+      "id": "T38",
+      "accent": null,
+      "htmlSha256": "4d2b8a2ed15cee4af1bc9fda6365998363c457cefa89107e3c0a475e09629726",
+      "inputSha256": "450b2d8cb523abb8e5811d8f04ce0c6aa89235f97b00caadf420e9035624bda0"
+    },
+    {
+      "id": "T38",
+      "accent": "#000000",
+      "htmlSha256": "d0c88601fe0cb80af5acbbc2aa214b600e813da4a8cb4550942fab9fcdf4c1f7",
+      "inputSha256": "450b2d8cb523abb8e5811d8f04ce0c6aa89235f97b00caadf420e9035624bda0"
+    },
+    {
+      "id": "T38",
+      "accent": "#e4c37d",
+      "htmlSha256": "292bdf7d0bb2352b0abf05c1e55c9a7de8761fc6358743a99efa66b4ad1dc319",
+      "inputSha256": "450b2d8cb523abb8e5811d8f04ce0c6aa89235f97b00caadf420e9035624bda0"
+    },
+    {
+      "id": "T41",
+      "accent": null,
+      "htmlSha256": "3c1fe9a2273adacc619f1edc80fda85c75aa7ed6ac484f75d441d25f28edffaa",
+      "inputSha256": "26177685689025638d3bd1f7bbb102444140ede2d95abafbc6a787b86dd53743"
+    },
+    {
+      "id": "T41",
+      "accent": "#000000",
+      "htmlSha256": "89b12f6c33402cb67df502c520dea91dd7651460f648f74be01e10cf7746685c",
+      "inputSha256": "26177685689025638d3bd1f7bbb102444140ede2d95abafbc6a787b86dd53743"
+    },
+    {
+      "id": "T41",
+      "accent": "#e4c37d",
+      "htmlSha256": "34f9e68c2fa409531bbee04c2568527161029ddd7c8dc022b1ea804a1d4ac408",
+      "inputSha256": "26177685689025638d3bd1f7bbb102444140ede2d95abafbc6a787b86dd53743"
+    },
+    {
+      "id": "T42",
+      "accent": null,
+      "htmlSha256": "e66c492901080f83feceaaa200fa627c2d9cda20f5c451458563cca38b66ff68",
+      "inputSha256": "f4ac48aa990e7ac9b2e949a2ff872ef41c314f8c92ca6965411dff1621f66d66"
+    },
+    {
+      "id": "T42",
+      "accent": "#000000",
+      "htmlSha256": "551b6816459b4ee1ced4e3124b34c1cebda38d2eef51cd61bfaef1ed45411261",
+      "inputSha256": "f4ac48aa990e7ac9b2e949a2ff872ef41c314f8c92ca6965411dff1621f66d66"
+    },
+    {
+      "id": "T42",
+      "accent": "#e4c37d",
+      "htmlSha256": "d454b8b6f40d9eeea51f7ad21a11876fe1924df7f1e4685c0f01ec2e4884fb0d",
+      "inputSha256": "f4ac48aa990e7ac9b2e949a2ff872ef41c314f8c92ca6965411dff1621f66d66"
+    },
+    {
+      "id": "T45",
+      "accent": null,
+      "htmlSha256": "12b04a008b94dbdfa36b26402cf2d8980d8a52116128aaab6347036fc6e6ff6d",
+      "inputSha256": "6b035a832a32f08e81b0e104828cfe8bde972aa562bd77e28f8f0e8c2c79a714"
+    },
+    {
+      "id": "T45",
+      "accent": "#000000",
+      "htmlSha256": "8734565344ec3596d809e426131f055992b314a801ccfcc336c5fb6ca37c94f9",
+      "inputSha256": "6b035a832a32f08e81b0e104828cfe8bde972aa562bd77e28f8f0e8c2c79a714"
+    },
+    {
+      "id": "T45",
+      "accent": "#e4c37d",
+      "htmlSha256": "04d40fa3c201589d47da2c6b11bb894c68694ccbb76148aedbfa6928e61fefb3",
+      "inputSha256": "6b035a832a32f08e81b0e104828cfe8bde972aa562bd77e28f8f0e8c2c79a714"
+    },
+    {
+      "id": "T46",
+      "accent": null,
+      "htmlSha256": "13f12c188d1572367076055b029b04bdf4c044c2b64886f4bc006be70943fb6c",
+      "inputSha256": "b0314d1d97db0c571ba1c2e4da4727672ef3068863f659d2a72655ccea573c3f"
+    },
+    {
+      "id": "T46",
+      "accent": "#000000",
+      "htmlSha256": "7acb94693152d1534c53867890b2198f6c01feb835fc9ef9b584eb9665420a8e",
+      "inputSha256": "b0314d1d97db0c571ba1c2e4da4727672ef3068863f659d2a72655ccea573c3f"
+    },
+    {
+      "id": "T46",
+      "accent": "#e4c37d",
+      "htmlSha256": "8ecce1c668a6d6ff2437fb6bd183fb2a16482708cc2f06c01f00dfe06ca26924",
+      "inputSha256": "b0314d1d97db0c571ba1c2e4da4727672ef3068863f659d2a72655ccea573c3f"
+    },
+    {
+      "id": "T03",
+      "accent": null,
+      "htmlSha256": "0a8997a96c48bb964df240bdf3b62babc865591b19a3acfd6868c263ef2eff44",
+      "inputSha256": "32713699ea30fa210323a72f980845c056f851197cedbd7907a774009b732ce7"
+    },
+    {
+      "id": "T03",
+      "accent": "#000000",
+      "htmlSha256": "57e71c8c97c9763ac2a20ba76869c1564079fc706073eb67c53a740a9f0c3f46",
+      "inputSha256": "32713699ea30fa210323a72f980845c056f851197cedbd7907a774009b732ce7"
+    },
+    {
+      "id": "T03",
+      "accent": "#e4c37d",
+      "htmlSha256": "8deab4c0b49910b846cf33e69bd9098e3fac93d34d5e18f128f13428a16d4eb1",
+      "inputSha256": "32713699ea30fa210323a72f980845c056f851197cedbd7907a774009b732ce7"
+    },
+    {
+      "id": "T04",
+      "accent": null,
+      "htmlSha256": "c5b9277a2c5e6c79ff64d6419bdc9513e17e5811dc214f46da670949c576043d",
+      "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01"
+    },
+    {
+      "id": "T04",
+      "accent": "#000000",
+      "htmlSha256": "174367f4ee440b999307320a614a5acea314704ffc02a5bedda8db41938e26b7",
+      "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01"
+    },
+    {
+      "id": "T04",
+      "accent": "#e4c37d",
+      "htmlSha256": "3fb47362868dc5215b0fb7da9c2eb260ead41fa7b7904abfc04b6a4bca454b18",
+      "inputSha256": "3e8e082c87d98256917394dbf50213e350532387a655178f00fa0ac11b979c01"
+    },
+    {
+      "id": "T07",
+      "accent": null,
+      "htmlSha256": "1d51d793df86cc31fcae097a06113b1dfdc142611d47a1a4a885c3d8bb9e406f",
+      "inputSha256": "a5c2b1e352e9fbf0046adbae2db9e9ffbf20b04127cc00a685228abb24f1859b"
+    },
+    {
+      "id": "T07",
+      "accent": "#000000",
+      "htmlSha256": "c6ef5ddc56d48b2552ef2615c4737519b4a239997918b9c0a01a2eb70064cca5",
+      "inputSha256": "a5c2b1e352e9fbf0046adbae2db9e9ffbf20b04127cc00a685228abb24f1859b"
+    },
+    {
+      "id": "T07",
+      "accent": "#e4c37d",
+      "htmlSha256": "d0befac5125f5ba5f7f1856d16a8e58a2dff848577809c4bafb7fa9e0703a750",
+      "inputSha256": "a5c2b1e352e9fbf0046adbae2db9e9ffbf20b04127cc00a685228abb24f1859b"
+    },
+    {
+      "id": "T08",
+      "accent": null,
+      "htmlSha256": "774749fada8a93bb5f38a0638bb520cb578d6c8cd9718cdc982f57aa6cf373b6",
+      "inputSha256": "830992687d024eb17381b32142842d5741341bc6df1dd69a3566080f813672a9"
+    },
+    {
+      "id": "T08",
+      "accent": "#000000",
+      "htmlSha256": "22824f7b70f99b1aa69115447fc884d4232465c0292062096d3c1b956ead6c0c",
+      "inputSha256": "830992687d024eb17381b32142842d5741341bc6df1dd69a3566080f813672a9"
+    },
+    {
+      "id": "T08",
+      "accent": "#e4c37d",
+      "htmlSha256": "d80d2c8c84af99cbb48afa7ed6289ef3504f4f0a12ce7e9562b64b48b3a8987b",
+      "inputSha256": "830992687d024eb17381b32142842d5741341bc6df1dd69a3566080f813672a9"
+    },
+    {
+      "id": "T11",
+      "accent": null,
+      "htmlSha256": "775cdbbc5429c289ed137fd2ff770aa51dbe4a619bbb608cba50e3442a5246c3",
+      "inputSha256": "4502d3b898bb1ccfe627927d971a9f3ae507c8848c651bce5a15a4bf44bf99bd"
+    },
+    {
+      "id": "T11",
+      "accent": "#000000",
+      "htmlSha256": "16037c226304fd4ce5b549e8e6c3dc65e58f92f2afda871cbed39c18f20f91bf",
+      "inputSha256": "4502d3b898bb1ccfe627927d971a9f3ae507c8848c651bce5a15a4bf44bf99bd"
+    },
+    {
+      "id": "T11",
+      "accent": "#e4c37d",
+      "htmlSha256": "9b644ccecf7079c98e0bd74c31e1765281e3a7461d3afc7591d89411a07fc28c",
+      "inputSha256": "4502d3b898bb1ccfe627927d971a9f3ae507c8848c651bce5a15a4bf44bf99bd"
+    },
+    {
+      "id": "T12",
+      "accent": null,
+      "htmlSha256": "5c2400671a86a722a8ca57ac9472904d7973e093584ce0312f33db119a7e39a2",
+      "inputSha256": "9e8261c88de67a4cf69b7604a866ac4efbfd49f50a8be400c6464ec6f8fd87c6"
+    },
+    {
+      "id": "T12",
+      "accent": "#000000",
+      "htmlSha256": "42385a31b53c1f4627ece003399ff58a7a69c7020d77bc9b217597933f413ecc",
+      "inputSha256": "9e8261c88de67a4cf69b7604a866ac4efbfd49f50a8be400c6464ec6f8fd87c6"
+    },
+    {
+      "id": "T12",
+      "accent": "#e4c37d",
+      "htmlSha256": "ab844dae256ad19108dfe749313729a73cae41006c038c6829853599d9282aef",
+      "inputSha256": "9e8261c88de67a4cf69b7604a866ac4efbfd49f50a8be400c6464ec6f8fd87c6"
+    },
+    {
+      "id": "T15",
+      "accent": null,
+      "htmlSha256": "3331dd84cb569d2891dedf379914a565161e1e60b3d0b620e93e8caf6fbb4e23",
+      "inputSha256": "5150d0f69956b983202407f4152ee6efdda873466ddfe1c97da0cc67b7f3c82e"
+    },
+    {
+      "id": "T15",
+      "accent": "#000000",
+      "htmlSha256": "dc13b8f8c0da66da8219894f48e5e821bd2ba2655e0bd4f645ccf337cc027870",
+      "inputSha256": "5150d0f69956b983202407f4152ee6efdda873466ddfe1c97da0cc67b7f3c82e"
+    },
+    {
+      "id": "T15",
+      "accent": "#e4c37d",
+      "htmlSha256": "ff36fbce0059d39b39bf6339271039123521af1b1355c96784423cbc7a3f6e39",
+      "inputSha256": "5150d0f69956b983202407f4152ee6efdda873466ddfe1c97da0cc67b7f3c82e"
+    },
+    {
+      "id": "T16",
+      "accent": null,
+      "htmlSha256": "b10f549c2dbb502e3bb7b879e69a5fa6cd4ea0cc0fb73d0f6f5bdf3ea8abb8c0",
+      "inputSha256": "b7a1ba6c4e7ce91c35fe868c2b7bad0bf558187cfa3d77177d5ebfe6f1cc361f"
+    },
+    {
+      "id": "T16",
+      "accent": "#000000",
+      "htmlSha256": "31852f6e89982aa1991d65b1979edbdaa70ae1bdde79d5ad3d7938d077aefda8",
+      "inputSha256": "b7a1ba6c4e7ce91c35fe868c2b7bad0bf558187cfa3d77177d5ebfe6f1cc361f"
+    },
+    {
+      "id": "T16",
+      "accent": "#e4c37d",
+      "htmlSha256": "66c507b91acf126d7cd7beac76ac6fad3cb96972c2b09701e9375efbe310ad6f",
+      "inputSha256": "b7a1ba6c4e7ce91c35fe868c2b7bad0bf558187cfa3d77177d5ebfe6f1cc361f"
+    },
+    {
+      "id": "T19",
+      "accent": null,
+      "htmlSha256": "282abebac34de1358c647f02fe525a5e773446113b250d0ab8972f26696f7c70",
+      "inputSha256": "32f5ae623299ddc4b74435ade77f31e2fe93f0686db3983692b0a035e248c17a"
+    },
+    {
+      "id": "T19",
+      "accent": "#000000",
+      "htmlSha256": "ec596d7360ca0dbeb35787c9e171e90062526a3739c4cf107ae2bb2348cdaf76",
+      "inputSha256": "32f5ae623299ddc4b74435ade77f31e2fe93f0686db3983692b0a035e248c17a"
+    },
+    {
+      "id": "T19",
+      "accent": "#e4c37d",
+      "htmlSha256": "344ddb39d5af1853d73b70e3da40cf985c4573bf7ae71804986d88337b77655a",
+      "inputSha256": "32f5ae623299ddc4b74435ade77f31e2fe93f0686db3983692b0a035e248c17a"
+    },
+    {
+      "id": "T20",
+      "accent": null,
+      "htmlSha256": "326a1c243e73ddc3e84304e7e59c3672cc7c1b41aee60dc10f4c0e3efc91e4b3",
+      "inputSha256": "0b56fdfa68cf2f94e3d8249cf48beaebe1de3941dc38cd2f22eb631b80c9f483"
+    },
+    {
+      "id": "T20",
+      "accent": "#000000",
+      "htmlSha256": "2fd90c1bbd9c5bffe000cc9a7593f14445bc48fcc76a0dba424e2b2d5b1b023b",
+      "inputSha256": "0b56fdfa68cf2f94e3d8249cf48beaebe1de3941dc38cd2f22eb631b80c9f483"
+    },
+    {
+      "id": "T20",
+      "accent": "#e4c37d",
+      "htmlSha256": "703acbff883074cc24ecd13dc6b96e6b91f768fd03f47f3f6a7b6f624ceab30b",
+      "inputSha256": "0b56fdfa68cf2f94e3d8249cf48beaebe1de3941dc38cd2f22eb631b80c9f483"
+    },
+    {
+      "id": "T23",
+      "accent": null,
+      "htmlSha256": "e368ff143ecdc419e846355fa72e34ea79c35d23599533c6872886d00df2449b",
+      "inputSha256": "9e21c45cc409b469aacb23f905a632560fbf5a4c69de01e8a8edbda96cfb6ed6"
+    },
+    {
+      "id": "T23",
+      "accent": "#000000",
+      "htmlSha256": "2b45ed9dd638cf8f8818bd6e5fb2d5c1b3ebd66c59ad656e2d9e085a360c6ea0",
+      "inputSha256": "9e21c45cc409b469aacb23f905a632560fbf5a4c69de01e8a8edbda96cfb6ed6"
+    },
+    {
+      "id": "T23",
+      "accent": "#e4c37d",
+      "htmlSha256": "edeb3b98860e0e39f360ae2bf35c4261ea9950749252eb93aafac137c2e6faf3",
+      "inputSha256": "9e21c45cc409b469aacb23f905a632560fbf5a4c69de01e8a8edbda96cfb6ed6"
+    },
+    {
+      "id": "T24",
+      "accent": null,
+      "htmlSha256": "925fc332c1a9eebcbf2e245efff07e8cd8b5e28ea5cfb83369131ce60c4902a8",
+      "inputSha256": "874a4dd2c38f8416fa8a79d6e830becf82e7e4099c6ecae8e6f0c834586a4dfa"
+    },
+    {
+      "id": "T24",
+      "accent": "#000000",
+      "htmlSha256": "121dfb4a0d18fff655b344bad8de4de3bd25531798309bbfa7ac58c830147b43",
+      "inputSha256": "874a4dd2c38f8416fa8a79d6e830becf82e7e4099c6ecae8e6f0c834586a4dfa"
+    },
+    {
+      "id": "T24",
+      "accent": "#e4c37d",
+      "htmlSha256": "29ae3f10ed7d0a8dc7444c345e6c1271f7c6d6a0544f2be87cabc75fc4b6c963",
+      "inputSha256": "874a4dd2c38f8416fa8a79d6e830becf82e7e4099c6ecae8e6f0c834586a4dfa"
+    },
+    {
+      "id": "T27",
+      "accent": null,
+      "htmlSha256": "862da52aeeb815ff2901bda1b17bb099f533c22d76f3da92b3a6b122ac36385e",
+      "inputSha256": "558e0eccd9f7e38475d254a9a622a178b6afda1097f25a8dfbcb3622f1164a4f"
+    },
+    {
+      "id": "T27",
+      "accent": "#000000",
+      "htmlSha256": "7bb8e985685cbfd00e2f1a3ad0bd99c510b901a059b1899512f0d6dc93f52824",
+      "inputSha256": "558e0eccd9f7e38475d254a9a622a178b6afda1097f25a8dfbcb3622f1164a4f"
+    },
+    {
+      "id": "T27",
+      "accent": "#e4c37d",
+      "htmlSha256": "c196086568b0a53f4b764b8bfd559ee47b21397f0d7bd0c74415633bf7877540",
+      "inputSha256": "558e0eccd9f7e38475d254a9a622a178b6afda1097f25a8dfbcb3622f1164a4f"
+    },
+    {
+      "id": "T28",
+      "accent": null,
+      "htmlSha256": "4e04d808f24fd7d523073f3c3bc37dcd21279ac4f0fde98b66e6e56a23835918",
+      "inputSha256": "f21aad7532018e933214db6ea1e17740d899551e0023b6b6242ebd200344534d"
+    },
+    {
+      "id": "T28",
+      "accent": "#000000",
+      "htmlSha256": "7fad32b2fe506430dea1103da03478a0de8b6a725efdce93ac9b2fd347aaf0c4",
+      "inputSha256": "f21aad7532018e933214db6ea1e17740d899551e0023b6b6242ebd200344534d"
+    },
+    {
+      "id": "T28",
+      "accent": "#e4c37d",
+      "htmlSha256": "89e1c53314b78787483632b5f9cd4b4449502c77f4bb663b6f2b57cbd3a16396",
+      "inputSha256": "f21aad7532018e933214db6ea1e17740d899551e0023b6b6242ebd200344534d"
+    },
+    {
+      "id": "T31",
+      "accent": null,
+      "htmlSha256": "d11d569e2fbcc6501adabbc30ab8af6f149a3e6e1d6dae9e748cc623154965d9",
+      "inputSha256": "10c958c6615a0c052f45830e8b577bfc723e39e360e448179ba54103587733d5"
+    },
+    {
+      "id": "T31",
+      "accent": "#000000",
+      "htmlSha256": "c8bab74f7ed68e1ea77caed9c26b2b7ef57c2d39c4d9ad502b0e8cf613fc6eea",
+      "inputSha256": "10c958c6615a0c052f45830e8b577bfc723e39e360e448179ba54103587733d5"
+    },
+    {
+      "id": "T31",
+      "accent": "#e4c37d",
+      "htmlSha256": "06df0f4f443e9663a5d60d85744973c440ccfbd22aebf335bdaf702556e2fde7",
+      "inputSha256": "10c958c6615a0c052f45830e8b577bfc723e39e360e448179ba54103587733d5"
+    },
+    {
+      "id": "T32",
+      "accent": null,
+      "htmlSha256": "6c1e3fd2ab9775489caacc825b8e160cd52b2dce2726dd0fa659be1a92b708d8",
+      "inputSha256": "afcb8f7815c2ad2e3335287631af536de010abcd08bbeac327003f9f8f3586a6"
+    },
+    {
+      "id": "T32",
+      "accent": "#000000",
+      "htmlSha256": "89307374d9536c868148ef6b3143569ac07677c367e885d37f4c5ea0fff83b19",
+      "inputSha256": "afcb8f7815c2ad2e3335287631af536de010abcd08bbeac327003f9f8f3586a6"
+    },
+    {
+      "id": "T32",
+      "accent": "#e4c37d",
+      "htmlSha256": "6e4fe03af7aa705fa57413ba6144127cb647fa95b40753f9e9c171405565ef24",
+      "inputSha256": "afcb8f7815c2ad2e3335287631af536de010abcd08bbeac327003f9f8f3586a6"
+    },
+    {
+      "id": "T35",
+      "accent": null,
+      "htmlSha256": "3776ce7cbbb5d94d3a46ad79e8a5eae17b12571090bb83930d64c728ebf6cc4e",
+      "inputSha256": "22162a975a4d53a330a7aae60651c600de2a30ad70ed8d15de99c54bd149c877"
+    },
+    {
+      "id": "T35",
+      "accent": "#000000",
+      "htmlSha256": "3d8096aef316702b3330971bdc41ce998eefaa4a256303adff068e34cf2a4658",
+      "inputSha256": "22162a975a4d53a330a7aae60651c600de2a30ad70ed8d15de99c54bd149c877"
+    },
+    {
+      "id": "T35",
+      "accent": "#e4c37d",
+      "htmlSha256": "faf95b24b4a13256369478dec3602e3acd8014c66bfd45503025472260c53618",
+      "inputSha256": "22162a975a4d53a330a7aae60651c600de2a30ad70ed8d15de99c54bd149c877"
+    },
+    {
+      "id": "T36",
+      "accent": null,
+      "htmlSha256": "cd2d142f4463859470f09b6bba5824df78db39af3eac08d80957aed8407cc739",
+      "inputSha256": "bb1133ffeb3d94641520db65d9574888539ddfe7c8d1ecef81b1310e7fc45d93"
+    },
+    {
+      "id": "T36",
+      "accent": "#000000",
+      "htmlSha256": "e79eb5eb6f72d332466198e0f50869b2cca08f45bbf4b0734f352c7f4a913e1b",
+      "inputSha256": "bb1133ffeb3d94641520db65d9574888539ddfe7c8d1ecef81b1310e7fc45d93"
+    },
+    {
+      "id": "T36",
+      "accent": "#e4c37d",
+      "htmlSha256": "cf87cba0d275c357adc64a8e52ce7d1222500bf594f925332a22eb892b0086e0",
+      "inputSha256": "bb1133ffeb3d94641520db65d9574888539ddfe7c8d1ecef81b1310e7fc45d93"
+    },
+    {
+      "id": "T39",
+      "accent": null,
+      "htmlSha256": "6344a32c3f26c36e12fddd3ba8e62c3b8adc8531872f32f10284c5031e6dfec9",
+      "inputSha256": "fa0dbafb2f37bff04dce529519cc38b34d3bf81555127d609d7d2484ab9af940"
+    },
+    {
+      "id": "T39",
+      "accent": "#000000",
+      "htmlSha256": "65462e56d691d56fdbca1afde987b2a847ef9b0bb08811dc7ab6156a21c7b7b7",
+      "inputSha256": "fa0dbafb2f37bff04dce529519cc38b34d3bf81555127d609d7d2484ab9af940"
+    },
+    {
+      "id": "T39",
+      "accent": "#e4c37d",
+      "htmlSha256": "5b0122ab2107bde721b35fae95ab0082b36f419d935ba285be1d09fd016fd8d3",
+      "inputSha256": "fa0dbafb2f37bff04dce529519cc38b34d3bf81555127d609d7d2484ab9af940"
+    },
+    {
+      "id": "T40",
+      "accent": null,
+      "htmlSha256": "72f2eb885e0ce39998b73ddc07a43f6de8020cd283b4713fe536c100853313d7",
+      "inputSha256": "255a1463e49c46e5120be7feda683f45f30fb34fabd2efacbac2ba9eefce40e3"
+    },
+    {
+      "id": "T40",
+      "accent": "#000000",
+      "htmlSha256": "529c7093d3537f0aa737457ea2b3c7ce333695ff89dfcf6f45d7aba103f99520",
+      "inputSha256": "255a1463e49c46e5120be7feda683f45f30fb34fabd2efacbac2ba9eefce40e3"
+    },
+    {
+      "id": "T40",
+      "accent": "#e4c37d",
+      "htmlSha256": "a33d1b5bc43d885e4ca77cea7003dab60cee848749443939be327a302e0a40b8",
+      "inputSha256": "255a1463e49c46e5120be7feda683f45f30fb34fabd2efacbac2ba9eefce40e3"
+    },
+    {
+      "id": "T43",
+      "accent": null,
+      "htmlSha256": "d67822b3c74fc9a79798129ceae96043d4aa66a3b414b5a76f29f0e54a5e8f2c",
+      "inputSha256": "0257f634cfb5ca7fc979a5b448a7c83e7fb30428c39b3330b67a3e0e6d7d14c3"
+    },
+    {
+      "id": "T43",
+      "accent": "#000000",
+      "htmlSha256": "850f3245062867402a51f296db4ab7229334dffa8e2d160797adf27d9a5342e7",
+      "inputSha256": "0257f634cfb5ca7fc979a5b448a7c83e7fb30428c39b3330b67a3e0e6d7d14c3"
+    },
+    {
+      "id": "T43",
+      "accent": "#e4c37d",
+      "htmlSha256": "29b1db2d0596f238394fe0a8045c63b187d883855bf95001155a28ee9905cc2d",
+      "inputSha256": "0257f634cfb5ca7fc979a5b448a7c83e7fb30428c39b3330b67a3e0e6d7d14c3"
+    },
+    {
+      "id": "T44",
+      "accent": null,
+      "htmlSha256": "02e6d7a76a8697bc24a85ae96519de6d4e971a78f80918cfb6e5dd3e0c155541",
+      "inputSha256": "f33a98d9c459f5f19ee9c284d1faea4a048a7340bcae9ff1b8b2a47259cfe509"
+    },
+    {
+      "id": "T44",
+      "accent": "#000000",
+      "htmlSha256": "8a1834da24947bc8fb25c5bad7f49391ae3913e288dd4dc447c830ad6ebf8641",
+      "inputSha256": "f33a98d9c459f5f19ee9c284d1faea4a048a7340bcae9ff1b8b2a47259cfe509"
+    },
+    {
+      "id": "T44",
+      "accent": "#e4c37d",
+      "htmlSha256": "27cbd25b8f17f91bcae4fbd4949cd2c1d37298432566f1ace2cefdadffab0b23",
+      "inputSha256": "f33a98d9c459f5f19ee9c284d1faea4a048a7340bcae9ff1b8b2a47259cfe509"
+    },
+    {
+      "id": "T47",
+      "accent": null,
+      "htmlSha256": "ed12903595c05e2bb73462edd33ddba43edc4d4da6f3eba642a923f25d63c5e2",
+      "inputSha256": "77f100c5eaeb6f8e57bfc7cef7894b70c925a302b34670984e1ea2b4e8ed4b3c"
+    },
+    {
+      "id": "T47",
+      "accent": "#000000",
+      "htmlSha256": "9b3162d952fad1ecfb875085a91ee3350726f40ee5537b25fdcb723c69836e38",
+      "inputSha256": "77f100c5eaeb6f8e57bfc7cef7894b70c925a302b34670984e1ea2b4e8ed4b3c"
+    },
+    {
+      "id": "T47",
+      "accent": "#e4c37d",
+      "htmlSha256": "5b5522409a18da8c058a46588398d0e31503c04a5d23ea02ccf5274a1fb6e8ff",
+      "inputSha256": "77f100c5eaeb6f8e57bfc7cef7894b70c925a302b34670984e1ea2b4e8ed4b3c"
+    },
+    {
+      "id": "T48",
+      "accent": null,
+      "htmlSha256": "fc1db7de7f0ec3a7d75a30e378a7e4b17e5866571b6ac558712537648372e091",
+      "inputSha256": "1fe9b862f431079f0b7846c385e61734ecd5a72e44d1bac13c29f46d5ff71140"
+    },
+    {
+      "id": "T48",
+      "accent": "#000000",
+      "htmlSha256": "0ba5d6d2938719ffb1c962bd8de01a3e432095531bb97437de863dbb621646fb",
+      "inputSha256": "1fe9b862f431079f0b7846c385e61734ecd5a72e44d1bac13c29f46d5ff71140"
+    },
+    {
+      "id": "T48",
+      "accent": "#e4c37d",
+      "htmlSha256": "e8a7bd0409d674b1bf1db5f7212b46289c7cd15dab15c4941320940117bc7c2f",
+      "inputSha256": "1fe9b862f431079f0b7846c385e61734ecd5a72e44d1bac13c29f46d5ff71140"
+    },
+    {
+      "id": "01-T04-aspect-specific-square-square",
+      "accent": null,
+      "htmlSha256": "52c3d503732a01d7197b3971b7b0808cd6cc3b5254208cdef00b6649fecca24c",
+      "inputSha256": "7329186d304df899bd4cd6f9dc163f2f918e78429287759b0ac4e4ed7baca137"
+    },
+    {
+      "id": "01-T04-aspect-specific-square-square",
+      "accent": "#000000",
+      "htmlSha256": "8ce46f5f3503f6c72f397fcc34e9c5946e8f6ad84029e1f80a2b668869c6dc5f",
+      "inputSha256": "7329186d304df899bd4cd6f9dc163f2f918e78429287759b0ac4e4ed7baca137"
+    },
+    {
+      "id": "01-T04-aspect-specific-square-square",
+      "accent": "#e4c37d",
+      "htmlSha256": "17567eb7ce29eb324989243d7bb2997cbecf832cce54b8d52ee3e27dcecb90f3",
+      "inputSha256": "7329186d304df899bd4cd6f9dc163f2f918e78429287759b0ac4e4ed7baca137"
+    },
+    {
+      "id": "02-T04-aspect-specific-slide-slide",
+      "accent": null,
+      "htmlSha256": "2b056983fa6ef1bf80ed819c7ed6610e50c2de3e67fe86386c4666ed1fdc5693",
+      "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a"
+    },
+    {
+      "id": "02-T04-aspect-specific-slide-slide",
+      "accent": "#000000",
+      "htmlSha256": "219fd14cb0e05a496aa0ff7b6d9c0112e8ddabe797d3eff89a02ceb500c7e850",
+      "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a"
+    },
+    {
+      "id": "02-T04-aspect-specific-slide-slide",
+      "accent": "#e4c37d",
+      "htmlSha256": "eae8017e07a0024c1a4363be09c92c14ed8e9f59020dfb602af39ac7e53ebdf6",
+      "inputSha256": "0a79ef88fd3e4f17f2a1969ab64e2475a7257e59789e8fabdbc206f5d843083a"
+    },
+    {
+      "id": "12-T21-aspect-specific-square-square",
+      "accent": null,
+      "htmlSha256": "b9accf37ad5a86f6f78309cfbb8b87f0afc309c480de986810cbcdfb7b6c49cd",
+      "inputSha256": "ce4d422a73771fd67ee521259790849a8c4b9940328a9dbe8f1440bdd63db1d5"
+    },
+    {
+      "id": "12-T21-aspect-specific-square-square",
+      "accent": "#000000",
+      "htmlSha256": "ae7bef17ec4976e08d3af4641b1261a279a3307ee583aab7af516d4499577c96",
+      "inputSha256": "ce4d422a73771fd67ee521259790849a8c4b9940328a9dbe8f1440bdd63db1d5"
+    },
+    {
+      "id": "12-T21-aspect-specific-square-square",
+      "accent": "#e4c37d",
+      "htmlSha256": "92d180fffca502e74e242ad6db1cfba1a6e6903653d5816c176d4bbd666990a1",
+      "inputSha256": "ce4d422a73771fd67ee521259790849a8c4b9940328a9dbe8f1440bdd63db1d5"
+    },
+    {
+      "id": "13-T21-aspect-specific-slide-slide",
+      "accent": null,
+      "htmlSha256": "5b6ff1ba92122f5f7e054457582e3490281136e2e15b1968facd861b23481073",
+      "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a"
+    },
+    {
+      "id": "13-T21-aspect-specific-slide-slide",
+      "accent": "#000000",
+      "htmlSha256": "c0d155207c0038403914d705b39333015aec19e30c905c5ead978b8ed5c4e044",
+      "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a"
+    },
+    {
+      "id": "13-T21-aspect-specific-slide-slide",
+      "accent": "#e4c37d",
+      "htmlSha256": "ec8c8bd3e6c3c13f3364e2691326e8ce9269d67b694e2537cc0b79b7235e8e89",
+      "inputSha256": "8e438d7634a04db6d71f2fd390c4153728c755f48f9862f6264aaac3f929a70a"
+    },
+    {
+      "id": "23-T05-aspect-specific-square-square",
+      "accent": null,
+      "htmlSha256": "8c883fc1bcd9b04c1769d788d15b88f7c5a517d097a587c39c6860e1dd7f4d59",
+      "inputSha256": "9f8b216a27ad52012ed07521753931a8f4dc3efdd67b0204a980b74225331beb"
+    },
+    {
+      "id": "23-T05-aspect-specific-square-square",
+      "accent": "#000000",
+      "htmlSha256": "42c47b26c235957041f56d37dcf58eb677f81d118638f0fbe638b0011b3c1d21",
+      "inputSha256": "9f8b216a27ad52012ed07521753931a8f4dc3efdd67b0204a980b74225331beb"
+    },
+    {
+      "id": "23-T05-aspect-specific-square-square",
+      "accent": "#e4c37d",
+      "htmlSha256": "efb5054744ea8f5a0f8cbb6f280df2c2d28f6821d5c4745877d5349c13343eb3",
+      "inputSha256": "9f8b216a27ad52012ed07521753931a8f4dc3efdd67b0204a980b74225331beb"
+    },
+    {
+      "id": "32-T13-aspect-specific-square-square",
+      "accent": null,
+      "htmlSha256": "e151bd92de6cf465d9a8b967da2af74b43ff7ea9a8a3d30855f9f4cf2091ae56",
+      "inputSha256": "d078ea2799bd104a14bad5b35abbd14c9ed603018333eba692735081846893b2"
+    },
+    {
+      "id": "32-T13-aspect-specific-square-square",
+      "accent": "#000000",
+      "htmlSha256": "ccfa7ca460a734325b31f2387e612b723e42308fc4a47deb8e56101d6c1a007a",
+      "inputSha256": "d078ea2799bd104a14bad5b35abbd14c9ed603018333eba692735081846893b2"
+    },
+    {
+      "id": "32-T13-aspect-specific-square-square",
+      "accent": "#e4c37d",
+      "htmlSha256": "1701ef83e6a1accf4893d1ffbd018ad1f223f1a79b387034f5d41c207cfc01d8",
+      "inputSha256": "d078ea2799bd104a14bad5b35abbd14c9ed603018333eba692735081846893b2"
+    },
+    {
+      "id": "41-T24-aspect-specific-slide-slide",
+      "accent": null,
+      "htmlSha256": "0f2be9409935070f247d3236c16589387ee3fe9e34f5ba5958fc63f5ab1bc5d8",
+      "inputSha256": "ad032679519fe609e9f2cb2f66021056ff0b14a1825a0381469d9d69b07be103"
+    },
+    {
+      "id": "41-T24-aspect-specific-slide-slide",
+      "accent": "#000000",
+      "htmlSha256": "de2101b39baba2d7efc417ecf17cd00d5ad14b386fd94c3164b4481fb866f227",
+      "inputSha256": "ad032679519fe609e9f2cb2f66021056ff0b14a1825a0381469d9d69b07be103"
+    },
+    {
+      "id": "41-T24-aspect-specific-slide-slide",
+      "accent": "#e4c37d",
+      "htmlSha256": "6bb28d4c3c989924f08a182ea54573bfc882a9f0714bd70ac530a141cce439b4",
+      "inputSha256": "ad032679519fe609e9f2cb2f66021056ff0b14a1825a0381469d9d69b07be103"
+    },
+    {
+      "id": "50-T37-aspect-specific-slide-slide",
+      "accent": null,
+      "htmlSha256": "0944e123bd3186b9bc2aaab823e1a57a6628ec5d0328ecbb12dca88a521fa3f2",
+      "inputSha256": "68bc38e674486579a535520e03ac9bec6d8ee9720b5f4468197fd77bc48b9052"
+    },
+    {
+      "id": "50-T37-aspect-specific-slide-slide",
+      "accent": "#e4c37d",
+      "htmlSha256": "bcead63e7551ec6ac3ebdb3fb99875cc1ce29e6d0046cbf9a6c646df8970e63a",
+      "inputSha256": "68bc38e674486579a535520e03ac9bec6d8ee9720b5f4468197fd77bc48b9052"
+    },
+    {
+      "id": "editorial/cover",
+      "accent": null,
+      "htmlSha256": "46b17100e6ae35a38335306b56e426df593665bb47e03aa25c6d7e80f59b9904",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "editorial/cover",
+      "accent": "#000000",
+      "htmlSha256": "4a49b80ec6e7fde3c3977c59e0dee32b4aeb6d691713a8e662781bc50f2674d5",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "editorial/cover",
+      "accent": "#e4c37d",
+      "htmlSha256": "38785c3dd19fcb8cfa80db19f51acfa87d0211c968a3933890cef87742aff4c6",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "editorial/explainer",
+      "accent": null,
+      "htmlSha256": "e909d2d7ca6be3122a2dfa3db28e1f0da47d1a89c22b9a935e32f5ee851e44c5",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "editorial/explainer",
+      "accent": "#000000",
+      "htmlSha256": "1a30d0d76c43bd96b83bc8f2c800130e0b34b373e165975526f4917fb1f4a0a1",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "editorial/explainer",
+      "accent": "#e4c37d",
+      "htmlSha256": "f20d52825e8bc9ec4880acedef9759e0d6d2142a6f11731baedefe7f3e04e5a9",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "editorial/comparison",
+      "accent": null,
+      "htmlSha256": "7b2f55ee112fca03f0b0c14cf0de82cc6424353894674d86835eb79f6e56c96b",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "editorial/comparison",
+      "accent": "#000000",
+      "htmlSha256": "2236ef25965c0ddfac54e90dbc8c54743167e72f87e08ec794eaf63dc94f5354",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "editorial/comparison",
+      "accent": "#e4c37d",
+      "htmlSha256": "22f1a12d40c99df4d36d16ef351dbfeac989a6be62f22b06d34e068cf4d8871f",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "editorial/steps",
+      "accent": null,
+      "htmlSha256": "33f34334db7e45816741b6b5f3898ef00fdba248b6c2837710a5edeff1fb59a7",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "editorial/steps",
+      "accent": "#000000",
+      "htmlSha256": "61c649b538d0eda4ffa5e9d962ac2d64b3582875a2a68786cb662105304af190",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "editorial/steps",
+      "accent": "#e4c37d",
+      "htmlSha256": "04dcc383d8c3b81cfa37b362d1c4529cf58d62b2e8a039d47a293c44736dfac3",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "editorial/image-caption",
+      "accent": null,
+      "htmlSha256": "06a6c0dfdc7e23ea3504a6c6df4cfbdff066810d48b15c4bbb986c810703cd42",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "editorial/image-caption",
+      "accent": "#000000",
+      "htmlSha256": "acb14255cb2d5b484afcd2886ba849133a615420601c29cd2116504743a4dced",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "editorial/image-caption",
+      "accent": "#e4c37d",
+      "htmlSha256": "26698603e6efb5a5306d807b72cb7e010c0df9169848478196bb3c5e16d94d58",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "editorial/statistic",
+      "accent": null,
+      "htmlSha256": "308f75bcfa33735d6015c0a33e26a754cbbc50a796dfafdaf9d5be388380f9b3",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "editorial/statistic",
+      "accent": "#000000",
+      "htmlSha256": "a67b6c5d43d13fa821072deebf6ad9498f8fba2c703c254e7b0b356fc6a9e2ab",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "editorial/statistic",
+      "accent": "#e4c37d",
+      "htmlSha256": "1f2e99af6b691eaf334cbfd5227505cdb2f688b760828733a0348614d039e5ad",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "editorial/case-study",
+      "accent": null,
+      "htmlSha256": "bdb024949a2a0457c173de3f8304fa86880ee8dcefd32e88031b77d1ed926a89",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "editorial/case-study",
+      "accent": "#000000",
+      "htmlSha256": "8d654f5e8775165447840916d87dcefe24f3f01571e06e2d5491fb3603f53a53",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "editorial/case-study",
+      "accent": "#e4c37d",
+      "htmlSha256": "9dea751c5aac8878c41e9ff92024e5d1f9e2b787da25c01be76c477fbf715c7c",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "editorial/quote",
+      "accent": null,
+      "htmlSha256": "45bc73154d5a7e7672e4ae8cb728e6dcfcdcd185d97cccead1f85fbcd6d4d976",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "editorial/quote",
+      "accent": "#000000",
+      "htmlSha256": "fd20d257d113fc81dc1f5751fde868261ad4edadd537a3aaf522a6dc4945b158",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "editorial/quote",
+      "accent": "#e4c37d",
+      "htmlSha256": "8418a7d18ae3548bed30e02232182370d21fcf07ea3d1e7c7eee140c71827ce3",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "minimal/cover",
+      "accent": null,
+      "htmlSha256": "9aa2aba628309830d4275c4446fcab938768096e4b6c80c6a5d39173fb97e883",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "minimal/cover",
+      "accent": "#000000",
+      "htmlSha256": "a6b67a2a319f15d108664e683bb0fd0e90462449644f54d36328a0b919537f36",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "minimal/cover",
+      "accent": "#e4c37d",
+      "htmlSha256": "7d40ba538b7e5943a7742ae73de0078a9bf71b211366682301209f1e7ffe1efd",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "minimal/explainer",
+      "accent": null,
+      "htmlSha256": "505696942a0e224f228ae5d3b10e18a0867bac77f88aa8f81b2bb04758bbc477",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "minimal/explainer",
+      "accent": "#000000",
+      "htmlSha256": "5004a4c5ebab22f8c06313121e8bb17f9a0d2ab5c284036b46449918f53223b1",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "minimal/explainer",
+      "accent": "#e4c37d",
+      "htmlSha256": "2ea079deea554aea92036eed3f14ec7a4591edebeb1f45d4e34477d423a8dfc8",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "minimal/comparison",
+      "accent": null,
+      "htmlSha256": "15d13a113e1ad13b0b33e49ef652db1f1b727ff565b7a7217f67c248100a5e0a",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "minimal/comparison",
+      "accent": "#000000",
+      "htmlSha256": "68d48b9a903012626ea2bd967356586d6438d77bad8d31c62863587ee5e7c178",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "minimal/comparison",
+      "accent": "#e4c37d",
+      "htmlSha256": "65f4a1de10e203586b8d343a476cf030f2a3ff362308afe67f5bc87bf6bb02ba",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "minimal/steps",
+      "accent": null,
+      "htmlSha256": "b22d5d0a33e1ae3541e8b33e74db6ce9044beab0dc3477b142c5ac4421e06700",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "minimal/steps",
+      "accent": "#000000",
+      "htmlSha256": "26288788a2b3555caf0a7d45281ac0daaa3d2b18100364723e9aa09233474dc5",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "minimal/steps",
+      "accent": "#e4c37d",
+      "htmlSha256": "c7a562cc003c5db72bc7f3b5b2dee9eced71d00371e929c6776de63ca0d7a8f7",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "minimal/image-caption",
+      "accent": null,
+      "htmlSha256": "2a48df69896e2f15994e94d7f9b71294f73fade51e154557f9305378ef19163b",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "minimal/image-caption",
+      "accent": "#000000",
+      "htmlSha256": "dbe4e991b35943a8c41a4c2c8222b156c1e87933d78379d0a347cec409c220ac",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "minimal/image-caption",
+      "accent": "#e4c37d",
+      "htmlSha256": "992826d489ff51c05f77356a4f77d3f3e4f11d1c18367a45b51c9518ad812992",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "minimal/statistic",
+      "accent": null,
+      "htmlSha256": "cfa160bc041f3eb92a09bdd5cedbecf6f2d40843b2a1dc27cb09f4602443219b",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "minimal/statistic",
+      "accent": "#000000",
+      "htmlSha256": "6965b54988d8e6369e4b7b6d7244a0d9a9add303918e673d6f0f9975332fc5a3",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "minimal/statistic",
+      "accent": "#e4c37d",
+      "htmlSha256": "7c2550f5cbb3cea6649b37c115ef1fd06d1ac832fac5827c1b95eda8d79be6bc",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "minimal/case-study",
+      "accent": null,
+      "htmlSha256": "612949b24349c377e6fa126c0a24a90392d3de9843b9ddb71b8c312354ab1a21",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "minimal/case-study",
+      "accent": "#000000",
+      "htmlSha256": "52592c13e859b0191baf4f41351becabe390cbbb9b0aa01a6c15940a39eaa478",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "minimal/case-study",
+      "accent": "#e4c37d",
+      "htmlSha256": "93e44663926c991d13cef54ae2853a1cd10c2e0ee2f6ce77a7f6d5c4c307469c",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "minimal/quote",
+      "accent": null,
+      "htmlSha256": "66e3c2ff11dcb8fd44e444dd5cb8bbca907b5b263965394b36c8bffe366cdcb3",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "minimal/quote",
+      "accent": "#000000",
+      "htmlSha256": "56ac427fc5cf2b808c9d7ef74d114ed5fcbc18901d2ec01af165ba6f88f392e8",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "minimal/quote",
+      "accent": "#e4c37d",
+      "htmlSha256": "451ac8035841deefe03babc77f74199d698fa92f539a2d705565ab49b359b0b1",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "midnight/cover",
+      "accent": null,
+      "htmlSha256": "059c9278b3586e4940c63a7196d1193bbbbce52f941a53bd8e42893a067efef2",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "midnight/cover",
+      "accent": "#000000",
+      "htmlSha256": "7273dc3e7ddefc524b232da5eb1b2fcac08c48adefa774e37983d298efc2ee19",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "midnight/cover",
+      "accent": "#e4c37d",
+      "htmlSha256": "1a9e771f7e08a38dd5dceaf22bc697dc079960e33e43af6c423f0ef165dbecda",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "midnight/explainer",
+      "accent": null,
+      "htmlSha256": "abd16842a98360a732b1d2b6e2419f033936dc69b87cda3ecc003d5f376de703",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "midnight/explainer",
+      "accent": "#000000",
+      "htmlSha256": "7e76b0576d34daaaae007a85d06dd1697ef14083a4f790642164a95475e87924",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "midnight/explainer",
+      "accent": "#e4c37d",
+      "htmlSha256": "db51adc605c3a44bd65e1be478bdef9a6e73b407db81486d2c02492c15d69ec8",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "midnight/comparison",
+      "accent": null,
+      "htmlSha256": "500bb1f8108ca182953d38d36dc9c64cdcc4b8470499e92d427ff8cbde1a6bf2",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "midnight/comparison",
+      "accent": "#000000",
+      "htmlSha256": "7e12085eb941db844db8ae29ad76f8a6168b0e6e595e07280b483913c2d7c98f",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "midnight/comparison",
+      "accent": "#e4c37d",
+      "htmlSha256": "2ab8d43b60cbe4a38d4c7863bf1d3fa30896938995437f5c734c2ef8e0e24bbb",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "midnight/steps",
+      "accent": null,
+      "htmlSha256": "1f8bd8b04e484137ea3129404471302d000ac8531c35608fbbe267ee001f90c0",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "midnight/steps",
+      "accent": "#000000",
+      "htmlSha256": "185f86fc0d4728385973f7ebe8e2a998d36472babf7b8e20292d3b4c5c24404e",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "midnight/steps",
+      "accent": "#e4c37d",
+      "htmlSha256": "517f0c6b1bee664a81920fd39c0be4b271f55a027e0c2887d601ec1cb54042d0",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "midnight/image-caption",
+      "accent": null,
+      "htmlSha256": "da0d52018cd6472b5e72a89373ad21e3106aaf36405d851f25d4a090451ce019",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "midnight/image-caption",
+      "accent": "#000000",
+      "htmlSha256": "2e2a099df03943aa851f5803c03cf2da488a4dbabb8cbf155b2dc3a16ca349cf",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "midnight/image-caption",
+      "accent": "#e4c37d",
+      "htmlSha256": "a2af88f8a2b17fc1b16084f73d4188049635219790aed0ea29533981a7cc49cc",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "midnight/statistic",
+      "accent": null,
+      "htmlSha256": "830e02faaf7688ab38d0d54307e057b0c592da2ab37b9c7566351a948c29544f",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "midnight/statistic",
+      "accent": "#000000",
+      "htmlSha256": "e0d9cba0bdb17316bc3814a31c0779247618a22847cd9c31a8cfc24fbbe6a62e",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "midnight/statistic",
+      "accent": "#e4c37d",
+      "htmlSha256": "4a7e44a93c3e291c5f72a1635027ad5e822534438766b873d4b9f3277bb30d88",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "midnight/case-study",
+      "accent": null,
+      "htmlSha256": "26a28d72114f39f913c3ed8051e66d9553412be6622fc834fba7ba9a11252b9e",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "midnight/case-study",
+      "accent": "#000000",
+      "htmlSha256": "161406fb18b2378cf6804c9a0a698f82802fec0fc97a9072e23500836f78a766",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "midnight/case-study",
+      "accent": "#e4c37d",
+      "htmlSha256": "7642697864a6edf90e6a86b40ff6459462f172dbcf67836bf91c07bfac63f8fe",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "midnight/quote",
+      "accent": null,
+      "htmlSha256": "b400505431750c86be2e58d8059a60373b65b1211a7f46f5bec912b63e0fbdf2",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "midnight/quote",
+      "accent": "#000000",
+      "htmlSha256": "d4310fe674b4978421b99748bd8a1bcbd783c6ac87adb9a076f05775aff4df68",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "midnight/quote",
+      "accent": "#e4c37d",
+      "htmlSha256": "03e34637525c56e799c910832181f94d7ccb81b94d18adb5451c0f14d103880f",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "notebook/cover",
+      "accent": null,
+      "htmlSha256": "84d55f8488f22f79c68ebd836c748595113833459a2028f74aea8ad108a32b3f",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "notebook/cover",
+      "accent": "#000000",
+      "htmlSha256": "556b61a2dc6e6d4a1c67add7796174ffd9a8c66f162315606daecdb077a1f0ca",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "notebook/cover",
+      "accent": "#e4c37d",
+      "htmlSha256": "8da1be4a204c305ebe56c2a6bb44d5058e34ddae1dd46cd567925cc252420639",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "notebook/explainer",
+      "accent": null,
+      "htmlSha256": "717f41a02a0d1d7abedcfada6cf7ba3302e71ae7c18e34f9ba9c357dfca16598",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "notebook/explainer",
+      "accent": "#000000",
+      "htmlSha256": "9d99c30e1e808b3a46b7ac5ab91935ed7930ac705870ca5da82df67ad01b5d68",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "notebook/explainer",
+      "accent": "#e4c37d",
+      "htmlSha256": "280dac0e7d20cb89177650a001a2c0970d42fa40d5fae61ebde5bc8a341be9b7",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "notebook/comparison",
+      "accent": null,
+      "htmlSha256": "1e1dcb085889f2e7a6402cf43c6310b4a3b5ef371198a2787892e08c06b988a4",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "notebook/comparison",
+      "accent": "#000000",
+      "htmlSha256": "969b75252dba76679d1c9c43b78ef119b79b257a4e49dc250991292f5a183653",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "notebook/comparison",
+      "accent": "#e4c37d",
+      "htmlSha256": "2a251c541b51b2d8c1cb6deabefd0209734c3c7f4cb3f213671f8aa6d85c716e",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "notebook/steps",
+      "accent": null,
+      "htmlSha256": "5ee9b1a2bf5881b2e341081c79a445efcc25fb3bd347419ca8ab967c619abbd7",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "notebook/steps",
+      "accent": "#000000",
+      "htmlSha256": "b0c34f7f655886095da71f12eba01033c1a07a1fba701402f659d2fe5d767d8e",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "notebook/steps",
+      "accent": "#e4c37d",
+      "htmlSha256": "968312409f774a60d796da0817c1f18ab1c3daebd04712c2aa670853e46e58e5",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "notebook/image-caption",
+      "accent": null,
+      "htmlSha256": "5e75183084377a5a148b8b90e03efd12fd4b9fd264d35d9f788b0d3a9b79ec22",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "notebook/image-caption",
+      "accent": "#000000",
+      "htmlSha256": "9e283c6f3f8a686fb6327cb76e4dcbf5b6c1ef8d7da620e068ddeaed4c3bccb2",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "notebook/image-caption",
+      "accent": "#e4c37d",
+      "htmlSha256": "c44191b08e382d1d000bd0ee109e844c23f03c7c35b64965ce51929653a2673d",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "notebook/statistic",
+      "accent": null,
+      "htmlSha256": "c22e5cc92e0de2a149b4ec0a6acd2c86a1ca42db9d92e670915591e4e2a05f2d",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "notebook/statistic",
+      "accent": "#000000",
+      "htmlSha256": "ec91dfe1021d722701651853613376d3b04955e40b60d496fc0378ab7894a93d",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "notebook/statistic",
+      "accent": "#e4c37d",
+      "htmlSha256": "118cfacfeb13069d4c486e366854a490fc7c0e5d1bee7bf411ec1e637407078d",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "notebook/case-study",
+      "accent": null,
+      "htmlSha256": "7971036f96ba18f9a4a790ee873ac4f53c288267d0e703337a90a0b2aab62a16",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "notebook/case-study",
+      "accent": "#000000",
+      "htmlSha256": "9aa1bcd50e6a289f34d01b2883de9d0857fc61b33ecc9ea4ec00bca83396d398",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "notebook/case-study",
+      "accent": "#e4c37d",
+      "htmlSha256": "3c0eabf893ce1302c29816d4730b6614be2f807d10e20dd866c13fafe588f8b3",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "notebook/quote",
+      "accent": null,
+      "htmlSha256": "7e59fdac51fd5b38556148321b38380f869517d16dcd39fac15bb6f9f15614cc",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "notebook/quote",
+      "accent": "#000000",
+      "htmlSha256": "b9c5cc6d1f0a31a2eff7537858e9ba105e17a667eb4d95537a701894e13815bb",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "notebook/quote",
+      "accent": "#e4c37d",
+      "htmlSha256": "46985ac98253da2077a4d95a94804a0bc239bf7920e6d57647bf8f2f61a831a8",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "bold/cover",
+      "accent": null,
+      "htmlSha256": "2de00552de5ef41379bf285dce4123f9d13cb351ef9066b5b8063d8ce16d1b38",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "bold/cover",
+      "accent": "#000000",
+      "htmlSha256": "3e427f1d0ec4cedbab32a9a9823dd922f2bb55c2f07e377f6a0c948e32c3d192",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "bold/cover",
+      "accent": "#e4c37d",
+      "htmlSha256": "447e8fb0eb2773d1936e55dc9a1f327ee8d6036e76050807ee404848a590bd52",
+      "inputSha256": "d8f26ec7b06344418df3299f3589b45652aade9b4f72ba734ef15cfe6223346f"
+    },
+    {
+      "id": "bold/explainer",
+      "accent": null,
+      "htmlSha256": "aa5d001b6cc2a9f3b892150f51628e9a0aeb208bfb9bd72d1aef6d59ef45db43",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "bold/explainer",
+      "accent": "#000000",
+      "htmlSha256": "1eb1cc1e57c286016b9cf05fd6464a62611e6739ca86dfa54620c682492b1993",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "bold/explainer",
+      "accent": "#e4c37d",
+      "htmlSha256": "b5a8e9149cf51a5376ac5a0526d2005eecc0d04c1a8706eb74947d9f7998397e",
+      "inputSha256": "c302df6a9f24c8ca52643588d883001311c1a7ac18f0d72981fb661c01d852f8"
+    },
+    {
+      "id": "bold/comparison",
+      "accent": null,
+      "htmlSha256": "c4e2460684f6dbd7bc0861eb647b79f4ac016dd037e2c35252a2c8effe4b60be",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "bold/comparison",
+      "accent": "#000000",
+      "htmlSha256": "2002a096a8084643cd0c6982e1aa204d0e53322eaa9884b69d2a33fbc0d6e205",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "bold/comparison",
+      "accent": "#e4c37d",
+      "htmlSha256": "f8ed2c92ddd828e797bdfdcaf1966be82da12b9f3ce94e5b4b70280d0d73d620",
+      "inputSha256": "765f2514ca5b582abddada11331fbd80b062e6d87b49cc10e143c51d61c3801a"
+    },
+    {
+      "id": "bold/steps",
+      "accent": null,
+      "htmlSha256": "1a8976e72cd1fe3d4a25cb6a1d913c2e6e2e31db194185ca608e08d784347a78",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "bold/steps",
+      "accent": "#000000",
+      "htmlSha256": "6341d7d34fc09f3974e3f44652efb457c2cf6a74ad00724ff7d5029f03ad6923",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "bold/steps",
+      "accent": "#e4c37d",
+      "htmlSha256": "a3a86b84af278e80894b110bca6ff9b586383b63f2c13b5066a3af62bbc5a8b8",
+      "inputSha256": "4a51fecdf6e18aaba4fa1a34a9423139d4a24dfde0283e623970261feecd13d8"
+    },
+    {
+      "id": "bold/image-caption",
+      "accent": null,
+      "htmlSha256": "260a17cb1542a02b4d152406cdd76bf61fd8eb99ae4c1c7e19de71264c40254e",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "bold/image-caption",
+      "accent": "#000000",
+      "htmlSha256": "b994af439fece240153dca0b3968afc6f4158696ccc70db19ce9bc72d105a64d",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "bold/image-caption",
+      "accent": "#e4c37d",
+      "htmlSha256": "58ef721493190bf3883462eb6f9131b9f451efd1fef1578e2721fdc4bd1e86b4",
+      "inputSha256": "dc0826fac3d0486b8b2a6463fe738b610906f3406e984d0472fb55d75cb67016"
+    },
+    {
+      "id": "bold/statistic",
+      "accent": null,
+      "htmlSha256": "e156f00472b229278439ea1c9fee1397bd33ad16e046e0e2bd6338bd5ebf725c",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "bold/statistic",
+      "accent": "#000000",
+      "htmlSha256": "abcaabd3cde44ad96ac29f99455b322d9d97dbf30fe6e1ade8f03378a2ae4308",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "bold/statistic",
+      "accent": "#e4c37d",
+      "htmlSha256": "f4b52676a3e3338596a6de186717e9a339df6b79e980d9a5ed9df37de6360f11",
+      "inputSha256": "403e0a7f44f5f78350c9dafb10fe8e049425abaffa680cf0772384dac0ca2e58"
+    },
+    {
+      "id": "bold/case-study",
+      "accent": null,
+      "htmlSha256": "37fdc97a53b337ca3957bacbd05ed778a421a86bb5f46be1273cd97e1bc03d47",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "bold/case-study",
+      "accent": "#000000",
+      "htmlSha256": "e8a3f3fdcb54f6eaa345dd5228a2b2a0493ec2bda9c2eca0c94b6c27ff209be9",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "bold/case-study",
+      "accent": "#e4c37d",
+      "htmlSha256": "9d7256eea3dd199a6feb81f7977427a9c6c0140e8c429d2cb1eaa53442fcb4d0",
+      "inputSha256": "5e66bf8cfbae8212d8f40d91e1fba6d927f4b23f4d54d5337cd66bffab87e9d1"
+    },
+    {
+      "id": "bold/quote",
+      "accent": null,
+      "htmlSha256": "12af9fdd765a7ccc9cf554383998516d798537919af21cbdc3c71900a1f71641",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "bold/quote",
+      "accent": "#000000",
+      "htmlSha256": "fe7651debd4397952edc0625f7a072f8c964956bfc15ceb5630b21e98e96fc2d",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    },
+    {
+      "id": "bold/quote",
+      "accent": "#e4c37d",
+      "htmlSha256": "ce90dc793015ecf44a7f8b1043dd058cb1bf676e6f9c3f031ecb002d675ff33d",
+      "inputSha256": "731b155d56a90dfa32a568052d479f4fbac35852d279d87f7e53191d0de18f48"
+    }
+  ],
+  "humanVisualReview": "pending",
+  "limitations": [
+    "Light palette is a trusted token test fixture, not a new CLI theme.",
+    "Ratios cover opaque solid surfaces only; photo text requires separate review."
+  ],
+  "selectedCases": [
+    "T20-control"
+  ],
+  "browser": "156.0.8078.48",
+  "sourceHashes": [
+    {
+      "file": "scripts/document.mjs",
+      "sha256": "53cdc6a0c18c130d62ca718b78ded63214c748d364944965e129f75e0d99d75f"
+    },
+    {
+      "file": "scripts/validate-t37-contrast.mjs",
+      "sha256": "d32d842cef986d68da338127102d195d3216a85be603136d15c8d83ee4dbaedf"
+    },
+    {
+      "file": "assets/templates.css",
+      "sha256": "0baaaefe9f12db79e70464e09c4b11d68ab7c3313eb58ee4086ba4aefe7e382a"
+    },
+    {
+      "file": "assets/themes.css",
+      "sha256": "3636d2163b99d4bf6db3e8b073d0480dfa08ef98bf42f7fe89cdb8702e736835"
+    },
+    {
+      "file": "assets/layouts.css",
+      "sha256": "9d898b9ef473bd8b69599c502f5f94ebdffb8e2443b5cf24df484d05f6ec4cba"
+    }
+  ],
+  "error": {
+    "message": "ENOENT: no such file or directory, stat 'E:\\LHA\\codex-worktree\\r6-aspect-evidence\\md2card-skill\\validation\\t37-contrast\\run2\\black.md'",
+    "stack": "Error: ENOENT: no such file or directory, stat 'E:\\LHA\\codex-worktree\\r6-aspect-evidence\\md2card-skill\\validation\\t37-contrast\\run2\\black.md'\n    at async stat (node:internal/fs/promises:1038:18)\n    at async exportCards (file:///E:/LHA/codex-worktree/r6-aspect-evidence/md2card-skill/scripts/render.mjs:188:21)\n    at async validateT37Contrast (file:///E:/LHA/codex-worktree/r6-aspect-evidence/md2card-skill/scripts/validate-t37-contrast.mjs:117:20)\n    at async file:///E:/LHA/codex-worktree/r6-aspect-evidence/md2card-skill/scripts/validate-t37-contrast.mjs:129:2"
+  }
+}

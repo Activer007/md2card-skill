@@ -19,6 +19,8 @@ export const AUDIT_REVIEW_PROOF = 'docs/visual-upgrade/pr30-default-compatibilit
 export const AUDIT_REVIEW_PROOF_SHA256 = 'c00f50d3ee44f323af4272bbc747a133303bf089f2a09ecc3b06114bb9951bc0';
 export const COVER_DEFAULT_PROOF = 'docs/visual-upgrade/m4-default-compatibility.json';
 export const COVER_DEFAULT_PROOF_SHA256 = '06e237f896158e9cd253deaa693cd19b747548449641a01c236748808401b639';
+export const CONTRAST_DEFAULT_PROOF = 'docs/visual-upgrade/t37-contrast-compatibility.json';
+export const CONTRAST_DEFAULT_PROOF_SHA256 = 'aacf9735d410dd39ac82d6ca7011231fbdb6a14861400f813cb08f2a9c92ac50';
 
 export async function verifyDefaultBodyCompatibility(readRepoFile) {
   const proofBytes = await readRepoFile(DEFAULT_BODY_PROOF);
@@ -62,14 +64,26 @@ export async function verifyDefaultBodyCompatibility(readRepoFile) {
   assert.equal(cover.baselineCommit, '0fff0fd8b625c4b35fac572e5474afa6f7a49118');
   assert.deepEqual(Object.keys(cover.files), Object.keys(review.files));
   assert.equal(cover.htmlRecords.length, 108);
+  const contrastBytes = await readRepoFile(CONTRAST_DEFAULT_PROOF);
+  assert.equal(sha256(contrastBytes), CONTRAST_DEFAULT_PROOF_SHA256, 'T37 contrast proof changed');
+  const contrast = JSON.parse(contrastBytes);
+  assert.equal(contrast.scope, 'unchanged-gallery-fixtures-only;unsafe-T37-default-brands-excluded');
+  assert.equal(contrast.baselineCommit, '0ce7e161b20d2bad1dd789150dd16acd98b00c2f');
+  assert.deepEqual(Object.keys(contrast.files), Object.keys(cover.files));
+  assert.equal(contrast.htmlRecords.length, 322);
+  assert.equal(contrast.controlledChanges.length, 6);
+  assert.equal(contrast.browserReport.file, 'docs/evidence/t37-default-contrast/report.json');
+  assert.equal(sha256(await readRepoFile(contrast.browserReport.file)), contrast.browserReport.sha256, 'T37 browser evidence changed');
   for (const file of Object.keys(review.files)) {
     assert.equal(cover.files[file].baselineSha256, review.files[file].currentSha256, `${file}: cover compatibility chain differs`);
-    const expected = cover.files[file].currentSha256;
+    assert.equal(contrast.files[file].baselineSha256, cover.files[file].currentSha256, `${file}: contrast compatibility chain differs`);
+    const expected = contrast.files[file].currentSha256;
+    if (file !== 'scripts/document.mjs') assert.equal(expected, cover.files[file].currentSha256, `${file}: unrelated contrast change`);
     assert.equal(sha256(await readRepoFile(file)), expected, `${file}: source root differs from default body proof`);
     assert.equal(sha256(await readEvidenceFile(ROOT, file)), expected, `${file}: executing semantics differ from default body proof`);
   }
   return Object.freeze({
-    files: [DEFAULT_BODY_PROOF, STAGE_DEFAULT_PROOF, PHOTO_DEFAULT_PROOF, AUDIT_DEFAULT_PROOF, AUDIT_REVIEW_PROOF, COVER_DEFAULT_PROOF, ...Object.keys(audit.files)],
+    files: [DEFAULT_BODY_PROOF, STAGE_DEFAULT_PROOF, PHOTO_DEFAULT_PROOF, AUDIT_DEFAULT_PROOF, AUDIT_REVIEW_PROOF, COVER_DEFAULT_PROOF, CONTRAST_DEFAULT_PROOF, contrast.browserReport.file, ...Object.keys(audit.files)],
     accepts(file, historicalHash) {
       return (Object.hasOwn(proof.files, file) && proof.files[file].baselineSha256 === (historicalHash ?? null)) ||
         (file === 'scripts/templates.mjs' && stage.files[file].baselineSha256 === historicalHash) ||

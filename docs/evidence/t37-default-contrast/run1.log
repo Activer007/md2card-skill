@@ -1,0 +1,25 @@
+no-brand: measured, PDF searchable, pixel-identical
+black: measured, PDF searchable, controlled color change
+dark: measured, PDF searchable, controlled color change
+readable: measured, PDF searchable, pixel-identical
+light-white: measured, PDF searchable, controlled color change
+light-pastel: measured, PDF searchable, controlled color change
+light-readable: measured, PDF searchable, pixel-identical
+long-title: measured, PDF searchable, controlled color change
+long-caption: measured, PDF searchable, controlled color change
+photo-control: measured, PDF searchable, pixel-identical
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+Md2CardError: Required visible text was not found in the PDF text extraction.
+    at inspectPdf (file:///E:/LHA/codex-worktree/r6-aspect-evidence/md2card-skill/scripts/qa.mjs:79:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async validateT37Contrast (file:///E:/LHA/codex-worktree/r6-aspect-evidence/md2card-skill/scripts/validate-t37-contrast.mjs:99:11)
+    at async file:///E:/LHA/codex-worktree/r6-aspect-evidence/md2card-skill/scripts/validate-t37-contrast.mjs:125:2 {
+  code: 'PDF_TEXT_MISMATCH',
+  details: { missingSnippetIndexes: [ 3, 5 ], expectedSnippetCount: 11 },
+  exitCode: 1
+}
+
+Node.js v24.16.0

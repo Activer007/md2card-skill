@@ -1,0 +1,27 @@
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+CascadiaMono-Roman            Type 3            Custom           yes yes yes      4  0
+AAAAAA+CascadiaMono-Roman            Type 3            Custom           yes yes yes      5  0
+AAAAAA+CascadiaMono-Roman            Type 3            Custom           yes yes yes      6  0
+BAAAAA+MicrosoftYaHei-Bold           CID TrueType      Identity-H       yes yes yes      7  0
+CAAAAA+NotoSerifSC-ExtraLight        Type 3            Custom           yes yes yes      8  0
+CAAAAA+NotoSerifSC-ExtraLight        Type 3            Custom           yes yes yes      9  0
+DAAAAA+PalatinoLinotype-Bold         CID TrueType      Identity-H       yes yes yes     10  0
+CAAAAA+NotoSerifSC-ExtraLight        Type 3            Custom           yes yes yes     11  0
+CAAAAA+NotoSerifSC-ExtraLight        Type 3            Custom           yes yes yes     12  0
+EAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     13  0
+EAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     14  0
+FAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     15  0
+FAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     16  0
+EAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     17  0
+GAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     18  0
+GAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     19  0
+EAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     20  0
+EAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     21  0
+EAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     22  0
+EAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     23  0
+EAAAAA+NotoSansSC-Thin               Type 3            Custom           yes yes yes     24  0
+HAAAAA+CascadiaMono-Roman            Type 3            Custom           yes yes yes     27  0
+HAAAAA+CascadiaMono-Roman            Type 3            Custom           yes yes yes     28  0
+IAAAAA+MicrosoftYaHei                CID TrueType      Identity-H       yes yes yes     29  0
+HAAAAA+CascadiaMono-Roman            Type 3            Custom           yes yes yes     30  0

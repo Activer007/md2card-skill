@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "file": "t37-default-contrast.tar.xz",
+  "bytes": 14537320,
+  "sha256": "92a610de5f85fe93edab2a067e3040471506864f1f65a3729a51368f1374dea0",
+  "verifiedRawFiles": 247,
+  "verifiedArchiveFiles": 263,
+  "compression": "xz; identical file bytes stored as internal tar hard links"
+}

@@ -20,7 +20,7 @@ node scripts/recommend-templates.mjs examples/aspects/T37-slide.md --asset-root 
 | 参数 | 合法值 / 默认 |
 | --- | --- |
 | 输入 | 一个本地普通文件；不支持 stdin、URL；有效 UTF-8，最多 2 MiB / 200 个手动分区 |
-| `--size` | 注册画幅 `portrait`（默认）、`square`、`slide`；不接受自定义尺寸或尚未实现的 `wechat-wide` |
+| `--size` | 本推荐 CLI 接受 `portrait`（默认）、`square`、`slide`；不接受自定义尺寸或 `wechat-wide`。后者已由[独立公众号封面对工具](../examples/wechat-covers/README.md)支持，不在本推荐入口范围内 |
 | `--paginate` | `manual`（默认）、`auto`；auto 仅摘要原始手动分区，候选为空，不预测分页或认证输入可用于 auto 导出 |
 | `--asset-root` | 可信本地图片目录；默认输入文件所在目录，不自动扩大边界 |
 | `--format` | `json`（默认）或 `text`；`--json` 是显式 JSON 别名，不能与 text 冲突 |
